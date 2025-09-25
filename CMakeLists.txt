@@ -22,7 +22,10 @@ FetchContent_Declare(easyloggingpp
         GIT_SHALLOW    TRUE
 )
 FetchContent_MakeAvailable(easyloggingpp)
-target_compile_definitions(easyloggingpp PUBLIC ELPP_THREAD_SAFE)
+target_compile_definitions(easyloggingpp PUBLIC
+        ELPP_THREAD_SAFE
+        ELPP_NO_DEFAULT_LOG_FILE
+)
 FetchContent_GetProperties(easyloggingpp)
 
 FetchContent_Declare(ReShade
@@ -52,4 +55,9 @@ target_include_directories(untitled PRIVATE
 target_link_libraries(untitled PRIVATE
         minhook
         easyloggingpp
+)
+
+set_target_properties(untitled PROPERTIES
+        OUTPUT_NAME "untitled-bl4"
+        SUFFIX ".addon64"
 )

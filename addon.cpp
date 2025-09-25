@@ -35,8 +35,7 @@ template <std::size_t N> struct ct_string {
         for (std::size_t i = 0; i < N; ++i)
             v[i] = s[i];
     }
-    static consteval std::size_t size() { return N; }
-    static consteval std::size_t len() { return N ? N - 1 : 0; } // excluding trailing '\0'
+    static consteval std::size_t size() { return N ? N - 1 : 0; }
     constexpr const char *c_str() const { return v; }
     // structural equality by member-wise comparison is implicit
 };
@@ -45,13 +44,12 @@ template <std::size_t N> struct ct_string {
 template <ct_string A, ct_string B> consteval auto ct_concat() {
     constexpr std::size_t NA = A.size();
     constexpr std::size_t NB = B.size();
-    ct_string<NA + NB - 1> out{};
-    // copy A (including its '\0')
+    ct_string<NA + NB + 1> out{};
     for (std::size_t i = 0; i < NA; ++i)
         out.v[i] = A.v[i];
-    // overwrite '\0' and append B (including its '\0')
     for (std::size_t j = 0; j < NB; ++j)
         out.v[NA - 1 + j] = B.v[j];
+    out.v[NA + NB - 1] = '\0';
     return out;
 }
 
@@ -106,14 +104,20 @@ template <typename Tuple, typename F> constexpr void for_each_type(F &&f) {
     for_each_type_impl(static_cast<Tuple *>(nullptr), std::forward<F>(f), std::make_index_sequence<N>{});
 }
 
-// Count number of items at compile time
-template <typename Tuple> consteval std::size_t count_items() {
+// Count by predicate at compile time
+template <typename Tuple, auto Pred> consteval std::size_t count_by() {
     std::size_t n = 0;
     for_each_type<Tuple>([&]<typename Node>() {
-        if constexpr (IsItem<Node>)
+        if constexpr (Pred.template operator()<Node>())
             ++n;
     });
     return n;
+}
+template <typename Tuple> consteval std::size_t count_items() {
+    return count_by<Tuple, []<typename Node>() { return IsItem<Node>; }>();
+}
+template <typename Tuple> consteval std::size_t count_groups() {
+    return count_by<Tuple, []<typename Node>() { return IsGroup<Node>; }>();
 }
 
 // =========================
@@ -131,18 +135,18 @@ using Schema = std::tuple<
                10.0f>,
     ItemFree<"AmbientOcclusionDistance", "", float>,
     ItemRanged<"AmbientOcclusionFadeDistance",
-               "in unreal units, at what distance the AO effect disppears in the distance (avoding artifacts and AO "
+               "in unreal units, at what distance the AO effect disppears in the distance (avoding artifacts and AO\n"
                "effects on huge object)",
                float, 0.0f, 20000.0f>,
     ItemRanged<"AmbientOcclusionFadeRadius",
                "in unreal units, how many units before AmbientOcclusionFadeOutDistance it starts fading out", float,
                0.0f, 20000.0f>,
     ItemRanged<"AmbientOcclusionIntensity",
-               "0..1 0=off/no ambient occlusion .. 1=strong ambient occlusion, defines how much it affects the non "
+               "0..1 0=off/no ambient occlusion .. 1=strong ambient occlusion, defines how much it affects the non\n"
                "direct lighting after base pass",
                float, 0.0f, 1.0f>,
     ItemRanged<"AmbientOcclusionMipBlend",
-               "Affects the blend over the multiple mips (lower resolution versions) , 0:fully use full resolution, "
+               "Affects the blend over the multiple mips (lower resolution versions) , 0:fully use full resolution,\n"
                "1::fully use low resolution, around 0.6 seems to be a good value",
                float, 0.1f, 1.0f>,
     ItemRanged<"AmbientOcclusionMipScale",
@@ -164,7 +168,7 @@ using Schema = std::tuple<
                "true: AO radius is in world space units, false: AO radius is locked the view space in 400 units", int,
                0, 1>,
     ItemRanged<"AmbientOcclusionStaticFraction",
-               "0..1 0=no effect on static lighting .. 1=AO affects the stat lighting, 0 is free meaning no extra "
+               "0..1 0=no effect on static lighting .. 1=AO affects the stat lighting, 0 is free meaning no extra\n"
                "rendering pass",
                float, 0.0f, 1.0f>,
     ItemRanged<"AmbientOcclusionTemporalBlendWeight",
@@ -175,26 +179,47 @@ using Schema = std::tuple<
     ItemRanged<"AutoExposureApplyPhysicalCameraExposure",
                "Enables physical camera exposure using ShutterSpeed/ISO/Aperture.", int, 0, 1>,
     ItemRanged<"AutoExposureBias",
-               "Logarithmic adjustment for the exposure. Only used if a tonemapper is specified. 0: no adjustment, "
+               "Logarithmic adjustment for the exposure. Only used if a tonemapper is specified. 0: no adjustment,\n"
                "-1:2x darker, -2:4x darker, 1:2x brighter, 2:4x brighter, ...",
                float, -15.0f, 15.0f>,
     ItemFree<"AutoExposureBiasBackup",
-             "With the auto exposure changes, we are changing the AutoExposureBias inside the serialization code. We "
-             "are storing that value before conversion here as a backup.",
+             "With the auto exposure changes, we are changing the AutoExposureBias inside the serialization code. We\n"
+             "are storing that value before conversion here as a backup. Hopefully it will not be needed, and removed\n"
+             "in the next engine revision.",
              float>,
     ItemFree<"AutoExposureCalibrationConstant", "", float>,
-    ItemRanged<"AutoExposureHighPercent",
-               "The eye adaptation will adapt to a value extracted from the luminance histogram... good values 80..95",
-               float, 0.0f, 100.0f>,
-    ItemRanged<"AutoExposureLowPercent",
-               "The eye adaptation will adapt to a value extracted from the luminance histogram... good values 70..80",
-               float, 0.0f, 100.0f>,
-    ItemRanged<"AutoExposureMaxBrightness",
-               "Auto-Exposure maximum adaptation. Eye Adaptation is disabled if Min = Max.", float, -10.0f, 20.0f>,
+    ItemRanged<
+        "AutoExposureHighPercent",
+        "The eye adaptation will adapt to a value extracted from the luminance histogram of the scene color. The "
+        "value\n"
+        "is defined as having x percent below this brightness. Higher values give bright spots on the screen more\n"
+        "priority but can lead to less stable results. Lower values give the medium and darker values more priority\n"
+        "but might cause burn out of bright spots. >0, <100, good values are in the range 80 .. 95",
+        float, 0.0f, 100.0f>,
+    ItemRanged<
+        "AutoExposureLowPercent",
+        "The eye adaptation will adapt to a value extracted from the luminance histogram of the scene color. The "
+        "value\n"
+        "is defined as having x percent below this brightness. Higher values give bright spots on the screen more\n"
+        "priority but can lead to less stable results. Lower values give the medium and darker values more priority\n"
+        "but might cause burn out of bright spots. >0, <100, good values are in the range 70 .. 80",
+        float, 0.0f, 100.0f>,
+    ItemRanged<
+        "AutoExposureMaxBrightness",
+        "Auto-Exposure maximum adaptation. Eye Adaptation is disabled if Min = Max. Auto-exposure is\n"
+        "implemented by choosing an exposure value for which the average luminance generates a pixel brightness\n"
+        "equal to the Constant Calibration value. The Min/Max are expressed in pixel luminance (cd/m2) or in\n"
+        "EV100 when using ExtendDefaultLuminanceRange (see project settings).",
+        float, -10.0f, 20.0f>,
     ItemRanged<"AutoExposureMethod", "Luminance computation method (AEM_Histogram=0, AEM_Basic=1, AEM_Manual=2)", int,
                0, 2>,
-    ItemRanged<"AutoExposureMinBrightness",
-               "Auto-Exposure minimum adaptation. Eye Adaptation is disabled if Min = Max.", float, -10.0f, 20.0f>,
+    ItemRanged<
+        "AutoExposureMinBrightness",
+        "Auto-Exposure minimum adaptation. Eye Adaptation is disabled if Min = Max. Auto-exposure is\n"
+        "implemented by choosing an exposure value for which the average luminance generates a pixel brightness\n"
+        "equal to the Constant Calibration value. The Min/Max are expressed in pixel luminance (cd/m2) or in\n"
+        "EV100 when using ExtendDefaultLuminanceRange (see project settings).",
+        float, -10.0f, 20.0f>,
     ItemRanged<"AutoExposureSpeedDown", "", float, 0.02f, 20.0f>,
     ItemRanged<"AutoExposureSpeedUp", "", float, 0.02f, 20.0f>,
     ItemRanged<"HistogramLogMax",
@@ -204,160 +229,387 @@ using Schema = std::tuple<
                "Histogram Min value. Expressed in Log2(Luminance) or in EV100 when using ExtendDefaultLuminanceRange",
                float, -16.0f, 0.0f>,
 
-    Group<"Bloom">, ItemRanged<"Bloom1Size", "Diameter size for Bloom1 in % screen width (1/2 res)", float, 0.0f, 4.0f>,
-    ItemRanged<"Bloom2Size", "Diameter size for Bloom2 in % screen width (1/4 res)", float, 0.0f, 8.0f>,
-    ItemRanged<"Bloom3Size", "Diameter size for Bloom3 in % screen width (1/8 res)", float, 0.0f, 16.0f>,
-    ItemRanged<"Bloom4Size", "Diameter size for Bloom4 in % screen width (1/16 res)", float, 0.0f, 32.0f>,
-    ItemRanged<"Bloom5Size", "Diameter size for Bloom5 in % screen width (1/32 res)", float, 0.0f, 64.0f>,
-    ItemRanged<"Bloom6Size", "Diameter size for Bloom6 in % screen width (1/64 res)", float, 0.0f, 128.0f>,
-    ItemRanged<"BloomConvolutionBufferScale", "Implicit buffer region as a fraction of the screen size to avoid wrap",
+    Group<"Bloom">,
+    ItemRanged<
+        "Bloom1Size",
+        "Diameter size for the Bloom1 in percent of the screen width (is done in 1/2 resolution, larger values cost\n"
+        "more performance, good for high frequency details) >=0: can be clamped because of shader limitations",
+        float, 0.0f, 4.0f>,
+    ItemRanged<
+        "Bloom2Size",
+        "Diameter size for Bloom2 in percent of the screen width (is done in 1/4 resolution, larger values cost\n"
+        "more performance) >=0: can be clamped because of shader limitations",
+        float, 0.0f, 8.0f>,
+    ItemRanged<
+        "Bloom3Size",
+        "Diameter size for Bloom3 in percent of the screen width (is done in 1/8 resolution, larger values cost\n"
+        "more performance) >=0: can be clamped because of shader limitations",
+        float, 0.0f, 16.0f>,
+    ItemRanged<"Bloom4Size",
+               "Diameter size for Bloom4 in percent of the screen width (is done in 1/16 resolution, larger values\n"
+               "cost more performance, best for wide contributions) >=0: can be clamped because of shader limitations",
+               float, 0.0f, 32.0f>,
+    ItemRanged<"Bloom5Size",
+               "Diameter size for Bloom5 in percent of the screen width (is done in 1/32 resolution, larger values\n"
+               "cost more performance, best for wide contributions) >=0: can be clamped because of shader limitations",
+               float, 0.0f, 64.0f>,
+    ItemRanged<"Bloom6Size",
+               "Diameter size for Bloom6 in percent of the screen width (is done in 1/64 resolution, larger values\n"
+               "cost more performance, best for wide contributions) >=0: can be clamped because of shader limitations",
+               float, 0.0f, 128.0f>,
+    ItemRanged<"BloomConvolutionBufferScale",
+               "Implicit buffer region as a fraction of the screen size to insure the bloom does not wrap across the\n"
+               "screen. Larger sizes have perf impact.",
                float, 0.0f, 1.0f>,
     ItemFree<"BloomConvolutionPreFilterMax",
-             "Boost intensity of select pixels prior to convolution (Min, Max, Multiplier). Max < Min disables", float>,
+             "Boost intensity of select pixels prior to computing bloom convolution (Min, Max, Multiplier). Max < Min\n"
+             "disables",
+             float>,
     ItemFree<"BloomConvolutionPreFilterMin",
-             "Boost intensity of select pixels prior to convolution (Min, Max, Multiplier). Max < Min disables", float>,
+             "Boost intensity of select pixels prior to computing bloom convolution (Min, Max, Multiplier). Max < Min\n"
+             "disables",
+             float>,
     ItemFree<"BloomConvolutionPreFilterMult",
-             "Boost intensity of select pixels prior to convolution (Min, Max, Multiplier). Max < Min disables", float>,
+             "Boost intensity of select pixels prior to computing bloom convolution (Min, Max, Multiplier). Max < Min\n"
+             "disables",
+             float>,
     ItemRanged<"BloomConvolutionScatterDispersion",
-               "Intensity multiplier on the scatter dispersion energy of the kernel", float, 0.0f, 20.0f>,
-    ItemRanged<"BloomConvolutionSize", "Relative size of the convolution kernel image vs viewport minor axis", float,
-               0.0f, 1.0f>,
+               "Intensity multiplier on the scatter dispersion energy of the kernel. 1.0 means exactly use the same\n"
+               "energy as the kernel scatter dispersion.",
+               float, 0.0f, 20.0f>,
+    ItemRanged<"BloomConvolutionSize",
+               "Relative size of the convolution kernel image compared to the minor axis of the viewport", float, 0.0f,
+               1.0f>,
     ItemRanged<"BloomDirtMaskIntensity", "BloomDirtMask intensity", float, 0.0f, 8.0f>,
-    ItemRanged<"BloomIntensity", "Multiplier for all bloom contributions", float, 0.0f, 8.0f>,
+    ItemRanged<"BloomIntensity", "Multiplier for all bloom contributions >=0: off, 1(default), >1 brighter", float,
+               0.0f, 8.0f>,
     ItemRanged<"BloomMethod", "Bloom algorithm (BM_SOG=0, BM_FFT=1)", int, 0, 1>,
     ItemRanged<"BloomSizeScale", "Scale for all bloom sizes", float, 0.0f, 64.0f>,
-    ItemRanged<"BloomThreshold", "Minimum brightness where bloom starts to have effect", float, -1.0f, 8.0f>,
+    ItemRanged<
+        "BloomThreshold",
+        "minimum brightness the bloom starts having effect -1:all pixels affect bloom equally (physically correct,\n"
+        "faster as a threshold pass is omitted), 0:all pixels affect bloom brights more, 1(default), >1 brighter",
+        float, -1.0f, 8.0f>,
 
     Group<"Camera & White Balance">, ItemFree<"CameraISO", "The camera sensor sensitivity in ISO.", float>,
     ItemRanged<"CameraShutterSpeed", "The camera shutter in seconds.", float, 1.0f, 2000.0f>,
-    ItemRanged<"TemperatureType", "WhiteBalance=0, ColorTemperature=1", int, 0, 1>,
+    ItemRanged<"TemperatureType",
+               "Selects the type of temperature calculation. White Balance uses the Temperature value to control the\n"
+               "virtual camera's White Balance. This is the default selection. Color Temperature uses the Temperature\n"
+               "value to adjust the color temperature of the scene, which is the inverse of the White Balance\n"
+               "operation. (TEMP_WhiteBalance=0, TEMP_ColorTemperature=1)",
+               int, 0, 1>,
     ItemRanged<"WhiteTemp", "Controls the color temperature (Kelvin) considered as white", float, 1500.0f, 15000.0f>,
     ItemRanged<"WhiteTint", "Magenta-Green axis tint (orthogonal to temperature)", float, -1.0f, 1.0f>,
 
     Group<"Chromatic Aberration">,
-    ItemRanged<"ChromaticAberrationStartOffset", "Normalized distance to framebuffer center where effect takes place",
-               float, 0.0f, 1.0f>,
-    ItemRanged<"SceneFringeIntensity", "% chromatic aberration to simulate lens artifact", float, 0.0f, 5.0f>,
+    ItemRanged<"ChromaticAberrationStartOffset",
+               "A normalized distance to the center of the framebuffer where the effect takes place.", float, 0.0f,
+               1.0f>,
+    ItemRanged<"SceneFringeIntensity",
+               "in percent, Scene chromatic aberration / color fringe (camera imperfection) to simulate an artifact\n"
+               "that happens in real-world lens, mostly visible in the image corners.",
+               float, 0.0f, 5.0f>,
 
     Group<"Color Grading & Tone Mapping">,
-    ItemRanged<"BlueCorrection", "Correct electric blues in ACEScg (bright blue desaturates)", float, 0.0f, 1.0f>,
-    ItemRanged<"ColorCorrectionHighlightsMax", "Upper threshold for highlights; should be > HighlightsMin", float, 1.0f,
-               10.0f>,
-    ItemRanged<"ColorCorrectionHighlightsMin", "Lower threshold for highlights", float, -1.0f, 1.0f>,
-    ItemRanged<"ColorCorrectionShadowsMax", "Threshold for shadows", float, -1.0f, 1.0f>,
-    ItemRanged<"ColorGradingIntensity", "LUT intensity (0..1)", float, 0.0f, 1.0f>,
-    ItemRanged<"ExpandGamut", "Expand bright saturated colors outside sRGB to fake wide gamut", float, 0.0f, 1.0f>,
-    ItemRanged<"FilmBlackClip", "Lowers the toe; increasing clips more to black", float, 0.0f, 1.0f>,
-    ItemRanged<"FilmGrainHighlightsMax", "Upper bound for Film Grain Highlight Intensity (> Min)", float, 1.0f, 10.0f>,
-    ItemRanged<"FilmGrainHighlightsMin", "Lower bound for Film Grain Highlight Intensity", float, 0.0f, 1.0f>,
-    ItemRanged<"FilmGrainIntensity", "Film grain intensity (lerp with decoded texture)", float, 0.0f, 1.0f>,
-    ItemRanged<"FilmGrainIntensityHighlights", "Grain intensity in highlight regions", float, 0.0f, 1.0f>,
-    ItemRanged<"FilmGrainIntensityMidtones", "Grain intensity in mid-tones", float, 0.0f, 1.0f>,
-    ItemRanged<"FilmGrainIntensityShadows", "Grain intensity in shadow regions", float, 0.0f, 1.0f>,
-    ItemRanged<"FilmGrainShadowsMax", "Upper bound for Film Grain Shadow Intensity", float, 0.0f, 1.0f>,
-    ItemRanged<"FilmGrainTexelSize", "Size of film grain texel on screen", float, 0.0f, 4.0f>,
-    ItemRanged<"FilmShoulder", "", float, 0.0f, 1.0f>,
-    ItemRanged<"FilmSlope", "Controls overall steepness of tonemapper curve (contrast)", float, 0.0f, 1.0f>,
-    ItemRanged<"FilmToe", "Controls contrast of dark end of tonemapper curve", float, 0.0f, 1.0f>,
-    ItemRanged<"FilmWhiteClip", "Controls height of tonemapper curve (white saturation)", float, 0.0f, 1.0f>,
-    ItemRanged<"Sharpen", "Strength of sharpening applied during tonemapping", float, 0.0f, 10.0f>,
-    ItemRanged<"ToneCurveAmount", "Reduce effect of Tone Curve (set with ExpandGamut=0 to disable)", float, 0.0f, 1.0f>,
+    ItemRanged<"BlueCorrection",
+               "Correct for artifacts with \"electric\" blues due to the ACEScg color space. Bright blue desaturates\n"
+               "instead of going to violet.",
+               float, 0.0f, 1.0f>,
+    ItemRanged<"ColorCorrectionHighlightsMax",
+               "This value sets the upper threshold for what is considered to be the highlight region of the image.\n"
+               "This value should be larger than HighlightsMin. Default is 1.0, for backwards compatibility",
+               float, 1.0f, 10.0f>,
+    ItemRanged<"ColorCorrectionHighlightsMin",
+               "This value sets the lower threshold for what is considered to be the highlight region of the image.",
+               float, -1.0f, 1.0f>,
+    ItemRanged<"ColorCorrectionShadowsMax",
+               "This value sets the threshold for what is considered to be the shadow region of the image.", float,
+               -1.0f, 1.0f>,
+    ItemRanged<"ColorGradingIntensity", "Color grading lookup table intensity. 0 = no intensity, 1=full intensity",
+               float, 0.0f, 1.0f>,
+    ItemRanged<"ExpandGamut", "Expand bright saturated colors outside the sRGB gamut to fake wide gamut rendering.",
+               float, 0.0f, 1.0f>,
+    ItemRanged<"FilmBlackClip",
+               "Lowers the toe of the tonemapper curve by this amount. Increasing this value causes more of the scene\n"
+               "to clip to black. For most purposes, this property should remain 0",
+               float, 0.0f, 1.0f>,
+    ItemRanged<"FilmGrainHighlightsMax",
+               "Sets the upper bound used for Film Grain Highlight Intensity. This value should be larger than\n"
+               "HighlightsMin.. Default is 1.0, for backwards compatibility",
+               float, 1.0f, 10.0f>,
+    ItemRanged<"FilmGrainHighlightsMin", "Sets the lower bound used for Film Grain Highlight Intensity.", float, 0.0f,
+               1.0f>,
+    ItemRanged<"FilmGrainIntensity",
+               "0..1 Film grain intensity to apply. LinearSceneColor *= lerp(1.0, DecodedFilmGrainTexture,\n"
+               "FilmGrainIntensity)",
+               float, 0.0f, 1.0f>,
+    ItemRanged<"FilmGrainIntensityHighlights",
+               "Control over the grain intensity in the regions of the image considered highlight areas.", float, 0.0f,
+               1.0f>,
+    ItemRanged<"FilmGrainIntensityMidtones", "Control over the grain intensity in the mid-tone region of the image.",
+               float, 0.0f, 1.0f>,
+    ItemRanged<"FilmGrainIntensityShadows",
+               "Control over the grain intensity in the regions of the image considered shadow areas.", float, 0.0f,
+               1.0f>,
+    ItemRanged<"FilmGrainShadowsMax", "Sets the upper bound used for Film Grain Shadow Intensity.", float, 0.0f, 1.0f>,
+    ItemRanged<"FilmGrainTexelSize",
+               "Controls the size of the film grain. Size of texel of FilmGrainTexture on screen.", float, 0.0f, 4.0f>,
+    ItemRanged<"FilmShoulder",
+               "Sometimes referred to as highlight rolloff. Controls the contrast of the bright end of the tonemapper\n"
+               "curve. Larger values increase contrast and smaller values decrease contrast.",
+               float, 0.0f, 1.0f>,
+    ItemRanged<"FilmSlope",
+               "Controls the overall steepness of the tonemapper curve. Larger values increase scene contrast and\n"
+               "smaller values reduce contrast.",
+               float, 0.0f, 1.0f>,
+    ItemRanged<"FilmToe",
+               "Controls the contrast of the dark end of the tonemapper curve. Larger values increase contrast and\n"
+               "smaller values decrease contrast.",
+               float, 0.0f, 1.0f>,
+    ItemRanged<"FilmWhiteClip",
+               "Controls the height of the tonemapper curve. Raising this value can cause bright values to more\n"
+               "quickly approach fully-saturated white.",
+               float, 0.0f, 1.0f>,
+    ItemRanged<"Sharpen", "Controls the strength of image sharpening applied during tonemapping.", float, 0.0f, 10.0f>,
+    ItemRanged<"ToneCurveAmount",
+               "Allow effect of Tone Curve to be reduced (Set ToneCurveAmount and ExpandGamut to 0.0 to fully disable\n"
+               "tone curve)",
+               float, 0.0f, 1.0f>,
 
-    Group<"Depth of Field">, ItemRanged<"DepthOfFieldBladeCount", "Number of diaphragm blades (4..16)", int, 4, 16>,
+    Group<"Depth of Field">,
+    ItemRanged<"DepthOfFieldBladeCount",
+               "Defines the number of blades of the diaphragm within the lens (between 4 and 16).", int, 4, 16>,
     ItemRanged<"DepthOfFieldDepthBlurAmount", "CircleDOF only: Depth blur km for 50%", float, 1e-06f, 100.0f>,
     ItemRanged<"DepthOfFieldDepthBlurRadius", "CircleDOF only: Depth blur radius in pixels at 1920x", float, 0.0f,
                4.0f>,
-    ItemRanged<"DepthOfFieldFarBlurSize", "Gaussian only: Max blur size (% of view width)", float, 0.0f, 32.0f>,
-    ItemRanged<"DepthOfFieldFarTransitionRegion", "Width of transition region next to focal region (near side)", float,
+    ItemRanged<"DepthOfFieldFarBlurSize",
+               "Gaussian only: Maximum size of the Depth of Field blur (in percent of the view width) (note:\n"
+               "performance cost scales with size)",
+               float, 0.0f, 32.0f>,
+    ItemRanged<"DepthOfFieldFarTransitionRegion",
+               "To define the width of the transition region next to the focal region on the near side (cm)", float,
                0.0f, 10000.0f>,
-    ItemRanged<"DepthOfFieldFocalDistance", "Distance where DoF is sharp (cm)", float, 0.0f, 10000.0f>,
-    ItemRanged<"DepthOfFieldFocalRegion", "Artificial region starting after focal distance where content is in focus",
+    ItemRanged<"DepthOfFieldFocalDistance",
+               "Distance in which the Depth of Field effect should be sharp, in unreal units (cm)", float, 0.0f,
+               10000.0f>,
+    ItemRanged<"DepthOfFieldFocalRegion",
+               "Artificial region where all content is in focus, starting after DepthOfFieldFocalDistance, in unreal\n"
+               "units (cm)",
                float, 0.0f, 10000.0f>,
-    ItemRanged<"DepthOfFieldFstop", "Lens opening; larger opening -> stronger DoF", float, 1.0f, 32.0f>,
-    ItemRanged<"DepthOfFieldMinFstop", "Max opening (controls blade curvature); 0 for straight blades", float, 0.0f,
-               32.0f>,
-    ItemRanged<"DepthOfFieldNearBlurSize", "Gaussian only: Max blur size (% of view width)", float, 0.0f, 32.0f>,
-    ItemRanged<"DepthOfFieldNearTransitionRegion", "Width of transition region next to focal region (near side)", float,
+    ItemRanged<"DepthOfFieldFstop",
+               "Defines the opening of the camera lens, Aperture is 1/fstop, typical lens go down to f/1.2 (large\n"
+               "opening), larger numbers reduce the DOF effect",
+               float, 1.0f, 32.0f>,
+    ItemRanged<"DepthOfFieldMinFstop",
+               "Defines the maximum opening of the camera lens to control the curvature of blades of the diaphragm.\n"
+               "Set it to 0 to get straight blades.",
+               float, 0.0f, 32.0f>,
+    ItemRanged<"DepthOfFieldNearBlurSize",
+               "Gaussian only: Maximum size of the Depth of Field blur (in percent of the view width) (note:\n"
+               "performance cost scales with size)",
+               float, 0.0f, 32.0f>,
+    ItemRanged<"DepthOfFieldNearTransitionRegion",
+               "To define the width of the transition region next to the focal region on the near side (cm)", float,
                0.0f, 10000.0f>,
-    ItemRanged<"DepthOfFieldOcclusion", "Occlusion tweak factor (e.g., 0.18 natural, 0.4 fix leaking)", float, 0.0f,
-               1.0f>,
-    ItemRanged<"DepthOfFieldScale", "SM5 BokehDOF: amplify DoF; ES3_1: used to blend DoF", float, 0.0f, 2.0f>,
-    ItemRanged<"DepthOfFieldSensorWidth", "Camera sensor width (mm)", float, 0.1f, 1000.0f>,
-    ItemRanged<"DepthOfFieldSkyFocusDistance", "Artificial distance to keep skybox in focus (GaussianDOF)", float, 0.0f,
-               200000.0f>,
-    ItemRanged<"DepthOfFieldSqueezeFactor", "Anamorphic lens squeeze factor", float, 1.0f, 2.0f>,
-    ItemRanged<"DepthOfFieldUseHairDepth", "Use hair depth for CoC size (else interpolate with scene depth)", int, 0,
-               1>,
-    ItemRanged<"DepthOfFieldVignetteSize", "Circular mask to blur outside radius (GaussianDOF)", float, 0.0f, 100.0f>,
+    ItemRanged<"DepthOfFieldOcclusion",
+               "Occlusion tweak factor 1 (0.18 to get natural occlusion, 0.4 to solve layer color leaking issues)",
+               float, 0.0f, 1.0f>,
+    ItemRanged<"DepthOfFieldScale",
+               "SM5: BokehDOF only: To amplify the depth of field effect (like aperture) 0=off ES3_1: Used to blend\n"
+               "DoF. 0=off",
+               float, 0.0f, 2.0f>,
+    ItemRanged<"DepthOfFieldSensorWidth", "Width of the camera sensor to assume, in mm.", float, 0.1f, 1000.0f>,
+    ItemRanged<"DepthOfFieldSkyFocusDistance",
+               "Artificial distance to allow the skybox to be in focus (e.g. 200000), <=0 to switch the feature off,\n"
+               "only for GaussianDOF, can cost performance",
+               float, 0.0f, 200000.0f>,
+    ItemRanged<"DepthOfFieldSqueezeFactor",
+               "This is the squeeze factor for the DOF, which emulates the properties of anamorphic lenses.", float,
+               1.0f, 2.0f>,
+    ItemRanged<"DepthOfFieldUseHairDepth",
+               "For depth of field to use the hair depth for computing circle of confusion size. Otherwise use an\n"
+               "interpolated distance between the hair depth and the scene depth based on the hair coverage (default).",
+               int, 0, 1>,
+    ItemRanged<
+        "DepthOfFieldVignetteSize",
+        "Artificial circular mask to (near) blur content outside the radius, only for GaussianDOF, diameter in "
+        "percent\n"
+        "of screen width, costs performance if the mask is used, keep Feather can Radius on default to keep it off",
+        float, 0.0f, 100.0f>,
     ItemFree<"GbxDepthOfFieldMaxBackgroundCocRadiusScale", "", float>,
 
     Group<"Fog">, ItemFree<"GbxFogDensityMultiplier", "", float>,
 
     Group<"Global Illumination">,
-    ItemRanged<"DynamicGlobalIlluminationMethod",
-               "Chooses the Dynamic GI method (None=0, Lumen=1, ScreenSpace=2, Plugin=3)", int, 0, 3>,
-    ItemRanged<"IndirectLightingIntensity", "Scales indirect lighting; 0 disables GI", float, 0.0f, 4.0f>,
+    ItemRanged<
+        "DynamicGlobalIlluminationMethod",
+        "Chooses the Dynamic Global Illumination method. Not compatible with Forward Shading. (None=0, Lumen=1,\n"
+        "ScreenSpace=2, Plugin=3)",
+        int, 0, 3>,
+    ItemRanged<"IndirectLightingIntensity",
+               "Scales the indirect lighting contribution. A value of 0 disables GI. Default is 1. The show flag\n"
+               "'Global Illumination' must be enabled to use this property.",
+               float, 0.0f, 4.0f>,
 
     Group<"Lens Flare">,
-    ItemRanged<"LensFlareBokehSize", "Size of Lens Blur (% of view width) using Bokeh texture", float, 0.0f, 32.0f>,
-    ItemRanged<"LensFlareIntensity", "Brightness scale of image caused lens flares", float, 0.0f, 16.0f>,
-    ItemRanged<"LensFlareThreshold", "Minimum brightness for lens flares (set high to avoid perf cost)", float, 0.1f,
-               32.0f>,
+    ItemRanged<"LensFlareBokehSize",
+               "Size of the Lens Blur (in percent of the view width) that is done with the Bokeh texture (note:\n"
+               "performance cost is radius*radius)",
+               float, 0.0f, 32.0f>,
+    ItemRanged<"LensFlareIntensity", "Brightness scale of the image cased lens flares (linear)", float, 0.0f, 16.0f>,
+    ItemRanged<"LensFlareThreshold",
+               "Minimum brightness the lens flare starts having effect (this should be as high as possible to avoid\n"
+               "the performance cost of blurring content that is too dark too see)",
+               float, 0.1f, 32.0f>,
 
     Group<"Local Exposure">,
     ItemRanged<"LocalExposureBlurredLuminanceBlend",
-               "Blend between bilateral filtered and blurred luminance as base layer", float, 0.0f, 1.0f>,
-    ItemRanged<"LocalExposureBlurredLuminanceKernelSizePercent", "Kernel size (% of screen) to blur luminance", float,
-               0.0f, 100.0f>,
-    ItemFree<"LocalExposureContrastScale", "", float>,
-    ItemRanged<"LocalExposureDetailStrength", "Value != 1 enables local exposure; set 1 in most cases", float, 0.0f,
-               4.0f>,
-    ItemRanged<"LocalExposureHighlightContrastScale",
-               "Reduce base layer contrast (highlights). <1 enables local exposure", float, 0.0f, 1.0f>,
-    ItemRanged<"LocalExposureHighlightThreshold", "Threshold for highlight regions", float, 0.0f, 4.0f>,
-    ItemRanged<"LocalExposureMethod", "Algorithm (Bilateral=0, Fusion=1)", int, 0, 1>,
-    ItemRanged<"LocalExposureMiddleGreyBias", "Log adjustment for local exposure middle grey", float, -15.0f, 15.0f>,
-    ItemRanged<"LocalExposureShadowContrastScale", "Reduce base layer contrast (shadows). <1 enables local exposure",
+               "Local Exposure decomposes luminance of the frame into a base layer and a detail layer. Blend between\n"
+               "bilateral filtered and blurred luminance as the base layer. Blurred luminance helps preserve image "
+               "appearance\n"
+               "and specular highlights, and reduce ringing. Good values are usually in the range 0.4 .. 0.6",
                float, 0.0f, 1.0f>,
-    ItemRanged<"LocalExposureShadowThreshold", "Threshold for shadow regions", float, 0.0f, 4.0f>,
+    ItemRanged<"LocalExposureBlurredLuminanceKernelSizePercent",
+               "Kernel size (percentage of screen) used to blur frame luminance.", float, 0.0f, 100.0f>,
+    ItemFree<"LocalExposureContrastScale", "", float>,
+    ItemRanged<
+        "LocalExposureDetailStrength",
+        "Local Exposure decomposes luminance of the frame into a base layer and a detail layer. Value different\n"
+        "than 1 will enable local exposure. This value should be set to 1 in most cases.",
+        float, 0.0f, 4.0f>,
+    ItemRanged<
+        "LocalExposureHighlightContrastScale",
+        "Local Exposure decomposes luminance of the frame into a base layer and a detail layer. Contrast of the\n"
+        "base layer is reduced based on this value. Value less than 1 will enable local exposure. Good values\n"
+        "are usually in the range 0.6 .. 1.0.",
+        float, 0.0f, 1.0f>,
+    ItemRanged<"LocalExposureHighlightThreshold",
+               "Threshold used to determine which regions of the screen are considered highlights.", float, 0.0f, 4.0f>,
+    ItemRanged<"LocalExposureMethod", "Local Exposure algorithm (Bilateral=0, Fusion=1)", int, 0, 1>,
+    ItemRanged<"LocalExposureMiddleGreyBias",
+               "Logarithmic adjustment for the local exposure middle grey. 0: no adjustment, -1:2x darker, -2:4x\n"
+               "darker, 1:2x brighter, 2:4x brighter, ...",
+               float, -15.0f, 15.0f>,
+    ItemRanged<
+        "LocalExposureShadowContrastScale",
+        "Local Exposure decomposes luminance of the frame into a base layer and a detail layer. Contrast of the\n"
+        "base layer is reduced based on this value. Value less than 1 will enable local exposure. Good values\n"
+        "are usually in the range 0.6 .. 1.0.",
+        float, 0.0f, 1.0f>,
+    ItemRanged<"LocalExposureShadowThreshold",
+               "Threshold used to determine which regions of the screen are considered shadows.", float, 0.0f, 4.0f>,
 
     Group<"Lumen">,
     ItemRanged<"LumenFinalGatherLightingUpdateSpeed",
-               "How much Final Gather may cache/update lighting (perf vs propagation)", float, 0.5f, 4.0f>,
-    ItemRanged<"LumenFinalGatherQuality", "Final Gather quality scale (higher -> less noise, more cost)", float, 0.25f,
-               2.0f>,
-    ItemRanged<"LumenFinalGatherScreenTraces", "Use screen space traces for GI (bypasses Lumen Scene)", int, 0, 1>,
-    ItemRanged<"LumenFrontLayerTranslucencyReflections", "High quality mirror reflections on front translucent layer",
+               "Controls how much Lumen Final Gather is allowed to cache lighting results to improve performance.\n"
+               "Larger scales cause lighting changes to propagate faster, but increase GPU cost and noise.",
+               float, 0.5f, 4.0f>,
+    ItemRanged<"LumenFinalGatherQuality",
+               "Scales Lumen's Final Gather quality. Larger scales reduce noise, but greatly increase GPU cost.", float,
+               0.25f, 2.0f>,
+    ItemRanged<"LumenFinalGatherScreenTraces",
+               "Whether to use screen space traces for Lumen Global Illumination. Screen space traces bypass Lumen\n"
+               "Scene and instead sample Scene Depth and Scene Color. This improves quality, as it bypasses Lumen\n"
+               "Scene, but causes view dependent lighting.",
                int, 0, 1>,
-    ItemRanged<"LumenFullSkylightLeakingDistance", "Distance where skylight leaking reaches full intensity", float,
-               0.1f, 2000.0f>,
-    ItemRanged<"LumenMaxReflectionBounces", "Max recursive reflection bounces (hardware RT with Hit Lighting)", int, 1,
-               8>,
-    ItemRanged<"LumenMaxRefractionBounces", "Max number of refraction events to trace", int, 0, 64>,
-    ItemRanged<"LumenMaxRoughnessToTraceReflections", "Max roughness for dedicated reflection rays", float, 0.0f, 1.0f>,
-    ItemRanged<"LumenMaxTraceDistance", "Max distance to trace while solving lighting", float, 1.0f, 2097152.0f>,
+    ItemRanged<"LumenFrontLayerTranslucencyReflections",
+               "Whether to use high quality mirror reflections on the front layer of translucent surfaces. Other\n"
+               "layers will use the lower quality Radiance Cache method that can only produce glossy reflections.\n"
+               "Increases GPU cost when enabled.",
+               int, 0, 1>,
+    ItemRanged<
+        "LumenFullSkylightLeakingDistance",
+        "Controls the distance from a receiving surface where skylight leaking reaches its full intensity. Smaller\n"
+        "values make the skylight leaking flatter, while larger values create an Ambient Occlusion effect.",
+        float, 0.1f, 2000.0f>,
+    ItemRanged<
+        "LumenMaxReflectionBounces",
+        "Sets the maximum number of recursive reflection bounces. 1 means a single reflection ray (no secondary\n"
+        "reflections in mirrors). Currently only supported by Hardware Ray Tracing with Hit Lighting.",
+        int, 1, 8>,
+    ItemRanged<"LumenMaxRefractionBounces",
+               "The maximum count of refraction event to trace. When hit lighting is used, Translucent meshes will be\n"
+               "traced when LumenMaxRefractionBounces > 0, making the reflection tracing more expenssive.",
+               int, 0, 64>,
+    ItemRanged<
+        "LumenMaxRoughnessToTraceReflections",
+        "Sets the maximum roughness value for which Lumen still traces dedicated reflection rays. Higher values\n"
+        "improve reflection quality, but greatly increase GPU cost.",
+        float, 0.0f, 1.0f>,
+    ItemRanged<
+        "LumenMaxTraceDistance",
+        "Controls the maximum distance that Lumen should trace while solving lighting. Values that are too small will\n"
+        "cause lighting to leak into large caves, while values that are large will increase GPU cost.",
+        float, 1.0f, 2097152.0f>,
     ItemRanged<"LumenRayLightingMode",
-               "Lighting mode for HWRT rays (Default=0, SurfaceCache=1, HitLightingForReflections=2, HitLighting=3)",
+               "Controls how Lumen rays are lit when Lumen is using Hardware Ray Tracing. By default, Lumen uses the\n"
+               "Surface Cache for best performance, but can be set to 'Hit Lighting' for higher quality. (Default=0,\n"
+               "SurfaceCache=1, HitLightingForReflections=2, HitLighting=3)",
                int, 0, 3>,
-    ItemRanged<"LumenReflectionQuality", "Reflection quality scale (higher -> less noise, more cost)", float, 0.25f,
-               2.0f>,
-    ItemRanged<"LumenReflectionsScreenTraces", "Use screen space traces for reflections", int, 0, 1>,
-    ItemRanged<"LumenSceneDetail", "Size of instances represented in Lumen Scene", float, 0.25f, 4.0f>,
-    ItemRanged<"LumenSceneLightingQuality", "Lumen Scene quality scale", float, 0.25f, 2.0f>,
-    ItemRanged<"LumenSceneLightingUpdateSpeed", "How much Lumen Scene may cache/update lighting", float, 0.5f, 4.0f>,
-    ItemRanged<"LumenSceneViewDistance", "Max view distance maintained for ray tracing", float, 1.0f, 2097152.0f>,
-    ItemRanged<"LumenSkylightLeaking", "Fraction of skylight intensity allowed to leak", float, 0.0f, 0.02f>,
-    ItemRanged<"LumenSurfaceCacheResolution", "Surface Cache resolution scale (Scene Capture)", float, 0.5f, 1.0f>,
+    ItemRanged<"LumenReflectionQuality",
+               "Scales the Reflection quality. Larger scales reduce noise in reflections, but increase GPU cost.",
+               float, 0.25f, 2.0f>,
+    ItemRanged<"LumenReflectionsScreenTraces",
+               "Whether to use screen space traces for Lumen Reflections. Screen space traces bypass Lumen Scene and\n"
+               "instead sample Scene Depth and Scene Color. This improves quality, as it bypasses Lumen Scene, but\n"
+               "causes view dependent lighting.",
+               int, 0, 1>,
+    ItemRanged<
+        "LumenSceneDetail",
+        "Controls the size of instances that can be represented in Lumen Scene. Larger values will ensure small\n"
+        "objects are represented, but increase GPU cost.",
+        float, 0.25f, 4.0f>,
+    ItemRanged<
+        "LumenSceneLightingQuality",
+        "Scales Lumen Scene's quality. Larger scales cause Lumen Scene to be calculated with a higher fidelity,\n"
+        "which can be visible in reflections, but increase GPU cost.",
+        float, 0.25f, 2.0f>,
+    ItemRanged<"LumenSceneLightingUpdateSpeed",
+               "Controls how much Lumen Scene is allowed to cache lighting results to improve performance. Larger\n"
+               "scales cause lighting changes to propagate faster, but increase GPU cost.",
+               float, 0.5f, 4.0f>,
+    ItemRanged<
+        "LumenSceneViewDistance",
+        "Sets the maximum view distance of the scene that Lumen maintains for ray tracing against. Larger values will\n"
+        "increase the effective range of sky shadowing and Global Illumination, but increase GPU cost.",
+        float, 1.0f, 2097152.0f>,
+    ItemRanged<"LumenSkylightLeaking",
+               "Controls what fraction of the skylight intensity should be allowed to leak. This can be useful as an\n"
+               "art direction knob (non-physically based) to keep indoor areas from going fully black.",
+               float, 0.0f, 0.02f>,
+    ItemRanged<
+        "LumenSurfaceCacheResolution",
+        "Scale factor for Lumen Surface Cache resolution, for Scene Capture. Smaller values save GPU memory, at\n"
+        "a cost in quality. Defaults to 0.5 if not overridden.",
+        float, 0.5f, 1.0f>,
 
     Group<"MegaLights">,
-    ItemRanged<"bMegaLights", "Force MegaLights on/off for this volume; requires HW Ray Tracing & SM6", int, 0, 1>,
+    ItemRanged<
+        "bMegaLights",
+        "Allows forcing MegaLights on or off for this volume, regardless of the project setting for MegaLights.\n"
+        "MegaLights will stochastically sample lights, which allows many shadow casting lights to be rendered\n"
+        "efficiently, with a consistent and low GPU cost. When MegaLights is enabled, other direct lighting\n"
+        "algorithms like Deferred Shading will no longer be used, and other shadowing methods like Ray Traced\n"
+        "Shadows, Distance Field Shadows and Shadow Maps will no longer be used. MegaLights requires Hardware\n"
+        "Ray Tracing and Shader Model 6.",
+        int, 0, 1>,
 
-    Group<"Motion Blur">, ItemRanged<"MotionBlurAmount", "Strength (0: off)", float, 0.0f, 1.0f>,
+    Group<"Motion Blur">, ItemRanged<"MotionBlurAmount", "Strength of motion blur, 0:off", float, 0.0f, 1.0f>,
     ItemRanged<"MotionBlurDisableCameraInfluence", "", int, 0, 1>,
-    ItemRanged<"MotionBlurMax", "Max distortion in % of screen width (0: off)", float, 0.0f, 100.0f>,
-    ItemRanged<"MotionBlurPerObjectSize", "Min projected screen radius (% of screen width) for velocity pass", float,
+    ItemRanged<"MotionBlurMax", "max distortion caused by motion blur, in percent of the screen width, 0:off", float,
                0.0f, 100.0f>,
-    ItemRanged<"MotionBlurTargetFPS", "Target FPS for motion blur; 0 = dependent on actual FPS", int, 0, 120>,
+    ItemRanged<"MotionBlurPerObjectSize",
+               "The minimum projected screen radius for a primitive to be drawn in the velocity pass, percentage of\n"
+               "screen width. smaller numbers cause more draw calls, default: 4%",
+               float, 0.0f, 100.0f>,
+    ItemRanged<
+        "MotionBlurTargetFPS",
+        "Defines the target FPS for motion blur. Makes motion blur independent of actual frame rate and\n"
+        "relative to the specified target FPS instead. Higher target FPS results in shorter frames, which means\n"
+        "shorter shutter times and less motion blur. Lower FPS means more motion blur. A value of zero makes\n"
+        "the motion blur dependent on the actual frame rate.",
+        int, 0, 120>,
 
     Group<"Path Tracing">,
     ItemRanged<"PathTracingEnableDenoiser", "Run denoiser plugin on last sample (if loaded)", int, 0, 1>,
@@ -390,12 +642,20 @@ using Schema = std::tuple<
     ItemRanged<"RayTracingTranslucencyShadows", "Translucency shadows type (Disabled=0, Hard=1, Area=2)", int, 0, 2>,
 
     Group<"Reflections">,
-    ItemRanged<"ReflectionMethod", "Reflection method (None=0, Lumen=1, ScreenSpace=2)", int, 0, 2>,
-    ItemRanged<"ScreenSpaceReflectionIntensity", "Enable/Fade/disable SSR (%); avoid 0..1 for consistency", float, 0.0f,
-               100.0f>,
-    ItemRanged<"ScreenSpaceReflectionMaxRoughness", "Until what roughness we fade SSR (e.g., 0.8)", float, 0.01f, 1.0f>,
-    ItemRanged<"ScreenSpaceReflectionQuality", "0=lowest..100=maximum quality; 50 default for perf", float, 0.0f,
-               100.0f>,
+    ItemRanged<"ReflectionMethod",
+               "Chooses the Reflection method. Not compatible with Forward Shading. (None=0, Lumen=1, ScreenSpace=2)",
+               int, 0, 2>,
+    ItemRanged<"ScreenSpaceReflectionIntensity",
+               "Enable/Fade/disable the Screen Space Reflection feature, in percent, avoid numbers between 0 and 1 fo\n"
+               "consistency",
+               float, 0.0f, 100.0f>,
+    ItemRanged<"ScreenSpaceReflectionMaxRoughness",
+               "Until what roughness we fade the screen space reflections, 0.8 works well, smaller can run faster",
+               float, 0.01f, 1.0f>,
+    ItemRanged<"ScreenSpaceReflectionQuality",
+               "0=lowest quality..100=maximum quality, only a few quality levels are implemented, no soft transition,\n"
+               "50 is the default for better performance.",
+               float, 0.0f, 100.0f>,
 
     Group<"Resolution">, ItemFree<"ScreenPercentage", "Rendering resolution scale (%)", float>,
 
@@ -404,6 +664,7 @@ using Schema = std::tuple<
     Group<"Vignette">, ItemRanged<"VignetteIntensity", "0..1 0=off .. 1=strong vignette", float, 0.0f, 1.0f>>;
 
 static constexpr std::size_t kItemCount = count_items<Schema>();
+static constexpr std::size_t kGroupCount = count_groups<Schema>();
 
 // Compile-time duplicate key check
 template <typename Tuple> consteval bool check_unique_keys() {
@@ -432,6 +693,7 @@ template <typename Tuple> consteval bool check_unique_keys() {
 }
 static_assert(check_unique_keys<Schema>(), "Duplicate keys in schema");
 
+// without checking for performance
 union Value {
     template <typename T> Value &operator=(T v) {
         if constexpr (std::is_same_v<T, int>)
@@ -455,13 +717,6 @@ union Value {
 };
 
 // =========================
-// Runtime storage (enabled + value), aligned with schema item order
-// =========================
-static std::array<bool, kItemCount> gEnables{};
-static std::array<Value, kItemCount> gValues{};
-static std::array<bool, kItemCount> gChanges{};
-
-// =========================
 // Tiny helpers
 // =========================
 template <typename T> void set_config(reshade::api::effect_runtime *rt, const char *key, T v) {
@@ -483,11 +738,14 @@ template <typename T> void parse(const char *s, std::size_t n, T &out) {
 }
 
 // =========================
-// compile-time map of setters
+// global state for MyBlueprintModifyPostProcess
 // =========================
 std::atomic<float> myPostProcessBlendWeight = 0.f;
 SDK::FPostProcessSettings myPostProcessSettings = {};
 
+// =========================
+// compile-time map of setters
+// =========================
 using namespace mapbox;
 using Setter = void (*)(SDK::FPostProcessSettings &, bool, float);
 #define SETTER(Name)                                                                                                   \
@@ -505,9 +763,17 @@ template <ct_string Key, typename T> constexpr void apply_setting(bool o, T v) {
     if constexpr (setter != gSetters.end()) {
         setter->second(myPostProcessSettings, o, v);
     } else {
-        static_assert(false, "missing setter");
+        static_assert(false, "Missing setter");
     }
 }
+
+// =========================
+// Runtime storage item(enabled + value + changed) / group(opened), aligned with schema item order
+// =========================
+static std::array<bool, kItemCount> gEnables{};
+static std::array<Value, kItemCount> gValues{};
+static std::array<bool, kItemCount> gChanges{};
+static std::array<bool, kGroupCount> gOpens{};
 
 // =========================
 // Loading current preset values into runtime arrays (no defaults; absent -> 0/false)
@@ -554,6 +820,11 @@ static void draw_overlay(reshade::api::effect_runtime *runtime) {
     runtime->block_input_next_frame(); // block input while overlay visible
 
     // Global master toggle
+    bool opened = ImGui::CollapsingHeader("GLOBAL", ImGuiTreeNodeFlags_DefaultOpen);
+    if (opened) {
+        ImGui::Spacing();
+        ImGui::Indent();
+    }
     bool changed = ImGui::Checkbox("##enabled", &gEnabled);
     if (ImGui::IsItemHovered())
         ImGui::SetTooltip("Global gate for all overrides");
@@ -561,28 +832,38 @@ static void draw_overlay(reshade::api::effect_runtime *runtime) {
         set_config(runtime, "Enabled", gEnabled);
 
     myPostProcessBlendWeight.store(gEnabled ? 1.f : 0.f, std::memory_order_release);
+
     ImGui::SameLine();
-    ImGui::TextUnformatted("<-- GLOBAL GATE (MUST ENABLED !!!)");
+    ImGui::TextUnformatted("<-- ENABLED");
+    if (opened)
+        ImGui::Unindent();
+
+    if (!gEnabled)
+        return;
 
     std::size_t idx = 0;
+    std::size_t gidx = 0;
     bool have_group = false;
     bool current_group_open = true; // if items appear before the first group, treat as visible
     bool prev_group_open = false;   // for managing indentation
 
     for_each_type<Schema>([&]<typename Node>() {
         if constexpr (IsGroup<Node>) {
+            have_group = true;
             // If a previous group was open, close its indent before starting a new header
             if (prev_group_open)
                 ImGui::Unindent();
 
-            // Collapsible header for this group (default-open)
-            current_group_open = ImGui::CollapsingHeader(Node::title.c_str(), ImGuiTreeNodeFlags_DefaultOpen);
-            have_group = true;
+            // Collapsible header for this group
+            ImGui::SetNextItemOpen(gOpens[gidx], ImGuiCond_Always);
+            gOpens[gidx] = ImGui::CollapsingHeader(Node::title.c_str());
+            current_group_open = gOpens[gidx];
             prev_group_open = current_group_open;
             if (current_group_open) {
                 ImGui::Spacing();
                 ImGui::Indent();
             }
+            ++gidx;
         } else if constexpr (IsItem<Node>) {
             // Determine whether to draw this item (open group or no groups at all)
             const bool draw = have_group ? current_group_open : true;
@@ -591,6 +872,7 @@ static void draw_overlay(reshade::api::effect_runtime *runtime) {
                 ImGui::PushID(Node::key.c_str());
                 bool enabled_changed = ImGui::Checkbox("##enabled", &gEnables[idx]);
                 ImGui::SameLine();
+                ImGui::TextUnformatted(Node::key.c_str());
 
                 const bool disabled = !gEnables[idx] || !gEnabled;
                 if (disabled)
@@ -613,14 +895,14 @@ static void draw_overlay(reshade::api::effect_runtime *runtime) {
                 }
                 bool deactivated = ImGui::IsItemDeactivatedAfterEdit();
 
-                if (ImGui::IsItemHovered(ImGuiHoveredFlags_AllowWhenDisabled))
-                    ImGui::SetTooltip("%s", Node::info.c_str());
+                if constexpr (Node::info.size() > 0) {
+                    if (ImGui::IsItemHovered(ImGuiHoveredFlags_AllowWhenDisabled))
+                        ImGui::SetTooltip("%s", Node::info.c_str());
+                }
 
                 if (disabled)
                     ImGui::EndDisabled();
 
-                ImGui::SameLine();
-                ImGui::TextUnformatted(Node::key.c_str());
                 ImGui::PopID();
 
                 if (enabled_changed)
@@ -655,6 +937,9 @@ static void on_init_runtime(reshade::api::effect_runtime *rt) { load_all_from_pr
 static void on_preset_changed(reshade::api::effect_runtime *rt, const char * /*path*/) { load_all_from_preset(rt); }
 static void overlay_cb(reshade::api::effect_runtime *rt) { draw_overlay(rt); }
 
+// =========================
+// ReShade logging sink
+// =========================
 static reshade::log::level to_reshade_level(el::Level lvl) {
     using RL = reshade::log::level;
     switch (lvl) {
