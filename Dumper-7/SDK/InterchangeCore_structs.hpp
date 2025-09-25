@@ -119,6 +119,16 @@ enum class EReimportStrategyFlags : uint8
 	EReimportStrategyFlags_MAX               = 3,
 };
 
+// ScriptStruct InterchangeCore.InterchangeUserDefinedAttributeInfo
+// 0x0030 (0x0030 - 0x0000)
+struct FInterchangeUserDefinedAttributeInfo final
+{
+public:
+	class FString                                 Name;                                              // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_10[0x20];                                      // 0x0010(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FInterchangeUserDefinedAttributeInfo;
+
 // ScriptStruct InterchangeCore.InterchangePipelineContextParams
 // 0x0020 (0x0020 - 0x0000)
 struct alignas(0x08) FInterchangePipelineContextParams final
@@ -149,16 +159,6 @@ public:
 	struct FInterchangePipelinePropertyStatePerContext ReimportStates;                               // 0x0004(0x0001)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FInterchangePipelinePropertyStates;
-
-// ScriptStruct InterchangeCore.InterchangeUserDefinedAttributeInfo
-// 0x0030 (0x0030 - 0x0000)
-struct FInterchangeUserDefinedAttributeInfo final
-{
-public:
-	class FString                                 Name;                                              // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_10[0x20];                                      // 0x0010(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FInterchangeUserDefinedAttributeInfo;
 
 }
 

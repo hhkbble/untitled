@@ -11,10 +11,10 @@
 #include "Basic.hpp"
 
 #include "ModelingOperators_structs.hpp"
+#include "MeshModelingTools_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "InteractiveToolsFramework_classes.hpp"
-#include "MeshModelingTools_structs.hpp"
 #include "ModelingComponents_structs.hpp"
 #include "ModelingComponents_classes.hpp"
 
@@ -850,6 +850,34 @@ public:
 };
 DUMPER7_ASSERTS_UModifyGeometrySelectionCommand_ExpandToConnected;
 
+// Class MeshModelingTools.UVProjectionToolEditActions
+// 0x0008 (0x00B0 - 0x00A8)
+class UUVProjectionToolEditActions final : public UInteractiveToolPropertySet
+{
+public:
+	uint8                                         Pad_A8[0x8];                                       // 0x00A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void AutoFit();
+	void AutoFitAlign();
+	void Reset();
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("UVProjectionToolEditActions")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"UVProjectionToolEditActions")
+	}
+	static class UUVProjectionToolEditActions* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UUVProjectionToolEditActions>();
+	}
+};
+DUMPER7_ASSERTS_UUVProjectionToolEditActions;
+
 // Class MeshModelingTools.ModifyGeometrySelectionCommand_InvertConnected
 // 0x0000 (0x0028 - 0x0028)
 class UModifyGeometrySelectionCommand_InvertConnected final : public UModifyGeometrySelectionCommand
@@ -993,6 +1021,37 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UTrimMeshesToolProperties;
+
+// Class MeshModelingTools.UVLayoutTool
+// 0x00B8 (0x0170 - 0x00B8)
+class alignas(0x10) UUVLayoutTool final : public UMultiSelectionMeshEditingTool
+{
+public:
+	uint8                                         Pad_B8[0x8];                                       // 0x00B8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMeshUVChannelProperties*               UVChannelProperties;                               // 0x00C0(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UUVLayoutProperties*                    BasicProperties;                                   // 0x00C8(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UExistingMeshMaterialProperties*        MaterialSettings;                                  // 0x00D0(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	TArray<class UMeshOpPreviewWithBackgroundCompute*> Previews;                                     // 0x00D8(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	TArray<class UUVLayoutOperatorFactory*>       Factories;                                         // 0x00E8(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	uint8                                         Pad_F8[0x68];                                      // 0x00F8(0x0068)(Fixing Size After Last Property [ Dumper-7 ])
+	class UUVLayoutPreview*                       UVLayoutView;                                      // 0x0160(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_168[0x8];                                      // 0x0168(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("UVLayoutTool")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"UVLayoutTool")
+	}
+	static class UUVLayoutTool* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UUVLayoutTool>();
+	}
+};
+DUMPER7_ASSERTS_UUVLayoutTool;
 
 // Class MeshModelingTools.CSGMeshesTool
 // 0x0058 (0x0160 - 0x0108)
@@ -2389,37 +2448,6 @@ public:
 };
 DUMPER7_ASSERTS_UUVLayoutToolBuilder;
 
-// Class MeshModelingTools.UVLayoutTool
-// 0x00B8 (0x0170 - 0x00B8)
-class alignas(0x10) UUVLayoutTool final : public UMultiSelectionMeshEditingTool
-{
-public:
-	uint8                                         Pad_B8[0x8];                                       // 0x00B8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMeshUVChannelProperties*               UVChannelProperties;                               // 0x00C0(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UUVLayoutProperties*                    BasicProperties;                                   // 0x00C8(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UExistingMeshMaterialProperties*        MaterialSettings;                                  // 0x00D0(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	TArray<class UMeshOpPreviewWithBackgroundCompute*> Previews;                                     // 0x00D8(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
-	TArray<class UUVLayoutOperatorFactory*>       Factories;                                         // 0x00E8(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
-	uint8                                         Pad_F8[0x68];                                      // 0x00F8(0x0068)(Fixing Size After Last Property [ Dumper-7 ])
-	class UUVLayoutPreview*                       UVLayoutView;                                      // 0x0160(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_168[0x8];                                      // 0x0168(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("UVLayoutTool")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"UVLayoutTool")
-	}
-	static class UUVLayoutTool* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UUVLayoutTool>();
-	}
-};
-DUMPER7_ASSERTS_UUVLayoutTool;
-
 // Class MeshModelingTools.UVProjectionToolBuilder
 // 0x0000 (0x0028 - 0x0028)
 class UUVProjectionToolBuilder final : public USingleTargetWithSelectionToolBuilder
@@ -2439,34 +2467,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UUVProjectionToolBuilder;
-
-// Class MeshModelingTools.UVProjectionToolEditActions
-// 0x0008 (0x00B0 - 0x00A8)
-class UUVProjectionToolEditActions final : public UInteractiveToolPropertySet
-{
-public:
-	uint8                                         Pad_A8[0x8];                                       // 0x00A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void AutoFit();
-	void AutoFitAlign();
-	void Reset();
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("UVProjectionToolEditActions")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"UVProjectionToolEditActions")
-	}
-	static class UUVProjectionToolEditActions* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UUVProjectionToolEditActions>();
-	}
-};
-DUMPER7_ASSERTS_UUVProjectionToolEditActions;
 
 // Class MeshModelingTools.UVProjectionToolProperties
 // 0x00E8 (0x0190 - 0x00A8)

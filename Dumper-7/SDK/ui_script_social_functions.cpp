@@ -17,21 +17,21 @@
 namespace SDK
 {
 
-// Function ui_script_social.ui_script_social_C.SessionInviteReceived
+// Function ui_script_social.ui_script_social_C.FriendRequestReceived
 // (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
 // const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void Uui_script_social_C::SessionInviteReceived(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void Uui_script_social_C::FriendRequestReceived(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_social_C", "SessionInviteReceived");
+		Func = Class->GetFunction("ui_script_social_C", "FriendRequestReceived");
 
-	Params::ui_script_social_C_SessionInviteReceived Parms{};
+	Params::ui_script_social_C_FriendRequestReceived Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -65,21 +65,21 @@ void Uui_script_social_C::PromotedToPartyLeader(class UObject* WorldContextObjec
 }
 
 
-// Function ui_script_social.ui_script_social_C.FriendRequestReceived
+// Function ui_script_social.ui_script_social_C.SessionInviteReceived
 // (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
 // const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void Uui_script_social_C::FriendRequestReceived(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void Uui_script_social_C::SessionInviteReceived(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_social_C", "FriendRequestReceived");
+		Func = Class->GetFunction("ui_script_social_C", "SessionInviteReceived");
 
-	Params::ui_script_social_C_FriendRequestReceived Parms{};
+	Params::ui_script_social_C_SessionInviteReceived Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;

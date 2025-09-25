@@ -11,9 +11,9 @@
 #include "Basic.hpp"
 
 #include "Engine_classes.hpp"
+#include "GbxEnhancedInput_classes.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "GbxEnhancedInput_classes.hpp"
 #include "DeveloperSettings_classes.hpp"
 #include "GbxUICoherent_structs.hpp"
 #include "GbxEngine_classes.hpp"

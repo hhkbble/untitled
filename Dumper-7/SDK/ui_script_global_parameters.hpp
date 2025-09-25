@@ -10,108 +10,34 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
 #include "GbxAudio_structs.hpp"
+#include "CoreUObject_structs.hpp"
 
 
 namespace SDK::Params
 {
 
-// Function ui_script_global.ui_script_global_C.SwitchOn
-// 0x0048 (0x0048 - 0x0000)
-struct ui_script_global_C_SwitchOn final
+// Function ui_script_global.ui_script_global_C.Activate
+// 0x0038 (0x0038 - 0x0000)
+struct ui_script_global_C_Activate final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0020(0x0018)()
 };
-DUMPER7_ASSERTS_ui_script_global_C_SwitchOn;
+DUMPER7_ASSERTS_ui_script_global_C_Activate;
 
-// Function ui_script_global.ui_script_global_C.SwitchOff
-// 0x0048 (0x0048 - 0x0000)
-struct ui_script_global_C_SwitchOff final
+// Function ui_script_global.ui_script_global_C.deactivate
+// 0x0038 (0x0038 - 0x0000)
+struct ui_script_global_C_deactivate final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0020(0x0018)()
 };
-DUMPER7_ASSERTS_ui_script_global_C_SwitchOff;
-
-// Function ui_script_global.ui_script_global_C.StepperRight
-// 0x0048 (0x0048 - 0x0000)
-struct ui_script_global_C_StepperRight final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
-};
-DUMPER7_ASSERTS_ui_script_global_C_StepperRight;
-
-// Function ui_script_global.ui_script_global_C.StepperLeft
-// 0x0048 (0x0048 - 0x0000)
-struct ui_script_global_C_StepperLeft final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
-};
-DUMPER7_ASSERTS_ui_script_global_C_StepperLeft;
-
-// Function ui_script_global.ui_script_global_C.SliderUp
-// 0x0048 (0x0048 - 0x0000)
-struct ui_script_global_C_SliderUp final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
-};
-DUMPER7_ASSERTS_ui_script_global_C_SliderUp;
-
-// Function ui_script_global.ui_script_global_C.SliderError
-// 0x0048 (0x0048 - 0x0000)
-struct ui_script_global_C_SliderError final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
-};
-DUMPER7_ASSERTS_ui_script_global_C_SliderError;
-
-// Function ui_script_global.ui_script_global_C.SliderDown
-// 0x0048 (0x0048 - 0x0000)
-struct ui_script_global_C_SliderDown final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
-};
-DUMPER7_ASSERTS_ui_script_global_C_SliderDown;
-
-// Function ui_script_global.ui_script_global_C.HoldActionStop
-// 0x0048 (0x0048 - 0x0000)
-struct ui_script_global_C_HoldActionStop final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
-};
-DUMPER7_ASSERTS_ui_script_global_C_HoldActionStop;
+DUMPER7_ASSERTS_ui_script_global_C_deactivate;
 
 // Function ui_script_global.ui_script_global_C.HoldActionStart
 // 0x0048 (0x0048 - 0x0000)
@@ -125,27 +51,101 @@ public:
 };
 DUMPER7_ASSERTS_ui_script_global_C_HoldActionStart;
 
-// Function ui_script_global.ui_script_global_C.deactivate
-// 0x0038 (0x0038 - 0x0000)
-struct ui_script_global_C_deactivate final
+// Function ui_script_global.ui_script_global_C.HoldActionStop
+// 0x0048 (0x0048 - 0x0000)
+struct ui_script_global_C_HoldActionStop final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0020(0x0018)()
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
 };
-DUMPER7_ASSERTS_ui_script_global_C_deactivate;
+DUMPER7_ASSERTS_ui_script_global_C_HoldActionStop;
 
-// Function ui_script_global.ui_script_global_C.Activate
-// 0x0038 (0x0038 - 0x0000)
-struct ui_script_global_C_Activate final
+// Function ui_script_global.ui_script_global_C.SliderDown
+// 0x0048 (0x0048 - 0x0000)
+struct ui_script_global_C_SliderDown final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0020(0x0018)()
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
 };
-DUMPER7_ASSERTS_ui_script_global_C_Activate;
+DUMPER7_ASSERTS_ui_script_global_C_SliderDown;
+
+// Function ui_script_global.ui_script_global_C.SliderError
+// 0x0048 (0x0048 - 0x0000)
+struct ui_script_global_C_SliderError final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
+};
+DUMPER7_ASSERTS_ui_script_global_C_SliderError;
+
+// Function ui_script_global.ui_script_global_C.SliderUp
+// 0x0048 (0x0048 - 0x0000)
+struct ui_script_global_C_SliderUp final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
+};
+DUMPER7_ASSERTS_ui_script_global_C_SliderUp;
+
+// Function ui_script_global.ui_script_global_C.StepperLeft
+// 0x0048 (0x0048 - 0x0000)
+struct ui_script_global_C_StepperLeft final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
+};
+DUMPER7_ASSERTS_ui_script_global_C_StepperLeft;
+
+// Function ui_script_global.ui_script_global_C.StepperRight
+// 0x0048 (0x0048 - 0x0000)
+struct ui_script_global_C_StepperRight final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
+};
+DUMPER7_ASSERTS_ui_script_global_C_StepperRight;
+
+// Function ui_script_global.ui_script_global_C.SwitchOff
+// 0x0048 (0x0048 - 0x0000)
+struct ui_script_global_C_SwitchOff final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
+};
+DUMPER7_ASSERTS_ui_script_global_C_SwitchOff;
+
+// Function ui_script_global.ui_script_global_C.SwitchOn
+// 0x0048 (0x0048 - 0x0000)
+struct ui_script_global_C_SwitchOn final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
+};
+DUMPER7_ASSERTS_ui_script_global_C_SwitchOn;
 
 }
 

@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "GbxUISettings_structs.hpp"
 #include "SlateCore_structs.hpp"
+#include "GbxUISettings_structs.hpp"
 
 
 namespace SDK::Params

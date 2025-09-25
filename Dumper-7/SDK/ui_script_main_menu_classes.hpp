@@ -21,12 +21,12 @@ namespace SDK
 class Uui_script_main_menu_C final : public UOakUIScript_MainMenu
 {
 public:
-	void DifficultySwapVeryHard(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void DifficultySwapMedium(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void DifficultySwapHard(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void DifficultySwapEasy(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void CoopRelinquish(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 	void ContinueCampaign(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void CoopRelinquish(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void DifficultySwapEasy(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void DifficultySwapHard(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void DifficultySwapMedium(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void DifficultySwapVeryHard(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 
 public:
 	static class UClass* StaticClass()

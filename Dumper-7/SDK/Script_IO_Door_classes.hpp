@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "Engine_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "Engine_structs.hpp"
 #include "GbxGame_classes.hpp"
 
 
@@ -40,7 +40,7 @@ public:
 	void OnBeginPlay();
 	void PlayerBlockingDoor(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult);
 	void PlayerNoLongerBlockingDoor(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
-	void True__OnStateEnabled();
+	void true__OnStateEnabled();
 
 	void UserConstructionScript(class AActor* Actor) const;
 

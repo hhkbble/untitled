@@ -128,17 +128,17 @@ public:
 DUMPER7_ASSERTS_AGbxWorldPainterVolume;
 
 // Class GbxWorldPainter.GbxWorldPainterBoxComponent
-// 0x0040 (0x0670 - 0x0630)
+// 0x0040 (0x06A0 - 0x0660)
 class UGbxWorldPainterBoxComponent final : public UBoxComponent
 {
 public:
-	uint8                                         Pad_630[0x20];                                     // 0x0630(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGbxWorldPainterLayer*                  PaintLayer;                                        // 0x0650(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class FName                                   PaintOption;                                       // 0x0658(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	int32                                         PaintPriority;                                     // 0x0660(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	int32                                         PaintOptionIdx;                                    // 0x0664(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	struct FColor                                 PaintOptionColor;                                  // 0x0668(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_66C[0x4];                                      // 0x066C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_658[0x20];                                     // 0x0658(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGbxWorldPainterLayer*                  PaintLayer;                                        // 0x0678(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class FName                                   PaintOption;                                       // 0x0680(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	int32                                         PaintPriority;                                     // 0x0688(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	int32                                         PaintOptionIdx;                                    // 0x068C(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FColor                                 PaintOptionColor;                                  // 0x0690(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_694[0xC];                                      // 0x0694(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void GetEditOptionNames(TArray<class FName>* OutNames) const;

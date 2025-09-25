@@ -37,6 +37,15 @@ enum class ESCCModification : uint32
 	ESCCModification_MAX                     = 4,
 };
 
+// ScriptStruct TypedElementFramework.SCCRevisionId
+// 0x0014 (0x0014 - 0x0000)
+struct FSCCRevisionId final
+{
+public:
+	uint32                                        ID[0x5];                                           // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FSCCRevisionId;
+
 // ScriptStruct TypedElementFramework.EditorDataStorageColumn
 // 0x0000 (0x0000 - 0x0000)
 #pragma pack(push, 0x1)
@@ -46,6 +55,15 @@ struct alignas(0x01) FEditorDataStorageColumn
 #pragma pack(pop)
 DUMPER7_ASSERTS_FEditorDataStorageColumn;
 
+// ScriptStruct TypedElementFramework.SCCExternalRevisionIdColumn
+// 0x0014 (0x0014 - 0x0000)
+struct FSCCExternalRevisionIdColumn final : public FEditorDataStorageColumn
+{
+public:
+	struct FSCCRevisionId                         RevisionId;                                        // 0x0000(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FSCCExternalRevisionIdColumn;
+
 // ScriptStruct TypedElementFramework.ScriptTypedElementHandle
 // 0x0008 (0x0008 - 0x0000)
 struct alignas(0x08) FScriptTypedElementHandle final
@@ -54,15 +72,6 @@ public:
 	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FScriptTypedElementHandle;
-
-// ScriptStruct TypedElementFramework.TestColumnA
-// 0x0001 (0x0001 - 0x0000)
-struct FTestColumnA final : public FEditorDataStorageColumn
-{
-public:
-	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FTestColumnA;
 
 // ScriptStruct TypedElementFramework.TypedElementAlertColumn
 // 0x0020 (0x0020 - 0x0000)
@@ -434,15 +443,6 @@ public:
 };
 DUMPER7_ASSERTS_FSCCStatusColumn;
 
-// ScriptStruct TypedElementFramework.SCCRevisionId
-// 0x0014 (0x0014 - 0x0000)
-struct FSCCRevisionId final
-{
-public:
-	uint32                                        ID[0x5];                                           // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FSCCRevisionId;
-
 // ScriptStruct TypedElementFramework.SCCRevisionIdColumn
 // 0x0014 (0x0014 - 0x0000)
 struct FSCCRevisionIdColumn final : public FEditorDataStorageColumn
@@ -451,15 +451,6 @@ public:
 	struct FSCCRevisionId                         RevisionId;                                        // 0x0000(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FSCCRevisionIdColumn;
-
-// ScriptStruct TypedElementFramework.SCCExternalRevisionIdColumn
-// 0x0014 (0x0014 - 0x0000)
-struct FSCCExternalRevisionIdColumn final : public FEditorDataStorageColumn
-{
-public:
-	struct FSCCRevisionId                         RevisionId;                                        // 0x0000(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FSCCExternalRevisionIdColumn;
 
 // ScriptStruct TypedElementFramework.SCCUserInfo
 // 0x0010 (0x0010 - 0x0000)
@@ -530,6 +521,15 @@ public:
 	struct FSlateColor                            Color;                                             // 0x0000(0x0014)(NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FSlateColorColumn;
+
+// ScriptStruct TypedElementFramework.TestColumnA
+// 0x0001 (0x0001 - 0x0000)
+struct FTestColumnA final : public FEditorDataStorageColumn
+{
+public:
+	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FTestColumnA;
 
 // ScriptStruct TypedElementFramework.TestColumnB
 // 0x0001 (0x0001 - 0x0000)

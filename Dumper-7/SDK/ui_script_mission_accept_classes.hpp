@@ -21,9 +21,9 @@ namespace SDK
 class Uui_script_mission_accept_C final : public UOakUIScript_MissionAccept
 {
 public:
-	void MissionTracked(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void MissionAcceptedAndTracked(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 	void MissionAccepted(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void MissionAcceptedAndTracked(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void MissionTracked(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 
 public:
 	static class UClass* StaticClass()

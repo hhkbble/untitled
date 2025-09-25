@@ -87,18 +87,13 @@ void MyBlueprintModifyPostProcess(SDK::Params::CameraModifier_BlueprintModifyPos
 
 void MyProcessEvent(SDK::UObject *object, SDK::UFunction *function, void *params) {
     if (auto pair = MyCameraModifier.load(std::memory_order_acquire)) {
-        auto name = function->GetName();
-        if (object->Outer && object->Outer->IsA(SDK::AOakPlayerCameraManager::StaticClass()) &&
-            name == "BlueprintModifyPostProcess") {
-            auto modifier = pair->first;
-            auto modify = pair->second;
-            if (object == modifier && function == modify) {
-                GProcessEvent(object, function, params);
-                MyBlueprintModifyPostProcess(
-                    static_cast<SDK::Params::CameraModifier_BlueprintModifyPostProcess *>(params));
-                LOG_N_TIMES(1, WARNING) << "Called MyBlueprintModifyPostProcess";
-                return;
-            }
+        auto modifier = pair->first;
+        auto modify = pair->second;
+        if (object == modifier && function == modify) {
+            GProcessEvent(object, function, params);
+            MyBlueprintModifyPostProcess(static_cast<SDK::Params::CameraModifier_BlueprintModifyPostProcess *>(params));
+            LOG_N_TIMES(1, WARNING) << "Called MyBlueprintModifyPostProcess";
+            return;
         }
     } else if (object && function) {
         auto name = function->GetName();

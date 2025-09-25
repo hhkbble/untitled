@@ -33,11 +33,11 @@ using namespace UC;
 */
 namespace Offsets
 {
-	constexpr int32 GObjects          = 0x113878F0;
+	constexpr int32 GObjects          = 0x113CC8F0;
 	constexpr int32 AppendString      = 0x01154160;
 	constexpr int32 GNames            = 0x00000000;
 	constexpr int32 GWorld            = 0x00000000;
-	constexpr int32 ProcessEvent      = 0x014F7010;
+	constexpr int32 ProcessEvent      = 0x014F70C0;
 	constexpr int32 ProcessEventIdx   = 0x00000049;
 }
 
@@ -488,6 +488,7 @@ public:
 		return TextData->TextSource.ToString();
 	}
 };
+// DUMPER7_ASSERTS_FText;
 
 // Predefined struct FWeakObjectPtr
 // 0x0008 (0x0008 - 0x0000)
@@ -1113,8 +1114,11 @@ public:
 	uint64                                        Id;                                                // 0x0008(0x0008)(NOT AUTO-GENERATED PROPERTY)
 	uint8                                         Pad_10[0x8];                                       // 0x0010(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	uint64                                        CastFlags;                                         // 0x0018(0x0008)(NOT AUTO-GENERATED PROPERTY)
+	// EClassFlags                                   ClassFlags;                                        // 0x0018(0x0004)(NOT AUTO-GENERATED PROPERTY)
+	// uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	class FFieldClass*                            SuperClass;                                        // 0x0020(0x0008)(NOT AUTO-GENERATED PROPERTY)
 };
+// DUMPER7_ASSERTS_FFieldClass;
 
 // Predefined struct FFieldVariant
 // 0x0008 (0x0008 - 0x0000)

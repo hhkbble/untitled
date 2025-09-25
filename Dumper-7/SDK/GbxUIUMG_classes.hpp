@@ -10,20 +10,20 @@
 
 #include "Basic.hpp"
 
-#include "GbxUIUMG_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
 #include "InputCore_structs.hpp"
 #include "CommonInput_structs.hpp"
+#include "AdvancedWidgets_classes.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "CommonUI_classes.hpp"
+#include "GbxUIUMG_structs.hpp"
 #include "UMG_classes.hpp"
 #include "DeveloperSettings_classes.hpp"
 #include "SlateCore_structs.hpp"
 #include "GameplayTags_structs.hpp"
 #include "GbxGame_structs.hpp"
-#include "AdvancedWidgets_classes.hpp"
 #include "ModelViewViewModel_classes.hpp"
 
 

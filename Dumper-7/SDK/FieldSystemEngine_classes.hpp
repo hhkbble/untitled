@@ -13,8 +13,8 @@
 #include "Engine_classes.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "FieldSystemEngine_structs.hpp"
 #include "Chaos_structs.hpp"
+#include "FieldSystemEngine_structs.hpp"
 
 
 namespace SDK
@@ -67,18 +67,18 @@ public:
 DUMPER7_ASSERTS_UFieldSystem;
 
 // Class FieldSystemEngine.FieldSystemComponent
-// 0x00D0 (0x06D0 - 0x0600)
+// 0x00D0 (0x06F0 - 0x0620)
 class UFieldSystemComponent final : public UPrimitiveComponent
 {
 public:
-	class UFieldSystem*                           FieldSystem;                                       // 0x05F8(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, AdvancedDisplay, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsWorldField;                                     // 0x0600(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsChaosField;                                     // 0x0601(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_602[0x6];                                      // 0x0602(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<TSoftObjectPtr<class AChaosSolverActor>> SupportedSolvers;                                // 0x0608(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
-	struct FFieldObjectCommands                   ConstructionCommands;                              // 0x0618(0x0030)(ContainsInstancedReference, NativeAccessSpecifierPublic)
-	struct FFieldObjectCommands                   BufferCommands;                                    // 0x0648(0x0030)(ContainsInstancedReference, NativeAccessSpecifierPublic)
-	uint8                                         Pad_678[0x58];                                     // 0x0678(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UFieldSystem*                           FieldSystem;                                       // 0x0620(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, AdvancedDisplay, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsWorldField;                                     // 0x0628(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsChaosField;                                     // 0x0629(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_62A[0x6];                                      // 0x062A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<TSoftObjectPtr<class AChaosSolverActor>> SupportedSolvers;                                // 0x0630(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
+	struct FFieldObjectCommands                   ConstructionCommands;                              // 0x0640(0x0030)(ContainsInstancedReference, NativeAccessSpecifierPublic)
+	struct FFieldObjectCommands                   BufferCommands;                                    // 0x0670(0x0030)(ContainsInstancedReference, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6A0[0x50];                                     // 0x06A0(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void AddFieldCommand(bool Enabled, EFieldPhysicsType target, class UFieldSystemMetaData* MetaData, class UFieldNodeBase* Field);

@@ -10,10 +10,10 @@
 
 #include "Basic.hpp"
 
-#include "Engine_classes.hpp"
 #include "OnlineSubsystem_structs.hpp"
-#include "CoreUObject_classes.hpp"
+#include "Engine_classes.hpp"
 #include "OnlineSubsystemUtils_structs.hpp"
+#include "CoreUObject_classes.hpp"
 #include "DeveloperSettings_classes.hpp"
 #include "AudioMixer_classes.hpp"
 
@@ -780,6 +780,26 @@ public:
 };
 DUMPER7_ASSERTS_AOnlineBeaconHostObject;
 
+// Class OnlineSubsystemUtils.OnlineBeaconUnitTestHost
+// 0x0000 (0x04D0 - 0x04D0)
+class AOnlineBeaconUnitTestHost final : public AOnlineBeaconHost
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OnlineBeaconUnitTestHost")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OnlineBeaconUnitTestHost")
+	}
+	static class AOnlineBeaconUnitTestHost* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOnlineBeaconUnitTestHost>();
+	}
+};
+DUMPER7_ASSERTS_AOnlineBeaconUnitTestHost;
+
 // Class OnlineSubsystemUtils.OnlineEngineInterfaceImpl
 // 0x0170 (0x0198 - 0x0028)
 class UOnlineEngineInterfaceImpl2 final : public UOnlineEngineInterface
@@ -834,25 +854,42 @@ public:
 };
 DUMPER7_ASSERTS_UOnlinePIESettings;
 
-// Class OnlineSubsystemUtils.OnlineBeaconUnitTestNetConnection
-// 0x0000 (0x1E78 - 0x1E78)
-class UOnlineBeaconUnitTestNetConnection final : public UIpConnection
+// Class OnlineSubsystemUtils.SpectatorBeaconClient
+// 0x00F8 (0x0518 - 0x0420)
+class ASpectatorBeaconClient final : public AOnlineBeaconClient
 {
+public:
+	uint8                                         Pad_420[0x30];                                     // 0x0420(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 DestSessionId;                                     // 0x0450(0x0010)(ZeroConstructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FSpectatorReservation                  PendingReservation;                                // 0x0460(0x0088)(Protected, NativeAccessSpecifierProtected)
+	ESpectatorClientRequestType                   RequestType;                                       // 0x04E8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bPendingReservationSent;                           // 0x04E9(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bCancelReservation;                                // 0x04EA(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_4EB[0x2D];                                     // 0x04EB(0x002D)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void ClientCancelReservationResponse(ESpectatorReservationResult ReservationResponse);
+	void ClientReservationResponse(ESpectatorReservationResult ReservationResponse);
+	void ClientSendReservationFull();
+	void ClientSendReservationUpdates(int32 NumRemainingReservations);
+	void ServerCancelReservationRequest(const struct FUniqueNetIdRepl& Spectator);
+	void ServerReservationRequest(const class FString& SessionId, const struct FSpectatorReservation& Reservation);
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OnlineBeaconUnitTestNetConnection")
+		STATIC_CLASS_IMPL("SpectatorBeaconClient")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OnlineBeaconUnitTestNetConnection")
+		STATIC_NAME_IMPL(L"SpectatorBeaconClient")
 	}
-	static class UOnlineBeaconUnitTestNetConnection* GetDefaultObj()
+	static class ASpectatorBeaconClient* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOnlineBeaconUnitTestNetConnection>();
+		return GetDefaultObjImpl<ASpectatorBeaconClient>();
 	}
 };
-DUMPER7_ASSERTS_UOnlineBeaconUnitTestNetConnection;
+DUMPER7_ASSERTS_ASpectatorBeaconClient;
 
 // Class OnlineSubsystemUtils.OnlineServicesEngineInterfaceImpl
 // 0x0000 (0x0028 - 0x0028)
@@ -899,35 +936,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOnlineSessionClient;
-
-// Class OnlineSubsystemUtils.SpectatorBeaconState
-// 0x0038 (0x0060 - 0x0028)
-class USpectatorBeaconState final : public UObject
-{
-public:
-	class FName                                   SessionName;                                       // 0x0028(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	int32                                         NumConsumedReservations;                           // 0x0030(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	int32                                         MaxReservations;                                   // 0x0034(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bRestrictCrossConsole;                             // 0x0038(0x0001)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FSpectatorReservation>          Reservations;                                      // 0x0040(0x0010)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_50[0x10];                                      // 0x0050(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("SpectatorBeaconState")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"SpectatorBeaconState")
-	}
-	static class USpectatorBeaconState* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<USpectatorBeaconState>();
-	}
-};
-DUMPER7_ASSERTS_USpectatorBeaconState;
 
 // Class OnlineSubsystemUtils.PartyBeaconClient
 // 0x00C8 (0x04E8 - 0x0420)
@@ -999,6 +1007,26 @@ public:
 };
 DUMPER7_ASSERTS_APartyBeaconHost;
 
+// Class OnlineSubsystemUtils.TestBeaconHost
+// 0x0000 (0x03B8 - 0x03B8)
+class ATestBeaconHost final : public AOnlineBeaconHostObject
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("TestBeaconHost")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"TestBeaconHost")
+	}
+	static class ATestBeaconHost* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<ATestBeaconHost>();
+	}
+};
+DUMPER7_ASSERTS_ATestBeaconHost;
+
 // Class OnlineSubsystemUtils.PartyBeaconState
 // 0x0078 (0x00A0 - 0x0028)
 class UPartyBeaconState final : public UObject
@@ -1066,26 +1094,6 @@ public:
 };
 DUMPER7_ASSERTS_UQuitMatchCallbackProxy;
 
-// Class OnlineSubsystemUtils.OnlineBeaconUnitTestHost
-// 0x0000 (0x04D0 - 0x04D0)
-class AOnlineBeaconUnitTestHost final : public AOnlineBeaconHost
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OnlineBeaconUnitTestHost")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OnlineBeaconUnitTestHost")
-	}
-	static class AOnlineBeaconUnitTestHost* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOnlineBeaconUnitTestHost>();
-	}
-};
-DUMPER7_ASSERTS_AOnlineBeaconUnitTestHost;
-
 // Class OnlineSubsystemUtils.ShowLoginUICallbackProxy
 // 0x0030 (0x0060 - 0x0030)
 class UShowLoginUICallbackProxy final : public UBlueprintAsyncActionBase
@@ -1113,43 +1121,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UShowLoginUICallbackProxy;
-
-// Class OnlineSubsystemUtils.SpectatorBeaconClient
-// 0x00F8 (0x0518 - 0x0420)
-class ASpectatorBeaconClient final : public AOnlineBeaconClient
-{
-public:
-	uint8                                         Pad_420[0x30];                                     // 0x0420(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 DestSessionId;                                     // 0x0450(0x0010)(ZeroConstructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FSpectatorReservation                  PendingReservation;                                // 0x0460(0x0088)(Protected, NativeAccessSpecifierProtected)
-	ESpectatorClientRequestType                   RequestType;                                       // 0x04E8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bPendingReservationSent;                           // 0x04E9(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bCancelReservation;                                // 0x04EA(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_4EB[0x2D];                                     // 0x04EB(0x002D)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void ClientCancelReservationResponse(ESpectatorReservationResult ReservationResponse);
-	void ClientReservationResponse(ESpectatorReservationResult ReservationResponse);
-	void ClientSendReservationFull();
-	void ClientSendReservationUpdates(int32 NumRemainingReservations);
-	void ServerCancelReservationRequest(const struct FUniqueNetIdRepl& Spectator);
-	void ServerReservationRequest(const class FString& SessionId, const struct FSpectatorReservation& Reservation);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("SpectatorBeaconClient")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"SpectatorBeaconClient")
-	}
-	static class ASpectatorBeaconClient* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<ASpectatorBeaconClient>();
-	}
-};
-DUMPER7_ASSERTS_ASpectatorBeaconClient;
 
 // Class OnlineSubsystemUtils.SpectatorBeaconHost
 // 0x0078 (0x0430 - 0x03B8)
@@ -1181,6 +1152,35 @@ public:
 };
 DUMPER7_ASSERTS_ASpectatorBeaconHost;
 
+// Class OnlineSubsystemUtils.SpectatorBeaconState
+// 0x0038 (0x0060 - 0x0028)
+class USpectatorBeaconState final : public UObject
+{
+public:
+	class FName                                   SessionName;                                       // 0x0028(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	int32                                         NumConsumedReservations;                           // 0x0030(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	int32                                         MaxReservations;                                   // 0x0034(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bRestrictCrossConsole;                             // 0x0038(0x0001)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FSpectatorReservation>          Reservations;                                      // 0x0040(0x0010)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_50[0x10];                                      // 0x0050(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("SpectatorBeaconState")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"SpectatorBeaconState")
+	}
+	static class USpectatorBeaconState* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<USpectatorBeaconState>();
+	}
+};
+DUMPER7_ASSERTS_USpectatorBeaconState;
+
 // Class OnlineSubsystemUtils.TestBeaconClient
 // 0x0000 (0x0420 - 0x0420)
 class ATestBeaconClient final : public AOnlineBeaconClient
@@ -1204,26 +1204,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_ATestBeaconClient;
-
-// Class OnlineSubsystemUtils.TestBeaconHost
-// 0x0000 (0x03B8 - 0x03B8)
-class ATestBeaconHost final : public AOnlineBeaconHostObject
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("TestBeaconHost")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"TestBeaconHost")
-	}
-	static class ATestBeaconHost* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<ATestBeaconHost>();
-	}
-};
-DUMPER7_ASSERTS_ATestBeaconHost;
 
 // Class OnlineSubsystemUtils.OnlineBeaconUnitTestClient
 // 0x0000 (0x0420 - 0x0420)
@@ -1264,6 +1244,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_AOnlineBeaconUnitTestHostObject;
+
+// Class OnlineSubsystemUtils.OnlineBeaconUnitTestNetConnection
+// 0x0000 (0x1E78 - 0x1E78)
+class UOnlineBeaconUnitTestNetConnection final : public UIpConnection
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OnlineBeaconUnitTestNetConnection")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OnlineBeaconUnitTestNetConnection")
+	}
+	static class UOnlineBeaconUnitTestNetConnection* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOnlineBeaconUnitTestNetConnection>();
+	}
+};
+DUMPER7_ASSERTS_UOnlineBeaconUnitTestNetConnection;
 
 // Class OnlineSubsystemUtils.OnlineBeaconUnitTestNetDriver
 // 0x0000 (0x09A0 - 0x09A0)

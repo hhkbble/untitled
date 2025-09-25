@@ -100,11 +100,11 @@ public:
 DUMPER7_ASSERTS_UAnimNotifyState_ForwardDynamics;
 
 // Class GbxPhysics.DCollisionRenderComponent
-// 0x0080 (0x0680 - 0x0600)
+// 0x0090 (0x06B0 - 0x0620)
 class UDCollisionRenderComponent final : public UPrimitiveComponent
 {
 public:
-	uint8                                         Pad_5F8[0x88];                                     // 0x05F8(0x0088)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_620[0x90];                                     // 0x0620(0x0090)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

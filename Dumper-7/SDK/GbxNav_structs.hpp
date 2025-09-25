@@ -249,25 +249,36 @@ enum class EHavokNavMeshVertexSelectionMethod : uint8
 	PROPORTIONAL_TO_MAX                      = 2,
 };
 
-// ScriptStruct GbxNav.HavokNavMesh
-// 0x0030 (0x0030 - 0x0000)
-struct alignas(0x08) FHavokNavMesh final
+// ScriptStruct GbxNav.GbxStanceBaseDef
+// 0x0000 (0x0018 - 0x0018)
+struct FGbxStanceBaseDef : public FGbxDef
 {
-public:
-	uint8                                         Pad_0[0x30];                                       // 0x0000(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FHavokNavMesh;
+DUMPER7_ASSERTS_FGbxStanceBaseDef;
 
-// ScriptStruct GbxNav.GbxNavMeshLayerData
-// 0x0048 (0x0048 - 0x0000)
-struct FGbxNavMeshLayerData final
+// ScriptStruct GbxNav.GbxNavAnimBlendData
+// 0x0030 (0x0030 - 0x0000)
+struct FGbxNavAnimBlendData
 {
 public:
-	struct FHavokNavMesh                          HavokData;                                         // 0x0000(0x0030)(NativeAccessSpecifierPublic)
-	class UGbxNavMeshLayer*                       layer;                                             // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	float                                         MinBlendTime;                                      // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MaxBlendTime;                                      // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MinDelta;                                          // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MaxDelta;                                          // 0x000C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGbxAnimBlendOptions                   BlendOptions;                                      // 0x0010(0x0020)(Edit, NoDestructor, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FGbxNavMeshLayerData;
+DUMPER7_ASSERTS_FGbxNavAnimBlendData;
+
+// ScriptStruct GbxNav.GbxNavAnimBlendTransition
+// 0x0008 (0x0038 - 0x0030)
+struct FGbxNavAnimBlendTransition final : public FGbxNavAnimBlendData
+{
+public:
+	EGbxNavAnimType                               FromType;                                          // 0x0030(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EGbxNavAnimType                               ToType;                                            // 0x0031(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_32[0x6];                                       // 0x0032(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGbxNavAnimBlendTransition;
 
 // ScriptStruct GbxNav.GbxStanceUserState
 // 0x0208 (0x0208 - 0x0000)
@@ -282,26 +293,42 @@ public:
 };
 DUMPER7_ASSERTS_FGbxStanceUserState;
 
-// ScriptStruct GbxNav.HavokStreamingSet
-// 0x0030 (0x0030 - 0x0000)
-struct alignas(0x08) FHavokStreamingSet final
+// ScriptStruct GbxNav.GbxStanceTransitionGroup
+// 0x0070 (0x0070 - 0x0000)
+struct FGbxStanceTransitionGroup final
 {
 public:
-	uint8                                         Pad_0[0x30];                                       // 0x0000(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class FName                                   Name;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGameplayTagQuery                      StanceTags;                                        // 0x0008(0x0048)(Edit, NativeAccessSpecifierPublic)
+	TArray<FGameDataHandleProperty_>              Stances;                                           // 0x0050(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_60[0x10];                                      // 0x0060(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FHavokStreamingSet;
+DUMPER7_ASSERTS_FGbxStanceTransitionGroup;
 
-// ScriptStruct GbxNav.GbxNavStreamingInfo
-// 0x0040 (0x0040 - 0x0000)
-struct FGbxNavStreamingInfo final
+// ScriptStruct GbxNav.GbxStanceTransition
+// 0x0068 (0x0068 - 0x0000)
+struct FGbxStanceTransition final
 {
 public:
-	TWeakObjectPtr<class UGbxNavMeshComponent>    OppositeNavMesh;                                   // 0x0000(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FHavokStreamingSet                     HavokData;                                         // 0x0008(0x0030)(NativeAccessSpecifierPublic)
-	bool                                          bUsesIdA;                                          // 0x0038(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class FName                                   FromStance;                                        // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   ToStance;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGbxAnimAssetRef                       Anim;                                              // 0x0010(0x0018)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	struct FGbxAnimBlendOptions                   BlendIn;                                           // 0x0028(0x0020)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	struct FGbxAnimBlendOptions                   BlendOut;                                          // 0x0048(0x0020)(Edit, NoDestructor, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FGbxNavStreamingInfo;
+DUMPER7_ASSERTS_FGbxStanceTransition;
+
+// ScriptStruct GbxNav.AnimNode_GbxStanceTransition
+// 0x0218 (0x0340 - 0x0128)
+struct FAnimNode_GbxStanceTransition final : public FGbxAnimNode_StateMachine
+{
+public:
+	struct FPoseLink                              Source;                                            // 0x0128(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPrivate)
+	TArray<struct FGbxStanceTransitionGroup>      Groups;                                            // 0x0138(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<struct FGbxStanceTransition>           Transitions;                                       // 0x0148(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_158[0x1E8];                                    // 0x0158(0x01E8)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FAnimNode_GbxStanceTransition;
 
 // ScriptStruct GbxNav.GbxStanceOverrideOption
 // 0x0098 (0x0098 - 0x0000)
@@ -369,6 +396,27 @@ public:
 };
 DUMPER7_ASSERTS_FGbxNavAvoidData;
 
+// ScriptStruct GbxNav.GbxNavId
+// 0x0030 (0x0030 - 0x0000)
+struct FGbxNavId final
+{
+public:
+	TSoftObjectPtr<class UObject>                 ObjectPtr;                                         // 0x0000(0x0028)(UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint32                                        Cache;                                             // 0x0028(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGbxNavId;
+
+// ScriptStruct GbxNav.GbxBakedNavPainterData
+// 0x0048 (0x0048 - 0x0000)
+struct FGbxBakedNavPainterData final
+{
+public:
+	struct FGbxNavId                              NavId;                                             // 0x0000(0x0030)(NativeAccessSpecifierPublic)
+	struct FVector                                MatchLoc;                                          // 0x0030(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FGbxBakedNavPainterData;
+
 // ScriptStruct GbxNav.GbxStanceUserDataDef
 // 0x0068 (0x0080 - 0x0018)
 struct FGbxStanceUserDataDef final : public FGbxDef
@@ -377,6 +425,15 @@ public:
 	struct FGbxStanceUserData                     StanceUserData;                                    // 0x0018(0x0068)(Edit, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FGbxStanceUserDataDef;
+
+// ScriptStruct GbxNav.GbxCondition_Stance
+// 0x0018 (0x0028 - 0x0010)
+struct FGbxCondition_Stance final : public FGbxConditionValueResolver
+{
+public:
+	FGameDataHandleProperty_                      stance;                                            // 0x0010(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+};
+DUMPER7_ASSERTS_FGbxCondition_Stance;
 
 // ScriptStruct GbxNav.GbxBakedLayerNavLinkData
 // 0x0060 (0x0060 - 0x0000)
@@ -390,48 +447,14 @@ public:
 };
 DUMPER7_ASSERTS_FGbxBakedLayerNavLinkData;
 
-// ScriptStruct GbxNav.GbxNavId
-// 0x0030 (0x0030 - 0x0000)
-struct FGbxNavId final
+// ScriptStruct GbxNav.GbxNavWorldData
+// 0x0004 (0x0004 - 0x0000)
+struct FGbxNavWorldData final
 {
 public:
-	TSoftObjectPtr<class UObject>                 ObjectPtr;                                         // 0x0000(0x0028)(UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint32                                        Cache;                                             // 0x0028(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint32                                        NavLayersInWorld;                                  // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FGbxNavId;
-
-// ScriptStruct GbxNav.GbxBakedNavLinkData
-// 0x0050 (0x0050 - 0x0000)
-struct FGbxBakedNavLinkData final
-{
-public:
-	TArray<struct FGbxBakedLayerNavLinkData>      LayerData;                                         // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	int32                                         ForwardTypeIdx;                                    // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         ReverseTypeIdx;                                    // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EGbxNavLinkDirection                          Direction;                                         // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxNavId                              NavId;                                             // 0x0020(0x0030)(NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FGbxBakedNavLinkData;
-
-// ScriptStruct GbxNav.GbxNavStreamingSet
-// 0x0038 (0x0038 - 0x0000)
-struct FGbxNavStreamingSet final
-{
-public:
-	int32                                         SectionIdA;                                        // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         SectionIdB;                                        // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FHavokStreamingSet                     HavokData;                                         // 0x0008(0x0030)(NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FGbxNavStreamingSet;
-
-// ScriptStruct GbxNav.GbxStanceBaseDef
-// 0x0000 (0x0018 - 0x0018)
-struct FGbxStanceBaseDef : public FGbxDef
-{
-};
-DUMPER7_ASSERTS_FGbxStanceBaseDef;
+DUMPER7_ASSERTS_FGbxNavWorldData;
 
 // ScriptStruct GbxNav.GbxRotationChannelDataOverride
 // 0x0038 (0x0038 - 0x0000)
@@ -505,85 +528,38 @@ public:
 };
 DUMPER7_ASSERTS_FGbxStanceDef;
 
-// ScriptStruct GbxNav.GbxNavLeanData
-// 0x0010 (0x0010 - 0x0000)
-struct FGbxNavLeanData final
+// ScriptStruct GbxNav.GbxNavLinkDef
+// 0x0008 (0x0020 - 0x0018)
+struct FGbxNavLinkDef : public FGbxDef
 {
 public:
-	class UAnimSequence*                          Left;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UAnimSequence*                          Right;                                             // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_18[0x8];                                       // 0x0018(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FGbxNavLeanData;
+DUMPER7_ASSERTS_FGbxNavLinkDef;
 
-// ScriptStruct GbxNav.GbxNavStopEntry
-// 0x0010 (0x0010 - 0x0000)
-struct FGbxNavStopEntry final
+// ScriptStruct GbxNav.GbxNavLinkDef_Stretch
+// 0x0140 (0x0160 - 0x0020)
+struct alignas(0x10) FGbxNavLinkDef_Stretch final : public FGbxNavLinkDef
 {
 public:
-	float                                         time;                                              // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAnimSequence*                          StopSeq;                                           // 0x0008(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_20[0x108];                                     // 0x0020(0x0108)(Fixing Size After Last Property [ Dumper-7 ])
+	TSoftObjectPtr<class UAnimSequence>           Anim;                                              // 0x0128(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         DefaultHeight;                                     // 0x0150(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bOffsetOrigin;                                     // 0x0154(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_155[0xB];                                      // 0x0155(0x000B)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FGbxNavStopEntry;
+DUMPER7_ASSERTS_FGbxNavLinkDef_Stretch;
 
-// ScriptStruct GbxNav.GbxNavAnimSpeedData
-// 0x0098 (0x0098 - 0x0000)
-struct FGbxNavAnimSpeedData final
+// ScriptStruct GbxNav.GbxStancePickerOption
+// 0x0058 (0x0058 - 0x0000)
+struct FGbxStancePickerOption final
 {
 public:
-	TArray<class UAnimSequence*>                  Moves;                                             // 0x0000(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
-	struct FGbxNavLeanData                        Leans;                                             // 0x0010(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	float                                         speed;                                             // 0x0020(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UBlendSpace1D*                          LeanBlendSpace;                                    // 0x0028(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<struct FGbxNavStopEntry>               Stops;                                             // 0x0030(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<class UAnimSequence*>                  LeftTurns;                                         // 0x0040(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
-	TArray<class UAnimSequence*>                  RightTurns;                                        // 0x0050(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
-	TArray<class UAnimSequence*>                  LeftStarts;                                        // 0x0060(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
-	TArray<class UAnimSequence*>                  RightStarts;                                       // 0x0070(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
-	TArray<class UAnimSequence*>                  Transitions;                                       // 0x0080(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
-	bool                                          bHasStartTurns;                                    // 0x0090(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_91[0x7];                                       // 0x0091(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class FName                                   Option;                                            // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGbxParam                              Condition;                                         // 0x0008(0x0038)(Edit, NativeAccessSpecifierPublic)
+	FGameDataHandleProperty_                      stance;                                            // 0x0040(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FGbxNavAnimSpeedData;
-
-// ScriptStruct GbxNav.GbxNavAnimDirectionData
-// 0x0028 (0x0028 - 0x0000)
-struct FGbxNavAnimDirectionData final
-{
-public:
-	class UBlendSpace*                            BlendSpace;                                        // 0x0000(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         yaw;                                               // 0x0008(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FGbxNavAnimSpeedData>           Speeds;                                            // 0x0010(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPrivate)
-	bool                                          bHasStartTurns;                                    // 0x0020(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FGbxNavAnimDirectionData;
-
-// ScriptStruct GbxNav.GbxNavAnimBlendData
-// 0x0030 (0x0030 - 0x0000)
-struct FGbxNavAnimBlendData
-{
-public:
-	float                                         MinBlendTime;                                      // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MaxBlendTime;                                      // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MinDelta;                                          // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MaxDelta;                                          // 0x000C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGbxAnimBlendOptions                   BlendOptions;                                      // 0x0010(0x0020)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FGbxNavAnimBlendData;
-
-// ScriptStruct GbxNav.GbxNavAnimBlendTransition
-// 0x0008 (0x0038 - 0x0030)
-struct FGbxNavAnimBlendTransition final : public FGbxNavAnimBlendData
-{
-public:
-	EGbxNavAnimType                               FromType;                                          // 0x0030(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EGbxNavAnimType                               ToType;                                            // 0x0031(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_32[0x6];                                       // 0x0032(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FGbxNavAnimBlendTransition;
+DUMPER7_ASSERTS_FGbxStancePickerOption;
 
 // ScriptStruct GbxNav.AnimNode_GbxNavAnimStateMachine
 // 0x0380 (0x04A8 - 0x0128)
@@ -611,16 +587,6 @@ public:
 };
 DUMPER7_ASSERTS_FAnimNode_GbxNav;
 
-// ScriptStruct GbxNav.GbxNavFace
-// 0x0008 (0x0008 - 0x0000)
-struct FGbxNavFace final
-{
-public:
-	int32                                         SectionIdx;                                        // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	int32                                         FaceIdx;                                           // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-};
-DUMPER7_ASSERTS_FGbxNavFace;
-
 // ScriptStruct GbxNav.GbxStanceAnimGroup
 // 0x0070 (0x0070 - 0x0000)
 struct FGbxStanceAnimGroup final
@@ -643,91 +609,12 @@ public:
 };
 DUMPER7_ASSERTS_FAnimNode_GbxStance;
 
-// ScriptStruct GbxNav.GbxStanceTransitionGroup
-// 0x0070 (0x0070 - 0x0000)
-struct FGbxStanceTransitionGroup final
-{
-public:
-	class FName                                   Name;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGameplayTagQuery                      StanceTags;                                        // 0x0008(0x0048)(Edit, NativeAccessSpecifierPublic)
-	TArray<FGameDataHandleProperty_>              Stances;                                           // 0x0050(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_60[0x10];                                      // 0x0060(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FGbxStanceTransitionGroup;
-
-// ScriptStruct GbxNav.GbxNavAnimPose
-// 0x0010 (0x0010 - 0x0000)
-struct FGbxNavAnimPose final
-{
-public:
-	class UAnimSequence*                          Sequence;                                          // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         time;                                              // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Error;                                             // 0x000C(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FGbxNavAnimPose;
-
-// ScriptStruct GbxNav.GbxStanceTransition
-// 0x0068 (0x0068 - 0x0000)
-struct FGbxStanceTransition final
-{
-public:
-	class FName                                   FromStance;                                        // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ToStance;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGbxAnimAssetRef                       Anim;                                              // 0x0010(0x0018)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	struct FGbxAnimBlendOptions                   BlendIn;                                           // 0x0028(0x0020)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	struct FGbxAnimBlendOptions                   BlendOut;                                          // 0x0048(0x0020)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FGbxStanceTransition;
-
-// ScriptStruct GbxNav.GbxStancePickerOption
-// 0x0058 (0x0058 - 0x0000)
-struct FGbxStancePickerOption final
-{
-public:
-	class FName                                   Option;                                            // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGbxParam                              Condition;                                         // 0x0008(0x0038)(Edit, NativeAccessSpecifierPublic)
-	FGameDataHandleProperty_                      stance;                                            // 0x0040(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FGbxStancePickerOption;
-
-// ScriptStruct GbxNav.AnimNode_GbxStanceTransition
-// 0x0218 (0x0340 - 0x0128)
-struct FAnimNode_GbxStanceTransition final : public FGbxAnimNode_StateMachine
-{
-public:
-	struct FPoseLink                              Source;                                            // 0x0128(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPrivate)
-	TArray<struct FGbxStanceTransitionGroup>      Groups;                                            // 0x0138(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-	TArray<struct FGbxStanceTransition>           Transitions;                                       // 0x0148(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_158[0x1E8];                                    // 0x0158(0x01E8)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FAnimNode_GbxStanceTransition;
-
 // ScriptStruct GbxNav.GbxCondition_IsNavigating
 // 0x0000 (0x0010 - 0x0010)
 struct FGbxCondition_IsNavigating final : public FGbxConditionValueResolver
 {
 };
 DUMPER7_ASSERTS_FGbxCondition_IsNavigating;
-
-// ScriptStruct GbxNav.GbxCondition_Stance
-// 0x0018 (0x0028 - 0x0010)
-struct FGbxCondition_Stance final : public FGbxConditionValueResolver
-{
-public:
-	FGameDataHandleProperty_                      stance;                                            // 0x0010(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-};
-DUMPER7_ASSERTS_FGbxCondition_Stance;
-
-// ScriptStruct GbxNav.GbxNavEdgeItem
-// 0x0010 (0x0010 - 0x0000)
-struct FGbxNavEdgeItem final
-{
-public:
-	class UGbxNavLinkData*                        Edge;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         CostScale;                                         // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FGbxNavEdgeItem;
 
 // ScriptStruct GbxNav.HavokFlightNav
 // 0x0028 (0x0028 - 0x0000)
@@ -769,37 +656,16 @@ public:
 };
 DUMPER7_ASSERTS_FGbxFlightNavData;
 
-// ScriptStruct GbxNav.GbxNavCoverMarkup
-// 0x0070 (0x0070 - 0x0000)
-struct FGbxNavCoverMarkup final
+// ScriptStruct GbxNav.GbxNavStopEntry
+// 0x0010 (0x0010 - 0x0000)
+struct FGbxNavStopEntry final
 {
 public:
-	struct FTransform                             Transform;                                         // 0x0000(0x0060)(IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Width;                                             // 0x0060(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_64[0xC];                                       // 0x0064(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	float                                         time;                                              // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UAnimSequence*                          StopSeq;                                           // 0x0008(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FGbxNavCoverMarkup;
-
-// ScriptStruct GbxNav.GbxNavLinkDef
-// 0x0008 (0x0020 - 0x0018)
-struct FGbxNavLinkDef : public FGbxDef
-{
-public:
-	uint8                                         Pad_18[0x8];                                       // 0x0018(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FGbxNavLinkDef;
-
-// ScriptStruct GbxNav.GbxNavLinkDef_FallAndLand
-// 0x0058 (0x0078 - 0x0020)
-struct FGbxNavLinkDef_FallAndLand final : public FGbxNavLinkDef
-{
-public:
-	TSoftObjectPtr<class UAnimSequence>           Fall;                                              // 0x0020(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	TSoftObjectPtr<class UAnimSequence>           Land;                                              // 0x0048(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         FallSpeed;                                         // 0x0070(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_74[0x4];                                       // 0x0074(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FGbxNavLinkDef_FallAndLand;
+DUMPER7_ASSERTS_FGbxNavStopEntry;
 
 // ScriptStruct GbxNav.GbxNavTurnPrediction
 // 0x0008 (0x0008 - 0x0000)
@@ -810,6 +676,51 @@ public:
 	float                                         MaxPredictedTurnTime;                              // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FGbxNavTurnPrediction;
+
+// ScriptStruct GbxNav.GbxNavLeanData
+// 0x0010 (0x0010 - 0x0000)
+struct FGbxNavLeanData final
+{
+public:
+	class UAnimSequence*                          Left;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAnimSequence*                          Right;                                             // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FGbxNavLeanData;
+
+// ScriptStruct GbxNav.GbxNavAnimSpeedData
+// 0x0098 (0x0098 - 0x0000)
+struct FGbxNavAnimSpeedData final
+{
+public:
+	TArray<class UAnimSequence*>                  Moves;                                             // 0x0000(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
+	struct FGbxNavLeanData                        Leans;                                             // 0x0010(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	float                                         speed;                                             // 0x0020(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UBlendSpace1D*                          LeanBlendSpace;                                    // 0x0028(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<struct FGbxNavStopEntry>               Stops;                                             // 0x0030(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<class UAnimSequence*>                  LeftTurns;                                         // 0x0040(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
+	TArray<class UAnimSequence*>                  RightTurns;                                        // 0x0050(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
+	TArray<class UAnimSequence*>                  LeftStarts;                                        // 0x0060(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
+	TArray<class UAnimSequence*>                  RightStarts;                                       // 0x0070(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
+	TArray<class UAnimSequence*>                  Transitions;                                       // 0x0080(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
+	bool                                          bHasStartTurns;                                    // 0x0090(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_91[0x7];                                       // 0x0091(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGbxNavAnimSpeedData;
+
+// ScriptStruct GbxNav.GbxNavAnimDirectionData
+// 0x0028 (0x0028 - 0x0000)
+struct FGbxNavAnimDirectionData final
+{
+public:
+	class UBlendSpace*                            BlendSpace;                                        // 0x0000(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         yaw;                                               // 0x0008(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FGbxNavAnimSpeedData>           Speeds;                                            // 0x0010(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPrivate)
+	bool                                          bHasStartTurns;                                    // 0x0020(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGbxNavAnimDirectionData;
 
 // ScriptStruct GbxNav.GbxNavPoseMatchTestResult
 // 0x0020 (0x0020 - 0x0000)
@@ -840,6 +751,28 @@ public:
 #pragma pack(pop)
 DUMPER7_ASSERTS_FGbxNavAnimInstanceProxy;
 
+// ScriptStruct GbxNav.GbxNavAnimPose
+// 0x0010 (0x0010 - 0x0000)
+struct FGbxNavAnimPose final
+{
+public:
+	class UAnimSequence*                          Sequence;                                          // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         time;                                              // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Error;                                             // 0x000C(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FGbxNavAnimPose;
+
+// ScriptStruct GbxNav.GbxNavCoverMarkup
+// 0x0070 (0x0070 - 0x0000)
+struct FGbxNavCoverMarkup final
+{
+public:
+	struct FTransform                             Transform;                                         // 0x0000(0x0060)(IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Width;                                             // 0x0060(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_64[0xC];                                       // 0x0064(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGbxNavCoverMarkup;
+
 // ScriptStruct GbxNav.GbxNavFilterOverrideDef
 // 0x0010 (0x0028 - 0x0018)
 struct FGbxNavFilterOverrideDef final : public FGbxDef
@@ -861,6 +794,17 @@ public:
 	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FGbxNavAreaItem;
+
+// ScriptStruct GbxNav.GbxNavEdgeItem
+// 0x0010 (0x0010 - 0x0000)
+struct FGbxNavEdgeItem final
+{
+public:
+	class UGbxNavLinkData*                        Edge;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         CostScale;                                         // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGbxNavEdgeItem;
 
 // ScriptStruct GbxNav.GbxNavGoalModifiers
 // 0x0080 (0x0080 - 0x0000)
@@ -888,6 +832,18 @@ public:
 	struct FGbxAnimPoseRef                        DesiredPose;                                       // 0x0070(0x0010)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FGbxNavGoalModifiers;
+
+// ScriptStruct GbxNav.GbxNavLinkDef_FallAndLand
+// 0x0058 (0x0078 - 0x0020)
+struct FGbxNavLinkDef_FallAndLand final : public FGbxNavLinkDef
+{
+public:
+	TSoftObjectPtr<class UAnimSequence>           Fall;                                              // 0x0020(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	TSoftObjectPtr<class UAnimSequence>           Land;                                              // 0x0048(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         FallSpeed;                                         // 0x0070(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_74[0x4];                                       // 0x0074(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGbxNavLinkDef_FallAndLand;
 
 // ScriptStruct GbxNav.GbxNavLinkDef_Interp
 // 0x0008 (0x0028 - 0x0020)
@@ -935,28 +891,39 @@ public:
 };
 DUMPER7_ASSERTS_FGbxNavLinkDef_Stance;
 
-// ScriptStruct GbxNav.GbxNavLinkDef_Stretch
-// 0x0140 (0x0160 - 0x0020)
-struct alignas(0x10) FGbxNavLinkDef_Stretch final : public FGbxNavLinkDef
+// ScriptStruct GbxNav.HavokNavMesh
+// 0x0030 (0x0030 - 0x0000)
+struct alignas(0x08) FHavokNavMesh final
 {
 public:
-	uint8                                         Pad_20[0x108];                                     // 0x0020(0x0108)(Fixing Size After Last Property [ Dumper-7 ])
-	TSoftObjectPtr<class UAnimSequence>           Anim;                                              // 0x0128(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         DefaultHeight;                                     // 0x0150(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bOffsetOrigin;                                     // 0x0154(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_155[0xB];                                      // 0x0155(0x000B)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_0[0x30];                                       // 0x0000(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FGbxNavLinkDef_Stretch;
+DUMPER7_ASSERTS_FHavokNavMesh;
 
-// ScriptStruct GbxNav.GbxBakedNavPainterData
+// ScriptStruct GbxNav.GbxNavMeshLayerData
 // 0x0048 (0x0048 - 0x0000)
-struct FGbxBakedNavPainterData final
+struct FGbxNavMeshLayerData final
 {
 public:
-	struct FGbxNavId                              NavId;                                             // 0x0000(0x0030)(NativeAccessSpecifierPublic)
-	struct FVector                                MatchLoc;                                          // 0x0030(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FHavokNavMesh                          HavokData;                                         // 0x0000(0x0030)(NativeAccessSpecifierPublic)
+	class UGbxNavMeshLayer*                       layer;                                             // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FGbxBakedNavPainterData;
+DUMPER7_ASSERTS_FGbxNavMeshLayerData;
+
+// ScriptStruct GbxNav.GbxBakedNavLinkData
+// 0x0050 (0x0050 - 0x0000)
+struct FGbxBakedNavLinkData final
+{
+public:
+	TArray<struct FGbxBakedLayerNavLinkData>      LayerData;                                         // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	int32                                         ForwardTypeIdx;                                    // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         ReverseTypeIdx;                                    // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EGbxNavLinkDirection                          Direction;                                         // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxNavId                              NavId;                                             // 0x0020(0x0030)(NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FGbxBakedNavLinkData;
 
 // ScriptStruct GbxNav.GbxNavMeshData
 // 0x0080 (0x0080 - 0x0000)
@@ -1008,6 +975,48 @@ public:
 };
 DUMPER7_ASSERTS_FGbxNavSpot;
 
+// ScriptStruct GbxNav.HavokStreamingSet
+// 0x0030 (0x0030 - 0x0000)
+struct alignas(0x08) FHavokStreamingSet final
+{
+public:
+	uint8                                         Pad_0[0x30];                                       // 0x0000(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FHavokStreamingSet;
+
+// ScriptStruct GbxNav.GbxNavStreamingInfo
+// 0x0040 (0x0040 - 0x0000)
+struct FGbxNavStreamingInfo final
+{
+public:
+	TWeakObjectPtr<class UGbxNavMeshComponent>    OppositeNavMesh;                                   // 0x0000(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FHavokStreamingSet                     HavokData;                                         // 0x0008(0x0030)(NativeAccessSpecifierPublic)
+	bool                                          bUsesIdA;                                          // 0x0038(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGbxNavStreamingInfo;
+
+// ScriptStruct GbxNav.GbxNavStreamingSet
+// 0x0038 (0x0038 - 0x0000)
+struct FGbxNavStreamingSet final
+{
+public:
+	int32                                         SectionIdA;                                        // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         SectionIdB;                                        // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FHavokStreamingSet                     HavokData;                                         // 0x0008(0x0030)(NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FGbxNavStreamingSet;
+
+// ScriptStruct GbxNav.GbxNavFace
+// 0x0008 (0x0008 - 0x0000)
+struct FGbxNavFace final
+{
+public:
+	int32                                         SectionIdx;                                        // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	int32                                         FaceIdx;                                           // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+};
+DUMPER7_ASSERTS_FGbxNavFace;
+
 // ScriptStruct GbxNav.GbxUniversalNavFace
 // 0x000C (0x000C - 0x0000)
 struct alignas(0x04) FGbxUniversalNavFace final
@@ -1027,15 +1036,6 @@ public:
 	class UGbxNavEdgeUserData*                    Edges;                                             // 0x0010(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FGbxNavQueryData;
-
-// ScriptStruct GbxNav.GbxNavWorldData
-// 0x0004 (0x0004 - 0x0000)
-struct FGbxNavWorldData final
-{
-public:
-	uint32                                        NavLayersInWorld;                                  // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FGbxNavWorldData;
 
 // ScriptStruct GbxNav.GbxStancePickerDef
 // 0x0020 (0x0038 - 0x0018)

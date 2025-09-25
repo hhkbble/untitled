@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "StreamlineBlueprint_structs.hpp"
 #include "StreamlineDeepDVCBlueprint_structs.hpp"
+#include "StreamlineBlueprint_structs.hpp"
 
 
 namespace SDK::Params

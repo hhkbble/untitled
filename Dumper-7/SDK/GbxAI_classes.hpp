@@ -112,20 +112,20 @@ public:
 DUMPER7_ASSERTS_UCoverRootComponent;
 
 // Class GbxAI.CoverSlotComponent
-// 0x00C0 (0x06C0 - 0x0600)
+// 0x00D0 (0x06F0 - 0x0620)
 class UCoverSlotComponent : public UPrimitiveComponent
 {
 public:
-	class UCoverSlotData*                         SlotType;                                          // 0x05F8(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bEnabled;                                          // 0x0600(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bValid;                                            // 0x0601(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	ECoverSlotHeight                              SlotHeight;                                        // 0x0602(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_603[0x5];                                      // 0x0603(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FCoverSlotViewData>             Views;                                             // 0x0608(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-	TArray<struct FCoverSlotViewFailData>         FailedViews;                                       // 0x0618(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPrivate)
-	TArray<class UCoverSlotComponent*>            OverlappingSlots;                                  // 0x0628(0x0010)(Edit, ExportObject, ZeroConstructor, EditConst, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate)
-	class AActor*                                 CurrentUser;                                       // 0x0638(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_640[0x80];                                     // 0x0640(0x0080)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UCoverSlotData*                         SlotType;                                          // 0x0620(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bEnabled;                                          // 0x0628(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bValid;                                            // 0x0629(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	ECoverSlotHeight                              SlotHeight;                                        // 0x062A(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_62B[0x5];                                      // 0x062B(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FCoverSlotViewData>             Views;                                             // 0x0630(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<struct FCoverSlotViewFailData>         FailedViews;                                       // 0x0640(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPrivate)
+	TArray<class UCoverSlotComponent*>            OverlappingSlots;                                  // 0x0650(0x0010)(Edit, ExportObject, ZeroConstructor, EditConst, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate)
+	class AActor*                                 CurrentUser;                                       // 0x0660(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_668[0x88];                                     // 0x0668(0x0088)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void SetEnabled(bool bNewEnabled);
@@ -1040,14 +1040,15 @@ public:
 DUMPER7_ASSERTS_AGbxTerritory;
 
 // Class GbxAI.GbxTerritoryComponent
-// 0x0390 (0x0990 - 0x0600)
+// 0x03A0 (0x09C0 - 0x0620)
 class UGbxTerritoryComponent : public UPrimitiveComponent
 {
 public:
-	uint8                                         Pad_5F8[0x8];                                      // 0x05F8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxTerritorySettings                  settings;                                          // 0x0600(0x0378)(Edit, NativeAccessSpecifierPublic)
-	uint8                                         Pad_978[0x8];                                      // 0x0978(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UGbxTerritoryComponent*>         LinkedTerritories;                                 // 0x0980(0x0010)(ExportObject, ZeroConstructor, Transient, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_620[0x8];                                      // 0x0620(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxTerritorySettings                  settings;                                          // 0x0628(0x0378)(Edit, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9A0[0x8];                                      // 0x09A0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class UGbxTerritoryComponent*>         LinkedTerritories;                                 // 0x09A8(0x0010)(ExportObject, ZeroConstructor, Transient, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_9B8[0x8];                                      // 0x09B8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -1318,23 +1319,23 @@ public:
 DUMPER7_ASSERTS_AGpsTestActor;
 
 // Class GbxAI.GpsTestComponent
-// 0x0280 (0x0880 - 0x0600)
+// 0x0280 (0x08A0 - 0x0620)
 class UGpsTestComponent final : public UPrimitiveComponent
 {
 public:
-	uint8                                         Pad_5F8[0x20];                                     // 0x05F8(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGbxBrainTaskData*                      BrainGraph;                                        // 0x0618(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bGetQueryDataFromBrainGraph;                       // 0x0620(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_621[0x7];                                      // 0x0621(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 BrainGraphAspect;                                  // 0x0628(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	struct FGpsQueryRunData                       QueryData;                                         // 0x0638(0x01E0)(Edit, NativeAccessSpecifierPrivate)
-	TMap<class FName, struct FGbxParam>           contexts;                                          // 0x0818(0x0050)(Edit, NativeAccessSpecifierPrivate)
-	int32                                         GeneratorIdx;                                      // 0x0868(0x0004)(Edit, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bDebugGenerator;                                   // 0x086C(0x0001)(Edit, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_86D[0x3];                                      // 0x086D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         TestIdx;                                           // 0x0870(0x0004)(Edit, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bDebugTest;                                        // 0x0874(0x0001)(Edit, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_875[0xB];                                      // 0x0875(0x000B)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_620[0x20];                                     // 0x0620(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGbxBrainTaskData*                      BrainGraph;                                        // 0x0640(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bGetQueryDataFromBrainGraph;                       // 0x0648(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_649[0x7];                                      // 0x0649(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 BrainGraphAspect;                                  // 0x0650(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FGpsQueryRunData                       QueryData;                                         // 0x0660(0x01E0)(Edit, NativeAccessSpecifierPrivate)
+	TMap<class FName, struct FGbxParam>           contexts;                                          // 0x0840(0x0050)(Edit, NativeAccessSpecifierPrivate)
+	int32                                         GeneratorIdx;                                      // 0x0890(0x0004)(Edit, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bDebugGenerator;                                   // 0x0894(0x0001)(Edit, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_895[0x3];                                      // 0x0895(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         TestIdx;                                           // 0x0898(0x0004)(Edit, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bDebugTest;                                        // 0x089C(0x0001)(Edit, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_89D[0x3];                                      // 0x089D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void RefreshContexts();

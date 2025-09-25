@@ -73,13 +73,13 @@ public:
 DUMPER7_ASSERTS_UGbxDynamicVegetationCollisionComponent;
 
 // Class GbxVegetation.GbxDynamicVegetationComponent
-// 0x0020 (0x1170 - 0x1150)
+// 0x0020 (0x11A0 - 0x1180)
 class UGbxDynamicVegetationComponent final : public USkeletalMeshComponent
 {
 public:
-	struct FGbxDynamicVegetationSimulationParameters SimulationParameters;                           // 0x1148(0x001C)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          bEnableSkeletalMeshComponent;                      // 0x1164(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1165[0xB];                                     // 0x1165(0x000B)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FGbxDynamicVegetationSimulationParameters SimulationParameters;                           // 0x1178(0x001C)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          bEnableSkeletalMeshComponent;                      // 0x1194(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1195[0xB];                                     // 0x1195(0x000B)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

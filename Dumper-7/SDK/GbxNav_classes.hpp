@@ -48,16 +48,16 @@ public:
 DUMPER7_ASSERTS_AAINode;
 
 // Class GbxNav.AINodeComponent
-// 0x0060 (0x0660 - 0x0600)
+// 0x0070 (0x0690 - 0x0620)
 class UAINodeComponent : public UPrimitiveComponent
 {
 public:
-	uint8                                         Pad_5F8[0x38];                                     // 0x05F8(0x0038)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         NodeRadius;                                        // 0x0630(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         NodeChainRadius;                                   // 0x0634(0x0004)(Edit, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         NodeHeight;                                        // 0x0638(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bShowHeight;                                       // 0x063C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_63D[0x23];                                     // 0x063D(0x0023)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_620[0x38];                                     // 0x0620(0x0038)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         NodeRadius;                                        // 0x0658(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         NodeChainRadius;                                   // 0x065C(0x0004)(Edit, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         NodeHeight;                                        // 0x0660(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bShowHeight;                                       // 0x0664(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_665[0x2B];                                     // 0x0665(0x002B)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -223,12 +223,13 @@ public:
 DUMPER7_ASSERTS_UAnimNotify_GbxNavPoseMatch;
 
 // Class GbxNav.GbxBaseAINavComponent
-// 0x0010 (0x0610 - 0x0600)
-class UGbxBaseAINavComponent : public UPrimitiveComponent
+// 0x0020 (0x0640 - 0x0620)
+#pragma pack(push, 0x1)
+class alignas(0x10) UGbxBaseAINavComponent : public UPrimitiveComponent
 {
 public:
-	struct FGuid                                  DominationGuid;                                    // 0x05F8(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, NonPIEDuplicateTransient, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_608[0x8];                                      // 0x0608(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FGuid                                  DominationGuid;                                    // 0x0620(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, NonPIEDuplicateTransient, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_630[0x8];                                      // 0x0630(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -244,6 +245,7 @@ public:
 		return GetDefaultObjImpl<UGbxBaseAINavComponent>();
 	}
 };
+#pragma pack(pop)
 DUMPER7_ASSERTS_UGbxBaseAINavComponent;
 
 // Class GbxNav.GbxFlightNav
@@ -305,14 +307,13 @@ public:
 DUMPER7_ASSERTS_IGbxStanceUser;
 
 // Class GbxNav.GbxFlightNavComponent
-// 0x0060 (0x0670 - 0x0610)
+// 0x0050 (0x0690 - 0x0640)
 class UGbxFlightNavComponent final : public UGbxBaseAINavComponent
 {
 public:
-	uint8                                         Pad_610[0x20];                                     // 0x0610(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UGbxFlightNavLayer*>             layers;                                            // 0x0630(0x0010)(Edit, ZeroConstructor, NoClear, UObjectWrapper, NativeAccessSpecifierPrivate)
-	struct FGbxFlightNavData                      data;                                              // 0x0640(0x0028)(NativeAccessSpecifierPrivate)
-	uint8                                         Pad_668[0x8];                                      // 0x0668(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_638[0x20];                                     // 0x0638(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class UGbxFlightNavLayer*>             layers;                                            // 0x0658(0x0010)(Edit, ZeroConstructor, NoClear, UObjectWrapper, NativeAccessSpecifierPrivate)
+	struct FGbxFlightNavData                      data;                                              // 0x0668(0x0028)(NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()
@@ -544,13 +545,12 @@ public:
 DUMPER7_ASSERTS_UGbxNavBlueprintLibrary;
 
 // Class GbxNav.GbxNavBoxComponent
-// 0x0030 (0x0660 - 0x0630)
-#pragma pack(push, 0x1)
-class alignas(0x10) UGbxNavBoxComponent : public UBoxComponent
+// 0x0020 (0x0680 - 0x0660)
+class UGbxNavBoxComponent : public UBoxComponent
 {
 public:
-	bool                                          bShowInLevelEditor;                                // 0x0630(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_631[0x27];                                     // 0x0631(0x0027)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bShowInLevelEditor;                                // 0x0658(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_659[0x27];                                     // 0x0659(0x0027)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -566,7 +566,6 @@ public:
 		return GetDefaultObjImpl<UGbxNavBoxComponent>();
 	}
 };
-#pragma pack(pop)
 DUMPER7_ASSERTS_UGbxNavBoxComponent;
 
 // Class GbxNav.GbxNavChannel
@@ -932,22 +931,22 @@ public:
 DUMPER7_ASSERTS_AGbxNavLinkBlocker;
 
 // Class GbxNav.GbxNavLinkComponent
-// 0x0150 (0x0750 - 0x0600)
+// 0x0150 (0x0770 - 0x0620)
 class UGbxNavLinkComponent final : public UPrimitiveComponent
 {
 public:
-	uint8                                         Pad_5F8[0x38];                                     // 0x05F8(0x0038)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bEnabled;                                          // 0x0630(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_631[0xF];                                      // 0x0631(0x000F)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FTransform                             LinkEnd;                                           // 0x0640(0x0060)(Edit, BlueprintVisible, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         LinkBeginWidth;                                    // 0x06A0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         LinkEndWidth;                                      // 0x06A4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	EGbxNavLinkDirection                          Direction;                                         // 0x06A8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_6A9[0x7];                                      // 0x06A9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGbxNavLinkData*                        Link;                                              // 0x06B0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoClear, NoDestructor, ExposeOnSpawn, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         CustomData;                                        // 0x06B8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bSetCustomData;                                    // 0x06BC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_6BD[0x93];                                     // 0x06BD(0x0093)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_620[0x38];                                     // 0x0620(0x0038)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bEnabled;                                          // 0x0658(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_659[0x7];                                      // 0x0659(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FTransform                             LinkEnd;                                           // 0x0660(0x0060)(Edit, BlueprintVisible, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         LinkBeginWidth;                                    // 0x06C0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         LinkEndWidth;                                      // 0x06C4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	EGbxNavLinkDirection                          Direction;                                         // 0x06C8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_6C9[0x7];                                      // 0x06C9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGbxNavLinkData*                        Link;                                              // 0x06D0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoClear, NoDestructor, ExposeOnSpawn, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         CustomData;                                        // 0x06D8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bSetCustomData;                                    // 0x06DC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_6DD[0x93];                                     // 0x06DD(0x0093)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void SetLinkEnabled(bool bNewEnabled);
@@ -1066,15 +1065,15 @@ public:
 DUMPER7_ASSERTS_AGbxNavMesh;
 
 // Class GbxNav.GbxNavMeshComponent
-// 0x00C0 (0x06D0 - 0x0610)
+// 0x00B0 (0x06F0 - 0x0640)
 class UGbxNavMeshComponent : public UGbxBaseAINavComponent
 {
 public:
-	TArray<class UGbxNavMeshLayer*>               layers;                                            // 0x0610(0x0010)(Edit, ZeroConstructor, NoClear, UObjectWrapper, NativeAccessSpecifierPrivate)
-	bool                                          bAutoAddLinks;                                     // 0x0620(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_621[0xF];                                      // 0x0621(0x000F)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxNavMeshData                        data;                                              // 0x0630(0x0080)(NativeAccessSpecifierPrivate)
-	uint8                                         Pad_6B0[0x20];                                     // 0x06B0(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TArray<class UGbxNavMeshLayer*>               layers;                                            // 0x0638(0x0010)(Edit, ZeroConstructor, NoClear, UObjectWrapper, NativeAccessSpecifierPrivate)
+	bool                                          bAutoAddLinks;                                     // 0x0648(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_649[0x7];                                      // 0x0649(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxNavMeshData                        data;                                              // 0x0650(0x0080)(NativeAccessSpecifierPrivate)
+	uint8                                         Pad_6D0[0x20];                                     // 0x06D0(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -1126,16 +1125,16 @@ public:
 DUMPER7_ASSERTS_UGbxNavMeshLayer;
 
 // Class GbxNav.GbxNavObstacleComponent
-// 0x0030 (0x0630 - 0x0600)
+// 0x0030 (0x0650 - 0x0620)
 class UGbxNavObstacleComponent final : public UPrimitiveComponent
 {
 public:
-	uint8                                         Pad_5F8[0x20];                                     // 0x05F8(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bObstacleEnabled;                                  // 0x0618(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_619[0x3];                                      // 0x0619(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         ObstacleRadius;                                    // 0x061C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         ObstacleHalfHeight;                                // 0x0620(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_624[0xC];                                      // 0x0624(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_620[0x20];                                     // 0x0620(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bObstacleEnabled;                                  // 0x0640(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_641[0x3];                                      // 0x0641(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         ObstacleRadius;                                    // 0x0644(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         ObstacleHalfHeight;                                // 0x0648(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_64C[0x4];                                      // 0x064C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void SetObstacleEnabled(bool bEnabled);
@@ -1192,21 +1191,22 @@ public:
 DUMPER7_ASSERTS_AGbxNavPainter;
 
 // Class GbxNav.GbxNavPainterComponent
-// 0x00A0 (0x0700 - 0x0660)
+// 0x00B0 (0x0730 - 0x0680)
 class UGbxNavPainterComponent final : public UGbxNavBoxComponent
 {
 public:
-	bool                                          bPainterEnabled;                                   // 0x0658(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	EGbxPainterNavFilterType                      FilterType;                                        // 0x0659(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	EGbxPainterGeoType                            GeometryType;                                      // 0x065A(0x0001)(Edit, ZeroConstructor, NoClear, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	EGbxPainterType                               PainterType;                                       // 0x065B(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bUseBrushShape;                                    // 0x065C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_65D[0x3];                                      // 0x065D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGbxNavArea*                            Area;                                              // 0x0660(0x0008)(Edit, ZeroConstructor, NoClear, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         UpdateDistance;                                    // 0x0668(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         IdleTime;                                          // 0x066C(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_670[0x88];                                     // 0x0670(0x0088)(Fixing Size After Last Property [ Dumper-7 ])
-	class ABrush*                                 BrushShape;                                        // 0x06F8(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bPainterEnabled;                                   // 0x0680(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	EGbxPainterNavFilterType                      FilterType;                                        // 0x0681(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	EGbxPainterGeoType                            GeometryType;                                      // 0x0682(0x0001)(Edit, ZeroConstructor, NoClear, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	EGbxPainterType                               PainterType;                                       // 0x0683(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bUseBrushShape;                                    // 0x0684(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_685[0x3];                                      // 0x0685(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGbxNavArea*                            Area;                                              // 0x0688(0x0008)(Edit, ZeroConstructor, NoClear, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         UpdateDistance;                                    // 0x0690(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         IdleTime;                                          // 0x0694(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_698[0x88];                                     // 0x0698(0x0088)(Fixing Size After Last Property [ Dumper-7 ])
+	class ABrush*                                 BrushShape;                                        // 0x0720(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_728[0x8];                                      // 0x0728(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void SetPainterEnabled(bool bNewEnabled);
@@ -1277,7 +1277,7 @@ public:
 DUMPER7_ASSERTS_AGbxNavPathTestActor;
 
 // Class GbxNav.GbxNavPathTestComponent
-// 0x0000 (0x0600 - 0x0600)
+// 0x0000 (0x0620 - 0x0620)
 class UGbxNavPathTestComponent final : public UPrimitiveComponent
 {
 public:
@@ -1321,11 +1321,11 @@ public:
 DUMPER7_ASSERTS_AGbxNavSeed;
 
 // Class GbxNav.GbxNavSeedComponent
-// 0x0020 (0x0620 - 0x0600)
+// 0x0020 (0x0640 - 0x0620)
 class UGbxNavSeedComponent final : public UPrimitiveComponent
 {
 public:
-	uint8                                         Pad_5F8[0x28];                                     // 0x05F8(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_620[0x20];                                     // 0x0620(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -1420,7 +1420,7 @@ public:
 DUMPER7_ASSERTS_UGbxNavSettings;
 
 // Class GbxNav.GbxNavSpawnAnimDrawComponent
-// 0x0000 (0x0600 - 0x0600)
+// 0x0000 (0x0620 - 0x0620)
 class UGbxNavSpawnAnimDrawComponent final : public UPrimitiveComponent
 {
 public:
@@ -1460,13 +1460,13 @@ public:
 DUMPER7_ASSERTS_AGbxNavSpawner;
 
 // Class GbxNav.GbxNavSpawnerComponent
-// 0x0040 (0x0C10 - 0x0BD0)
+// 0x0040 (0x0C30 - 0x0BF0)
 class UGbxNavSpawnerComponent : public USpawnerComponent
 {
 public:
-	uint8                                         Pad_BD0[0x38];                                     // 0x0BD0(0x0038)(Fixing Size After Last Property [ Dumper-7 ])
-	TOptional<bool>                               SpawningRequiresNavOverride;                       // 0x0C08(0x0002)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_C0A[0x6];                                      // 0x0C0A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_BF0[0x38];                                     // 0x0BF0(0x0038)(Fixing Size After Last Property [ Dumper-7 ])
+	TOptional<bool>                               SpawningRequiresNavOverride;                       // 0x0C28(0x0002)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_C2A[0x6];                                      // 0x0C2A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -1505,16 +1505,16 @@ public:
 DUMPER7_ASSERTS_AGbxNavSpawnPoint;
 
 // Class GbxNav.GbxNavSpawnPointComponent
-// 0x0040 (0x0820 - 0x07E0)
+// 0x0040 (0x0840 - 0x0800)
 class UGbxNavSpawnPointComponent : public USpawnPointComponent
 {
 public:
-	uint8                                         Pad_7E0[0x30];                                     // 0x07E0(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         CustomData;                                        // 0x0810(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bSetCustomData;                                    // 0x0814(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	TOptional<bool>                               SpawningRequiresNavOverride;                       // 0x0815(0x0002)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_817[0x1];                                      // 0x0817(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGbxNavPainterComponent*                NavPainterComponent;                               // 0x0818(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_800[0x30];                                     // 0x0800(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         CustomData;                                        // 0x0830(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bSetCustomData;                                    // 0x0834(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	TOptional<bool>                               SpawningRequiresNavOverride;                       // 0x0835(0x0002)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_837[0x1];                                      // 0x0837(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGbxNavPainterComponent*                NavPainterComponent;                               // 0x0838(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()
@@ -1585,7 +1585,7 @@ public:
 DUMPER7_ASSERTS_UHavokTraversalData_ClimbUp;
 
 // Class GbxNav.GbxNavTestBoxComponent_DEPRECATED
-// 0x0000 (0x0630 - 0x0630)
+// 0x0000 (0x0660 - 0x0660)
 class UGbxNavTestBoxComponent_DEPRECATED final : public UBoxComponent
 {
 public:

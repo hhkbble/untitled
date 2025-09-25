@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "Enum_SiloBase_ZiplineHeights_structs.hpp"
 #include "GbxEngine_structs.hpp"
+#include "Enum_SiloBase_ZiplineHeights_structs.hpp"
 #include "Engine_structs.hpp"
 #include "CoreUObject_structs.hpp"
 

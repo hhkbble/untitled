@@ -59,7 +59,7 @@ DUMPER7_ASSERTS_UAnimNotifyState_GbxAudioEvent;
 
 // Class GbxAudio.AnimNotify_GbxAudioEvent
 // 0x00E8 (0x0120 - 0x0038)
-class UAnimNotify_GbxAudioEvent final : public UAnimNotify
+class UAnimNotify_GbxAudioEvent : public UAnimNotify
 {
 public:
 	EGbxAudioNotifyType                           NotifyType;                                        // 0x0038(0x0004)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)

@@ -17,93 +17,21 @@
 namespace SDK
 {
 
-// Function ui_script_main_menu.ui_script_main_menu_C.DifficultySwapVeryHard
+// Function ui_script_main_menu.ui_script_main_menu_C.ContinueCampaign
 // (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
 // const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void Uui_script_main_menu_C::DifficultySwapVeryHard(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void Uui_script_main_menu_C::ContinueCampaign(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_main_menu_C", "DifficultySwapVeryHard");
+		Func = Class->GetFunction("ui_script_main_menu_C", "ContinueCampaign");
 
-	Params::ui_script_main_menu_C_DifficultySwapVeryHard Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function ui_script_main_menu.ui_script_main_menu_C.DifficultySwapMedium
-// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void Uui_script_main_menu_C::DifficultySwapMedium(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_main_menu_C", "DifficultySwapMedium");
-
-	Params::ui_script_main_menu_C_DifficultySwapMedium Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function ui_script_main_menu.ui_script_main_menu_C.DifficultySwapHard
-// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void Uui_script_main_menu_C::DifficultySwapHard(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_main_menu_C", "DifficultySwapHard");
-
-	Params::ui_script_main_menu_C_DifficultySwapHard Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function ui_script_main_menu.ui_script_main_menu_C.DifficultySwapEasy
-// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void Uui_script_main_menu_C::DifficultySwapEasy(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_main_menu_C", "DifficultySwapEasy");
-
-	Params::ui_script_main_menu_C_DifficultySwapEasy Parms{};
+	Params::ui_script_main_menu_C_ContinueCampaign Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -137,21 +65,93 @@ void Uui_script_main_menu_C::CoopRelinquish(class UObject* WorldContextObject, F
 }
 
 
-// Function ui_script_main_menu.ui_script_main_menu_C.ContinueCampaign
+// Function ui_script_main_menu.ui_script_main_menu_C.DifficultySwapEasy
 // (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
 // const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void Uui_script_main_menu_C::ContinueCampaign(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void Uui_script_main_menu_C::DifficultySwapEasy(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_main_menu_C", "ContinueCampaign");
+		Func = Class->GetFunction("ui_script_main_menu_C", "DifficultySwapEasy");
 
-	Params::ui_script_main_menu_C_ContinueCampaign Parms{};
+	Params::ui_script_main_menu_C_DifficultySwapEasy Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ui_script_main_menu.ui_script_main_menu_C.DifficultySwapHard
+// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void Uui_script_main_menu_C::DifficultySwapHard(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ui_script_main_menu_C", "DifficultySwapHard");
+
+	Params::ui_script_main_menu_C_DifficultySwapHard Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ui_script_main_menu.ui_script_main_menu_C.DifficultySwapMedium
+// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void Uui_script_main_menu_C::DifficultySwapMedium(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ui_script_main_menu_C", "DifficultySwapMedium");
+
+	Params::ui_script_main_menu_C_DifficultySwapMedium Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ui_script_main_menu.ui_script_main_menu_C.DifficultySwapVeryHard
+// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void Uui_script_main_menu_C::DifficultySwapVeryHard(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ui_script_main_menu_C", "DifficultySwapVeryHard");
+
+	Params::ui_script_main_menu_C_DifficultySwapVeryHard Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;

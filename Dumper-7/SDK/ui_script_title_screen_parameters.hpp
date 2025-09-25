@@ -10,16 +10,16 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
 #include "GbxAudio_structs.hpp"
+#include "CoreUObject_structs.hpp"
 
 
 namespace SDK::Params
 {
 
-// Function ui_script_title_screen.ui_script_title_screen_C.SplashTransition
+// Function ui_script_title_screen.ui_script_title_screen_C.PressedStart
 // 0x0048 (0x0048 - 0x0000)
-struct ui_script_title_screen_C_SplashTransition final
+struct ui_script_title_screen_C_PressedStart final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
@@ -27,7 +27,7 @@ public:
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
 };
-DUMPER7_ASSERTS_ui_script_title_screen_C_SplashTransition;
+DUMPER7_ASSERTS_ui_script_title_screen_C_PressedStart;
 
 // Function ui_script_title_screen.ui_script_title_screen_C.SplashIntro
 // 0x0048 (0x0048 - 0x0000)
@@ -41,9 +41,9 @@ public:
 };
 DUMPER7_ASSERTS_ui_script_title_screen_C_SplashIntro;
 
-// Function ui_script_title_screen.ui_script_title_screen_C.PressedStart
+// Function ui_script_title_screen.ui_script_title_screen_C.SplashTransition
 // 0x0048 (0x0048 - 0x0000)
-struct ui_script_title_screen_C_PressedStart final
+struct ui_script_title_screen_C_SplashTransition final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
@@ -51,7 +51,7 @@ public:
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
 };
-DUMPER7_ASSERTS_ui_script_title_screen_C_PressedStart;
+DUMPER7_ASSERTS_ui_script_title_screen_C_SplashTransition;
 
 }
 

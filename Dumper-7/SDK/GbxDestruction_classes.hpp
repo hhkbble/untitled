@@ -49,9 +49,12 @@ public:
 DUMPER7_ASSERTS_UCustomFractureFieldEffects;
 
 // Class GbxDestruction.DestructionSolverGeometryRenderComponent
-// 0x0000 (0x0600 - 0x0600)
+// 0x0010 (0x0630 - 0x0620)
 class UDestructionSolverGeometryRenderComponent final : public UPrimitiveComponent
 {
+public:
+	uint8                                         Pad_620[0x10];                                     // 0x0620(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
 public:
 	static class UClass* StaticClass()
 	{
@@ -467,16 +470,17 @@ public:
 DUMPER7_ASSERTS_AGbxGeometryCollectionActor;
 
 // Class GbxDestruction.GbxGeometryCollectionComponent
-// 0x04B0 (0x0F80 - 0x0AD0)
+// 0x04C0 (0x0FB0 - 0x0AF0)
 class UGbxGeometryCollectionComponent : public UGeometryCollectionComponent
 {
 public:
-	class UGbxDestructibleGeometryCollectionData* DestructibleData;                                  // 0x0AD0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, ExposeOnSpawn, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_AD8[0x64];                                     // 0x0AD8(0x0064)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bIsThereAnyStaticLeafChunk;                        // 0x0B3C(0x0001)(Edit, ZeroConstructor, Transient, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_B3D[0x3];                                      // 0x0B3D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FConstraintInstance                    ConstraintInstance;                                // 0x0B40(0x0288)(NativeAccessSpecifierPrivate)
-	uint8                                         Pad_DC8[0x1B8];                                    // 0x0DC8(0x01B8)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_AF0[0x8];                                      // 0x0AF0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGbxDestructibleGeometryCollectionData* DestructibleData;                                  // 0x0AF8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, ExposeOnSpawn, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_B00[0x64];                                     // 0x0B00(0x0064)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bIsThereAnyStaticLeafChunk;                        // 0x0B64(0x0001)(Edit, ZeroConstructor, Transient, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_B65[0x3];                                      // 0x0B65(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FConstraintInstance                    ConstraintInstance;                                // 0x0B68(0x0288)(NativeAccessSpecifierPrivate)
+	uint8                                         Pad_DF0[0x1C0];                                    // 0x0DF0(0x01C0)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	const class UGbxDestructibleGeometryCollectionData* GetDestructibleData();

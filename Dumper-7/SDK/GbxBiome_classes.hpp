@@ -41,7 +41,7 @@ public:
 DUMPER7_ASSERTS_AGbxBiomeActor;
 
 // Class GbxBiome.GbxBiomeFoliageISMComponent
-// 0x0000 (0x0CC0 - 0x0CC0)
+// 0x0000 (0x0CE0 - 0x0CE0)
 class UGbxBiomeFoliageISMComponent final : public UFoliageInstancedStaticMeshComponent
 {
 public:
@@ -61,7 +61,7 @@ public:
 DUMPER7_ASSERTS_UGbxBiomeFoliageISMComponent;
 
 // Class GbxBiome.GbxBiomeHISMComponent
-// 0x0000 (0x0C90 - 0x0C90)
+// 0x0000 (0x0CB0 - 0x0CB0)
 class UGbxBiomeHISMComponent final : public UHierarchicalInstancedStaticMeshComponent
 {
 public:
@@ -81,7 +81,7 @@ public:
 DUMPER7_ASSERTS_UGbxBiomeHISMComponent;
 
 // Class GbxBiome.GbxBiomeISMComponent
-// 0x0000 (0x0AF0 - 0x0AF0)
+// 0x0000 (0x0B10 - 0x0B10)
 class UGbxBiomeISMComponent final : public UInstancedStaticMeshComponent
 {
 public:

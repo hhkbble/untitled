@@ -163,6 +163,33 @@ enum class ESpawnerActivationType : uint8
 	ESpawnerActivationType_MAX               = 4,
 };
 
+// ScriptStruct GbxSpawn.GbxEnemyActorDefInfo
+// 0x0038 (0x0038 - 0x0000)
+struct alignas(0x08) FGbxEnemyActorDefInfo final
+{
+public:
+	float                                         SpawnCost;                                         // 0x0000(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bCritical;                                         // 0x0004(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsBoss;                                           // 0x0005(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6[0x2];                                        // 0x0006(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	FGameDataHandleProperty_                      ActorDef;                                          // 0x0008(0x0018)(BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   Body;                                              // 0x0020(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   brain;                                             // 0x0028(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   Team;                                              // 0x0030(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FGbxEnemyActorDefInfo;
+
+// ScriptStruct GbxSpawn.SpawnFilter
+// 0x0028 (0x0028 - 0x0000)
+struct FSpawnFilter final
+{
+public:
+	ESpawnFilterType                              type;                                              // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGameplayTagContainer                  tags;                                              // 0x0008(0x0020)(Edit, BlueprintVisible, NativeAccessSpecifierPrivate)
+};
+DUMPER7_ASSERTS_FSpawnFilter;
+
 // ScriptStruct GbxSpawn.SpawnItem
 // 0x00F8 (0x00F8 - 0x0000)
 struct FSpawnItem final
@@ -225,26 +252,6 @@ public:
 };
 DUMPER7_ASSERTS_FSpawnGroupDef;
 
-// ScriptStruct GbxSpawn.TaggedAnimDef
-// 0x0008 (0x0020 - 0x0018)
-struct FTaggedAnimDef : public FGbxDef
-{
-public:
-	uint8                                         Pad_18[0x8];                                       // 0x0018(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FTaggedAnimDef;
-
-// ScriptStruct GbxSpawn.SpawnFilter
-// 0x0028 (0x0028 - 0x0000)
-struct FSpawnFilter final
-{
-public:
-	ESpawnFilterType                              type;                                              // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGameplayTagContainer                  tags;                                              // 0x0008(0x0020)(Edit, BlueprintVisible, NativeAccessSpecifierPrivate)
-};
-DUMPER7_ASSERTS_FSpawnFilter;
-
 // ScriptStruct GbxSpawn.GbxActorData
 // 0x0108 (0x0108 - 0x0000)
 struct FGbxActorData final
@@ -260,6 +267,24 @@ public:
 };
 DUMPER7_ASSERTS_FGbxActorData;
 
+// ScriptStruct GbxSpawn.TaggedAnimDef
+// 0x0008 (0x0020 - 0x0018)
+struct FTaggedAnimDef : public FGbxDef
+{
+public:
+	uint8                                         Pad_18[0x8];                                       // 0x0018(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FTaggedAnimDef;
+
+// ScriptStruct GbxSpawn.GbxActorInstanceData
+// 0x0010 (0x0018 - 0x0008)
+struct FGbxActorInstanceData : public FGbxHasStructType
+{
+public:
+	uint8                                         Pad_8[0x10];                                       // 0x0008(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGbxActorInstanceData;
+
 // ScriptStruct GbxSpawn.SpawnEncounterWave
 // 0x0028 (0x0028 - 0x0000)
 struct FSpawnEncounterWave final
@@ -274,58 +299,6 @@ public:
 	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FSpawnEncounterWave;
-
-// ScriptStruct GbxSpawn.SpawnGlobals
-// 0x0098 (0x00B8 - 0x0020)
-struct FSpawnGlobals : public FGbxGlobalDef
-{
-public:
-	uint8                                         Pad_20[0x10];                                      // 0x0020(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         SpawnBudgetMs;                                     // 0x0030(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         DespawnSpawnerDistanceToPlayerThreshold;           // 0x0034(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         DespawnActorDistanceToPlayerThreshold;             // 0x0038(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         UpdatePeriod;                                      // 0x003C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         IrrelevantPeriod;                                  // 0x0040(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SuspendTestPeriod;                                 // 0x0044(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SpawnerResetPeriod;                                // 0x0048(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         MaxActorsSpawnedPerFrame;                          // 0x004C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         AlwaysRelevantDistance;                            // 0x0050(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         AlwaysIrrelevantDistance;                          // 0x0054(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSoftClassPtr<class UClass>                   DynamicSpawnerClass;                               // 0x0058(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bShowCriticalOptionInSpawners;                     // 0x0080(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_81[0x3];                                       // 0x0081(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         MaxActorDefApplicationTimeMs;                      // 0x0084(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<struct FGbxInlineStruct>               SpawnModifiers;                                    // 0x0088(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	FGameDataHandleProperty_                      PlayerCountSpawnModifiers;                         // 0x0098(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUseNearbyPlayerCountForSpawnModifiers;            // 0x00B0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B1[0x7];                                       // 0x00B1(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FSpawnGlobals;
-
-// ScriptStruct GbxSpawn.GbxActorInstanceData
-// 0x0010 (0x0018 - 0x0008)
-struct FGbxActorInstanceData : public FGbxHasStructType
-{
-public:
-	uint8                                         Pad_8[0x10];                                       // 0x0008(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FGbxActorInstanceData;
-
-// ScriptStruct GbxSpawn.GbxEnemyActorDefInfo
-// 0x0038 (0x0038 - 0x0000)
-struct alignas(0x08) FGbxEnemyActorDefInfo final
-{
-public:
-	float                                         SpawnCost;                                         // 0x0000(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bCritical;                                         // 0x0004(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsBoss;                                           // 0x0005(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_6[0x2];                                        // 0x0006(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	FGameDataHandleProperty_                      ActorDef;                                          // 0x0008(0x0018)(BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   Body;                                              // 0x0020(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   brain;                                             // 0x0028(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   Team;                                              // 0x0030(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FGbxEnemyActorDefInfo;
 
 // ScriptStruct GbxSpawn.SpawnEncounterEventEncounterRef
 // 0x0010 (0x0010 - 0x0000)
@@ -449,6 +422,33 @@ public:
 	uint8                                         Pad_20C[0x4];                                      // 0x020C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FSpawnerStyleDef_Waves;
+
+// ScriptStruct GbxSpawn.SpawnGlobals
+// 0x0098 (0x00B8 - 0x0020)
+struct FSpawnGlobals : public FGbxGlobalDef
+{
+public:
+	uint8                                         Pad_20[0x10];                                      // 0x0020(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         SpawnBudgetMs;                                     // 0x0030(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DespawnSpawnerDistanceToPlayerThreshold;           // 0x0034(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DespawnActorDistanceToPlayerThreshold;             // 0x0038(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         UpdatePeriod;                                      // 0x003C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         IrrelevantPeriod;                                  // 0x0040(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SuspendTestPeriod;                                 // 0x0044(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SpawnerResetPeriod;                                // 0x0048(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         MaxActorsSpawnedPerFrame;                          // 0x004C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         AlwaysRelevantDistance;                            // 0x0050(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         AlwaysIrrelevantDistance;                          // 0x0054(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSoftClassPtr<class UClass>                   DynamicSpawnerClass;                               // 0x0058(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bShowCriticalOptionInSpawners;                     // 0x0080(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_81[0x3];                                       // 0x0081(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         MaxActorDefApplicationTimeMs;                      // 0x0084(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<struct FGbxInlineStruct>               SpawnModifiers;                                    // 0x0088(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	FGameDataHandleProperty_                      PlayerCountSpawnModifiers;                         // 0x0098(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUseNearbyPlayerCountForSpawnModifiers;            // 0x00B0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_B1[0x7];                                       // 0x00B1(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FSpawnGlobals;
 
 // ScriptStruct GbxSpawn.SpawnModifier
 // 0x0000 (0x0008 - 0x0008)

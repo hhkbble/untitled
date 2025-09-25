@@ -247,6 +247,31 @@ struct FSlateBrush UMVVMSlateBrushConversionLibrary::Conv_SetVectorParameterMID(
 }
 
 
+// Function ModelViewViewModel.MVVMGameSubsystem.GetViewModelCollection
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class UMVVMViewModelCollectionObject*   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UMVVMViewModelCollectionObject* UMVVMGameSubsystem::GetViewModelCollection() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MVVMGameSubsystem", "GetViewModelCollection");
+
+	Params::MVVMGameSubsystem_GetViewModelCollection Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function ModelViewViewModel.MVVMView.ExecuteViewModelBindings
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -628,31 +653,6 @@ void UMVVMPanelWidgetViewExtension::BP_SetItems(const TArray<class UObject*>& In
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function ModelViewViewModel.MVVMGameSubsystem.GetViewModelCollection
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class UMVVMViewModelCollectionObject*   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UMVVMViewModelCollectionObject* UMVVMGameSubsystem::GetViewModelCollection() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MVVMGameSubsystem", "GetViewModelCollection");
-
-	Params::MVVMGameSubsystem_GetViewModelCollection Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 

@@ -11,7 +11,7 @@
 #include <string>
 #include <stdexcept>
 #include <iostream>
-#include "../UtfN.hpp"
+#include "UtfN.hpp"
 
 namespace UC
 {	
@@ -247,7 +247,12 @@ namespace UC
 
 	public:
 		TArray()
-			: Data(nullptr), NumElements(0), MaxElements(0)
+			: TArray(nullptr, 0, 0)
+		{
+		}
+
+		TArray(ArrayElementType* Data, int32 NumElements, int32 MaxElements)
+			: Data(Data), NumElements(NumElements), MaxElements(MaxElements)
 		{
 		}
 

@@ -12,9 +12,9 @@
 
 #include "Engine_structs.hpp"
 #include "Enum_SiloBase_ZiplineHeights_structs.hpp"
-#include "CoreUObject_structs.hpp"
 #include "GbxGame_structs.hpp"
 #include "GbxGame_classes.hpp"
+#include "CoreUObject_structs.hpp"
 #include "GbxEngine_structs.hpp"
 
 

@@ -159,67 +159,12 @@ enum class EWwiseValidationSeverity : uint8
 	EWwiseValidationSeverity_MAX             = 3,
 };
 
-// ScriptStruct GbxAudio.GbxAudioAcousticsDataProvider
+// ScriptStruct GbxAudio.GbxAudioZoneEffectProvider
 // 0x0000 (0x0008 - 0x0008)
-struct FGbxAudioAcousticsDataProvider : public FGbxHasStructType
+struct FGbxAudioZoneEffectProvider : public FGbxHasStructType
 {
 };
-DUMPER7_ASSERTS_FGbxAudioAcousticsDataProvider;
-
-// ScriptStruct GbxAudio.GbxAudioNodeSettings
-// 0x0000 (0x0038 - 0x0038)
-struct FGbxAudioNodeSettings : public FGbxGraphNodeSettings
-{
-};
-DUMPER7_ASSERTS_FGbxAudioNodeSettings;
-
-// ScriptStruct GbxAudio.GbxAudioGraphSettings_Sequencer
-// 0x0000 (0x0038 - 0x0038)
-struct FGbxAudioGraphSettings_Sequencer : public FGbxAudioNodeSettings
-{
-};
-DUMPER7_ASSERTS_FGbxAudioGraphSettings_Sequencer;
-
-// ScriptStruct GbxAudio.GbxAudioGraphSettings_Merge
-// 0x0000 (0x0038 - 0x0038)
-struct FGbxAudioGraphSettings_Merge final : public FGbxAudioGraphSettings_Sequencer
-{
-};
-DUMPER7_ASSERTS_FGbxAudioGraphSettings_Merge;
-
-// ScriptStruct GbxAudio.WwiseObjectDef
-// 0x0028 (0x0040 - 0x0018)
-struct FWwiseObjectDef : public FGbxDef
-{
-public:
-	class FName                                   WwiseName;                                         // 0x0018(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   WorkUnit;                                          // 0x0020(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGuid                                  Guid;                                              // 0x0028(0x0010)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint32                                        ShortID;                                           // 0x0038(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FWwiseObjectDef;
-
-// ScriptStruct GbxAudio.GbxAudioGraphFloatArray
-// 0x0018 (0x0018 - 0x0000)
-struct FGbxAudioGraphFloatArray final
-{
-public:
-	class FName                                   Name;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<float>                                 data;                                              // 0x0008(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FGbxAudioGraphFloatArray;
-
-// ScriptStruct GbxAudio.WwiseSwitchDef
-// 0x0010 (0x0050 - 0x0040)
-struct FWwiseSwitchDef final : public FWwiseObjectDef
-{
-public:
-	class FName                                   owner;                                             // 0x0040(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint32                                        OwnerShortID;                                      // 0x0048(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4C[0x4];                                       // 0x004C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FWwiseSwitchDef;
+DUMPER7_ASSERTS_FGbxAudioZoneEffectProvider;
 
 // ScriptStruct GbxAudio.GbxAudioNodeAspectState
 // 0x0000 (0x0050 - 0x0050)
@@ -235,78 +180,45 @@ struct FGbxAudioNodeAspectState_Data : public FGbxAudioNodeAspectState
 };
 DUMPER7_ASSERTS_FGbxAudioNodeAspectState_Data;
 
-// ScriptStruct GbxAudio.GbxAudioNodeAspectState_TableRead
+// ScriptStruct GbxAudio.GbxAudioNodeAspectState_Expression
 // 0x00B0 (0x0100 - 0x0050)
-struct FGbxAudioNodeAspectState_TableRead final : public FGbxAudioNodeAspectState_Data
+struct FGbxAudioNodeAspectState_Expression final : public FGbxAudioNodeAspectState_Data
 {
 public:
 	uint8                                         Pad_50[0xB0];                                      // 0x0050(0x00B0)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FGbxAudioNodeAspectState_TableRead;
+DUMPER7_ASSERTS_FGbxAudioNodeAspectState_Expression;
 
-// ScriptStruct GbxAudio.WwiseGameParameterDef
-// 0x0008 (0x0048 - 0x0040)
-struct FWwiseGameParameterDef final : public FWwiseObjectDef
+// ScriptStruct GbxAudio.WwiseObjectDef
+// 0x0028 (0x0040 - 0x0018)
+struct FWwiseObjectDef : public FGbxDef
 {
 public:
-	struct FFloatInterval                         Range;                                             // 0x0040(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   WwiseName;                                         // 0x0018(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   WorkUnit;                                          // 0x0020(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGuid                                  Guid;                                              // 0x0028(0x0010)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint32                                        ShortID;                                           // 0x0038(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FWwiseGameParameterDef;
+DUMPER7_ASSERTS_FWwiseObjectDef;
 
-// ScriptStruct GbxAudio.GbxAudioNodeState
-// 0x0128 (0x0178 - 0x0050)
-struct FGbxAudioNodeState : public FGbxGraphNodeState
+// ScriptStruct GbxAudio.GbxAudioAcousticsDataProvider
+// 0x0000 (0x0008 - 0x0008)
+struct FGbxAudioAcousticsDataProvider : public FGbxHasStructType
+{
+};
+DUMPER7_ASSERTS_FGbxAudioAcousticsDataProvider;
+
+// ScriptStruct GbxAudio.WwiseStateDef
+// 0x0010 (0x0050 - 0x0040)
+struct FWwiseStateDef final : public FWwiseObjectDef
 {
 public:
-	uint8                                         Pad_50[0x128];                                     // 0x0050(0x0128)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class FName                                   owner;                                             // 0x0040(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint32                                        OwnerShortID;                                      // 0x0048(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4C[0x4];                                       // 0x004C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FGbxAudioNodeState;
-
-// ScriptStruct GbxAudio.GbxAudioGraphState_Sequencer
-// 0x0000 (0x0178 - 0x0178)
-struct FGbxAudioGraphState_Sequencer : public FGbxAudioNodeState
-{
-};
-DUMPER7_ASSERTS_FGbxAudioGraphState_Sequencer;
-
-// ScriptStruct GbxAudio.GbxAudioEvent
-// 0x0030 (0x0030 - 0x0000)
-struct alignas(0x08) FGbxAudioEvent final
-{
-public:
-	bool                                          bUseSoundTag;                                      // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGameplayTag                           SoundTag;                                          // 0x0004(0x0008)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	FGbxDefPtrProperty_                           WwiseEvent;                                        // 0x0010(0x0018)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FGbxAudioEvent;
-
-// ScriptStruct GbxAudio.GbxAudioNodeAspectSettings
-// 0x0000 (0x0038 - 0x0038)
-struct FGbxAudioNodeAspectSettings : public FGbxGraphNodeSettings
-{
-};
-DUMPER7_ASSERTS_FGbxAudioNodeAspectSettings;
-
-// ScriptStruct GbxAudio.GbxAudioNodeAspectSettings_Action
-// 0x0000 (0x0038 - 0x0038)
-struct FGbxAudioNodeAspectSettings_Action : public FGbxAudioNodeAspectSettings
-{
-};
-DUMPER7_ASSERTS_FGbxAudioNodeAspectSettings_Action;
-
-// ScriptStruct GbxAudio.GbxAudioNodeAspectSettings_MidiNote
-// 0x0038 (0x0070 - 0x0038)
-struct FGbxAudioNodeAspectSettings_MidiNote final : public FGbxAudioNodeAspectSettings_Action
-{
-public:
-	struct FGbxAudioEvent                         AudioEvent;                                        // 0x0038(0x0030)(Edit, NativeAccessSpecifierPublic)
-	bool                                          bKillEventsOnGraphEnd;                             // 0x0068(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_69[0x7];                                       // 0x0069(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FGbxAudioNodeAspectSettings_MidiNote;
+DUMPER7_ASSERTS_FWwiseStateDef;
 
 // ScriptStruct GbxAudio.WwiseEventDef
 // 0x0020 (0x0060 - 0x0040)
@@ -323,12 +235,105 @@ public:
 };
 DUMPER7_ASSERTS_FWwiseEventDef;
 
-// ScriptStruct GbxAudio.GbxAudioZoneEffectProvider
-// 0x0000 (0x0008 - 0x0008)
-struct FGbxAudioZoneEffectProvider : public FGbxHasStructType
+// ScriptStruct GbxAudio.GbxAudioEmitterSource
+// 0x0080 (0x0080 - 0x0000)
+struct FGbxAudioEmitterSource final
+{
+public:
+	struct FTransform                             Transform;                                         // 0x0000(0x0060)(Edit, BlueprintVisible, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Gain;                                              // 0x0060(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Radius;                                            // 0x0064(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bScaleRadiusToActor;                               // 0x0068(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOverrideProviderSocket;                           // 0x0069(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6A[0x2];                                       // 0x006A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   socket;                                            // 0x006C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_74[0xC];                                       // 0x0074(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGbxAudioEmitterSource;
+
+// ScriptStruct GbxAudio.WwiseSwitchDef
+// 0x0010 (0x0050 - 0x0040)
+struct FWwiseSwitchDef final : public FWwiseObjectDef
+{
+public:
+	class FName                                   owner;                                             // 0x0040(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint32                                        OwnerShortID;                                      // 0x0048(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4C[0x4];                                       // 0x004C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FWwiseSwitchDef;
+
+// ScriptStruct GbxAudio.GbxAudioNodeAspectSettings
+// 0x0000 (0x0038 - 0x0038)
+struct FGbxAudioNodeAspectSettings : public FGbxGraphNodeSettings
 {
 };
-DUMPER7_ASSERTS_FGbxAudioZoneEffectProvider;
+DUMPER7_ASSERTS_FGbxAudioNodeAspectSettings;
+
+// ScriptStruct GbxAudio.GbxAudioNodeAspectSettings_Action
+// 0x0000 (0x0038 - 0x0038)
+struct FGbxAudioNodeAspectSettings_Action : public FGbxAudioNodeAspectSettings
+{
+};
+DUMPER7_ASSERTS_FGbxAudioNodeAspectSettings_Action;
+
+// ScriptStruct GbxAudio.GbxAudioNodeAspectSettings_Rtpc
+// 0x0018 (0x0050 - 0x0038)
+struct FGbxAudioNodeAspectSettings_Rtpc final : public FGbxAudioNodeAspectSettings_Action
+{
+public:
+	FGbxDefPtrProperty_                           GameParameter;                                     // 0x0038(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FGbxAudioNodeAspectSettings_Rtpc;
+
+// ScriptStruct GbxAudio.WwiseGameParameterDef
+// 0x0008 (0x0048 - 0x0040)
+struct FWwiseGameParameterDef final : public FWwiseObjectDef
+{
+public:
+	struct FFloatInterval                         Range;                                             // 0x0040(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FWwiseGameParameterDef;
+
+// ScriptStruct GbxAudio.GbxAudioEvent
+// 0x0030 (0x0030 - 0x0000)
+struct alignas(0x08) FGbxAudioEvent final
+{
+public:
+	bool                                          bUseSoundTag;                                      // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGameplayTag                           SoundTag;                                          // 0x0004(0x0008)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	FGbxDefPtrProperty_                           WwiseEvent;                                        // 0x0010(0x0018)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGbxAudioEvent;
+
+// ScriptStruct GbxAudio.GbxAudioNodeAspectSettings_Data
+// 0x0000 (0x0038 - 0x0038)
+struct FGbxAudioNodeAspectSettings_Data : public FGbxAudioNodeAspectSettings
+{
+};
+DUMPER7_ASSERTS_FGbxAudioNodeAspectSettings_Data;
+
+// ScriptStruct GbxAudio.GbxAudioNodeAspectSettings_SetParam
+// 0x0018 (0x0050 - 0x0038)
+struct FGbxAudioNodeAspectSettings_SetParam final : public FGbxAudioNodeAspectSettings_Data
+{
+public:
+	class FName                                   ParamName;                                         // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 ParamExpression;                                   // 0x0040(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FGbxAudioNodeAspectSettings_SetParam;
+
+// ScriptStruct GbxAudio.GbxAudioGraphFloatArray
+// 0x0018 (0x0018 - 0x0000)
+struct FGbxAudioGraphFloatArray final
+{
+public:
+	class FName                                   Name;                                              // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<float>                                 data;                                              // 0x0008(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FGbxAudioGraphFloatArray;
 
 // ScriptStruct GbxAudio.GbxAudioGraphSettings
 // 0x0010 (0x00B8 - 0x00A8)
@@ -349,35 +354,12 @@ public:
 };
 DUMPER7_ASSERTS_FGbxAudioGraphState;
 
-// ScriptStruct GbxAudio.GbxAudioNodeAspectSettings_Data
-// 0x0000 (0x0038 - 0x0038)
-struct FGbxAudioNodeAspectSettings_Data : public FGbxAudioNodeAspectSettings
-{
-};
-DUMPER7_ASSERTS_FGbxAudioNodeAspectSettings_Data;
-
 // ScriptStruct GbxAudio.GbxAudioNodeAspectState_Action
 // 0x0000 (0x0050 - 0x0050)
 struct FGbxAudioNodeAspectState_Action : public FGbxAudioNodeAspectState
 {
 };
 DUMPER7_ASSERTS_FGbxAudioNodeAspectState_Action;
-
-// ScriptStruct GbxAudio.GbxAudioEmitterSource
-// 0x0080 (0x0080 - 0x0000)
-struct FGbxAudioEmitterSource final
-{
-public:
-	struct FTransform                             Transform;                                         // 0x0000(0x0060)(Edit, BlueprintVisible, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Gain;                                              // 0x0060(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Radius;                                            // 0x0064(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bScaleRadiusToActor;                               // 0x0068(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOverrideProviderSocket;                           // 0x0069(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_6A[0x2];                                       // 0x006A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   socket;                                            // 0x006C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_74[0xC];                                       // 0x0074(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FGbxAudioEmitterSource;
 
 // ScriptStruct GbxAudio.GbxAudioNodeAspectSettings_SpawnEmitter
 // 0x00A8 (0x00E0 - 0x0038)
@@ -443,6 +425,17 @@ public:
 };
 DUMPER7_ASSERTS_FGbxAudioNodeAspectState_PostEvent;
 
+// ScriptStruct GbxAudio.GbxAudioNodeAspectSettings_MidiNote
+// 0x0038 (0x0070 - 0x0038)
+struct FGbxAudioNodeAspectSettings_MidiNote final : public FGbxAudioNodeAspectSettings_Action
+{
+public:
+	struct FGbxAudioEvent                         AudioEvent;                                        // 0x0038(0x0030)(Edit, NativeAccessSpecifierPublic)
+	bool                                          bKillEventsOnGraphEnd;                             // 0x0068(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_69[0x7];                                       // 0x0069(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGbxAudioNodeAspectSettings_MidiNote;
+
 // ScriptStruct GbxAudio.GbxAudioNodeAspectState_MidiNote
 // 0x0020 (0x0070 - 0x0050)
 struct FGbxAudioNodeAspectState_MidiNote final : public FGbxAudioNodeAspectState_Action
@@ -451,15 +444,6 @@ public:
 	uint8                                         Pad_50[0x20];                                      // 0x0050(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FGbxAudioNodeAspectState_MidiNote;
-
-// ScriptStruct GbxAudio.GbxAudioNodeAspectSettings_Rtpc
-// 0x0018 (0x0050 - 0x0038)
-struct FGbxAudioNodeAspectSettings_Rtpc final : public FGbxAudioNodeAspectSettings_Action
-{
-public:
-	FGbxDefPtrProperty_                           GameParameter;                                     // 0x0038(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FGbxAudioNodeAspectSettings_Rtpc;
 
 // ScriptStruct GbxAudio.GbxAudioNodeAspectState_Rtpc
 // 0x0000 (0x0050 - 0x0050)
@@ -494,17 +478,6 @@ public:
 	FGbxDefPtrProperty_                           WwiseState;                                        // 0x0038(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FGbxAudioNodeAspectSettings_SetState;
-
-// ScriptStruct GbxAudio.WwiseStateDef
-// 0x0010 (0x0050 - 0x0040)
-struct FWwiseStateDef final : public FWwiseObjectDef
-{
-public:
-	class FName                                   owner;                                             // 0x0040(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint32                                        OwnerShortID;                                      // 0x0048(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4C[0x4];                                       // 0x004C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FWwiseStateDef;
 
 // ScriptStruct GbxAudio.GbxAudioNodeAspectState_SetState
 // 0x0008 (0x0058 - 0x0050)
@@ -554,15 +527,6 @@ public:
 };
 DUMPER7_ASSERTS_FGbxAudioNodeAspectSettings_Expression;
 
-// ScriptStruct GbxAudio.GbxAudioNodeAspectState_Expression
-// 0x00B0 (0x0100 - 0x0050)
-struct FGbxAudioNodeAspectState_Expression final : public FGbxAudioNodeAspectState_Data
-{
-public:
-	uint8                                         Pad_50[0xB0];                                      // 0x0050(0x00B0)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FGbxAudioNodeAspectState_Expression;
-
 // ScriptStruct GbxAudio.GbxAudioNodeAspectSettings_TableRead
 // 0x0020 (0x0058 - 0x0038)
 struct FGbxAudioNodeAspectSettings_TableRead final : public FGbxAudioNodeAspectSettings_Data
@@ -575,15 +539,14 @@ public:
 };
 DUMPER7_ASSERTS_FGbxAudioNodeAspectSettings_TableRead;
 
-// ScriptStruct GbxAudio.GbxAudioNodeAspectSettings_SetParam
-// 0x0018 (0x0050 - 0x0038)
-struct FGbxAudioNodeAspectSettings_SetParam final : public FGbxAudioNodeAspectSettings_Data
+// ScriptStruct GbxAudio.GbxAudioNodeAspectState_TableRead
+// 0x00B0 (0x0100 - 0x0050)
+struct FGbxAudioNodeAspectState_TableRead final : public FGbxAudioNodeAspectState_Data
 {
 public:
-	class FName                                   ParamName;                                         // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 ParamExpression;                                   // 0x0040(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_50[0xB0];                                      // 0x0050(0x00B0)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FGbxAudioNodeAspectSettings_SetParam;
+DUMPER7_ASSERTS_FGbxAudioNodeAspectState_TableRead;
 
 // ScriptStruct GbxAudio.GbxAudioNodeAspectState_SetParam
 // 0x00B0 (0x0100 - 0x0050)
@@ -593,6 +556,22 @@ public:
 	uint8                                         Pad_50[0xB0];                                      // 0x0050(0x00B0)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FGbxAudioNodeAspectState_SetParam;
+
+// ScriptStruct GbxAudio.GbxAudioNodeState
+// 0x0128 (0x0178 - 0x0050)
+struct FGbxAudioNodeState : public FGbxGraphNodeState
+{
+public:
+	uint8                                         Pad_50[0x128];                                     // 0x0050(0x0128)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGbxAudioNodeState;
+
+// ScriptStruct GbxAudio.GbxAudioNodeSettings
+// 0x0000 (0x0038 - 0x0038)
+struct FGbxAudioNodeSettings : public FGbxGraphNodeSettings
+{
+};
+DUMPER7_ASSERTS_FGbxAudioNodeSettings;
 
 // ScriptStruct GbxAudio.GbxAudioGraphSettings_Data
 // 0x0020 (0x0058 - 0x0038)
@@ -612,6 +591,20 @@ public:
 	TArray<struct FGbxGraphParam>                 CachedRuntimeParameters;                           // 0x0178(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FGbxAudioGraphState_Data;
+
+// ScriptStruct GbxAudio.GbxAudioGraphSettings_Sequencer
+// 0x0000 (0x0038 - 0x0038)
+struct FGbxAudioGraphSettings_Sequencer : public FGbxAudioNodeSettings
+{
+};
+DUMPER7_ASSERTS_FGbxAudioGraphSettings_Sequencer;
+
+// ScriptStruct GbxAudio.GbxAudioGraphState_Sequencer
+// 0x0000 (0x0178 - 0x0178)
+struct FGbxAudioGraphState_Sequencer : public FGbxAudioNodeState
+{
+};
+DUMPER7_ASSERTS_FGbxAudioGraphState_Sequencer;
 
 // ScriptStruct GbxAudio.GbxAudioGraphSettings_Action
 // 0x0008 (0x0040 - 0x0038)
@@ -661,6 +654,13 @@ struct FGbxAudioGraphState_Parallel final : public FGbxAudioGraphState_Sequencer
 {
 };
 DUMPER7_ASSERTS_FGbxAudioGraphState_Parallel;
+
+// ScriptStruct GbxAudio.GbxAudioGraphSettings_Merge
+// 0x0000 (0x0038 - 0x0038)
+struct FGbxAudioGraphSettings_Merge final : public FGbxAudioGraphSettings_Sequencer
+{
+};
+DUMPER7_ASSERTS_FGbxAudioGraphSettings_Merge;
 
 // ScriptStruct GbxAudio.GbxAudioGraphState_Merge
 // 0x0000 (0x0178 - 0x0178)

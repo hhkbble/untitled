@@ -85,6 +85,27 @@ public:
 };
 DUMPER7_ASSERTS_FMVVMEventField;
 
+// ScriptStruct ModelViewViewModel.MVVMViewClass_BindingKey
+// 0x0004 (0x0004 - 0x0000)
+struct FMVVMViewClass_BindingKey final
+{
+public:
+	int32                                         Index;                                             // 0x0000(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+};
+DUMPER7_ASSERTS_FMVVMViewClass_BindingKey;
+
+// ScriptStruct ModelViewViewModel.MVVMViewClass_SourceBinding
+// 0x0010 (0x0010 - 0x0000)
+struct FMVVMViewClass_SourceBinding final
+{
+public:
+	struct FFieldNotificationId                   FieldId;                                           // 0x0000(0x0008)(Edit, EditConst, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FMVVMViewClass_BindingKey              BindingKey;                                        // 0x0008(0x0004)(Edit, EditConst, NoDestructor, NativeAccessSpecifierPrivate)
+	uint8                                         Flags;                                             // 0x000C(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_D[0x3];                                        // 0x000D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FMVVMViewClass_SourceBinding;
+
 // ScriptStruct ModelViewViewModel.MVVMVCompiledFieldId
 // 0x0002 (0x0002 - 0x0000)
 struct FMVVMVCompiledFieldId final
@@ -145,6 +166,19 @@ public:
 };
 DUMPER7_ASSERTS_FMVVMViewClass_SourceCreator;
 
+// ScriptStruct ModelViewViewModel.MVVMCompiledLoadedPropertyOrFunctionIndex
+// 0x0004 (0x0004 - 0x0000)
+struct FMVVMCompiledLoadedPropertyOrFunctionIndex final
+{
+public:
+	int16                                         Index;                                             // 0x0000(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         bIsObjectProperty : 1;                             // 0x0002(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
+	uint8                                         bIsScriptStructProperty : 1;                       // 0x0002(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
+	uint8                                         bIsProperty : 1;                                   // 0x0002(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
+	uint8                                         Pad_3[0x1];                                        // 0x0003(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FMVVMCompiledLoadedPropertyOrFunctionIndex;
+
 // ScriptStruct ModelViewViewModel.MVVMVCompiledBinding
 // 0x000E (0x000E - 0x0000)
 struct FMVVMVCompiledBinding final
@@ -173,6 +207,18 @@ public:
 	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FMVVMViewClass_CompiledBinding;
+
+// ScriptStruct ModelViewViewModel.MVVMViewClass_Binding
+// 0x0018 (0x0018 - 0x0000)
+struct FMVVMViewClass_Binding final
+{
+public:
+	struct FMVVMVCompiledBinding                  Binding;                                           // 0x0000(0x000E)(Edit, EditConst, NoDestructor, NativeAccessSpecifierPrivate)
+	uint8                                         Flags;                                             // 0x000E(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	EMVVMExecutionMode                            ExecutionMode;                                     // 0x000F(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint64                                        SourceBitField;                                    // 0x0010(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+};
+DUMPER7_ASSERTS_FMVVMViewClass_Binding;
 
 // ScriptStruct ModelViewViewModel.MVVMViewClass_CompiledEvent
 // 0x0014 (0x0014 - 0x0000)
@@ -213,15 +259,6 @@ public:
 	int32                                         Index;                                             // 0x0000(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 };
 DUMPER7_ASSERTS_FMVVMViewClass_SourceKey;
-
-// ScriptStruct ModelViewViewModel.MVVMViewClass_BindingKey
-// 0x0004 (0x0004 - 0x0000)
-struct FMVVMViewClass_BindingKey final
-{
-public:
-	int32                                         Index;                                             // 0x0000(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-};
-DUMPER7_ASSERTS_FMVVMViewClass_BindingKey;
 
 // ScriptStruct ModelViewViewModel.MVVMViewClass_EvaluateBindingKey
 // 0x0004 (0x0004 - 0x0000)
@@ -272,19 +309,6 @@ public:
 };
 DUMPER7_ASSERTS_FMVVMVCompiledFields;
 
-// ScriptStruct ModelViewViewModel.MVVMCompiledLoadedPropertyOrFunctionIndex
-// 0x0004 (0x0004 - 0x0000)
-struct FMVVMCompiledLoadedPropertyOrFunctionIndex final
-{
-public:
-	int16                                         Index;                                             // 0x0000(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         bIsObjectProperty : 1;                             // 0x0002(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	uint8                                         bIsScriptStructProperty : 1;                       // 0x0002(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	uint8                                         bIsProperty : 1;                                   // 0x0002(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	uint8                                         Pad_3[0x1];                                        // 0x0003(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FMVVMCompiledLoadedPropertyOrFunctionIndex;
-
 // ScriptStruct ModelViewViewModel.MVVMCompiledBindingLibrary
 // 0x0050 (0x0050 - 0x0000)
 struct FMVVMCompiledBindingLibrary final
@@ -323,18 +347,6 @@ public:
 };
 DUMPER7_ASSERTS_FMVVMView_Source;
 
-// ScriptStruct ModelViewViewModel.MVVMViewClass_SourceBinding
-// 0x0010 (0x0010 - 0x0000)
-struct FMVVMViewClass_SourceBinding final
-{
-public:
-	struct FFieldNotificationId                   FieldId;                                           // 0x0000(0x0008)(Edit, EditConst, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	struct FMVVMViewClass_BindingKey              BindingKey;                                        // 0x0008(0x0004)(Edit, EditConst, NoDestructor, NativeAccessSpecifierPrivate)
-	uint8                                         Flags;                                             // 0x000C(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_D[0x3];                                        // 0x000D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FMVVMViewClass_SourceBinding;
-
 // ScriptStruct ModelViewViewModel.MVVMViewClass_SourceCondition
 // 0x000C (0x000C - 0x0000)
 struct FMVVMViewClass_SourceCondition final
@@ -344,18 +356,6 @@ public:
 	struct FMVVMViewClass_ConditionKey            ConditionKey;                                      // 0x0008(0x0004)(Edit, EditConst, NoDestructor, NativeAccessSpecifierPrivate)
 };
 DUMPER7_ASSERTS_FMVVMViewClass_SourceCondition;
-
-// ScriptStruct ModelViewViewModel.MVVMViewClass_Binding
-// 0x0018 (0x0018 - 0x0000)
-struct FMVVMViewClass_Binding final
-{
-public:
-	struct FMVVMVCompiledBinding                  Binding;                                           // 0x0000(0x000E)(Edit, EditConst, NoDestructor, NativeAccessSpecifierPrivate)
-	uint8                                         Flags;                                             // 0x000E(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	EMVVMExecutionMode                            ExecutionMode;                                     // 0x000F(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint64                                        SourceBitField;                                    // 0x0010(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-};
-DUMPER7_ASSERTS_FMVVMViewClass_Binding;
 
 // ScriptStruct ModelViewViewModel.MVVMViewClass_EvaluateSource
 // 0x0010 (0x0010 - 0x0000)

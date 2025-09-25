@@ -10,15 +10,15 @@
 
 #include "Basic.hpp"
 
+#include "Engine_structs.hpp"
+#include "GbxGame_structs.hpp"
 #include "GbxOnline_structs.hpp"
 #include "OakGame_structs.hpp"
-#include "Engine_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "GbxAI_structs.hpp"
-#include "GbxGame_structs.hpp"
 #include "GbxEngine_structs.hpp"
-#include "GbxWeapon_structs.hpp"
 #include "GameplayTags_structs.hpp"
+#include "GbxWeapon_structs.hpp"
 #include "GbxAudio_structs.hpp"
 
 
@@ -68,6 +68,100 @@ public:
 };
 DUMPER7_ASSERTS_AITargetLockBlueprintLibrary_IsTargetLocked;
 
+// Function OakGame.OakProjectile.OnActorOverlap
+// 0x0010 (0x0010 - 0x0000)
+struct OakProjectile_OnActorOverlap final
+{
+public:
+	class AActor*                                 OverlappedActor;                                   // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakProjectile_OnActorOverlap;
+
+// Function OakGame.OakProjectile.SetGrappleableEnabled
+// 0x0001 (0x0001 - 0x0000)
+struct OakProjectile_SetGrappleableEnabled final
+{
+public:
+	bool                                          bNewIsEnabled;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakProjectile_SetGrappleableEnabled;
+
+// Function OakGame.OakProjectile.IsGrappleableEnabled
+// 0x0001 (0x0001 - 0x0000)
+struct OakProjectile_IsGrappleableEnabled final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakProjectile_IsGrappleableEnabled;
+
+// Function OakGame.ModularGrenade.DivideGrenade
+// 0x0018 (0x0018 - 0x0000)
+struct ModularGrenade_DivideGrenade final
+{
+public:
+	struct FVector                                Direction;                                         // 0x0000(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ModularGrenade_DivideGrenade;
+
+// Function OakGame.ModularGrenade.PayloadBounceCallback
+// 0x0118 (0x0118 - 0x0000)
+struct ModularGrenade_PayloadBounceCallback final
+{
+public:
+	struct FHitResult                             Impact;                                            // 0x0000(0x0100)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	struct FVector                                ImpactVelocity;                                    // 0x0100(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ModularGrenade_PayloadBounceCallback;
+
+// Function OakGame.ModularGrenade.PayloadExplodeCallback
+// 0x0008 (0x0008 - 0x0000)
+struct ModularGrenade_PayloadExplodeCallback final
+{
+public:
+	const class AActor*                           projectile;                                        // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ModularGrenade_PayloadExplodeCallback;
+
+// Function OakGame.ModularGrenade.PayloadImpactCallback
+// 0x0100 (0x0100 - 0x0000)
+struct ModularGrenade_PayloadImpactCallback final
+{
+public:
+	struct FHitResult                             Impact;                                            // 0x0000(0x0100)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ModularGrenade_PayloadImpactCallback;
+
+// Function OakGame.ModularGrenade.PayloadTakingDamageCallback
+// 0x00F8 (0x00F8 - 0x0000)
+struct ModularGrenade_PayloadTakingDamageCallback final
+{
+public:
+	struct FProjectileTakingDamageDetails         Details;                                           // 0x0000(0x00F8)(ConstParm, Parm, OutParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ModularGrenade_PayloadTakingDamageCallback;
+
+// Function OakGame.ModularGrenade.SpawnChildGrenade
+// 0x0060 (0x0060 - 0x0000)
+struct ModularGrenade_SpawnChildGrenade final
+{
+public:
+	struct FVector                                Location;                                          // 0x0000(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Direction;                                         // 0x0018(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ChildDamage;                                       // 0x0030(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ChildRadius;                                       // 0x0034(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ChildForce;                                        // 0x0038(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         delay;                                             // 0x003C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SpeedOverride;                                     // 0x0040(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_44[0x4];                                       // 0x0044(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class AActor*                                 IgnoreActor;                                       // 0x0048(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 TargetActor;                                       // 0x0050(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         InFuseTime;                                        // 0x0058(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_5C[0x4];                                       // 0x005C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_ModularGrenade_SpawnChildGrenade;
+
 // Function OakGame.OakInteractiveObject.OnActorOverlap
 // 0x0010 (0x0010 - 0x0000)
 struct OakInteractiveObject_OnActorOverlap final
@@ -96,105 +190,83 @@ public:
 };
 DUMPER7_ASSERTS_OakInteractiveObject_IsGrappleableEnabled;
 
-// Function OakGame.OakZoneTransition.OnZoneBeginOverlap
-// 0x0120 (0x0120 - 0x0000)
-struct OakZoneTransition_OnZoneBeginOverlap final
-{
-public:
-	class UPrimitiveComponent*                    OverlappedComp;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 Other;                                             // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bFromSweep;                                        // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FHitResult                             SweepResult;                                       // 0x0020(0x0100)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakZoneTransition_OnZoneBeginOverlap;
-
-// Function OakGame.OakZoneTransition.OnZoneEndOverlap
-// 0x0020 (0x0020 - 0x0000)
-struct OakZoneTransition_OnZoneEndOverlap final
-{
-public:
-	class UPrimitiveComponent*                    OverlappedComp;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 Other;                                             // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakZoneTransition_OnZoneEndOverlap;
-
-// Function OakGame.OakZoneTransition.GetTransitionEntryGate
-// 0x0001 (0x0001 - 0x0000)
-struct OakZoneTransition_GetTransitionEntryGate final
-{
-public:
-	EOakZoneTransitionGate                        ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakZoneTransition_GetTransitionEntryGate;
-
-// Function OakGame.OakAirlockTransition.PrepareZoneTransition
-// 0x0008 (0x0008 - 0x0000)
-struct OakAirlockTransition_PrepareZoneTransition final
-{
-public:
-	class AOakPlayerController*                   Controller;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakAirlockTransition_PrepareZoneTransition;
-
-// Function OakGame.LootableObject.OnComponentSleep
+// Function OakGame.NexusConfigStoreUISkillTree.GetAllProgressGraphGroupDefs
 // 0x0010 (0x0010 - 0x0000)
-struct LootableObject_OnComponentSleep final
-{
-public:
-	class UPrimitiveComponent*                    SleepingComponent;                                 // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   BoneName;                                          // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_LootableObject_OnComponentSleep;
-
-// Function OakGame.LootableObject.OnMeshCollision
-// 0x0130 (0x0130 - 0x0000)
-struct LootableObject_OnMeshCollision final
-{
-public:
-	class UPrimitiveComponent*                    HitComponent;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                NormalImpulse;                                     // 0x0018(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FHitResult                             Hit;                                               // 0x0030(0x0100)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_LootableObject_OnMeshCollision;
-
-// Function OakGame.LootableObject.OnMeshPhysicsStateChanged
-// 0x0010 (0x0010 - 0x0000)
-struct LootableObject_OnMeshPhysicsStateChanged final
-{
-public:
-	class UPrimitiveComponent*                    Component;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EComponentPhysicsStateChange                  StateChange;                                       // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_LootableObject_OnMeshPhysicsStateChanged;
-
-// Function OakGame.NexusConfigStoreUISpecializations.GetAllProgressGraphGroupDefs
-// 0x0010 (0x0010 - 0x0000)
-struct NexusConfigStoreUISpecializations_GetAllProgressGraphGroupDefs final
+struct NexusConfigStoreUISkillTree_GetAllProgressGraphGroupDefs final
 {
 public:
 	TArray<FGbxDefPtrProperty_>                   graphs;                                            // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_NexusConfigStoreUISpecializations_GetAllProgressGraphGroupDefs;
+DUMPER7_ASSERTS_NexusConfigStoreUISkillTree_GetAllProgressGraphGroupDefs;
 
-// Function OakGame.NexusConfigStoreUISpecializations.GetNodeNames
+// Function OakGame.NexusConfigStoreUISkillTree.GetNodeNames
 // 0x0030 (0x0030 - 0x0000)
-struct NexusConfigStoreUISpecializations_GetNodeNames final
+struct NexusConfigStoreUISkillTree_GetNodeNames final
 {
 public:
 	class UObject*                                EditObject;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           ProgressGraph;                                     // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<class FName>                           OutNames;                                          // 0x0020(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_NexusConfigStoreUISpecializations_GetNodeNames;
+DUMPER7_ASSERTS_NexusConfigStoreUISkillTree_GetNodeNames;
+
+// Function OakGame.OakGameplayActorStatics.FilterActors
+// 0x0030 (0x0030 - 0x0000)
+struct OakGameplayActorStatics_FilterActors final
+{
+public:
+	TArray<class AActor*>                         InActorsToFilter;                                  // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+	TArray<class AActor*>                         InActorsToExclude;                                 // 0x0010(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+	TArray<class AActor*>                         ReturnValue;                                       // 0x0020(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakGameplayActorStatics_FilterActors;
+
+// Function OakGame.OakGameplayActorStatics.QueryPlayers
+// 0x0038 (0x0038 - 0x0000)
+struct OakGameplayActorStatics_QueryPlayers final
+{
+public:
+	class UObject*                                WorldContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FOakPlayerQuerySpec                    InSpec;                                            // 0x0008(0x0018)(Parm, NativeAccessSpecifierPublic)
+	struct FOakPlayerQueryResult                  ReturnValue;                                       // 0x0020(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakGameplayActorStatics_QueryPlayers;
+
+// Function OakGame.OakGameplayActorStatics.QueryResultToCharacters
+// 0x0020 (0x0020 - 0x0000)
+struct OakGameplayActorStatics_QueryResultToCharacters final
+{
+public:
+	TArray<struct FOakPlayerQueryResultItem>      InQueryResultItems;                                // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+	TArray<class AOakCharacter*>                  ReturnValue;                                       // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakGameplayActorStatics_QueryResultToCharacters;
+
+// Function OakGame.OakGameplayActorStatics.QueryResultToPlayerControllers
+// 0x0020 (0x0020 - 0x0000)
+struct OakGameplayActorStatics_QueryResultToPlayerControllers final
+{
+public:
+	TArray<struct FOakPlayerQueryResultItem>      InQueryResultItems;                                // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+	TArray<class AOakPlayerController*>           ReturnValue;                                       // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakGameplayActorStatics_QueryResultToPlayerControllers;
+
+// Function OakGame.OakGameplayActorStatics.SpawnSingularityActor
+// 0x0130 (0x0130 - 0x0000)
+struct OakGameplayActorStatics_SpawnSingularityActor final
+{
+public:
+	FGameDataHandleProperty_                      SingularityDef;                                    // 0x0000(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_18[0x8];                                       // 0x0018(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FTransform                             SingularityTransform;                              // 0x0020(0x0060)(ConstParm, Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class AActor*                           owner;                                             // 0x0080(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<class AActor*>                         IgnoreActors;                                      // 0x0088(0x0010)(Parm, ZeroConstructor, NativeAccessSpecifierPublic)
+	struct FOakSingularityOverrides               Overrides;                                         // 0x0098(0x0088)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class AOakSingularity*                        ReturnValue;                                       // 0x0120(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_128[0x8];                                      // 0x0128(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakGameplayActorStatics_SpawnSingularityActor;
 
 // Function OakGame.BioArmorStatics.HasBioArmor
 // 0x0010 (0x0010 - 0x0000)
@@ -240,6 +312,28 @@ public:
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_BioArmorStatics_TryDeactivateBioArmor;
+
+// Function OakGame.MissionTaskType_EventBoundary_Observer.OnActorEntered
+// 0x0010 (0x0010 - 0x0000)
+struct MissionTaskType_EventBoundary_Observer_OnActorEntered final
+{
+public:
+	class AActor*                                 TouchingActor;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsPlayer;                                         // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_MissionTaskType_EventBoundary_Observer_OnActorEntered;
+
+// Function OakGame.MissionTaskType_EventBoundary_Observer.OnActorLeft
+// 0x0010 (0x0010 - 0x0000)
+struct MissionTaskType_EventBoundary_Observer_OnActorLeft final
+{
+public:
+	class AActor*                                 TouchingActor;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsPlayer;                                         // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_MissionTaskType_EventBoundary_Observer_OnActorLeft;
 
 // Function OakGame.BlueprintableCameraModeTransition.EndTransition
 // 0x0008 (0x0008 - 0x0000)
@@ -352,6 +446,33 @@ public:
 };
 DUMPER7_ASSERTS_CarryableObject_OnRep_CarryablePhysicsState;
 
+// Function OakGame.InventoryGadget.ServerInputHeld
+// 0x0001 (0x0001 - 0x0000)
+struct InventoryGadget_ServerInputHeld final
+{
+public:
+	bool                                          bStarted;                                          // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_InventoryGadget_ServerInputHeld;
+
+// Function OakGame.GrenadeGadget.ExplodeCallback
+// 0x0008 (0x0008 - 0x0000)
+struct GrenadeGadget_ExplodeCallback final
+{
+public:
+	const class AActor*                           projectile;                                        // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_GrenadeGadget_ExplodeCallback;
+
+// Function OakGame.GrenadeGadget.SpawnGrenade
+// 0x0050 (0x0050 - 0x0000)
+struct GrenadeGadget_SpawnGrenade final
+{
+public:
+	struct FSpawnGrenadeOptions                   SpawnGrenadeOptions;                               // 0x0000(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_GrenadeGadget_SpawnGrenade;
+
 // Function OakGame.CarryableObjectContainer.OnContainerBeginOverlap
 // 0x0120 (0x0120 - 0x0000)
 struct CarryableObjectContainer_OnContainerBeginOverlap final
@@ -389,46 +510,6 @@ public:
 };
 DUMPER7_ASSERTS_CarryableObjectContainer_SetContainerEnabled;
 
-// Function OakGame.OakWeapon.ClientReduceWear
-// 0x0008 (0x0008 - 0x0000)
-struct OakWeapon_ClientReduceWear final
-{
-public:
-	uint8                                         UseModeIndex;                                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         Percent;                                           // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakWeapon_ClientReduceWear;
-
-// Function OakGame.OakWeapon.ServerSetCommandRingTarget
-// 0x0040 (0x0040 - 0x0000)
-struct OakWeapon_ServerSetCommandRingTarget final
-{
-public:
-	struct FCommandRingTarget                     target;                                            // 0x0000(0x0040)(ConstParm, Parm, ReferenceParm, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakWeapon_ServerSetCommandRingTarget;
-
-// Function OakGame.OakWeapon.GetChargePercent
-// 0x0004 (0x0004 - 0x0000)
-struct OakWeapon_GetChargePercent final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakWeapon_GetChargePercent;
-
-// Function OakGame.OakWeapon.GetPartValue
-// 0x0008 (0x0008 - 0x0000)
-struct OakWeapon_GetPartValue final
-{
-public:
-	EWeaponPartValue                              type;                                              // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         ReturnValue;                                       // 0x0004(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakWeapon_GetPartValue;
-
 // Function OakGame.CarryableObjectDispenser.IsDispenserActive
 // 0x0001 (0x0001 - 0x0000)
 struct CarryableObjectDispenser_IsDispenserActive final
@@ -437,16 +518,6 @@ public:
 	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CarryableObjectDispenser_IsDispenserActive;
-
-// Function OakGame.InventoryItemBlueprintLibrary.GetSummary_InventoryItemSelectionData
-// 0x0078 (0x0078 - 0x0000)
-struct InventoryItemBlueprintLibrary_GetSummary_InventoryItemSelectionData final
-{
-public:
-	struct FInventoryItemSelectionData            data;                                              // 0x0000(0x0068)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class FString                                 ReturnValue;                                       // 0x0068(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_InventoryItemBlueprintLibrary_GetSummary_InventoryItemSelectionData;
 
 // Function OakGame.CarryableObjectStatics.ActorForceDropCarriedObject
 // 0x0010 (0x0010 - 0x0000)
@@ -514,235 +585,192 @@ public:
 };
 DUMPER7_ASSERTS_CarryableObjectStatics_SetCarryAbilityLock;
 
-// Function OakGame.OakEcho4Statics.CanEcho4BeInterrupted
-// 0x0010 (0x0010 - 0x0000)
-struct OakEcho4Statics_CanEcho4BeInterrupted final
-{
-public:
-	class AOakCharacter*                          DroneOwner;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakEcho4Statics_CanEcho4BeInterrupted;
-
-// Function OakGame.OakEcho4Statics.CanEcho4Deploy
-// 0x0010 (0x0010 - 0x0000)
-struct OakEcho4Statics_CanEcho4Deploy final
-{
-public:
-	class AOakCharacter*                          DroneOwner;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakEcho4Statics_CanEcho4Deploy;
-
-// Function OakGame.OakEcho4Statics.DeployEcho4AtLocationLatent
-// 0x0068 (0x0068 - 0x0000)
-struct OakEcho4Statics_DeployEcho4AtLocationLatent final
-{
-public:
-	struct FVector                                Location;                                          // 0x0000(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Echo4DeployCooldown;                               // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class AOakCharacter*                          DroneOwner;                                        // 0x0020(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AOakDrone*                              projectile;                                        // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FLatentActionInfo                      LatentInfo;                                        // 0x0030(0x0018)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          bUseOverrideRotation;                              // 0x0048(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FRotator                               OverrideRotation;                                  // 0x0050(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakEcho4Statics_DeployEcho4AtLocationLatent;
-
-// Function OakGame.OakEcho4Statics.DeployEcho4Latent
-// 0x00B8 (0x00B8 - 0x0000)
-struct OakEcho4Statics_DeployEcho4Latent final
-{
-public:
-	struct FGbxRelativeLocation                   LocationOptions;                                   // 0x0000(0x0060)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-	float                                         Echo4DeployCooldown;                               // 0x0060(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_64[0x4];                                       // 0x0064(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class AOakCharacter*                          DroneOwner;                                        // 0x0068(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AOakDrone*                              projectile;                                        // 0x0070(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FLatentActionInfo                      LatentInfo;                                        // 0x0078(0x0018)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          bUseOverrideRotation;                              // 0x0090(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_91[0x7];                                       // 0x0091(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FRotator                               OverrideRotation;                                  // 0x0098(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	class AActor*                                 OverrideActor;                                     // 0x00B0(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakEcho4Statics_DeployEcho4Latent;
-
-// Function OakGame.OakEcho4Statics.DeployEcho4WithDefLatent
-// 0x00D0 (0x00D0 - 0x0000)
-struct OakEcho4Statics_DeployEcho4WithDefLatent final
-{
-public:
-	FGbxDefPtrProperty_                           DroneDef;                                          // 0x0000(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGbxRelativeLocation                   LocationOptions;                                   // 0x0018(0x0060)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-	float                                         Echo4DeployCooldown;                               // 0x0078(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_7C[0x4];                                       // 0x007C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class AOakCharacter*                          DroneOwner;                                        // 0x0080(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AOakDrone*                              projectile;                                        // 0x0088(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FLatentActionInfo                      LatentInfo;                                        // 0x0090(0x0018)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          bUseOverrideRotation;                              // 0x00A8(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_A9[0x7];                                       // 0x00A9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FRotator                               OverrideRotation;                                  // 0x00B0(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	class AActor*                                 OverrideActor;                                     // 0x00C8(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakEcho4Statics_DeployEcho4WithDefLatent;
-
-// Function OakGame.OakEcho4Statics.FlyToActor
-// 0x0020 (0x0020 - 0x0000)
-struct OakEcho4Statics_FlyToActor final
-{
-public:
-	class AOakDrone*                              OakDrone;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 MoveActor;                                         // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         DroneSpeed;                                        // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         DroneAccelerationTime;                             // 0x0014(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         StopFlyAtTargetDisance;                            // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakEcho4Statics_FlyToActor;
-
-// Function OakGame.OakEcho4Statics.FlyToLocation
+// Function OakGame.OakUIScript_CharacterSelect.AllPlayersReady
 // 0x0030 (0x0030 - 0x0000)
-struct OakEcho4Statics_FlyToLocation final
-{
-public:
-	class AOakDrone*                              OakDrone;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                MoveLocation;                                      // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         DroneSpeed;                                        // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         DroneAccelerationTime;                             // 0x0024(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         StopFlyAtTargetDisance;                            // 0x0028(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakEcho4Statics_FlyToLocation;
-
-// Function OakGame.OakEcho4Statics.GetEcho4ActorScript
-// 0x0010 (0x0010 - 0x0000)
-struct OakEcho4Statics_GetEcho4ActorScript final
-{
-public:
-	class AOakDrone*                              OakDrone;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UOakActorScript_Echo4*                  ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakEcho4Statics_GetEcho4ActorScript;
-
-// Function OakGame.OakEcho4Statics.GetEcho4Drone
-// 0x0010 (0x0010 - 0x0000)
-struct OakEcho4Statics_GetEcho4Drone final
-{
-public:
-	class AOakCharacter*                          DroneOwner;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AOakDrone*                              ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakEcho4Statics_GetEcho4Drone;
-
-// Function OakGame.OakEcho4Statics.IsEcho4Deployed
-// 0x0010 (0x0010 - 0x0000)
-struct OakEcho4Statics_IsEcho4Deployed final
-{
-public:
-	class AOakCharacter*                          DroneOwner;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakEcho4Statics_IsEcho4Deployed;
-
-// Function OakGame.OakEcho4Statics.NotifyEchoLocationAnimFinished
-// 0x0008 (0x0008 - 0x0000)
-struct OakEcho4Statics_NotifyEchoLocationAnimFinished final
-{
-public:
-	class AOakDrone*                              OakDrone;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakEcho4Statics_NotifyEchoLocationAnimFinished;
-
-// Function OakGame.OakEcho4Statics.RetrieveEcho4
-// 0x0008 (0x0008 - 0x0000)
-struct OakEcho4Statics_RetrieveEcho4 final
-{
-public:
-	class AOakCharacter*                          DroneOwner;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakEcho4Statics_RetrieveEcho4;
-
-// Function OakGame.OakEcho4Statics.SetEcho4DeploymentLocked
-// 0x0010 (0x0010 - 0x0000)
-struct OakEcho4Statics_SetEcho4DeploymentLocked final
-{
-public:
-	class AOakCharacter*                          DroneOwner;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          InLock;                                            // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakEcho4Statics_SetEcho4DeploymentLocked;
-
-// Function OakGame.OakEcho4Statics.WasWaypointPathFound
-// 0x0010 (0x0010 - 0x0000)
-struct OakEcho4Statics_WasWaypointPathFound final
-{
-public:
-	class AActor*                                 DroneOrOwner;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakEcho4Statics_WasWaypointPathFound;
-
-// Function OakGame.OakEcho4Statics.WasWaypointPathFoundLatent
-// 0x0028 (0x0028 - 0x0000)
-struct OakEcho4Statics_WasWaypointPathFoundLatent final
-{
-public:
-	class AActor*                                 DroneOrOwner;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          Result;                                            // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FLatentActionInfo                      LatentInfo;                                        // 0x0010(0x0018)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakEcho4Statics_WasWaypointPathFoundLatent;
-
-// Function OakGame.OakAIHeldLootableComponent.Lootable_OnPhysicsSleep
-// 0x0010 (0x0010 - 0x0000)
-struct OakAIHeldLootableComponent_Lootable_OnPhysicsSleep final
-{
-public:
-	class UPrimitiveComponent*                    Component;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   BoneName;                                          // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakAIHeldLootableComponent_Lootable_OnPhysicsSleep;
-
-// Function OakGame.OakUIScript_EchoUpgrades.InsufficientPoints
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_EchoUpgrades_InsufficientPoints final
+struct OakUIScript_CharacterSelect_AllPlayersReady final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_EchoUpgrades_InsufficientPoints;
+DUMPER7_ASSERTS_OakUIScript_CharacterSelect_AllPlayersReady;
 
-// Function OakGame.OakUIScript_EchoUpgrades.StartTutorial
+// Function OakGame.OakUIScript_CharacterSelect.CycleRapSheetCharacter
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_EchoUpgrades_StartTutorial final
+struct OakUIScript_CharacterSelect_CycleRapSheetCharacter final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_EchoUpgrades_StartTutorial;
+DUMPER7_ASSERTS_OakUIScript_CharacterSelect_CycleRapSheetCharacter;
 
-// Function OakGame.OakUIScript_EchoUpgrades.Upgraded
+// Function OakGame.OakUIScript_CharacterSelect.LineupCharacterClick
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_EchoUpgrades_Upgraded final
+struct OakUIScript_CharacterSelect_LineupCharacterClick final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_EchoUpgrades_Upgraded;
+DUMPER7_ASSERTS_OakUIScript_CharacterSelect_LineupCharacterClick;
+
+// Function OakGame.OakUIScript_CharacterSelect.LineupCharacterHover
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CharacterSelect_LineupCharacterHover final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CharacterSelect_LineupCharacterHover;
+
+// Function OakGame.OakUIScript_CharacterSelect.LineupIntro
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CharacterSelect_LineupIntro final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CharacterSelect_LineupIntro;
+
+// Function OakGame.OakUIScript_CharacterSelect.MakeCharacterChoice
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CharacterSelect_MakeCharacterChoice final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CharacterSelect_MakeCharacterChoice;
+
+// Function OakGame.OakUIScript_CharacterSelect.TransitionBackToLineup
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CharacterSelect_TransitionBackToLineup final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CharacterSelect_TransitionBackToLineup;
+
+// Function OakGame.OakUIScript_CharacterSelect.TransitionToCharacterSelected
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CharacterSelect_TransitionToCharacterSelected final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CharacterSelect_TransitionToCharacterSelected;
+
+// Function OakGame.OakUIScript_CharacterSelect.TransitionToRapSheet
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CharacterSelect_TransitionToRapSheet final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CharacterSelect_TransitionToRapSheet;
+
+// Function OakGame.OakUIScript_RepairKit.FailToUseRepairKit
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_RepairKit_FailToUseRepairKit final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_RepairKit_FailToUseRepairKit;
+
+// Function OakGame.OakUIScript_RepairKit.GainChargeRepairKit
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_RepairKit_GainChargeRepairKit final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_RepairKit_GainChargeRepairKit;
+
+// Function OakGame.OakUIScript_RepairKit.ReadyToUseRepairKit
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_RepairKit_ReadyToUseRepairKit final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_RepairKit_ReadyToUseRepairKit;
+
+// Function OakGame.OakUIScript_RepairKit.StartReadyCountdownRepairKit
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_RepairKit_StartReadyCountdownRepairKit final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_RepairKit_StartReadyCountdownRepairKit;
+
+// Function OakGame.OakUIScript_RepairKit.TickReadyCountdownOneRepairKit
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_RepairKit_TickReadyCountdownOneRepairKit final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_RepairKit_TickReadyCountdownOneRepairKit;
+
+// Function OakGame.OakUIScript_RepairKit.TickReadyCountdownThreeRepairKit
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_RepairKit_TickReadyCountdownThreeRepairKit final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_RepairKit_TickReadyCountdownThreeRepairKit;
+
+// Function OakGame.OakUIScript_RepairKit.TickReadyCountdownTwoRepairKit
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_RepairKit_TickReadyCountdownTwoRepairKit final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_RepairKit_TickReadyCountdownTwoRepairKit;
+
+// Function OakGame.OakUIScript_RepairKit.UseRepairKit
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_RepairKit_UseRepairKit final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_RepairKit_UseRepairKit;
 
 // Function OakGame.TravelStationObject.GetDisplayName
 // 0x0010 (0x0010 - 0x0000)
@@ -762,48 +790,201 @@ public:
 };
 DUMPER7_ASSERTS_TravelStationObject_IsZoneActive;
 
-// Function OakGame.OakUIScript_Social.FriendRequestReceived
+// Function OakGame.OakUIScript_BigMap.AddWaypoint
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Social_FriendRequestReceived final
+struct OakUIScript_BigMap_AddWaypoint final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_Social_FriendRequestReceived;
+DUMPER7_ASSERTS_OakUIScript_BigMap_AddWaypoint;
 
-// Function OakGame.OakUIScript_Social.PromotedToPartyLeader
+// Function OakGame.OakUIScript_BigMap.CantDo
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Social_PromotedToPartyLeader final
+struct OakUIScript_BigMap_CantDo final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_Social_PromotedToPartyLeader;
+DUMPER7_ASSERTS_OakUIScript_BigMap_CantDo;
 
-// Function OakGame.OakUIScript_Social.SessionInviteReceived
+// Function OakGame.OakUIScript_BigMap.Center
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Social_SessionInviteReceived final
+struct OakUIScript_BigMap_Center final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_Social_SessionInviteReceived;
+DUMPER7_ASSERTS_OakUIScript_BigMap_Center;
 
-// Function OakGame.OakUIScript_Cursor.OnPulse
+// Function OakGame.OakUIScript_BigMap.DragEnd
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_BigMap_DragEnd final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_BigMap_DragEnd;
+
+// Function OakGame.OakUIScript_BigMap.DragMoved
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_BigMap_DragMoved final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_BigMap_DragMoved;
+
+// Function OakGame.OakUIScript_BigMap.DragStart
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_BigMap_DragStart final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_BigMap_DragStart;
+
+// Function OakGame.OakUIScript_BigMap.ExploreMenuClose
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_BigMap_ExploreMenuClose final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_BigMap_ExploreMenuClose;
+
+// Function OakGame.OakUIScript_BigMap.ExploreMenuOpen
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_BigMap_ExploreMenuOpen final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_BigMap_ExploreMenuOpen;
+
+// Function OakGame.OakUIScript_BigMap.InteractableElementRollOver
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_BigMap_InteractableElementRollOver final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_BigMap_InteractableElementRollOver;
+
+// Function OakGame.OakUIScript_BigMap.LocateOnMap
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_BigMap_LocateOnMap final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_BigMap_LocateOnMap;
+
+// Function OakGame.OakUIScript_BigMap.NewMap
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_BigMap_NewMap final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_BigMap_NewMap;
+
+// Function OakGame.OakUIScript_BigMap.RemoveWaypoint
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_BigMap_RemoveWaypoint final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_BigMap_RemoveWaypoint;
+
+// Function OakGame.OakUIScript_BigMap.Select
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_BigMap_Select final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_BigMap_Select;
+
+// Function OakGame.OakUIScript_BigMap.StartBigMapEndGameMenuTutorial
 // 0x0020 (0x0020 - 0x0000)
-struct OakUIScript_Cursor_OnPulse final
+struct OakUIScript_BigMap_StartBigMapEndGameMenuTutorial final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_Cursor_OnPulse;
+DUMPER7_ASSERTS_OakUIScript_BigMap_StartBigMapEndGameMenuTutorial;
+
+// Function OakGame.OakUIScript_BigMap.StartBigMapIntroMenuTutorial
+// 0x0020 (0x0020 - 0x0000)
+struct OakUIScript_BigMap_StartBigMapIntroMenuTutorial final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_BigMap_StartBigMapIntroMenuTutorial;
+
+// Function OakGame.OakUIScript_BigMap.ToggleLegendItem
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_BigMap_ToggleLegendItem final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_BigMap_ToggleLegendItem;
+
+// Function OakGame.OakUIScript_BigMap.ZoomIn
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_BigMap_ZoomIn final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_BigMap_ZoomIn;
+
+// Function OakGame.OakUIScript_BigMap.ZoomOut
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_BigMap_ZoomOut final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_BigMap_ZoomOut;
 
 // Function OakGame.CommandRing.GetCommandRingTargetWorldLocation
 // 0x0058 (0x0058 - 0x0000)
@@ -894,96 +1075,61 @@ public:
 };
 DUMPER7_ASSERTS_CommandRing_IsTargetValid;
 
-// Function OakGame.OakActorScript_BioArmor.BioArmorVFXTransitionDeactivation
+// Function OakGame.PhasedObjectStatics.IsPhased
+// 0x0010 (0x0010 - 0x0000)
+struct PhasedObjectStatics_IsPhased final
+{
+public:
+	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_PhasedObjectStatics_IsPhased;
+
+// Function OakGame.PhasedObjectStatics.TryEnterPhasedState
 // 0x0008 (0x0008 - 0x0000)
-struct OakActorScript_BioArmor_BioArmorVFXTransitionDeactivation final
+struct PhasedObjectStatics_TryEnterPhasedState final
 {
 public:
-	class UNiagaraComponent*                      PSystem;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakActorScript_BioArmor_BioArmorVFXTransitionDeactivation;
+DUMPER7_ASSERTS_PhasedObjectStatics_TryEnterPhasedState;
 
-// Function OakGame.OakActorScript_BioArmor.SetReactivationDelay
-// 0x0004 (0x0004 - 0x0000)
-struct OakActorScript_BioArmor_SetReactivationDelay final
+// Function OakGame.PhasedObjectStatics.TryExitPhasedState
+// 0x0008 (0x0008 - 0x0000)
+struct PhasedObjectStatics_TryExitPhasedState final
 {
 public:
-	float                                         ReactivationDelay_0;                               // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakActorScript_BioArmor_SetReactivationDelay;
+DUMPER7_ASSERTS_PhasedObjectStatics_TryExitPhasedState;
 
-// Function OakGame.OakActorScript_BioArmor.TryActivateArmor
-// 0x0002 (0x0002 - 0x0000)
-struct OakActorScript_BioArmor_TryActivateArmor final
+// Function OakGame.OakAIWeaponUserFunctionLibrary.LockAIFiring
+// 0x0020 (0x0020 - 0x0000)
+struct OakAIWeaponUserFunctionLibrary_LockAIFiring final
 {
 public:
-	bool                                          bIsInstantaneous;                                  // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0001(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 AIActor;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   reason;                                            // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          Block;                                             // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxAIHeldFilter                       WeaponFilter;                                      // 0x0014(0x000C)(Parm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakActorScript_BioArmor_TryActivateArmor;
+DUMPER7_ASSERTS_OakAIWeaponUserFunctionLibrary_LockAIFiring;
 
-// Function OakGame.OakActorScript_BioArmor.IsArmored
-// 0x0001 (0x0001 - 0x0000)
-struct OakActorScript_BioArmor_IsArmored final
+// Function OakGame.OakAIWeaponUserFunctionLibrary.LockAIScriptedFiring
+// 0x0020 (0x0020 - 0x0000)
+struct OakAIWeaponUserFunctionLibrary_LockAIScriptedFiring final
 {
 public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 AIActor;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   reason;                                            // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          Block;                                             // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIgnoreFiringRestrictions;                         // 0x0011(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_12[0x2];                                       // 0x0012(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxAIHeldFilter                       WeaponFilter;                                      // 0x0014(0x000C)(Parm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakActorScript_BioArmor_IsArmored;
-
-// Function OakGame.Shield.GetCapacity
-// 0x0004 (0x0004 - 0x0000)
-struct Shield_GetCapacity final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Shield_GetCapacity;
-
-// Function OakGame.Shield.GetNumSegments
-// 0x0004 (0x0004 - 0x0000)
-struct Shield_GetNumSegments final
-{
-public:
-	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Shield_GetNumSegments;
-
-// Function OakGame.Shield.GetRegenDelay
-// 0x0004 (0x0004 - 0x0000)
-struct Shield_GetRegenDelay final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Shield_GetRegenDelay;
-
-// Function OakGame.Shield.GetRegenRate
-// 0x0004 (0x0004 - 0x0000)
-struct Shield_GetRegenRate final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Shield_GetRegenRate;
-
-// Function OakGame.Shield.K2_GetDamageType
-// 0x0018 (0x0018 - 0x0000)
-struct Shield_K2_GetDamageType final
-{
-public:
-	FGameDataHandleProperty_                      ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Shield_K2_GetDamageType;
-
-// Function OakGame.Shield.K2_GetHealthSystem
-// 0x0001 (0x0001 - 0x0000)
-struct Shield_K2_GetHealthSystem final
-{
-public:
-	EShieldHealthSystem                           ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Shield_K2_GetHealthSystem;
+DUMPER7_ASSERTS_OakAIWeaponUserFunctionLibrary_LockAIScriptedFiring;
 
 // Function OakGame.FirmwareTransferBlueprintLibrary.GetFirmwareTransferCost
 // 0x0028 (0x0028 - 0x0000)
@@ -1027,6 +1173,27 @@ public:
 };
 DUMPER7_ASSERTS_FirmwareTransferBlueprintLibrary_TransferFirmware;
 
+// Function OakGame.StructuredInteractableUserState.ClientSetCurrentInteractable
+// 0x0020 (0x0020 - 0x0000)
+struct StructuredInteractableUserState_ClientSetCurrentInteractable final
+{
+public:
+	TScriptInterface<class IStructuredInteractable> NewInteractable;                                 // 0x0000(0x0010)(ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   InteractionName;                                   // 0x0010(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bInstant;                                          // 0x0018(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_StructuredInteractableUserState_ClientSetCurrentInteractable;
+
+// Function OakGame.StructuredInteractableUserState.ServerClearCurrentInteractable
+// 0x0001 (0x0001 - 0x0000)
+struct StructuredInteractableUserState_ServerClearCurrentInteractable final
+{
+public:
+	bool                                          bImmediate;                                        // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_StructuredInteractableUserState_ServerClearCurrentInteractable;
+
 // Function OakGame.GameDataHandleBlueprintLibrary.Resolve_DamageDefGameDataHandle
 // 0x0058 (0x0058 - 0x0000)
 struct GameDataHandleBlueprintLibrary_Resolve_DamageDefGameDataHandle final
@@ -1060,258 +1227,23 @@ public:
 };
 DUMPER7_ASSERTS_GameDataHandleBlueprintLibrary_Resolve_ImpactEffectDefGameDataHandle;
 
-// Function OakGame.OakBossStatics.GetTextFromUICharacterName
-// 0x0028 (0x0028 - 0x0000)
-struct OakBossStatics_GetTextFromUICharacterName final
-{
-public:
-	FGbxDefPtrProperty_                           UIName;                                            // 0x0000(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FText                                   ReturnValue;                                       // 0x0018(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakBossStatics_GetTextFromUICharacterName;
-
-// Function OakGame.OakBossStatics.HasFightBeenCompleted
-// 0x0010 (0x0010 - 0x0000)
-struct OakBossStatics_HasFightBeenCompleted final
-{
-public:
-	class AOakBossFight*                          BossFightActor;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakBossStatics_HasFightBeenCompleted;
-
-// Function OakGame.OakBossStatics.SetAllBossesDimmed
-// 0x0010 (0x0010 - 0x0000)
-struct OakBossStatics_SetAllBossesDimmed final
-{
-public:
-	class AActor*                                 Boss;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDimmed;                                           // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakBossStatics_SetAllBossesDimmed;
-
-// Function OakGame.OakBossStatics.SetAllBossesInvulnerable
-// 0x0010 (0x0010 - 0x0000)
-struct OakBossStatics_SetAllBossesInvulnerable final
-{
-public:
-	class AActor*                                 Boss;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bInvulnerable;                                     // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakBossStatics_SetAllBossesInvulnerable;
-
-// Function OakGame.OakBossStatics.SetBossBarEnabled
-// 0x0018 (0x0018 - 0x0000)
-struct OakBossStatics_SetBossBarEnabled final
-{
-public:
-	class AActor*                                 Boss;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AOakBossFight*                          BossFightInfo;                                     // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEnable;                                           // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakBossStatics_SetBossBarEnabled;
-
-// Function OakGame.OakBossStatics.SetBossDimmed
-// 0x0010 (0x0010 - 0x0000)
-struct OakBossStatics_SetBossDimmed final
-{
-public:
-	class AActor*                                 Boss;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDimmed;                                           // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakBossStatics_SetBossDimmed;
-
-// Function OakGame.OakBossStatics.SetBossInvulnerable
-// 0x0010 (0x0010 - 0x0000)
-struct OakBossStatics_SetBossInvulnerable final
-{
-public:
-	class AActor*                                 Boss;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bInvulnerable;                                     // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakBossStatics_SetBossInvulnerable;
-
-// Function OakGame.OakBossStatics.ShakeEvent
+// Function OakGame.SoloTravelStationObject.TeleportPlayerToDestination
 // 0x0008 (0x0008 - 0x0000)
-struct OakBossStatics_ShakeEvent final
-{
-public:
-	class AActor*                                 Boss;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakBossStatics_ShakeEvent;
-
-// Function OakGame.OakBossStatics.StartBossFightTracking
-// 0x0008 (0x0008 - 0x0000)
-struct OakBossStatics_StartBossFightTracking final
-{
-public:
-	class AActor*                                 Boss;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakBossStatics_StartBossFightTracking;
-
-// Function OakGame.OakBossStatics.StopBossFightTracking
-// 0x0008 (0x0008 - 0x0000)
-struct OakBossStatics_StopBossFightTracking final
-{
-public:
-	class AActor*                                 Boss;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakBossStatics_StopBossFightTracking;
-
-// Function OakGame.OakBossStatics.GetPlayersInArena
-// 0x0018 (0x0018 - 0x0000)
-struct OakBossStatics_GetPlayersInArena final
-{
-public:
-	class AOakBossFight*                          BossFightInfo;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<class AOakCharacter*>                  ReturnValue;                                       // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakBossStatics_GetPlayersInArena;
-
-// Function OakGame.OakChallengeBlueprintLibrary.IncrementChallengeForAllPlayers
-// 0x0028 (0x0028 - 0x0000)
-struct OakChallengeBlueprintLibrary_IncrementChallengeForAllPlayers final
-{
-public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGameDataHandleProperty_                      ChallengeToIncrement;                              // 0x0008(0x0018)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         IncrementAmount;                                   // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakChallengeBlueprintLibrary_IncrementChallengeForAllPlayers;
-
-// Function OakGame.OakChallengeBlueprintLibrary.IncrementChallengeForPlayer
-// 0x0030 (0x0030 - 0x0000)
-struct OakChallengeBlueprintLibrary_IncrementChallengeForPlayer final
-{
-public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AOakPlayerController*                   OakPC;                                             // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGameDataHandleProperty_                      ChallengeToIncrement;                              // 0x0010(0x0018)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         IncrementAmount;                                   // 0x0028(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakChallengeBlueprintLibrary_IncrementChallengeForPlayer;
-
-// Function OakGame.OakChallengeBlueprintLibrary.IsChallengeCompleteForPlayer
-// 0x0028 (0x0028 - 0x0000)
-struct OakChallengeBlueprintLibrary_IsChallengeCompleteForPlayer final
+struct SoloTravelStationObject_TeleportPlayerToDestination final
 {
 public:
 	class AOakPlayerController*                   OakPC;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGameDataHandleProperty_                      challenge;                                         // 0x0008(0x0018)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0020(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_OakChallengeBlueprintLibrary_IsChallengeCompleteForPlayer;
+DUMPER7_ASSERTS_SoloTravelStationObject_TeleportPlayerToDestination;
 
-// Function OakGame.OakVehicleBlueprintLibrary.AssignHoverDriveEffectParameters
-// 0x0010 (0x0010 - 0x0000)
-struct OakVehicleBlueprintLibrary_AssignHoverDriveEffectParameters final
-{
-public:
-	class UFXSystemComponent*                     FXComponent;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AOakVehicle*                            Vehicle;                                           // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakVehicleBlueprintLibrary_AssignHoverDriveEffectParameters;
-
-// Function OakGame.OakVehicleBlueprintLibrary.CanBoost
-// 0x0010 (0x0010 - 0x0000)
-struct OakVehicleBlueprintLibrary_CanBoost final
-{
-public:
-	class AOakVehicle*                            Vehicle;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakVehicleBlueprintLibrary_CanBoost;
-
-// Function OakGame.OakVehicleBlueprintLibrary.GetAssociatedVehicle
-// 0x0018 (0x0018 - 0x0000)
-struct OakVehicleBlueprintLibrary_GetAssociatedVehicle final
-{
-public:
-	class AActor*                                 Context;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EGetOakVehicleResult                          Exec;                                              // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class AOakVehicle*                            ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakVehicleBlueprintLibrary_GetAssociatedVehicle;
-
-// Function OakGame.OakVehicleBlueprintLibrary.GetHoverDriveEffectByName
-// 0x0018 (0x0018 - 0x0000)
-struct OakVehicleBlueprintLibrary_GetHoverDriveEffectByName final
-{
-public:
-	class AOakVehicle*                            Vehicle;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   EffectName;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UFXSystemAsset*                         ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakVehicleBlueprintLibrary_GetHoverDriveEffectByName;
-
-// Function OakGame.OakVehicleBlueprintLibrary.IsBoosting
-// 0x0010 (0x0010 - 0x0000)
-struct OakVehicleBlueprintLibrary_IsBoosting final
-{
-public:
-	class AOakVehicle*                            Vehicle;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakVehicleBlueprintLibrary_IsBoosting;
-
-// Function OakGame.OakVehicleBlueprintLibrary.ToggleBoost
-// 0x0010 (0x0010 - 0x0000)
-struct OakVehicleBlueprintLibrary_ToggleBoost final
-{
-public:
-	class AOakVehicle*                            Vehicle;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bBoost;                                            // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakVehicleBlueprintLibrary_ToggleBoost;
-
-// Function OakGame.InventoryGadget.ServerInputHeld
+// Function OakGame.OakVaultTrackable.ToggleTrackingEnabled
 // 0x0001 (0x0001 - 0x0000)
-struct InventoryGadget_ServerInputHeld final
+struct OakVaultTrackable_ToggleTrackingEnabled final
 {
 public:
-	bool                                          bStarted;                                          // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnabled;                                          // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_InventoryGadget_ServerInputHeld;
-
-// Function OakGame.TurretGadget.ProjectileDestroyed
-// 0x0008 (0x0008 - 0x0000)
-struct TurretGadget_ProjectileDestroyed final
-{
-public:
-	class AActor*                                 Actor;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_TurretGadget_ProjectileDestroyed;
-
-// Function OakGame.TurretGadget.RegisterTurret
-// 0x0008 (0x0008 - 0x0000)
-struct TurretGadget_RegisterTurret final
-{
-public:
-	class AActor*                                 Actor;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_TurretGadget_RegisterTurret;
-
-// Function OakGame.TurretGadget.UnregisterTurret
-// 0x0008 (0x0008 - 0x0000)
-struct TurretGadget_UnregisterTurret final
-{
-public:
-	class AActor*                                 Actor;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_TurretGadget_UnregisterTurret;
+DUMPER7_ASSERTS_OakVaultTrackable_ToggleTrackingEnabled;
 
 // Function OakGame.OakNoSignalZone.OnBeginNoSignalOverlapped
 // 0x0010 (0x0010 - 0x0000)
@@ -1333,689 +1265,34 @@ public:
 };
 DUMPER7_ASSERTS_OakNoSignalZone_OnEndNoSignalOverlapped;
 
-// Function OakGame.TerminalGadget.RegisterTerminal
+// Function OakGame.OakAttributeDefinedSummaryLibrary.GetSummary_ChanceDefinedValueRow
+// 0x00C8 (0x00C8 - 0x0000)
+struct OakAttributeDefinedSummaryLibrary_GetSummary_ChanceDefinedValueRow final
+{
+public:
+	struct FChanceDefinedValueRow                 Struct;                                            // 0x0000(0x00B8)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class FString                                 ReturnValue;                                       // 0x00B8(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakAttributeDefinedSummaryLibrary_GetSummary_ChanceDefinedValueRow;
+
+// Function OakGame.OakAttributeDefinedSummaryLibrary.GetSummary_LootChanceDefinedValueRow
+// 0x00C8 (0x00C8 - 0x0000)
+struct OakAttributeDefinedSummaryLibrary_GetSummary_LootChanceDefinedValueRow final
+{
+public:
+	struct FLootChanceDefinedValueRow             Struct;                                            // 0x0000(0x00B8)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class FString                                 ReturnValue;                                       // 0x00B8(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakAttributeDefinedSummaryLibrary_GetSummary_LootChanceDefinedValueRow;
+
+// Function OakGame.OakBasePlayerController.AddUIViewState
 // 0x0008 (0x0008 - 0x0000)
-struct TerminalGadget_RegisterTerminal final
+struct OakBasePlayerController_AddUIViewState final
 {
 public:
-	class AActor*                                 Actor;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGameplayTag                           InState;                                           // 0x0000(0x0008)(ConstParm, Parm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_TerminalGadget_RegisterTerminal;
-
-// Function OakGame.OakUIScript_Backpack.BackpackSlotFocused
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_BackpackSlotFocused final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_BackpackSlotFocused;
-
-// Function OakGame.OakUIScript_Backpack.BackpackSlotUnfocused
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_BackpackSlotUnfocused final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_BackpackSlotUnfocused;
-
-// Function OakGame.OakUIScript_Backpack.BuyItem
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_BuyItem final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_BuyItem;
-
-// Function OakGame.OakUIScript_Backpack.ClickAssaultRifle
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_ClickAssaultRifle final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_ClickAssaultRifle;
-
-// Function OakGame.OakUIScript_Backpack.ClickClassMod
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_ClickClassMod final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_ClickClassMod;
-
-// Function OakGame.OakUIScript_Backpack.ClickEnhancement
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_ClickEnhancement final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_ClickEnhancement;
-
-// Function OakGame.OakUIScript_Backpack.ClickGadget
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_ClickGadget final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_ClickGadget;
-
-// Function OakGame.OakUIScript_Backpack.ClickGrenade
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_ClickGrenade final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_ClickGrenade;
-
-// Function OakGame.OakUIScript_Backpack.ClickHeavyWeapon
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_ClickHeavyWeapon final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_ClickHeavyWeapon;
-
-// Function OakGame.OakUIScript_Backpack.ClickPistol
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_ClickPistol final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_ClickPistol;
-
-// Function OakGame.OakUIScript_Backpack.ClickRepKit
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_ClickRepKit final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_ClickRepKit;
-
-// Function OakGame.OakUIScript_Backpack.ClickShield
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_ClickShield final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_ClickShield;
-
-// Function OakGame.OakUIScript_Backpack.ClickShotgun
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_ClickShotgun final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_ClickShotgun;
-
-// Function OakGame.OakUIScript_Backpack.ClickSMG
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_ClickSMG final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_ClickSMG;
-
-// Function OakGame.OakUIScript_Backpack.ClickSniper
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_ClickSniper final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_ClickSniper;
-
-// Function OakGame.OakUIScript_Backpack.CloseBackpack
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_CloseBackpack final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_CloseBackpack;
-
-// Function OakGame.OakUIScript_Backpack.ClosePlayerStats
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_ClosePlayerStats final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_ClosePlayerStats;
-
-// Function OakGame.OakUIScript_Backpack.CloseRewardCenter
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_CloseRewardCenter final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_CloseRewardCenter;
-
-// Function OakGame.OakUIScript_Backpack.CompareStart
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_CompareStart final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_CompareStart;
-
-// Function OakGame.OakUIScript_Backpack.CompareStop
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_CompareStop final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_CompareStop;
-
-// Function OakGame.OakUIScript_Backpack.DropItem
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_DropItem final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_DropItem;
-
-// Function OakGame.OakUIScript_Backpack.EquipAssaultRifle
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_EquipAssaultRifle final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_EquipAssaultRifle;
-
-// Function OakGame.OakUIScript_Backpack.EquipClassMod
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_EquipClassMod final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_EquipClassMod;
-
-// Function OakGame.OakUIScript_Backpack.EquipEnhancement
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_EquipEnhancement final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_EquipEnhancement;
-
-// Function OakGame.OakUIScript_Backpack.EquipGadget
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_EquipGadget final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_EquipGadget;
-
-// Function OakGame.OakUIScript_Backpack.EquipGrenade
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_EquipGrenade final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_EquipGrenade;
-
-// Function OakGame.OakUIScript_Backpack.EquipHeavyWeapon
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_EquipHeavyWeapon final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_EquipHeavyWeapon;
-
-// Function OakGame.OakUIScript_Backpack.EquipItem
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_EquipItem final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_EquipItem;
-
-// Function OakGame.OakUIScript_Backpack.EquipPistol
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_EquipPistol final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_EquipPistol;
-
-// Function OakGame.OakUIScript_Backpack.EquipRepKit
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_EquipRepKit final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_EquipRepKit;
-
-// Function OakGame.OakUIScript_Backpack.EquipShield
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_EquipShield final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_EquipShield;
-
-// Function OakGame.OakUIScript_Backpack.EquipShotgun
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_EquipShotgun final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_EquipShotgun;
-
-// Function OakGame.OakUIScript_Backpack.EquipSMG
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_EquipSMG final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_EquipSMG;
-
-// Function OakGame.OakUIScript_Backpack.EquipSniper
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_EquipSniper final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_EquipSniper;
-
-// Function OakGame.OakUIScript_Backpack.Error
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_Error final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_Error;
-
-// Function OakGame.OakUIScript_Backpack.FirmwareTransferComplete
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_FirmwareTransferComplete final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_FirmwareTransferComplete;
-
-// Function OakGame.OakUIScript_Backpack.GearSlotFocused
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_GearSlotFocused final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_GearSlotFocused;
-
-// Function OakGame.OakUIScript_Backpack.GearSlotUnfocused
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_GearSlotUnfocused final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_GearSlotUnfocused;
-
-// Function OakGame.OakUIScript_Backpack.MarkItem
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_MarkItem final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_MarkItem;
-
-// Function OakGame.OakUIScript_Backpack.MarkItemBank
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_MarkItemBank final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_MarkItemBank;
-
-// Function OakGame.OakUIScript_Backpack.MarkItemFavorite
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_MarkItemFavorite final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_MarkItemFavorite;
-
-// Function OakGame.OakUIScript_Backpack.MarkItemTrash
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_MarkItemTrash final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_MarkItemTrash;
-
-// Function OakGame.OakUIScript_Backpack.OpenBackpack
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_OpenBackpack final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_OpenBackpack;
-
-// Function OakGame.OakUIScript_Backpack.OpenLegendaryReward
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_OpenLegendaryReward final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_OpenLegendaryReward;
-
-// Function OakGame.OakUIScript_Backpack.OpenPlayerStats
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_OpenPlayerStats final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_OpenPlayerStats;
-
-// Function OakGame.OakUIScript_Backpack.OpenReward
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_OpenReward final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_OpenReward;
-
-// Function OakGame.OakUIScript_Backpack.OpenRewardCenter
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_OpenRewardCenter final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_OpenRewardCenter;
-
-// Function OakGame.OakUIScript_Backpack.PutItemInTransferSlot
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_PutItemInTransferSlot final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_PutItemInTransferSlot;
-
-// Function OakGame.OakUIScript_Backpack.RemoveItemFromTransferSlot
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_RemoveItemFromTransferSlot final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_RemoveItemFromTransferSlot;
-
-// Function OakGame.OakUIScript_Backpack.SellItem
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_SellItem final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_SellItem;
-
-// Function OakGame.OakUIScript_Backpack.StartEchoLogsMenuTutorial
-// 0x0020 (0x0020 - 0x0000)
-struct OakUIScript_Backpack_StartEchoLogsMenuTutorial final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_StartEchoLogsMenuTutorial;
-
-// Function OakGame.OakUIScript_Backpack.StartEquipMenuTutorial
-// 0x0020 (0x0020 - 0x0000)
-struct OakUIScript_Backpack_StartEquipMenuTutorial final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_StartEquipMenuTutorial;
-
-// Function OakGame.OakUIScript_Backpack.StartEquippedFirmwareTutorial
-// 0x0020 (0x0020 - 0x0000)
-struct OakUIScript_Backpack_StartEquippedFirmwareTutorial final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_StartEquippedFirmwareTutorial;
-
-// Function OakGame.OakUIScript_Backpack.StartFirmwareTransferTutorial
-// 0x0020 (0x0020 - 0x0000)
-struct OakUIScript_Backpack_StartFirmwareTransferTutorial final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_StartFirmwareTransferTutorial;
-
-// Function OakGame.OakUIScript_Backpack.StartLostLootTutorial
-// 0x0020 (0x0020 - 0x0000)
-struct OakUIScript_Backpack_StartLostLootTutorial final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_StartLostLootTutorial;
-
-// Function OakGame.OakUIScript_Backpack.StartRewardCenterTutorial
-// 0x0020 (0x0020 - 0x0000)
-struct OakUIScript_Backpack_StartRewardCenterTutorial final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_StartRewardCenterTutorial;
-
-// Function OakGame.OakUIScript_Backpack.StartVendingMachineTutorial
-// 0x0020 (0x0020 - 0x0000)
-struct OakUIScript_Backpack_StartVendingMachineTutorial final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_StartVendingMachineTutorial;
-
-// Function OakGame.OakUIScript_Backpack.TakeItem
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_TakeItem final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_TakeItem;
-
-// Function OakGame.OakUIScript_Backpack.TrashItem
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_TrashItem final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_TrashItem;
-
-// Function OakGame.OakUIScript_Backpack.UnequipItem
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_UnequipItem final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_UnequipItem;
-
-// Function OakGame.OakUIScript_Backpack.WeaponSlotFocused
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_WeaponSlotFocused final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_WeaponSlotFocused;
-
-// Function OakGame.OakUIScript_Backpack.WeaponSlotUnfocused
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Backpack_WeaponSlotUnfocused final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Backpack_WeaponSlotUnfocused;
+DUMPER7_ASSERTS_OakBasePlayerController_AddUIViewState;
 
 // Function OakGame.GbxSkillComponentFunctions_ActionSkill.AdjustDuration
 // 0x0010 (0x0010 - 0x0000)
@@ -2249,17 +1526,6 @@ public:
 };
 DUMPER7_ASSERTS_GbxSkillComponentFunctions_PhaseAvatar_SpawnFluxBeam;
 
-// Function OakGame.StructuredInteractableFunctionLibrary.StartStructuredInteraction
-// 0x0018 (0x0018 - 0x0000)
-struct StructuredInteractableFunctionLibrary_StartStructuredInteraction final
-{
-public:
-	class AActor*                                 Interactable;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   InteractionName;                                   // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class APlayerController*                      User;                                              // 0x0010(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_StructuredInteractableFunctionLibrary_StartStructuredInteraction;
-
 // Function OakGame.GbxActorScript_PhaseFamiliar.Init
 // 0x0002 (0x0002 - 0x0000)
 struct GbxActorScript_PhaseFamiliar_Init final
@@ -2347,291 +1613,93 @@ public:
 };
 DUMPER7_ASSERTS_GbxActorScript_PhaseFamiliar_IsPendingModChange;
 
-// Function OakGame.OakUIScript_HudSkills.FailToUseGadget
+// Function OakGame.OakUIScript_Customization.ApplyCustomization
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_FailToUseGadget final
+struct OakUIScript_Customization_ApplyCustomization final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_HudSkills_FailToUseGadget;
+DUMPER7_ASSERTS_OakUIScript_Customization_ApplyCustomization;
 
-// Function OakGame.OakUIScript_HudSkills.FailToUsePrimarySkill
+// Function OakGame.OakUIScript_Customization.CantDo
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_FailToUsePrimarySkill final
+struct OakUIScript_Customization_CantDo final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_HudSkills_FailToUsePrimarySkill;
+DUMPER7_ASSERTS_OakUIScript_Customization_CantDo;
 
-// Function OakGame.OakUIScript_HudSkills.FailToUseSecondarySkill
+// Function OakGame.OakUIScript_Customization.Customization_Hover
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_FailToUseSecondarySkill final
+struct OakUIScript_Customization_Customization_Hover final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_HudSkills_FailToUseSecondarySkill;
+DUMPER7_ASSERTS_OakUIScript_Customization_Customization_Hover;
 
-// Function OakGame.OakUIScript_HudSkills.GainChargeGadget
+// Function OakGame.OakUIScript_Customization.Customization_Select
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_GainChargeGadget final
+struct OakUIScript_Customization_Customization_Select final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_HudSkills_GainChargeGadget;
+DUMPER7_ASSERTS_OakUIScript_Customization_Customization_Select;
 
-// Function OakGame.OakUIScript_HudSkills.GainChargePrimarySkill
+// Function OakGame.OakUIScript_Customization.CustomizationMenu_Hover
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_GainChargePrimarySkill final
+struct OakUIScript_Customization_CustomizationMenu_Hover final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_HudSkills_GainChargePrimarySkill;
+DUMPER7_ASSERTS_OakUIScript_Customization_CustomizationMenu_Hover;
 
-// Function OakGame.OakUIScript_HudSkills.GainChargeSecondarySkill
+// Function OakGame.OakUIScript_Customization.CustomizationMenu_Select
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_GainChargeSecondarySkill final
+struct OakUIScript_Customization_CustomizationMenu_Select final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_HudSkills_GainChargeSecondarySkill;
+DUMPER7_ASSERTS_OakUIScript_Customization_CustomizationMenu_Select;
 
-// Function OakGame.OakUIScript_HudSkills.ReadyToUseGadgetGrenade
+// Function OakGame.OakUIScript_Customization.HideUI
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_ReadyToUseGadgetGrenade final
+struct OakUIScript_Customization_HideUI final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_HudSkills_ReadyToUseGadgetGrenade;
+DUMPER7_ASSERTS_OakUIScript_Customization_HideUI;
 
-// Function OakGame.OakUIScript_HudSkills.ReadyToUseGadgetHeavyWeapon
+// Function OakGame.OakUIScript_Customization.ShowUI
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_ReadyToUseGadgetHeavyWeapon final
+struct OakUIScript_Customization_ShowUI final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_HudSkills_ReadyToUseGadgetHeavyWeapon;
-
-// Function OakGame.OakUIScript_HudSkills.ReadyToUseGadgetOther
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_ReadyToUseGadgetOther final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_ReadyToUseGadgetOther;
-
-// Function OakGame.OakUIScript_HudSkills.ReadyToUsePrimarySkill
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_ReadyToUsePrimarySkill final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_ReadyToUsePrimarySkill;
-
-// Function OakGame.OakUIScript_HudSkills.ReadyToUseSecondarySkill
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_ReadyToUseSecondarySkill final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_ReadyToUseSecondarySkill;
-
-// Function OakGame.OakUIScript_HudSkills.StartReadyCountdownGadget
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_StartReadyCountdownGadget final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_StartReadyCountdownGadget;
-
-// Function OakGame.OakUIScript_HudSkills.StartReadyCountdownPrimarySkill
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_StartReadyCountdownPrimarySkill final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_StartReadyCountdownPrimarySkill;
-
-// Function OakGame.OakUIScript_HudSkills.StartReadyCountdownSecondarySkill
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_StartReadyCountdownSecondarySkill final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_StartReadyCountdownSecondarySkill;
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownOneGadget
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_TickReadyCountdownOneGadget final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownOneGadget;
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownOnePrimarySkill
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_TickReadyCountdownOnePrimarySkill final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownOnePrimarySkill;
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownOneSecondarySkill
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_TickReadyCountdownOneSecondarySkill final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownOneSecondarySkill;
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownThreeGadget
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_TickReadyCountdownThreeGadget final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownThreeGadget;
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownThreePrimarySkill
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_TickReadyCountdownThreePrimarySkill final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownThreePrimarySkill;
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownThreeSecondarySkill
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_TickReadyCountdownThreeSecondarySkill final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownThreeSecondarySkill;
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownTwoGadget
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_TickReadyCountdownTwoGadget final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownTwoGadget;
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownTwoPrimarySkill
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_TickReadyCountdownTwoPrimarySkill final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownTwoPrimarySkill;
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownTwoSecondarySkill
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_TickReadyCountdownTwoSecondarySkill final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownTwoSecondarySkill;
-
-// Function OakGame.OakUIScript_HudSkills.UseGadget
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_UseGadget final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_UseGadget;
-
-// Function OakGame.OakUIScript_HudSkills.UsePrimarySkill
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_UsePrimarySkill final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_UsePrimarySkill;
-
-// Function OakGame.OakUIScript_HudSkills.UseSecondarySkill
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_HudSkills_UseSecondarySkill final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_HudSkills_UseSecondarySkill;
+DUMPER7_ASSERTS_OakUIScript_Customization_ShowUI;
 
 // Function OakGame.OakCharacter.AddCharacterCombatStyles
 // 0x0020 (0x0020 - 0x0000)
@@ -3627,6 +2695,15 @@ public:
 };
 DUMPER7_ASSERTS_OakCharacter_GetSerialNumber;
 
+// Function OakGame.OakCharacter.GetSwimmingAreaType
+// 0x0001 (0x0001 - 0x0000)
+struct OakCharacter_GetSwimmingAreaType final
+{
+public:
+	EOakSwimmingAreaType                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakCharacter_GetSwimmingAreaType;
+
 // Function OakGame.OakCharacter.InDownState
 // 0x0001 (0x0001 - 0x0000)
 struct OakCharacter_InDownState final
@@ -3746,214 +2823,42 @@ public:
 };
 DUMPER7_ASSERTS_OakCharacter_IsResurrecting;
 
-// Function OakGame.OakUIScript_CelebratoryNotifications.AcceptContract
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_AcceptContract final
+// Function OakGame.OakActorScript_BioArmor.BioArmorVFXTransitionDeactivation
+// 0x0008 (0x0008 - 0x0000)
+struct OakActorScript_BioArmor_BioArmorVFXTransitionDeactivation final
 {
 public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UNiagaraComponent*                      PSystem;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_AcceptContract;
+DUMPER7_ASSERTS_OakActorScript_BioArmor_BioArmorVFXTransitionDeactivation;
 
-// Function OakGame.OakUIScript_CelebratoryNotifications.AcceptMission
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_AcceptMission final
+// Function OakGame.OakActorScript_BioArmor.SetReactivationDelay
+// 0x0004 (0x0004 - 0x0000)
+struct OakActorScript_BioArmor_SetReactivationDelay final
 {
 public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReactivationDelay_0;                               // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_AcceptMission;
+DUMPER7_ASSERTS_OakActorScript_BioArmor_SetReactivationDelay;
 
-// Function OakGame.OakUIScript_CelebratoryNotifications.ActivateMayhemMode
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_ActivateMayhemMode final
+// Function OakGame.OakActorScript_BioArmor.TryActivateArmor
+// 0x0002 (0x0002 - 0x0000)
+struct OakActorScript_BioArmor_TryActivateArmor final
 {
 public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsInstantaneous;                                  // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0001(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_ActivateMayhemMode;
+DUMPER7_ASSERTS_OakActorScript_BioArmor_TryActivateArmor;
 
-// Function OakGame.OakUIScript_CelebratoryNotifications.ActivityComplete
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_ActivityComplete final
+// Function OakGame.OakActorScript_BioArmor.IsArmored
+// 0x0001 (0x0001 - 0x0000)
+struct OakActorScript_BioArmor_IsArmored final
 {
 public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_ActivityComplete;
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.ActivityDiscovered
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_ActivityDiscovered final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_ActivityDiscovered;
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.CollectibleFound
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_CollectibleFound final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_CollectibleFound;
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.CompleteChallenge
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_CompleteChallenge final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_CompleteChallenge;
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.CompleteContract
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_CompleteContract final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_CompleteContract;
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.CompleteMission
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_CompleteMission final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_CompleteMission;
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.DeactivateMayhemMode
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_DeactivateMayhemMode final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_DeactivateMayhemMode;
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.DiscoverLocation
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_DiscoverLocation final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_DiscoverLocation;
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.EnterLocation
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_EnterLocation final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_EnterLocation;
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.NotifyLevelUp
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_NotifyLevelUp final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_NotifyLevelUp;
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.NotifyReachLevel2
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_NotifyReachLevel2 final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_NotifyReachLevel2;
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.PressButtonPrompt
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_PressButtonPrompt final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_PressButtonPrompt;
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.TrackContract
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_TrackContract final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_TrackContract;
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.TrackMission
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_TrackMission final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_TrackMission;
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.UnlockChallenge
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_UnlockChallenge final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_UnlockChallenge;
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.UnlockMode
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CelebratoryNotifications_UnlockMode final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_UnlockMode;
+DUMPER7_ASSERTS_OakActorScript_BioArmor_IsArmored;
 
 // Function OakGame.GbxSkillComponentFunctions_PhaseFamiliar.AbortBadassMode
 // 0x0018 (0x0018 - 0x0000)
@@ -4040,60 +2945,71 @@ public:
 };
 DUMPER7_ASSERTS_GbxSkillComponentFunctions_PhaseFamiliar_StartBadassMode;
 
-// Function OakGame.OakBasePlayerController.AddUIViewState
-// 0x0008 (0x0008 - 0x0000)
-struct OakBasePlayerController_AddUIViewState final
+// Function OakGame.OakUIScript_MainMenu.ContinueCampaign
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_MainMenu_ContinueCampaign final
 {
 public:
-	struct FGameplayTag                           InState;                                           // 0x0000(0x0008)(ConstParm, Parm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakBasePlayerController_AddUIViewState;
+DUMPER7_ASSERTS_OakUIScript_MainMenu_ContinueCampaign;
 
-// Function OakGame.OakProjectile.OnActorOverlap
-// 0x0010 (0x0010 - 0x0000)
-struct OakProjectile_OnActorOverlap final
+// Function OakGame.OakUIScript_MainMenu.CoopRelinquish
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_MainMenu_CoopRelinquish final
 {
 public:
-	class AActor*                                 OverlappedActor;                                   // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakProjectile_OnActorOverlap;
+DUMPER7_ASSERTS_OakUIScript_MainMenu_CoopRelinquish;
 
-// Function OakGame.OakProjectile.SetGrappleableEnabled
-// 0x0001 (0x0001 - 0x0000)
-struct OakProjectile_SetGrappleableEnabled final
+// Function OakGame.OakUIScript_MainMenu.DifficultySwapEasy
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_MainMenu_DifficultySwapEasy final
 {
 public:
-	bool                                          bNewIsEnabled;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakProjectile_SetGrappleableEnabled;
+DUMPER7_ASSERTS_OakUIScript_MainMenu_DifficultySwapEasy;
 
-// Function OakGame.OakProjectile.IsGrappleableEnabled
-// 0x0001 (0x0001 - 0x0000)
-struct OakProjectile_IsGrappleableEnabled final
+// Function OakGame.OakUIScript_MainMenu.DifficultySwapHard
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_MainMenu_DifficultySwapHard final
 {
 public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakProjectile_IsGrappleableEnabled;
+DUMPER7_ASSERTS_OakUIScript_MainMenu_DifficultySwapHard;
 
-// Function OakGame.OakActorScript_Echo4.GetPerchTarget
-// 0x0008 (0x0008 - 0x0000)
-struct OakActorScript_Echo4_GetPerchTarget final
+// Function OakGame.OakUIScript_MainMenu.DifficultySwapMedium
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_MainMenu_DifficultySwapMedium final
 {
 public:
-	class AActor*                                 ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakActorScript_Echo4_GetPerchTarget;
+DUMPER7_ASSERTS_OakUIScript_MainMenu_DifficultySwapMedium;
 
-// Function OakGame.OakActorScript_Echo4.IsDeployedForEchoLocation
-// 0x0001 (0x0001 - 0x0000)
-struct OakActorScript_Echo4_IsDeployedForEchoLocation final
+// Function OakGame.OakUIScript_MainMenu.DifficultySwapVeryHard
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_MainMenu_DifficultySwapVeryHard final
 {
 public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakActorScript_Echo4_IsDeployedForEchoLocation;
+DUMPER7_ASSERTS_OakUIScript_MainMenu_DifficultySwapVeryHard;
 
 // Function OakGame.GbxSkillComponentFunctions_ActionSkill_Exo.AddMarkedTarget
 // 0x0020 (0x0020 - 0x0000)
@@ -4135,38 +3051,115 @@ public:
 };
 DUMPER7_ASSERTS_GbxSkillComponentFunctions_ActionSkill_Exo_RegisterBBInitFunc;
 
-// Function OakGame.OakUIScript_MissionAccept.MissionAccepted
+// Function OakGame.OakUIScript_Global.HoldActionLoop
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MissionAccept_MissionAccepted final
+struct OakUIScript_Global_HoldActionLoop final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MissionAccept_MissionAccepted;
+DUMPER7_ASSERTS_OakUIScript_Global_HoldActionLoop;
 
-// Function OakGame.OakUIScript_MissionAccept.MissionAcceptedAndTracked
+// Function OakGame.OakUIScript_Global.HoldActionStart
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MissionAccept_MissionAcceptedAndTracked final
+struct OakUIScript_Global_HoldActionStart final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MissionAccept_MissionAcceptedAndTracked;
+DUMPER7_ASSERTS_OakUIScript_Global_HoldActionStart;
 
-// Function OakGame.OakUIScript_MissionAccept.MissionTracked
+// Function OakGame.OakUIScript_Global.HoldActionStop
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MissionAccept_MissionTracked final
+struct OakUIScript_Global_HoldActionStop final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MissionAccept_MissionTracked;
+DUMPER7_ASSERTS_OakUIScript_Global_HoldActionStop;
+
+// Function OakGame.OakUIScript_Global.SliderDown
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Global_SliderDown final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Global_SliderDown;
+
+// Function OakGame.OakUIScript_Global.SliderError
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Global_SliderError final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Global_SliderError;
+
+// Function OakGame.OakUIScript_Global.SliderUp
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Global_SliderUp final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Global_SliderUp;
+
+// Function OakGame.OakUIScript_Global.StepperLeft
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Global_StepperLeft final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Global_StepperLeft;
+
+// Function OakGame.OakUIScript_Global.StepperRight
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Global_StepperRight final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Global_StepperRight;
+
+// Function OakGame.OakUIScript_Global.SwitchOff
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Global_SwitchOff final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Global_SwitchOff;
+
+// Function OakGame.OakUIScript_Global.SwitchOn
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Global_SwitchOn final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Global_SwitchOn;
 
 // Function OakGame.GbxTrickScript_Stasis.Fling
 // 0x0018 (0x0018 - 0x0000)
@@ -4204,114 +3197,56 @@ public:
 };
 DUMPER7_ASSERTS_GbxTrickScript_Stasis_Grav_OnUnstableChanged;
 
-// Function OakGame.OakUIScript_ItemInspect.InspectNewItem
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_ItemInspect_InspectNewItem final
+// Function OakGame.OakWeapon.ClientReduceWear
+// 0x0008 (0x0008 - 0x0000)
+struct OakWeapon_ClientReduceWear final
 {
 public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         UseModeIndex;                                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         Percent;                                           // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_ItemInspect_InspectNewItem;
+DUMPER7_ASSERTS_OakWeapon_ClientReduceWear;
 
-// Function OakGame.OakWeaponStatics.AbsorbAmmoToCurrentCharacterWeapon
-// 0x0010 (0x0010 - 0x0000)
-struct OakWeaponStatics_AbsorbAmmoToCurrentCharacterWeapon final
+// Function OakGame.OakWeapon.ServerSetCommandRingTarget
+// 0x0040 (0x0040 - 0x0000)
+struct OakWeapon_ServerSetCommandRingTarget final
 {
 public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         Amount;                                            // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAsPercent;                                        // 0x000C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAllowForHeavyWeapons;                             // 0x000D(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_E[0x2];                                        // 0x000E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FCommandRingTarget                     target;                                            // 0x0000(0x0040)(ConstParm, Parm, ReferenceParm, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakWeaponStatics_AbsorbAmmoToCurrentCharacterWeapon;
+DUMPER7_ASSERTS_OakWeapon_ServerSetCommandRingTarget;
 
-// Function OakGame.OakWeaponStatics.GetCurrentElementalType
-// 0x0010 (0x0010 - 0x0000)
-struct OakWeaponStatics_GetCurrentElementalType final
+// Function OakGame.OakWeapon.GetChargePercent
+// 0x0004 (0x0004 - 0x0000)
+struct OakWeapon_GetChargePercent final
 {
 public:
-	class AWeapon*                                Weapon;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EOakElementalType                             ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakWeapon_GetChargePercent;
+
+// Function OakGame.OakWeapon.GetPartValue
+// 0x0008 (0x0008 - 0x0000)
+struct OakWeapon_GetPartValue final
+{
+public:
+	EWeaponPartValue                              type;                                              // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         ReturnValue;                                       // 0x0004(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakWeapon_GetPartValue;
+
+// Function OakGame.WaypointSystemDelegateProxy.OnDataLayerStateChanged
+// 0x0010 (0x0010 - 0x0000)
+struct WaypointSystemDelegateProxy_OnDataLayerStateChanged final
+{
+public:
+	const class UDataLayerInstance*               InDataLayer;                                       // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EDataLayerRuntimeState                        InState;                                           // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_OakWeaponStatics_GetCurrentElementalType;
-
-// Function OakGame.OakWeaponStatics.GetElementalType
-// 0x0010 (0x0010 - 0x0000)
-struct OakWeaponStatics_GetElementalType final
-{
-public:
-	class AWeapon*                                Weapon;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         UseMode;                                           // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EOakElementalType                             ReturnValue;                                       // 0x0009(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakWeaponStatics_GetElementalType;
-
-// Function OakGame.OakWeaponStatics.GetWeaponDefinitionOverrideTags
-// 0x0010 (0x0010 - 0x0000)
-struct OakWeaponStatics_GetWeaponDefinitionOverrideTags final
-{
-public:
-	TArray<class FName>                           OutNames;                                          // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakWeaponStatics_GetWeaponDefinitionOverrideTags;
-
-// Function OakGame.OakWeaponStatics.GiveAmmoToCurrentCharacterWeapon
-// 0x0010 (0x0010 - 0x0000)
-struct OakWeaponStatics_GiveAmmoToCurrentCharacterWeapon final
-{
-public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         Amount;                                            // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bLoaded;                                           // 0x000C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAsPercent;                                        // 0x000D(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAllowForHeavyWeapons;                             // 0x000E(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_F[0x1];                                        // 0x000F(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakWeaponStatics_GiveAmmoToCurrentCharacterWeapon;
-
-// Function OakGame.OakWeaponStatics.RefillAmmoForCurrentCharacterWeapon
-// 0x0010 (0x0010 - 0x0000)
-struct OakWeaponStatics_RefillAmmoForCurrentCharacterWeapon final
-{
-public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         Amount;                                            // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAsPercent;                                        // 0x000C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_D[0x3];                                        // 0x000D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakWeaponStatics_RefillAmmoForCurrentCharacterWeapon;
-
-// Function OakGame.OakWeaponStatics.ReloadAllWeapons
-// 0x0010 (0x0010 - 0x0000)
-struct OakWeaponStatics_ReloadAllWeapons final
-{
-public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bActiveWeaponIncluded;                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakWeaponStatics_ReloadAllWeapons;
-
-// Function OakGame.OakWeaponStatics.ThrowEquippedWeapon
-// 0x0020 (0x0020 - 0x0000)
-struct OakWeaponStatics_ThrowEquippedWeapon final
-{
-public:
-	class AActor*                                 WeaponUser;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         actions;                                           // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         slot;                                              // 0x000C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_D[0x3];                                        // 0x000D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         DamageOverride;                                    // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         DamageRadiusOverride;                              // 0x0014(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         LifetimeOverride;                                  // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakWeaponStatics_ThrowEquippedWeapon;
+DUMPER7_ASSERTS_WaypointSystemDelegateProxy_OnDataLayerStateChanged;
 
 // Function OakGame.GbxSkillComponentFunctions_Gravitar.GetCommandRingTarget
 // 0x0058 (0x0058 - 0x0000)
@@ -4343,6 +3278,39 @@ public:
 	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_GbxSkillComponentFunctions_Gravitar_SetCommandRingVisible;
+
+// Function OakGame.OakUIScript_MenuTutorial.OnMenuTutorialSequenceClosed
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_MenuTutorial_OnMenuTutorialSequenceClosed final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_MenuTutorial_OnMenuTutorialSequenceClosed;
+
+// Function OakGame.OakUIScript_MenuTutorial.OnMenuTutorialSequenceNext
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_MenuTutorial_OnMenuTutorialSequenceNext final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_MenuTutorial_OnMenuTutorialSequenceNext;
+
+// Function OakGame.OakUIScript_MenuTutorial.OnMenuTutorialSequenceOpen
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_MenuTutorial_OnMenuTutorialSequenceOpen final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_MenuTutorial_OnMenuTutorialSequenceOpen;
 
 // Function OakGame.GbxSkillComponentFunctions_ActionSkill_Paladin.AddPrimeStack
 // 0x0030 (0x0030 - 0x0000)
@@ -4417,26 +3385,6 @@ public:
 };
 DUMPER7_ASSERTS_GbxSkillComponentFunctions_ActionSkill_Paladin_SetCryoSlowLocked;
 
-// Function OakGame.OakAttributeDefinedSummaryLibrary.GetSummary_ChanceDefinedValueRow
-// 0x00C8 (0x00C8 - 0x0000)
-struct OakAttributeDefinedSummaryLibrary_GetSummary_ChanceDefinedValueRow final
-{
-public:
-	struct FChanceDefinedValueRow                 Struct;                                            // 0x0000(0x00B8)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class FString                                 ReturnValue;                                       // 0x00B8(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakAttributeDefinedSummaryLibrary_GetSummary_ChanceDefinedValueRow;
-
-// Function OakGame.OakAttributeDefinedSummaryLibrary.GetSummary_LootChanceDefinedValueRow
-// 0x00C8 (0x00C8 - 0x0000)
-struct OakAttributeDefinedSummaryLibrary_GetSummary_LootChanceDefinedValueRow final
-{
-public:
-	struct FLootChanceDefinedValueRow             Struct;                                            // 0x0000(0x00B8)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class FString                                 ReturnValue;                                       // 0x00B8(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakAttributeDefinedSummaryLibrary_GetSummary_LootChanceDefinedValueRow;
-
 // Function OakGame.GbxSkillComponentFunctions_CharacterLocks.SetProfileEnabled
 // 0x0030 (0x0030 - 0x0000)
 struct GbxSkillComponentFunctions_CharacterLocks_SetProfileEnabled final
@@ -4458,71 +3406,15 @@ public:
 };
 DUMPER7_ASSERTS_GbxSkillComponentFunctions_CharacterLocks_ClearLocks;
 
-// Function OakGame.OakUIScript_MissionTracker.HideObjectives
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MissionTracker_HideObjectives final
+// Function OakGame.OakAIHeldLootableComponent.Lootable_OnPhysicsSleep
+// 0x0010 (0x0010 - 0x0000)
+struct OakAIHeldLootableComponent_Lootable_OnPhysicsSleep final
 {
 public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    Component;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   BoneName;                                          // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MissionTracker_HideObjectives;
-
-// Function OakGame.OakUIScript_MissionTracker.missioncompleted
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MissionTracker_missioncompleted final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_MissionTracker_missioncompleted;
-
-// Function OakGame.OakUIScript_MissionTracker.MissionFailed
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MissionTracker_MissionFailed final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_MissionTracker_MissionFailed;
-
-// Function OakGame.OakUIScript_MissionTracker.ObjectiveCompleted
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MissionTracker_ObjectiveCompleted final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_MissionTracker_ObjectiveCompleted;
-
-// Function OakGame.OakUIScript_MissionTracker.ObjectiveFailed
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MissionTracker_ObjectiveFailed final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_MissionTracker_ObjectiveFailed;
-
-// Function OakGame.OakUIScript_MissionTracker.ShowObjectives
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MissionTracker_ShowObjectives final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_MissionTracker_ShowObjectives;
+DUMPER7_ASSERTS_OakAIHeldLootableComponent_Lootable_OnPhysicsSleep;
 
 // Function OakGame.GbxSkillComponentFunctions_Charges.AddCharges
 // 0x0020 (0x0020 - 0x0000)
@@ -4840,53 +3732,6 @@ public:
 };
 DUMPER7_ASSERTS_GbxTrickScript_AITargetLock_OnTargetLockEnded;
 
-// Function OakGame.OakStasisBlueprintLibrary.End
-// 0x0008 (0x0008 - 0x0000)
-struct OakStasisBlueprintLibrary_End final
-{
-public:
-	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakStasisBlueprintLibrary_End;
-
-// Function OakGame.OakStasisBlueprintLibrary.Fling
-// 0x0030 (0x0030 - 0x0000)
-struct OakStasisBlueprintLibrary_Fling final
-{
-public:
-	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                TargetLocation;                                    // 0x0008(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(class AActor* target)>         OnEnd;                                             // 0x0020(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakStasisBlueprintLibrary_Fling;
-
-// Function OakGame.OakStasisBlueprintLibrary.Hold
-// 0x0030 (0x0030 - 0x0000)
-struct OakStasisBlueprintLibrary_Hold final
-{
-public:
-	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UGbxTrick_Stasis*                       Trick;                                             // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                HoldLocation;                                      // 0x0010(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SpeedModifier;                                     // 0x0028(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakStasisBlueprintLibrary_Hold;
-
-// Function OakGame.OakStasisBlueprintLibrary.Hold_WithOnHoldTargetReachedDelegate
-// 0x0040 (0x0040 - 0x0000)
-struct OakStasisBlueprintLibrary_Hold_WithOnHoldTargetReachedDelegate final
-{
-public:
-	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UGbxTrick_Stasis*                       Trick;                                             // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                HoldLocation;                                      // 0x0010(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(class AActor* target)>         OnHoldTargetReached;                               // 0x0028(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SpeedModifier;                                     // 0x0038(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakStasisBlueprintLibrary_Hold_WithOnHoldTargetReachedDelegate;
-
 // Function OakGame.OakVehicle.ClientLockWeaponActions
 // 0x0010 (0x0010 - 0x0000)
 struct OakVehicle_ClientLockWeaponActions final
@@ -5050,6 +3895,53 @@ public:
 	class AWeapon*                                Weapon;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_OakVehicle_WeaponPutDown;
+
+// Function OakGame.OakStasisBlueprintLibrary.End
+// 0x0008 (0x0008 - 0x0000)
+struct OakStasisBlueprintLibrary_End final
+{
+public:
+	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakStasisBlueprintLibrary_End;
+
+// Function OakGame.OakStasisBlueprintLibrary.Fling
+// 0x0030 (0x0030 - 0x0000)
+struct OakStasisBlueprintLibrary_Fling final
+{
+public:
+	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                TargetLocation;                                    // 0x0008(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(class AActor* target)>         OnEnd;                                             // 0x0020(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakStasisBlueprintLibrary_Fling;
+
+// Function OakGame.OakStasisBlueprintLibrary.Hold
+// 0x0030 (0x0030 - 0x0000)
+struct OakStasisBlueprintLibrary_Hold final
+{
+public:
+	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGbxTrick_Stasis*                       Trick;                                             // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                HoldLocation;                                      // 0x0010(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SpeedModifier;                                     // 0x0028(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakStasisBlueprintLibrary_Hold;
+
+// Function OakGame.OakStasisBlueprintLibrary.Hold_WithOnHoldTargetReachedDelegate
+// 0x0040 (0x0040 - 0x0000)
+struct OakStasisBlueprintLibrary_Hold_WithOnHoldTargetReachedDelegate final
+{
+public:
+	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGbxTrick_Stasis*                       Trick;                                             // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                HoldLocation;                                      // 0x0010(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(class AActor* target)>         OnHoldTargetReached;                               // 0x0028(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SpeedModifier;                                     // 0x0038(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakStasisBlueprintLibrary_Hold_WithOnHoldTargetReachedDelegate;
 
 // Function OakGame.GrappleStatics.BreakGrappleableTarget
 // 0x0110 (0x0110 - 0x0000)
@@ -5883,23 +4775,15 @@ public:
 };
 DUMPER7_ASSERTS_OakPlayerController_IsIdle;
 
-// Function OakGame.GrenadeGadget.ExplodeCallback
-// 0x0008 (0x0008 - 0x0000)
-struct GrenadeGadget_ExplodeCallback final
+// Function OakGame.InventoryItemBlueprintLibrary.GetSummary_InventoryItemSelectionData
+// 0x0078 (0x0078 - 0x0000)
+struct InventoryItemBlueprintLibrary_GetSummary_InventoryItemSelectionData final
 {
 public:
-	const class AActor*                           projectile;                                        // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FInventoryItemSelectionData            data;                                              // 0x0000(0x0068)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class FString                                 ReturnValue;                                       // 0x0068(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_GrenadeGadget_ExplodeCallback;
-
-// Function OakGame.GrenadeGadget.SpawnGrenade
-// 0x0050 (0x0050 - 0x0000)
-struct GrenadeGadget_SpawnGrenade final
-{
-public:
-	struct FSpawnGrenadeOptions                   SpawnGrenadeOptions;                               // 0x0000(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GrenadeGadget_SpawnGrenade;
+DUMPER7_ASSERTS_InventoryItemBlueprintLibrary_GetSummary_InventoryItemSelectionData;
 
 // Function OakGame.JumpPad.Launch
 // 0x0008 (0x0008 - 0x0000)
@@ -5969,6 +4853,40 @@ public:
 };
 DUMPER7_ASSERTS_LocalPlayerSubsystem_DispatchEvents_OnLeaveGameChoiceMade;
 
+// Function OakGame.LootableObject.OnComponentSleep
+// 0x0010 (0x0010 - 0x0000)
+struct LootableObject_OnComponentSleep final
+{
+public:
+	class UPrimitiveComponent*                    SleepingComponent;                                 // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   BoneName;                                          // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_LootableObject_OnComponentSleep;
+
+// Function OakGame.LootableObject.OnMeshCollision
+// 0x0130 (0x0130 - 0x0000)
+struct LootableObject_OnMeshCollision final
+{
+public:
+	class UPrimitiveComponent*                    HitComponent;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                NormalImpulse;                                     // 0x0018(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FHitResult                             Hit;                                               // 0x0030(0x0100)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_LootableObject_OnMeshCollision;
+
+// Function OakGame.LootableObject.OnMeshPhysicsStateChanged
+// 0x0010 (0x0010 - 0x0000)
+struct LootableObject_OnMeshPhysicsStateChanged final
+{
+public:
+	class UPrimitiveComponent*                    Component;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EComponentPhysicsStateChange                  StateChange;                                       // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_LootableObject_OnMeshPhysicsStateChanged;
+
 // Function OakGame.LootGlobalsDefSummaryLibrary.GetSummary_CharacterDefContainer
 // 0x0028 (0x0028 - 0x0000)
 struct LootGlobalsDefSummaryLibrary_GetSummary_CharacterDefContainer final
@@ -5979,27 +4897,28 @@ public:
 };
 DUMPER7_ASSERTS_LootGlobalsDefSummaryLibrary_GetSummary_CharacterDefContainer;
 
-// Function OakGame.MissionTaskType_EventBoundary_Observer.OnActorEntered
+// Function OakGame.OakTrackerBlueprintLibrary.ToggleVaultTrackingEnabled_Actor
 // 0x0010 (0x0010 - 0x0000)
-struct MissionTaskType_EventBoundary_Observer_OnActorEntered final
+struct OakTrackerBlueprintLibrary_ToggleVaultTrackingEnabled_Actor final
 {
 public:
-	class AActor*                                 TouchingActor;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsPlayer;                                         // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AOakVaultTrackable*                     TrackedActor;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnabled;                                          // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_MissionTaskType_EventBoundary_Observer_OnActorEntered;
+DUMPER7_ASSERTS_OakTrackerBlueprintLibrary_ToggleVaultTrackingEnabled_Actor;
 
-// Function OakGame.MissionTaskType_EventBoundary_Observer.OnActorLeft
-// 0x0010 (0x0010 - 0x0000)
-struct MissionTaskType_EventBoundary_Observer_OnActorLeft final
+// Function OakGame.OakTrackerBlueprintLibrary.ToggleVaultTrackingEnabled_Def
+// 0x0028 (0x0028 - 0x0000)
+struct OakTrackerBlueprintLibrary_ToggleVaultTrackingEnabled_Def final
 {
 public:
-	class AActor*                                 TouchingActor;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsPlayer;                                         // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UWorld*                                 World;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGameDataHandleProperty_                      LocDef;                                            // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnabled;                                          // 0x0020(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_MissionTaskType_EventBoundary_Observer_OnActorLeft;
+DUMPER7_ASSERTS_OakTrackerBlueprintLibrary_ToggleVaultTrackingEnabled_Def;
 
 // Function OakGame.MissionTaskType_TriggerVolume_Observer.OnActorEntered
 // 0x0010 (0x0010 - 0x0000)
@@ -6022,72 +4941,6 @@ public:
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_MissionTaskType_TriggerVolume_Observer_OnActorLeft;
-
-// Function OakGame.ModularGrenade.DivideGrenade
-// 0x0018 (0x0018 - 0x0000)
-struct ModularGrenade_DivideGrenade final
-{
-public:
-	struct FVector                                Direction;                                         // 0x0000(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ModularGrenade_DivideGrenade;
-
-// Function OakGame.ModularGrenade.PayloadBounceCallback
-// 0x0118 (0x0118 - 0x0000)
-struct ModularGrenade_PayloadBounceCallback final
-{
-public:
-	struct FHitResult                             Impact;                                            // 0x0000(0x0100)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	struct FVector                                ImpactVelocity;                                    // 0x0100(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ModularGrenade_PayloadBounceCallback;
-
-// Function OakGame.ModularGrenade.PayloadExplodeCallback
-// 0x0008 (0x0008 - 0x0000)
-struct ModularGrenade_PayloadExplodeCallback final
-{
-public:
-	const class AActor*                           projectile;                                        // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ModularGrenade_PayloadExplodeCallback;
-
-// Function OakGame.ModularGrenade.PayloadImpactCallback
-// 0x0100 (0x0100 - 0x0000)
-struct ModularGrenade_PayloadImpactCallback final
-{
-public:
-	struct FHitResult                             Impact;                                            // 0x0000(0x0100)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ModularGrenade_PayloadImpactCallback;
-
-// Function OakGame.ModularGrenade.PayloadTakingDamageCallback
-// 0x00F8 (0x00F8 - 0x0000)
-struct ModularGrenade_PayloadTakingDamageCallback final
-{
-public:
-	struct FProjectileTakingDamageDetails         Details;                                           // 0x0000(0x00F8)(ConstParm, Parm, OutParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ModularGrenade_PayloadTakingDamageCallback;
-
-// Function OakGame.ModularGrenade.SpawnChildGrenade
-// 0x0060 (0x0060 - 0x0000)
-struct ModularGrenade_SpawnChildGrenade final
-{
-public:
-	struct FVector                                Location;                                          // 0x0000(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                Direction;                                         // 0x0018(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ChildDamage;                                       // 0x0030(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ChildRadius;                                       // 0x0034(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ChildForce;                                        // 0x0038(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         delay;                                             // 0x003C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SpeedOverride;                                     // 0x0040(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_44[0x4];                                       // 0x0044(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class AActor*                                 IgnoreActor;                                       // 0x0048(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 TargetActor;                                       // 0x0050(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         InFuseTime;                                        // 0x0058(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_5C[0x4];                                       // 0x005C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_ModularGrenade_SpawnChildGrenade;
 
 // Function OakGame.ModularTerminal.OnEnteringBarrier
 // 0x0120 (0x0120 - 0x0000)
@@ -6323,6 +5176,24 @@ public:
 };
 DUMPER7_ASSERTS_OakActorScript_DamageableBell_SetBellColor;
 
+// Function OakGame.OakActorScript_Echo4.GetPerchTarget
+// 0x0008 (0x0008 - 0x0000)
+struct OakActorScript_Echo4_GetPerchTarget final
+{
+public:
+	class AActor*                                 ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakActorScript_Echo4_GetPerchTarget;
+
+// Function OakGame.OakActorScript_Echo4.IsDeployedForEchoLocation
+// 0x0001 (0x0001 - 0x0000)
+struct OakActorScript_Echo4_IsDeployedForEchoLocation final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakActorScript_Echo4_IsDeployedForEchoLocation;
+
 // Function OakGame.OakAICloakBlueprintLibrary.AIScriptedCloak
 // 0x0020 (0x0020 - 0x0000)
 struct OakAICloakBlueprintLibrary_AIScriptedCloak final
@@ -6370,32 +5241,51 @@ public:
 };
 DUMPER7_ASSERTS_OakAICloakBlueprintLibrary_LockCloaking;
 
-// Function OakGame.OakAIWeaponUserFunctionLibrary.LockAIFiring
-// 0x0020 (0x0020 - 0x0000)
-struct OakAIWeaponUserFunctionLibrary_LockAIFiring final
+// Function OakGame.OakZoneTransition.OnZoneBeginOverlap
+// 0x0120 (0x0120 - 0x0000)
+struct OakZoneTransition_OnZoneBeginOverlap final
 {
 public:
-	class AActor*                                 AIActor;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   reason;                                            // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          Block;                                             // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxAIHeldFilter                       WeaponFilter;                                      // 0x0014(0x000C)(Parm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OverlappedComp;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 Other;                                             // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFromSweep;                                        // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHitResult                             SweepResult;                                       // 0x0020(0x0100)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakAIWeaponUserFunctionLibrary_LockAIFiring;
+DUMPER7_ASSERTS_OakZoneTransition_OnZoneBeginOverlap;
 
-// Function OakGame.OakAIWeaponUserFunctionLibrary.LockAIScriptedFiring
+// Function OakGame.OakZoneTransition.OnZoneEndOverlap
 // 0x0020 (0x0020 - 0x0000)
-struct OakAIWeaponUserFunctionLibrary_LockAIScriptedFiring final
+struct OakZoneTransition_OnZoneEndOverlap final
 {
 public:
-	class AActor*                                 AIActor;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   reason;                                            // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          Block;                                             // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIgnoreFiringRestrictions;                         // 0x0011(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_12[0x2];                                       // 0x0012(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxAIHeldFilter                       WeaponFilter;                                      // 0x0014(0x000C)(Parm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OverlappedComp;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 Other;                                             // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_OakAIWeaponUserFunctionLibrary_LockAIScriptedFiring;
+DUMPER7_ASSERTS_OakZoneTransition_OnZoneEndOverlap;
+
+// Function OakGame.OakZoneTransition.GetTransitionEntryGate
+// 0x0001 (0x0001 - 0x0000)
+struct OakZoneTransition_GetTransitionEntryGate final
+{
+public:
+	EOakZoneTransitionGate                        ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakZoneTransition_GetTransitionEntryGate;
+
+// Function OakGame.OakAirlockTransition.PrepareZoneTransition
+// 0x0008 (0x0008 - 0x0000)
+struct OakAirlockTransition_PrepareZoneTransition final
+{
+public:
+	class AOakPlayerController*                   Controller;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakAirlockTransition_PrepareZoneTransition;
 
 // Function OakGame.OakBalanceStatics.AILevelUp
 // 0x0010 (0x0010 - 0x0000)
@@ -6671,6 +5561,120 @@ public:
 };
 DUMPER7_ASSERTS_OakBossFight_IsBossFightMissionDriven;
 
+// Function OakGame.OakBossStatics.GetTextFromUICharacterName
+// 0x0028 (0x0028 - 0x0000)
+struct OakBossStatics_GetTextFromUICharacterName final
+{
+public:
+	FGbxDefPtrProperty_                           UIName;                                            // 0x0000(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0018(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakBossStatics_GetTextFromUICharacterName;
+
+// Function OakGame.OakBossStatics.HasFightBeenCompleted
+// 0x0010 (0x0010 - 0x0000)
+struct OakBossStatics_HasFightBeenCompleted final
+{
+public:
+	class AOakBossFight*                          BossFightActor;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakBossStatics_HasFightBeenCompleted;
+
+// Function OakGame.OakBossStatics.SetAllBossesDimmed
+// 0x0010 (0x0010 - 0x0000)
+struct OakBossStatics_SetAllBossesDimmed final
+{
+public:
+	class AActor*                                 Boss;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bDimmed;                                           // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakBossStatics_SetAllBossesDimmed;
+
+// Function OakGame.OakBossStatics.SetAllBossesInvulnerable
+// 0x0010 (0x0010 - 0x0000)
+struct OakBossStatics_SetAllBossesInvulnerable final
+{
+public:
+	class AActor*                                 Boss;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bInvulnerable;                                     // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakBossStatics_SetAllBossesInvulnerable;
+
+// Function OakGame.OakBossStatics.SetBossBarEnabled
+// 0x0018 (0x0018 - 0x0000)
+struct OakBossStatics_SetBossBarEnabled final
+{
+public:
+	class AActor*                                 Boss;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AOakBossFight*                          BossFightInfo;                                     // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnable;                                           // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakBossStatics_SetBossBarEnabled;
+
+// Function OakGame.OakBossStatics.SetBossDimmed
+// 0x0010 (0x0010 - 0x0000)
+struct OakBossStatics_SetBossDimmed final
+{
+public:
+	class AActor*                                 Boss;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bDimmed;                                           // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakBossStatics_SetBossDimmed;
+
+// Function OakGame.OakBossStatics.SetBossInvulnerable
+// 0x0010 (0x0010 - 0x0000)
+struct OakBossStatics_SetBossInvulnerable final
+{
+public:
+	class AActor*                                 Boss;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bInvulnerable;                                     // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakBossStatics_SetBossInvulnerable;
+
+// Function OakGame.OakBossStatics.ShakeEvent
+// 0x0008 (0x0008 - 0x0000)
+struct OakBossStatics_ShakeEvent final
+{
+public:
+	class AActor*                                 Boss;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakBossStatics_ShakeEvent;
+
+// Function OakGame.OakBossStatics.StartBossFightTracking
+// 0x0008 (0x0008 - 0x0000)
+struct OakBossStatics_StartBossFightTracking final
+{
+public:
+	class AActor*                                 Boss;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakBossStatics_StartBossFightTracking;
+
+// Function OakGame.OakBossStatics.StopBossFightTracking
+// 0x0008 (0x0008 - 0x0000)
+struct OakBossStatics_StopBossFightTracking final
+{
+public:
+	class AActor*                                 Boss;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakBossStatics_StopBossFightTracking;
+
+// Function OakGame.OakBossStatics.GetPlayersInArena
+// 0x0018 (0x0018 - 0x0000)
+struct OakBossStatics_GetPlayersInArena final
+{
+public:
+	class AOakBossFight*                          BossFightInfo;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<class AOakCharacter*>                  ReturnValue;                                       // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakBossStatics_GetPlayersInArena;
+
 // Function OakGame.OakBoundary.GetWarningIntensityForCharacter
 // 0x0010 (0x0010 - 0x0000)
 struct OakBoundary_GetWarningIntensityForCharacter final
@@ -6699,6 +5703,43 @@ public:
 	struct FVector                                TargetLocation;                                    // 0x0000(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_OakBoundary_PlayKillEffects;
+
+// Function OakGame.OakChallengeBlueprintLibrary.IncrementChallengeForAllPlayers
+// 0x0028 (0x0028 - 0x0000)
+struct OakChallengeBlueprintLibrary_IncrementChallengeForAllPlayers final
+{
+public:
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGameDataHandleProperty_                      ChallengeToIncrement;                              // 0x0008(0x0018)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         IncrementAmount;                                   // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakChallengeBlueprintLibrary_IncrementChallengeForAllPlayers;
+
+// Function OakGame.OakChallengeBlueprintLibrary.IncrementChallengeForPlayer
+// 0x0030 (0x0030 - 0x0000)
+struct OakChallengeBlueprintLibrary_IncrementChallengeForPlayer final
+{
+public:
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AOakPlayerController*                   OakPC;                                             // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGameDataHandleProperty_                      ChallengeToIncrement;                              // 0x0010(0x0018)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         IncrementAmount;                                   // 0x0028(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakChallengeBlueprintLibrary_IncrementChallengeForPlayer;
+
+// Function OakGame.OakChallengeBlueprintLibrary.IsChallengeCompleteForPlayer
+// 0x0028 (0x0028 - 0x0000)
+struct OakChallengeBlueprintLibrary_IsChallengeCompleteForPlayer final
+{
+public:
+	class AOakPlayerController*                   OakPC;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGameDataHandleProperty_                      challenge;                                         // 0x0008(0x0018)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0020(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakChallengeBlueprintLibrary_IsChallengeCompleteForPlayer;
 
 // Function OakGame.OakChallengeCollectibleScript.CompleteCollectibleChallenge
 // 0x0008 (0x0008 - 0x0000)
@@ -6744,6 +5785,106 @@ public:
 	FGameDataHandleProperty_                      InCollectibleChallenge;                            // 0x0000(0x0018)(Parm, OutParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_OakChallengeCollectibleScript_SetCollectibleChallenge;
+
+// Function OakGame.OakIntrinsicElementStatics.BindEventToIntrinsicElementChanged
+// 0x0018 (0x0018 - 0x0000)
+struct OakIntrinsicElementStatics_BindEventToIntrinsicElementChanged final
+{
+public:
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const EOakElementalType NewElement)> Delegate;                                    // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakIntrinsicElementStatics_BindEventToIntrinsicElementChanged;
+
+// Function OakGame.OakIntrinsicElementStatics.GetDamageElementalType
+// 0x0020 (0x0020 - 0x0000)
+struct OakIntrinsicElementStatics_GetDamageElementalType final
+{
+public:
+	FGameDataHandleProperty_                      DamageDef;                                         // 0x0000(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EOakElementalType                             ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakIntrinsicElementStatics_GetDamageElementalType;
+
+// Function OakGame.OakIntrinsicElementStatics.GetElementalDamageType
+// 0x0020 (0x0020 - 0x0000)
+struct OakIntrinsicElementStatics_GetElementalDamageType final
+{
+public:
+	EOakElementalType                             type;                                              // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	FGameDataHandleProperty_                      ReturnValue;                                       // 0x0008(0x0018)(Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakIntrinsicElementStatics_GetElementalDamageType;
+
+// Function OakGame.OakIntrinsicElementStatics.GetIntrinsicElement
+// 0x0010 (0x0010 - 0x0000)
+struct OakIntrinsicElementStatics_GetIntrinsicElement final
+{
+public:
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EOakElementalType                             ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakIntrinsicElementStatics_GetIntrinsicElement;
+
+// Function OakGame.OakIntrinsicElementStatics.GetIntrinsicElementDamageType
+// 0x0020 (0x0020 - 0x0000)
+struct OakIntrinsicElementStatics_GetIntrinsicElementDamageType final
+{
+public:
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGameDataHandleProperty_                      ReturnValue;                                       // 0x0008(0x0018)(Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakIntrinsicElementStatics_GetIntrinsicElementDamageType;
+
+// Function OakGame.OakIntrinsicElementStatics.IsInitialIntrinsicElementRandom
+// 0x0010 (0x0010 - 0x0000)
+struct OakIntrinsicElementStatics_IsInitialIntrinsicElementRandom final
+{
+public:
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakIntrinsicElementStatics_IsInitialIntrinsicElementRandom;
+
+// Function OakGame.OakIntrinsicElementStatics.SetExplosiveBarrelBackwardsCompatibility
+// 0x0010 (0x0010 - 0x0000)
+struct OakIntrinsicElementStatics_SetExplosiveBarrelBackwardsCompatibility final
+{
+public:
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EOakElementalType                             Element;                                           // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bRandomize;                                        // 0x0009(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakIntrinsicElementStatics_SetExplosiveBarrelBackwardsCompatibility;
+
+// Function OakGame.OakIntrinsicElementStatics.SetIntrinsicElement
+// 0x0010 (0x0010 - 0x0000)
+struct OakIntrinsicElementStatics_SetIntrinsicElement final
+{
+public:
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EOakElementalType                             Element;                                           // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0009(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakIntrinsicElementStatics_SetIntrinsicElement;
+
+// Function OakGame.OakIntrinsicElementStatics.SetIntrinsicElementAffinity
+// 0x0010 (0x0010 - 0x0000)
+struct OakIntrinsicElementStatics_SetIntrinsicElementAffinity final
+{
+public:
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EDamageAffinity                               Affinity;                                          // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0009(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakIntrinsicElementStatics_SetIntrinsicElementAffinity;
 
 // Function OakGame.OakCharacterAnimInstance.OnWeaponChanged
 // 0x0010 (0x0010 - 0x0000)
@@ -6950,106 +6091,6 @@ public:
 };
 DUMPER7_ASSERTS_OakCharacterMovementComponent_IsSlidingDownLadder;
 
-// Function OakGame.OakIntrinsicElementStatics.BindEventToIntrinsicElementChanged
-// 0x0018 (0x0018 - 0x0000)
-struct OakIntrinsicElementStatics_BindEventToIntrinsicElementChanged final
-{
-public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const EOakElementalType NewElement)> Delegate;                                    // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakIntrinsicElementStatics_BindEventToIntrinsicElementChanged;
-
-// Function OakGame.OakIntrinsicElementStatics.GetDamageElementalType
-// 0x0020 (0x0020 - 0x0000)
-struct OakIntrinsicElementStatics_GetDamageElementalType final
-{
-public:
-	FGameDataHandleProperty_                      DamageDef;                                         // 0x0000(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EOakElementalType                             ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakIntrinsicElementStatics_GetDamageElementalType;
-
-// Function OakGame.OakIntrinsicElementStatics.GetElementalDamageType
-// 0x0020 (0x0020 - 0x0000)
-struct OakIntrinsicElementStatics_GetElementalDamageType final
-{
-public:
-	EOakElementalType                             type;                                              // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	FGameDataHandleProperty_                      ReturnValue;                                       // 0x0008(0x0018)(Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakIntrinsicElementStatics_GetElementalDamageType;
-
-// Function OakGame.OakIntrinsicElementStatics.GetIntrinsicElement
-// 0x0010 (0x0010 - 0x0000)
-struct OakIntrinsicElementStatics_GetIntrinsicElement final
-{
-public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EOakElementalType                             ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakIntrinsicElementStatics_GetIntrinsicElement;
-
-// Function OakGame.OakIntrinsicElementStatics.GetIntrinsicElementDamageType
-// 0x0020 (0x0020 - 0x0000)
-struct OakIntrinsicElementStatics_GetIntrinsicElementDamageType final
-{
-public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGameDataHandleProperty_                      ReturnValue;                                       // 0x0008(0x0018)(Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakIntrinsicElementStatics_GetIntrinsicElementDamageType;
-
-// Function OakGame.OakIntrinsicElementStatics.IsInitialIntrinsicElementRandom
-// 0x0010 (0x0010 - 0x0000)
-struct OakIntrinsicElementStatics_IsInitialIntrinsicElementRandom final
-{
-public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakIntrinsicElementStatics_IsInitialIntrinsicElementRandom;
-
-// Function OakGame.OakIntrinsicElementStatics.SetExplosiveBarrelBackwardsCompatibility
-// 0x0010 (0x0010 - 0x0000)
-struct OakIntrinsicElementStatics_SetExplosiveBarrelBackwardsCompatibility final
-{
-public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EOakElementalType                             Element;                                           // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bRandomize;                                        // 0x0009(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakIntrinsicElementStatics_SetExplosiveBarrelBackwardsCompatibility;
-
-// Function OakGame.OakIntrinsicElementStatics.SetIntrinsicElement
-// 0x0010 (0x0010 - 0x0000)
-struct OakIntrinsicElementStatics_SetIntrinsicElement final
-{
-public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EOakElementalType                             Element;                                           // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0009(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakIntrinsicElementStatics_SetIntrinsicElement;
-
-// Function OakGame.OakIntrinsicElementStatics.SetIntrinsicElementAffinity
-// 0x0010 (0x0010 - 0x0000)
-struct OakIntrinsicElementStatics_SetIntrinsicElementAffinity final
-{
-public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EDamageAffinity                               Affinity;                                          // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0009(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakIntrinsicElementStatics_SetIntrinsicElementAffinity;
-
 // Function OakGame.OakCineCameraActor.SetPlayerCharacterOffsetAlpha
 // 0x0004 (0x0004 - 0x0000)
 struct OakCineCameraActor_SetPlayerCharacterOffsetAlpha final
@@ -7058,113 +6099,6 @@ public:
 	float                                         NewPlayerCharacterOffsetAlpha;                     // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_OakCineCameraActor_SetPlayerCharacterOffsetAlpha;
-
-// Function OakGame.OakCinematicStage.ClientsCallStageEvent
-// 0x0008 (0x0008 - 0x0000)
-struct OakCinematicStage_ClientsCallStageEvent final
-{
-public:
-	class FName                                   InEventName;                                       // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakCinematicStage_ClientsCallStageEvent;
-
-// Function OakGame.OakCinematicStage.DetachActors
-// 0x0001 (0x0001 - 0x0000)
-struct OakCinematicStage_DetachActors final
-{
-public:
-	bool                                          bRestorePositions;                                 // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakCinematicStage_DetachActors;
-
-// Function OakGame.OakCinematicStage.PositionNPCs
-// 0x0010 (0x0010 - 0x0000)
-struct OakCinematicStage_PositionNPCs final
-{
-public:
-	TArray<struct FOakCinematicStageSpawnPointToNPC> InNPCsToPosition;                               // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakCinematicStage_PositionNPCs;
-
-// Function OakGame.OakCinematicStage.PositionPlayers
-// 0x0001 (0x0001 - 0x0000)
-struct OakCinematicStage_PositionPlayers final
-{
-public:
-	EOakCinematicStagePositionType                InPositionType;                                    // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakCinematicStage_PositionPlayers;
-
-// Function OakGame.OakCinematicStage.SetCameraByIndex
-// 0x0004 (0x0004 - 0x0000)
-struct OakCinematicStage_SetCameraByIndex final
-{
-public:
-	int32                                         InActiveIndex;                                     // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakCinematicStage_SetCameraByIndex;
-
-// Function OakGame.OakCinematicStage.SetCameraByName
-// 0x0008 (0x0008 - 0x0000)
-struct OakCinematicStage_SetCameraByName final
-{
-public:
-	class FName                                   InCameraName;                                      // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakCinematicStage_SetCameraByName;
-
-// Function OakGame.OakCinematicStage.GetCameraByIndex
-// 0x0010 (0x0010 - 0x0000)
-struct OakCinematicStage_GetCameraByIndex final
-{
-public:
-	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UOakCinematicStageCameraComponent*      ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakCinematicStage_GetCameraByIndex;
-
-// Function OakGame.OakLostLootMachine.GetFilledSlots
-// 0x0010 (0x0010 - 0x0000)
-struct OakLostLootMachine_GetFilledSlots final
-{
-public:
-	class AOakPlayerController*                   OakPC;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakLostLootMachine_GetFilledSlots;
-
-// Function OakGame.OakLostLootMachine.GetMaxSlots
-// 0x0010 (0x0010 - 0x0000)
-struct OakLostLootMachine_GetMaxSlots final
-{
-public:
-	class AOakPlayerController*                   OakPC;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakLostLootMachine_GetMaxSlots;
-
-// Function OakGame.OakLostLootMachine.OverrideAllParticlePresentations
-// 0x0001 (0x0001 - 0x0000)
-struct OakLostLootMachine_OverrideAllParticlePresentations final
-{
-public:
-	bool                                          bShowParticle;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakLostLootMachine_OverrideAllParticlePresentations;
-
-// Function OakGame.OakCinematicStageScript.GetCameraByIndex
-// 0x0010 (0x0010 - 0x0000)
-struct OakCinematicStageScript_GetCameraByIndex final
-{
-public:
-	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UOakCinematicStageCameraComponent*      ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakCinematicStageScript_GetCameraByIndex;
 
 // Function OakGame.OakInventoryStatics.AddOvershield
 // 0x0010 (0x0010 - 0x0000)
@@ -7464,6 +6398,127 @@ public:
 };
 DUMPER7_ASSERTS_OakInventoryStatics_UnblockCharacterHealth;
 
+// Function OakGame.OakLocustGas.Absorb
+// 0x0008 (0x0008 - 0x0000)
+struct OakLocustGas_Absorb final
+{
+public:
+	class AActor*                                 TargetAbsorbing;                                   // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakLocustGas_Absorb;
+
+// Function OakGame.OakLocustGas.IsAbsorbing
+// 0x0001 (0x0001 - 0x0000)
+struct OakLocustGas_IsAbsorbing final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakLocustGas_IsAbsorbing;
+
+// Function OakGame.OakLocustGas.OnPatrolPointReached
+// 0x0008 (0x0008 - 0x0000)
+struct OakLocustGas_OnPatrolPointReached final
+{
+public:
+	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakLocustGas_OnPatrolPointReached;
+
+// Function OakGame.OakLocustGas.OnTargetAbsorbingReached
+// 0x0008 (0x0008 - 0x0000)
+struct OakLocustGas_OnTargetAbsorbingReached final
+{
+public:
+	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakLocustGas_OnTargetAbsorbingReached;
+
+// Function OakGame.OakLocustGas.SetPatrolState
+// 0x0001 (0x0001 - 0x0000)
+struct OakLocustGas_SetPatrolState final
+{
+public:
+	bool                                          bIsEnable;                                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakLocustGas_SetPatrolState;
+
+// Function OakGame.OakCinematicStage.ClientsCallStageEvent
+// 0x0008 (0x0008 - 0x0000)
+struct OakCinematicStage_ClientsCallStageEvent final
+{
+public:
+	class FName                                   InEventName;                                       // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakCinematicStage_ClientsCallStageEvent;
+
+// Function OakGame.OakCinematicStage.DetachActors
+// 0x0001 (0x0001 - 0x0000)
+struct OakCinematicStage_DetachActors final
+{
+public:
+	bool                                          bRestorePositions;                                 // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakCinematicStage_DetachActors;
+
+// Function OakGame.OakCinematicStage.PositionNPCs
+// 0x0010 (0x0010 - 0x0000)
+struct OakCinematicStage_PositionNPCs final
+{
+public:
+	TArray<struct FOakCinematicStageSpawnPointToNPC> InNPCsToPosition;                               // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakCinematicStage_PositionNPCs;
+
+// Function OakGame.OakCinematicStage.PositionPlayers
+// 0x0001 (0x0001 - 0x0000)
+struct OakCinematicStage_PositionPlayers final
+{
+public:
+	EOakCinematicStagePositionType                InPositionType;                                    // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakCinematicStage_PositionPlayers;
+
+// Function OakGame.OakCinematicStage.SetCameraByIndex
+// 0x0004 (0x0004 - 0x0000)
+struct OakCinematicStage_SetCameraByIndex final
+{
+public:
+	int32                                         InActiveIndex;                                     // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakCinematicStage_SetCameraByIndex;
+
+// Function OakGame.OakCinematicStage.SetCameraByName
+// 0x0008 (0x0008 - 0x0000)
+struct OakCinematicStage_SetCameraByName final
+{
+public:
+	class FName                                   InCameraName;                                      // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakCinematicStage_SetCameraByName;
+
+// Function OakGame.OakCinematicStage.GetCameraByIndex
+// 0x0010 (0x0010 - 0x0000)
+struct OakCinematicStage_GetCameraByIndex final
+{
+public:
+	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UOakCinematicStageCameraComponent*      ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakCinematicStage_GetCameraByIndex;
+
+// Function OakGame.OakCinematicStageScript.GetCameraByIndex
+// 0x0010 (0x0010 - 0x0000)
+struct OakCinematicStageScript_GetCameraByIndex final
+{
+public:
+	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UOakCinematicStageCameraComponent*      ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakCinematicStageScript_GetCameraByIndex;
+
 // Function OakGame.OakCodedVendingMachineScript.OnPasswordAccepted
 // 0x0008 (0x0008 - 0x0000)
 struct OakCodedVendingMachineScript_OnPasswordAccepted final
@@ -7509,6 +6564,15 @@ public:
 	class UTexture*                               ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_OakCreditsSlide_GetSlideTexture;
+
+// Function OakGame.OakMapViewerRegionMeshComponent.UpdateOpacity
+// 0x0004 (0x0004 - 0x0000)
+struct OakMapViewerRegionMeshComponent_UpdateOpacity final
+{
+public:
+	float                                         Value;                                             // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakMapViewerRegionMeshComponent_UpdateOpacity;
 
 // Function OakGame.OakDamageStatics.ClearDamageAffinities
 // 0x0010 (0x0010 - 0x0000)
@@ -7640,56 +6704,192 @@ public:
 };
 DUMPER7_ASSERTS_OakDamageStatics_UnsubscribeFromAutomaticSecondWindEvent;
 
-// Function OakGame.OakMapViewerRegionMeshComponent.UpdateOpacity
-// 0x0004 (0x0004 - 0x0000)
-struct OakMapViewerRegionMeshComponent_UpdateOpacity final
-{
-public:
-	float                                         Value;                                             // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakMapViewerRegionMeshComponent_UpdateOpacity;
-
-// Function OakGame.OakOrderRewindStatics.CanStart
+// Function OakGame.OakEcho4Statics.CanEcho4BeInterrupted
 // 0x0010 (0x0010 - 0x0000)
-struct OakOrderRewindStatics_CanStart final
+struct OakEcho4Statics_CanEcho4BeInterrupted final
 {
 public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AOakCharacter*                          DroneOwner;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_OakOrderRewindStatics_CanStart;
+DUMPER7_ASSERTS_OakEcho4Statics_CanEcho4BeInterrupted;
 
-// Function OakGame.OakOrderRewindStatics.IsActive
+// Function OakGame.OakEcho4Statics.CanEcho4Deploy
 // 0x0010 (0x0010 - 0x0000)
-struct OakOrderRewindStatics_IsActive final
+struct OakEcho4Statics_CanEcho4Deploy final
 {
 public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AOakCharacter*                          DroneOwner;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_OakOrderRewindStatics_IsActive;
+DUMPER7_ASSERTS_OakEcho4Statics_CanEcho4Deploy;
 
-// Function OakGame.OakOrderRewindStatics.Start
-// 0x0010 (0x0010 - 0x0000)
-struct OakOrderRewindStatics_Start final
+// Function OakGame.OakEcho4Statics.DeployEcho4AtLocationLatent
+// 0x0068 (0x0068 - 0x0000)
+struct OakEcho4Statics_DeployEcho4AtLocationLatent final
 {
 public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         InIdealDuration;                                   // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FVector                                Location;                                          // 0x0000(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Echo4DeployCooldown;                               // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class AOakCharacter*                          DroneOwner;                                        // 0x0020(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AOakDrone*                              projectile;                                        // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FLatentActionInfo                      LatentInfo;                                        // 0x0030(0x0018)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          bUseOverrideRotation;                              // 0x0048(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FRotator                               OverrideRotation;                                  // 0x0050(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakOrderRewindStatics_Start;
+DUMPER7_ASSERTS_OakEcho4Statics_DeployEcho4AtLocationLatent;
 
-// Function OakGame.OakOrderRewindStatics.Stop
+// Function OakGame.OakEcho4Statics.DeployEcho4Latent
+// 0x00B8 (0x00B8 - 0x0000)
+struct OakEcho4Statics_DeployEcho4Latent final
+{
+public:
+	struct FGbxRelativeLocation                   LocationOptions;                                   // 0x0000(0x0060)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+	float                                         Echo4DeployCooldown;                               // 0x0060(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_64[0x4];                                       // 0x0064(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class AOakCharacter*                          DroneOwner;                                        // 0x0068(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AOakDrone*                              projectile;                                        // 0x0070(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FLatentActionInfo                      LatentInfo;                                        // 0x0078(0x0018)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          bUseOverrideRotation;                              // 0x0090(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_91[0x7];                                       // 0x0091(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FRotator                               OverrideRotation;                                  // 0x0098(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	class AActor*                                 OverrideActor;                                     // 0x00B0(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakEcho4Statics_DeployEcho4Latent;
+
+// Function OakGame.OakEcho4Statics.DeployEcho4WithDefLatent
+// 0x00D0 (0x00D0 - 0x0000)
+struct OakEcho4Statics_DeployEcho4WithDefLatent final
+{
+public:
+	FGbxDefPtrProperty_                           DroneDef;                                          // 0x0000(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGbxRelativeLocation                   LocationOptions;                                   // 0x0018(0x0060)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+	float                                         Echo4DeployCooldown;                               // 0x0078(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_7C[0x4];                                       // 0x007C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class AOakCharacter*                          DroneOwner;                                        // 0x0080(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AOakDrone*                              projectile;                                        // 0x0088(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FLatentActionInfo                      LatentInfo;                                        // 0x0090(0x0018)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          bUseOverrideRotation;                              // 0x00A8(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A9[0x7];                                       // 0x00A9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FRotator                               OverrideRotation;                                  // 0x00B0(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	class AActor*                                 OverrideActor;                                     // 0x00C8(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakEcho4Statics_DeployEcho4WithDefLatent;
+
+// Function OakGame.OakEcho4Statics.FlyToActor
+// 0x0020 (0x0020 - 0x0000)
+struct OakEcho4Statics_FlyToActor final
+{
+public:
+	class AOakDrone*                              OakDrone;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 MoveActor;                                         // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DroneSpeed;                                        // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DroneAccelerationTime;                             // 0x0014(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         StopFlyAtTargetDisance;                            // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakEcho4Statics_FlyToActor;
+
+// Function OakGame.OakEcho4Statics.FlyToLocation
+// 0x0030 (0x0030 - 0x0000)
+struct OakEcho4Statics_FlyToLocation final
+{
+public:
+	class AOakDrone*                              OakDrone;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                MoveLocation;                                      // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DroneSpeed;                                        // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DroneAccelerationTime;                             // 0x0024(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         StopFlyAtTargetDisance;                            // 0x0028(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakEcho4Statics_FlyToLocation;
+
+// Function OakGame.OakEcho4Statics.GetEcho4ActorScript
+// 0x0010 (0x0010 - 0x0000)
+struct OakEcho4Statics_GetEcho4ActorScript final
+{
+public:
+	class AOakDrone*                              OakDrone;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UOakActorScript_Echo4*                  ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakEcho4Statics_GetEcho4ActorScript;
+
+// Function OakGame.OakEcho4Statics.GetEcho4Drone
+// 0x0010 (0x0010 - 0x0000)
+struct OakEcho4Statics_GetEcho4Drone final
+{
+public:
+	class AOakCharacter*                          DroneOwner;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AOakDrone*                              ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakEcho4Statics_GetEcho4Drone;
+
+// Function OakGame.OakEcho4Statics.IsEcho4Deployed
+// 0x0010 (0x0010 - 0x0000)
+struct OakEcho4Statics_IsEcho4Deployed final
+{
+public:
+	class AOakCharacter*                          DroneOwner;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakEcho4Statics_IsEcho4Deployed;
+
+// Function OakGame.OakEcho4Statics.NotifyEchoLocationAnimFinished
 // 0x0008 (0x0008 - 0x0000)
-struct OakOrderRewindStatics_Stop final
+struct OakEcho4Statics_NotifyEchoLocationAnimFinished final
 {
 public:
-	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AOakDrone*                              OakDrone;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakOrderRewindStatics_Stop;
+DUMPER7_ASSERTS_OakEcho4Statics_NotifyEchoLocationAnimFinished;
+
+// Function OakGame.OakEcho4Statics.RetrieveEcho4
+// 0x0008 (0x0008 - 0x0000)
+struct OakEcho4Statics_RetrieveEcho4 final
+{
+public:
+	class AOakCharacter*                          DroneOwner;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakEcho4Statics_RetrieveEcho4;
+
+// Function OakGame.OakEcho4Statics.SetEcho4DeploymentLocked
+// 0x0010 (0x0010 - 0x0000)
+struct OakEcho4Statics_SetEcho4DeploymentLocked final
+{
+public:
+	class AOakCharacter*                          DroneOwner;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          InLock;                                            // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakEcho4Statics_SetEcho4DeploymentLocked;
+
+// Function OakGame.OakEcho4Statics.WasWaypointPathFound
+// 0x0010 (0x0010 - 0x0000)
+struct OakEcho4Statics_WasWaypointPathFound final
+{
+public:
+	class AActor*                                 DroneOrOwner;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakEcho4Statics_WasWaypointPathFound;
+
+// Function OakGame.OakEcho4Statics.WasWaypointPathFoundLatent
+// 0x0028 (0x0028 - 0x0000)
+struct OakEcho4Statics_WasWaypointPathFoundLatent final
+{
+public:
+	class AActor*                                 DroneOrOwner;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          Result;                                            // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FLatentActionInfo                      LatentInfo;                                        // 0x0010(0x0018)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakEcho4Statics_WasWaypointPathFoundLatent;
 
 // Function OakGame.OakEchoLogFunctionLibrary.BindEventToEchoLogAcquiredChanged
 // 0x0018 (0x0018 - 0x0000)
@@ -7812,210 +7012,313 @@ public:
 };
 DUMPER7_ASSERTS_OakEchoLogFunctionLibrary_UnbindEventToEchoLogAcquiredChanged;
 
-// Function OakGame.OakUIScript_VaultTracker.SearchPing
+// Function OakGame.OakUIScript_TitleScreen.PressedStart
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_VaultTracker_SearchPing final
+struct OakUIScript_TitleScreen_PressedStart final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_VaultTracker_SearchPing;
+DUMPER7_ASSERTS_OakUIScript_TitleScreen_PressedStart;
 
-// Function OakGame.OakUIScript_VaultTracker.SearchSuccess
+// Function OakGame.OakUIScript_TitleScreen.SplashIntro
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_VaultTracker_SearchSuccess final
+struct OakUIScript_TitleScreen_SplashIntro final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_VaultTracker_SearchSuccess;
+DUMPER7_ASSERTS_OakUIScript_TitleScreen_SplashIntro;
 
-// Function OakGame.OakUIScript_VaultTracker.Switch
+// Function OakGame.OakUIScript_TitleScreen.SplashTransition
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_VaultTracker_Switch final
+struct OakUIScript_TitleScreen_SplashTransition final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_VaultTracker_Switch;
+DUMPER7_ASSERTS_OakUIScript_TitleScreen_SplashTransition;
 
-// Function OakGame.OakUIScript_VaultTracker.TrackerActivate
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_VaultTracker_TrackerActivate final
+// Function OakGame.OakOrderRewindStatics.CanStart
+// 0x0010 (0x0010 - 0x0000)
+struct OakOrderRewindStatics_CanStart final
 {
 public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_OakUIScript_VaultTracker_TrackerActivate;
+DUMPER7_ASSERTS_OakOrderRewindStatics_CanStart;
 
-// Function OakGame.OakUIScript_StatusMenuNavBar.NavBackward
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_StatusMenuNavBar_NavBackward final
+// Function OakGame.OakOrderRewindStatics.IsActive
+// 0x0010 (0x0010 - 0x0000)
+struct OakOrderRewindStatics_IsActive final
 {
 public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_OakUIScript_StatusMenuNavBar_NavBackward;
+DUMPER7_ASSERTS_OakOrderRewindStatics_IsActive;
 
-// Function OakGame.OakUIScript_StatusMenuNavBar.NavEntered
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_StatusMenuNavBar_NavEntered final
+// Function OakGame.OakOrderRewindStatics.Start
+// 0x0010 (0x0010 - 0x0000)
+struct OakOrderRewindStatics_Start final
 {
 public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         InIdealDuration;                                   // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_OakUIScript_StatusMenuNavBar_NavEntered;
+DUMPER7_ASSERTS_OakOrderRewindStatics_Start;
 
-// Function OakGame.OakUIScript_StatusMenuNavBar.NavExited
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_StatusMenuNavBar_NavExited final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_StatusMenuNavBar_NavExited;
-
-// Function OakGame.OakUIScript_StatusMenuNavBar.NavForward
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_StatusMenuNavBar_NavForward final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_StatusMenuNavBar_NavForward;
-
-// Function OakGame.OakUIScript_StatusMenuNavBar.SubNavBackward
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_StatusMenuNavBar_SubNavBackward final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_StatusMenuNavBar_SubNavBackward;
-
-// Function OakGame.OakUIScript_StatusMenuNavBar.SubNavEntered
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_StatusMenuNavBar_SubNavEntered final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_StatusMenuNavBar_SubNavEntered;
-
-// Function OakGame.OakUIScript_StatusMenuNavBar.SubNavExited
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_StatusMenuNavBar_SubNavExited final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_StatusMenuNavBar_SubNavExited;
-
-// Function OakGame.OakUIScript_StatusMenuNavBar.SubNavForward
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_StatusMenuNavBar_SubNavForward final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_StatusMenuNavBar_SubNavForward;
-
-// Function OakGame.OakLocustGas.Absorb
+// Function OakGame.OakOrderRewindStatics.Stop
 // 0x0008 (0x0008 - 0x0000)
-struct OakLocustGas_Absorb final
+struct OakOrderRewindStatics_Stop final
 {
 public:
-	class AActor*                                 TargetAbsorbing;                                   // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakLocustGas_Absorb;
+DUMPER7_ASSERTS_OakOrderRewindStatics_Stop;
 
-// Function OakGame.OakLocustGas.IsAbsorbing
-// 0x0001 (0x0001 - 0x0000)
-struct OakLocustGas_IsAbsorbing final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakLocustGas_IsAbsorbing;
-
-// Function OakGame.OakLocustGas.OnPatrolPointReached
-// 0x0008 (0x0008 - 0x0000)
-struct OakLocustGas_OnPatrolPointReached final
-{
-public:
-	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakLocustGas_OnPatrolPointReached;
-
-// Function OakGame.OakLocustGas.OnTargetAbsorbingReached
-// 0x0008 (0x0008 - 0x0000)
-struct OakLocustGas_OnTargetAbsorbingReached final
-{
-public:
-	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakLocustGas_OnTargetAbsorbingReached;
-
-// Function OakGame.OakLocustGas.SetPatrolState
-// 0x0001 (0x0001 - 0x0000)
-struct OakLocustGas_SetPatrolState final
-{
-public:
-	bool                                          bIsEnable;                                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakLocustGas_SetPatrolState;
-
-// Function OakGame.OakSingularity.OnEnteringSingularityZone
-// 0x0120 (0x0120 - 0x0000)
-struct OakSingularity_OnEnteringSingularityZone final
-{
-public:
-	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bFromSweep;                                        // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FHitResult                             SweepResult;                                       // 0x0020(0x0100)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakSingularity_OnEnteringSingularityZone;
-
-// Function OakGame.OakSingularity.OnExitingSingularityZone
+// Function OakGame.OakPlayerState.BP_SetExperienceLevel
 // 0x0020 (0x0020 - 0x0000)
-struct OakSingularity_OnExitingSingularityZone final
+struct OakPlayerState_BP_SetExperienceLevel final
 {
 public:
-	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           ExperienceDef;                                     // 0x0000(0x0018)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         ExperienceLevel;                                   // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_OakSingularity_OnExitingSingularityZone;
+DUMPER7_ASSERTS_OakPlayerState_BP_SetExperienceLevel;
+
+// Function OakGame.OakPlayerState.BP_UnlockExperienceType
+// 0x0018 (0x0018 - 0x0000)
+struct OakPlayerState_BP_UnlockExperienceType final
+{
+public:
+	FGbxDefPtrProperty_                           ExperienceDef;                                     // 0x0000(0x0018)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakPlayerState_BP_UnlockExperienceType;
+
+// Function OakGame.OakPlayerState.GetGenericProperty
+// 0x0020 (0x0020 - 0x0000)
+struct OakPlayerState_GetGenericProperty final
+{
+public:
+	class FName                                   Name_0;                                            // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Value;                                             // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakPlayerState_GetGenericProperty;
+
+// Function OakGame.OakPlayerState.NotifyWatchedGenericPropertyDelta
+// 0x0018 (0x0018 - 0x0000)
+struct OakPlayerState_NotifyWatchedGenericPropertyDelta final
+{
+public:
+	class FName                                   Name_0;                                            // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Value;                                             // 0x0008(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakPlayerState_NotifyWatchedGenericPropertyDelta;
+
+// Function OakGame.OakPlayerState.OnOakPawnSet
+// 0x0018 (0x0018 - 0x0000)
+struct OakPlayerState_OnOakPawnSet final
+{
+public:
+	class APlayerState*                           player;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class APawn*                                  NewPawn;                                           // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class APawn*                                  OldPawn;                                           // 0x0010(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakPlayerState_OnOakPawnSet;
+
+// Function OakGame.OakPlayerState.RemoveGenericPropertyWatch
+// 0x0008 (0x0008 - 0x0000)
+struct OakPlayerState_RemoveGenericPropertyWatch final
+{
+public:
+	class FName                                   Name_0;                                            // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakPlayerState_RemoveGenericPropertyWatch;
+
+// Function OakGame.OakPlayerState.Server_CreateDiscoveryPin
+// 0x0078 (0x0078 - 0x0000)
+struct OakPlayerState_Server_CreateDiscoveryPin final
+{
+public:
+	struct FGbxDiscoveryPinningPinData            InPinData;                                         // 0x0000(0x0078)(ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakPlayerState_Server_CreateDiscoveryPin;
+
+// Function OakGame.OakPlayerState.Server_RemoveDiscoveryPin
+// 0x0008 (0x0008 - 0x0000)
+struct OakPlayerState_Server_RemoveDiscoveryPin final
+{
+public:
+	EGbxDiscoveryPinType                          InPinType;                                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         InPinIndex;                                        // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakPlayerState_Server_RemoveDiscoveryPin;
+
+// Function OakGame.OakPlayerState.ServerEnteredWorldRegion
+// 0x0020 (0x0020 - 0x0000)
+struct OakPlayerState_ServerEnteredWorldRegion final
+{
+public:
+	FGameDataHandleProperty_                      region;                                            // 0x0000(0x0018)(ConstParm, Parm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bNewDiscovery;                                     // 0x0018(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakPlayerState_ServerEnteredWorldRegion;
+
+// Function OakGame.OakPlayerState.ServerSetCurrentCharacterSelectPhase
+// 0x0001 (0x0001 - 0x0000)
+struct OakPlayerState_ServerSetCurrentCharacterSelectPhase final
+{
+public:
+	ECharacterSelectPhase                         NewCurrentCharacterSelectPhase;                    // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakPlayerState_ServerSetCurrentCharacterSelectPhase;
+
+// Function OakGame.OakPlayerState.ServerSetGbxActorParts
+// 0x0018 (0x0018 - 0x0000)
+struct OakPlayerState_ServerSetGbxActorParts final
+{
+public:
+	class FName                                   ActorType;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 SerialNumberStr;                                   // 0x0008(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakPlayerState_ServerSetGbxActorParts;
+
+// Function OakGame.OakPlayerState.ServerSetPlayerBusyInMenu
+// 0x0001 (0x0001 - 0x0000)
+struct OakPlayerState_ServerSetPlayerBusyInMenu final
+{
+public:
+	bool                                          InIsBusy;                                          // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakPlayerState_ServerSetPlayerBusyInMenu;
+
+// Function OakGame.OakPlayerState.ServerSetPlayerProfileDifficulty
+// 0x0001 (0x0001 - 0x0000)
+struct OakPlayerState_ServerSetPlayerProfileDifficulty final
+{
+public:
+	uint8                                         NewDifficulty;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakPlayerState_ServerSetPlayerProfileDifficulty;
+
+// Function OakGame.OakPlayerState.ServerSetTravelStatus
+// 0x0001 (0x0001 - 0x0000)
+struct OakPlayerState_ServerSetTravelStatus final
+{
+public:
+	EPlayerTravelStatus                           NewStatus;                                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakPlayerState_ServerSetTravelStatus;
+
+// Function OakGame.OakPlayerState.SetGenericProperty
+// 0x0018 (0x0018 - 0x0000)
+struct OakPlayerState_SetGenericProperty final
+{
+public:
+	class FName                                   Name_0;                                            // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Value;                                             // 0x0008(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakPlayerState_SetGenericProperty;
+
+// Function OakGame.OakPlayerState.SetGenericPropertyWatch
+// 0x0008 (0x0008 - 0x0000)
+struct OakPlayerState_SetGenericPropertyWatch final
+{
+public:
+	class FName                                   Name_0;                                            // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakPlayerState_SetGenericPropertyWatch;
+
+// Function OakGame.OakPlayerState.SetPrototypeToastMessage
+// 0x0038 (0x0038 - 0x0000)
+struct OakPlayerState_SetPrototypeToastMessage final
+{
+public:
+	class FString                                 Header;                                            // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Message;                                           // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Style;                                             // 0x0020(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Duration;                                          // 0x0030(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_34[0x4];                                       // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakPlayerState_SetPrototypeToastMessage;
+
+// Function OakGame.OakPlayerState.BP_GetExperienceLevel
+// 0x0020 (0x0020 - 0x0000)
+struct OakPlayerState_BP_GetExperienceLevel final
+{
+public:
+	FGbxDefPtrProperty_                           ExperienceDef;                                     // 0x0000(0x0018)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         ReturnValue;                                       // 0x0018(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakPlayerState_BP_GetExperienceLevel;
+
+// Function OakGame.OakPlayerState.GetTotalPlaytimeSeconds
+// 0x0004 (0x0004 - 0x0000)
+struct OakPlayerState_GetTotalPlaytimeSeconds final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakPlayerState_GetTotalPlaytimeSeconds;
+
+// Function OakGame.OakUIScript_ResourceMeter.NotEnoughFuelError
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_ResourceMeter_NotEnoughFuelError final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_ResourceMeter_NotEnoughFuelError;
+
+// Function OakGame.OakLostLootMachine.GetFilledSlots
+// 0x0010 (0x0010 - 0x0000)
+struct OakLostLootMachine_GetFilledSlots final
+{
+public:
+	class AOakPlayerController*                   OakPC;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakLostLootMachine_GetFilledSlots;
+
+// Function OakGame.OakLostLootMachine.GetMaxSlots
+// 0x0010 (0x0010 - 0x0000)
+struct OakLostLootMachine_GetMaxSlots final
+{
+public:
+	class AOakPlayerController*                   OakPC;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakLostLootMachine_GetMaxSlots;
+
+// Function OakGame.OakLostLootMachine.OverrideAllParticlePresentations
+// 0x0001 (0x0001 - 0x0000)
+struct OakLostLootMachine_OverrideAllParticlePresentations final
+{
+public:
+	bool                                          bShowParticle;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakLostLootMachine_OverrideAllParticlePresentations;
 
 // Function OakGame.OakEridiumEncasingFunctionLibrary.GetEridiumEncasing
 // 0x0010 (0x0010 - 0x0000)
@@ -8061,89 +7364,33 @@ public:
 };
 DUMPER7_ASSERTS_OakFactionFunctionLibrary_GiveFactionReputationToParty;
 
-// Function OakGame.OakSkillStatics.FireKillSkillEvent
-// 0x0030 (0x0030 - 0x0000)
-struct OakSkillStatics_FireKillSkillEvent final
+// Function OakGame.OakSingularity.OnEnteringSingularityZone
+// 0x0120 (0x0120 - 0x0000)
+struct OakSingularity_OnEnteringSingularityZone final
 {
 public:
-	class AOakCharacter*                          target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 KilledTarget;                                      // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                Location;                                          // 0x0010(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         damage;                                            // 0x0028(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFromSweep;                                        // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHitResult                             SweepResult;                                       // 0x0020(0x0100)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakSkillStatics_FireKillSkillEvent;
+DUMPER7_ASSERTS_OakSingularity_OnEnteringSingularityZone;
 
-// Function OakGame.OakGameMode.RequestTravelViaLink
-// 0x0018 (0x0018 - 0x0000)
-struct OakGameMode_RequestTravelViaLink final
-{
-public:
-	class FName                                   LinkName;                                          // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AGbxPlayerController*                   Controller;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bImmediate;                                        // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0011(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_12[0x6];                                       // 0x0012(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakGameMode_RequestTravelViaLink;
-
-// Function OakGame.OakGameplayActorStatics.FilterActors
-// 0x0030 (0x0030 - 0x0000)
-struct OakGameplayActorStatics_FilterActors final
-{
-public:
-	TArray<class AActor*>                         InActorsToFilter;                                  // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	TArray<class AActor*>                         InActorsToExclude;                                 // 0x0010(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	TArray<class AActor*>                         ReturnValue;                                       // 0x0020(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakGameplayActorStatics_FilterActors;
-
-// Function OakGame.OakGameplayActorStatics.QueryPlayers
-// 0x0038 (0x0038 - 0x0000)
-struct OakGameplayActorStatics_QueryPlayers final
-{
-public:
-	class UObject*                                WorldContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FOakPlayerQuerySpec                    InSpec;                                            // 0x0008(0x0018)(Parm, NativeAccessSpecifierPublic)
-	struct FOakPlayerQueryResult                  ReturnValue;                                       // 0x0020(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakGameplayActorStatics_QueryPlayers;
-
-// Function OakGame.OakGameplayActorStatics.QueryResultToCharacters
+// Function OakGame.OakSingularity.OnExitingSingularityZone
 // 0x0020 (0x0020 - 0x0000)
-struct OakGameplayActorStatics_QueryResultToCharacters final
+struct OakSingularity_OnExitingSingularityZone final
 {
 public:
-	TArray<struct FOakPlayerQueryResultItem>      InQueryResultItems;                                // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	TArray<class AOakCharacter*>                  ReturnValue;                                       // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_OakGameplayActorStatics_QueryResultToCharacters;
-
-// Function OakGame.OakGameplayActorStatics.QueryResultToPlayerControllers
-// 0x0020 (0x0020 - 0x0000)
-struct OakGameplayActorStatics_QueryResultToPlayerControllers final
-{
-public:
-	TArray<struct FOakPlayerQueryResultItem>      InQueryResultItems;                                // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	TArray<class AOakPlayerController*>           ReturnValue;                                       // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakGameplayActorStatics_QueryResultToPlayerControllers;
-
-// Function OakGame.OakGameplayActorStatics.SpawnSingularityActor
-// 0x0130 (0x0130 - 0x0000)
-struct OakGameplayActorStatics_SpawnSingularityActor final
-{
-public:
-	FGameDataHandleProperty_                      SingularityDef;                                    // 0x0000(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_18[0x8];                                       // 0x0018(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FTransform                             SingularityTransform;                              // 0x0020(0x0060)(ConstParm, Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	const class AActor*                           owner;                                             // 0x0080(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<class AActor*>                         IgnoreActors;                                      // 0x0088(0x0010)(Parm, ZeroConstructor, NativeAccessSpecifierPublic)
-	struct FOakSingularityOverrides               Overrides;                                         // 0x0098(0x0088)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class AOakSingularity*                        ReturnValue;                                       // 0x0120(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_128[0x8];                                      // 0x0128(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakGameplayActorStatics_SpawnSingularityActor;
+DUMPER7_ASSERTS_OakSingularity_OnExitingSingularityZone;
 
 // Function OakGame.OakSkillManagerStatics.Detangle
 // 0x0008 (0x0008 - 0x0000)
@@ -8208,6 +7455,41 @@ public:
 };
 DUMPER7_ASSERTS_OakStatusEffectContainerStatics_SetCryoSlowLocked;
 
+// Function OakGame.OakGameMode.RequestTravelViaLink
+// 0x0018 (0x0018 - 0x0000)
+struct OakGameMode_RequestTravelViaLink final
+{
+public:
+	class FName                                   LinkName;                                          // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AGbxPlayerController*                   Controller;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bImmediate;                                        // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0011(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_12[0x6];                                       // 0x0012(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakGameMode_RequestTravelViaLink;
+
+// Function OakGame.OakSkillStatics.FireKillSkillEvent
+// 0x0030 (0x0030 - 0x0000)
+struct OakSkillStatics_FireKillSkillEvent final
+{
+public:
+	class AOakCharacter*                          target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 KilledTarget;                                      // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Location;                                          // 0x0010(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         damage;                                            // 0x0028(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakSkillStatics_FireKillSkillEvent;
+
+// Function OakGame.OakSpawnPointPreviewComponent.GetPreviewDecoStateOptions
+// 0x0010 (0x0010 - 0x0000)
+struct OakSpawnPointPreviewComponent_GetPreviewDecoStateOptions final
+{
+public:
+	TArray<class FName>                           OutOptions;                                        // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakSpawnPointPreviewComponent_GetPreviewDecoStateOptions;
+
 // Function OakGame.OakGameState.Net_EndActorFlight
 // 0x0008 (0x0008 - 0x0000)
 struct OakGameState_Net_EndActorFlight final
@@ -8270,15 +7552,6 @@ public:
 	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_OakGlideModifierComponent_OnActorExitedGlideModifierVolume;
-
-// Function OakGame.OakSpawnPointPreviewComponent.GetPreviewDecoStateOptions
-// 0x0010 (0x0010 - 0x0000)
-struct OakSpawnPointPreviewComponent_GetPreviewDecoStateOptions final
-{
-public:
-	TArray<class FName>                           OutOptions;                                        // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakSpawnPointPreviewComponent_GetPreviewDecoStateOptions;
 
 // Function OakGame.OakHitReactionBlueprintLibrary.AIScriptedDeath
 // 0x0058 (0x0058 - 0x0000)
@@ -8429,6 +7702,27 @@ public:
 	EOakElementalType                             NewElement;                                        // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_OakIntrinsicElement_OnOwnerElementChanged;
+
+// Function OakGame.VaultCardsManager.Server_PurchaseCosmetic
+// 0x0020 (0x0020 - 0x0000)
+struct VaultCardsManager_Server_PurchaseCosmetic final
+{
+public:
+	FGbxDefPtrProperty_                           VaultCard;                                         // 0x0000(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         CosmeticIndex;                                     // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_VaultCardsManager_Server_PurchaseCosmetic;
+
+// Function OakGame.VaultCardsManager.Server_PurchaseInventoryItem
+// 0x0020 (0x0020 - 0x0000)
+struct VaultCardsManager_Server_PurchaseInventoryItem final
+{
+public:
+	FGbxDefPtrProperty_                           VaultCard;                                         // 0x0000(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   InvItemName;                                       // 0x0018(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_VaultCardsManager_Server_PurchaseInventoryItem;
 
 // Function OakGame.WeaponBehavior_Charge.OnRep_ChargeState
 // 0x0001 (0x0001 - 0x0000)
@@ -10389,14 +9683,28 @@ public:
 };
 DUMPER7_ASSERTS_OakLocustGasBlueprintFunctionLibrary_GetLocustGas;
 
-// Function OakGame.WeaponBehavior_Sight.StartInitSequence
-// 0x0008 (0x0008 - 0x0000)
-struct WeaponBehavior_Sight_StartInitSequence final
+// Function OakGame.OakWeaponPoseStatics.BreakOakWeaponPose
+// 0x00E0 (0x00E0 - 0x0000)
+struct OakWeaponPoseStatics_BreakOakWeaponPose final
 {
 public:
-	class AWeapon*                                Weapon;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FOakWeaponPose                         Pose;                                              // 0x0000(0x0070)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	class UAnimSequence*                          GripPose;                                          // 0x0070(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAnimSequence*                          ForegripPose;                                      // 0x0078(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAnimSequence*                          AlternateGrip;                                     // 0x0080(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAnimSequence*                          BodyPose;                                          // 0x0088(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAnimSequence*                          SecondaryBodyPose;                                 // 0x0090(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAnimSequence*                          AdsRefPose;                                        // 0x0098(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAnimSequence*                          AdsPose;                                           // 0x00A0(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAnimSequence*                          SecondaryAdsPose;                                  // 0x00A8(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAnimSequence*                          AdsEnter;                                          // 0x00B0(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAnimSequence*                          AdsExit;                                           // 0x00B8(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAnimSequence*                          WeaponGripPose;                                    // 0x00C0(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAnimSequence*                          WeaponForegripPose;                                // 0x00C8(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   GripIkBone;                                        // 0x00D0(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   ForegripIkBone;                                    // 0x00D8(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_WeaponBehavior_Sight_StartInitSequence;
+DUMPER7_ASSERTS_OakWeaponPoseStatics_BreakOakWeaponPose;
 
 // Function OakGame.OakMainMenuCameraComponent.GetFocusedCharacterNames
 // 0x0010 (0x0010 - 0x0000)
@@ -10407,109 +9715,6 @@ public:
 };
 DUMPER7_ASSERTS_OakMainMenuCameraComponent_GetFocusedCharacterNames;
 
-// Function OakGame.OakWheeledVehicleMovementComponent.OnHit
-// 0x0128 (0x0128 - 0x0000)
-struct OakWheeledVehicleMovementComponent_OnHit final
-{
-public:
-	class AActor*                                 SelfActor;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                NormalImpulse;                                     // 0x0010(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FHitResult                             Hit;                                               // 0x0028(0x0100)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_OnHit;
-
-// Function OakGame.OakWheeledVehicleMovementComponent.OnPrimitiveBeginOverlap
-// 0x0120 (0x0120 - 0x0000)
-struct OakWheeledVehicleMovementComponent_OnPrimitiveBeginOverlap final
-{
-public:
-	class UPrimitiveComponent*                    OverlappedComp;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bFromSweep;                                        // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FHitResult                             SweepResult;                                       // 0x0020(0x0100)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_OnPrimitiveBeginOverlap;
-
-// Function OakGame.OakWheeledVehicleMovementComponent.OnPrimitiveEndOverlap
-// 0x0020 (0x0020 - 0x0000)
-struct OakWheeledVehicleMovementComponent_OnPrimitiveEndOverlap final
-{
-public:
-	class UPrimitiveComponent*                    OverlappedComp;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_OnPrimitiveEndOverlap;
-
-// Function OakGame.OakWheeledVehicleMovementComponent.GetAirTime
-// 0x0004 (0x0004 - 0x0000)
-struct OakWheeledVehicleMovementComponent_GetAirTime final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_GetAirTime;
-
-// Function OakGame.OakWheeledVehicleMovementComponent.GetGroundNormal
-// 0x0018 (0x0018 - 0x0000)
-struct OakWheeledVehicleMovementComponent_GetGroundNormal final
-{
-public:
-	struct FVector                                ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_GetGroundNormal;
-
-// Function OakGame.OakWheeledVehicleMovementComponent.GetGroundSpeed
-// 0x0004 (0x0004 - 0x0000)
-struct OakWheeledVehicleMovementComponent_GetGroundSpeed final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_GetGroundSpeed;
-
-// Function OakGame.OakWheeledVehicleMovementComponent.GetGroundTraceResult
-// 0x0100 (0x0100 - 0x0000)
-struct OakWheeledVehicleMovementComponent_GetGroundTraceResult final
-{
-public:
-	struct FHitResult                             ReturnValue;                                       // 0x0000(0x0100)(Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_GetGroundTraceResult;
-
-// Function OakGame.OakWheeledVehicleMovementComponent.GetHoverVector
-// 0x0018 (0x0018 - 0x0000)
-struct OakWheeledVehicleMovementComponent_GetHoverVector final
-{
-public:
-	struct FVector                                ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_GetHoverVector;
-
-// Function OakGame.OakWheeledVehicleMovementComponent.GetWorldVelocity
-// 0x0018 (0x0018 - 0x0000)
-struct OakWheeledVehicleMovementComponent_GetWorldVelocity final
-{
-public:
-	struct FVector                                ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_GetWorldVelocity;
-
-// Function OakGame.OakWheeledVehicleMovementComponent.IsBoosting
-// 0x0001 (0x0001 - 0x0000)
-struct OakWheeledVehicleMovementComponent_IsBoosting final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_IsBoosting;
-
 // Function OakGame.OakNavFormationeStatics.GetAllSetupNames
 // 0x0018 (0x0018 - 0x0000)
 struct OakNavFormationeStatics_GetAllSetupNames final
@@ -10519,6 +9724,39 @@ public:
 	TArray<class FName>                           OutNames;                                          // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_OakNavFormationeStatics_GetAllSetupNames;
+
+// Function OakGame.OakUIScript_WeaponWheel.Closing
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_WeaponWheel_Closing final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_WeaponWheel_Closing;
+
+// Function OakGame.OakUIScript_WeaponWheel.Highlighting
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_WeaponWheel_Highlighting final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_WeaponWheel_Highlighting;
+
+// Function OakGame.OakUIScript_WeaponWheel.Opening
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_WeaponWheel_Opening final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_WeaponWheel_Opening;
 
 // Function OakGame.OakPlayerPuppetStatics.IsPuppeted
 // 0x0010 (0x0010 - 0x0000)
@@ -10550,196 +9788,25 @@ public:
 };
 DUMPER7_ASSERTS_OakPlayerPuppetStatics_Unpuppet;
 
-// Function OakGame.OakPlayerState.BP_SetExperienceLevel
-// 0x0020 (0x0020 - 0x0000)
-struct OakPlayerState_BP_SetExperienceLevel final
-{
-public:
-	FGbxDefPtrProperty_                           ExperienceDef;                                     // 0x0000(0x0018)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         ExperienceLevel;                                   // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakPlayerState_BP_SetExperienceLevel;
-
-// Function OakGame.OakPlayerState.BP_UnlockExperienceType
-// 0x0018 (0x0018 - 0x0000)
-struct OakPlayerState_BP_UnlockExperienceType final
-{
-public:
-	FGbxDefPtrProperty_                           ExperienceDef;                                     // 0x0000(0x0018)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakPlayerState_BP_UnlockExperienceType;
-
-// Function OakGame.OakPlayerState.GetGenericProperty
-// 0x0020 (0x0020 - 0x0000)
-struct OakPlayerState_GetGenericProperty final
-{
-public:
-	class FName                                   Name_0;                                            // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Value;                                             // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakPlayerState_GetGenericProperty;
-
-// Function OakGame.OakPlayerState.NotifyWatchedGenericPropertyDelta
-// 0x0018 (0x0018 - 0x0000)
-struct OakPlayerState_NotifyWatchedGenericPropertyDelta final
-{
-public:
-	class FName                                   Name_0;                                            // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Value;                                             // 0x0008(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakPlayerState_NotifyWatchedGenericPropertyDelta;
-
-// Function OakGame.OakPlayerState.OnOakPawnSet
-// 0x0018 (0x0018 - 0x0000)
-struct OakPlayerState_OnOakPawnSet final
-{
-public:
-	class APlayerState*                           player;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class APawn*                                  NewPawn;                                           // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class APawn*                                  OldPawn;                                           // 0x0010(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakPlayerState_OnOakPawnSet;
-
-// Function OakGame.OakPlayerState.RemoveGenericPropertyWatch
+// Function OakGame.WeaponBehavior_Repair.OnMaxShotsToBreakChanged
 // 0x0008 (0x0008 - 0x0000)
-struct OakPlayerState_RemoveGenericPropertyWatch final
+struct WeaponBehavior_Repair_OnMaxShotsToBreakChanged final
 {
 public:
-	class FName                                   Name_0;                                            // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         OldValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         NewValue;                                          // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakPlayerState_RemoveGenericPropertyWatch;
+DUMPER7_ASSERTS_WeaponBehavior_Repair_OnMaxShotsToBreakChanged;
 
-// Function OakGame.OakPlayerState.Server_CreateDiscoveryPin
-// 0x0078 (0x0078 - 0x0000)
-struct OakPlayerState_Server_CreateDiscoveryPin final
-{
-public:
-	struct FGbxDiscoveryPinningPinData            InPinData;                                         // 0x0000(0x0078)(ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakPlayerState_Server_CreateDiscoveryPin;
-
-// Function OakGame.OakPlayerState.Server_RemoveDiscoveryPin
+// Function OakGame.WeaponBehavior_Repair.OnMinShotsToBreakChanged
 // 0x0008 (0x0008 - 0x0000)
-struct OakPlayerState_Server_RemoveDiscoveryPin final
+struct WeaponBehavior_Repair_OnMinShotsToBreakChanged final
 {
 public:
-	EGbxDiscoveryPinType                          InPinType;                                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         InPinIndex;                                        // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         OldValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         NewValue;                                          // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakPlayerState_Server_RemoveDiscoveryPin;
-
-// Function OakGame.OakPlayerState.ServerEnteredWorldRegion
-// 0x0020 (0x0020 - 0x0000)
-struct OakPlayerState_ServerEnteredWorldRegion final
-{
-public:
-	FGameDataHandleProperty_                      region;                                            // 0x0000(0x0018)(ConstParm, Parm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bNewDiscovery;                                     // 0x0018(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakPlayerState_ServerEnteredWorldRegion;
-
-// Function OakGame.OakPlayerState.ServerSetCurrentCharacterSelectPhase
-// 0x0001 (0x0001 - 0x0000)
-struct OakPlayerState_ServerSetCurrentCharacterSelectPhase final
-{
-public:
-	ECharacterSelectPhase                         NewCurrentCharacterSelectPhase;                    // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakPlayerState_ServerSetCurrentCharacterSelectPhase;
-
-// Function OakGame.OakPlayerState.ServerSetGbxActorParts
-// 0x0018 (0x0018 - 0x0000)
-struct OakPlayerState_ServerSetGbxActorParts final
-{
-public:
-	class FName                                   ActorType;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 SerialNumberStr;                                   // 0x0008(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakPlayerState_ServerSetGbxActorParts;
-
-// Function OakGame.OakPlayerState.ServerSetPlayerBusyInMenu
-// 0x0001 (0x0001 - 0x0000)
-struct OakPlayerState_ServerSetPlayerBusyInMenu final
-{
-public:
-	bool                                          InIsBusy;                                          // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakPlayerState_ServerSetPlayerBusyInMenu;
-
-// Function OakGame.OakPlayerState.ServerSetPlayerProfileDifficulty
-// 0x0001 (0x0001 - 0x0000)
-struct OakPlayerState_ServerSetPlayerProfileDifficulty final
-{
-public:
-	uint8                                         NewDifficulty;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakPlayerState_ServerSetPlayerProfileDifficulty;
-
-// Function OakGame.OakPlayerState.ServerSetTravelStatus
-// 0x0001 (0x0001 - 0x0000)
-struct OakPlayerState_ServerSetTravelStatus final
-{
-public:
-	EPlayerTravelStatus                           NewStatus;                                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakPlayerState_ServerSetTravelStatus;
-
-// Function OakGame.OakPlayerState.SetGenericProperty
-// 0x0018 (0x0018 - 0x0000)
-struct OakPlayerState_SetGenericProperty final
-{
-public:
-	class FName                                   Name_0;                                            // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Value;                                             // 0x0008(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakPlayerState_SetGenericProperty;
-
-// Function OakGame.OakPlayerState.SetGenericPropertyWatch
-// 0x0008 (0x0008 - 0x0000)
-struct OakPlayerState_SetGenericPropertyWatch final
-{
-public:
-	class FName                                   Name_0;                                            // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakPlayerState_SetGenericPropertyWatch;
-
-// Function OakGame.OakPlayerState.SetPrototypeToastMessage
-// 0x0038 (0x0038 - 0x0000)
-struct OakPlayerState_SetPrototypeToastMessage final
-{
-public:
-	class FString                                 Header;                                            // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Message;                                           // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Style;                                             // 0x0020(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Duration;                                          // 0x0030(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_34[0x4];                                       // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakPlayerState_SetPrototypeToastMessage;
-
-// Function OakGame.OakPlayerState.BP_GetExperienceLevel
-// 0x0020 (0x0020 - 0x0000)
-struct OakPlayerState_BP_GetExperienceLevel final
-{
-public:
-	FGbxDefPtrProperty_                           ExperienceDef;                                     // 0x0000(0x0018)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         ReturnValue;                                       // 0x0018(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakPlayerState_BP_GetExperienceLevel;
-
-// Function OakGame.OakPlayerState.GetTotalPlaytimeSeconds
-// 0x0004 (0x0004 - 0x0000)
-struct OakPlayerState_GetTotalPlaytimeSeconds final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakPlayerState_GetTotalPlaytimeSeconds;
+DUMPER7_ASSERTS_WeaponBehavior_Repair_OnMinShotsToBreakChanged;
 
 // Function OakGame.OakSkillUtils.AddEntanglement
 // 0x0010 (0x0010 - 0x0000)
@@ -10855,136 +9922,137 @@ public:
 };
 DUMPER7_ASSERTS_OakThroughCollisionHandler_EnableThroughCollisionModifiers;
 
-// Function OakGame.OakTrackerBlueprintLibrary.ToggleVaultTrackingEnabled_Actor
-// 0x0010 (0x0010 - 0x0000)
-struct OakTrackerBlueprintLibrary_ToggleVaultTrackingEnabled_Actor final
-{
-public:
-	class AOakVaultTrackable*                     TrackedActor;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEnabled;                                          // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakTrackerBlueprintLibrary_ToggleVaultTrackingEnabled_Actor;
-
-// Function OakGame.OakTrackerBlueprintLibrary.ToggleVaultTrackingEnabled_Def
-// 0x0028 (0x0028 - 0x0000)
-struct OakTrackerBlueprintLibrary_ToggleVaultTrackingEnabled_Def final
-{
-public:
-	class UWorld*                                 World;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGameDataHandleProperty_                      LocDef;                                            // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEnabled;                                          // 0x0020(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OakTrackerBlueprintLibrary_ToggleVaultTrackingEnabled_Def;
-
-// Function OakGame.OakUIScript_InGameMessage.DisplayGenericSlideOut
+// Function OakGame.OakUIScript_EchoUpgrades.InsufficientPoints
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_InGameMessage_DisplayGenericSlideOut final
+struct OakUIScript_EchoUpgrades_InsufficientPoints final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_InGameMessage_DisplayGenericSlideOut;
+DUMPER7_ASSERTS_OakUIScript_EchoUpgrades_InsufficientPoints;
 
-// Function OakGame.OakUIScript_MainMenu.ContinueCampaign
+// Function OakGame.OakUIScript_EchoUpgrades.StartTutorial
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MainMenu_ContinueCampaign final
+struct OakUIScript_EchoUpgrades_StartTutorial final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MainMenu_ContinueCampaign;
+DUMPER7_ASSERTS_OakUIScript_EchoUpgrades_StartTutorial;
 
-// Function OakGame.OakUIScript_MainMenu.CoopRelinquish
+// Function OakGame.OakUIScript_EchoUpgrades.Upgraded
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MainMenu_CoopRelinquish final
+struct OakUIScript_EchoUpgrades_Upgraded final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MainMenu_CoopRelinquish;
+DUMPER7_ASSERTS_OakUIScript_EchoUpgrades_Upgraded;
 
-// Function OakGame.OakUIScript_MainMenu.DifficultySwapEasy
+// Function OakGame.OakUIScript_ItemInspect.InspectNewItem
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MainMenu_DifficultySwapEasy final
+struct OakUIScript_ItemInspect_InspectNewItem final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MainMenu_DifficultySwapEasy;
+DUMPER7_ASSERTS_OakUIScript_ItemInspect_InspectNewItem;
 
-// Function OakGame.OakUIScript_MainMenu.DifficultySwapHard
+// Function OakGame.OakUIScript_MenuBase.ElementClicked
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MainMenu_DifficultySwapHard final
+struct OakUIScript_MenuBase_ElementClicked final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MainMenu_DifficultySwapHard;
+DUMPER7_ASSERTS_OakUIScript_MenuBase_ElementClicked;
 
-// Function OakGame.OakUIScript_MainMenu.DifficultySwapMedium
+// Function OakGame.OakUIScript_MenuBase.ElementFocused
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MainMenu_DifficultySwapMedium final
+struct OakUIScript_MenuBase_ElementFocused final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MainMenu_DifficultySwapMedium;
+DUMPER7_ASSERTS_OakUIScript_MenuBase_ElementFocused;
 
-// Function OakGame.OakUIScript_MainMenu.DifficultySwapVeryHard
+// Function OakGame.OakUIScript_MenuBase.ElementUnfocused
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MainMenu_DifficultySwapVeryHard final
+struct OakUIScript_MenuBase_ElementUnfocused final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MainMenu_DifficultySwapVeryHard;
+DUMPER7_ASSERTS_OakUIScript_MenuBase_ElementUnfocused;
 
-// Function OakGame.OakUIScript_MissionLog.StartMissionLogMenuTutorial
-// 0x0020 (0x0020 - 0x0000)
-struct OakUIScript_MissionLog_StartMissionLogMenuTutorial final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_MissionLog_StartMissionLogMenuTutorial;
-
-// Function OakGame.OakUIScript_MissionLog.StartMissionReplayMenuTutorial
-// 0x0020 (0x0020 - 0x0000)
-struct OakUIScript_MissionLog_StartMissionReplayMenuTutorial final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_MissionLog_StartMissionReplayMenuTutorial;
-
-// Function OakGame.OakUIScript_MissionLog.TrackMission
+// Function OakGame.OakUIScript_MenuBase.EscapeInput
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MissionLog_TrackMission final
+struct OakUIScript_MenuBase_EscapeInput final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MissionLog_TrackMission;
+DUMPER7_ASSERTS_OakUIScript_MenuBase_EscapeInput;
+
+// Function OakGame.OakUIScript_MenuBase.MenuClose
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_MenuBase_MenuClose final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_MenuBase_MenuClose;
+
+// Function OakGame.OakUIScript_MenuBase.MenuOpen
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_MenuBase_MenuOpen final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_MenuBase_MenuOpen;
+
+// Function OakGame.OakUIScript_MenuBase.ScrollDown
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_MenuBase_ScrollDown final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_MenuBase_ScrollDown;
+
+// Function OakGame.OakUIScript_MenuBase.ScrollUp
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_MenuBase_ScrollUp final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_MenuBase_ScrollUp;
 
 // Function OakGame.OakTraitStatics.ApplyTrait
 // 0x0028 (0x0028 - 0x0000)
@@ -11032,93 +10100,91 @@ public:
 };
 DUMPER7_ASSERTS_OakTraitStatics_RemoveTrait;
 
-// Function OakGame.OakUIScript_RepairKit.FailToUseRepairKit
+// Function OakGame.OakUIScript_MissionTracker.HideObjectives
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_RepairKit_FailToUseRepairKit final
+struct OakUIScript_MissionTracker_HideObjectives final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_RepairKit_FailToUseRepairKit;
+DUMPER7_ASSERTS_OakUIScript_MissionTracker_HideObjectives;
 
-// Function OakGame.OakUIScript_RepairKit.GainChargeRepairKit
+// Function OakGame.OakUIScript_MissionTracker.missioncompleted
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_RepairKit_GainChargeRepairKit final
+struct OakUIScript_MissionTracker_missioncompleted final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_RepairKit_GainChargeRepairKit;
+DUMPER7_ASSERTS_OakUIScript_MissionTracker_missioncompleted;
 
-// Function OakGame.OakUIScript_RepairKit.ReadyToUseRepairKit
+// Function OakGame.OakUIScript_MissionTracker.MissionFailed
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_RepairKit_ReadyToUseRepairKit final
+struct OakUIScript_MissionTracker_MissionFailed final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_RepairKit_ReadyToUseRepairKit;
+DUMPER7_ASSERTS_OakUIScript_MissionTracker_MissionFailed;
 
-// Function OakGame.OakUIScript_RepairKit.StartReadyCountdownRepairKit
+// Function OakGame.OakUIScript_MissionTracker.ObjectiveCompleted
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_RepairKit_StartReadyCountdownRepairKit final
+struct OakUIScript_MissionTracker_ObjectiveCompleted final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_RepairKit_StartReadyCountdownRepairKit;
+DUMPER7_ASSERTS_OakUIScript_MissionTracker_ObjectiveCompleted;
 
-// Function OakGame.OakUIScript_RepairKit.TickReadyCountdownOneRepairKit
+// Function OakGame.OakUIScript_MissionTracker.ObjectiveFailed
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_RepairKit_TickReadyCountdownOneRepairKit final
+struct OakUIScript_MissionTracker_ObjectiveFailed final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_RepairKit_TickReadyCountdownOneRepairKit;
+DUMPER7_ASSERTS_OakUIScript_MissionTracker_ObjectiveFailed;
 
-// Function OakGame.OakUIScript_RepairKit.TickReadyCountdownThreeRepairKit
+// Function OakGame.OakUIScript_MissionTracker.ShowObjectives
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_RepairKit_TickReadyCountdownThreeRepairKit final
+struct OakUIScript_MissionTracker_ShowObjectives final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_RepairKit_TickReadyCountdownThreeRepairKit;
+DUMPER7_ASSERTS_OakUIScript_MissionTracker_ShowObjectives;
 
-// Function OakGame.OakUIScript_RepairKit.TickReadyCountdownTwoRepairKit
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_RepairKit_TickReadyCountdownTwoRepairKit final
+// Function OakGame.RepairKit.BroadcastEffect
+// 0x0010 (0x0010 - 0x0000)
+struct RepairKit_BroadcastEffect final
 {
 public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   EffectID;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                AdditionalContext;                                 // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_RepairKit_TickReadyCountdownTwoRepairKit;
+DUMPER7_ASSERTS_RepairKit_BroadcastEffect;
 
-// Function OakGame.OakUIScript_RepairKit.UseRepairKit
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_RepairKit_UseRepairKit final
+// Function OakGame.RepairKit.PlayReplicatedEffect
+// 0x0010 (0x0010 - 0x0000)
+struct RepairKit_PlayReplicatedEffect final
 {
 public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   EffectID;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                AdditionalContext;                                 // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_RepairKit_UseRepairKit;
+DUMPER7_ASSERTS_RepairKit_PlayReplicatedEffect;
 
 // Function OakGame.OakUIBlueprintHelperLibrary.StartMenuTutorialSequence
 // 0x0048 (0x0048 - 0x0000)
@@ -11131,6 +10197,60 @@ public:
 	class FString                                 DebugName;                                         // 0x0038(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_OakUIBlueprintHelperLibrary_StartMenuTutorialSequence;
+
+// Function OakGame.Shield.GetCapacity
+// 0x0004 (0x0004 - 0x0000)
+struct Shield_GetCapacity final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Shield_GetCapacity;
+
+// Function OakGame.Shield.GetNumSegments
+// 0x0004 (0x0004 - 0x0000)
+struct Shield_GetNumSegments final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Shield_GetNumSegments;
+
+// Function OakGame.Shield.GetRegenDelay
+// 0x0004 (0x0004 - 0x0000)
+struct Shield_GetRegenDelay final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Shield_GetRegenDelay;
+
+// Function OakGame.Shield.GetRegenRate
+// 0x0004 (0x0004 - 0x0000)
+struct Shield_GetRegenRate final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Shield_GetRegenRate;
+
+// Function OakGame.Shield.K2_GetDamageType
+// 0x0018 (0x0018 - 0x0000)
+struct Shield_K2_GetDamageType final
+{
+public:
+	FGameDataHandleProperty_                      ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Shield_K2_GetDamageType;
+
+// Function OakGame.Shield.K2_GetHealthSystem
+// 0x0001 (0x0001 - 0x0000)
+struct Shield_K2_GetHealthSystem final
+{
+public:
+	EShieldHealthSystem                           ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Shield_K2_GetHealthSystem;
 
 // Function OakGame.OakUIDataCollector_BossBar.OnBossesChanged
 // 0x0018 (0x0018 - 0x0000)
@@ -11384,15 +10504,6 @@ public:
 };
 DUMPER7_ASSERTS_OakUIDataCollector_CharacterVitals_OnResourcePoolSegmentCountChanged;
 
-// Function OakGame.OakVaultTrackable.ToggleTrackingEnabled
-// 0x0001 (0x0001 - 0x0000)
-struct OakVaultTrackable_ToggleTrackingEnabled final
-{
-public:
-	bool                                          bEnabled;                                          // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakVaultTrackable_ToggleTrackingEnabled;
-
 // Function OakGame.OakUIDataCollector_Customization.OnCharacterRenameComplete
 // 0x0018 (0x0018 - 0x0000)
 struct OakUIDataCollector_Customization_OnCharacterRenameComplete final
@@ -11500,202 +10611,6 @@ public:
 };
 DUMPER7_ASSERTS_OakUIDataCollector_Echo_Portrait_OnEchoStarted;
 
-// Function OakGame.OakUIScript_BigMap.AddWaypoint
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_BigMap_AddWaypoint final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_AddWaypoint;
-
-// Function OakGame.OakUIScript_BigMap.CantDo
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_BigMap_CantDo final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_CantDo;
-
-// Function OakGame.OakUIScript_BigMap.Center
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_BigMap_Center final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_Center;
-
-// Function OakGame.OakUIScript_BigMap.DragEnd
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_BigMap_DragEnd final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_DragEnd;
-
-// Function OakGame.OakUIScript_BigMap.DragMoved
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_BigMap_DragMoved final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_DragMoved;
-
-// Function OakGame.OakUIScript_BigMap.DragStart
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_BigMap_DragStart final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_DragStart;
-
-// Function OakGame.OakUIScript_BigMap.ExploreMenuClose
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_BigMap_ExploreMenuClose final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_ExploreMenuClose;
-
-// Function OakGame.OakUIScript_BigMap.ExploreMenuOpen
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_BigMap_ExploreMenuOpen final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_ExploreMenuOpen;
-
-// Function OakGame.OakUIScript_BigMap.InteractableElementRollOver
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_BigMap_InteractableElementRollOver final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_InteractableElementRollOver;
-
-// Function OakGame.OakUIScript_BigMap.LocateOnMap
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_BigMap_LocateOnMap final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_LocateOnMap;
-
-// Function OakGame.OakUIScript_BigMap.NewMap
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_BigMap_NewMap final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_NewMap;
-
-// Function OakGame.OakUIScript_BigMap.RemoveWaypoint
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_BigMap_RemoveWaypoint final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_RemoveWaypoint;
-
-// Function OakGame.OakUIScript_BigMap.Select
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_BigMap_Select final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_Select;
-
-// Function OakGame.OakUIScript_BigMap.StartBigMapEndGameMenuTutorial
-// 0x0020 (0x0020 - 0x0000)
-struct OakUIScript_BigMap_StartBigMapEndGameMenuTutorial final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_StartBigMapEndGameMenuTutorial;
-
-// Function OakGame.OakUIScript_BigMap.StartBigMapIntroMenuTutorial
-// 0x0020 (0x0020 - 0x0000)
-struct OakUIScript_BigMap_StartBigMapIntroMenuTutorial final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_StartBigMapIntroMenuTutorial;
-
-// Function OakGame.OakUIScript_BigMap.ToggleLegendItem
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_BigMap_ToggleLegendItem final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_ToggleLegendItem;
-
-// Function OakGame.OakUIScript_BigMap.ZoomIn
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_BigMap_ZoomIn final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_ZoomIn;
-
-// Function OakGame.OakUIScript_BigMap.ZoomOut
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_BigMap_ZoomOut final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_BigMap_ZoomOut;
-
 // Function OakGame.OakUIDataCollector_EquippedAmmo.OnWeaponChanged
 // 0x0010 (0x0010 - 0x0000)
 struct OakUIDataCollector_EquippedAmmo_OnWeaponChanged final
@@ -11746,6 +10661,215 @@ public:
 };
 DUMPER7_ASSERTS_OakUIDataCollector_EquippedGadget_OnWeaponChanged;
 
+// Function OakGame.OakUIScript_CelebratoryNotifications.AcceptContract
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_AcceptContract final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_AcceptContract;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.AcceptMission
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_AcceptMission final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_AcceptMission;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.ActivateMayhemMode
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_ActivateMayhemMode final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_ActivateMayhemMode;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.ActivityComplete
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_ActivityComplete final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_ActivityComplete;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.ActivityDiscovered
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_ActivityDiscovered final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_ActivityDiscovered;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.CollectibleFound
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_CollectibleFound final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_CollectibleFound;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.CompleteChallenge
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_CompleteChallenge final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_CompleteChallenge;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.CompleteContract
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_CompleteContract final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_CompleteContract;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.CompleteMission
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_CompleteMission final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_CompleteMission;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.DeactivateMayhemMode
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_DeactivateMayhemMode final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_DeactivateMayhemMode;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.DiscoverLocation
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_DiscoverLocation final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_DiscoverLocation;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.EnterLocation
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_EnterLocation final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_EnterLocation;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.NotifyLevelUp
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_NotifyLevelUp final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_NotifyLevelUp;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.NotifyReachLevel2
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_NotifyReachLevel2 final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_NotifyReachLevel2;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.PressButtonPrompt
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_PressButtonPrompt final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_PressButtonPrompt;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.TrackContract
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_TrackContract final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_TrackContract;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.TrackMission
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_TrackMission final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_TrackMission;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.UnlockChallenge
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_UnlockChallenge final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_UnlockChallenge;
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.UnlockMode
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_CelebratoryNotifications_UnlockMode final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_CelebratoryNotifications_UnlockMode;
+
 // Function OakGame.OakUIDataCollector_GrapplePoint.OnGrapple
 // 0x00D0 (0x00D0 - 0x0000)
 struct OakUIDataCollector_GrapplePoint_OnGrapple final
@@ -11768,28 +10892,6 @@ public:
 };
 DUMPER7_ASSERTS_OakUIDataCollector_GrapplePoint_OnGrappleEnded;
 
-// Function OakGame.OakUIScript_Customization.ApplyCustomization
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Customization_ApplyCustomization final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Customization_ApplyCustomization;
-
-// Function OakGame.OakUIScript_Customization.CantDo
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Customization_CantDo final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_Customization_CantDo;
-
 // Function OakGame.OakUIDataCollector_HealthShield.OnPossessPawnChanged
 // 0x0010 (0x0010 - 0x0000)
 struct OakUIDataCollector_HealthShield_OnPossessPawnChanged final
@@ -11799,6 +10901,104 @@ public:
 	class APawn*                                  NewPawn;                                           // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_OakUIDataCollector_HealthShield_OnPossessPawnChanged;
+
+// Function OakGame.OakWeaponStatics.AbsorbAmmoToCurrentCharacterWeapon
+// 0x0010 (0x0010 - 0x0000)
+struct OakWeaponStatics_AbsorbAmmoToCurrentCharacterWeapon final
+{
+public:
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Amount;                                            // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAsPercent;                                        // 0x000C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAllowForHeavyWeapons;                             // 0x000D(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E[0x2];                                        // 0x000E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakWeaponStatics_AbsorbAmmoToCurrentCharacterWeapon;
+
+// Function OakGame.OakWeaponStatics.GetCurrentElementalType
+// 0x0010 (0x0010 - 0x0000)
+struct OakWeaponStatics_GetCurrentElementalType final
+{
+public:
+	class AWeapon*                                Weapon;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EOakElementalType                             ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakWeaponStatics_GetCurrentElementalType;
+
+// Function OakGame.OakWeaponStatics.GetElementalType
+// 0x0010 (0x0010 - 0x0000)
+struct OakWeaponStatics_GetElementalType final
+{
+public:
+	class AWeapon*                                Weapon;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         UseMode;                                           // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EOakElementalType                             ReturnValue;                                       // 0x0009(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakWeaponStatics_GetElementalType;
+
+// Function OakGame.OakWeaponStatics.GetWeaponDefinitionOverrideTags
+// 0x0010 (0x0010 - 0x0000)
+struct OakWeaponStatics_GetWeaponDefinitionOverrideTags final
+{
+public:
+	TArray<class FName>                           OutNames;                                          // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakWeaponStatics_GetWeaponDefinitionOverrideTags;
+
+// Function OakGame.OakWeaponStatics.GiveAmmoToCurrentCharacterWeapon
+// 0x0010 (0x0010 - 0x0000)
+struct OakWeaponStatics_GiveAmmoToCurrentCharacterWeapon final
+{
+public:
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Amount;                                            // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bLoaded;                                           // 0x000C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAsPercent;                                        // 0x000D(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAllowForHeavyWeapons;                             // 0x000E(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_F[0x1];                                        // 0x000F(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakWeaponStatics_GiveAmmoToCurrentCharacterWeapon;
+
+// Function OakGame.OakWeaponStatics.RefillAmmoForCurrentCharacterWeapon
+// 0x0010 (0x0010 - 0x0000)
+struct OakWeaponStatics_RefillAmmoForCurrentCharacterWeapon final
+{
+public:
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Amount;                                            // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAsPercent;                                        // 0x000C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_D[0x3];                                        // 0x000D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakWeaponStatics_RefillAmmoForCurrentCharacterWeapon;
+
+// Function OakGame.OakWeaponStatics.ReloadAllWeapons
+// 0x0010 (0x0010 - 0x0000)
+struct OakWeaponStatics_ReloadAllWeapons final
+{
+public:
+	class UObject*                                OwnerContext;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bActiveWeaponIncluded;                             // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakWeaponStatics_ReloadAllWeapons;
+
+// Function OakGame.OakWeaponStatics.ThrowEquippedWeapon
+// 0x0020 (0x0020 - 0x0000)
+struct OakWeaponStatics_ThrowEquippedWeapon final
+{
+public:
+	class AActor*                                 WeaponUser;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         actions;                                           // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         slot;                                              // 0x000C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_D[0x3];                                        // 0x000D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         DamageOverride;                                    // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DamageRadiusOverride;                              // 0x0014(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         LifetimeOverride;                                  // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakWeaponStatics_ThrowEquippedWeapon;
 
 // Function OakGame.OakUIDataCollector_InGameMessage.OnPrimaryCharacterChanged
 // 0x0018 (0x0018 - 0x0000)
@@ -12053,26 +11253,14 @@ public:
 };
 DUMPER7_ASSERTS_OakUIDataCollector_ResourceMeter_OnResourcePoolValueChanged;
 
-// Function OakGame.StructuredInteractableUserState.ClientSetCurrentInteractable
-// 0x0020 (0x0020 - 0x0000)
-struct StructuredInteractableUserState_ClientSetCurrentInteractable final
+// Function OakGame.TerminalGadget.RegisterTerminal
+// 0x0008 (0x0008 - 0x0000)
+struct TerminalGadget_RegisterTerminal final
 {
 public:
-	TScriptInterface<class IStructuredInteractable> NewInteractable;                                 // 0x0000(0x0010)(ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   InteractionName;                                   // 0x0010(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bInstant;                                          // 0x0018(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class AActor*                                 Actor;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_StructuredInteractableUserState_ClientSetCurrentInteractable;
-
-// Function OakGame.StructuredInteractableUserState.ServerClearCurrentInteractable
-// 0x0001 (0x0001 - 0x0000)
-struct StructuredInteractableUserState_ServerClearCurrentInteractable final
-{
-public:
-	bool                                          bImmediate;                                        // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_StructuredInteractableUserState_ServerClearCurrentInteractable;
+DUMPER7_ASSERTS_TerminalGadget_RegisterTerminal;
 
 // Function OakGame.OakUIDataCollector_TravelNotification.OnPlayerConnected
 // 0x0008 (0x0008 - 0x0000)
@@ -12091,6 +11279,33 @@ public:
 	class APlayerState*                           DisconnectedPlayer;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_OakUIDataCollector_TravelNotification_OnPlayerDisconnected;
+
+// Function OakGame.TurretGadget.ProjectileDestroyed
+// 0x0008 (0x0008 - 0x0000)
+struct TurretGadget_ProjectileDestroyed final
+{
+public:
+	class AActor*                                 Actor;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_TurretGadget_ProjectileDestroyed;
+
+// Function OakGame.TurretGadget.RegisterTurret
+// 0x0008 (0x0008 - 0x0000)
+struct TurretGadget_RegisterTurret final
+{
+public:
+	class AActor*                                 Actor;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_TurretGadget_RegisterTurret;
+
+// Function OakGame.TurretGadget.UnregisterTurret
+// 0x0008 (0x0008 - 0x0000)
+struct TurretGadget_UnregisterTurret final
+{
+public:
+	class AActor*                                 Actor;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_TurretGadget_UnregisterTurret;
 
 // Function OakGame.OakUIDataCollector_VaultTracker.ChangeRadiusDistance
 // 0x0010 (0x0010 - 0x0000)
@@ -12505,29 +11720,6 @@ public:
 };
 DUMPER7_ASSERTS_OakUIHelpers_Capital_GetCurrencyCantAffordMarkupBoundFromName;
 
-// Function OakGame.OakWeaponPoseStatics.BreakOakWeaponPose
-// 0x00E0 (0x00E0 - 0x0000)
-struct OakWeaponPoseStatics_BreakOakWeaponPose final
-{
-public:
-	struct FOakWeaponPose                         Pose;                                              // 0x0000(0x0070)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	class UAnimSequence*                          GripPose;                                          // 0x0070(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UAnimSequence*                          ForegripPose;                                      // 0x0078(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UAnimSequence*                          AlternateGrip;                                     // 0x0080(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UAnimSequence*                          BodyPose;                                          // 0x0088(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UAnimSequence*                          SecondaryBodyPose;                                 // 0x0090(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UAnimSequence*                          AdsRefPose;                                        // 0x0098(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UAnimSequence*                          AdsPose;                                           // 0x00A0(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UAnimSequence*                          SecondaryAdsPose;                                  // 0x00A8(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UAnimSequence*                          AdsEnter;                                          // 0x00B0(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UAnimSequence*                          AdsExit;                                           // 0x00B8(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UAnimSequence*                          WeaponGripPose;                                    // 0x00C0(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UAnimSequence*                          WeaponForegripPose;                                // 0x00C8(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   GripIkBone;                                        // 0x00D0(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ForegripIkBone;                                    // 0x00D8(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakWeaponPoseStatics_BreakOakWeaponPose;
-
 // Function OakGame.OakUILabelWidgetComponent.SetText
 // 0x0010 (0x0010 - 0x0000)
 struct OakUILabelWidgetComponent_SetText final
@@ -12546,214 +11738,987 @@ public:
 };
 DUMPER7_ASSERTS_OakUILabelWidgetComponent_SetWidgetVisible;
 
-// Function OakGame.OakUIScript_CharacterSelect.AllPlayersReady
+// Function OakGame.OakUIScript_Backpack.BackpackSlotFocused
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CharacterSelect_AllPlayersReady final
+struct OakUIScript_Backpack_BackpackSlotFocused final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_CharacterSelect_AllPlayersReady;
+DUMPER7_ASSERTS_OakUIScript_Backpack_BackpackSlotFocused;
 
-// Function OakGame.OakUIScript_CharacterSelect.CycleRapSheetCharacter
+// Function OakGame.OakUIScript_Backpack.BackpackSlotUnfocused
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CharacterSelect_CycleRapSheetCharacter final
+struct OakUIScript_Backpack_BackpackSlotUnfocused final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_CharacterSelect_CycleRapSheetCharacter;
+DUMPER7_ASSERTS_OakUIScript_Backpack_BackpackSlotUnfocused;
 
-// Function OakGame.OakUIScript_CharacterSelect.LineupCharacterClick
+// Function OakGame.OakUIScript_Backpack.BuyItem
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CharacterSelect_LineupCharacterClick final
+struct OakUIScript_Backpack_BuyItem final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_CharacterSelect_LineupCharacterClick;
+DUMPER7_ASSERTS_OakUIScript_Backpack_BuyItem;
 
-// Function OakGame.OakUIScript_CharacterSelect.LineupCharacterHover
+// Function OakGame.OakUIScript_Backpack.ClickAssaultRifle
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CharacterSelect_LineupCharacterHover final
+struct OakUIScript_Backpack_ClickAssaultRifle final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_CharacterSelect_LineupCharacterHover;
+DUMPER7_ASSERTS_OakUIScript_Backpack_ClickAssaultRifle;
 
-// Function OakGame.OakUIScript_CharacterSelect.LineupIntro
+// Function OakGame.OakUIScript_Backpack.ClickClassMod
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CharacterSelect_LineupIntro final
+struct OakUIScript_Backpack_ClickClassMod final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_CharacterSelect_LineupIntro;
+DUMPER7_ASSERTS_OakUIScript_Backpack_ClickClassMod;
 
-// Function OakGame.OakUIScript_CharacterSelect.MakeCharacterChoice
+// Function OakGame.OakUIScript_Backpack.ClickEnhancement
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CharacterSelect_MakeCharacterChoice final
+struct OakUIScript_Backpack_ClickEnhancement final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_CharacterSelect_MakeCharacterChoice;
+DUMPER7_ASSERTS_OakUIScript_Backpack_ClickEnhancement;
 
-// Function OakGame.OakUIScript_CharacterSelect.TransitionBackToLineup
+// Function OakGame.OakUIScript_Backpack.ClickGadget
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CharacterSelect_TransitionBackToLineup final
+struct OakUIScript_Backpack_ClickGadget final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_CharacterSelect_TransitionBackToLineup;
+DUMPER7_ASSERTS_OakUIScript_Backpack_ClickGadget;
 
-// Function OakGame.OakUIScript_CharacterSelect.TransitionToCharacterSelected
+// Function OakGame.OakUIScript_Backpack.ClickGrenade
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CharacterSelect_TransitionToCharacterSelected final
+struct OakUIScript_Backpack_ClickGrenade final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_CharacterSelect_TransitionToCharacterSelected;
+DUMPER7_ASSERTS_OakUIScript_Backpack_ClickGrenade;
 
-// Function OakGame.OakUIScript_CharacterSelect.TransitionToRapSheet
+// Function OakGame.OakUIScript_Backpack.ClickHeavyWeapon
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_CharacterSelect_TransitionToRapSheet final
+struct OakUIScript_Backpack_ClickHeavyWeapon final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_CharacterSelect_TransitionToRapSheet;
+DUMPER7_ASSERTS_OakUIScript_Backpack_ClickHeavyWeapon;
 
-// Function OakGame.OakUIScript_Global.HoldActionLoop
+// Function OakGame.OakUIScript_Backpack.ClickPistol
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Global_HoldActionLoop final
+struct OakUIScript_Backpack_ClickPistol final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_Global_HoldActionLoop;
+DUMPER7_ASSERTS_OakUIScript_Backpack_ClickPistol;
 
-// Function OakGame.OakUIScript_Global.HoldActionStart
+// Function OakGame.OakUIScript_Backpack.ClickRepKit
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Global_HoldActionStart final
+struct OakUIScript_Backpack_ClickRepKit final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_Global_HoldActionStart;
+DUMPER7_ASSERTS_OakUIScript_Backpack_ClickRepKit;
 
-// Function OakGame.OakUIScript_Global.HoldActionStop
+// Function OakGame.OakUIScript_Backpack.ClickShield
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Global_HoldActionStop final
+struct OakUIScript_Backpack_ClickShield final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_Global_HoldActionStop;
+DUMPER7_ASSERTS_OakUIScript_Backpack_ClickShield;
 
-// Function OakGame.OakUIScript_Global.SliderDown
+// Function OakGame.OakUIScript_Backpack.ClickShotgun
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Global_SliderDown final
+struct OakUIScript_Backpack_ClickShotgun final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_Global_SliderDown;
+DUMPER7_ASSERTS_OakUIScript_Backpack_ClickShotgun;
 
-// Function OakGame.OakUIScript_Global.SliderError
+// Function OakGame.OakUIScript_Backpack.ClickSMG
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Global_SliderError final
+struct OakUIScript_Backpack_ClickSMG final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_Global_SliderError;
+DUMPER7_ASSERTS_OakUIScript_Backpack_ClickSMG;
 
-// Function OakGame.OakUIScript_Global.SliderUp
+// Function OakGame.OakUIScript_Backpack.ClickSniper
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Global_SliderUp final
+struct OakUIScript_Backpack_ClickSniper final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_Global_SliderUp;
+DUMPER7_ASSERTS_OakUIScript_Backpack_ClickSniper;
 
-// Function OakGame.OakUIScript_Global.StepperLeft
+// Function OakGame.OakUIScript_Backpack.CloseBackpack
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Global_StepperLeft final
+struct OakUIScript_Backpack_CloseBackpack final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_Global_StepperLeft;
+DUMPER7_ASSERTS_OakUIScript_Backpack_CloseBackpack;
 
-// Function OakGame.OakUIScript_Global.StepperRight
+// Function OakGame.OakUIScript_Backpack.ClosePlayerStats
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Global_StepperRight final
+struct OakUIScript_Backpack_ClosePlayerStats final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_Global_StepperRight;
+DUMPER7_ASSERTS_OakUIScript_Backpack_ClosePlayerStats;
 
-// Function OakGame.OakUIScript_Global.SwitchOff
+// Function OakGame.OakUIScript_Backpack.CloseRewardCenter
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Global_SwitchOff final
+struct OakUIScript_Backpack_CloseRewardCenter final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_Global_SwitchOff;
+DUMPER7_ASSERTS_OakUIScript_Backpack_CloseRewardCenter;
 
-// Function OakGame.OakUIScript_Global.SwitchOn
+// Function OakGame.OakUIScript_Backpack.CompareStart
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_Global_SwitchOn final
+struct OakUIScript_Backpack_CompareStart final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_Global_SwitchOn;
+DUMPER7_ASSERTS_OakUIScript_Backpack_CompareStart;
+
+// Function OakGame.OakUIScript_Backpack.CompareStop
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_CompareStop final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_CompareStop;
+
+// Function OakGame.OakUIScript_Backpack.DropItem
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_DropItem final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_DropItem;
+
+// Function OakGame.OakUIScript_Backpack.EquipAssaultRifle
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_EquipAssaultRifle final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_EquipAssaultRifle;
+
+// Function OakGame.OakUIScript_Backpack.EquipClassMod
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_EquipClassMod final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_EquipClassMod;
+
+// Function OakGame.OakUIScript_Backpack.EquipEnhancement
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_EquipEnhancement final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_EquipEnhancement;
+
+// Function OakGame.OakUIScript_Backpack.EquipGadget
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_EquipGadget final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_EquipGadget;
+
+// Function OakGame.OakUIScript_Backpack.EquipGrenade
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_EquipGrenade final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_EquipGrenade;
+
+// Function OakGame.OakUIScript_Backpack.EquipHeavyWeapon
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_EquipHeavyWeapon final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_EquipHeavyWeapon;
+
+// Function OakGame.OakUIScript_Backpack.EquipItem
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_EquipItem final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_EquipItem;
+
+// Function OakGame.OakUIScript_Backpack.EquipPistol
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_EquipPistol final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_EquipPistol;
+
+// Function OakGame.OakUIScript_Backpack.EquipRepKit
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_EquipRepKit final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_EquipRepKit;
+
+// Function OakGame.OakUIScript_Backpack.EquipShield
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_EquipShield final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_EquipShield;
+
+// Function OakGame.OakUIScript_Backpack.EquipShotgun
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_EquipShotgun final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_EquipShotgun;
+
+// Function OakGame.OakUIScript_Backpack.EquipSMG
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_EquipSMG final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_EquipSMG;
+
+// Function OakGame.OakUIScript_Backpack.EquipSniper
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_EquipSniper final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_EquipSniper;
+
+// Function OakGame.OakUIScript_Backpack.Error
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_Error final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_Error;
+
+// Function OakGame.OakUIScript_Backpack.FirmwareTransferComplete
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_FirmwareTransferComplete final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_FirmwareTransferComplete;
+
+// Function OakGame.OakUIScript_Backpack.GearSlotFocused
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_GearSlotFocused final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_GearSlotFocused;
+
+// Function OakGame.OakUIScript_Backpack.GearSlotUnfocused
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_GearSlotUnfocused final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_GearSlotUnfocused;
+
+// Function OakGame.OakUIScript_Backpack.MarkItem
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_MarkItem final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_MarkItem;
+
+// Function OakGame.OakUIScript_Backpack.MarkItemBank
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_MarkItemBank final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_MarkItemBank;
+
+// Function OakGame.OakUIScript_Backpack.MarkItemFavorite
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_MarkItemFavorite final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_MarkItemFavorite;
+
+// Function OakGame.OakUIScript_Backpack.MarkItemTrash
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_MarkItemTrash final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_MarkItemTrash;
+
+// Function OakGame.OakUIScript_Backpack.OpenBackpack
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_OpenBackpack final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_OpenBackpack;
+
+// Function OakGame.OakUIScript_Backpack.OpenLegendaryReward
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_OpenLegendaryReward final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_OpenLegendaryReward;
+
+// Function OakGame.OakUIScript_Backpack.OpenPlayerStats
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_OpenPlayerStats final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_OpenPlayerStats;
+
+// Function OakGame.OakUIScript_Backpack.OpenReward
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_OpenReward final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_OpenReward;
+
+// Function OakGame.OakUIScript_Backpack.OpenRewardCenter
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_OpenRewardCenter final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_OpenRewardCenter;
+
+// Function OakGame.OakUIScript_Backpack.PutItemInTransferSlot
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_PutItemInTransferSlot final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_PutItemInTransferSlot;
+
+// Function OakGame.OakUIScript_Backpack.RemoveItemFromTransferSlot
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_RemoveItemFromTransferSlot final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_RemoveItemFromTransferSlot;
+
+// Function OakGame.OakUIScript_Backpack.SellItem
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_SellItem final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_SellItem;
+
+// Function OakGame.OakUIScript_Backpack.StartEchoLogsMenuTutorial
+// 0x0020 (0x0020 - 0x0000)
+struct OakUIScript_Backpack_StartEchoLogsMenuTutorial final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_StartEchoLogsMenuTutorial;
+
+// Function OakGame.OakUIScript_Backpack.StartEquipMenuTutorial
+// 0x0020 (0x0020 - 0x0000)
+struct OakUIScript_Backpack_StartEquipMenuTutorial final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_StartEquipMenuTutorial;
+
+// Function OakGame.OakUIScript_Backpack.StartEquippedFirmwareTutorial
+// 0x0020 (0x0020 - 0x0000)
+struct OakUIScript_Backpack_StartEquippedFirmwareTutorial final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_StartEquippedFirmwareTutorial;
+
+// Function OakGame.OakUIScript_Backpack.StartFirmwareTransferTutorial
+// 0x0020 (0x0020 - 0x0000)
+struct OakUIScript_Backpack_StartFirmwareTransferTutorial final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_StartFirmwareTransferTutorial;
+
+// Function OakGame.OakUIScript_Backpack.StartLostLootTutorial
+// 0x0020 (0x0020 - 0x0000)
+struct OakUIScript_Backpack_StartLostLootTutorial final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_StartLostLootTutorial;
+
+// Function OakGame.OakUIScript_Backpack.StartRewardCenterTutorial
+// 0x0020 (0x0020 - 0x0000)
+struct OakUIScript_Backpack_StartRewardCenterTutorial final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_StartRewardCenterTutorial;
+
+// Function OakGame.OakUIScript_Backpack.StartVendingMachineTutorial
+// 0x0020 (0x0020 - 0x0000)
+struct OakUIScript_Backpack_StartVendingMachineTutorial final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_StartVendingMachineTutorial;
+
+// Function OakGame.OakUIScript_Backpack.TakeItem
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_TakeItem final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_TakeItem;
+
+// Function OakGame.OakUIScript_Backpack.TrashItem
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_TrashItem final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_TrashItem;
+
+// Function OakGame.OakUIScript_Backpack.UnequipItem
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_UnequipItem final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_UnequipItem;
+
+// Function OakGame.OakUIScript_Backpack.WeaponSlotFocused
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_WeaponSlotFocused final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_WeaponSlotFocused;
+
+// Function OakGame.OakUIScript_Backpack.WeaponSlotUnfocused
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_Backpack_WeaponSlotUnfocused final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Backpack_WeaponSlotUnfocused;
+
+// Function OakGame.OakUIScript_Cursor.OnPulse
+// 0x0020 (0x0020 - 0x0000)
+struct OakUIScript_Cursor_OnPulse final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_Cursor_OnPulse;
+
+// Function OakGame.OakUIScript_HudSkills.FailToUseGadget
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_FailToUseGadget final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_FailToUseGadget;
+
+// Function OakGame.OakUIScript_HudSkills.FailToUsePrimarySkill
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_FailToUsePrimarySkill final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_FailToUsePrimarySkill;
+
+// Function OakGame.OakUIScript_HudSkills.FailToUseSecondarySkill
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_FailToUseSecondarySkill final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_FailToUseSecondarySkill;
+
+// Function OakGame.OakUIScript_HudSkills.GainChargeGadget
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_GainChargeGadget final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_GainChargeGadget;
+
+// Function OakGame.OakUIScript_HudSkills.GainChargePrimarySkill
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_GainChargePrimarySkill final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_GainChargePrimarySkill;
+
+// Function OakGame.OakUIScript_HudSkills.GainChargeSecondarySkill
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_GainChargeSecondarySkill final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_GainChargeSecondarySkill;
+
+// Function OakGame.OakUIScript_HudSkills.ReadyToUseGadgetGrenade
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_ReadyToUseGadgetGrenade final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_ReadyToUseGadgetGrenade;
+
+// Function OakGame.OakUIScript_HudSkills.ReadyToUseGadgetHeavyWeapon
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_ReadyToUseGadgetHeavyWeapon final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_ReadyToUseGadgetHeavyWeapon;
+
+// Function OakGame.OakUIScript_HudSkills.ReadyToUseGadgetOther
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_ReadyToUseGadgetOther final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_ReadyToUseGadgetOther;
+
+// Function OakGame.OakUIScript_HudSkills.ReadyToUsePrimarySkill
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_ReadyToUsePrimarySkill final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_ReadyToUsePrimarySkill;
+
+// Function OakGame.OakUIScript_HudSkills.ReadyToUseSecondarySkill
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_ReadyToUseSecondarySkill final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_ReadyToUseSecondarySkill;
+
+// Function OakGame.OakUIScript_HudSkills.StartReadyCountdownGadget
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_StartReadyCountdownGadget final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_StartReadyCountdownGadget;
+
+// Function OakGame.OakUIScript_HudSkills.StartReadyCountdownPrimarySkill
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_StartReadyCountdownPrimarySkill final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_StartReadyCountdownPrimarySkill;
+
+// Function OakGame.OakUIScript_HudSkills.StartReadyCountdownSecondarySkill
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_StartReadyCountdownSecondarySkill final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_StartReadyCountdownSecondarySkill;
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownOneGadget
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_TickReadyCountdownOneGadget final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownOneGadget;
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownOnePrimarySkill
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_TickReadyCountdownOnePrimarySkill final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownOnePrimarySkill;
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownOneSecondarySkill
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_TickReadyCountdownOneSecondarySkill final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownOneSecondarySkill;
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownThreeGadget
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_TickReadyCountdownThreeGadget final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownThreeGadget;
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownThreePrimarySkill
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_TickReadyCountdownThreePrimarySkill final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownThreePrimarySkill;
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownThreeSecondarySkill
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_TickReadyCountdownThreeSecondarySkill final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownThreeSecondarySkill;
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownTwoGadget
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_TickReadyCountdownTwoGadget final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownTwoGadget;
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownTwoPrimarySkill
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_TickReadyCountdownTwoPrimarySkill final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownTwoPrimarySkill;
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownTwoSecondarySkill
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_TickReadyCountdownTwoSecondarySkill final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_TickReadyCountdownTwoSecondarySkill;
+
+// Function OakGame.OakUIScript_HudSkills.UseGadget
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_UseGadget final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_UseGadget;
+
+// Function OakGame.OakUIScript_HudSkills.UsePrimarySkill
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_UsePrimarySkill final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_UsePrimarySkill;
+
+// Function OakGame.OakUIScript_HudSkills.UseSecondarySkill
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_HudSkills_UseSecondarySkill final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_HudSkills_UseSecondarySkill;
+
+// Function OakGame.OakUIScript_InGameMessage.DisplayGenericSlideOut
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_InGameMessage_DisplayGenericSlideOut final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_InGameMessage_DisplayGenericSlideOut;
 
 // Function OakGame.OakUIScript_Lobby.ListCollapsed
 // 0x0030 (0x0030 - 0x0000)
@@ -12898,115 +12863,69 @@ public:
 };
 DUMPER7_ASSERTS_OakUIScript_LootFeed_CashLower;
 
-// Function OakGame.OakUIScript_MenuBase.ElementClicked
+// Function OakGame.OakUIScript_MissionAccept.MissionAccepted
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MenuBase_ElementClicked final
+struct OakUIScript_MissionAccept_MissionAccepted final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MenuBase_ElementClicked;
+DUMPER7_ASSERTS_OakUIScript_MissionAccept_MissionAccepted;
 
-// Function OakGame.OakUIScript_MenuBase.ElementFocused
+// Function OakGame.OakUIScript_MissionAccept.MissionAcceptedAndTracked
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MenuBase_ElementFocused final
+struct OakUIScript_MissionAccept_MissionAcceptedAndTracked final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MenuBase_ElementFocused;
+DUMPER7_ASSERTS_OakUIScript_MissionAccept_MissionAcceptedAndTracked;
 
-// Function OakGame.OakUIScript_MenuBase.ElementUnfocused
+// Function OakGame.OakUIScript_MissionAccept.MissionTracked
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MenuBase_ElementUnfocused final
+struct OakUIScript_MissionAccept_MissionTracked final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MenuBase_ElementUnfocused;
+DUMPER7_ASSERTS_OakUIScript_MissionAccept_MissionTracked;
 
-// Function OakGame.OakUIScript_MenuBase.EscapeInput
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MenuBase_EscapeInput final
+// Function OakGame.OakUIScript_MissionLog.StartMissionLogMenuTutorial
+// 0x0020 (0x0020 - 0x0000)
+struct OakUIScript_MissionLog_StartMissionLogMenuTutorial final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MenuBase_EscapeInput;
+DUMPER7_ASSERTS_OakUIScript_MissionLog_StartMissionLogMenuTutorial;
 
-// Function OakGame.OakUIScript_MenuBase.MenuClose
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MenuBase_MenuClose final
+// Function OakGame.OakUIScript_MissionLog.StartMissionReplayMenuTutorial
+// 0x0020 (0x0020 - 0x0000)
+struct OakUIScript_MissionLog_StartMissionReplayMenuTutorial final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MenuBase_MenuClose;
+DUMPER7_ASSERTS_OakUIScript_MissionLog_StartMissionReplayMenuTutorial;
 
-// Function OakGame.OakUIScript_MenuBase.MenuOpen
+// Function OakGame.OakUIScript_MissionLog.TrackMission
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MenuBase_MenuOpen final
+struct OakUIScript_MissionLog_TrackMission final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_MenuBase_MenuOpen;
-
-// Function OakGame.OakUIScript_MenuBase.ScrollDown
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MenuBase_ScrollDown final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_MenuBase_ScrollDown;
-
-// Function OakGame.OakUIScript_MenuBase.ScrollUp
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MenuBase_ScrollUp final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_MenuBase_ScrollUp;
-
-// Function OakGame.OakUIScript_MenuTutorial.OnMenuTutorialSequenceClosed
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MenuTutorial_OnMenuTutorialSequenceClosed final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_MenuTutorial_OnMenuTutorialSequenceClosed;
-
-// Function OakGame.OakUIScript_MenuTutorial.OnMenuTutorialSequenceOpen
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_MenuTutorial_OnMenuTutorialSequenceOpen final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_MenuTutorial_OnMenuTutorialSequenceOpen;
+DUMPER7_ASSERTS_OakUIScript_MissionLog_TrackMission;
 
 // Function OakGame.OakUIScript_Options.ResetDefault
 // 0x0030 (0x0030 - 0x0000)
@@ -13073,17 +12992,6 @@ public:
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_OakUIScript_OutOfBounds_Suspense;
-
-// Function OakGame.OakUIScript_ResourceMeter.NotEnoughFuelError
-// 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_ResourceMeter_NotEnoughFuelError final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OakUIScript_ResourceMeter_NotEnoughFuelError;
 
 // Function OakGame.OakUIScript_Skills.ActionSkillCooldown
 // 0x0030 (0x0030 - 0x0000)
@@ -13453,38 +13361,126 @@ public:
 };
 DUMPER7_ASSERTS_OakUIScript_Skills_UnlockTier;
 
-// Function OakGame.OakUIScript_TitleScreen.PressedStart
+// Function OakGame.OakUIScript_Social.FriendRequestReceived
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_TitleScreen_PressedStart final
+struct OakUIScript_Social_FriendRequestReceived final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_TitleScreen_PressedStart;
+DUMPER7_ASSERTS_OakUIScript_Social_FriendRequestReceived;
 
-// Function OakGame.OakUIScript_TitleScreen.SplashIntro
+// Function OakGame.OakUIScript_Social.PromotedToPartyLeader
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_TitleScreen_SplashIntro final
+struct OakUIScript_Social_PromotedToPartyLeader final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_TitleScreen_SplashIntro;
+DUMPER7_ASSERTS_OakUIScript_Social_PromotedToPartyLeader;
 
-// Function OakGame.OakUIScript_TitleScreen.SplashTransition
+// Function OakGame.OakUIScript_Social.SessionInviteReceived
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_TitleScreen_SplashTransition final
+struct OakUIScript_Social_SessionInviteReceived final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_TitleScreen_SplashTransition;
+DUMPER7_ASSERTS_OakUIScript_Social_SessionInviteReceived;
+
+// Function OakGame.OakUIScript_StatusMenuNavBar.NavBackward
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_StatusMenuNavBar_NavBackward final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_StatusMenuNavBar_NavBackward;
+
+// Function OakGame.OakUIScript_StatusMenuNavBar.NavEntered
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_StatusMenuNavBar_NavEntered final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_StatusMenuNavBar_NavEntered;
+
+// Function OakGame.OakUIScript_StatusMenuNavBar.NavExited
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_StatusMenuNavBar_NavExited final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_StatusMenuNavBar_NavExited;
+
+// Function OakGame.OakUIScript_StatusMenuNavBar.NavForward
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_StatusMenuNavBar_NavForward final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_StatusMenuNavBar_NavForward;
+
+// Function OakGame.OakUIScript_StatusMenuNavBar.SubNavBackward
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_StatusMenuNavBar_SubNavBackward final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_StatusMenuNavBar_SubNavBackward;
+
+// Function OakGame.OakUIScript_StatusMenuNavBar.SubNavEntered
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_StatusMenuNavBar_SubNavEntered final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_StatusMenuNavBar_SubNavEntered;
+
+// Function OakGame.OakUIScript_StatusMenuNavBar.SubNavExited
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_StatusMenuNavBar_SubNavExited final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_StatusMenuNavBar_SubNavExited;
+
+// Function OakGame.OakUIScript_StatusMenuNavBar.SubNavForward
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_StatusMenuNavBar_SubNavForward final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_StatusMenuNavBar_SubNavForward;
 
 // Function OakGame.OakUIScript_TravelNotification.Countdown
 // 0x0030 (0x0030 - 0x0000)
@@ -13563,58 +13559,135 @@ public:
 };
 DUMPER7_ASSERTS_OakUIScript_Tutorial_OnTutorialExpanded;
 
-// Function OakGame.OakUIScript_WeaponWheel.Closing
+// Function OakGame.OakUIScript_VaultTracker.SearchPing
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_WeaponWheel_Closing final
+struct OakUIScript_VaultTracker_SearchPing final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_WeaponWheel_Closing;
+DUMPER7_ASSERTS_OakUIScript_VaultTracker_SearchPing;
 
-// Function OakGame.OakUIScript_WeaponWheel.Highlighting
+// Function OakGame.OakUIScript_VaultTracker.SearchSuccess
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_WeaponWheel_Highlighting final
+struct OakUIScript_VaultTracker_SearchSuccess final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_WeaponWheel_Highlighting;
+DUMPER7_ASSERTS_OakUIScript_VaultTracker_SearchSuccess;
 
-// Function OakGame.OakUIScript_WeaponWheel.Opening
+// Function OakGame.OakUIScript_VaultTracker.Switch
 // 0x0030 (0x0030 - 0x0000)
-struct OakUIScript_WeaponWheel_Opening final
+struct OakUIScript_VaultTracker_Switch final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_OakUIScript_WeaponWheel_Opening;
+DUMPER7_ASSERTS_OakUIScript_VaultTracker_Switch;
 
-// Function OakGame.NexusConfigStoreUISkillTree.GetAllProgressGraphGroupDefs
+// Function OakGame.OakUIScript_VaultTracker.TrackerActivate
+// 0x0030 (0x0030 - 0x0000)
+struct OakUIScript_VaultTracker_TrackerActivate final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakUIScript_VaultTracker_TrackerActivate;
+
+// Function OakGame.NexusConfigStoreUISpecializations.GetAllProgressGraphGroupDefs
 // 0x0010 (0x0010 - 0x0000)
-struct NexusConfigStoreUISkillTree_GetAllProgressGraphGroupDefs final
+struct NexusConfigStoreUISpecializations_GetAllProgressGraphGroupDefs final
 {
 public:
 	TArray<FGbxDefPtrProperty_>                   graphs;                                            // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_NexusConfigStoreUISkillTree_GetAllProgressGraphGroupDefs;
+DUMPER7_ASSERTS_NexusConfigStoreUISpecializations_GetAllProgressGraphGroupDefs;
 
-// Function OakGame.NexusConfigStoreUISkillTree.GetNodeNames
+// Function OakGame.NexusConfigStoreUISpecializations.GetNodeNames
 // 0x0030 (0x0030 - 0x0000)
-struct NexusConfigStoreUISkillTree_GetNodeNames final
+struct NexusConfigStoreUISpecializations_GetNodeNames final
 {
 public:
 	class UObject*                                EditObject;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	FGbxDefPtrProperty_                           ProgressGraph;                                     // 0x0008(0x0018)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<class FName>                           OutNames;                                          // 0x0020(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_NexusConfigStoreUISkillTree_GetNodeNames;
+DUMPER7_ASSERTS_NexusConfigStoreUISpecializations_GetNodeNames;
+
+// Function OakGame.OakVehicleBlueprintLibrary.AssignHoverDriveEffectParameters
+// 0x0010 (0x0010 - 0x0000)
+struct OakVehicleBlueprintLibrary_AssignHoverDriveEffectParameters final
+{
+public:
+	class UFXSystemComponent*                     FXComponent;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AOakVehicle*                            Vehicle;                                           // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakVehicleBlueprintLibrary_AssignHoverDriveEffectParameters;
+
+// Function OakGame.OakVehicleBlueprintLibrary.CanBoost
+// 0x0010 (0x0010 - 0x0000)
+struct OakVehicleBlueprintLibrary_CanBoost final
+{
+public:
+	class AOakVehicle*                            Vehicle;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakVehicleBlueprintLibrary_CanBoost;
+
+// Function OakGame.OakVehicleBlueprintLibrary.GetAssociatedVehicle
+// 0x0018 (0x0018 - 0x0000)
+struct OakVehicleBlueprintLibrary_GetAssociatedVehicle final
+{
+public:
+	class AActor*                                 Context;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EGetOakVehicleResult                          Exec;                                              // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class AOakVehicle*                            ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakVehicleBlueprintLibrary_GetAssociatedVehicle;
+
+// Function OakGame.OakVehicleBlueprintLibrary.GetHoverDriveEffectByName
+// 0x0018 (0x0018 - 0x0000)
+struct OakVehicleBlueprintLibrary_GetHoverDriveEffectByName final
+{
+public:
+	class AOakVehicle*                            Vehicle;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   EffectName;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UFXSystemAsset*                         ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakVehicleBlueprintLibrary_GetHoverDriveEffectByName;
+
+// Function OakGame.OakVehicleBlueprintLibrary.IsBoosting
+// 0x0010 (0x0010 - 0x0000)
+struct OakVehicleBlueprintLibrary_IsBoosting final
+{
+public:
+	class AOakVehicle*                            Vehicle;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakVehicleBlueprintLibrary_IsBoosting;
+
+// Function OakGame.OakVehicleBlueprintLibrary.ToggleBoost
+// 0x0010 (0x0010 - 0x0000)
+struct OakVehicleBlueprintLibrary_ToggleBoost final
+{
+public:
+	class AOakVehicle*                            Vehicle;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bBoost;                                            // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OakVehicleBlueprintLibrary_ToggleBoost;
 
 // Function OakGame.OakVendingMachine.GetIOTDForPlayer
 // 0x0010 (0x0010 - 0x0000)
@@ -13686,74 +13759,119 @@ public:
 };
 DUMPER7_ASSERTS_OakVendorBlueprintLibrary_HasHostFoundBMVMThisWeek;
 
-// Function OakGame.WaypointSystemDelegateProxy.OnDataLayerStateChanged
-// 0x0010 (0x0010 - 0x0000)
-struct WaypointSystemDelegateProxy_OnDataLayerStateChanged final
+// Function OakGame.OakWheeledVehicleMovementComponent.OnHit
+// 0x0128 (0x0128 - 0x0000)
+struct OakWheeledVehicleMovementComponent_OnHit final
 {
 public:
-	const class UDataLayerInstance*               InDataLayer;                                       // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EDataLayerRuntimeState                        InState;                                           // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class AActor*                                 SelfActor;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                NormalImpulse;                                     // 0x0010(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FHitResult                             Hit;                                               // 0x0028(0x0100)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_WaypointSystemDelegateProxy_OnDataLayerStateChanged;
+DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_OnHit;
 
-// Function OakGame.PhasedObjectStatics.IsPhased
-// 0x0010 (0x0010 - 0x0000)
-struct PhasedObjectStatics_IsPhased final
+// Function OakGame.OakWheeledVehicleMovementComponent.OnPrimitiveBeginOverlap
+// 0x0120 (0x0120 - 0x0000)
+struct OakWheeledVehicleMovementComponent_OnPrimitiveBeginOverlap final
 {
 public:
-	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UPrimitiveComponent*                    OverlappedComp;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFromSweep;                                        // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHitResult                             SweepResult;                                       // 0x0020(0x0100)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_PhasedObjectStatics_IsPhased;
+DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_OnPrimitiveBeginOverlap;
 
-// Function OakGame.PhasedObjectStatics.TryEnterPhasedState
-// 0x0008 (0x0008 - 0x0000)
-struct PhasedObjectStatics_TryEnterPhasedState final
+// Function OakGame.OakWheeledVehicleMovementComponent.OnPrimitiveEndOverlap
+// 0x0020 (0x0020 - 0x0000)
+struct OakWheeledVehicleMovementComponent_OnPrimitiveEndOverlap final
 {
 public:
-	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OverlappedComp;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_PhasedObjectStatics_TryEnterPhasedState;
+DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_OnPrimitiveEndOverlap;
 
-// Function OakGame.PhasedObjectStatics.TryExitPhasedState
-// 0x0008 (0x0008 - 0x0000)
-struct PhasedObjectStatics_TryExitPhasedState final
+// Function OakGame.OakWheeledVehicleMovementComponent.GetAirTime
+// 0x0004 (0x0004 - 0x0000)
+struct OakWheeledVehicleMovementComponent_GetAirTime final
 {
 public:
-	class AActor*                                 target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_PhasedObjectStatics_TryExitPhasedState;
+DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_GetAirTime;
 
-// Function OakGame.RepairKit.BroadcastEffect
-// 0x0010 (0x0010 - 0x0000)
-struct RepairKit_BroadcastEffect final
+// Function OakGame.OakWheeledVehicleMovementComponent.GetGroundNormal
+// 0x0018 (0x0018 - 0x0000)
+struct OakWheeledVehicleMovementComponent_GetGroundNormal final
 {
 public:
-	class FName                                   EffectID;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UObject*                                AdditionalContext;                                 // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_RepairKit_BroadcastEffect;
+DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_GetGroundNormal;
 
-// Function OakGame.RepairKit.PlayReplicatedEffect
-// 0x0010 (0x0010 - 0x0000)
-struct RepairKit_PlayReplicatedEffect final
+// Function OakGame.OakWheeledVehicleMovementComponent.GetGroundSpeed
+// 0x0004 (0x0004 - 0x0000)
+struct OakWheeledVehicleMovementComponent_GetGroundSpeed final
 {
 public:
-	class FName                                   EffectID;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UObject*                                AdditionalContext;                                 // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_RepairKit_PlayReplicatedEffect;
+DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_GetGroundSpeed;
 
-// Function OakGame.SoloTravelStationObject.TeleportPlayerToDestination
-// 0x0008 (0x0008 - 0x0000)
-struct SoloTravelStationObject_TeleportPlayerToDestination final
+// Function OakGame.OakWheeledVehicleMovementComponent.GetGroundTraceResult
+// 0x0100 (0x0100 - 0x0000)
+struct OakWheeledVehicleMovementComponent_GetGroundTraceResult final
 {
 public:
-	class AOakPlayerController*                   OakPC;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FHitResult                             ReturnValue;                                       // 0x0000(0x0100)(Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_SoloTravelStationObject_TeleportPlayerToDestination;
+DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_GetGroundTraceResult;
+
+// Function OakGame.OakWheeledVehicleMovementComponent.GetHoverVector
+// 0x0018 (0x0018 - 0x0000)
+struct OakWheeledVehicleMovementComponent_GetHoverVector final
+{
+public:
+	struct FVector                                ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_GetHoverVector;
+
+// Function OakGame.OakWheeledVehicleMovementComponent.GetWorldVelocity
+// 0x0018 (0x0018 - 0x0000)
+struct OakWheeledVehicleMovementComponent_GetWorldVelocity final
+{
+public:
+	struct FVector                                ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_GetWorldVelocity;
+
+// Function OakGame.OakWheeledVehicleMovementComponent.IsBoosting
+// 0x0001 (0x0001 - 0x0000)
+struct OakWheeledVehicleMovementComponent_IsBoosting final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OakWheeledVehicleMovementComponent_IsBoosting;
+
+// Function OakGame.StructuredInteractableFunctionLibrary.StartStructuredInteraction
+// 0x0018 (0x0018 - 0x0000)
+struct StructuredInteractableFunctionLibrary_StartStructuredInteraction final
+{
+public:
+	class AActor*                                 Interactable;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   InteractionName;                                   // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class APlayerController*                      User;                                              // 0x0010(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_StructuredInteractableFunctionLibrary_StartStructuredInteraction;
 
 // Function OakGame.WeaponBehavior_AmmoPool.OnMaxLoadedAmmoChanged
 // 0x0008 (0x0008 - 0x0000)
@@ -13764,26 +13882,6 @@ public:
 	float                                         NewValue;                                          // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_WeaponBehavior_AmmoPool_OnMaxLoadedAmmoChanged;
-
-// Function OakGame.WeaponBehavior_Repair.OnMaxShotsToBreakChanged
-// 0x0008 (0x0008 - 0x0000)
-struct WeaponBehavior_Repair_OnMaxShotsToBreakChanged final
-{
-public:
-	float                                         OldValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         NewValue;                                          // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WeaponBehavior_Repair_OnMaxShotsToBreakChanged;
-
-// Function OakGame.WeaponBehavior_Repair.OnMinShotsToBreakChanged
-// 0x0008 (0x0008 - 0x0000)
-struct WeaponBehavior_Repair_OnMinShotsToBreakChanged final
-{
-public:
-	float                                         OldValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         NewValue;                                          // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WeaponBehavior_Repair_OnMinShotsToBreakChanged;
 
 // Function OakGame.WeaponBehavior_Shield.OnRep_IsActive
 // 0x0001 (0x0001 - 0x0000)
@@ -13811,6 +13909,15 @@ public:
 	uint8                                         Level;                                             // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_WeaponBehavior_Shield_OnZoomingOut;
+
+// Function OakGame.WeaponBehavior_Sight.StartInitSequence
+// 0x0008 (0x0008 - 0x0000)
+struct WeaponBehavior_Sight_StartInitSequence final
+{
+public:
+	class AWeapon*                                Weapon;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WeaponBehavior_Sight_StartInitSequence;
 
 }
 

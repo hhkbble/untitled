@@ -17,21 +17,21 @@
 namespace SDK
 {
 
-// Function ui_script_options.ui_script_options_C.SafeAreaAdjustUp
+// Function ui_script_options.ui_script_options_C.ResetDefault
 // (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
 // const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void Uui_script_options_C::SafeAreaAdjustUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void Uui_script_options_C::ResetDefault(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_options_C", "SafeAreaAdjustUp");
+		Func = Class->GetFunction("ui_script_options_C", "ResetDefault");
 
-	Params::ui_script_options_C_SafeAreaAdjustUp Parms{};
+	Params::ui_script_options_C_ResetDefault Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -65,21 +65,21 @@ void Uui_script_options_C::SafeAreaAdjustDown(class UObject* WorldContextObject,
 }
 
 
-// Function ui_script_options.ui_script_options_C.ResetDefault
+// Function ui_script_options.ui_script_options_C.SafeAreaAdjustUp
 // (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
 // const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void Uui_script_options_C::ResetDefault(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void Uui_script_options_C::SafeAreaAdjustUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_options_C", "ResetDefault");
+		Func = Class->GetFunction("ui_script_options_C", "SafeAreaAdjustUp");
 
-	Params::ui_script_options_C_ResetDefault Parms{};
+	Params::ui_script_options_C_SafeAreaAdjustUp Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;

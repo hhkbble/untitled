@@ -11,8 +11,8 @@
 #include "Basic.hpp"
 
 #include "InputCore_structs.hpp"
-#include "DeveloperSettings_classes.hpp"
 #include "GbxUICore_classes.hpp"
+#include "DeveloperSettings_classes.hpp"
 
 
 namespace SDK

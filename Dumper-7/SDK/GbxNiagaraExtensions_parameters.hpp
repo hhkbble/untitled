@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "GbxNiagaraExtensions_structs.hpp"
 #include "Engine_structs.hpp"
+#include "GbxNiagaraExtensions_structs.hpp"
 
 
 namespace SDK::Params

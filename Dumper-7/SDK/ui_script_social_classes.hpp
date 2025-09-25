@@ -21,9 +21,9 @@ namespace SDK
 class Uui_script_social_C final : public UOakUIScript_Social
 {
 public:
-	void SessionInviteReceived(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void PromotedToPartyLeader(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 	void FriendRequestReceived(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void PromotedToPartyLeader(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SessionInviteReceived(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 
 public:
 	static class UClass* StaticClass()

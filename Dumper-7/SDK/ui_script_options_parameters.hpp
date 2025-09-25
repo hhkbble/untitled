@@ -10,16 +10,16 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
 #include "GbxAudio_structs.hpp"
+#include "CoreUObject_structs.hpp"
 
 
 namespace SDK::Params
 {
 
-// Function ui_script_options.ui_script_options_C.SafeAreaAdjustUp
+// Function ui_script_options.ui_script_options_C.ResetDefault
 // 0x0048 (0x0048 - 0x0000)
-struct ui_script_options_C_SafeAreaAdjustUp final
+struct ui_script_options_C_ResetDefault final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
@@ -27,7 +27,7 @@ public:
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
 };
-DUMPER7_ASSERTS_ui_script_options_C_SafeAreaAdjustUp;
+DUMPER7_ASSERTS_ui_script_options_C_ResetDefault;
 
 // Function ui_script_options.ui_script_options_C.SafeAreaAdjustDown
 // 0x0048 (0x0048 - 0x0000)
@@ -41,9 +41,9 @@ public:
 };
 DUMPER7_ASSERTS_ui_script_options_C_SafeAreaAdjustDown;
 
-// Function ui_script_options.ui_script_options_C.ResetDefault
+// Function ui_script_options.ui_script_options_C.SafeAreaAdjustUp
 // 0x0048 (0x0048 - 0x0000)
-struct ui_script_options_C_ResetDefault final
+struct ui_script_options_C_SafeAreaAdjustUp final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
@@ -51,7 +51,7 @@ public:
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
 };
-DUMPER7_ASSERTS_ui_script_options_C_ResetDefault;
+DUMPER7_ASSERTS_ui_script_options_C_SafeAreaAdjustUp;
 
 }
 

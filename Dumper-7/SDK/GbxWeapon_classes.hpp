@@ -15,12 +15,12 @@
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "Engine_classes.hpp"
-#include "GameplayTags_structs.hpp"
+#include "GbxCore_structs.hpp"
 #include "GbxWeapon_structs.hpp"
 #include "GbxEngine_classes.hpp"
 #include "GbxGame_structs.hpp"
 #include "GbxGame_classes.hpp"
-#include "GbxCore_structs.hpp"
+#include "GameplayTags_structs.hpp"
 
 
 namespace SDK
@@ -476,6 +476,7 @@ public:
 	void OnRep_RemoteShotState();
 	void OnRep_VisibleAmmoState();
 	void PlayEffects(class FName type, uint8 UseModeIndex, int32 ID, bool bUntilStopped);
+	void ServerAmmoGivenToInterruptedReload();
 	void ServerEquipInterruptible();
 	void ServerInterruptReloadToUse(int32 ClientLoadedAmmo);
 	void ServerLock(float Duration);

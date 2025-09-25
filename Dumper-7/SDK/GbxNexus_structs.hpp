@@ -27,15 +27,6 @@ enum class ENexusBitSetOperator : uint8
 	ENexusBitSetOperator_MAX                 = 3,
 };
 
-// ScriptStruct GbxNexus.GbxDefMetaflags
-// 0x0001 (0x0001 - 0x0000)
-struct FGbxDefMetaflags final
-{
-public:
-	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FGbxDefMetaflags;
-
 // ScriptStruct GbxNexus.GbxDef
 // 0x0010 (0x0018 - 0x0008)
 struct FGbxDef : public FGbxHasStructType
@@ -54,55 +45,6 @@ public:
 };
 DUMPER7_ASSERTS_FNexusBitSet;
 
-// ScriptStruct GbxNexus.NexusSerializeTest_BasicTypes
-// 0x01D0 (0x01D8 - 0x0008)
-struct FNexusSerializeTest_BasicTypes final : public FGbxHasStructType
-{
-public:
-	uint8                                         uint8_0;                                           // 0x0008(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x1];                                        // 0x0009(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	uint16                                        uint16_0;                                          // 0x000A(0x0002)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint32                                        uint32_0;                                          // 0x000C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint64                                        uint64_0;                                          // 0x0010(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int8                                          int8_0;                                            // 0x0018(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x1];                                       // 0x0019(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	int16                                         int16_0;                                           // 0x001A(0x0002)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         int32_0;                                           // 0x001C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int64                                         int64_0;                                           // 0x0020(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         float_0;                                           // 0x0028(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        Double;                                            // 0x0030(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          Bool;                                              // 0x0038(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_39[0x3];                                       // 0x0039(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   Name;                                              // 0x003C(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_44[0x4];                                       // 0x0044(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 String;                                            // 0x0048(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<class FString>                         StringArray;                                       // 0x0058(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	TMap<class FString, class FString>            StringMap;                                         // 0x0068(0x0050)(Edit, NativeAccessSpecifierPublic)
-	TSet<class FString>                           StringSet;                                         // 0x00B8(0x0050)(Edit, NativeAccessSpecifierPublic)
-	struct FSoftObjectPath                        SoftObjectPath;                                    // 0x0108(0x0020)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSoftObjectPtr<class UObject>                 SoftObjectPtr;                                     // 0x0128(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSoftClassPtr<class UClass>                   SoftClassPtr;                                      // 0x0150(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGameDataHandleProperty_                      GameDataHandleF;                                   // 0x0178(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGameDataHandleProperty_                      GameDataHandleT;                                   // 0x0190(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           GbxDefPtrF;                                        // 0x01A8(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           GbxDefPtrT;                                        // 0x01C0(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FNexusSerializeTest_BasicTypes;
-
-// ScriptStruct GbxNexus.NexusSerializeTest_BasicDef
-// 0x02A0 (0x02B8 - 0x0018)
-struct FNexusSerializeTest_BasicDef final : public FGbxDef
-{
-public:
-	struct FNexusSerializeTest_BasicTypes         BasicTypes;                                        // 0x0018(0x01D8)(Edit, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGbxInlineStruct                       InlineBasicTypes;                                  // 0x01F0(0x0018)(Edit, NativeAccessSpecifierPublic)
-	TArray<struct FNexusSerializeTest_BasicTypes> BasicTypesArray;                                   // 0x0208(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	TMap<class FString, struct FNexusSerializeTest_BasicTypes> BasicTypesMap;                        // 0x0218(0x0050)(Edit, NativeAccessSpecifierPublic)
-	TSet<struct FNexusSerializeTest_BasicTypes>   BasicTypesSet;                                     // 0x0268(0x0050)(Edit, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FNexusSerializeTest_BasicDef;
-
 // ScriptStruct GbxNexus.NexusBitSingleTag
 // 0x0010 (0x0010 - 0x0000)
 struct alignas(0x08) FNexusBitSingleTag
@@ -120,6 +62,15 @@ public:
 	uint8                                         Pad_18[0x8];                                       // 0x0018(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FGbxGlobalDef;
+
+// ScriptStruct GbxNexus.GbxDefMetaflags
+// 0x0001 (0x0001 - 0x0000)
+struct FGbxDefMetaflags final
+{
+public:
+	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGbxDefMetaflags;
 
 // ScriptStruct GbxNexus.GbxNexusMetaData
 // 0x0050 (0x0050 - 0x0000)
@@ -334,6 +285,55 @@ public:
 	TArray<struct FNexusSerializeTest_ArrayData>  ArrayData;                                         // 0x0028(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FNexusSerializeTest_ArrayDef;
+
+// ScriptStruct GbxNexus.NexusSerializeTest_BasicTypes
+// 0x01D0 (0x01D8 - 0x0008)
+struct FNexusSerializeTest_BasicTypes final : public FGbxHasStructType
+{
+public:
+	uint8                                         uint8_0;                                           // 0x0008(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x1];                                        // 0x0009(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	uint16                                        uint16_0;                                          // 0x000A(0x0002)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint32                                        uint32_0;                                          // 0x000C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint64                                        uint64_0;                                          // 0x0010(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int8                                          int8_0;                                            // 0x0018(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_19[0x1];                                       // 0x0019(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	int16                                         int16_0;                                           // 0x001A(0x0002)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         int32_0;                                           // 0x001C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int64                                         int64_0;                                           // 0x0020(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         float_0;                                           // 0x0028(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        Double;                                            // 0x0030(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          Bool;                                              // 0x0038(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_39[0x3];                                       // 0x0039(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   Name;                                              // 0x003C(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_44[0x4];                                       // 0x0044(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 String;                                            // 0x0048(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<class FString>                         StringArray;                                       // 0x0058(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	TMap<class FString, class FString>            StringMap;                                         // 0x0068(0x0050)(Edit, NativeAccessSpecifierPublic)
+	TSet<class FString>                           StringSet;                                         // 0x00B8(0x0050)(Edit, NativeAccessSpecifierPublic)
+	struct FSoftObjectPath                        SoftObjectPath;                                    // 0x0108(0x0020)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSoftObjectPtr<class UObject>                 SoftObjectPtr;                                     // 0x0128(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSoftClassPtr<class UClass>                   SoftClassPtr;                                      // 0x0150(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGameDataHandleProperty_                      GameDataHandleF;                                   // 0x0178(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGameDataHandleProperty_                      GameDataHandleT;                                   // 0x0190(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           GbxDefPtrF;                                        // 0x01A8(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           GbxDefPtrT;                                        // 0x01C0(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FNexusSerializeTest_BasicTypes;
+
+// ScriptStruct GbxNexus.NexusSerializeTest_BasicDef
+// 0x02A0 (0x02B8 - 0x0018)
+struct FNexusSerializeTest_BasicDef final : public FGbxDef
+{
+public:
+	struct FNexusSerializeTest_BasicTypes         BasicTypes;                                        // 0x0018(0x01D8)(Edit, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGbxInlineStruct                       InlineBasicTypes;                                  // 0x01F0(0x0018)(Edit, NativeAccessSpecifierPublic)
+	TArray<struct FNexusSerializeTest_BasicTypes> BasicTypesArray;                                   // 0x0208(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	TMap<class FString, struct FNexusSerializeTest_BasicTypes> BasicTypesMap;                        // 0x0218(0x0050)(Edit, NativeAccessSpecifierPublic)
+	TSet<struct FNexusSerializeTest_BasicTypes>   BasicTypesSet;                                     // 0x0268(0x0050)(Edit, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FNexusSerializeTest_BasicDef;
 
 // ScriptStruct GbxNexus.NexusSerializeTest_GameplayTagData
 // 0x0028 (0x0028 - 0x0000)

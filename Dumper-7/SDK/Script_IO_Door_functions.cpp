@@ -107,15 +107,15 @@ void UScript_IO_Door_C::PlayerNoLongerBlockingDoor(class UPrimitiveComponent* Ov
 }
 
 
-// Function Script_IO_Door.Script_IO_Door_C.True__OnStateEnabled
+// Function Script_IO_Door.Script_IO_Door_C.true__OnStateEnabled
 // (BlueprintCallable, BlueprintEvent)
 
-void UScript_IO_Door_C::True__OnStateEnabled()
+void UScript_IO_Door_C::true__OnStateEnabled()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Script_IO_Door_C", "True__OnStateEnabled");
+		Func = Class->GetFunction("Script_IO_Door_C", "true__OnStateEnabled");
 
 	UObject::ProcessEvent(Func, nullptr);
 }

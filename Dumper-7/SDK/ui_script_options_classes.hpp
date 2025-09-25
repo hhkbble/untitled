@@ -21,9 +21,9 @@ namespace SDK
 class Uui_script_options_C final : public UOakUIScript_Options
 {
 public:
-	void SafeAreaAdjustUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void SafeAreaAdjustDown(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 	void ResetDefault(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SafeAreaAdjustDown(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SafeAreaAdjustUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 
 public:
 	static class UClass* StaticClass()

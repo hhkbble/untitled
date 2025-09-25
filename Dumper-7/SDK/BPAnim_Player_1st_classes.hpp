@@ -11,12 +11,12 @@
 #include "Basic.hpp"
 
 #include "AnimGraphRuntime_structs.hpp"
-#include "OakGame_structs.hpp"
-#include "OakGame_classes.hpp"
 #include "Engine_structs.hpp"
 #include "ControlRig_structs.hpp"
-#include "BPAnim_Player_1st_structs.hpp"
 #include "GbxGame_structs.hpp"
+#include "OakGame_structs.hpp"
+#include "OakGame_classes.hpp"
+#include "BPAnim_Player_1st_structs.hpp"
 
 
 namespace SDK

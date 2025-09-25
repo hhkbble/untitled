@@ -3242,11 +3242,11 @@ public:
 DUMPER7_ASSERTS_UEnvQueryTest;
 
 // Class AIModule.EQSRenderingComponent
-// 0x0030 (0x0680 - 0x0650)
+// 0x0040 (0x06B0 - 0x0670)
 class UEQSRenderingComponent final : public UDebugDrawComponent
 {
 public:
-	uint8                                         Pad_648[0x38];                                     // 0x0648(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_670[0x40];                                     // 0x0670(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

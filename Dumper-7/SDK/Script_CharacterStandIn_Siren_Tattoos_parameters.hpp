@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "GbxGame_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "GbxGame_structs.hpp"
 
 
 namespace SDK::Params

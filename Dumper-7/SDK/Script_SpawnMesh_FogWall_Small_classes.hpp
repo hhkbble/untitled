@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "Enum_SpawnMesh_CharacterAnimStyle_structs.hpp"
 #include "Enum_SpawnMesh_FogWall_Shape_structs.hpp"
+#include "Enum_SpawnMesh_CharacterAnimStyle_structs.hpp"
 #include "GbxGame_classes.hpp"
 
 

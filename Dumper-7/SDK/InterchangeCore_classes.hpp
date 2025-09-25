@@ -18,6 +18,53 @@
 namespace SDK
 {
 
+// Class InterchangeCore.InterchangeResult
+// 0x0048 (0x0070 - 0x0028)
+class UInterchangeResult : public UObject
+{
+public:
+	class FString                                 SourceAssetName;                                   // 0x0028(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 DestinationAssetName;                              // 0x0038(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 AssetFriendlyName;                                 // 0x0048(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UObject>                    AssetType;                                         // 0x0058(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 InterchangeKey;                                    // 0x0060(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InterchangeResult")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InterchangeResult")
+	}
+	static class UInterchangeResult* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInterchangeResult>();
+	}
+};
+DUMPER7_ASSERTS_UInterchangeResult;
+
+// Class InterchangeCore.InterchangeResultError
+// 0x0000 (0x0070 - 0x0070)
+class UInterchangeResultError : public UInterchangeResult
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InterchangeResultError")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InterchangeResultError")
+	}
+	static class UInterchangeResultError* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInterchangeResultError>();
+	}
+};
+DUMPER7_ASSERTS_UInterchangeResultError;
+
 // Class InterchangeCore.InterchangeFactoryBase
 // 0x0008 (0x0030 - 0x0028)
 class UInterchangeFactoryBase : public UObject
@@ -135,53 +182,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UInterchangePipelineBase;
-
-// Class InterchangeCore.InterchangeResult
-// 0x0048 (0x0070 - 0x0028)
-class UInterchangeResult : public UObject
-{
-public:
-	class FString                                 SourceAssetName;                                   // 0x0028(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 DestinationAssetName;                              // 0x0038(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 AssetFriendlyName;                                 // 0x0048(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UObject>                    AssetType;                                         // 0x0058(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 InterchangeKey;                                    // 0x0060(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InterchangeResult")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InterchangeResult")
-	}
-	static class UInterchangeResult* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInterchangeResult>();
-	}
-};
-DUMPER7_ASSERTS_UInterchangeResult;
-
-// Class InterchangeCore.InterchangeResultError
-// 0x0000 (0x0070 - 0x0070)
-class UInterchangeResultError : public UInterchangeResult
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InterchangeResultError")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InterchangeResultError")
-	}
-	static class UInterchangeResultError* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInterchangeResultError>();
-	}
-};
-DUMPER7_ASSERTS_UInterchangeResultError;
 
 // Class InterchangeCore.InterchangeResultSuccess
 // 0x0000 (0x0070 - 0x0070)

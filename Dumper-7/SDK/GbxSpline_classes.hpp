@@ -310,12 +310,11 @@ public:
 DUMPER7_ASSERTS_AGbxSplineClutterExclusionVolume;
 
 // Class GbxSpline.GbxSplineComponent
-// 0x0010 (0x06A0 - 0x0690)
+// 0x0000 (0x06C0 - 0x06C0)
 class UGbxSplineComponent final : public USplineComponent
 {
 public:
-	class UGbxSplineMetadata*                     SplineMetadata;                                    // 0x0690(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_698[0x8];                                      // 0x0698(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UGbxSplineMetadata*                     SplineMetadata;                                    // 0x06B8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 public:
 	static class UClass* StaticClass()

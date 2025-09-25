@@ -211,6 +211,16 @@ public:
 };
 DUMPER7_ASSERTS_FModelingToolsAxisFilter;
 
+// ScriptStruct ModelingComponents.MeshElementSelectionParams
+// 0x0048 (0x0048 - 0x0000)
+struct FMeshElementSelectionParams final
+{
+public:
+	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMaterialInstanceDynamic*               SelectionFillColor;                                // 0x0040(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FMeshElementSelectionParams;
+
 // ScriptStruct ModelingComponents.ModelingToolsColorChannelFilter
 // 0x0004 (0x0004 - 0x0000)
 struct FModelingToolsColorChannelFilter final
@@ -367,16 +377,6 @@ public:
 	class AActor*                                 NewActor;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FCreateActorResult;
-
-// ScriptStruct ModelingComponents.MeshElementSelectionParams
-// 0x0048 (0x0048 - 0x0000)
-struct FMeshElementSelectionParams final
-{
-public:
-	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMaterialInstanceDynamic*               SelectionFillColor;                                // 0x0040(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FMeshElementSelectionParams;
 
 }
 

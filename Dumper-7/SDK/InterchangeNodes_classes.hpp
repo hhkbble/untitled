@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "InterchangeNodes_structs.hpp"
 #include "InterchangeCore_classes.hpp"
+#include "InterchangeNodes_structs.hpp"
 #include "CoreUObject_classes.hpp"
 
 

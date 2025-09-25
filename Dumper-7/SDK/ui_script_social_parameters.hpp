@@ -10,16 +10,16 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
 #include "GbxAudio_structs.hpp"
+#include "CoreUObject_structs.hpp"
 
 
 namespace SDK::Params
 {
 
-// Function ui_script_social.ui_script_social_C.SessionInviteReceived
+// Function ui_script_social.ui_script_social_C.FriendRequestReceived
 // 0x0048 (0x0048 - 0x0000)
-struct ui_script_social_C_SessionInviteReceived final
+struct ui_script_social_C_FriendRequestReceived final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
@@ -27,7 +27,7 @@ public:
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
 };
-DUMPER7_ASSERTS_ui_script_social_C_SessionInviteReceived;
+DUMPER7_ASSERTS_ui_script_social_C_FriendRequestReceived;
 
 // Function ui_script_social.ui_script_social_C.PromotedToPartyLeader
 // 0x0048 (0x0048 - 0x0000)
@@ -41,9 +41,9 @@ public:
 };
 DUMPER7_ASSERTS_ui_script_social_C_PromotedToPartyLeader;
 
-// Function ui_script_social.ui_script_social_C.FriendRequestReceived
+// Function ui_script_social.ui_script_social_C.SessionInviteReceived
 // 0x0048 (0x0048 - 0x0000)
-struct ui_script_social_C_FriendRequestReceived final
+struct ui_script_social_C_SessionInviteReceived final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
@@ -51,7 +51,7 @@ public:
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
 };
-DUMPER7_ASSERTS_ui_script_social_C_FriendRequestReceived;
+DUMPER7_ASSERTS_ui_script_social_C_SessionInviteReceived;
 
 }
 

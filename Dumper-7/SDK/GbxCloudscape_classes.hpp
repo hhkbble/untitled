@@ -76,16 +76,16 @@ public:
 DUMPER7_ASSERTS_UGbxCloudscapeData;
 
 // Class GbxCloudscape.GbxNiagaraCloudscapeComponent
-// 0x0030 (0x08E0 - 0x08B0)
+// 0x0020 (0x0900 - 0x08E0)
 class UGbxNiagaraCloudscapeComponent final : public UNiagaraComponent
 {
 public:
-	class UMaterialParameterCollection*           CloudscapeMaterialParameterCollection;             // 0x08B0(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   CloudscapeBoundsMaterialParameterName;             // 0x08B8(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEnableProcLayer;                                  // 0x08C0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_8C1[0x7];                                      // 0x08C1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGbxCloudscapeData*                     CloudscapeData;                                    // 0x08C8(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_8D0[0x10];                                     // 0x08D0(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UMaterialParameterCollection*           CloudscapeMaterialParameterCollection;             // 0x08D8(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   CloudscapeBoundsMaterialParameterName;             // 0x08E0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnableProcLayer;                                  // 0x08E8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_8E9[0x7];                                      // 0x08E9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGbxCloudscapeData*                     CloudscapeData;                                    // 0x08F0(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_8F8[0x8];                                      // 0x08F8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

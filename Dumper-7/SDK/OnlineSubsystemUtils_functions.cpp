@@ -1054,6 +1054,152 @@ void AOnlineBeaconClient::ClientOnConnected()
 }
 
 
+// Function OnlineSubsystemUtils.SpectatorBeaconClient.ClientCancelReservationResponse
+// (Net, NetReliable, Native, Event, Public, NetClient)
+// Parameters:
+// ESpectatorReservationResult             ReservationResponse                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void ASpectatorBeaconClient::ClientCancelReservationResponse(ESpectatorReservationResult ReservationResponse)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpectatorBeaconClient", "ClientCancelReservationResponse");
+
+	Params::SpectatorBeaconClient_ClientCancelReservationResponse Parms{};
+
+	Parms.ReservationResponse = ReservationResponse;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OnlineSubsystemUtils.SpectatorBeaconClient.ClientReservationResponse
+// (Net, NetReliable, Native, Event, Public, NetClient)
+// Parameters:
+// ESpectatorReservationResult             ReservationResponse                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void ASpectatorBeaconClient::ClientReservationResponse(ESpectatorReservationResult ReservationResponse)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpectatorBeaconClient", "ClientReservationResponse");
+
+	Params::SpectatorBeaconClient_ClientReservationResponse Parms{};
+
+	Parms.ReservationResponse = ReservationResponse;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OnlineSubsystemUtils.SpectatorBeaconClient.ClientSendReservationFull
+// (Net, NetReliable, Native, Event, Public, NetClient)
+
+void ASpectatorBeaconClient::ClientSendReservationFull()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpectatorBeaconClient", "ClientSendReservationFull");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OnlineSubsystemUtils.SpectatorBeaconClient.ClientSendReservationUpdates
+// (Net, NetReliable, Native, Event, Public, NetClient)
+// Parameters:
+// int32                                   NumRemainingReservations                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void ASpectatorBeaconClient::ClientSendReservationUpdates(int32 NumRemainingReservations)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpectatorBeaconClient", "ClientSendReservationUpdates");
+
+	Params::SpectatorBeaconClient_ClientSendReservationUpdates Parms{};
+
+	Parms.NumRemainingReservations = NumRemainingReservations;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OnlineSubsystemUtils.SpectatorBeaconClient.ServerCancelReservationRequest
+// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
+// Parameters:
+// const struct FUniqueNetIdRepl&          Spectator                                              (ConstParm, Parm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void ASpectatorBeaconClient::ServerCancelReservationRequest(const struct FUniqueNetIdRepl& Spectator)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpectatorBeaconClient", "ServerCancelReservationRequest");
+
+	Params::SpectatorBeaconClient_ServerCancelReservationRequest Parms{};
+
+	Parms.Spectator = std::move(Spectator);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OnlineSubsystemUtils.SpectatorBeaconClient.ServerReservationRequest
+// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
+// Parameters:
+// const class FString&                    SessionId                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FSpectatorReservation&     Reservation                                            (ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void ASpectatorBeaconClient::ServerReservationRequest(const class FString& SessionId, const struct FSpectatorReservation& Reservation)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpectatorBeaconClient", "ServerReservationRequest");
+
+	Params::SpectatorBeaconClient_ServerReservationRequest Parms{};
+
+	Parms.SessionId = std::move(SessionId);
+	Parms.Reservation = std::move(Reservation);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function OnlineSubsystemUtils.PartyBeaconClient.ClientCancelReservationResponse
 // (Net, NetReliable, Native, Event, Public, NetClient)
 // Parameters:
@@ -1344,152 +1490,6 @@ class UShowLoginUICallbackProxy* UShowLoginUICallbackProxy::ShowExternalLoginUI(
 	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
-}
-
-
-// Function OnlineSubsystemUtils.SpectatorBeaconClient.ClientCancelReservationResponse
-// (Net, NetReliable, Native, Event, Public, NetClient)
-// Parameters:
-// ESpectatorReservationResult             ReservationResponse                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void ASpectatorBeaconClient::ClientCancelReservationResponse(ESpectatorReservationResult ReservationResponse)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpectatorBeaconClient", "ClientCancelReservationResponse");
-
-	Params::SpectatorBeaconClient_ClientCancelReservationResponse Parms{};
-
-	Parms.ReservationResponse = ReservationResponse;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OnlineSubsystemUtils.SpectatorBeaconClient.ClientReservationResponse
-// (Net, NetReliable, Native, Event, Public, NetClient)
-// Parameters:
-// ESpectatorReservationResult             ReservationResponse                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void ASpectatorBeaconClient::ClientReservationResponse(ESpectatorReservationResult ReservationResponse)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpectatorBeaconClient", "ClientReservationResponse");
-
-	Params::SpectatorBeaconClient_ClientReservationResponse Parms{};
-
-	Parms.ReservationResponse = ReservationResponse;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OnlineSubsystemUtils.SpectatorBeaconClient.ClientSendReservationFull
-// (Net, NetReliable, Native, Event, Public, NetClient)
-
-void ASpectatorBeaconClient::ClientSendReservationFull()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpectatorBeaconClient", "ClientSendReservationFull");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OnlineSubsystemUtils.SpectatorBeaconClient.ClientSendReservationUpdates
-// (Net, NetReliable, Native, Event, Public, NetClient)
-// Parameters:
-// int32                                   NumRemainingReservations                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void ASpectatorBeaconClient::ClientSendReservationUpdates(int32 NumRemainingReservations)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpectatorBeaconClient", "ClientSendReservationUpdates");
-
-	Params::SpectatorBeaconClient_ClientSendReservationUpdates Parms{};
-
-	Parms.NumRemainingReservations = NumRemainingReservations;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OnlineSubsystemUtils.SpectatorBeaconClient.ServerCancelReservationRequest
-// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
-// Parameters:
-// const struct FUniqueNetIdRepl&          Spectator                                              (ConstParm, Parm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void ASpectatorBeaconClient::ServerCancelReservationRequest(const struct FUniqueNetIdRepl& Spectator)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpectatorBeaconClient", "ServerCancelReservationRequest");
-
-	Params::SpectatorBeaconClient_ServerCancelReservationRequest Parms{};
-
-	Parms.Spectator = std::move(Spectator);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OnlineSubsystemUtils.SpectatorBeaconClient.ServerReservationRequest
-// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
-// Parameters:
-// const class FString&                    SessionId                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FSpectatorReservation&     Reservation                                            (ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void ASpectatorBeaconClient::ServerReservationRequest(const class FString& SessionId, const struct FSpectatorReservation& Reservation)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpectatorBeaconClient", "ServerReservationRequest");
-
-	Params::SpectatorBeaconClient_ServerReservationRequest Parms{};
-
-	Parms.SessionId = std::move(SessionId);
-	Parms.Reservation = std::move(Reservation);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
 }
 
 

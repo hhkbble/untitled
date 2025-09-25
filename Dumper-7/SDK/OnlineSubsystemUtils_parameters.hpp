@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
+#include "Engine_structs.hpp"
 #include "OnlineSubsystem_structs.hpp"
 #include "OnlineSubsystemUtils_structs.hpp"
-#include "Engine_structs.hpp"
 
 
 namespace SDK::Params
@@ -404,6 +404,52 @@ public:
 };
 DUMPER7_ASSERTS_LogoutCallbackProxy_Logout;
 
+// Function OnlineSubsystemUtils.SpectatorBeaconClient.ClientCancelReservationResponse
+// 0x0001 (0x0001 - 0x0000)
+struct SpectatorBeaconClient_ClientCancelReservationResponse final
+{
+public:
+	ESpectatorReservationResult                   ReservationResponse;                               // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpectatorBeaconClient_ClientCancelReservationResponse;
+
+// Function OnlineSubsystemUtils.SpectatorBeaconClient.ClientReservationResponse
+// 0x0001 (0x0001 - 0x0000)
+struct SpectatorBeaconClient_ClientReservationResponse final
+{
+public:
+	ESpectatorReservationResult                   ReservationResponse;                               // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpectatorBeaconClient_ClientReservationResponse;
+
+// Function OnlineSubsystemUtils.SpectatorBeaconClient.ClientSendReservationUpdates
+// 0x0004 (0x0004 - 0x0000)
+struct SpectatorBeaconClient_ClientSendReservationUpdates final
+{
+public:
+	int32                                         NumRemainingReservations;                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpectatorBeaconClient_ClientSendReservationUpdates;
+
+// Function OnlineSubsystemUtils.SpectatorBeaconClient.ServerCancelReservationRequest
+// 0x0030 (0x0030 - 0x0000)
+struct SpectatorBeaconClient_ServerCancelReservationRequest final
+{
+public:
+	struct FUniqueNetIdRepl                       Spectator;                                         // 0x0000(0x0030)(ConstParm, Parm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpectatorBeaconClient_ServerCancelReservationRequest;
+
+// Function OnlineSubsystemUtils.SpectatorBeaconClient.ServerReservationRequest
+// 0x0098 (0x0098 - 0x0000)
+struct SpectatorBeaconClient_ServerReservationRequest final
+{
+public:
+	class FString                                 SessionId;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FSpectatorReservation                  Reservation;                                       // 0x0010(0x0088)(ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpectatorBeaconClient_ServerReservationRequest;
+
 // Function OnlineSubsystemUtils.PartyBeaconClient.ClientCancelReservationResponse
 // 0x0001 (0x0001 - 0x0000)
 struct PartyBeaconClient_ClientCancelReservationResponse final
@@ -505,52 +551,6 @@ public:
 	class UShowLoginUICallbackProxy*              ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_ShowLoginUICallbackProxy_ShowExternalLoginUI;
-
-// Function OnlineSubsystemUtils.SpectatorBeaconClient.ClientCancelReservationResponse
-// 0x0001 (0x0001 - 0x0000)
-struct SpectatorBeaconClient_ClientCancelReservationResponse final
-{
-public:
-	ESpectatorReservationResult                   ReservationResponse;                               // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpectatorBeaconClient_ClientCancelReservationResponse;
-
-// Function OnlineSubsystemUtils.SpectatorBeaconClient.ClientReservationResponse
-// 0x0001 (0x0001 - 0x0000)
-struct SpectatorBeaconClient_ClientReservationResponse final
-{
-public:
-	ESpectatorReservationResult                   ReservationResponse;                               // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpectatorBeaconClient_ClientReservationResponse;
-
-// Function OnlineSubsystemUtils.SpectatorBeaconClient.ClientSendReservationUpdates
-// 0x0004 (0x0004 - 0x0000)
-struct SpectatorBeaconClient_ClientSendReservationUpdates final
-{
-public:
-	int32                                         NumRemainingReservations;                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpectatorBeaconClient_ClientSendReservationUpdates;
-
-// Function OnlineSubsystemUtils.SpectatorBeaconClient.ServerCancelReservationRequest
-// 0x0030 (0x0030 - 0x0000)
-struct SpectatorBeaconClient_ServerCancelReservationRequest final
-{
-public:
-	struct FUniqueNetIdRepl                       Spectator;                                         // 0x0000(0x0030)(ConstParm, Parm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpectatorBeaconClient_ServerCancelReservationRequest;
-
-// Function OnlineSubsystemUtils.SpectatorBeaconClient.ServerReservationRequest
-// 0x0098 (0x0098 - 0x0000)
-struct SpectatorBeaconClient_ServerReservationRequest final
-{
-public:
-	class FString                                 SessionId;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FSpectatorReservation                  Reservation;                                       // 0x0010(0x0088)(ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpectatorBeaconClient_ServerReservationRequest;
 
 // Function OnlineSubsystemUtils.TurnBasedBlueprintLibrary.GetIsMyTurn
 // 0x0028 (0x0028 - 0x0000)

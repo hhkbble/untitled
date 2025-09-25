@@ -10,16 +10,16 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
 #include "GbxAudio_structs.hpp"
+#include "CoreUObject_structs.hpp"
 
 
 namespace SDK::Params
 {
 
-// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.SubNavForward
+// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.MenuClose
 // 0x0048 (0x0048 - 0x0000)
-struct script_status_menu_nav_bar_C_SubNavForward final
+struct script_status_menu_nav_bar_C_MenuClose final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
@@ -27,91 +27,7 @@ public:
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
 };
-DUMPER7_ASSERTS_script_status_menu_nav_bar_C_SubNavForward;
-
-// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.SubNavExited
-// 0x0048 (0x0048 - 0x0000)
-struct script_status_menu_nav_bar_C_SubNavExited final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
-};
-DUMPER7_ASSERTS_script_status_menu_nav_bar_C_SubNavExited;
-
-// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.SubNavEntered
-// 0x0048 (0x0048 - 0x0000)
-struct script_status_menu_nav_bar_C_SubNavEntered final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
-};
-DUMPER7_ASSERTS_script_status_menu_nav_bar_C_SubNavEntered;
-
-// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.SubNavBackward
-// 0x0048 (0x0048 - 0x0000)
-struct script_status_menu_nav_bar_C_SubNavBackward final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
-};
-DUMPER7_ASSERTS_script_status_menu_nav_bar_C_SubNavBackward;
-
-// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.NavForward
-// 0x0048 (0x0048 - 0x0000)
-struct script_status_menu_nav_bar_C_NavForward final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
-};
-DUMPER7_ASSERTS_script_status_menu_nav_bar_C_NavForward;
-
-// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.NavExited
-// 0x0048 (0x0048 - 0x0000)
-struct script_status_menu_nav_bar_C_NavExited final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
-};
-DUMPER7_ASSERTS_script_status_menu_nav_bar_C_NavExited;
-
-// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.NavEntered
-// 0x0048 (0x0048 - 0x0000)
-struct script_status_menu_nav_bar_C_NavEntered final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
-};
-DUMPER7_ASSERTS_script_status_menu_nav_bar_C_NavEntered;
-
-// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.NavBackward
-// 0x0048 (0x0048 - 0x0000)
-struct script_status_menu_nav_bar_C_NavBackward final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
-};
-DUMPER7_ASSERTS_script_status_menu_nav_bar_C_NavBackward;
+DUMPER7_ASSERTS_script_status_menu_nav_bar_C_MenuClose;
 
 // Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.MenuOpen
 // 0x0048 (0x0048 - 0x0000)
@@ -125,9 +41,9 @@ public:
 };
 DUMPER7_ASSERTS_script_status_menu_nav_bar_C_MenuOpen;
 
-// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.MenuClose
+// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.NavBackward
 // 0x0048 (0x0048 - 0x0000)
-struct script_status_menu_nav_bar_C_MenuClose final
+struct script_status_menu_nav_bar_C_NavBackward final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
@@ -135,7 +51,91 @@ public:
 	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
 };
-DUMPER7_ASSERTS_script_status_menu_nav_bar_C_MenuClose;
+DUMPER7_ASSERTS_script_status_menu_nav_bar_C_NavBackward;
+
+// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.NavEntered
+// 0x0048 (0x0048 - 0x0000)
+struct script_status_menu_nav_bar_C_NavEntered final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
+};
+DUMPER7_ASSERTS_script_status_menu_nav_bar_C_NavEntered;
+
+// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.NavExited
+// 0x0048 (0x0048 - 0x0000)
+struct script_status_menu_nav_bar_C_NavExited final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
+};
+DUMPER7_ASSERTS_script_status_menu_nav_bar_C_NavExited;
+
+// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.NavForward
+// 0x0048 (0x0048 - 0x0000)
+struct script_status_menu_nav_bar_C_NavForward final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
+};
+DUMPER7_ASSERTS_script_status_menu_nav_bar_C_NavForward;
+
+// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.SubNavBackward
+// 0x0048 (0x0048 - 0x0000)
+struct script_status_menu_nav_bar_C_SubNavBackward final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
+};
+DUMPER7_ASSERTS_script_status_menu_nav_bar_C_SubNavBackward;
+
+// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.SubNavEntered
+// 0x0048 (0x0048 - 0x0000)
+struct script_status_menu_nav_bar_C_SubNavEntered final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
+};
+DUMPER7_ASSERTS_script_status_menu_nav_bar_C_SubNavEntered;
+
+// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.SubNavExited
+// 0x0048 (0x0048 - 0x0000)
+struct script_status_menu_nav_bar_C_SubNavExited final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
+};
+DUMPER7_ASSERTS_script_status_menu_nav_bar_C_SubNavExited;
+
+// Function script_status_menu_nav_bar.script_status_menu_nav_bar_C.SubNavForward
+// 0x0048 (0x0048 - 0x0000)
+struct script_status_menu_nav_bar_C_SubNavForward final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	FGbxDefPtrProperty_                           OwningWidgetDef;                                   // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+	struct FVector2D                              position;                                          // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGbxAudioPlaybackInstance              CallFunc_PostUIEvent_ReturnValue;                  // 0x0030(0x0018)()
+};
+DUMPER7_ASSERTS_script_status_menu_nav_bar_C_SubNavForward;
 
 }
 

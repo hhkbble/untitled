@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
-#include "GbxAudio_structs.hpp"
 #include "OakGame_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "GbxAudio_structs.hpp"
 
 
 namespace SDK::Params

@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "AutomationTest_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "AutomationTest_structs.hpp"
 
 
 namespace SDK

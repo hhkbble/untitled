@@ -119,15 +119,6 @@ enum class EShiftFeatureDefault : uint8
 	EShiftFeatureDefault_MAX                 = 4,
 };
 
-// ScriptStruct Shift.ClientTelemetry
-// 0x0088 (0x0088 - 0x0000)
-struct alignas(0x08) FClientTelemetry final
-{
-public:
-	uint8                                         Pad_0[0x88];                                       // 0x0000(0x0088)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FClientTelemetry;
-
 // ScriptStruct Shift.ServerTelemetry
 // 0x0028 (0x0028 - 0x0000)
 struct FServerTelemetry final
@@ -138,6 +129,15 @@ public:
 	uint8                                         Pad_10[0x18];                                      // 0x0010(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FServerTelemetry;
+
+// ScriptStruct Shift.ClientTelemetry
+// 0x0088 (0x0088 - 0x0000)
+struct alignas(0x08) FClientTelemetry final
+{
+public:
+	uint8                                         Pad_0[0x88];                                       // 0x0000(0x0088)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FClientTelemetry;
 
 // ScriptStruct Shift.ShiftAuthToken
 // 0x0020 (0x0020 - 0x0000)
@@ -221,29 +221,6 @@ public:
 };
 DUMPER7_ASSERTS_FShiftMatchmakingConfiguration;
 
-// ScriptStruct Shift.ShiftPlatformLink
-// 0x0020 (0x0020 - 0x0000)
-struct FShiftPlatformLink final
-{
-public:
-	class FString                                 Platform;                                          // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 ServiceId;                                         // 0x0010(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FShiftPlatformLink;
-
-// ScriptStruct Shift.ShiftPersonalDetails
-// 0x0050 (0x0050 - 0x0000)
-struct FShiftPersonalDetails final
-{
-public:
-	class FString                                 FirstName;                                         // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 LastName;                                          // 0x0010(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Country;                                           // 0x0020(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Email;                                             // 0x0030(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<struct FShiftPlatformLink>             PlatformLinks;                                     // 0x0040(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FShiftPersonalDetails;
-
 // ScriptStruct Shift.ShiftMatchmaking
 // 0x0060 (0x0060 - 0x0000)
 struct FShiftMatchmaking final
@@ -271,18 +248,6 @@ public:
 	class FString                                 ImageURL;                                          // 0x0050(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FShiftPortrait;
-
-// ScriptStruct Shift.ShiftMetAccountInfo
-// 0x0028 (0x0028 - 0x0000)
-struct FShiftMetAccountInfo final
-{
-public:
-	EShiftAccountId                               ShiftAccountId;                                    // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 ID;                                                // 0x0008(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Name;                                              // 0x0018(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FShiftMetAccountInfo;
 
 // ScriptStruct Shift.ShiftGameMap
 // 0x0040 (0x0040 - 0x0000)
@@ -342,49 +307,6 @@ public:
 	class FName                                   label;                                             // 0x0008(0x0008)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FShiftFPSHistogramBucket;
-
-// ScriptStruct Shift.ShiftFeature
-// 0x0002 (0x0002 - 0x0000)
-struct FShiftFeature final
-{
-public:
-	EShiftFeaturePrivilege                        Privilege;                                         // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EShiftFeatureDefault                          Default;                                           // 0x0001(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FShiftFeature;
-
-// ScriptStruct Shift.ShiftFeatures
-// 0x0008 (0x0008 - 0x0000)
-struct FShiftFeatures final
-{
-public:
-	struct FShiftFeature                          PlayOnline;                                        // 0x0000(0x0002)(NoDestructor, NativeAccessSpecifierPublic)
-	struct FShiftFeature                          CrossPlay;                                         // 0x0002(0x0002)(NoDestructor, NativeAccessSpecifierPublic)
-	struct FShiftFeature                          CommunicateOnline;                                 // 0x0004(0x0002)(NoDestructor, NativeAccessSpecifierPublic)
-	struct FShiftFeature                          UseUserGeneratedContent;                           // 0x0006(0x0002)(NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FShiftFeatures;
-
-// ScriptStruct Shift.ShiftUserDetails
-// 0x0068 (0x0068 - 0x0000)
-struct FShiftUserDetails final
-{
-public:
-	EShiftUserState                               State;                                             // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EShiftProfileVisibility                       ProfileVisibility;                                 // 0x0001(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EShiftProfileVisibility                       ProfileVisibilityDefault;                          // 0x0002(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FShiftFeatures                         Features;                                          // 0x0003(0x0008)(NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B[0x1];                                        // 0x000B(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	EShiftAccountId                               ShiftAccountId;                                    // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint32                                        SessionId;                                         // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 DisplayName;                                       // 0x0018(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 UserName;                                          // 0x0028(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 ServiceId;                                         // 0x0038(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 TitleSlug;                                         // 0x0048(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 CustomerSupportID;                                 // 0x0058(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FShiftUserDetails;
 
 // ScriptStruct Shift.ShiftFPSHistogramInitParams
 // 0x0080 (0x0080 - 0x0000)
@@ -446,6 +368,18 @@ public:
 };
 DUMPER7_ASSERTS_FShiftFriendInfo;
 
+// ScriptStruct Shift.ShiftMetAccountInfo
+// 0x0028 (0x0028 - 0x0000)
+struct FShiftMetAccountInfo final
+{
+public:
+	EShiftAccountId                               ShiftAccountId;                                    // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 ID;                                                // 0x0008(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Name;                                              // 0x0018(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FShiftMetAccountInfo;
+
 // ScriptStruct Shift.ShiftArticle
 // 0x0048 (0x0048 - 0x0000)
 struct FShiftArticle final
@@ -458,6 +392,72 @@ public:
 	TArray<class FString>                         tags;                                              // 0x0038(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FShiftArticle;
+
+// ScriptStruct Shift.ShiftFeature
+// 0x0002 (0x0002 - 0x0000)
+struct FShiftFeature final
+{
+public:
+	EShiftFeaturePrivilege                        Privilege;                                         // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EShiftFeatureDefault                          Default;                                           // 0x0001(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FShiftFeature;
+
+// ScriptStruct Shift.ShiftFeatures
+// 0x0008 (0x0008 - 0x0000)
+struct FShiftFeatures final
+{
+public:
+	struct FShiftFeature                          PlayOnline;                                        // 0x0000(0x0002)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FShiftFeature                          CrossPlay;                                         // 0x0002(0x0002)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FShiftFeature                          CommunicateOnline;                                 // 0x0004(0x0002)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FShiftFeature                          UseUserGeneratedContent;                           // 0x0006(0x0002)(NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FShiftFeatures;
+
+// ScriptStruct Shift.ShiftUserDetails
+// 0x0068 (0x0068 - 0x0000)
+struct FShiftUserDetails final
+{
+public:
+	EShiftUserState                               State;                                             // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EShiftProfileVisibility                       ProfileVisibility;                                 // 0x0001(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EShiftProfileVisibility                       ProfileVisibilityDefault;                          // 0x0002(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FShiftFeatures                         Features;                                          // 0x0003(0x0008)(NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_B[0x1];                                        // 0x000B(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	EShiftAccountId                               ShiftAccountId;                                    // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint32                                        SessionId;                                         // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 DisplayName;                                       // 0x0018(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 UserName;                                          // 0x0028(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 ServiceId;                                         // 0x0038(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 TitleSlug;                                         // 0x0048(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 CustomerSupportID;                                 // 0x0058(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FShiftUserDetails;
+
+// ScriptStruct Shift.ShiftPlatformLink
+// 0x0020 (0x0020 - 0x0000)
+struct FShiftPlatformLink final
+{
+public:
+	class FString                                 Platform;                                          // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 ServiceId;                                         // 0x0010(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FShiftPlatformLink;
+
+// ScriptStruct Shift.ShiftPersonalDetails
+// 0x0050 (0x0050 - 0x0000)
+struct FShiftPersonalDetails final
+{
+public:
+	class FString                                 FirstName;                                         // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 LastName;                                          // 0x0010(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Country;                                           // 0x0020(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Email;                                             // 0x0030(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<struct FShiftPlatformLink>             PlatformLinks;                                     // 0x0040(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FShiftPersonalDetails;
 
 }
 

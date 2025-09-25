@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "Engine_structs.hpp"
 #include "GbxAudio_structs.hpp"
+#include "Engine_structs.hpp"
 #include "GbxGame_classes.hpp"
 #include "GbxEngine_structs.hpp"
 

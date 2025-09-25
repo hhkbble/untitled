@@ -11,11 +11,11 @@
 #include "Basic.hpp"
 
 #include "GbxEngine_structs.hpp"
-#include "Engine_structs.hpp"
+#include "GbxGame_structs.hpp"
 #include "OakGame_structs.hpp"
 #include "Enum_IO_BarrelElements_structs.hpp"
 #include "CoreUObject_structs.hpp"
-#include "GbxGame_structs.hpp"
+#include "Engine_structs.hpp"
 
 
 namespace SDK::Params

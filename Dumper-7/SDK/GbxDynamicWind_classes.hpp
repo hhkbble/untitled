@@ -110,13 +110,14 @@ public:
 DUMPER7_ASSERTS_UGbxWindProjectSettings;
 
 // Class GbxDynamicWind.GbxWindSourceComponentBase
-// 0x0000 (0x0600 - 0x0600)
-class UGbxWindSourceComponentBase : public UPrimitiveComponent
+// 0x0010 (0x0630 - 0x0620)
+#pragma pack(push, 0x1)
+class alignas(0x10) UGbxWindSourceComponentBase : public UPrimitiveComponent
 {
 public:
-	struct FColor                                 ShapeColor;                                        // 0x05F8(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         bDrawOnlyIfSelected : 1;                           // 0x05FC(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_5FD[0x3];                                      // 0x05FD(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FColor                                 ShapeColor;                                        // 0x0620(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         bDrawOnlyIfSelected : 1;                           // 0x0624(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_625[0x3];                                      // 0x0625(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -132,6 +133,7 @@ public:
 		return GetDefaultObjImpl<UGbxWindSourceComponentBase>();
 	}
 };
+#pragma pack(pop)
 DUMPER7_ASSERTS_UGbxWindSourceComponentBase;
 
 // Class GbxDynamicWind.GbxWindSphereSource
@@ -158,14 +160,14 @@ public:
 DUMPER7_ASSERTS_AGbxWindSphereSource;
 
 // Class GbxDynamicWind.GbxWindSphereSourceComponent
-// 0x0010 (0x0610 - 0x0600)
+// 0x0010 (0x0640 - 0x0630)
 class UGbxWindSphereSourceComponent final : public UGbxWindSourceComponentBase
 {
 public:
-	float                                         SourceRadius;                                      // 0x0600(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         RadialForceAmplitude;                              // 0x0604(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         DirectionalForceAmplitude;                         // 0x0608(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_60C[0x4];                                      // 0x060C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	float                                         SourceRadius;                                      // 0x0628(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         RadialForceAmplitude;                              // 0x062C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DirectionalForceAmplitude;                         // 0x0630(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_634[0xC];                                      // 0x0634(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

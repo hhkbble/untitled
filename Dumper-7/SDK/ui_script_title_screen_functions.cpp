@@ -17,21 +17,21 @@
 namespace SDK
 {
 
-// Function ui_script_title_screen.ui_script_title_screen_C.SplashTransition
+// Function ui_script_title_screen.ui_script_title_screen_C.PressedStart
 // (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
 // const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void Uui_script_title_screen_C::SplashTransition(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void Uui_script_title_screen_C::PressedStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_title_screen_C", "SplashTransition");
+		Func = Class->GetFunction("ui_script_title_screen_C", "PressedStart");
 
-	Params::ui_script_title_screen_C_SplashTransition Parms{};
+	Params::ui_script_title_screen_C_PressedStart Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -65,21 +65,21 @@ void Uui_script_title_screen_C::SplashIntro(class UObject* WorldContextObject, F
 }
 
 
-// Function ui_script_title_screen.ui_script_title_screen_C.PressedStart
+// Function ui_script_title_screen.ui_script_title_screen_C.SplashTransition
 // (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
 // const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void Uui_script_title_screen_C::PressedStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void Uui_script_title_screen_C::SplashTransition(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_title_screen_C", "PressedStart");
+		Func = Class->GetFunction("ui_script_title_screen_C", "SplashTransition");
 
-	Params::ui_script_title_screen_C_PressedStart Parms{};
+	Params::ui_script_title_screen_C_SplashTransition Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;

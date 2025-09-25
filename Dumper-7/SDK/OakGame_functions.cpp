@@ -130,6 +130,310 @@ bool UAITargetLockBlueprintLibrary::IsTargetLocked(class AActor* Context)
 }
 
 
+// Function OakGame.OakProjectile.OnActorOverlap
+// (Final, Native, Public)
+// Parameters:
+// class AActor*                           OverlappedActor                                        (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakProjectile::OnActorOverlap(class AActor* OverlappedActor, class AActor* OtherActor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakProjectile", "OnActorOverlap");
+
+	Params::OakProjectile_OnActorOverlap Parms{};
+
+	Parms.OverlappedActor = OverlappedActor;
+	Parms.OtherActor = OtherActor;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakProjectile.SetGrappleableEnabled
+// (Final, BlueprintAuthorityOnly, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    bNewIsEnabled                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakProjectile::SetGrappleableEnabled(bool bNewIsEnabled)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakProjectile", "SetGrappleableEnabled");
+
+	Params::OakProjectile_SetGrappleableEnabled Parms{};
+
+	Parms.bNewIsEnabled = bNewIsEnabled;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakProjectile.IsGrappleableEnabled
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool AOakProjectile::IsGrappleableEnabled() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakProjectile", "IsGrappleableEnabled");
+
+	Params::OakProjectile_IsGrappleableEnabled Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.ModularGrenade.ActivateGrenade
+// (Final, Native, Public, BlueprintCallable)
+
+void AModularGrenade::ActivateGrenade()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModularGrenade", "ActivateGrenade");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.ModularGrenade.DivideGrenade
+// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// Parameters:
+// const struct FVector&                   Direction                                              (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AModularGrenade::DivideGrenade(const struct FVector& Direction)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModularGrenade", "DivideGrenade");
+
+	Params::ModularGrenade_DivideGrenade Parms{};
+
+	Parms.Direction = std::move(Direction);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.ModularGrenade.OnRep_PayloadPostExploded
+// (Final, Native, Protected)
+
+void AModularGrenade::OnRep_PayloadPostExploded()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModularGrenade", "OnRep_PayloadPostExploded");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.ModularGrenade.PayloadBeginExplodeCallback
+// (Final, Native, Protected)
+
+void AModularGrenade::PayloadBeginExplodeCallback()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModularGrenade", "PayloadBeginExplodeCallback");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.ModularGrenade.PayloadBounceCallback
+// (Final, Native, Protected, HasOutParams, HasDefaults)
+// Parameters:
+// const struct FHitResult&                Impact                                                 (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+// const struct FVector&                   ImpactVelocity                                         (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AModularGrenade::PayloadBounceCallback(const struct FHitResult& Impact, const struct FVector& ImpactVelocity)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModularGrenade", "PayloadBounceCallback");
+
+	Params::ModularGrenade_PayloadBounceCallback Parms{};
+
+	Parms.Impact = std::move(Impact);
+	Parms.ImpactVelocity = std::move(ImpactVelocity);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.ModularGrenade.PayloadExplodeCallback
+// (Final, Native, Protected)
+// Parameters:
+// const class AActor*                     projectile                                             (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AModularGrenade::PayloadExplodeCallback(const class AActor* projectile)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModularGrenade", "PayloadExplodeCallback");
+
+	Params::ModularGrenade_PayloadExplodeCallback Parms{};
+
+	Parms.projectile = projectile;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.ModularGrenade.PayloadImpactCallback
+// (Final, Native, Protected, HasOutParams)
+// Parameters:
+// const struct FHitResult&                Impact                                                 (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+void AModularGrenade::PayloadImpactCallback(const struct FHitResult& Impact)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModularGrenade", "PayloadImpactCallback");
+
+	Params::ModularGrenade_PayloadImpactCallback Parms{};
+
+	Parms.Impact = std::move(Impact);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.ModularGrenade.PayloadTakingDamageCallback
+// (Final, Native, Protected, HasOutParams)
+// Parameters:
+// const struct FProjectileTakingDamageDetails&Details                                                (ConstParm, Parm, OutParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+void AModularGrenade::PayloadTakingDamageCallback(const struct FProjectileTakingDamageDetails& Details)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModularGrenade", "PayloadTakingDamageCallback");
+
+	Params::ModularGrenade_PayloadTakingDamageCallback Parms{};
+
+	Parms.Details = std::move(Details);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.ModularGrenade.SpawnChildGrenade
+// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// Parameters:
+// const struct FVector&                   Location                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector&                   Direction                                              (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   ChildDamage                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   ChildRadius                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   ChildForce                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   delay                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   SpeedOverride                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           IgnoreActor                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           TargetActor                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   InFuseTime                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AModularGrenade::SpawnChildGrenade(const struct FVector& Location, const struct FVector& Direction, float ChildDamage, float ChildRadius, float ChildForce, float delay, float SpeedOverride, class AActor* IgnoreActor, class AActor* TargetActor, float InFuseTime)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ModularGrenade", "SpawnChildGrenade");
+
+	Params::ModularGrenade_SpawnChildGrenade Parms{};
+
+	Parms.Location = std::move(Location);
+	Parms.Direction = std::move(Direction);
+	Parms.ChildDamage = ChildDamage;
+	Parms.ChildRadius = ChildRadius;
+	Parms.ChildForce = ChildForce;
+	Parms.delay = delay;
+	Parms.SpeedOverride = SpeedOverride;
+	Parms.IgnoreActor = IgnoreActor;
+	Parms.TargetActor = TargetActor;
+	Parms.InFuseTime = InFuseTime;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function OakGame.OakInteractiveObject.OnActorOverlap
 // (Final, Native, Public)
 // Parameters:
@@ -226,317 +530,19 @@ bool AOakInteractiveObject::IsGrappleableEnabled() const
 }
 
 
-// Function OakGame.GrapplePoint.OnPlayerProxySpawned
-// (Final, Native, Public)
-
-void AGrapplePoint::OnPlayerProxySpawned()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("GrapplePoint", "OnPlayerProxySpawned");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakZoneTransition.OnZoneBeginOverlap
-// (Final, Native, Protected, HasOutParams)
-// Parameters:
-// class UPrimitiveComponent*              OverlappedComp                                         (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           Other                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bFromSweep                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FHitResult&                SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-void AOakZoneTransition::OnZoneBeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* Other, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakZoneTransition", "OnZoneBeginOverlap");
-
-	Params::OakZoneTransition_OnZoneBeginOverlap Parms{};
-
-	Parms.OverlappedComp = OverlappedComp;
-	Parms.Other = Other;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-	Parms.bFromSweep = bFromSweep;
-	Parms.SweepResult = std::move(SweepResult);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakZoneTransition.OnZoneEndOverlap
-// (Final, Native, Protected)
-// Parameters:
-// class UPrimitiveComponent*              OverlappedComp                                         (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           Other                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakZoneTransition::OnZoneEndOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* Other, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakZoneTransition", "OnZoneEndOverlap");
-
-	Params::OakZoneTransition_OnZoneEndOverlap Parms{};
-
-	Parms.OverlappedComp = OverlappedComp;
-	Parms.Other = Other;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakZoneTransition.GetTransitionEntryGate
-// (Final, BlueprintAuthorityOnly, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// EOakZoneTransitionGate                  ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-EOakZoneTransitionGate AOakZoneTransition::GetTransitionEntryGate() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakZoneTransition", "GetTransitionEntryGate");
-
-	Params::OakZoneTransition_GetTransitionEntryGate Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakAirlockTransition.PerformZoneTransition
-// (Final, Native, Public, BlueprintCallable)
-
-void AOakAirlockTransition::PerformZoneTransition()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakAirlockTransition", "PerformZoneTransition");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakAirlockTransition.PrepareZoneTransition
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class AOakPlayerController*             Controller                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakAirlockTransition::PrepareZoneTransition(class AOakPlayerController* Controller)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakAirlockTransition", "PrepareZoneTransition");
-
-	Params::OakAirlockTransition_PrepareZoneTransition Parms{};
-
-	Parms.Controller = Controller;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.SiloBaseObject.OnBalloonReady
-// (Final, Native, Protected, BlueprintCallable)
-
-void ASiloBaseObject::OnBalloonReady()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SiloBaseObject", "OnBalloonReady");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.SiloBaseObject.OnPlayerProxySpawned
-// (Final, Native, Protected)
-
-void ASiloBaseObject::OnPlayerProxySpawned()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SiloBaseObject", "OnPlayerProxySpawned");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.SiloBaseObject.OnRep_Sliders
-// (Final, Native, Protected)
-
-void ASiloBaseObject::OnRep_Sliders()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SiloBaseObject", "OnRep_Sliders");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.LootableObject.OnComponentSleep
-// (Final, Native, Protected)
-// Parameters:
-// class UPrimitiveComponent*              SleepingComponent                                      (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void ALootableObject::OnComponentSleep(class UPrimitiveComponent* SleepingComponent, class FName BoneName)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("LootableObject", "OnComponentSleep");
-
-	Params::LootableObject_OnComponentSleep Parms{};
-
-	Parms.SleepingComponent = SleepingComponent;
-	Parms.BoneName = BoneName;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.LootableObject.OnMeshCollision
-// (Final, Native, Protected, HasOutParams, HasDefaults)
-// Parameters:
-// class UPrimitiveComponent*              HitComponent                                           (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector&                   NormalImpulse                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FHitResult&                Hit                                                    (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-void ALootableObject::OnMeshCollision(class UPrimitiveComponent* HitComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const struct FVector& NormalImpulse, const struct FHitResult& Hit)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("LootableObject", "OnMeshCollision");
-
-	Params::LootableObject_OnMeshCollision Parms{};
-
-	Parms.HitComponent = HitComponent;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.NormalImpulse = std::move(NormalImpulse);
-	Parms.Hit = std::move(Hit);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.LootableObject.OnMeshPhysicsStateChanged
-// (Final, Native, Protected)
-// Parameters:
-// class UPrimitiveComponent*              Component                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EComponentPhysicsStateChange            StateChange                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void ALootableObject::OnMeshPhysicsStateChanged(class UPrimitiveComponent* Component, EComponentPhysicsStateChange StateChange)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("LootableObject", "OnMeshPhysicsStateChanged");
-
-	Params::LootableObject_OnMeshPhysicsStateChanged Parms{};
-
-	Parms.Component = Component;
-	Parms.StateChange = StateChange;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.NexusConfigStoreUISpecializations.GetAllProgressGraphGroupDefs
+// Function OakGame.NexusConfigStoreUISkillTree.GetAllProgressGraphGroupDefs
 // (Final, Native, Static, Public, HasOutParams)
 // Parameters:
 // TArray<FGbxDefPtrProperty_>*            graphs                                                 (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 
-void UNexusConfigStoreUISpecializations::GetAllProgressGraphGroupDefs(TArray<FGbxDefPtrProperty_>* graphs)
+void UNexusConfigStoreUISkillTree::GetAllProgressGraphGroupDefs(TArray<FGbxDefPtrProperty_>* graphs)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("NexusConfigStoreUISpecializations", "GetAllProgressGraphGroupDefs");
+		Func = StaticClass()->GetFunction("NexusConfigStoreUISkillTree", "GetAllProgressGraphGroupDefs");
 
-	Params::NexusConfigStoreUISpecializations_GetAllProgressGraphGroupDefs Parms{};
+	Params::NexusConfigStoreUISkillTree_GetAllProgressGraphGroupDefs Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -550,21 +556,21 @@ void UNexusConfigStoreUISpecializations::GetAllProgressGraphGroupDefs(TArray<FGb
 }
 
 
-// Function OakGame.NexusConfigStoreUISpecializations.GetNodeNames
+// Function OakGame.NexusConfigStoreUISkillTree.GetNodeNames
 // (Final, Native, Static, Public, HasOutParams)
 // Parameters:
 // class UObject*                          EditObject                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     ProgressGraph                                          (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<class FName>*                    OutNames                                               (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 
-void UNexusConfigStoreUISpecializations::GetNodeNames(class UObject* EditObject, FGbxDefPtrProperty_ ProgressGraph, TArray<class FName>* OutNames)
+void UNexusConfigStoreUISkillTree::GetNodeNames(class UObject* EditObject, FGbxDefPtrProperty_ ProgressGraph, TArray<class FName>* OutNames)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("NexusConfigStoreUISpecializations", "GetNodeNames");
+		Func = StaticClass()->GetFunction("NexusConfigStoreUISkillTree", "GetNodeNames");
 
-	Params::NexusConfigStoreUISpecializations_GetNodeNames Parms{};
+	Params::NexusConfigStoreUISkillTree_GetNodeNames Parms{};
 
 	Parms.EditObject = EditObject;
 	Parms.ProgressGraph = ProgressGraph;
@@ -578,6 +584,158 @@ void UNexusConfigStoreUISpecializations::GetNodeNames(class UObject* EditObject,
 
 	if (OutNames != nullptr)
 		*OutNames = std::move(Parms.OutNames);
+}
+
+
+// Function OakGame.OakGameplayActorStatics.FilterActors
+// (Final, BlueprintAuthorityOnly, Native, Static, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const TArray<class AActor*>&            InActorsToFilter                                       (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+// const TArray<class AActor*>&            InActorsToExclude                                      (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+// TArray<class AActor*>                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+
+TArray<class AActor*> UOakGameplayActorStatics::FilterActors(const TArray<class AActor*>& InActorsToFilter, const TArray<class AActor*>& InActorsToExclude)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakGameplayActorStatics", "FilterActors");
+
+	Params::OakGameplayActorStatics_FilterActors Parms{};
+
+	Parms.InActorsToFilter = std::move(InActorsToFilter);
+	Parms.InActorsToExclude = std::move(InActorsToExclude);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakGameplayActorStatics.QueryPlayers
+// (Final, BlueprintAuthorityOnly, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          WorldContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FOakPlayerQuerySpec&       InSpec                                                 (Parm, NativeAccessSpecifierPublic)
+// struct FOakPlayerQueryResult            ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+
+struct FOakPlayerQueryResult UOakGameplayActorStatics::QueryPlayers(class UObject* WorldContext, const struct FOakPlayerQuerySpec& InSpec)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakGameplayActorStatics", "QueryPlayers");
+
+	Params::OakGameplayActorStatics_QueryPlayers Parms{};
+
+	Parms.WorldContext = WorldContext;
+	Parms.InSpec = std::move(InSpec);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakGameplayActorStatics.QueryResultToCharacters
+// (Final, BlueprintAuthorityOnly, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// Parameters:
+// const TArray<struct FOakPlayerQueryResultItem>&InQueryResultItems                                     (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+// TArray<class AOakCharacter*>            ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+
+TArray<class AOakCharacter*> UOakGameplayActorStatics::QueryResultToCharacters(const TArray<struct FOakPlayerQueryResultItem>& InQueryResultItems)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakGameplayActorStatics", "QueryResultToCharacters");
+
+	Params::OakGameplayActorStatics_QueryResultToCharacters Parms{};
+
+	Parms.InQueryResultItems = std::move(InQueryResultItems);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakGameplayActorStatics.QueryResultToPlayerControllers
+// (Final, BlueprintAuthorityOnly, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// Parameters:
+// const TArray<struct FOakPlayerQueryResultItem>&InQueryResultItems                                     (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+// TArray<class AOakPlayerController*>     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+
+TArray<class AOakPlayerController*> UOakGameplayActorStatics::QueryResultToPlayerControllers(const TArray<struct FOakPlayerQueryResultItem>& InQueryResultItems)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakGameplayActorStatics", "QueryResultToPlayerControllers");
+
+	Params::OakGameplayActorStatics_QueryResultToPlayerControllers Parms{};
+
+	Parms.InQueryResultItems = std::move(InQueryResultItems);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakGameplayActorStatics.SpawnSingularityActor
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// Parameters:
+// FGameDataHandleProperty_                SingularityDef                                         (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FTransform&                SingularityTransform                                   (ConstParm, Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class AActor*                     owner                                                  (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const TArray<class AActor*>&            IgnoreActors                                           (Parm, ZeroConstructor, NativeAccessSpecifierPublic)
+// const struct FOakSingularityOverrides&  Overrides                                              (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// class AOakSingularity*                  ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class AOakSingularity* UOakGameplayActorStatics::SpawnSingularityActor(FGameDataHandleProperty_ SingularityDef, const struct FTransform& SingularityTransform, const class AActor* owner, const TArray<class AActor*>& IgnoreActors, const struct FOakSingularityOverrides& Overrides)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakGameplayActorStatics", "SpawnSingularityActor");
+
+	Params::OakGameplayActorStatics_SpawnSingularityActor Parms{};
+
+	Parms.SingularityDef = SingularityDef;
+	Parms.SingularityTransform = std::move(SingularityTransform);
+	Parms.owner = owner;
+	Parms.IgnoreActors = std::move(IgnoreActors);
+	Parms.Overrides = std::move(Overrides);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 
@@ -692,6 +850,60 @@ bool UBioArmorStatics::TryDeactivateBioArmor(class AActor* Context)
 	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.MissionTaskType_EventBoundary_Observer.OnActorEntered
+// (Final, Native, Private)
+// Parameters:
+// class AActor*                           TouchingActor                                          (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bIsPlayer                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UMissionTaskType_EventBoundary_Observer::OnActorEntered(class AActor* TouchingActor, bool bIsPlayer)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MissionTaskType_EventBoundary_Observer", "OnActorEntered");
+
+	Params::MissionTaskType_EventBoundary_Observer_OnActorEntered Parms{};
+
+	Parms.TouchingActor = TouchingActor;
+	Parms.bIsPlayer = bIsPlayer;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.MissionTaskType_EventBoundary_Observer.OnActorLeft
+// (Final, Native, Private)
+// Parameters:
+// class AActor*                           TouchingActor                                          (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bIsPlayer                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UMissionTaskType_EventBoundary_Observer::OnActorLeft(class AActor* TouchingActor, bool bIsPlayer)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MissionTaskType_EventBoundary_Observer", "OnActorLeft");
+
+	Params::MissionTaskType_EventBoundary_Observer_OnActorLeft Parms{};
+
+	Parms.TouchingActor = TouchingActor;
+	Parms.bIsPlayer = bIsPlayer;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
 }
 
 
@@ -991,6 +1203,176 @@ void ACarryableObject::OnRep_CarryablePhysicsState(const struct FCarryablePhysic
 }
 
 
+// Function OakGame.InventoryGadget.OnRep_Attached
+// (Final, Native, Protected)
+
+void AInventoryGadget::OnRep_Attached()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InventoryGadget", "OnRep_Attached");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.InventoryGadget.OnRep_NumberOfCharges
+// (Final, Native, Protected)
+
+void AInventoryGadget::OnRep_NumberOfCharges()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InventoryGadget", "OnRep_NumberOfCharges");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.InventoryGadget.OnRep_Using
+// (Final, Native, Protected)
+
+void AInventoryGadget::OnRep_Using()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InventoryGadget", "OnRep_Using");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.InventoryGadget.ServerInputDoubleTap
+// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
+
+void AInventoryGadget::ServerInputDoubleTap()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InventoryGadget", "ServerInputDoubleTap");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.InventoryGadget.ServerInputHeld
+// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
+// Parameters:
+// bool                                    bStarted                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AInventoryGadget::ServerInputHeld(bool bStarted)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InventoryGadget", "ServerInputHeld");
+
+	Params::InventoryGadget_ServerInputHeld Parms{};
+
+	Parms.bStarted = bStarted;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.GrenadeGadget.DetonateGrenades
+// (Final, Native, Public, BlueprintCallable)
+
+void AGrenadeGadget::DetonateGrenades()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("GrenadeGadget", "DetonateGrenades");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.GrenadeGadget.ExplodeCallback
+// (Final, Native, Protected)
+// Parameters:
+// const class AActor*                     projectile                                             (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AGrenadeGadget::ExplodeCallback(const class AActor* projectile)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("GrenadeGadget", "ExplodeCallback");
+
+	Params::GrenadeGadget_ExplodeCallback Parms{};
+
+	Parms.projectile = projectile;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.GrenadeGadget.SpawnGrenade
+// (Final, BlueprintAuthorityOnly, Native, Protected, HasOutParams, BlueprintCallable)
+// Parameters:
+// const struct FSpawnGrenadeOptions&      SpawnGrenadeOptions                                    (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+
+void AGrenadeGadget::SpawnGrenade(const struct FSpawnGrenadeOptions& SpawnGrenadeOptions)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("GrenadeGadget", "SpawnGrenade");
+
+	Params::GrenadeGadget_SpawnGrenade Parms{};
+
+	Parms.SpawnGrenadeOptions = std::move(SpawnGrenadeOptions);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function OakGame.CarryableObjectContainer.OnContainerBeginOverlap
 // (Final, Native, Public, HasOutParams)
 // Parameters:
@@ -1101,111 +1483,6 @@ void ACarryableObjectContainer::SetContainerEnabled(bool bNewEnabled)
 }
 
 
-// Function OakGame.OakWeapon.ClientReduceWear
-// (Net, NetReliable, Native, Event, Protected, NetClient)
-// Parameters:
-// uint8                                   UseModeIndex                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   Percent                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakWeapon::ClientReduceWear(uint8 UseModeIndex, float Percent)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWeapon", "ClientReduceWear");
-
-	Params::OakWeapon_ClientReduceWear Parms{};
-
-	Parms.UseModeIndex = UseModeIndex;
-	Parms.Percent = Percent;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakWeapon.ServerSetCommandRingTarget
-// (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
-// Parameters:
-// const struct FCommandRingTarget&        target                                                 (ConstParm, Parm, ReferenceParm, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-void AOakWeapon::ServerSetCommandRingTarget(const struct FCommandRingTarget& target)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWeapon", "ServerSetCommandRingTarget");
-
-	Params::OakWeapon_ServerSetCommandRingTarget Parms{};
-
-	Parms.target = std::move(target);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakWeapon.GetChargePercent
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float AOakWeapon::GetChargePercent() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWeapon", "GetChargePercent");
-
-	Params::OakWeapon_GetChargePercent Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakWeapon.GetPartValue
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// EWeaponPartValue                        type                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 AOakWeapon::GetPartValue(EWeaponPartValue type) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWeapon", "GetPartValue");
-
-	Params::OakWeapon_GetPartValue Parms{};
-
-	Parms.type = type;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function OakGame.CarryableObjectDispenser.ActivateDispenser
 // (Final, Native, Public, BlueprintCallable)
 
@@ -1281,34 +1558,6 @@ bool ACarryableObjectDispenser::IsDispenserActive() const
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.InventoryItemBlueprintLibrary.GetSummary_InventoryItemSelectionData
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const struct FInventoryItemSelectionData&data                                                   (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FString UInventoryItemBlueprintLibrary::GetSummary_InventoryItemSelectionData(const struct FInventoryItemSelectionData& data)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("InventoryItemBlueprintLibrary", "GetSummary_InventoryItemSelectionData");
-
-	Params::InventoryItemBlueprintLibrary_GetSummary_InventoryItemSelectionData Parms{};
-
-	Parms.data = std::move(data);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 
@@ -1486,513 +1735,21 @@ void UCarryableObjectStatics::SetCarryAbilityLock(class AActor* TargetCarrier, b
 }
 
 
-// Function OakGame.OakEcho4Statics.CanEcho4BeInterrupted
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UOakEcho4Statics::CanEcho4BeInterrupted(class AOakCharacter* DroneOwner)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakEcho4Statics", "CanEcho4BeInterrupted");
-
-	Params::OakEcho4Statics_CanEcho4BeInterrupted Parms{};
-
-	Parms.DroneOwner = DroneOwner;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakEcho4Statics.CanEcho4Deploy
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UOakEcho4Statics::CanEcho4Deploy(class AOakCharacter* DroneOwner)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakEcho4Statics", "CanEcho4Deploy");
-
-	Params::OakEcho4Statics_CanEcho4Deploy Parms{};
-
-	Parms.DroneOwner = DroneOwner;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakEcho4Statics.DeployEcho4AtLocationLatent
-// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FVector&                   Location                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   Echo4DeployCooldown                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AOakDrone**                       projectile                                             (Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FLatentActionInfo&         LatentInfo                                             (Parm, NoDestructor, NativeAccessSpecifierPublic)
-// bool                                    bUseOverrideRotation                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FRotator&                  OverrideRotation                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-
-void UOakEcho4Statics::DeployEcho4AtLocationLatent(const struct FVector& Location, float Echo4DeployCooldown, class AOakCharacter* DroneOwner, class AOakDrone** projectile, const struct FLatentActionInfo& LatentInfo, bool bUseOverrideRotation, const struct FRotator& OverrideRotation)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakEcho4Statics", "DeployEcho4AtLocationLatent");
-
-	Params::OakEcho4Statics_DeployEcho4AtLocationLatent Parms{};
-
-	Parms.Location = std::move(Location);
-	Parms.Echo4DeployCooldown = Echo4DeployCooldown;
-	Parms.DroneOwner = DroneOwner;
-	Parms.LatentInfo = std::move(LatentInfo);
-	Parms.bUseOverrideRotation = bUseOverrideRotation;
-	Parms.OverrideRotation = std::move(OverrideRotation);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (projectile != nullptr)
-		*projectile = Parms.projectile;
-}
-
-
-// Function OakGame.OakEcho4Statics.DeployEcho4Latent
-// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FGbxRelativeLocation&      LocationOptions                                        (Parm, NoDestructor, NativeAccessSpecifierPublic)
-// float                                   Echo4DeployCooldown                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AOakDrone**                       projectile                                             (Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FLatentActionInfo&         LatentInfo                                             (Parm, NoDestructor, NativeAccessSpecifierPublic)
-// bool                                    bUseOverrideRotation                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FRotator&                  OverrideRotation                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class AActor*                           OverrideActor                                          (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakEcho4Statics::DeployEcho4Latent(const struct FGbxRelativeLocation& LocationOptions, float Echo4DeployCooldown, class AOakCharacter* DroneOwner, class AOakDrone** projectile, const struct FLatentActionInfo& LatentInfo, bool bUseOverrideRotation, const struct FRotator& OverrideRotation, class AActor* OverrideActor)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakEcho4Statics", "DeployEcho4Latent");
-
-	Params::OakEcho4Statics_DeployEcho4Latent Parms{};
-
-	Parms.LocationOptions = std::move(LocationOptions);
-	Parms.Echo4DeployCooldown = Echo4DeployCooldown;
-	Parms.DroneOwner = DroneOwner;
-	Parms.LatentInfo = std::move(LatentInfo);
-	Parms.bUseOverrideRotation = bUseOverrideRotation;
-	Parms.OverrideRotation = std::move(OverrideRotation);
-	Parms.OverrideActor = OverrideActor;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (projectile != nullptr)
-		*projectile = Parms.projectile;
-}
-
-
-// Function OakGame.OakEcho4Statics.DeployEcho4WithDefLatent
-// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
-// Parameters:
-// FGbxDefPtrProperty_                     DroneDef                                               (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FGbxRelativeLocation&      LocationOptions                                        (Parm, NoDestructor, NativeAccessSpecifierPublic)
-// float                                   Echo4DeployCooldown                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AOakDrone**                       projectile                                             (Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FLatentActionInfo&         LatentInfo                                             (Parm, NoDestructor, NativeAccessSpecifierPublic)
-// bool                                    bUseOverrideRotation                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FRotator&                  OverrideRotation                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class AActor*                           OverrideActor                                          (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakEcho4Statics::DeployEcho4WithDefLatent(FGbxDefPtrProperty_ DroneDef, const struct FGbxRelativeLocation& LocationOptions, float Echo4DeployCooldown, class AOakCharacter* DroneOwner, class AOakDrone** projectile, const struct FLatentActionInfo& LatentInfo, bool bUseOverrideRotation, const struct FRotator& OverrideRotation, class AActor* OverrideActor)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakEcho4Statics", "DeployEcho4WithDefLatent");
-
-	Params::OakEcho4Statics_DeployEcho4WithDefLatent Parms{};
-
-	Parms.DroneDef = DroneDef;
-	Parms.LocationOptions = std::move(LocationOptions);
-	Parms.Echo4DeployCooldown = Echo4DeployCooldown;
-	Parms.DroneOwner = DroneOwner;
-	Parms.LatentInfo = std::move(LatentInfo);
-	Parms.bUseOverrideRotation = bUseOverrideRotation;
-	Parms.OverrideRotation = std::move(OverrideRotation);
-	Parms.OverrideActor = OverrideActor;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (projectile != nullptr)
-		*projectile = Parms.projectile;
-}
-
-
-// Function OakGame.OakEcho4Statics.FlyToActor
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AOakDrone*                        OakDrone                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           MoveActor                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   DroneSpeed                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   DroneAccelerationTime                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   StopFlyAtTargetDisance                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakEcho4Statics::FlyToActor(class AOakDrone* OakDrone, class AActor* MoveActor, float DroneSpeed, float DroneAccelerationTime, float StopFlyAtTargetDisance)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakEcho4Statics", "FlyToActor");
-
-	Params::OakEcho4Statics_FlyToActor Parms{};
-
-	Parms.OakDrone = OakDrone;
-	Parms.MoveActor = MoveActor;
-	Parms.DroneSpeed = DroneSpeed;
-	Parms.DroneAccelerationTime = DroneAccelerationTime;
-	Parms.StopFlyAtTargetDisance = StopFlyAtTargetDisance;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakEcho4Statics.FlyToLocation
-// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// class AOakDrone*                        OakDrone                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector&                   MoveLocation                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   DroneSpeed                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   DroneAccelerationTime                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   StopFlyAtTargetDisance                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakEcho4Statics::FlyToLocation(class AOakDrone* OakDrone, const struct FVector& MoveLocation, float DroneSpeed, float DroneAccelerationTime, float StopFlyAtTargetDisance)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakEcho4Statics", "FlyToLocation");
-
-	Params::OakEcho4Statics_FlyToLocation Parms{};
-
-	Parms.OakDrone = OakDrone;
-	Parms.MoveLocation = std::move(MoveLocation);
-	Parms.DroneSpeed = DroneSpeed;
-	Parms.DroneAccelerationTime = DroneAccelerationTime;
-	Parms.StopFlyAtTargetDisance = StopFlyAtTargetDisance;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakEcho4Statics.GetEcho4ActorScript
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AOakDrone*                        OakDrone                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UOakActorScript_Echo4*            ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UOakActorScript_Echo4* UOakEcho4Statics::GetEcho4ActorScript(class AOakDrone* OakDrone)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakEcho4Statics", "GetEcho4ActorScript");
-
-	Params::OakEcho4Statics_GetEcho4ActorScript Parms{};
-
-	Parms.OakDrone = OakDrone;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakEcho4Statics.GetEcho4Drone
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AOakDrone*                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class AOakDrone* UOakEcho4Statics::GetEcho4Drone(class AOakCharacter* DroneOwner)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakEcho4Statics", "GetEcho4Drone");
-
-	Params::OakEcho4Statics_GetEcho4Drone Parms{};
-
-	Parms.DroneOwner = DroneOwner;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakEcho4Statics.IsEcho4Deployed
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UOakEcho4Statics::IsEcho4Deployed(class AOakCharacter* DroneOwner)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakEcho4Statics", "IsEcho4Deployed");
-
-	Params::OakEcho4Statics_IsEcho4Deployed Parms{};
-
-	Parms.DroneOwner = DroneOwner;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakEcho4Statics.NotifyEchoLocationAnimFinished
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AOakDrone*                        OakDrone                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakEcho4Statics::NotifyEchoLocationAnimFinished(class AOakDrone* OakDrone)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakEcho4Statics", "NotifyEchoLocationAnimFinished");
-
-	Params::OakEcho4Statics_NotifyEchoLocationAnimFinished Parms{};
-
-	Parms.OakDrone = OakDrone;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakEcho4Statics.RetrieveEcho4
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakEcho4Statics::RetrieveEcho4(class AOakCharacter* DroneOwner)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakEcho4Statics", "RetrieveEcho4");
-
-	Params::OakEcho4Statics_RetrieveEcho4 Parms{};
-
-	Parms.DroneOwner = DroneOwner;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakEcho4Statics.SetEcho4DeploymentLocked
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    InLock                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakEcho4Statics::SetEcho4DeploymentLocked(class AOakCharacter* DroneOwner, bool InLock)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakEcho4Statics", "SetEcho4DeploymentLocked");
-
-	Params::OakEcho4Statics_SetEcho4DeploymentLocked Parms{};
-
-	Parms.DroneOwner = DroneOwner;
-	Parms.InLock = InLock;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakEcho4Statics.WasWaypointPathFound
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class AActor*                           DroneOrOwner                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UOakEcho4Statics::WasWaypointPathFound(class AActor* DroneOrOwner)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakEcho4Statics", "WasWaypointPathFound");
-
-	Params::OakEcho4Statics_WasWaypointPathFound Parms{};
-
-	Parms.DroneOrOwner = DroneOrOwner;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakEcho4Statics.WasWaypointPathFoundLatent
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// class AActor*                           DroneOrOwner                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool*                                   Result                                                 (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FLatentActionInfo&         LatentInfo                                             (Parm, NoDestructor, NativeAccessSpecifierPublic)
-
-void UOakEcho4Statics::WasWaypointPathFoundLatent(class AActor* DroneOrOwner, bool* Result, const struct FLatentActionInfo& LatentInfo)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakEcho4Statics", "WasWaypointPathFoundLatent");
-
-	Params::OakEcho4Statics_WasWaypointPathFoundLatent Parms{};
-
-	Parms.DroneOrOwner = DroneOrOwner;
-	Parms.LatentInfo = std::move(LatentInfo);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Result != nullptr)
-		*Result = Parms.Result;
-}
-
-
-// Function OakGame.OakAIHeldLootableComponent.Lootable_OnPhysicsSleep
-// (Final, Native, Private)
-// Parameters:
-// class UPrimitiveComponent*              Component                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakAIHeldLootableComponent::Lootable_OnPhysicsSleep(class UPrimitiveComponent* Component, class FName BoneName)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakAIHeldLootableComponent", "Lootable_OnPhysicsSleep");
-
-	Params::OakAIHeldLootableComponent_Lootable_OnPhysicsSleep Parms{};
-
-	Parms.Component = Component;
-	Parms.BoneName = BoneName;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakUIScript_EchoUpgrades.InsufficientPoints
+// Function OakGame.OakUIScript_CharacterSelect.AllPlayersReady
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_EchoUpgrades::InsufficientPoints(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_CharacterSelect::AllPlayersReady(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_EchoUpgrades", "InsufficientPoints");
+		Func = Class->GetFunction("OakUIScript_CharacterSelect", "AllPlayersReady");
 
-	Params::OakUIScript_EchoUpgrades_InsufficientPoints Parms{};
+	Params::OakUIScript_CharacterSelect_AllPlayersReady Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -2002,21 +1759,21 @@ void UOakUIScript_EchoUpgrades::InsufficientPoints(class UObject* WorldContextOb
 }
 
 
-// Function OakGame.OakUIScript_EchoUpgrades.StartTutorial
+// Function OakGame.OakUIScript_CharacterSelect.CycleRapSheetCharacter
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_EchoUpgrades::StartTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_CharacterSelect::CycleRapSheetCharacter(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_EchoUpgrades", "StartTutorial");
+		Func = Class->GetFunction("OakUIScript_CharacterSelect", "CycleRapSheetCharacter");
 
-	Params::OakUIScript_EchoUpgrades_StartTutorial Parms{};
+	Params::OakUIScript_CharacterSelect_CycleRapSheetCharacter Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -2026,21 +1783,357 @@ void UOakUIScript_EchoUpgrades::StartTutorial(class UObject* WorldContextObject,
 }
 
 
-// Function OakGame.OakUIScript_EchoUpgrades.Upgraded
+// Function OakGame.OakUIScript_CharacterSelect.LineupCharacterClick
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_EchoUpgrades::Upgraded(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_CharacterSelect::LineupCharacterClick(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_EchoUpgrades", "Upgraded");
+		Func = Class->GetFunction("OakUIScript_CharacterSelect", "LineupCharacterClick");
 
-	Params::OakUIScript_EchoUpgrades_Upgraded Parms{};
+	Params::OakUIScript_CharacterSelect_LineupCharacterClick Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CharacterSelect.LineupCharacterHover
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CharacterSelect::LineupCharacterHover(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CharacterSelect", "LineupCharacterHover");
+
+	Params::OakUIScript_CharacterSelect_LineupCharacterHover Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CharacterSelect.LineupIntro
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CharacterSelect::LineupIntro(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CharacterSelect", "LineupIntro");
+
+	Params::OakUIScript_CharacterSelect_LineupIntro Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CharacterSelect.MakeCharacterChoice
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CharacterSelect::MakeCharacterChoice(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CharacterSelect", "MakeCharacterChoice");
+
+	Params::OakUIScript_CharacterSelect_MakeCharacterChoice Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CharacterSelect.TransitionBackToLineup
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CharacterSelect::TransitionBackToLineup(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CharacterSelect", "TransitionBackToLineup");
+
+	Params::OakUIScript_CharacterSelect_TransitionBackToLineup Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CharacterSelect.TransitionToCharacterSelected
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CharacterSelect::TransitionToCharacterSelected(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CharacterSelect", "TransitionToCharacterSelected");
+
+	Params::OakUIScript_CharacterSelect_TransitionToCharacterSelected Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CharacterSelect.TransitionToRapSheet
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CharacterSelect::TransitionToRapSheet(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CharacterSelect", "TransitionToRapSheet");
+
+	Params::OakUIScript_CharacterSelect_TransitionToRapSheet Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_RepairKit.FailToUseRepairKit
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_RepairKit::FailToUseRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_RepairKit", "FailToUseRepairKit");
+
+	Params::OakUIScript_RepairKit_FailToUseRepairKit Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_RepairKit.GainChargeRepairKit
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_RepairKit::GainChargeRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_RepairKit", "GainChargeRepairKit");
+
+	Params::OakUIScript_RepairKit_GainChargeRepairKit Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_RepairKit.ReadyToUseRepairKit
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_RepairKit::ReadyToUseRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_RepairKit", "ReadyToUseRepairKit");
+
+	Params::OakUIScript_RepairKit_ReadyToUseRepairKit Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_RepairKit.StartReadyCountdownRepairKit
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_RepairKit::StartReadyCountdownRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_RepairKit", "StartReadyCountdownRepairKit");
+
+	Params::OakUIScript_RepairKit_StartReadyCountdownRepairKit Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_RepairKit.TickReadyCountdownOneRepairKit
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_RepairKit::TickReadyCountdownOneRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_RepairKit", "TickReadyCountdownOneRepairKit");
+
+	Params::OakUIScript_RepairKit_TickReadyCountdownOneRepairKit Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_RepairKit.TickReadyCountdownThreeRepairKit
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_RepairKit::TickReadyCountdownThreeRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_RepairKit", "TickReadyCountdownThreeRepairKit");
+
+	Params::OakUIScript_RepairKit_TickReadyCountdownThreeRepairKit Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_RepairKit.TickReadyCountdownTwoRepairKit
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_RepairKit::TickReadyCountdownTwoRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_RepairKit", "TickReadyCountdownTwoRepairKit");
+
+	Params::OakUIScript_RepairKit_TickReadyCountdownTwoRepairKit Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_RepairKit.UseRepairKit
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_RepairKit::UseRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_RepairKit", "UseRepairKit");
+
+	Params::OakUIScript_RepairKit_UseRepairKit Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -2100,21 +2193,21 @@ bool ATravelStationObject::IsZoneActive() const
 }
 
 
-// Function OakGame.OakUIScript_Social.FriendRequestReceived
+// Function OakGame.OakUIScript_BigMap.AddWaypoint
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_Social::FriendRequestReceived(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_BigMap::AddWaypoint(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Social", "FriendRequestReceived");
+		Func = Class->GetFunction("OakUIScript_BigMap", "AddWaypoint");
 
-	Params::OakUIScript_Social_FriendRequestReceived Parms{};
+	Params::OakUIScript_BigMap_AddWaypoint Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -2124,21 +2217,21 @@ void UOakUIScript_Social::FriendRequestReceived(class UObject* WorldContextObjec
 }
 
 
-// Function OakGame.OakUIScript_Social.PromotedToPartyLeader
+// Function OakGame.OakUIScript_BigMap.CantDo
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_Social::PromotedToPartyLeader(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_BigMap::CantDo(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Social", "PromotedToPartyLeader");
+		Func = Class->GetFunction("OakUIScript_BigMap", "CantDo");
 
-	Params::OakUIScript_Social_PromotedToPartyLeader Parms{};
+	Params::OakUIScript_BigMap_CantDo Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -2148,21 +2241,21 @@ void UOakUIScript_Social::PromotedToPartyLeader(class UObject* WorldContextObjec
 }
 
 
-// Function OakGame.OakUIScript_Social.SessionInviteReceived
+// Function OakGame.OakUIScript_BigMap.Center
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_Social::SessionInviteReceived(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_BigMap::Center(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Social", "SessionInviteReceived");
+		Func = Class->GetFunction("OakUIScript_BigMap", "Center");
 
-	Params::OakUIScript_Social_SessionInviteReceived Parms{};
+	Params::OakUIScript_BigMap_Center Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -2172,23 +2265,357 @@ void UOakUIScript_Social::SessionInviteReceived(class UObject* WorldContextObjec
 }
 
 
-// Function OakGame.OakUIScript_Cursor.OnPulse
+// Function OakGame.OakUIScript_BigMap.DragEnd
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_BigMap::DragEnd(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_BigMap", "DragEnd");
+
+	Params::OakUIScript_BigMap_DragEnd Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_BigMap.DragMoved
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_BigMap::DragMoved(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_BigMap", "DragMoved");
+
+	Params::OakUIScript_BigMap_DragMoved Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_BigMap.DragStart
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_BigMap::DragStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_BigMap", "DragStart");
+
+	Params::OakUIScript_BigMap_DragStart Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_BigMap.ExploreMenuClose
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_BigMap::ExploreMenuClose(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_BigMap", "ExploreMenuClose");
+
+	Params::OakUIScript_BigMap_ExploreMenuClose Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_BigMap.ExploreMenuOpen
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_BigMap::ExploreMenuOpen(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_BigMap", "ExploreMenuOpen");
+
+	Params::OakUIScript_BigMap_ExploreMenuOpen Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_BigMap.InteractableElementRollOver
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_BigMap::InteractableElementRollOver(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_BigMap", "InteractableElementRollOver");
+
+	Params::OakUIScript_BigMap_InteractableElementRollOver Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_BigMap.LocateOnMap
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_BigMap::LocateOnMap(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_BigMap", "LocateOnMap");
+
+	Params::OakUIScript_BigMap_LocateOnMap Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_BigMap.NewMap
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_BigMap::NewMap(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_BigMap", "NewMap");
+
+	Params::OakUIScript_BigMap_NewMap Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_BigMap.RemoveWaypoint
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_BigMap::RemoveWaypoint(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_BigMap", "RemoveWaypoint");
+
+	Params::OakUIScript_BigMap_RemoveWaypoint Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_BigMap.Select
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_BigMap::Select(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_BigMap", "Select");
+
+	Params::OakUIScript_BigMap_Select Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_BigMap.StartBigMapEndGameMenuTutorial
 // (Event, Public, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_Cursor::OnPulse(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
+void UOakUIScript_BigMap::StartBigMapEndGameMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Cursor", "OnPulse");
+		Func = Class->GetFunction("OakUIScript_BigMap", "StartBigMapEndGameMenuTutorial");
 
-	Params::OakUIScript_Cursor_OnPulse Parms{};
+	Params::OakUIScript_BigMap_StartBigMapEndGameMenuTutorial Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_BigMap.StartBigMapIntroMenuTutorial
+// (Event, Public, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_BigMap::StartBigMapIntroMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_BigMap", "StartBigMapIntroMenuTutorial");
+
+	Params::OakUIScript_BigMap_StartBigMapIntroMenuTutorial Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_BigMap.ToggleLegendItem
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_BigMap::ToggleLegendItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_BigMap", "ToggleLegendItem");
+
+	Params::OakUIScript_BigMap_ToggleLegendItem Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_BigMap.ZoomIn
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_BigMap::ZoomIn(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_BigMap", "ZoomIn");
+
+	Params::OakUIScript_BigMap_ZoomIn Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_BigMap.ZoomOut
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_BigMap::ZoomOut(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_BigMap", "ZoomOut");
+
+	Params::OakUIScript_BigMap_ZoomOut Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
 
 	UObject::ProcessEvent(Func, &Parms);
 }
@@ -2522,6 +2949,148 @@ bool ACommandRing::IsTargetValid() const
 }
 
 
+// Function OakGame.PhasedObjectStatics.IsPhased
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UPhasedObjectStatics::IsPhased(class AActor* target)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("PhasedObjectStatics", "IsPhased");
+
+	Params::PhasedObjectStatics_IsPhased Parms{};
+
+	Parms.target = target;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.PhasedObjectStatics.TryEnterPhasedState
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UPhasedObjectStatics::TryEnterPhasedState(class AActor* target)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("PhasedObjectStatics", "TryEnterPhasedState");
+
+	Params::PhasedObjectStatics_TryEnterPhasedState Parms{};
+
+	Parms.target = target;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.PhasedObjectStatics.TryExitPhasedState
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UPhasedObjectStatics::TryExitPhasedState(class AActor* target)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("PhasedObjectStatics", "TryExitPhasedState");
+
+	Params::PhasedObjectStatics_TryExitPhasedState Parms{};
+
+	Parms.target = target;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakAIWeaponUserFunctionLibrary.LockAIFiring
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           AIActor                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FName                             reason                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    Block                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FGbxAIHeldFilter&          WeaponFilter                                           (Parm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+
+void UOakAIWeaponUserFunctionLibrary::LockAIFiring(class AActor* AIActor, class FName reason, bool Block, const struct FGbxAIHeldFilter& WeaponFilter)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakAIWeaponUserFunctionLibrary", "LockAIFiring");
+
+	Params::OakAIWeaponUserFunctionLibrary_LockAIFiring Parms{};
+
+	Parms.AIActor = AIActor;
+	Parms.reason = reason;
+	Parms.Block = Block;
+	Parms.WeaponFilter = std::move(WeaponFilter);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakAIWeaponUserFunctionLibrary.LockAIScriptedFiring
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           AIActor                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FName                             reason                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    Block                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bIgnoreFiringRestrictions                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FGbxAIHeldFilter&          WeaponFilter                                           (Parm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+
+void UOakAIWeaponUserFunctionLibrary::LockAIScriptedFiring(class AActor* AIActor, class FName reason, bool Block, bool bIgnoreFiringRestrictions, const struct FGbxAIHeldFilter& WeaponFilter)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakAIWeaponUserFunctionLibrary", "LockAIScriptedFiring");
+
+	Params::OakAIWeaponUserFunctionLibrary_LockAIScriptedFiring Parms{};
+
+	Parms.AIActor = AIActor;
+	Parms.reason = reason;
+	Parms.Block = Block;
+	Parms.bIgnoreFiringRestrictions = bIgnoreFiringRestrictions;
+	Parms.WeaponFilter = std::move(WeaponFilter);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function OakGame.EridiumEncasingComponent.OnRep_EridiumEncasingState
 // (Final, Native, Protected)
 
@@ -2538,259 +3107,6 @@ void UEridiumEncasingComponent::OnRep_EridiumEncasingState()
 	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakActorScript_BioArmor.BioArmorVFXTransitionDeactivation
-// (Final, Native, Private)
-// Parameters:
-// class UNiagaraComponent*                PSystem                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakActorScript_BioArmor::BioArmorVFXTransitionDeactivation(class UNiagaraComponent* PSystem)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakActorScript_BioArmor", "BioArmorVFXTransitionDeactivation");
-
-	Params::OakActorScript_BioArmor_BioArmorVFXTransitionDeactivation Parms{};
-
-	Parms.PSystem = PSystem;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakActorScript_BioArmor.SetReactivationDelay
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   ReactivationDelay_0                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakActorScript_BioArmor::SetReactivationDelay(float ReactivationDelay_0)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakActorScript_BioArmor", "SetReactivationDelay");
-
-	Params::OakActorScript_BioArmor_SetReactivationDelay Parms{};
-
-	Parms.ReactivationDelay_0 = ReactivationDelay_0;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakActorScript_BioArmor.TryActivateArmor
-// (Final, Native, Public)
-// Parameters:
-// bool                                    bIsInstantaneous                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UOakActorScript_BioArmor::TryActivateArmor(bool bIsInstantaneous)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakActorScript_BioArmor", "TryActivateArmor");
-
-	Params::OakActorScript_BioArmor_TryActivateArmor Parms{};
-
-	Parms.bIsInstantaneous = bIsInstantaneous;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakActorScript_BioArmor.IsArmored
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UOakActorScript_BioArmor::IsArmored() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakActorScript_BioArmor", "IsArmored");
-
-	Params::OakActorScript_BioArmor_IsArmored Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.Shield.GetCapacity
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float AShield::GetCapacity() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Shield", "GetCapacity");
-
-	Params::Shield_GetCapacity Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.Shield.GetNumSegments
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 AShield::GetNumSegments() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Shield", "GetNumSegments");
-
-	Params::Shield_GetNumSegments Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.Shield.GetRegenDelay
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float AShield::GetRegenDelay() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Shield", "GetRegenDelay");
-
-	Params::Shield_GetRegenDelay Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.Shield.GetRegenRate
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float AShield::GetRegenRate() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Shield", "GetRegenRate");
-
-	Params::Shield_GetRegenRate Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.Shield.K2_GetDamageType
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// FGameDataHandleProperty_                ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-FGameDataHandleProperty_ AShield::K2_GetDamageType() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Shield", "K2_GetDamageType");
-
-	Params::Shield_K2_GetDamageType Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.Shield.K2_GetHealthSystem
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// EShieldHealthSystem                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-EShieldHealthSystem AShield::K2_GetHealthSystem() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Shield", "K2_GetHealthSystem");
-
-	Params::Shield_K2_GetHealthSystem Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
@@ -2902,6 +3218,60 @@ bool UFirmwareTransferBlueprintLibrary::TransferFirmware(class APlayerController
 }
 
 
+// Function OakGame.StructuredInteractableUserState.ClientSetCurrentInteractable
+// (Final, Net, NetReliable, Native, Event, Private, NetClient)
+// Parameters:
+// const TScriptInterface<class IStructuredInteractable>&NewInteractable                                        (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FName                             InteractionName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bInstant                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UStructuredInteractableUserState::ClientSetCurrentInteractable(const TScriptInterface<class IStructuredInteractable>& NewInteractable, class FName InteractionName, bool bInstant)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StructuredInteractableUserState", "ClientSetCurrentInteractable");
+
+	Params::StructuredInteractableUserState_ClientSetCurrentInteractable Parms{};
+
+	Parms.NewInteractable = NewInteractable;
+	Parms.InteractionName = InteractionName;
+	Parms.bInstant = bInstant;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.StructuredInteractableUserState.ServerClearCurrentInteractable
+// (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
+// Parameters:
+// bool                                    bImmediate                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UStructuredInteractableUserState::ServerClearCurrentInteractable(bool bImmediate)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("StructuredInteractableUserState", "ServerClearCurrentInteractable");
+
+	Params::StructuredInteractableUserState_ServerClearCurrentInteractable Parms{};
+
+	Parms.bImmediate = bImmediate;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function OakGame.GameDataHandleBlueprintLibrary.Resolve_DamageDefGameDataHandle
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
@@ -2992,655 +3362,21 @@ FGameDataHandleProperty_ UGameDataHandleBlueprintLibrary::Resolve_ImpactEffectDe
 }
 
 
-// Function OakGame.OakBossStatics.GetTextFromUICharacterName
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// FGbxDefPtrProperty_                     UIName                                                 (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-class FText UOakBossStatics::GetTextFromUICharacterName(FGbxDefPtrProperty_ UIName)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakBossStatics", "GetTextFromUICharacterName");
-
-	Params::OakBossStatics_GetTextFromUICharacterName Parms{};
-
-	Parms.UIName = UIName;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakBossStatics.HasFightBeenCompleted
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AOakBossFight*                    BossFightActor                                         (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UOakBossStatics::HasFightBeenCompleted(class AOakBossFight* BossFightActor)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakBossStatics", "HasFightBeenCompleted");
-
-	Params::OakBossStatics_HasFightBeenCompleted Parms{};
-
-	Parms.BossFightActor = BossFightActor;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakBossStatics.SetAllBossesDimmed
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AActor*                           Boss                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bDimmed                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakBossStatics::SetAllBossesDimmed(class AActor* Boss, bool bDimmed)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakBossStatics", "SetAllBossesDimmed");
-
-	Params::OakBossStatics_SetAllBossesDimmed Parms{};
-
-	Parms.Boss = Boss;
-	Parms.bDimmed = bDimmed;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakBossStatics.SetAllBossesInvulnerable
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AActor*                           Boss                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bInvulnerable                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakBossStatics::SetAllBossesInvulnerable(class AActor* Boss, bool bInvulnerable)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakBossStatics", "SetAllBossesInvulnerable");
-
-	Params::OakBossStatics_SetAllBossesInvulnerable Parms{};
-
-	Parms.Boss = Boss;
-	Parms.bInvulnerable = bInvulnerable;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakBossStatics.SetBossBarEnabled
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AActor*                           Boss                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AOakBossFight*                    BossFightInfo                                          (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bEnable                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakBossStatics::SetBossBarEnabled(class AActor* Boss, class AOakBossFight* BossFightInfo, bool bEnable)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakBossStatics", "SetBossBarEnabled");
-
-	Params::OakBossStatics_SetBossBarEnabled Parms{};
-
-	Parms.Boss = Boss;
-	Parms.BossFightInfo = BossFightInfo;
-	Parms.bEnable = bEnable;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakBossStatics.SetBossDimmed
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AActor*                           Boss                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bDimmed                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakBossStatics::SetBossDimmed(class AActor* Boss, bool bDimmed)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakBossStatics", "SetBossDimmed");
-
-	Params::OakBossStatics_SetBossDimmed Parms{};
-
-	Parms.Boss = Boss;
-	Parms.bDimmed = bDimmed;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakBossStatics.SetBossInvulnerable
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AActor*                           Boss                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bInvulnerable                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakBossStatics::SetBossInvulnerable(class AActor* Boss, bool bInvulnerable)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakBossStatics", "SetBossInvulnerable");
-
-	Params::OakBossStatics_SetBossInvulnerable Parms{};
-
-	Parms.Boss = Boss;
-	Parms.bInvulnerable = bInvulnerable;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakBossStatics.ShakeEvent
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AActor*                           Boss                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakBossStatics::ShakeEvent(class AActor* Boss)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakBossStatics", "ShakeEvent");
-
-	Params::OakBossStatics_ShakeEvent Parms{};
-
-	Parms.Boss = Boss;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakBossStatics.StartBossFightTracking
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AActor*                           Boss                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakBossStatics::StartBossFightTracking(class AActor* Boss)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakBossStatics", "StartBossFightTracking");
-
-	Params::OakBossStatics_StartBossFightTracking Parms{};
-
-	Parms.Boss = Boss;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakBossStatics.StopBossFightTracking
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AActor*                           Boss                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakBossStatics::StopBossFightTracking(class AActor* Boss)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakBossStatics", "StopBossFightTracking");
-
-	Params::OakBossStatics_StopBossFightTracking Parms{};
-
-	Parms.Boss = Boss;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakBossStatics.GetPlayersInArena
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class AOakBossFight*                    BossFightInfo                                          (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TArray<class AOakCharacter*>            ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-
-TArray<class AOakCharacter*> UOakBossStatics::GetPlayersInArena(class AOakBossFight* BossFightInfo) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakBossStatics", "GetPlayersInArena");
-
-	Params::OakBossStatics_GetPlayersInArena Parms{};
-
-	Parms.BossFightInfo = BossFightInfo;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakChallengeBlueprintLibrary.IncrementChallengeForAllPlayers
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const FGameDataHandleProperty_          ChallengeToIncrement                                   (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   IncrementAmount                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakChallengeBlueprintLibrary::IncrementChallengeForAllPlayers(class UObject* OwnerContext, const FGameDataHandleProperty_ ChallengeToIncrement, int32 IncrementAmount)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakChallengeBlueprintLibrary", "IncrementChallengeForAllPlayers");
-
-	Params::OakChallengeBlueprintLibrary_IncrementChallengeForAllPlayers Parms{};
-
-	Parms.OwnerContext = OwnerContext;
-	Parms.ChallengeToIncrement = ChallengeToIncrement;
-	Parms.IncrementAmount = IncrementAmount;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakChallengeBlueprintLibrary.IncrementChallengeForPlayer
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AOakPlayerController*             OakPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const FGameDataHandleProperty_          ChallengeToIncrement                                   (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   IncrementAmount                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakChallengeBlueprintLibrary::IncrementChallengeForPlayer(class UObject* OwnerContext, class AOakPlayerController* OakPC, const FGameDataHandleProperty_ ChallengeToIncrement, int32 IncrementAmount)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakChallengeBlueprintLibrary", "IncrementChallengeForPlayer");
-
-	Params::OakChallengeBlueprintLibrary_IncrementChallengeForPlayer Parms{};
-
-	Parms.OwnerContext = OwnerContext;
-	Parms.OakPC = OakPC;
-	Parms.ChallengeToIncrement = ChallengeToIncrement;
-	Parms.IncrementAmount = IncrementAmount;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakChallengeBlueprintLibrary.IsChallengeCompleteForPlayer
-// (Final, Native, Static, Public, BlueprintCallable)
+// Function OakGame.SoloTravelStationObject.TeleportPlayerToDestination
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class AOakPlayerController*             OakPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const FGameDataHandleProperty_          challenge                                              (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UOakChallengeBlueprintLibrary::IsChallengeCompleteForPlayer(class AOakPlayerController* OakPC, const FGameDataHandleProperty_ challenge)
+void ASoloTravelStationObject::TeleportPlayerToDestination(class AOakPlayerController* OakPC)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakChallengeBlueprintLibrary", "IsChallengeCompleteForPlayer");
+		Func = Class->GetFunction("SoloTravelStationObject", "TeleportPlayerToDestination");
 
-	Params::OakChallengeBlueprintLibrary_IsChallengeCompleteForPlayer Parms{};
+	Params::SoloTravelStationObject_TeleportPlayerToDestination Parms{};
 
 	Parms.OakPC = OakPC;
-	Parms.challenge = challenge;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakVehicleBlueprintLibrary.AssignHoverDriveEffectParameters
-// (Final, Native, Static, Private, BlueprintCallable)
-// Parameters:
-// class UFXSystemComponent*               FXComponent                                            (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AOakVehicle*                      Vehicle                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakVehicleBlueprintLibrary::AssignHoverDriveEffectParameters(class UFXSystemComponent* FXComponent, class AOakVehicle* Vehicle)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakVehicleBlueprintLibrary", "AssignHoverDriveEffectParameters");
-
-	Params::OakVehicleBlueprintLibrary_AssignHoverDriveEffectParameters Parms{};
-
-	Parms.FXComponent = FXComponent;
-	Parms.Vehicle = Vehicle;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakVehicleBlueprintLibrary.CanBoost
-// (Final, Native, Static, Private, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class AOakVehicle*                      Vehicle                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UOakVehicleBlueprintLibrary::CanBoost(class AOakVehicle* Vehicle)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakVehicleBlueprintLibrary", "CanBoost");
-
-	Params::OakVehicleBlueprintLibrary_CanBoost Parms{};
-
-	Parms.Vehicle = Vehicle;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakVehicleBlueprintLibrary.GetAssociatedVehicle
-// (Final, Native, Static, Private, HasOutParams, BlueprintCallable)
-// Parameters:
-// class AActor*                           Context                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EGetOakVehicleResult*                   Exec                                                   (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AOakVehicle*                      ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class AOakVehicle* UOakVehicleBlueprintLibrary::GetAssociatedVehicle(class AActor* Context, EGetOakVehicleResult* Exec)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakVehicleBlueprintLibrary", "GetAssociatedVehicle");
-
-	Params::OakVehicleBlueprintLibrary_GetAssociatedVehicle Parms{};
-
-	Parms.Context = Context;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Exec != nullptr)
-		*Exec = Parms.Exec;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakVehicleBlueprintLibrary.GetHoverDriveEffectByName
-// (Final, Native, Static, Private, BlueprintCallable)
-// Parameters:
-// class AOakVehicle*                      Vehicle                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             EffectName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UFXSystemAsset*                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UFXSystemAsset* UOakVehicleBlueprintLibrary::GetHoverDriveEffectByName(class AOakVehicle* Vehicle, class FName EffectName)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakVehicleBlueprintLibrary", "GetHoverDriveEffectByName");
-
-	Params::OakVehicleBlueprintLibrary_GetHoverDriveEffectByName Parms{};
-
-	Parms.Vehicle = Vehicle;
-	Parms.EffectName = EffectName;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakVehicleBlueprintLibrary.IsBoosting
-// (Final, Native, Static, Private, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class AOakVehicle*                      Vehicle                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UOakVehicleBlueprintLibrary::IsBoosting(class AOakVehicle* Vehicle)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakVehicleBlueprintLibrary", "IsBoosting");
-
-	Params::OakVehicleBlueprintLibrary_IsBoosting Parms{};
-
-	Parms.Vehicle = Vehicle;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakVehicleBlueprintLibrary.ToggleBoost
-// (Final, Native, Static, Private, BlueprintCallable)
-// Parameters:
-// class AOakVehicle*                      Vehicle                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bBoost                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakVehicleBlueprintLibrary::ToggleBoost(class AOakVehicle* Vehicle, bool bBoost)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakVehicleBlueprintLibrary", "ToggleBoost");
-
-	Params::OakVehicleBlueprintLibrary_ToggleBoost Parms{};
-
-	Parms.Vehicle = Vehicle;
-	Parms.bBoost = bBoost;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.InventoryGadget.OnRep_Attached
-// (Final, Native, Protected)
-
-void AInventoryGadget::OnRep_Attached()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InventoryGadget", "OnRep_Attached");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.InventoryGadget.OnRep_NumberOfCharges
-// (Final, Native, Protected)
-
-void AInventoryGadget::OnRep_NumberOfCharges()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InventoryGadget", "OnRep_NumberOfCharges");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.InventoryGadget.OnRep_Using
-// (Final, Native, Protected)
-
-void AInventoryGadget::OnRep_Using()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InventoryGadget", "OnRep_Using");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.InventoryGadget.ServerInputDoubleTap
-// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
-
-void AInventoryGadget::ServerInputDoubleTap()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InventoryGadget", "ServerInputDoubleTap");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.InventoryGadget.ServerInputHeld
-// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
-// Parameters:
-// bool                                    bStarted                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AInventoryGadget::ServerInputHeld(bool bStarted)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InventoryGadget", "ServerInputHeld");
-
-	Params::InventoryGadget_ServerInputHeld Parms{};
-
-	Parms.bStarted = bStarted;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3651,71 +3387,40 @@ void AInventoryGadget::ServerInputHeld(bool bStarted)
 }
 
 
-// Function OakGame.TurretGadget.ProjectileDestroyed
-// (Final, Native, Protected)
-// Parameters:
-// class AActor*                           Actor                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// Function OakGame.OakVaultTrackable.DiscoverTrackerObject
+// (Final, Native, Public, BlueprintCallable)
 
-void ATurretGadget::ProjectileDestroyed(class AActor* Actor)
+void AOakVaultTrackable::DiscoverTrackerObject()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("TurretGadget", "ProjectileDestroyed");
-
-	Params::TurretGadget_ProjectileDestroyed Parms{};
-
-	Parms.Actor = Actor;
+		Func = Class->GetFunction("OakVaultTrackable", "DiscoverTrackerObject");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
 
 
-// Function OakGame.TurretGadget.RegisterTurret
-// (Final, Native, Protected)
+// Function OakGame.OakVaultTrackable.ToggleTrackingEnabled
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class AActor*                           Actor                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bEnabled                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ATurretGadget::RegisterTurret(class AActor* Actor)
+void AOakVaultTrackable::ToggleTrackingEnabled(bool bEnabled)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("TurretGadget", "RegisterTurret");
+		Func = Class->GetFunction("OakVaultTrackable", "ToggleTrackingEnabled");
 
-	Params::TurretGadget_RegisterTurret Parms{};
+	Params::OakVaultTrackable_ToggleTrackingEnabled Parms{};
 
-	Parms.Actor = Actor;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.TurretGadget.UnregisterTurret
-// (Final, Native, Protected)
-// Parameters:
-// class AActor*                           Actor                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void ATurretGadget::UnregisterTurret(class AActor* Actor)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("TurretGadget", "UnregisterTurret");
-
-	Params::TurretGadget_UnregisterTurret Parms{};
-
-	Parms.Actor = Actor;
+	Parms.bEnabled = bEnabled;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3780,21 +3485,77 @@ void AOakNoSignalZone::OnEndNoSignalOverlapped(class AActor* OverlappedActor, cl
 }
 
 
-// Function OakGame.TerminalGadget.RegisterTerminal
-// (Final, Native, Protected)
+// Function OakGame.OakAttributeDefinedSummaryLibrary.GetSummary_ChanceDefinedValueRow
+// (Final, Native, Static, Public, HasOutParams)
 // Parameters:
-// class AActor*                           Actor                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FChanceDefinedValueRow&    Struct                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ATerminalGadget::RegisterTerminal(class AActor* Actor)
+class FString UOakAttributeDefinedSummaryLibrary::GetSummary_ChanceDefinedValueRow(const struct FChanceDefinedValueRow& Struct)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("TerminalGadget", "RegisterTerminal");
+		Func = StaticClass()->GetFunction("OakAttributeDefinedSummaryLibrary", "GetSummary_ChanceDefinedValueRow");
 
-	Params::TerminalGadget_RegisterTerminal Parms{};
+	Params::OakAttributeDefinedSummaryLibrary_GetSummary_ChanceDefinedValueRow Parms{};
 
-	Parms.Actor = Actor;
+	Parms.Struct = std::move(Struct);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakAttributeDefinedSummaryLibrary.GetSummary_LootChanceDefinedValueRow
+// (Final, Native, Static, Public, HasOutParams)
+// Parameters:
+// const struct FLootChanceDefinedValueRow&Struct                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class FString UOakAttributeDefinedSummaryLibrary::GetSummary_LootChanceDefinedValueRow(const struct FLootChanceDefinedValueRow& Struct)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakAttributeDefinedSummaryLibrary", "GetSummary_LootChanceDefinedValueRow");
+
+	Params::OakAttributeDefinedSummaryLibrary_GetSummary_LootChanceDefinedValueRow Parms{};
+
+	Parms.Struct = std::move(Struct);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakBasePlayerController.AddUIViewState
+// (Net, NetReliable, Native, Event, Public, NetClient)
+// Parameters:
+// const struct FGameplayTag&              InState                                                (ConstParm, Parm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakBasePlayerController::AddUIViewState(const struct FGameplayTag& InState)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakBasePlayerController", "AddUIViewState");
+
+	Params::OakBasePlayerController_AddUIViewState Parms{};
+
+	Parms.InState = std::move(InState);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3802,1480 +3563,6 @@ void ATerminalGadget::RegisterTerminal(class AActor* Actor)
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakUIScript_Backpack.BackpackSlotFocused
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::BackpackSlotFocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "BackpackSlotFocused");
-
-	Params::OakUIScript_Backpack_BackpackSlotFocused Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.BackpackSlotUnfocused
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::BackpackSlotUnfocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "BackpackSlotUnfocused");
-
-	Params::OakUIScript_Backpack_BackpackSlotUnfocused Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.BuyItem
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::BuyItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "BuyItem");
-
-	Params::OakUIScript_Backpack_BuyItem Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.ClickAssaultRifle
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::ClickAssaultRifle(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "ClickAssaultRifle");
-
-	Params::OakUIScript_Backpack_ClickAssaultRifle Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.ClickClassMod
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::ClickClassMod(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "ClickClassMod");
-
-	Params::OakUIScript_Backpack_ClickClassMod Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.ClickEnhancement
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::ClickEnhancement(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "ClickEnhancement");
-
-	Params::OakUIScript_Backpack_ClickEnhancement Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.ClickGadget
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::ClickGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "ClickGadget");
-
-	Params::OakUIScript_Backpack_ClickGadget Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.ClickGrenade
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::ClickGrenade(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "ClickGrenade");
-
-	Params::OakUIScript_Backpack_ClickGrenade Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.ClickHeavyWeapon
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::ClickHeavyWeapon(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "ClickHeavyWeapon");
-
-	Params::OakUIScript_Backpack_ClickHeavyWeapon Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.ClickPistol
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::ClickPistol(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "ClickPistol");
-
-	Params::OakUIScript_Backpack_ClickPistol Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.ClickRepKit
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::ClickRepKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "ClickRepKit");
-
-	Params::OakUIScript_Backpack_ClickRepKit Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.ClickShield
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::ClickShield(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "ClickShield");
-
-	Params::OakUIScript_Backpack_ClickShield Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.ClickShotgun
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::ClickShotgun(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "ClickShotgun");
-
-	Params::OakUIScript_Backpack_ClickShotgun Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.ClickSMG
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::ClickSMG(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "ClickSMG");
-
-	Params::OakUIScript_Backpack_ClickSMG Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.ClickSniper
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::ClickSniper(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "ClickSniper");
-
-	Params::OakUIScript_Backpack_ClickSniper Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.CloseBackpack
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::CloseBackpack(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "CloseBackpack");
-
-	Params::OakUIScript_Backpack_CloseBackpack Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.ClosePlayerStats
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::ClosePlayerStats(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "ClosePlayerStats");
-
-	Params::OakUIScript_Backpack_ClosePlayerStats Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.CloseRewardCenter
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::CloseRewardCenter(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "CloseRewardCenter");
-
-	Params::OakUIScript_Backpack_CloseRewardCenter Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.CompareStart
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::CompareStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "CompareStart");
-
-	Params::OakUIScript_Backpack_CompareStart Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.CompareStop
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::CompareStop(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "CompareStop");
-
-	Params::OakUIScript_Backpack_CompareStop Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.DropItem
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::DropItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "DropItem");
-
-	Params::OakUIScript_Backpack_DropItem Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.EquipAssaultRifle
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::EquipAssaultRifle(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "EquipAssaultRifle");
-
-	Params::OakUIScript_Backpack_EquipAssaultRifle Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.EquipClassMod
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::EquipClassMod(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "EquipClassMod");
-
-	Params::OakUIScript_Backpack_EquipClassMod Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.EquipEnhancement
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::EquipEnhancement(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "EquipEnhancement");
-
-	Params::OakUIScript_Backpack_EquipEnhancement Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.EquipGadget
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::EquipGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "EquipGadget");
-
-	Params::OakUIScript_Backpack_EquipGadget Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.EquipGrenade
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::EquipGrenade(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "EquipGrenade");
-
-	Params::OakUIScript_Backpack_EquipGrenade Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.EquipHeavyWeapon
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::EquipHeavyWeapon(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "EquipHeavyWeapon");
-
-	Params::OakUIScript_Backpack_EquipHeavyWeapon Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.EquipItem
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::EquipItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "EquipItem");
-
-	Params::OakUIScript_Backpack_EquipItem Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.EquipPistol
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::EquipPistol(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "EquipPistol");
-
-	Params::OakUIScript_Backpack_EquipPistol Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.EquipRepKit
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::EquipRepKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "EquipRepKit");
-
-	Params::OakUIScript_Backpack_EquipRepKit Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.EquipShield
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::EquipShield(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "EquipShield");
-
-	Params::OakUIScript_Backpack_EquipShield Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.EquipShotgun
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::EquipShotgun(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "EquipShotgun");
-
-	Params::OakUIScript_Backpack_EquipShotgun Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.EquipSMG
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::EquipSMG(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "EquipSMG");
-
-	Params::OakUIScript_Backpack_EquipSMG Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.EquipSniper
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::EquipSniper(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "EquipSniper");
-
-	Params::OakUIScript_Backpack_EquipSniper Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.Error
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::Error(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "Error");
-
-	Params::OakUIScript_Backpack_Error Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.FirmwareTransferComplete
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::FirmwareTransferComplete(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "FirmwareTransferComplete");
-
-	Params::OakUIScript_Backpack_FirmwareTransferComplete Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.GearSlotFocused
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::GearSlotFocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "GearSlotFocused");
-
-	Params::OakUIScript_Backpack_GearSlotFocused Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.GearSlotUnfocused
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::GearSlotUnfocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "GearSlotUnfocused");
-
-	Params::OakUIScript_Backpack_GearSlotUnfocused Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.MarkItem
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::MarkItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "MarkItem");
-
-	Params::OakUIScript_Backpack_MarkItem Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.MarkItemBank
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::MarkItemBank(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "MarkItemBank");
-
-	Params::OakUIScript_Backpack_MarkItemBank Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.MarkItemFavorite
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::MarkItemFavorite(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "MarkItemFavorite");
-
-	Params::OakUIScript_Backpack_MarkItemFavorite Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.MarkItemTrash
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::MarkItemTrash(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "MarkItemTrash");
-
-	Params::OakUIScript_Backpack_MarkItemTrash Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.OpenBackpack
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::OpenBackpack(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "OpenBackpack");
-
-	Params::OakUIScript_Backpack_OpenBackpack Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.OpenLegendaryReward
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::OpenLegendaryReward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "OpenLegendaryReward");
-
-	Params::OakUIScript_Backpack_OpenLegendaryReward Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.OpenPlayerStats
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::OpenPlayerStats(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "OpenPlayerStats");
-
-	Params::OakUIScript_Backpack_OpenPlayerStats Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.OpenReward
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::OpenReward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "OpenReward");
-
-	Params::OakUIScript_Backpack_OpenReward Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.OpenRewardCenter
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::OpenRewardCenter(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "OpenRewardCenter");
-
-	Params::OakUIScript_Backpack_OpenRewardCenter Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.PutItemInTransferSlot
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::PutItemInTransferSlot(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "PutItemInTransferSlot");
-
-	Params::OakUIScript_Backpack_PutItemInTransferSlot Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.RemoveItemFromTransferSlot
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::RemoveItemFromTransferSlot(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "RemoveItemFromTransferSlot");
-
-	Params::OakUIScript_Backpack_RemoveItemFromTransferSlot Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.SellItem
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::SellItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "SellItem");
-
-	Params::OakUIScript_Backpack_SellItem Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.StartEchoLogsMenuTutorial
-// (Event, Public, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::StartEchoLogsMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "StartEchoLogsMenuTutorial");
-
-	Params::OakUIScript_Backpack_StartEchoLogsMenuTutorial Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.StartEquipMenuTutorial
-// (Event, Public, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::StartEquipMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "StartEquipMenuTutorial");
-
-	Params::OakUIScript_Backpack_StartEquipMenuTutorial Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.StartEquippedFirmwareTutorial
-// (Event, Public, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::StartEquippedFirmwareTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "StartEquippedFirmwareTutorial");
-
-	Params::OakUIScript_Backpack_StartEquippedFirmwareTutorial Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.StartFirmwareTransferTutorial
-// (Event, Public, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::StartFirmwareTransferTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "StartFirmwareTransferTutorial");
-
-	Params::OakUIScript_Backpack_StartFirmwareTransferTutorial Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.StartLostLootTutorial
-// (Event, Public, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::StartLostLootTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "StartLostLootTutorial");
-
-	Params::OakUIScript_Backpack_StartLostLootTutorial Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.StartRewardCenterTutorial
-// (Event, Public, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::StartRewardCenterTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "StartRewardCenterTutorial");
-
-	Params::OakUIScript_Backpack_StartRewardCenterTutorial Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.StartVendingMachineTutorial
-// (Event, Public, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::StartVendingMachineTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "StartVendingMachineTutorial");
-
-	Params::OakUIScript_Backpack_StartVendingMachineTutorial Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.TakeItem
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::TakeItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "TakeItem");
-
-	Params::OakUIScript_Backpack_TakeItem Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.TrashItem
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::TrashItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "TrashItem");
-
-	Params::OakUIScript_Backpack_TrashItem Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.UnequipItem
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::UnequipItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "UnequipItem");
-
-	Params::OakUIScript_Backpack_UnequipItem Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.WeaponSlotFocused
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::WeaponSlotFocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "WeaponSlotFocused");
-
-	Params::OakUIScript_Backpack_WeaponSlotFocused Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Backpack.WeaponSlotUnfocused
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Backpack::WeaponSlotUnfocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Backpack", "WeaponSlotUnfocused");
-
-	Params::OakUIScript_Backpack_WeaponSlotUnfocused Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -5862,35 +4149,6 @@ void UGbxSkillComponentFunctions_PhaseAvatar::SpawnFluxBeam(const struct FGbxSki
 }
 
 
-// Function OakGame.StructuredInteractableFunctionLibrary.StartStructuredInteraction
-// (Final, BlueprintAuthorityOnly, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AActor*                           Interactable                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             InteractionName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class APlayerController*                User                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UStructuredInteractableFunctionLibrary::StartStructuredInteraction(class AActor* Interactable, class FName InteractionName, class APlayerController* User)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("StructuredInteractableFunctionLibrary", "StartStructuredInteraction");
-
-	Params::StructuredInteractableFunctionLibrary_StartStructuredInteraction Parms{};
-
-	Parms.Interactable = Interactable;
-	Parms.InteractionName = InteractionName;
-	Parms.User = User;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function OakGame.GbxActorScript_PhaseFamiliar.ApplyPendingModChanges
 // (Final, Native, Protected, BlueprintCallable)
 
@@ -6148,21 +4406,21 @@ bool UGbxActorScript_PhaseFamiliar::IsPendingModChange() const
 }
 
 
-// Function OakGame.OakUIScript_HudSkills.FailToUseGadget
+// Function OakGame.OakUIScript_Customization.ApplyCustomization
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_HudSkills::FailToUseGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Customization::ApplyCustomization(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "FailToUseGadget");
+		Func = Class->GetFunction("OakUIScript_Customization", "ApplyCustomization");
 
-	Params::OakUIScript_HudSkills_FailToUseGadget Parms{};
+	Params::OakUIScript_Customization_ApplyCustomization Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -6172,21 +4430,21 @@ void UOakUIScript_HudSkills::FailToUseGadget(class UObject* WorldContextObject, 
 }
 
 
-// Function OakGame.OakUIScript_HudSkills.FailToUsePrimarySkill
+// Function OakGame.OakUIScript_Customization.CantDo
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_HudSkills::FailToUsePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Customization::CantDo(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "FailToUsePrimarySkill");
+		Func = Class->GetFunction("OakUIScript_Customization", "CantDo");
 
-	Params::OakUIScript_HudSkills_FailToUsePrimarySkill Parms{};
+	Params::OakUIScript_Customization_CantDo Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -6196,21 +4454,21 @@ void UOakUIScript_HudSkills::FailToUsePrimarySkill(class UObject* WorldContextOb
 }
 
 
-// Function OakGame.OakUIScript_HudSkills.FailToUseSecondarySkill
+// Function OakGame.OakUIScript_Customization.Customization_Hover
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_HudSkills::FailToUseSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Customization::Customization_Hover(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "FailToUseSecondarySkill");
+		Func = Class->GetFunction("OakUIScript_Customization", "Customization_Hover");
 
-	Params::OakUIScript_HudSkills_FailToUseSecondarySkill Parms{};
+	Params::OakUIScript_Customization_Customization_Hover Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -6220,21 +4478,21 @@ void UOakUIScript_HudSkills::FailToUseSecondarySkill(class UObject* WorldContext
 }
 
 
-// Function OakGame.OakUIScript_HudSkills.GainChargeGadget
+// Function OakGame.OakUIScript_Customization.Customization_Select
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_HudSkills::GainChargeGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Customization::Customization_Select(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "GainChargeGadget");
+		Func = Class->GetFunction("OakUIScript_Customization", "Customization_Select");
 
-	Params::OakUIScript_HudSkills_GainChargeGadget Parms{};
+	Params::OakUIScript_Customization_Customization_Select Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -6244,21 +4502,21 @@ void UOakUIScript_HudSkills::GainChargeGadget(class UObject* WorldContextObject,
 }
 
 
-// Function OakGame.OakUIScript_HudSkills.GainChargePrimarySkill
+// Function OakGame.OakUIScript_Customization.CustomizationMenu_Hover
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_HudSkills::GainChargePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Customization::CustomizationMenu_Hover(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "GainChargePrimarySkill");
+		Func = Class->GetFunction("OakUIScript_Customization", "CustomizationMenu_Hover");
 
-	Params::OakUIScript_HudSkills_GainChargePrimarySkill Parms{};
+	Params::OakUIScript_Customization_CustomizationMenu_Hover Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -6268,21 +4526,21 @@ void UOakUIScript_HudSkills::GainChargePrimarySkill(class UObject* WorldContextO
 }
 
 
-// Function OakGame.OakUIScript_HudSkills.GainChargeSecondarySkill
+// Function OakGame.OakUIScript_Customization.CustomizationMenu_Select
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_HudSkills::GainChargeSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Customization::CustomizationMenu_Select(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "GainChargeSecondarySkill");
+		Func = Class->GetFunction("OakUIScript_Customization", "CustomizationMenu_Select");
 
-	Params::OakUIScript_HudSkills_GainChargeSecondarySkill Parms{};
+	Params::OakUIScript_Customization_CustomizationMenu_Select Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -6292,21 +4550,21 @@ void UOakUIScript_HudSkills::GainChargeSecondarySkill(class UObject* WorldContex
 }
 
 
-// Function OakGame.OakUIScript_HudSkills.ReadyToUseGadgetGrenade
+// Function OakGame.OakUIScript_Customization.HideUI
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_HudSkills::ReadyToUseGadgetGrenade(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Customization::HideUI(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "ReadyToUseGadgetGrenade");
+		Func = Class->GetFunction("OakUIScript_Customization", "HideUI");
 
-	Params::OakUIScript_HudSkills_ReadyToUseGadgetGrenade Parms{};
+	Params::OakUIScript_Customization_HideUI Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -6316,21 +4574,21 @@ void UOakUIScript_HudSkills::ReadyToUseGadgetGrenade(class UObject* WorldContext
 }
 
 
-// Function OakGame.OakUIScript_HudSkills.ReadyToUseGadgetHeavyWeapon
+// Function OakGame.OakUIScript_Customization.ShowUI
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_HudSkills::ReadyToUseGadgetHeavyWeapon(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Customization::ShowUI(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "ReadyToUseGadgetHeavyWeapon");
+		Func = Class->GetFunction("OakUIScript_Customization", "ShowUI");
 
-	Params::OakUIScript_HudSkills_ReadyToUseGadgetHeavyWeapon Parms{};
+	Params::OakUIScript_Customization_ShowUI Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -6340,435 +4598,22 @@ void UOakUIScript_HudSkills::ReadyToUseGadgetHeavyWeapon(class UObject* WorldCon
 }
 
 
-// Function OakGame.OakUIScript_HudSkills.ReadyToUseGadgetOther
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// Function OakGame.OakActorScript_Phaseable.TryEnterPhasedState
+// (Final, Native, Public)
 
-void UOakUIScript_HudSkills::ReadyToUseGadgetOther(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakActorScript_Phaseable::TryEnterPhasedState()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "ReadyToUseGadgetOther");
+		Func = Class->GetFunction("OakActorScript_Phaseable", "TryEnterPhasedState");
 
-	Params::OakUIScript_HudSkills_ReadyToUseGadgetOther Parms{};
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
 
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
+	UObject::ProcessEvent(Func, nullptr);
 
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.ReadyToUsePrimarySkill
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::ReadyToUsePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "ReadyToUsePrimarySkill");
-
-	Params::OakUIScript_HudSkills_ReadyToUsePrimarySkill Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.ReadyToUseSecondarySkill
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::ReadyToUseSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "ReadyToUseSecondarySkill");
-
-	Params::OakUIScript_HudSkills_ReadyToUseSecondarySkill Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.StartReadyCountdownGadget
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::StartReadyCountdownGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "StartReadyCountdownGadget");
-
-	Params::OakUIScript_HudSkills_StartReadyCountdownGadget Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.StartReadyCountdownPrimarySkill
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::StartReadyCountdownPrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "StartReadyCountdownPrimarySkill");
-
-	Params::OakUIScript_HudSkills_StartReadyCountdownPrimarySkill Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.StartReadyCountdownSecondarySkill
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::StartReadyCountdownSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "StartReadyCountdownSecondarySkill");
-
-	Params::OakUIScript_HudSkills_StartReadyCountdownSecondarySkill Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownOneGadget
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::TickReadyCountdownOneGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownOneGadget");
-
-	Params::OakUIScript_HudSkills_TickReadyCountdownOneGadget Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownOnePrimarySkill
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::TickReadyCountdownOnePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownOnePrimarySkill");
-
-	Params::OakUIScript_HudSkills_TickReadyCountdownOnePrimarySkill Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownOneSecondarySkill
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::TickReadyCountdownOneSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownOneSecondarySkill");
-
-	Params::OakUIScript_HudSkills_TickReadyCountdownOneSecondarySkill Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownThreeGadget
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::TickReadyCountdownThreeGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownThreeGadget");
-
-	Params::OakUIScript_HudSkills_TickReadyCountdownThreeGadget Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownThreePrimarySkill
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::TickReadyCountdownThreePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownThreePrimarySkill");
-
-	Params::OakUIScript_HudSkills_TickReadyCountdownThreePrimarySkill Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownThreeSecondarySkill
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::TickReadyCountdownThreeSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownThreeSecondarySkill");
-
-	Params::OakUIScript_HudSkills_TickReadyCountdownThreeSecondarySkill Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownTwoGadget
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::TickReadyCountdownTwoGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownTwoGadget");
-
-	Params::OakUIScript_HudSkills_TickReadyCountdownTwoGadget Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownTwoPrimarySkill
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::TickReadyCountdownTwoPrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownTwoPrimarySkill");
-
-	Params::OakUIScript_HudSkills_TickReadyCountdownTwoPrimarySkill Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownTwoSecondarySkill
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::TickReadyCountdownTwoSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownTwoSecondarySkill");
-
-	Params::OakUIScript_HudSkills_TickReadyCountdownTwoSecondarySkill Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.UseGadget
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::UseGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "UseGadget");
-
-	Params::OakUIScript_HudSkills_UseGadget Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.UsePrimarySkill
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::UsePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "UsePrimarySkill");
-
-	Params::OakUIScript_HudSkills_UsePrimarySkill Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_HudSkills.UseSecondarySkill
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_HudSkills::UseSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_HudSkills", "UseSecondarySkill");
-
-	Params::OakUIScript_HudSkills_UseSecondarySkill Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
+	Func->FunctionFlags = Flgs;
 }
 
 
@@ -10677,6 +8522,31 @@ bool AOakCharacter::GetSerialNumber(const class FName& InChannel, class FString*
 }
 
 
+// Function OakGame.OakCharacter.GetSwimmingAreaType
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// EOakSwimmingAreaType                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+EOakSwimmingAreaType AOakCharacter::GetSwimmingAreaType() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakCharacter", "GetSwimmingAreaType");
+
+	Params::OakCharacter_GetSwimmingAreaType Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function OakGame.OakCharacter.InDownState
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
@@ -11005,459 +8875,22 @@ bool AOakCharacter::IsResurrecting() const
 }
 
 
-// Function OakGame.OakUIScript_CelebratoryNotifications.AcceptContract
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// Function OakGame.GrapplePoint.OnPlayerProxySpawned
+// (Final, Native, Public)
 
-void UOakUIScript_CelebratoryNotifications::AcceptContract(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void AGrapplePoint::OnPlayerProxySpawned()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "AcceptContract");
+		Func = Class->GetFunction("GrapplePoint", "OnPlayerProxySpawned");
 
-	Params::OakUIScript_CelebratoryNotifications_AcceptContract Parms{};
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
 
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
+	UObject::ProcessEvent(Func, nullptr);
 
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.AcceptMission
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::AcceptMission(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "AcceptMission");
-
-	Params::OakUIScript_CelebratoryNotifications_AcceptMission Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.ActivateMayhemMode
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::ActivateMayhemMode(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "ActivateMayhemMode");
-
-	Params::OakUIScript_CelebratoryNotifications_ActivateMayhemMode Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.ActivityComplete
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::ActivityComplete(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "ActivityComplete");
-
-	Params::OakUIScript_CelebratoryNotifications_ActivityComplete Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.ActivityDiscovered
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::ActivityDiscovered(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "ActivityDiscovered");
-
-	Params::OakUIScript_CelebratoryNotifications_ActivityDiscovered Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.CollectibleFound
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::CollectibleFound(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "CollectibleFound");
-
-	Params::OakUIScript_CelebratoryNotifications_CollectibleFound Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.CompleteChallenge
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::CompleteChallenge(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "CompleteChallenge");
-
-	Params::OakUIScript_CelebratoryNotifications_CompleteChallenge Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.CompleteContract
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::CompleteContract(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "CompleteContract");
-
-	Params::OakUIScript_CelebratoryNotifications_CompleteContract Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.CompleteMission
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::CompleteMission(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "CompleteMission");
-
-	Params::OakUIScript_CelebratoryNotifications_CompleteMission Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.DeactivateMayhemMode
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::DeactivateMayhemMode(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "DeactivateMayhemMode");
-
-	Params::OakUIScript_CelebratoryNotifications_DeactivateMayhemMode Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.DiscoverLocation
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::DiscoverLocation(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "DiscoverLocation");
-
-	Params::OakUIScript_CelebratoryNotifications_DiscoverLocation Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.EnterLocation
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::EnterLocation(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "EnterLocation");
-
-	Params::OakUIScript_CelebratoryNotifications_EnterLocation Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.NotifyLevelUp
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::NotifyLevelUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "NotifyLevelUp");
-
-	Params::OakUIScript_CelebratoryNotifications_NotifyLevelUp Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.NotifyReachLevel2
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::NotifyReachLevel2(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "NotifyReachLevel2");
-
-	Params::OakUIScript_CelebratoryNotifications_NotifyReachLevel2 Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.PressButtonPrompt
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::PressButtonPrompt(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "PressButtonPrompt");
-
-	Params::OakUIScript_CelebratoryNotifications_PressButtonPrompt Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.TrackContract
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::TrackContract(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "TrackContract");
-
-	Params::OakUIScript_CelebratoryNotifications_TrackContract Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.TrackMission
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::TrackMission(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "TrackMission");
-
-	Params::OakUIScript_CelebratoryNotifications_TrackMission Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.UnlockChallenge
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::UnlockChallenge(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "UnlockChallenge");
-
-	Params::OakUIScript_CelebratoryNotifications_UnlockChallenge Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_CelebratoryNotifications.UnlockMode
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_CelebratoryNotifications::UnlockMode(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "UnlockMode");
-
-	Params::OakUIScript_CelebratoryNotifications_UnlockMode Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
+	Func->FunctionFlags = Flgs;
 }
 
 
@@ -11515,6 +8948,109 @@ void AOakSkillCharacter_PhaseFamiliar::OnRep_Revealed()
 	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakActorScript_BioArmor.BioArmorVFXTransitionDeactivation
+// (Final, Native, Private)
+// Parameters:
+// class UNiagaraComponent*                PSystem                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakActorScript_BioArmor::BioArmorVFXTransitionDeactivation(class UNiagaraComponent* PSystem)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakActorScript_BioArmor", "BioArmorVFXTransitionDeactivation");
+
+	Params::OakActorScript_BioArmor_BioArmorVFXTransitionDeactivation Parms{};
+
+	Parms.PSystem = PSystem;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakActorScript_BioArmor.SetReactivationDelay
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   ReactivationDelay_0                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakActorScript_BioArmor::SetReactivationDelay(float ReactivationDelay_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakActorScript_BioArmor", "SetReactivationDelay");
+
+	Params::OakActorScript_BioArmor_SetReactivationDelay Parms{};
+
+	Parms.ReactivationDelay_0 = ReactivationDelay_0;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakActorScript_BioArmor.TryActivateArmor
+// (Final, Native, Public)
+// Parameters:
+// bool                                    bIsInstantaneous                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UOakActorScript_BioArmor::TryActivateArmor(bool bIsInstantaneous)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakActorScript_BioArmor", "TryActivateArmor");
+
+	Params::OakActorScript_BioArmor_TryActivateArmor Parms{};
+
+	Parms.bIsInstantaneous = bIsInstantaneous;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakActorScript_BioArmor.IsArmored
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UOakActorScript_BioArmor::IsArmored() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakActorScript_BioArmor", "IsArmored");
+
+	Params::OakActorScript_BioArmor_IsArmored Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 
@@ -11741,193 +9277,147 @@ bool UGbxSkillComponentFunctions_PhaseFamiliar::StartBadassMode(const struct FGb
 }
 
 
-// Function OakGame.OakBasePlayerController.AddUIViewState
-// (Net, NetReliable, Native, Event, Public, NetClient)
+// Function OakGame.OakUIScript_MainMenu.ContinueCampaign
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
-// const struct FGameplayTag&              InState                                                (ConstParm, Parm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AOakBasePlayerController::AddUIViewState(const struct FGameplayTag& InState)
+void UOakUIScript_MainMenu::ContinueCampaign(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakBasePlayerController", "AddUIViewState");
+		Func = Class->GetFunction("OakUIScript_MainMenu", "ContinueCampaign");
 
-	Params::OakBasePlayerController_AddUIViewState Parms{};
+	Params::OakUIScript_MainMenu_ContinueCampaign Parms{};
 
-	Parms.InState = std::move(InState);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
 
 	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
 }
 
 
-// Function OakGame.OakProjectile.OnActorOverlap
-// (Final, Native, Public)
+// Function OakGame.OakUIScript_MainMenu.CoopRelinquish
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
-// class AActor*                           OverlappedActor                                        (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AOakProjectile::OnActorOverlap(class AActor* OverlappedActor, class AActor* OtherActor)
+void UOakUIScript_MainMenu::CoopRelinquish(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakProjectile", "OnActorOverlap");
+		Func = Class->GetFunction("OakUIScript_MainMenu", "CoopRelinquish");
 
-	Params::OakProjectile_OnActorOverlap Parms{};
+	Params::OakUIScript_MainMenu_CoopRelinquish Parms{};
 
-	Parms.OverlappedActor = OverlappedActor;
-	Parms.OtherActor = OtherActor;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
 
 	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
 }
 
 
-// Function OakGame.OakProjectile.SetGrappleableEnabled
-// (Final, BlueprintAuthorityOnly, Native, Public, BlueprintCallable)
+// Function OakGame.OakUIScript_MainMenu.DifficultySwapEasy
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
-// bool                                    bNewIsEnabled                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AOakProjectile::SetGrappleableEnabled(bool bNewIsEnabled)
+void UOakUIScript_MainMenu::DifficultySwapEasy(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakProjectile", "SetGrappleableEnabled");
+		Func = Class->GetFunction("OakUIScript_MainMenu", "DifficultySwapEasy");
 
-	Params::OakProjectile_SetGrappleableEnabled Parms{};
+	Params::OakUIScript_MainMenu_DifficultySwapEasy Parms{};
 
-	Parms.bNewIsEnabled = bNewIsEnabled;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
 
 	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
 }
 
 
-// Function OakGame.OakProjectile.IsGrappleableEnabled
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Function OakGame.OakUIScript_MainMenu.DifficultySwapHard
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool AOakProjectile::IsGrappleableEnabled() const
+void UOakUIScript_MainMenu::DifficultySwapHard(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakProjectile", "IsGrappleableEnabled");
+		Func = Class->GetFunction("OakUIScript_MainMenu", "DifficultySwapHard");
 
-	Params::OakProjectile_IsGrappleableEnabled Parms{};
+	Params::OakUIScript_MainMenu_DifficultySwapHard Parms{};
 
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
 
 	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
-// Function OakGame.OakActorScript_Echo4.ExitPerch
-// (Final, Native, Public, BlueprintCallable)
-
-void UOakActorScript_Echo4::ExitPerch()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakActorScript_Echo4", "ExitPerch");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakActorScript_Echo4.GetPerchTarget
-// (Final, Native, Public, BlueprintCallable)
+// Function OakGame.OakUIScript_MainMenu.DifficultySwapMedium
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
-// class AActor*                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class AActor* UOakActorScript_Echo4::GetPerchTarget()
+void UOakUIScript_MainMenu::DifficultySwapMedium(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakActorScript_Echo4", "GetPerchTarget");
+		Func = Class->GetFunction("OakUIScript_MainMenu", "DifficultySwapMedium");
 
-	Params::OakActorScript_Echo4_GetPerchTarget Parms{};
+	Params::OakUIScript_MainMenu_DifficultySwapMedium Parms{};
 
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
 
 	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
-// Function OakGame.OakActorScript_Echo4.NotifyEchoLocationAnimFinished
-// (Final, Native, Public, BlueprintCallable)
-
-void UOakActorScript_Echo4::NotifyEchoLocationAnimFinished()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakActorScript_Echo4", "NotifyEchoLocationAnimFinished");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakActorScript_Echo4.IsDeployedForEchoLocation
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Function OakGame.OakUIScript_MainMenu.DifficultySwapVeryHard
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UOakActorScript_Echo4::IsDeployedForEchoLocation() const
+void UOakUIScript_MainMenu::DifficultySwapVeryHard(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakActorScript_Echo4", "IsDeployedForEchoLocation");
+		Func = Class->GetFunction("OakUIScript_MainMenu", "DifficultySwapVeryHard");
 
-	Params::OakActorScript_Echo4_IsDeployedForEchoLocation Parms{};
+	Params::OakUIScript_MainMenu_DifficultySwapVeryHard Parms{};
 
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
 
 	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
@@ -12038,21 +9528,21 @@ void UGbxSkillComponentFunctions_ActionSkill_Exo::RegisterBBInitFunc(const struc
 }
 
 
-// Function OakGame.OakUIScript_MissionAccept.MissionAccepted
+// Function OakGame.OakUIScript_Global.HoldActionLoop
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MissionAccept::MissionAccepted(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Global::HoldActionLoop(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MissionAccept", "MissionAccepted");
+		Func = Class->GetFunction("OakUIScript_Global", "HoldActionLoop");
 
-	Params::OakUIScript_MissionAccept_MissionAccepted Parms{};
+	Params::OakUIScript_Global_HoldActionLoop Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -12062,21 +9552,21 @@ void UOakUIScript_MissionAccept::MissionAccepted(class UObject* WorldContextObje
 }
 
 
-// Function OakGame.OakUIScript_MissionAccept.MissionAcceptedAndTracked
+// Function OakGame.OakUIScript_Global.HoldActionStart
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MissionAccept::MissionAcceptedAndTracked(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Global::HoldActionStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MissionAccept", "MissionAcceptedAndTracked");
+		Func = Class->GetFunction("OakUIScript_Global", "HoldActionStart");
 
-	Params::OakUIScript_MissionAccept_MissionAcceptedAndTracked Parms{};
+	Params::OakUIScript_Global_HoldActionStart Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -12086,21 +9576,189 @@ void UOakUIScript_MissionAccept::MissionAcceptedAndTracked(class UObject* WorldC
 }
 
 
-// Function OakGame.OakUIScript_MissionAccept.MissionTracked
+// Function OakGame.OakUIScript_Global.HoldActionStop
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MissionAccept::MissionTracked(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Global::HoldActionStop(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MissionAccept", "MissionTracked");
+		Func = Class->GetFunction("OakUIScript_Global", "HoldActionStop");
 
-	Params::OakUIScript_MissionAccept_MissionTracked Parms{};
+	Params::OakUIScript_Global_HoldActionStop Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Global.SliderDown
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Global::SliderDown(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Global", "SliderDown");
+
+	Params::OakUIScript_Global_SliderDown Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Global.SliderError
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Global::SliderError(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Global", "SliderError");
+
+	Params::OakUIScript_Global_SliderError Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Global.SliderUp
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Global::SliderUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Global", "SliderUp");
+
+	Params::OakUIScript_Global_SliderUp Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Global.StepperLeft
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Global::StepperLeft(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Global", "StepperLeft");
+
+	Params::OakUIScript_Global_StepperLeft Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Global.StepperRight
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Global::StepperRight(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Global", "StepperRight");
+
+	Params::OakUIScript_Global_StepperRight Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Global.SwitchOff
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Global::SwitchOff(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Global", "SwitchOff");
+
+	Params::OakUIScript_Global_SwitchOff Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Global.SwitchOn
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Global::SwitchOn(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Global", "SwitchOn");
+
+	Params::OakUIScript_Global_SwitchOn Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -12252,82 +9910,76 @@ void UGbxTrickScript_Stasis_Grav::OnUnstableChanged(float NewValue)
 }
 
 
-// Function OakGame.OakUIScript_ItemInspect.InspectNewItem
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Function OakGame.OakWeapon.ClientReduceWear
+// (Net, NetReliable, Native, Event, Protected, NetClient)
 // Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// uint8                                   UseModeIndex                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Percent                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_ItemInspect::InspectNewItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void AOakWeapon::ClientReduceWear(uint8 UseModeIndex, float Percent)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_ItemInspect", "InspectNewItem");
+		Func = Class->GetFunction("OakWeapon", "ClientReduceWear");
 
-	Params::OakUIScript_ItemInspect_InspectNewItem Parms{};
+	Params::OakWeapon_ClientReduceWear Parms{};
 
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
+	Parms.UseModeIndex = UseModeIndex;
+	Parms.Percent = Percent;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakWeaponStatics.AbsorbAmmoToCurrentCharacterWeapon
-// (Final, BlueprintAuthorityOnly, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   Amount                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bAsPercent                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bAllowForHeavyWeapons                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakWeaponStatics::AbsorbAmmoToCurrentCharacterWeapon(class UObject* OwnerContext, int32 Amount, bool bAsPercent, bool bAllowForHeavyWeapons)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakWeaponStatics", "AbsorbAmmoToCurrentCharacterWeapon");
-
-	Params::OakWeaponStatics_AbsorbAmmoToCurrentCharacterWeapon Parms{};
-
-	Parms.OwnerContext = OwnerContext;
-	Parms.Amount = Amount;
-	Parms.bAsPercent = bAsPercent;
-	Parms.bAllowForHeavyWeapons = bAllowForHeavyWeapons;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
 
 
-// Function OakGame.OakWeaponStatics.GetCurrentElementalType
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Function OakGame.OakWeapon.ServerSetCommandRingTarget
+// (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
-// class AWeapon*                          Weapon                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EOakElementalType                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FCommandRingTarget&        target                                                 (ConstParm, Parm, ReferenceParm, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
-EOakElementalType UOakWeaponStatics::GetCurrentElementalType(class AWeapon* Weapon)
+void AOakWeapon::ServerSetCommandRingTarget(const struct FCommandRingTarget& target)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakWeaponStatics", "GetCurrentElementalType");
+		Func = Class->GetFunction("OakWeapon", "ServerSetCommandRingTarget");
 
-	Params::OakWeaponStatics_GetCurrentElementalType Parms{};
+	Params::OakWeapon_ServerSetCommandRingTarget Parms{};
 
-	Parms.Weapon = Weapon;
+	Parms.target = std::move(target);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakWeapon.GetChargePercent
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float AOakWeapon::GetChargePercent() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakWeapon", "GetChargePercent");
+
+	Params::OakWeapon_GetChargePercent Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 
@@ -12335,29 +9987,27 @@ EOakElementalType UOakWeaponStatics::GetCurrentElementalType(class AWeapon* Weap
 }
 
 
-// Function OakGame.OakWeaponStatics.GetElementalType
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Function OakGame.OakWeapon.GetPartValue
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class AWeapon*                          Weapon                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// uint8                                   UseMode                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EOakElementalType                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EWeaponPartValue                        type                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-EOakElementalType UOakWeaponStatics::GetElementalType(class AWeapon* Weapon, uint8 UseMode)
+int32 AOakWeapon::GetPartValue(EWeaponPartValue type) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakWeaponStatics", "GetElementalType");
+		Func = Class->GetFunction("OakWeapon", "GetPartValue");
 
-	Params::OakWeaponStatics_GetElementalType Parms{};
+	Params::OakWeapon_GetPartValue Parms{};
 
-	Parms.Weapon = Weapon;
-	Parms.UseMode = UseMode;
+	Parms.type = type;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 
@@ -12365,151 +10015,28 @@ EOakElementalType UOakWeaponStatics::GetElementalType(class AWeapon* Weapon, uin
 }
 
 
-// Function OakGame.OakWeaponStatics.GetWeaponDefinitionOverrideTags
-// (Final, Native, Static, Protected, HasOutParams)
+// Function OakGame.WaypointSystemDelegateProxy.OnDataLayerStateChanged
+// (Final, Native, Public)
 // Parameters:
-// TArray<class FName>*                    OutNames                                               (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+// const class UDataLayerInstance*         InDataLayer                                            (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EDataLayerRuntimeState                  InState                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakWeaponStatics::GetWeaponDefinitionOverrideTags(TArray<class FName>* OutNames)
+void UWaypointSystemDelegateProxy::OnDataLayerStateChanged(const class UDataLayerInstance* InDataLayer, EDataLayerRuntimeState InState)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakWeaponStatics", "GetWeaponDefinitionOverrideTags");
+		Func = Class->GetFunction("WaypointSystemDelegateProxy", "OnDataLayerStateChanged");
 
-	Params::OakWeaponStatics_GetWeaponDefinitionOverrideTags Parms{};
+	Params::WaypointSystemDelegateProxy_OnDataLayerStateChanged Parms{};
 
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (OutNames != nullptr)
-		*OutNames = std::move(Parms.OutNames);
-}
-
-
-// Function OakGame.OakWeaponStatics.GiveAmmoToCurrentCharacterWeapon
-// (Final, BlueprintAuthorityOnly, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   Amount                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bLoaded                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bAsPercent                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bAllowForHeavyWeapons                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakWeaponStatics::GiveAmmoToCurrentCharacterWeapon(class UObject* OwnerContext, int32 Amount, bool bLoaded, bool bAsPercent, bool bAllowForHeavyWeapons)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakWeaponStatics", "GiveAmmoToCurrentCharacterWeapon");
-
-	Params::OakWeaponStatics_GiveAmmoToCurrentCharacterWeapon Parms{};
-
-	Parms.OwnerContext = OwnerContext;
-	Parms.Amount = Amount;
-	Parms.bLoaded = bLoaded;
-	Parms.bAsPercent = bAsPercent;
-	Parms.bAllowForHeavyWeapons = bAllowForHeavyWeapons;
+	Parms.InDataLayer = InDataLayer;
+	Parms.InState = InState;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakWeaponStatics.RefillAmmoForCurrentCharacterWeapon
-// (Final, BlueprintAuthorityOnly, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   Amount                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bAsPercent                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakWeaponStatics::RefillAmmoForCurrentCharacterWeapon(class UObject* OwnerContext, int32 Amount, bool bAsPercent)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakWeaponStatics", "RefillAmmoForCurrentCharacterWeapon");
-
-	Params::OakWeaponStatics_RefillAmmoForCurrentCharacterWeapon Parms{};
-
-	Parms.OwnerContext = OwnerContext;
-	Parms.Amount = Amount;
-	Parms.bAsPercent = bAsPercent;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakWeaponStatics.ReloadAllWeapons
-// (Final, BlueprintAuthorityOnly, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bActiveWeaponIncluded                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakWeaponStatics::ReloadAllWeapons(class UObject* OwnerContext, bool bActiveWeaponIncluded)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakWeaponStatics", "ReloadAllWeapons");
-
-	Params::OakWeaponStatics_ReloadAllWeapons Parms{};
-
-	Parms.OwnerContext = OwnerContext;
-	Parms.bActiveWeaponIncluded = bActiveWeaponIncluded;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakWeaponStatics.ThrowEquippedWeapon
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AActor*                           WeaponUser                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   actions                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// uint8                                   slot                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   DamageOverride                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   DamageRadiusOverride                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   LifetimeOverride                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakWeaponStatics::ThrowEquippedWeapon(class AActor* WeaponUser, int32 actions, uint8 slot, float DamageOverride, float DamageRadiusOverride, float LifetimeOverride)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakWeaponStatics", "ThrowEquippedWeapon");
-
-	Params::OakWeaponStatics_ThrowEquippedWeapon Parms{};
-
-	Parms.WeaponUser = WeaponUser;
-	Parms.actions = actions;
-	Parms.slot = slot;
-	Parms.DamageOverride = DamageOverride;
-	Parms.DamageRadiusOverride = DamageRadiusOverride;
-	Parms.LifetimeOverride = LifetimeOverride;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -12594,6 +10121,78 @@ void UGbxSkillComponentFunctions_Gravitar::SetCommandRingVisible(const struct FG
 	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakUIScript_MenuTutorial.OnMenuTutorialSequenceClosed
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_MenuTutorial::OnMenuTutorialSequenceClosed(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_MenuTutorial", "OnMenuTutorialSequenceClosed");
+
+	Params::OakUIScript_MenuTutorial_OnMenuTutorialSequenceClosed Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_MenuTutorial.OnMenuTutorialSequenceNext
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_MenuTutorial::OnMenuTutorialSequenceNext(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_MenuTutorial", "OnMenuTutorialSequenceNext");
+
+	Params::OakUIScript_MenuTutorial_OnMenuTutorialSequenceNext Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_MenuTutorial.OnMenuTutorialSequenceOpen
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_MenuTutorial::OnMenuTutorialSequenceOpen(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_MenuTutorial", "OnMenuTutorialSequenceOpen");
+
+	Params::OakUIScript_MenuTutorial_OnMenuTutorialSequenceOpen Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -12787,62 +10386,6 @@ void UGbxSkillComponentFunctions_ActionSkill_Paladin::SetCryoSlowLocked(const st
 }
 
 
-// Function OakGame.OakAttributeDefinedSummaryLibrary.GetSummary_ChanceDefinedValueRow
-// (Final, Native, Static, Public, HasOutParams)
-// Parameters:
-// const struct FChanceDefinedValueRow&    Struct                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FString UOakAttributeDefinedSummaryLibrary::GetSummary_ChanceDefinedValueRow(const struct FChanceDefinedValueRow& Struct)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakAttributeDefinedSummaryLibrary", "GetSummary_ChanceDefinedValueRow");
-
-	Params::OakAttributeDefinedSummaryLibrary_GetSummary_ChanceDefinedValueRow Parms{};
-
-	Parms.Struct = std::move(Struct);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakAttributeDefinedSummaryLibrary.GetSummary_LootChanceDefinedValueRow
-// (Final, Native, Static, Public, HasOutParams)
-// Parameters:
-// const struct FLootChanceDefinedValueRow&Struct                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FString UOakAttributeDefinedSummaryLibrary::GetSummary_LootChanceDefinedValueRow(const struct FLootChanceDefinedValueRow& Struct)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakAttributeDefinedSummaryLibrary", "GetSummary_LootChanceDefinedValueRow");
-
-	Params::OakAttributeDefinedSummaryLibrary_GetSummary_LootChanceDefinedValueRow Parms{};
-
-	Parms.Struct = std::move(Struct);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function OakGame.GbxSkillComponentFunctions_CharacterLocks.SetProfileEnabled
 // (Final, Native, Static, Private, HasDefaults, BlueprintCallable)
 // Parameters:
@@ -12897,147 +10440,30 @@ void UGbxSkillComponentFunctions_CharacterLocks::ClearLocks(const struct FGbxSki
 }
 
 
-// Function OakGame.OakUIScript_MissionTracker.HideObjectives
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Function OakGame.OakAIHeldLootableComponent.Lootable_OnPhysicsSleep
+// (Final, Native, Private)
 // Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              Component                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MissionTracker::HideObjectives(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakAIHeldLootableComponent::Lootable_OnPhysicsSleep(class UPrimitiveComponent* Component, class FName BoneName)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MissionTracker", "HideObjectives");
+		Func = Class->GetFunction("OakAIHeldLootableComponent", "Lootable_OnPhysicsSleep");
 
-	Params::OakUIScript_MissionTracker_HideObjectives Parms{};
+	Params::OakAIHeldLootableComponent_Lootable_OnPhysicsSleep Parms{};
 
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
+	Parms.Component = Component;
+	Parms.BoneName = BoneName;
 
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_MissionTracker.missioncompleted
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_MissionTracker::missioncompleted(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MissionTracker", "missioncompleted");
-
-	Params::OakUIScript_MissionTracker_missioncompleted Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
-}
 
-
-// Function OakGame.OakUIScript_MissionTracker.MissionFailed
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_MissionTracker::MissionFailed(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MissionTracker", "MissionFailed");
-
-	Params::OakUIScript_MissionTracker_MissionFailed Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_MissionTracker.ObjectiveCompleted
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_MissionTracker::ObjectiveCompleted(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MissionTracker", "ObjectiveCompleted");
-
-	Params::OakUIScript_MissionTracker_ObjectiveCompleted Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_MissionTracker.ObjectiveFailed
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_MissionTracker::ObjectiveFailed(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MissionTracker", "ObjectiveFailed");
-
-	Params::OakUIScript_MissionTracker_ObjectiveFailed Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_MissionTracker.ShowObjectives
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_MissionTracker::ShowObjectives(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MissionTracker", "ShowObjectives");
-
-	Params::OakUIScript_MissionTracker_ShowObjectives Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
+	Func->FunctionFlags = Flgs;
 }
 
 
@@ -13793,124 +11219,6 @@ void UGbxTrickScript_AITargetLock::OnTargetLockEnded(class AActor* Actor, EAITar
 }
 
 
-// Function OakGame.OakStasisBlueprintLibrary.End
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakStasisBlueprintLibrary::End(class AActor* target)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakStasisBlueprintLibrary", "End");
-
-	Params::OakStasisBlueprintLibrary_End Parms{};
-
-	Parms.target = target;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakStasisBlueprintLibrary.Fling
-// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
-// Parameters:
-// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector&                   TargetLocation                                         (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(class AActor* target)>   OnEnd                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakStasisBlueprintLibrary::Fling(class AActor* target, const struct FVector& TargetLocation, TDelegate<void(class AActor* target)> OnEnd)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakStasisBlueprintLibrary", "Fling");
-
-	Params::OakStasisBlueprintLibrary_Fling Parms{};
-
-	Parms.target = target;
-	Parms.TargetLocation = std::move(TargetLocation);
-	Parms.OnEnd = OnEnd;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakStasisBlueprintLibrary.Hold
-// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
-// Parameters:
-// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UGbxTrick_Stasis*                 Trick                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector&                   HoldLocation                                           (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   SpeedModifier                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakStasisBlueprintLibrary::Hold(class AActor* target, class UGbxTrick_Stasis* Trick, const struct FVector& HoldLocation, float SpeedModifier)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakStasisBlueprintLibrary", "Hold");
-
-	Params::OakStasisBlueprintLibrary_Hold Parms{};
-
-	Parms.target = target;
-	Parms.Trick = Trick;
-	Parms.HoldLocation = std::move(HoldLocation);
-	Parms.SpeedModifier = SpeedModifier;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakStasisBlueprintLibrary.Hold_WithOnHoldTargetReachedDelegate
-// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
-// Parameters:
-// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UGbxTrick_Stasis*                 Trick                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector&                   HoldLocation                                           (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(class AActor* target)>   OnHoldTargetReached                                    (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   SpeedModifier                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakStasisBlueprintLibrary::Hold_WithOnHoldTargetReachedDelegate(class AActor* target, class UGbxTrick_Stasis* Trick, const struct FVector& HoldLocation, TDelegate<void(class AActor* target)> OnHoldTargetReached, float SpeedModifier)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakStasisBlueprintLibrary", "Hold_WithOnHoldTargetReachedDelegate");
-
-	Params::OakStasisBlueprintLibrary_Hold_WithOnHoldTargetReachedDelegate Parms{};
-
-	Parms.target = target;
-	Parms.Trick = Trick;
-	Parms.HoldLocation = std::move(HoldLocation);
-	Parms.OnHoldTargetReached = OnHoldTargetReached;
-	Parms.SpeedModifier = SpeedModifier;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function OakGame.OakVehicle.ClientLockWeaponActions
 // (Net, NetReliable, Native, Event, Protected, NetClient)
 // Parameters:
@@ -14458,6 +11766,124 @@ void AOakVehicle::WeaponPutDown(class AWeapon* Weapon)
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakStasisBlueprintLibrary.End
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakStasisBlueprintLibrary::End(class AActor* target)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakStasisBlueprintLibrary", "End");
+
+	Params::OakStasisBlueprintLibrary_End Parms{};
+
+	Parms.target = target;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakStasisBlueprintLibrary.Fling
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// Parameters:
+// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector&                   TargetLocation                                         (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(class AActor* target)>   OnEnd                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakStasisBlueprintLibrary::Fling(class AActor* target, const struct FVector& TargetLocation, TDelegate<void(class AActor* target)> OnEnd)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakStasisBlueprintLibrary", "Fling");
+
+	Params::OakStasisBlueprintLibrary_Fling Parms{};
+
+	Parms.target = target;
+	Parms.TargetLocation = std::move(TargetLocation);
+	Parms.OnEnd = OnEnd;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakStasisBlueprintLibrary.Hold
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// Parameters:
+// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UGbxTrick_Stasis*                 Trick                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector&                   HoldLocation                                           (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   SpeedModifier                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakStasisBlueprintLibrary::Hold(class AActor* target, class UGbxTrick_Stasis* Trick, const struct FVector& HoldLocation, float SpeedModifier)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakStasisBlueprintLibrary", "Hold");
+
+	Params::OakStasisBlueprintLibrary_Hold Parms{};
+
+	Parms.target = target;
+	Parms.Trick = Trick;
+	Parms.HoldLocation = std::move(HoldLocation);
+	Parms.SpeedModifier = SpeedModifier;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakStasisBlueprintLibrary.Hold_WithOnHoldTargetReachedDelegate
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// Parameters:
+// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UGbxTrick_Stasis*                 Trick                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector&                   HoldLocation                                           (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(class AActor* target)>   OnHoldTargetReached                                    (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   SpeedModifier                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakStasisBlueprintLibrary::Hold_WithOnHoldTargetReachedDelegate(class AActor* target, class UGbxTrick_Stasis* Trick, const struct FVector& HoldLocation, TDelegate<void(class AActor* target)> OnHoldTargetReached, float SpeedModifier)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakStasisBlueprintLibrary", "Hold_WithOnHoldTargetReachedDelegate");
+
+	Params::OakStasisBlueprintLibrary_Hold_WithOnHoldTargetReachedDelegate Parms{};
+
+	Parms.target = target;
+	Parms.Trick = Trick;
+	Parms.HoldLocation = std::move(HoldLocation);
+	Parms.OnHoldTargetReached = OnHoldTargetReached;
+	Parms.SpeedModifier = SpeedModifier;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -17177,75 +14603,6 @@ bool AOakPlayerController::IsIdle() const
 }
 
 
-// Function OakGame.GrenadeGadget.DetonateGrenades
-// (Final, Native, Public, BlueprintCallable)
-
-void AGrenadeGadget::DetonateGrenades()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("GrenadeGadget", "DetonateGrenades");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.GrenadeGadget.ExplodeCallback
-// (Final, Native, Protected)
-// Parameters:
-// const class AActor*                     projectile                                             (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AGrenadeGadget::ExplodeCallback(const class AActor* projectile)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("GrenadeGadget", "ExplodeCallback");
-
-	Params::GrenadeGadget_ExplodeCallback Parms{};
-
-	Parms.projectile = projectile;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.GrenadeGadget.SpawnGrenade
-// (Final, BlueprintAuthorityOnly, Native, Protected, HasOutParams, BlueprintCallable)
-// Parameters:
-// const struct FSpawnGrenadeOptions&      SpawnGrenadeOptions                                    (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-
-void AGrenadeGadget::SpawnGrenade(const struct FSpawnGrenadeOptions& SpawnGrenadeOptions)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("GrenadeGadget", "SpawnGrenade");
-
-	Params::GrenadeGadget_SpawnGrenade Parms{};
-
-	Parms.SpawnGrenadeOptions = std::move(SpawnGrenadeOptions);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function OakGame.InteractiveItemContainer.OnRep_ConsumerPlayerController
 // (Native, Protected)
 
@@ -17300,6 +14657,34 @@ void AInteractiveItemContainer::OnRep_Timer()
 	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.InventoryItemBlueprintLibrary.GetSummary_InventoryItemSelectionData
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// Parameters:
+// const struct FInventoryItemSelectionData&data                                                   (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class FString UInventoryItemBlueprintLibrary::GetSummary_InventoryItemSelectionData(const struct FInventoryItemSelectionData& data)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("InventoryItemBlueprintLibrary", "GetSummary_InventoryItemSelectionData");
+
+	Params::InventoryItemBlueprintLibrary_GetSummary_InventoryItemSelectionData Parms{};
+
+	Parms.data = std::move(data);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 
@@ -17478,6 +14863,93 @@ void ULocalPlayerSubsystem_DispatchEvents::OnLeaveGameChoiceMade(const class FNa
 }
 
 
+// Function OakGame.LootableObject.OnComponentSleep
+// (Final, Native, Protected)
+// Parameters:
+// class UPrimitiveComponent*              SleepingComponent                                      (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void ALootableObject::OnComponentSleep(class UPrimitiveComponent* SleepingComponent, class FName BoneName)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("LootableObject", "OnComponentSleep");
+
+	Params::LootableObject_OnComponentSleep Parms{};
+
+	Parms.SleepingComponent = SleepingComponent;
+	Parms.BoneName = BoneName;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.LootableObject.OnMeshCollision
+// (Final, Native, Protected, HasOutParams, HasDefaults)
+// Parameters:
+// class UPrimitiveComponent*              HitComponent                                           (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector&                   NormalImpulse                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FHitResult&                Hit                                                    (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+void ALootableObject::OnMeshCollision(class UPrimitiveComponent* HitComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const struct FVector& NormalImpulse, const struct FHitResult& Hit)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("LootableObject", "OnMeshCollision");
+
+	Params::LootableObject_OnMeshCollision Parms{};
+
+	Parms.HitComponent = HitComponent;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.NormalImpulse = std::move(NormalImpulse);
+	Parms.Hit = std::move(Hit);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.LootableObject.OnMeshPhysicsStateChanged
+// (Final, Native, Protected)
+// Parameters:
+// class UPrimitiveComponent*              Component                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EComponentPhysicsStateChange            StateChange                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void ALootableObject::OnMeshPhysicsStateChanged(class UPrimitiveComponent* Component, EComponentPhysicsStateChange StateChange)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("LootableObject", "OnMeshPhysicsStateChanged");
+
+	Params::LootableObject_OnMeshPhysicsStateChanged Parms{};
+
+	Parms.Component = Component;
+	Parms.StateChange = StateChange;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function OakGame.LootGlobalsDefSummaryLibrary.GetSummary_CharacterDefContainer
 // (Final, Native, Static, Public, HasOutParams)
 // Parameters:
@@ -17506,55 +14978,57 @@ class FString ULootGlobalsDefSummaryLibrary::GetSummary_CharacterDefContainer(co
 }
 
 
-// Function OakGame.MissionTaskType_EventBoundary_Observer.OnActorEntered
-// (Final, Native, Private)
+// Function OakGame.OakTrackerBlueprintLibrary.ToggleVaultTrackingEnabled_Actor
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// class AActor*                           TouchingActor                                          (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bIsPlayer                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AOakVaultTrackable*               TrackedActor                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bEnabled                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMissionTaskType_EventBoundary_Observer::OnActorEntered(class AActor* TouchingActor, bool bIsPlayer)
+void UOakTrackerBlueprintLibrary::ToggleVaultTrackingEnabled_Actor(class AOakVaultTrackable* TrackedActor, bool bEnabled)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MissionTaskType_EventBoundary_Observer", "OnActorEntered");
+		Func = StaticClass()->GetFunction("OakTrackerBlueprintLibrary", "ToggleVaultTrackingEnabled_Actor");
 
-	Params::MissionTaskType_EventBoundary_Observer_OnActorEntered Parms{};
+	Params::OakTrackerBlueprintLibrary_ToggleVaultTrackingEnabled_Actor Parms{};
 
-	Parms.TouchingActor = TouchingActor;
-	Parms.bIsPlayer = bIsPlayer;
+	Parms.TrackedActor = TrackedActor;
+	Parms.bEnabled = bEnabled;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
 
 
-// Function OakGame.MissionTaskType_EventBoundary_Observer.OnActorLeft
-// (Final, Native, Private)
+// Function OakGame.OakTrackerBlueprintLibrary.ToggleVaultTrackingEnabled_Def
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// class AActor*                           TouchingActor                                          (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bIsPlayer                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UWorld*                           World                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGameDataHandleProperty_                LocDef                                                 (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bEnabled                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMissionTaskType_EventBoundary_Observer::OnActorLeft(class AActor* TouchingActor, bool bIsPlayer)
+void UOakTrackerBlueprintLibrary::ToggleVaultTrackingEnabled_Def(class UWorld* World, FGameDataHandleProperty_ LocDef, bool bEnabled)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MissionTaskType_EventBoundary_Observer", "OnActorLeft");
+		Func = StaticClass()->GetFunction("OakTrackerBlueprintLibrary", "ToggleVaultTrackingEnabled_Def");
 
-	Params::MissionTaskType_EventBoundary_Observer_OnActorLeft Parms{};
+	Params::OakTrackerBlueprintLibrary_ToggleVaultTrackingEnabled_Def Parms{};
 
-	Parms.TouchingActor = TouchingActor;
-	Parms.bIsPlayer = bIsPlayer;
+	Parms.World = World;
+	Parms.LocDef = LocDef;
+	Parms.bEnabled = bEnabled;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -17604,233 +15078,6 @@ void UMissionTaskType_TriggerVolume_Observer::OnActorLeft(class AActor* Touching
 
 	Parms.TouchingActor = TouchingActor;
 	Parms.bIsPlayer = bIsPlayer;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.ModularGrenade.ActivateGrenade
-// (Final, Native, Public, BlueprintCallable)
-
-void AModularGrenade::ActivateGrenade()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModularGrenade", "ActivateGrenade");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.ModularGrenade.DivideGrenade
-// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FVector&                   Direction                                              (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AModularGrenade::DivideGrenade(const struct FVector& Direction)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModularGrenade", "DivideGrenade");
-
-	Params::ModularGrenade_DivideGrenade Parms{};
-
-	Parms.Direction = std::move(Direction);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.ModularGrenade.OnRep_PayloadPostExploded
-// (Final, Native, Protected)
-
-void AModularGrenade::OnRep_PayloadPostExploded()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModularGrenade", "OnRep_PayloadPostExploded");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.ModularGrenade.PayloadBeginExplodeCallback
-// (Final, Native, Protected)
-
-void AModularGrenade::PayloadBeginExplodeCallback()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModularGrenade", "PayloadBeginExplodeCallback");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.ModularGrenade.PayloadBounceCallback
-// (Final, Native, Protected, HasOutParams, HasDefaults)
-// Parameters:
-// const struct FHitResult&                Impact                                                 (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-// const struct FVector&                   ImpactVelocity                                         (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AModularGrenade::PayloadBounceCallback(const struct FHitResult& Impact, const struct FVector& ImpactVelocity)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModularGrenade", "PayloadBounceCallback");
-
-	Params::ModularGrenade_PayloadBounceCallback Parms{};
-
-	Parms.Impact = std::move(Impact);
-	Parms.ImpactVelocity = std::move(ImpactVelocity);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.ModularGrenade.PayloadExplodeCallback
-// (Final, Native, Protected)
-// Parameters:
-// const class AActor*                     projectile                                             (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AModularGrenade::PayloadExplodeCallback(const class AActor* projectile)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModularGrenade", "PayloadExplodeCallback");
-
-	Params::ModularGrenade_PayloadExplodeCallback Parms{};
-
-	Parms.projectile = projectile;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.ModularGrenade.PayloadImpactCallback
-// (Final, Native, Protected, HasOutParams)
-// Parameters:
-// const struct FHitResult&                Impact                                                 (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-void AModularGrenade::PayloadImpactCallback(const struct FHitResult& Impact)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModularGrenade", "PayloadImpactCallback");
-
-	Params::ModularGrenade_PayloadImpactCallback Parms{};
-
-	Parms.Impact = std::move(Impact);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.ModularGrenade.PayloadTakingDamageCallback
-// (Final, Native, Protected, HasOutParams)
-// Parameters:
-// const struct FProjectileTakingDamageDetails&Details                                                (ConstParm, Parm, OutParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-void AModularGrenade::PayloadTakingDamageCallback(const struct FProjectileTakingDamageDetails& Details)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModularGrenade", "PayloadTakingDamageCallback");
-
-	Params::ModularGrenade_PayloadTakingDamageCallback Parms{};
-
-	Parms.Details = std::move(Details);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.ModularGrenade.SpawnChildGrenade
-// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FVector&                   Location                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector&                   Direction                                              (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   ChildDamage                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   ChildRadius                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   ChildForce                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   delay                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   SpeedOverride                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           IgnoreActor                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           TargetActor                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   InFuseTime                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AModularGrenade::SpawnChildGrenade(const struct FVector& Location, const struct FVector& Direction, float ChildDamage, float ChildRadius, float ChildForce, float delay, float SpeedOverride, class AActor* IgnoreActor, class AActor* TargetActor, float InFuseTime)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ModularGrenade", "SpawnChildGrenade");
-
-	Params::ModularGrenade_SpawnChildGrenade Parms{};
-
-	Parms.Location = std::move(Location);
-	Parms.Direction = std::move(Direction);
-	Parms.ChildDamage = ChildDamage;
-	Parms.ChildRadius = ChildRadius;
-	Parms.ChildForce = ChildForce;
-	Parms.delay = delay;
-	Parms.SpeedOverride = SpeedOverride;
-	Parms.IgnoreActor = IgnoreActor;
-	Parms.TargetActor = TargetActor;
-	Parms.InFuseTime = InFuseTime;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -18566,6 +15813,94 @@ void UOakActorScript_DamageableBell::SetBellColor(const struct FLinearColor& InC
 }
 
 
+// Function OakGame.OakActorScript_Echo4.ExitPerch
+// (Final, Native, Public, BlueprintCallable)
+
+void UOakActorScript_Echo4::ExitPerch()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakActorScript_Echo4", "ExitPerch");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakActorScript_Echo4.GetPerchTarget
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class AActor* UOakActorScript_Echo4::GetPerchTarget()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakActorScript_Echo4", "GetPerchTarget");
+
+	Params::OakActorScript_Echo4_GetPerchTarget Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakActorScript_Echo4.NotifyEchoLocationAnimFinished
+// (Final, Native, Public, BlueprintCallable)
+
+void UOakActorScript_Echo4::NotifyEchoLocationAnimFinished()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakActorScript_Echo4", "NotifyEchoLocationAnimFinished");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakActorScript_Echo4.IsDeployedForEchoLocation
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UOakActorScript_Echo4::IsDeployedForEchoLocation() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakActorScript_Echo4", "IsDeployedForEchoLocation");
+
+	Params::OakActorScript_Echo4_IsDeployedForEchoLocation Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function OakGame.OakActorScript_GrassBoss.OnRep_ArmorPartsToRegenerate
 // (Final, Native, Protected)
 
@@ -18594,25 +15929,6 @@ void UOakActorScript_GrassBoss::ShuffleArmorToRegenerate()
 
 	if (Func == nullptr)
 		Func = Class->GetFunction("OakActorScript_GrassBoss", "ShuffleArmorToRegenerate");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakActorScript_Phaseable.TryEnterPhasedState
-// (Final, Native, Public)
-
-void UOakActorScript_Phaseable::TryEnterPhasedState()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakActorScript_Phaseable", "TryEnterPhasedState");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -18738,65 +16054,136 @@ void UOakAICloakBlueprintLibrary::LockCloaking(class AActor* AIActor, class FNam
 }
 
 
-// Function OakGame.OakAIWeaponUserFunctionLibrary.LockAIFiring
-// (Final, Native, Static, Public, BlueprintCallable)
+// Function OakGame.OakZoneTransition.OnZoneBeginOverlap
+// (Final, Native, Protected, HasOutParams)
 // Parameters:
-// class AActor*                           AIActor                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             reason                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    Block                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FGbxAIHeldFilter&          WeaponFilter                                           (Parm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OverlappedComp                                         (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           Other                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bFromSweep                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FHitResult&                SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
-void UOakAIWeaponUserFunctionLibrary::LockAIFiring(class AActor* AIActor, class FName reason, bool Block, const struct FGbxAIHeldFilter& WeaponFilter)
+void AOakZoneTransition::OnZoneBeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* Other, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakAIWeaponUserFunctionLibrary", "LockAIFiring");
+		Func = Class->GetFunction("OakZoneTransition", "OnZoneBeginOverlap");
 
-	Params::OakAIWeaponUserFunctionLibrary_LockAIFiring Parms{};
+	Params::OakZoneTransition_OnZoneBeginOverlap Parms{};
 
-	Parms.AIActor = AIActor;
-	Parms.reason = reason;
-	Parms.Block = Block;
-	Parms.WeaponFilter = std::move(WeaponFilter);
+	Parms.OverlappedComp = OverlappedComp;
+	Parms.Other = Other;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
+	Parms.bFromSweep = bFromSweep;
+	Parms.SweepResult = std::move(SweepResult);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
 
 
-// Function OakGame.OakAIWeaponUserFunctionLibrary.LockAIScriptedFiring
-// (Final, Native, Static, Public, BlueprintCallable)
+// Function OakGame.OakZoneTransition.OnZoneEndOverlap
+// (Final, Native, Protected)
 // Parameters:
-// class AActor*                           AIActor                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             reason                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    Block                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bIgnoreFiringRestrictions                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FGbxAIHeldFilter&          WeaponFilter                                           (Parm, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OverlappedComp                                         (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           Other                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakAIWeaponUserFunctionLibrary::LockAIScriptedFiring(class AActor* AIActor, class FName reason, bool Block, bool bIgnoreFiringRestrictions, const struct FGbxAIHeldFilter& WeaponFilter)
+void AOakZoneTransition::OnZoneEndOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* Other, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakAIWeaponUserFunctionLibrary", "LockAIScriptedFiring");
+		Func = Class->GetFunction("OakZoneTransition", "OnZoneEndOverlap");
 
-	Params::OakAIWeaponUserFunctionLibrary_LockAIScriptedFiring Parms{};
+	Params::OakZoneTransition_OnZoneEndOverlap Parms{};
 
-	Parms.AIActor = AIActor;
-	Parms.reason = reason;
-	Parms.Block = Block;
-	Parms.bIgnoreFiringRestrictions = bIgnoreFiringRestrictions;
-	Parms.WeaponFilter = std::move(WeaponFilter);
+	Parms.OverlappedComp = OverlappedComp;
+	Parms.Other = Other;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakZoneTransition.GetTransitionEntryGate
+// (Final, BlueprintAuthorityOnly, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// EOakZoneTransitionGate                  ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+EOakZoneTransitionGate AOakZoneTransition::GetTransitionEntryGate() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakZoneTransition", "GetTransitionEntryGate");
+
+	Params::OakZoneTransition_GetTransitionEntryGate Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakAirlockTransition.PerformZoneTransition
+// (Final, Native, Public, BlueprintCallable)
+
+void AOakAirlockTransition::PerformZoneTransition()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakAirlockTransition", "PerformZoneTransition");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakAirlockTransition.PrepareZoneTransition
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class AOakPlayerController*             Controller                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakAirlockTransition::PrepareZoneTransition(class AOakPlayerController* Controller)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakAirlockTransition", "PrepareZoneTransition");
+
+	Params::OakAirlockTransition_PrepareZoneTransition Parms{};
+
+	Parms.Controller = Controller;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -19634,6 +17021,302 @@ const bool AOakBossFight::IsBossFightMissionDriven() const
 }
 
 
+// Function OakGame.OakBossStatics.GetTextFromUICharacterName
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// FGbxDefPtrProperty_                     UIName                                                 (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+
+class FText UOakBossStatics::GetTextFromUICharacterName(FGbxDefPtrProperty_ UIName)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakBossStatics", "GetTextFromUICharacterName");
+
+	Params::OakBossStatics_GetTextFromUICharacterName Parms{};
+
+	Parms.UIName = UIName;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakBossStatics.HasFightBeenCompleted
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AOakBossFight*                    BossFightActor                                         (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UOakBossStatics::HasFightBeenCompleted(class AOakBossFight* BossFightActor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakBossStatics", "HasFightBeenCompleted");
+
+	Params::OakBossStatics_HasFightBeenCompleted Parms{};
+
+	Parms.BossFightActor = BossFightActor;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakBossStatics.SetAllBossesDimmed
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           Boss                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bDimmed                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakBossStatics::SetAllBossesDimmed(class AActor* Boss, bool bDimmed)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakBossStatics", "SetAllBossesDimmed");
+
+	Params::OakBossStatics_SetAllBossesDimmed Parms{};
+
+	Parms.Boss = Boss;
+	Parms.bDimmed = bDimmed;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakBossStatics.SetAllBossesInvulnerable
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           Boss                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bInvulnerable                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakBossStatics::SetAllBossesInvulnerable(class AActor* Boss, bool bInvulnerable)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakBossStatics", "SetAllBossesInvulnerable");
+
+	Params::OakBossStatics_SetAllBossesInvulnerable Parms{};
+
+	Parms.Boss = Boss;
+	Parms.bInvulnerable = bInvulnerable;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakBossStatics.SetBossBarEnabled
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           Boss                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AOakBossFight*                    BossFightInfo                                          (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bEnable                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakBossStatics::SetBossBarEnabled(class AActor* Boss, class AOakBossFight* BossFightInfo, bool bEnable)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakBossStatics", "SetBossBarEnabled");
+
+	Params::OakBossStatics_SetBossBarEnabled Parms{};
+
+	Parms.Boss = Boss;
+	Parms.BossFightInfo = BossFightInfo;
+	Parms.bEnable = bEnable;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakBossStatics.SetBossDimmed
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           Boss                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bDimmed                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakBossStatics::SetBossDimmed(class AActor* Boss, bool bDimmed)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakBossStatics", "SetBossDimmed");
+
+	Params::OakBossStatics_SetBossDimmed Parms{};
+
+	Parms.Boss = Boss;
+	Parms.bDimmed = bDimmed;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakBossStatics.SetBossInvulnerable
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           Boss                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bInvulnerable                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakBossStatics::SetBossInvulnerable(class AActor* Boss, bool bInvulnerable)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakBossStatics", "SetBossInvulnerable");
+
+	Params::OakBossStatics_SetBossInvulnerable Parms{};
+
+	Parms.Boss = Boss;
+	Parms.bInvulnerable = bInvulnerable;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakBossStatics.ShakeEvent
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           Boss                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakBossStatics::ShakeEvent(class AActor* Boss)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakBossStatics", "ShakeEvent");
+
+	Params::OakBossStatics_ShakeEvent Parms{};
+
+	Parms.Boss = Boss;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakBossStatics.StartBossFightTracking
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           Boss                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakBossStatics::StartBossFightTracking(class AActor* Boss)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakBossStatics", "StartBossFightTracking");
+
+	Params::OakBossStatics_StartBossFightTracking Parms{};
+
+	Parms.Boss = Boss;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakBossStatics.StopBossFightTracking
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           Boss                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakBossStatics::StopBossFightTracking(class AActor* Boss)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakBossStatics", "StopBossFightTracking");
+
+	Params::OakBossStatics_StopBossFightTracking Parms{};
+
+	Parms.Boss = Boss;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakBossStatics.GetPlayersInArena
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class AOakBossFight*                    BossFightInfo                                          (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TArray<class AOakCharacter*>            ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+
+TArray<class AOakCharacter*> UOakBossStatics::GetPlayersInArena(class AOakBossFight* BossFightInfo) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakBossStatics", "GetPlayersInArena");
+
+	Params::OakBossStatics_GetPlayersInArena Parms{};
+
+	Parms.BossFightInfo = BossFightInfo;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function OakGame.OakBoundary.AddNewWarningVolume
 // (Final, Native, Protected)
 
@@ -19742,6 +17425,96 @@ void AOakBoundary::ValidateBoundaryVolumes()
 	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakChallengeBlueprintLibrary.IncrementChallengeForAllPlayers
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const FGameDataHandleProperty_          ChallengeToIncrement                                   (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   IncrementAmount                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakChallengeBlueprintLibrary::IncrementChallengeForAllPlayers(class UObject* OwnerContext, const FGameDataHandleProperty_ ChallengeToIncrement, int32 IncrementAmount)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakChallengeBlueprintLibrary", "IncrementChallengeForAllPlayers");
+
+	Params::OakChallengeBlueprintLibrary_IncrementChallengeForAllPlayers Parms{};
+
+	Parms.OwnerContext = OwnerContext;
+	Parms.ChallengeToIncrement = ChallengeToIncrement;
+	Parms.IncrementAmount = IncrementAmount;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakChallengeBlueprintLibrary.IncrementChallengeForPlayer
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AOakPlayerController*             OakPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const FGameDataHandleProperty_          ChallengeToIncrement                                   (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   IncrementAmount                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakChallengeBlueprintLibrary::IncrementChallengeForPlayer(class UObject* OwnerContext, class AOakPlayerController* OakPC, const FGameDataHandleProperty_ ChallengeToIncrement, int32 IncrementAmount)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakChallengeBlueprintLibrary", "IncrementChallengeForPlayer");
+
+	Params::OakChallengeBlueprintLibrary_IncrementChallengeForPlayer Parms{};
+
+	Parms.OwnerContext = OwnerContext;
+	Parms.OakPC = OakPC;
+	Parms.ChallengeToIncrement = ChallengeToIncrement;
+	Parms.IncrementAmount = IncrementAmount;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakChallengeBlueprintLibrary.IsChallengeCompleteForPlayer
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AOakPlayerController*             OakPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const FGameDataHandleProperty_          challenge                                              (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UOakChallengeBlueprintLibrary::IsChallengeCompleteForPlayer(class AOakPlayerController* OakPC, const FGameDataHandleProperty_ challenge)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakChallengeBlueprintLibrary", "IsChallengeCompleteForPlayer");
+
+	Params::OakChallengeBlueprintLibrary_IsChallengeCompleteForPlayer Parms{};
+
+	Parms.OakPC = OakPC;
+	Parms.challenge = challenge;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 
@@ -19915,6 +17688,262 @@ void UOakChallengeCollectibleScript::SetCollectibleChallenge(FGameDataHandleProp
 
 	if (InCollectibleChallenge != nullptr)
 		*InCollectibleChallenge = Parms.InCollectibleChallenge;
+}
+
+
+// Function OakGame.OakIntrinsicElementStatics.BindEventToIntrinsicElementChanged
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const EOakElementalType NewElement)>Delegate                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakIntrinsicElementStatics::BindEventToIntrinsicElementChanged(class UObject* OwnerContext, TDelegate<void(const EOakElementalType NewElement)> Delegate)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "BindEventToIntrinsicElementChanged");
+
+	Params::OakIntrinsicElementStatics_BindEventToIntrinsicElementChanged Parms{};
+
+	Parms.OwnerContext = OwnerContext;
+	Parms.Delegate = Delegate;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakIntrinsicElementStatics.GetDamageElementalType
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// FGameDataHandleProperty_                DamageDef                                              (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EOakElementalType                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+EOakElementalType UOakIntrinsicElementStatics::GetDamageElementalType(FGameDataHandleProperty_ DamageDef)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "GetDamageElementalType");
+
+	Params::OakIntrinsicElementStatics_GetDamageElementalType Parms{};
+
+	Parms.DamageDef = DamageDef;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakIntrinsicElementStatics.GetElementalDamageType
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// EOakElementalType                       type                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGameDataHandleProperty_                ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+FGameDataHandleProperty_ UOakIntrinsicElementStatics::GetElementalDamageType(EOakElementalType type)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "GetElementalDamageType");
+
+	Params::OakIntrinsicElementStatics_GetElementalDamageType Parms{};
+
+	Parms.type = type;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakIntrinsicElementStatics.GetIntrinsicElement
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EOakElementalType                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+EOakElementalType UOakIntrinsicElementStatics::GetIntrinsicElement(class UObject* OwnerContext)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "GetIntrinsicElement");
+
+	Params::OakIntrinsicElementStatics_GetIntrinsicElement Parms{};
+
+	Parms.OwnerContext = OwnerContext;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakIntrinsicElementStatics.GetIntrinsicElementDamageType
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGameDataHandleProperty_                ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+FGameDataHandleProperty_ UOakIntrinsicElementStatics::GetIntrinsicElementDamageType(class UObject* OwnerContext)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "GetIntrinsicElementDamageType");
+
+	Params::OakIntrinsicElementStatics_GetIntrinsicElementDamageType Parms{};
+
+	Parms.OwnerContext = OwnerContext;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakIntrinsicElementStatics.IsInitialIntrinsicElementRandom
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UOakIntrinsicElementStatics::IsInitialIntrinsicElementRandom(class UObject* OwnerContext)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "IsInitialIntrinsicElementRandom");
+
+	Params::OakIntrinsicElementStatics_IsInitialIntrinsicElementRandom Parms{};
+
+	Parms.OwnerContext = OwnerContext;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakIntrinsicElementStatics.SetExplosiveBarrelBackwardsCompatibility
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EOakElementalType                       Element                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bRandomize                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakIntrinsicElementStatics::SetExplosiveBarrelBackwardsCompatibility(class UObject* OwnerContext, EOakElementalType Element, bool bRandomize)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "SetExplosiveBarrelBackwardsCompatibility");
+
+	Params::OakIntrinsicElementStatics_SetExplosiveBarrelBackwardsCompatibility Parms{};
+
+	Parms.OwnerContext = OwnerContext;
+	Parms.Element = Element;
+	Parms.bRandomize = bRandomize;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakIntrinsicElementStatics.SetIntrinsicElement
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EOakElementalType                       Element                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UOakIntrinsicElementStatics::SetIntrinsicElement(class UObject* OwnerContext, EOakElementalType Element)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "SetIntrinsicElement");
+
+	Params::OakIntrinsicElementStatics_SetIntrinsicElement Parms{};
+
+	Parms.OwnerContext = OwnerContext;
+	Parms.Element = Element;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakIntrinsicElementStatics.SetIntrinsicElementAffinity
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EDamageAffinity                         Affinity                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UOakIntrinsicElementStatics::SetIntrinsicElementAffinity(class UObject* OwnerContext, EDamageAffinity Affinity)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "SetIntrinsicElementAffinity");
+
+	Params::OakIntrinsicElementStatics_SetIntrinsicElementAffinity Parms{};
+
+	Parms.OwnerContext = OwnerContext;
+	Parms.Affinity = Affinity;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 
@@ -20550,262 +18579,6 @@ bool UOakCharacterMovementComponent::IsSlidingDownLadder() const
 }
 
 
-// Function OakGame.OakIntrinsicElementStatics.BindEventToIntrinsicElementChanged
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(const EOakElementalType NewElement)>Delegate                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakIntrinsicElementStatics::BindEventToIntrinsicElementChanged(class UObject* OwnerContext, TDelegate<void(const EOakElementalType NewElement)> Delegate)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "BindEventToIntrinsicElementChanged");
-
-	Params::OakIntrinsicElementStatics_BindEventToIntrinsicElementChanged Parms{};
-
-	Parms.OwnerContext = OwnerContext;
-	Parms.Delegate = Delegate;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakIntrinsicElementStatics.GetDamageElementalType
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// FGameDataHandleProperty_                DamageDef                                              (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EOakElementalType                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-EOakElementalType UOakIntrinsicElementStatics::GetDamageElementalType(FGameDataHandleProperty_ DamageDef)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "GetDamageElementalType");
-
-	Params::OakIntrinsicElementStatics_GetDamageElementalType Parms{};
-
-	Parms.DamageDef = DamageDef;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakIntrinsicElementStatics.GetElementalDamageType
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// EOakElementalType                       type                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGameDataHandleProperty_                ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-FGameDataHandleProperty_ UOakIntrinsicElementStatics::GetElementalDamageType(EOakElementalType type)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "GetElementalDamageType");
-
-	Params::OakIntrinsicElementStatics_GetElementalDamageType Parms{};
-
-	Parms.type = type;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakIntrinsicElementStatics.GetIntrinsicElement
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EOakElementalType                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-EOakElementalType UOakIntrinsicElementStatics::GetIntrinsicElement(class UObject* OwnerContext)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "GetIntrinsicElement");
-
-	Params::OakIntrinsicElementStatics_GetIntrinsicElement Parms{};
-
-	Parms.OwnerContext = OwnerContext;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakIntrinsicElementStatics.GetIntrinsicElementDamageType
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGameDataHandleProperty_                ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-FGameDataHandleProperty_ UOakIntrinsicElementStatics::GetIntrinsicElementDamageType(class UObject* OwnerContext)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "GetIntrinsicElementDamageType");
-
-	Params::OakIntrinsicElementStatics_GetIntrinsicElementDamageType Parms{};
-
-	Parms.OwnerContext = OwnerContext;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakIntrinsicElementStatics.IsInitialIntrinsicElementRandom
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UOakIntrinsicElementStatics::IsInitialIntrinsicElementRandom(class UObject* OwnerContext)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "IsInitialIntrinsicElementRandom");
-
-	Params::OakIntrinsicElementStatics_IsInitialIntrinsicElementRandom Parms{};
-
-	Parms.OwnerContext = OwnerContext;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakIntrinsicElementStatics.SetExplosiveBarrelBackwardsCompatibility
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EOakElementalType                       Element                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bRandomize                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakIntrinsicElementStatics::SetExplosiveBarrelBackwardsCompatibility(class UObject* OwnerContext, EOakElementalType Element, bool bRandomize)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "SetExplosiveBarrelBackwardsCompatibility");
-
-	Params::OakIntrinsicElementStatics_SetExplosiveBarrelBackwardsCompatibility Parms{};
-
-	Parms.OwnerContext = OwnerContext;
-	Parms.Element = Element;
-	Parms.bRandomize = bRandomize;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakIntrinsicElementStatics.SetIntrinsicElement
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EOakElementalType                       Element                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UOakIntrinsicElementStatics::SetIntrinsicElement(class UObject* OwnerContext, EOakElementalType Element)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "SetIntrinsicElement");
-
-	Params::OakIntrinsicElementStatics_SetIntrinsicElement Parms{};
-
-	Parms.OwnerContext = OwnerContext;
-	Parms.Element = Element;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakIntrinsicElementStatics.SetIntrinsicElementAffinity
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EDamageAffinity                         Affinity                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UOakIntrinsicElementStatics::SetIntrinsicElementAffinity(class UObject* OwnerContext, EDamageAffinity Affinity)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakIntrinsicElementStatics", "SetIntrinsicElementAffinity");
-
-	Params::OakIntrinsicElementStatics_SetIntrinsicElementAffinity Parms{};
-
-	Parms.OwnerContext = OwnerContext;
-	Parms.Affinity = Affinity;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function OakGame.OakCineCameraActor.SetPlayerCharacterOffsetAlpha
 // (Final, Native, Public)
 // Parameters:
@@ -20828,388 +18601,6 @@ void AOakCineCameraActor::SetPlayerCharacterOffsetAlpha(float NewPlayerCharacter
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakCinematicStage.ClearCamera
-// (Final, Native, Public, BlueprintCallable)
-
-void AOakCinematicStage::ClearCamera()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakCinematicStage", "ClearCamera");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakCinematicStage.ClientsCallStageEvent
-// (Final, Net, NetReliable, Native, Event, NetMulticast, Private)
-// Parameters:
-// const class FName&                      InEventName                                            (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakCinematicStage::ClientsCallStageEvent(const class FName& InEventName)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakCinematicStage", "ClientsCallStageEvent");
-
-	Params::OakCinematicStage_ClientsCallStageEvent Parms{};
-
-	Parms.InEventName = InEventName;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakCinematicStage.DetachActors
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bRestorePositions                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakCinematicStage::DetachActors(bool bRestorePositions)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakCinematicStage", "DetachActors");
-
-	Params::OakCinematicStage_DetachActors Parms{};
-
-	Parms.bRestorePositions = bRestorePositions;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakCinematicStage.OnRep_CurrentCamera
-// (Final, Native, Private)
-
-void AOakCinematicStage::OnRep_CurrentCamera()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakCinematicStage", "OnRep_CurrentCamera");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakCinematicStage.OnRep_FactsConduit
-// (Final, Native, Protected)
-
-void AOakCinematicStage::OnRep_FactsConduit()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakCinematicStage", "OnRep_FactsConduit");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakCinematicStage.PositionNPCs
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const TArray<struct FOakCinematicStageSpawnPointToNPC>&InNPCsToPosition                                       (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-
-void AOakCinematicStage::PositionNPCs(const TArray<struct FOakCinematicStageSpawnPointToNPC>& InNPCsToPosition)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakCinematicStage", "PositionNPCs");
-
-	Params::OakCinematicStage_PositionNPCs Parms{};
-
-	Parms.InNPCsToPosition = std::move(InNPCsToPosition);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakCinematicStage.PositionPlayers
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// EOakCinematicStagePositionType          InPositionType                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakCinematicStage::PositionPlayers(EOakCinematicStagePositionType InPositionType)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakCinematicStage", "PositionPlayers");
-
-	Params::OakCinematicStage_PositionPlayers Parms{};
-
-	Parms.InPositionType = InPositionType;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakCinematicStage.SetCameraByIndex
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// int32                                   InActiveIndex                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakCinematicStage::SetCameraByIndex(int32 InActiveIndex)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakCinematicStage", "SetCameraByIndex");
-
-	Params::OakCinematicStage_SetCameraByIndex Parms{};
-
-	Parms.InActiveIndex = InActiveIndex;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakCinematicStage.SetCameraByName
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const class FName&                      InCameraName                                           (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakCinematicStage::SetCameraByName(const class FName& InCameraName)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakCinematicStage", "SetCameraByName");
-
-	Params::OakCinematicStage_SetCameraByName Parms{};
-
-	Parms.InCameraName = InCameraName;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakCinematicStage.GetCameraByIndex
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UOakCinematicStageCameraComponent*ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UOakCinematicStageCameraComponent* AOakCinematicStage::GetCameraByIndex(int32 Index_0) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakCinematicStage", "GetCameraByIndex");
-
-	Params::OakCinematicStage_GetCameraByIndex Parms{};
-
-	Parms.Index_0 = Index_0;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakLostLootMachine.EndParticleOverride
-// (Final, Native, Public, BlueprintCallable)
-
-void AOakLostLootMachine::EndParticleOverride()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakLostLootMachine", "EndParticleOverride");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakLostLootMachine.GetFilledSlots
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class AOakPlayerController*             OakPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 AOakLostLootMachine::GetFilledSlots(class AOakPlayerController* OakPC)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakLostLootMachine", "GetFilledSlots");
-
-	Params::OakLostLootMachine_GetFilledSlots Parms{};
-
-	Parms.OakPC = OakPC;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakLostLootMachine.GetMaxSlots
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class AOakPlayerController*             OakPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 AOakLostLootMachine::GetMaxSlots(class AOakPlayerController* OakPC)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakLostLootMachine", "GetMaxSlots");
-
-	Params::OakLostLootMachine_GetMaxSlots Parms{};
-
-	Parms.OakPC = OakPC;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakLostLootMachine.OverrideAllParticlePresentations
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bShowParticle                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakLostLootMachine::OverrideAllParticlePresentations(bool bShowParticle)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakLostLootMachine", "OverrideAllParticlePresentations");
-
-	Params::OakLostLootMachine_OverrideAllParticlePresentations Parms{};
-
-	Parms.bShowParticle = bShowParticle;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakLostLootMachine.UpdateParticlePresentations
-// (Final, Native, Public, BlueprintCallable)
-
-void AOakLostLootMachine::UpdateParticlePresentations()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakLostLootMachine", "UpdateParticlePresentations");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakCinematicStageScript.GetCameraByIndex
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UOakCinematicStageCameraComponent*ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UOakCinematicStageCameraComponent* UOakCinematicStageScript::GetCameraByIndex(int32 Index_0) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakCinematicStageScript", "GetCameraByIndex");
-
-	Params::OakCinematicStageScript_GetCameraByIndex Parms{};
-
-	Parms.Index_0 = Index_0;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
@@ -21953,6 +19344,394 @@ void UOakInventoryStatics::UnblockCharacterHealth(class AOakCharacter* TargetAct
 }
 
 
+// Function OakGame.OakLocustGas.Absorb
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           TargetAbsorbing                                        (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakLocustGas::Absorb(class AActor* TargetAbsorbing)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakLocustGas", "Absorb");
+
+	Params::OakLocustGas_Absorb Parms{};
+
+	Parms.TargetAbsorbing = TargetAbsorbing;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakLocustGas.IsAbsorbing
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool AOakLocustGas::IsAbsorbing()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakLocustGas", "IsAbsorbing");
+
+	Params::OakLocustGas_IsAbsorbing Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakLocustGas.OnPatrolPointReached
+// (Final, Native, Public)
+// Parameters:
+// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakLocustGas::OnPatrolPointReached(class AActor* target)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakLocustGas", "OnPatrolPointReached");
+
+	Params::OakLocustGas_OnPatrolPointReached Parms{};
+
+	Parms.target = target;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakLocustGas.OnTargetAbsorbingReached
+// (Final, Native, Public)
+// Parameters:
+// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakLocustGas::OnTargetAbsorbingReached(class AActor* target)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakLocustGas", "OnTargetAbsorbingReached");
+
+	Params::OakLocustGas_OnTargetAbsorbingReached Parms{};
+
+	Parms.target = target;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakLocustGas.SetPatrolState
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    bIsEnable                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakLocustGas::SetPatrolState(bool bIsEnable)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakLocustGas", "SetPatrolState");
+
+	Params::OakLocustGas_SetPatrolState Parms{};
+
+	Parms.bIsEnable = bIsEnable;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakCinematicStage.ClearCamera
+// (Final, Native, Public, BlueprintCallable)
+
+void AOakCinematicStage::ClearCamera()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakCinematicStage", "ClearCamera");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakCinematicStage.ClientsCallStageEvent
+// (Final, Net, NetReliable, Native, Event, NetMulticast, Private)
+// Parameters:
+// const class FName&                      InEventName                                            (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakCinematicStage::ClientsCallStageEvent(const class FName& InEventName)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakCinematicStage", "ClientsCallStageEvent");
+
+	Params::OakCinematicStage_ClientsCallStageEvent Parms{};
+
+	Parms.InEventName = InEventName;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakCinematicStage.DetachActors
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    bRestorePositions                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakCinematicStage::DetachActors(bool bRestorePositions)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakCinematicStage", "DetachActors");
+
+	Params::OakCinematicStage_DetachActors Parms{};
+
+	Parms.bRestorePositions = bRestorePositions;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakCinematicStage.OnRep_CurrentCamera
+// (Final, Native, Private)
+
+void AOakCinematicStage::OnRep_CurrentCamera()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakCinematicStage", "OnRep_CurrentCamera");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakCinematicStage.OnRep_FactsConduit
+// (Final, Native, Protected)
+
+void AOakCinematicStage::OnRep_FactsConduit()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakCinematicStage", "OnRep_FactsConduit");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakCinematicStage.PositionNPCs
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const TArray<struct FOakCinematicStageSpawnPointToNPC>&InNPCsToPosition                                       (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+
+void AOakCinematicStage::PositionNPCs(const TArray<struct FOakCinematicStageSpawnPointToNPC>& InNPCsToPosition)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakCinematicStage", "PositionNPCs");
+
+	Params::OakCinematicStage_PositionNPCs Parms{};
+
+	Parms.InNPCsToPosition = std::move(InNPCsToPosition);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakCinematicStage.PositionPlayers
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// EOakCinematicStagePositionType          InPositionType                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakCinematicStage::PositionPlayers(EOakCinematicStagePositionType InPositionType)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakCinematicStage", "PositionPlayers");
+
+	Params::OakCinematicStage_PositionPlayers Parms{};
+
+	Parms.InPositionType = InPositionType;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakCinematicStage.SetCameraByIndex
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// int32                                   InActiveIndex                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakCinematicStage::SetCameraByIndex(int32 InActiveIndex)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakCinematicStage", "SetCameraByIndex");
+
+	Params::OakCinematicStage_SetCameraByIndex Parms{};
+
+	Parms.InActiveIndex = InActiveIndex;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakCinematicStage.SetCameraByName
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const class FName&                      InCameraName                                           (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakCinematicStage::SetCameraByName(const class FName& InCameraName)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakCinematicStage", "SetCameraByName");
+
+	Params::OakCinematicStage_SetCameraByName Parms{};
+
+	Parms.InCameraName = InCameraName;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakCinematicStage.GetCameraByIndex
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UOakCinematicStageCameraComponent*ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UOakCinematicStageCameraComponent* AOakCinematicStage::GetCameraByIndex(int32 Index_0) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakCinematicStage", "GetCameraByIndex");
+
+	Params::OakCinematicStage_GetCameraByIndex Parms{};
+
+	Parms.Index_0 = Index_0;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakCinematicStageScript.GetCameraByIndex
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UOakCinematicStageCameraComponent*ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UOakCinematicStageCameraComponent* UOakCinematicStageScript::GetCameraByIndex(int32 Index_0) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakCinematicStageScript", "GetCameraByIndex");
+
+	Params::OakCinematicStageScript_GetCameraByIndex Parms{};
+
+	Parms.Index_0 = Index_0;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function OakGame.OakCodedVendingMachineScript.OnPasswordAccepted
 // (Event, Public, BlueprintEvent)
 // Parameters:
@@ -22062,6 +19841,31 @@ class UTexture* AOakCreditsSlide::GetSlideTexture() const
 	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakMapViewerRegionMeshComponent.UpdateOpacity
+// (Final, Native, Public)
+// Parameters:
+// float                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakMapViewerRegionMeshComponent::UpdateOpacity(float Value)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakMapViewerRegionMeshComponent", "UpdateOpacity");
+
+	Params::OakMapViewerRegionMeshComponent_UpdateOpacity Parms{};
+
+	Parms.Value = Value;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
 }
 
 
@@ -22401,47 +20205,22 @@ void UOakDamageStatics::UnsubscribeFromAutomaticSecondWindEvent(class UObject* O
 }
 
 
-// Function OakGame.OakMapViewerRegionMeshComponent.UpdateOpacity
-// (Final, Native, Public)
+// Function OakGame.OakEcho4Statics.CanEcho4BeInterrupted
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// float                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakMapViewerRegionMeshComponent::UpdateOpacity(float Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakMapViewerRegionMeshComponent", "UpdateOpacity");
-
-	Params::OakMapViewerRegionMeshComponent_UpdateOpacity Parms{};
-
-	Parms.Value = Value;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakOrderRewindStatics.CanStart
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UOakOrderRewindStatics::CanStart(class UObject* OwnerContext)
+bool UOakEcho4Statics::CanEcho4BeInterrupted(class AOakCharacter* DroneOwner)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakOrderRewindStatics", "CanStart");
+		Func = StaticClass()->GetFunction("OakEcho4Statics", "CanEcho4BeInterrupted");
 
-	Params::OakOrderRewindStatics_CanStart Parms{};
+	Params::OakEcho4Statics_CanEcho4BeInterrupted Parms{};
 
-	Parms.OwnerContext = OwnerContext;
+	Parms.DroneOwner = DroneOwner;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -22454,22 +20233,22 @@ bool UOakOrderRewindStatics::CanStart(class UObject* OwnerContext)
 }
 
 
-// Function OakGame.OakOrderRewindStatics.IsActive
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Function OakGame.OakEcho4Statics.CanEcho4Deploy
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UOakOrderRewindStatics::IsActive(class UObject* OwnerContext)
+bool UOakEcho4Statics::CanEcho4Deploy(class AOakCharacter* DroneOwner)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakOrderRewindStatics", "IsActive");
+		Func = StaticClass()->GetFunction("OakEcho4Statics", "CanEcho4Deploy");
 
-	Params::OakOrderRewindStatics_IsActive Parms{};
+	Params::OakEcho4Statics_CanEcho4Deploy Parms{};
 
-	Parms.OwnerContext = OwnerContext;
+	Parms.DroneOwner = DroneOwner;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -22482,23 +20261,152 @@ bool UOakOrderRewindStatics::IsActive(class UObject* OwnerContext)
 }
 
 
-// Function OakGame.OakOrderRewindStatics.Start
-// (Final, Native, Static, Public, BlueprintCallable)
+// Function OakGame.OakEcho4Statics.DeployEcho4AtLocationLatent
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   InIdealDuration                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector&                   Location                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Echo4DeployCooldown                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AOakDrone**                       projectile                                             (Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FLatentActionInfo&         LatentInfo                                             (Parm, NoDestructor, NativeAccessSpecifierPublic)
+// bool                                    bUseOverrideRotation                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FRotator&                  OverrideRotation                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UOakOrderRewindStatics::Start(class UObject* OwnerContext, float InIdealDuration)
+void UOakEcho4Statics::DeployEcho4AtLocationLatent(const struct FVector& Location, float Echo4DeployCooldown, class AOakCharacter* DroneOwner, class AOakDrone** projectile, const struct FLatentActionInfo& LatentInfo, bool bUseOverrideRotation, const struct FRotator& OverrideRotation)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakOrderRewindStatics", "Start");
+		Func = StaticClass()->GetFunction("OakEcho4Statics", "DeployEcho4AtLocationLatent");
 
-	Params::OakOrderRewindStatics_Start Parms{};
+	Params::OakEcho4Statics_DeployEcho4AtLocationLatent Parms{};
 
-	Parms.OwnerContext = OwnerContext;
-	Parms.InIdealDuration = InIdealDuration;
+	Parms.Location = std::move(Location);
+	Parms.Echo4DeployCooldown = Echo4DeployCooldown;
+	Parms.DroneOwner = DroneOwner;
+	Parms.LatentInfo = std::move(LatentInfo);
+	Parms.bUseOverrideRotation = bUseOverrideRotation;
+	Parms.OverrideRotation = std::move(OverrideRotation);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (projectile != nullptr)
+		*projectile = Parms.projectile;
+}
+
+
+// Function OakGame.OakEcho4Statics.DeployEcho4Latent
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// Parameters:
+// const struct FGbxRelativeLocation&      LocationOptions                                        (Parm, NoDestructor, NativeAccessSpecifierPublic)
+// float                                   Echo4DeployCooldown                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AOakDrone**                       projectile                                             (Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FLatentActionInfo&         LatentInfo                                             (Parm, NoDestructor, NativeAccessSpecifierPublic)
+// bool                                    bUseOverrideRotation                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FRotator&                  OverrideRotation                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+// class AActor*                           OverrideActor                                          (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakEcho4Statics::DeployEcho4Latent(const struct FGbxRelativeLocation& LocationOptions, float Echo4DeployCooldown, class AOakCharacter* DroneOwner, class AOakDrone** projectile, const struct FLatentActionInfo& LatentInfo, bool bUseOverrideRotation, const struct FRotator& OverrideRotation, class AActor* OverrideActor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakEcho4Statics", "DeployEcho4Latent");
+
+	Params::OakEcho4Statics_DeployEcho4Latent Parms{};
+
+	Parms.LocationOptions = std::move(LocationOptions);
+	Parms.Echo4DeployCooldown = Echo4DeployCooldown;
+	Parms.DroneOwner = DroneOwner;
+	Parms.LatentInfo = std::move(LatentInfo);
+	Parms.bUseOverrideRotation = bUseOverrideRotation;
+	Parms.OverrideRotation = std::move(OverrideRotation);
+	Parms.OverrideActor = OverrideActor;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (projectile != nullptr)
+		*projectile = Parms.projectile;
+}
+
+
+// Function OakGame.OakEcho4Statics.DeployEcho4WithDefLatent
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// Parameters:
+// FGbxDefPtrProperty_                     DroneDef                                               (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FGbxRelativeLocation&      LocationOptions                                        (Parm, NoDestructor, NativeAccessSpecifierPublic)
+// float                                   Echo4DeployCooldown                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AOakDrone**                       projectile                                             (Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FLatentActionInfo&         LatentInfo                                             (Parm, NoDestructor, NativeAccessSpecifierPublic)
+// bool                                    bUseOverrideRotation                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FRotator&                  OverrideRotation                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+// class AActor*                           OverrideActor                                          (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakEcho4Statics::DeployEcho4WithDefLatent(FGbxDefPtrProperty_ DroneDef, const struct FGbxRelativeLocation& LocationOptions, float Echo4DeployCooldown, class AOakCharacter* DroneOwner, class AOakDrone** projectile, const struct FLatentActionInfo& LatentInfo, bool bUseOverrideRotation, const struct FRotator& OverrideRotation, class AActor* OverrideActor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakEcho4Statics", "DeployEcho4WithDefLatent");
+
+	Params::OakEcho4Statics_DeployEcho4WithDefLatent Parms{};
+
+	Parms.DroneDef = DroneDef;
+	Parms.LocationOptions = std::move(LocationOptions);
+	Parms.Echo4DeployCooldown = Echo4DeployCooldown;
+	Parms.DroneOwner = DroneOwner;
+	Parms.LatentInfo = std::move(LatentInfo);
+	Parms.bUseOverrideRotation = bUseOverrideRotation;
+	Parms.OverrideRotation = std::move(OverrideRotation);
+	Parms.OverrideActor = OverrideActor;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (projectile != nullptr)
+		*projectile = Parms.projectile;
+}
+
+
+// Function OakGame.OakEcho4Statics.FlyToActor
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AOakDrone*                        OakDrone                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           MoveActor                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   DroneSpeed                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   DroneAccelerationTime                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   StopFlyAtTargetDisance                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakEcho4Statics::FlyToActor(class AOakDrone* OakDrone, class AActor* MoveActor, float DroneSpeed, float DroneAccelerationTime, float StopFlyAtTargetDisance)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakEcho4Statics", "FlyToActor");
+
+	Params::OakEcho4Statics_FlyToActor Parms{};
+
+	Parms.OakDrone = OakDrone;
+	Parms.MoveActor = MoveActor;
+	Parms.DroneSpeed = DroneSpeed;
+	Parms.DroneAccelerationTime = DroneAccelerationTime;
+	Parms.StopFlyAtTargetDisance = StopFlyAtTargetDisance;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -22509,21 +20417,29 @@ void UOakOrderRewindStatics::Start(class UObject* OwnerContext, float InIdealDur
 }
 
 
-// Function OakGame.OakOrderRewindStatics.Stop
-// (Final, Native, Static, Public, BlueprintCallable)
+// Function OakGame.OakEcho4Statics.FlyToLocation
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AOakDrone*                        OakDrone                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector&                   MoveLocation                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   DroneSpeed                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   DroneAccelerationTime                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   StopFlyAtTargetDisance                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakOrderRewindStatics::Stop(class UObject* OwnerContext)
+void UOakEcho4Statics::FlyToLocation(class AOakDrone* OakDrone, const struct FVector& MoveLocation, float DroneSpeed, float DroneAccelerationTime, float StopFlyAtTargetDisance)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakOrderRewindStatics", "Stop");
+		Func = StaticClass()->GetFunction("OakEcho4Statics", "FlyToLocation");
 
-	Params::OakOrderRewindStatics_Stop Parms{};
+	Params::OakEcho4Statics_FlyToLocation Parms{};
 
-	Parms.OwnerContext = OwnerContext;
+	Parms.OakDrone = OakDrone;
+	Parms.MoveLocation = std::move(MoveLocation);
+	Parms.DroneSpeed = DroneSpeed;
+	Parms.DroneAccelerationTime = DroneAccelerationTime;
+	Parms.StopFlyAtTargetDisance = StopFlyAtTargetDisance;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -22531,6 +20447,226 @@ void UOakOrderRewindStatics::Stop(class UObject* OwnerContext)
 	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakEcho4Statics.GetEcho4ActorScript
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AOakDrone*                        OakDrone                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UOakActorScript_Echo4*            ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UOakActorScript_Echo4* UOakEcho4Statics::GetEcho4ActorScript(class AOakDrone* OakDrone)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakEcho4Statics", "GetEcho4ActorScript");
+
+	Params::OakEcho4Statics_GetEcho4ActorScript Parms{};
+
+	Parms.OakDrone = OakDrone;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakEcho4Statics.GetEcho4Drone
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AOakDrone*                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class AOakDrone* UOakEcho4Statics::GetEcho4Drone(class AOakCharacter* DroneOwner)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakEcho4Statics", "GetEcho4Drone");
+
+	Params::OakEcho4Statics_GetEcho4Drone Parms{};
+
+	Parms.DroneOwner = DroneOwner;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakEcho4Statics.IsEcho4Deployed
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UOakEcho4Statics::IsEcho4Deployed(class AOakCharacter* DroneOwner)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakEcho4Statics", "IsEcho4Deployed");
+
+	Params::OakEcho4Statics_IsEcho4Deployed Parms{};
+
+	Parms.DroneOwner = DroneOwner;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakEcho4Statics.NotifyEchoLocationAnimFinished
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AOakDrone*                        OakDrone                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakEcho4Statics::NotifyEchoLocationAnimFinished(class AOakDrone* OakDrone)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakEcho4Statics", "NotifyEchoLocationAnimFinished");
+
+	Params::OakEcho4Statics_NotifyEchoLocationAnimFinished Parms{};
+
+	Parms.OakDrone = OakDrone;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakEcho4Statics.RetrieveEcho4
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakEcho4Statics::RetrieveEcho4(class AOakCharacter* DroneOwner)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakEcho4Statics", "RetrieveEcho4");
+
+	Params::OakEcho4Statics_RetrieveEcho4 Parms{};
+
+	Parms.DroneOwner = DroneOwner;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakEcho4Statics.SetEcho4DeploymentLocked
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AOakCharacter*                    DroneOwner                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    InLock                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakEcho4Statics::SetEcho4DeploymentLocked(class AOakCharacter* DroneOwner, bool InLock)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakEcho4Statics", "SetEcho4DeploymentLocked");
+
+	Params::OakEcho4Statics_SetEcho4DeploymentLocked Parms{};
+
+	Parms.DroneOwner = DroneOwner;
+	Parms.InLock = InLock;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakEcho4Statics.WasWaypointPathFound
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class AActor*                           DroneOrOwner                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UOakEcho4Statics::WasWaypointPathFound(class AActor* DroneOrOwner)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakEcho4Statics", "WasWaypointPathFound");
+
+	Params::OakEcho4Statics_WasWaypointPathFound Parms{};
+
+	Parms.DroneOrOwner = DroneOrOwner;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakEcho4Statics.WasWaypointPathFoundLatent
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// class AActor*                           DroneOrOwner                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool*                                   Result                                                 (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FLatentActionInfo&         LatentInfo                                             (Parm, NoDestructor, NativeAccessSpecifierPublic)
+
+void UOakEcho4Statics::WasWaypointPathFoundLatent(class AActor* DroneOrOwner, bool* Result, const struct FLatentActionInfo& LatentInfo)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakEcho4Statics", "WasWaypointPathFoundLatent");
+
+	Params::OakEcho4Statics_WasWaypointPathFoundLatent Parms{};
+
+	Parms.DroneOrOwner = DroneOrOwner;
+	Parms.LatentInfo = std::move(LatentInfo);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (Result != nullptr)
+		*Result = Parms.Result;
 }
 
 
@@ -22844,21 +20980,21 @@ void UOakEchoLogFunctionLibrary::UnbindEventToEchoLogAcquiredChanged(class UObje
 }
 
 
-// Function OakGame.OakUIScript_VaultTracker.SearchPing
+// Function OakGame.OakUIScript_TitleScreen.PressedStart
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_VaultTracker::SearchPing(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_TitleScreen::PressedStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_VaultTracker", "SearchPing");
+		Func = Class->GetFunction("OakUIScript_TitleScreen", "PressedStart");
 
-	Params::OakUIScript_VaultTracker_SearchPing Parms{};
+	Params::OakUIScript_TitleScreen_PressedStart Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -22868,21 +21004,21 @@ void UOakUIScript_VaultTracker::SearchPing(class UObject* WorldContextObject, FG
 }
 
 
-// Function OakGame.OakUIScript_VaultTracker.SearchSuccess
+// Function OakGame.OakUIScript_TitleScreen.SplashIntro
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_VaultTracker::SearchSuccess(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_TitleScreen::SplashIntro(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_VaultTracker", "SearchSuccess");
+		Func = Class->GetFunction("OakUIScript_TitleScreen", "SplashIntro");
 
-	Params::OakUIScript_VaultTracker_SearchSuccess Parms{};
+	Params::OakUIScript_TitleScreen_SplashIntro Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -22892,21 +21028,21 @@ void UOakUIScript_VaultTracker::SearchSuccess(class UObject* WorldContextObject,
 }
 
 
-// Function OakGame.OakUIScript_VaultTracker.Switch
+// Function OakGame.OakUIScript_TitleScreen.SplashTransition
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_VaultTracker::Switch(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_TitleScreen::SplashTransition(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_VaultTracker", "Switch");
+		Func = Class->GetFunction("OakUIScript_TitleScreen", "SplashTransition");
 
-	Params::OakUIScript_VaultTracker_Switch Parms{};
+	Params::OakUIScript_TitleScreen_SplashTransition Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -22916,237 +21052,131 @@ void UOakUIScript_VaultTracker::Switch(class UObject* WorldContextObject, FGbxDe
 }
 
 
-// Function OakGame.OakUIScript_VaultTracker.TrackerActivate
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Function OakGame.OakOrderRewindStatics.CanStart
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_VaultTracker::TrackerActivate(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+bool UOakOrderRewindStatics::CanStart(class UObject* OwnerContext)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_VaultTracker", "TrackerActivate");
+		Func = StaticClass()->GetFunction("OakOrderRewindStatics", "CanStart");
 
-	Params::OakUIScript_VaultTracker_TrackerActivate Parms{};
+	Params::OakOrderRewindStatics_CanStart Parms{};
 
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
+	Parms.OwnerContext = OwnerContext;
 
-	UObject::ProcessEvent(Func, &Parms);
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 
-// Function OakGame.OakUIScript_StatusMenuNavBar.NavBackward
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Function OakGame.OakOrderRewindStatics.IsActive
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_StatusMenuNavBar::NavBackward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+bool UOakOrderRewindStatics::IsActive(class UObject* OwnerContext)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_StatusMenuNavBar", "NavBackward");
+		Func = StaticClass()->GetFunction("OakOrderRewindStatics", "IsActive");
 
-	Params::OakUIScript_StatusMenuNavBar_NavBackward Parms{};
+	Params::OakOrderRewindStatics_IsActive Parms{};
 
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
+	Parms.OwnerContext = OwnerContext;
 
-	UObject::ProcessEvent(Func, &Parms);
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 
-// Function OakGame.OakUIScript_StatusMenuNavBar.NavEntered
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Function OakGame.OakOrderRewindStatics.Start
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   InIdealDuration                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_StatusMenuNavBar::NavEntered(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakOrderRewindStatics::Start(class UObject* OwnerContext, float InIdealDuration)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_StatusMenuNavBar", "NavEntered");
+		Func = StaticClass()->GetFunction("OakOrderRewindStatics", "Start");
 
-	Params::OakUIScript_StatusMenuNavBar_NavEntered Parms{};
+	Params::OakOrderRewindStatics_Start Parms{};
 
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
+	Parms.OwnerContext = OwnerContext;
+	Parms.InIdealDuration = InIdealDuration;
 
-	UObject::ProcessEvent(Func, &Parms);
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
 }
 
 
-// Function OakGame.OakUIScript_StatusMenuNavBar.NavExited
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Function OakGame.OakOrderRewindStatics.Stop
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_StatusMenuNavBar::NavExited(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakOrderRewindStatics::Stop(class UObject* OwnerContext)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_StatusMenuNavBar", "NavExited");
+		Func = StaticClass()->GetFunction("OakOrderRewindStatics", "Stop");
 
-	Params::OakUIScript_StatusMenuNavBar_NavExited Parms{};
+	Params::OakOrderRewindStatics_Stop Parms{};
 
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
+	Parms.OwnerContext = OwnerContext;
 
-	UObject::ProcessEvent(Func, &Parms);
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
 }
 
 
-// Function OakGame.OakUIScript_StatusMenuNavBar.NavForward
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_StatusMenuNavBar::NavForward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_StatusMenuNavBar", "NavForward");
-
-	Params::OakUIScript_StatusMenuNavBar_NavForward Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_StatusMenuNavBar.SubNavBackward
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_StatusMenuNavBar::SubNavBackward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_StatusMenuNavBar", "SubNavBackward");
-
-	Params::OakUIScript_StatusMenuNavBar_SubNavBackward Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_StatusMenuNavBar.SubNavEntered
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_StatusMenuNavBar::SubNavEntered(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_StatusMenuNavBar", "SubNavEntered");
-
-	Params::OakUIScript_StatusMenuNavBar_SubNavEntered Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_StatusMenuNavBar.SubNavExited
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_StatusMenuNavBar::SubNavExited(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_StatusMenuNavBar", "SubNavExited");
-
-	Params::OakUIScript_StatusMenuNavBar_SubNavExited Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_StatusMenuNavBar.SubNavForward
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_StatusMenuNavBar::SubNavForward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_StatusMenuNavBar", "SubNavForward");
-
-	Params::OakUIScript_StatusMenuNavBar_SubNavForward Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakLocustGas.Absorb
+// Function OakGame.OakPlayerState.BP_SetExperienceLevel
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class AActor*                           TargetAbsorbing                                        (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const FGbxDefPtrProperty_               ExperienceDef                                          (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   ExperienceLevel                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AOakLocustGas::Absorb(class AActor* TargetAbsorbing)
+void AOakPlayerState::BP_SetExperienceLevel(const FGbxDefPtrProperty_ ExperienceDef, int32 ExperienceLevel)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakLocustGas", "Absorb");
+		Func = Class->GetFunction("OakPlayerState", "BP_SetExperienceLevel");
 
-	Params::OakLocustGas_Absorb Parms{};
+	Params::OakPlayerState_BP_SetExperienceLevel Parms{};
 
-	Parms.TargetAbsorbing = TargetAbsorbing;
+	Parms.ExperienceDef = ExperienceDef;
+	Parms.ExperienceLevel = ExperienceLevel;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -23157,19 +21187,696 @@ void AOakLocustGas::Absorb(class AActor* TargetAbsorbing)
 }
 
 
-// Function OakGame.OakLocustGas.IsAbsorbing
+// Function OakGame.OakPlayerState.BP_UnlockExperienceType
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const FGbxDefPtrProperty_               ExperienceDef                                          (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool AOakLocustGas::IsAbsorbing()
+void AOakPlayerState::BP_UnlockExperienceType(const FGbxDefPtrProperty_ ExperienceDef)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakLocustGas", "IsAbsorbing");
+		Func = Class->GetFunction("OakPlayerState", "BP_UnlockExperienceType");
 
-	Params::OakLocustGas_IsAbsorbing Parms{};
+	Params::OakPlayerState_BP_UnlockExperienceType Parms{};
+
+	Parms.ExperienceDef = ExperienceDef;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.ClearPrototypeToastMessage
+// (Final, Native, Public, BlueprintCallable)
+
+void AOakPlayerState::ClearPrototypeToastMessage()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "ClearPrototypeToastMessage");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.GetGenericProperty
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const class FName&                      Name_0                                                 (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString*                          Value                                                  (Parm, OutParm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool AOakPlayerState::GetGenericProperty(const class FName& Name_0, class FString* Value)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "GetGenericProperty");
+
+	Params::OakPlayerState_GetGenericProperty Parms{};
+
+	Parms.Name_0 = Name_0;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (Value != nullptr)
+		*Value = std::move(Parms.Value);
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakPlayerState.NotifyWatchedGenericPropertyDelta
+// (Native, Event, Public, HasOutParams, BlueprintEvent)
+// Parameters:
+// const class FName&                      Name_0                                                 (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    Value                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakPlayerState::NotifyWatchedGenericPropertyDelta(const class FName& Name_0, const class FString& Value)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "NotifyWatchedGenericPropertyDelta");
+
+	Params::OakPlayerState_NotifyWatchedGenericPropertyDelta Parms{};
+
+	Parms.Name_0 = Name_0;
+	Parms.Value = std::move(Value);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.OnOakPawnSet
+// (Final, Native, Protected)
+// Parameters:
+// class APlayerState*                     player                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class APawn*                            NewPawn                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class APawn*                            OldPawn                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakPlayerState::OnOakPawnSet(class APlayerState* player, class APawn* NewPawn, class APawn* OldPawn)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "OnOakPawnSet");
+
+	Params::OakPlayerState_OnOakPawnSet Parms{};
+
+	Parms.player = player;
+	Parms.NewPawn = NewPawn;
+	Parms.OldPawn = OldPawn;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.OnRep_BackpackItems
+// (Final, Native, Protected)
+
+void AOakPlayerState::OnRep_BackpackItems()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "OnRep_BackpackItems");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.OnRep_BankItems
+// (Final, Native, Protected)
+
+void AOakPlayerState::OnRep_BankItems()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "OnRep_BankItems");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.OnRep_BuddyIndex
+// (Final, Native, Protected)
+
+void AOakPlayerState::OnRep_BuddyIndex()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "OnRep_BuddyIndex");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.OnRep_ChallengeCompletion
+// (Final, Native, Public)
+
+void AOakPlayerState::OnRep_ChallengeCompletion()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "OnRep_ChallengeCompletion");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.OnRep_CurrentCharacterSelectPhase
+// (Final, Native, Protected)
+
+void AOakPlayerState::OnRep_CurrentCharacterSelectPhase()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "OnRep_CurrentCharacterSelectPhase");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.OnRep_DiscoveryPinningState
+// (Final, Native, Private)
+
+void AOakPlayerState::OnRep_DiscoveryPinningState()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "OnRep_DiscoveryPinningState");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.OnRep_ExperienceState
+// (Final, Native, Protected)
+
+void AOakPlayerState::OnRep_ExperienceState()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "OnRep_ExperienceState");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.OnRep_GenericProperties
+// (Final, Native, Public)
+
+void AOakPlayerState::OnRep_GenericProperties()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "OnRep_GenericProperties");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.OnRep_IsBusyInMenu
+// (Final, Native, Private)
+
+void AOakPlayerState::OnRep_IsBusyInMenu()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "OnRep_IsBusyInMenu");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.OnRep_PlayerDifficulty
+// (Final, Native, Protected)
+
+void AOakPlayerState::OnRep_PlayerDifficulty()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "OnRep_PlayerDifficulty");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.OnRep_TravelStatus
+// (Final, Native, Protected)
+
+void AOakPlayerState::OnRep_TravelStatus()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "OnRep_TravelStatus");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.RemoveGenericPropertyWatch
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const class FName&                      Name_0                                                 (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakPlayerState::RemoveGenericPropertyWatch(const class FName& Name_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "RemoveGenericPropertyWatch");
+
+	Params::OakPlayerState_RemoveGenericPropertyWatch Parms{};
+
+	Parms.Name_0 = Name_0;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.Server_CreateDiscoveryPin
+// (Net, NetReliable, Native, Event, Public, NetServer)
+// Parameters:
+// const struct FGbxDiscoveryPinningPinData&InPinData                                              (ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void AOakPlayerState::Server_CreateDiscoveryPin(const struct FGbxDiscoveryPinningPinData& InPinData)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "Server_CreateDiscoveryPin");
+
+	Params::OakPlayerState_Server_CreateDiscoveryPin Parms{};
+
+	Parms.InPinData = std::move(InPinData);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.Server_RemoveAllDiscoveryPins
+// (Net, NetReliable, Native, Event, Public, NetServer)
+
+void AOakPlayerState::Server_RemoveAllDiscoveryPins()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "Server_RemoveAllDiscoveryPins");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.Server_RemoveDiscoveryPin
+// (Net, NetReliable, Native, Event, Public, NetServer)
+// Parameters:
+// EGbxDiscoveryPinType                    InPinType                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   InPinIndex                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakPlayerState::Server_RemoveDiscoveryPin(EGbxDiscoveryPinType InPinType, int32 InPinIndex)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "Server_RemoveDiscoveryPin");
+
+	Params::OakPlayerState_Server_RemoveDiscoveryPin Parms{};
+
+	Parms.InPinType = InPinType;
+	Parms.InPinIndex = InPinIndex;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.ServerEnteredWorldRegion
+// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
+// Parameters:
+// const FGameDataHandleProperty_&         region                                                 (ConstParm, Parm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bNewDiscovery                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakPlayerState::ServerEnteredWorldRegion(const FGameDataHandleProperty_& region, bool bNewDiscovery)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "ServerEnteredWorldRegion");
+
+	Params::OakPlayerState_ServerEnteredWorldRegion Parms{};
+
+	Parms.region = region;
+	Parms.bNewDiscovery = bNewDiscovery;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.ServerSetCurrentCharacterSelectPhase
+// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
+// Parameters:
+// ECharacterSelectPhase                   NewCurrentCharacterSelectPhase                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakPlayerState::ServerSetCurrentCharacterSelectPhase(ECharacterSelectPhase NewCurrentCharacterSelectPhase)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "ServerSetCurrentCharacterSelectPhase");
+
+	Params::OakPlayerState_ServerSetCurrentCharacterSelectPhase Parms{};
+
+	Parms.NewCurrentCharacterSelectPhase = NewCurrentCharacterSelectPhase;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.ServerSetGbxActorParts
+// (Net, NetReliable, Native, Event, Public, NetServer)
+// Parameters:
+// const class FName&                      ActorType                                              (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    SerialNumberStr                                        (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakPlayerState::ServerSetGbxActorParts(const class FName& ActorType, const class FString& SerialNumberStr)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "ServerSetGbxActorParts");
+
+	Params::OakPlayerState_ServerSetGbxActorParts Parms{};
+
+	Parms.ActorType = ActorType;
+	Parms.SerialNumberStr = std::move(SerialNumberStr);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.ServerSetPlayerBusyInMenu
+// (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
+// Parameters:
+// bool                                    InIsBusy                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakPlayerState::ServerSetPlayerBusyInMenu(bool InIsBusy)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "ServerSetPlayerBusyInMenu");
+
+	Params::OakPlayerState_ServerSetPlayerBusyInMenu Parms{};
+
+	Parms.InIsBusy = InIsBusy;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.ServerSetPlayerProfileDifficulty
+// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
+// Parameters:
+// uint8                                   NewDifficulty                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakPlayerState::ServerSetPlayerProfileDifficulty(uint8 NewDifficulty)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "ServerSetPlayerProfileDifficulty");
+
+	Params::OakPlayerState_ServerSetPlayerProfileDifficulty Parms{};
+
+	Parms.NewDifficulty = NewDifficulty;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.ServerSetTravelStatus
+// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
+// Parameters:
+// EPlayerTravelStatus                     NewStatus                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakPlayerState::ServerSetTravelStatus(EPlayerTravelStatus NewStatus)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "ServerSetTravelStatus");
+
+	Params::OakPlayerState_ServerSetTravelStatus Parms{};
+
+	Parms.NewStatus = NewStatus;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.SetGenericProperty
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const class FName&                      Name_0                                                 (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    Value                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakPlayerState::SetGenericProperty(const class FName& Name_0, const class FString& Value)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "SetGenericProperty");
+
+	Params::OakPlayerState_SetGenericProperty Parms{};
+
+	Parms.Name_0 = Name_0;
+	Parms.Value = std::move(Value);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.SetGenericPropertyWatch
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const class FName&                      Name_0                                                 (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakPlayerState::SetGenericPropertyWatch(const class FName& Name_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "SetGenericPropertyWatch");
+
+	Params::OakPlayerState_SetGenericPropertyWatch Parms{};
+
+	Parms.Name_0 = Name_0;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.SetPrototypeToastMessage
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const class FString&                    Header                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    Message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    Style                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Duration                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakPlayerState::SetPrototypeToastMessage(const class FString& Header, const class FString& Message, const class FString& Style, float Duration)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "SetPrototypeToastMessage");
+
+	Params::OakPlayerState_SetPrototypeToastMessage Parms{};
+
+	Parms.Header = std::move(Header);
+	Parms.Message = std::move(Message);
+	Parms.Style = std::move(Style);
+	Parms.Duration = Duration;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakPlayerState.BP_GetExperienceLevel
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// const FGbxDefPtrProperty_               ExperienceDef                                          (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+int32 AOakPlayerState::BP_GetExperienceLevel(const FGbxDefPtrProperty_ ExperienceDef) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakPlayerState", "BP_GetExperienceLevel");
+
+	Params::OakPlayerState_BP_GetExperienceLevel Parms{};
+
+	Parms.ExperienceDef = ExperienceDef;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -23182,21 +21889,19 @@ bool AOakLocustGas::IsAbsorbing()
 }
 
 
-// Function OakGame.OakLocustGas.OnPatrolPointReached
-// (Final, Native, Public)
+// Function OakGame.OakPlayerState.GetTotalPlaytimeSeconds
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AOakLocustGas::OnPatrolPointReached(class AActor* target)
+float AOakPlayerState::GetTotalPlaytimeSeconds() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakLocustGas", "OnPatrolPointReached");
+		Func = Class->GetFunction("OakPlayerState", "GetTotalPlaytimeSeconds");
 
-	Params::OakLocustGas_OnPatrolPointReached Parms{};
-
-	Parms.target = target;
+	Params::OakPlayerState_GetTotalPlaytimeSeconds Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -23204,49 +21909,125 @@ void AOakLocustGas::OnPatrolPointReached(class AActor* target)
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 
-// Function OakGame.OakLocustGas.OnTargetAbsorbingReached
-// (Final, Native, Public)
+// Function OakGame.OakUIScript_ResourceMeter.NotEnoughFuelError
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
-// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AOakLocustGas::OnTargetAbsorbingReached(class AActor* target)
+void UOakUIScript_ResourceMeter::NotEnoughFuelError(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakLocustGas", "OnTargetAbsorbingReached");
+		Func = Class->GetFunction("OakUIScript_ResourceMeter", "NotEnoughFuelError");
 
-	Params::OakLocustGas_OnTargetAbsorbingReached Parms{};
+	Params::OakUIScript_ResourceMeter_NotEnoughFuelError Parms{};
 
-	Parms.target = target;
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakLostLootMachine.EndParticleOverride
+// (Final, Native, Public, BlueprintCallable)
+
+void AOakLostLootMachine::EndParticleOverride()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakLostLootMachine", "EndParticleOverride");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
 
 
-// Function OakGame.OakLocustGas.SetPatrolState
+// Function OakGame.OakLostLootMachine.GetFilledSlots
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// bool                                    bIsEnable                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AOakPlayerController*             OakPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AOakLocustGas::SetPatrolState(bool bIsEnable)
+int32 AOakLostLootMachine::GetFilledSlots(class AOakPlayerController* OakPC)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakLocustGas", "SetPatrolState");
+		Func = Class->GetFunction("OakLostLootMachine", "GetFilledSlots");
 
-	Params::OakLocustGas_SetPatrolState Parms{};
+	Params::OakLostLootMachine_GetFilledSlots Parms{};
 
-	Parms.bIsEnable = bIsEnable;
+	Parms.OakPC = OakPC;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakLostLootMachine.GetMaxSlots
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class AOakPlayerController*             OakPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+int32 AOakLostLootMachine::GetMaxSlots(class AOakPlayerController* OakPC)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakLostLootMachine", "GetMaxSlots");
+
+	Params::OakLostLootMachine_GetMaxSlots Parms{};
+
+	Parms.OakPC = OakPC;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakLostLootMachine.OverrideAllParticlePresentations
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    bShowParticle                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AOakLostLootMachine::OverrideAllParticlePresentations(bool bShowParticle)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakLostLootMachine", "OverrideAllParticlePresentations");
+
+	Params::OakLostLootMachine_OverrideAllParticlePresentations Parms{};
+
+	Parms.bShowParticle = bShowParticle;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -23257,67 +22038,20 @@ void AOakLocustGas::SetPatrolState(bool bIsEnable)
 }
 
 
-// Function OakGame.OakSingularity.OnEnteringSingularityZone
-// (Final, Native, Protected, HasOutParams)
-// Parameters:
-// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bFromSweep                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FHitResult&                SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+// Function OakGame.OakLostLootMachine.UpdateParticlePresentations
+// (Final, Native, Public, BlueprintCallable)
 
-void AOakSingularity::OnEnteringSingularityZone(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult)
+void AOakLostLootMachine::UpdateParticlePresentations()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakSingularity", "OnEnteringSingularityZone");
-
-	Params::OakSingularity_OnEnteringSingularityZone Parms{};
-
-	Parms.OverlappedComponent = OverlappedComponent;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-	Parms.bFromSweep = bFromSweep;
-	Parms.SweepResult = std::move(SweepResult);
+		Func = Class->GetFunction("OakLostLootMachine", "UpdateParticlePresentations");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakSingularity.OnExitingSingularityZone
-// (Final, Native, Protected)
-// Parameters:
-// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakSingularity::OnExitingSingularityZone(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakSingularity", "OnExitingSingularityZone");
-
-	Params::OakSingularity_OnExitingSingularityZone Parms{};
-
-	Parms.OverlappedComponent = OverlappedComponent;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -23436,57 +22170,31 @@ void UOakFactionFunctionLibrary::GiveFactionReputationToParty(class UObject* Wor
 }
 
 
-// Function OakGame.OakSkillStatics.FireKillSkillEvent
-// (Final, Native, Static, Private, HasDefaults, BlueprintCallable)
+// Function OakGame.OakSingularity.OnEnteringSingularityZone
+// (Final, Native, Protected, HasOutParams)
 // Parameters:
-// class AOakCharacter*                    target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           KilledTarget                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector&                   Location                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   damage                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bFromSweep                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FHitResult&                SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
-void UOakSkillStatics::FireKillSkillEvent(class AOakCharacter* target, class AActor* KilledTarget, const struct FVector& Location, float damage)
+void AOakSingularity::OnEnteringSingularityZone(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakSkillStatics", "FireKillSkillEvent");
+		Func = Class->GetFunction("OakSingularity", "OnEnteringSingularityZone");
 
-	Params::OakSkillStatics_FireKillSkillEvent Parms{};
+	Params::OakSingularity_OnEnteringSingularityZone Parms{};
 
-	Parms.target = target;
-	Parms.KilledTarget = KilledTarget;
-	Parms.Location = std::move(Location);
-	Parms.damage = damage;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakGameMode.RequestTravelViaLink
-// (Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const class FName&                      LinkName                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AGbxPlayerController*             Controller                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bImmediate                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool AOakGameMode::RequestTravelViaLink(const class FName& LinkName, class AGbxPlayerController* Controller, bool bImmediate)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakGameMode", "RequestTravelViaLink");
-
-	Params::OakGameMode_RequestTravelViaLink Parms{};
-
-	Parms.LinkName = LinkName;
-	Parms.Controller = Controller;
-	Parms.bImmediate = bImmediate;
+	Parms.OverlappedComponent = OverlappedComponent;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
+	Parms.bFromSweep = bFromSweep;
+	Parms.SweepResult = std::move(SweepResult);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -23494,160 +22202,37 @@ bool AOakGameMode::RequestTravelViaLink(const class FName& LinkName, class AGbxP
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
-// Function OakGame.OakGameplayActorStatics.FilterActors
-// (Final, BlueprintAuthorityOnly, Native, Static, Public, HasOutParams, BlueprintCallable)
+// Function OakGame.OakSingularity.OnExitingSingularityZone
+// (Final, Native, Protected)
 // Parameters:
-// const TArray<class AActor*>&            InActorsToFilter                                       (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-// const TArray<class AActor*>&            InActorsToExclude                                      (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-// TArray<class AActor*>                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-TArray<class AActor*> UOakGameplayActorStatics::FilterActors(const TArray<class AActor*>& InActorsToFilter, const TArray<class AActor*>& InActorsToExclude)
+void AOakSingularity::OnExitingSingularityZone(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakGameplayActorStatics", "FilterActors");
+		Func = Class->GetFunction("OakSingularity", "OnExitingSingularityZone");
 
-	Params::OakGameplayActorStatics_FilterActors Parms{};
+	Params::OakSingularity_OnExitingSingularityZone Parms{};
 
-	Parms.InActorsToFilter = std::move(InActorsToFilter);
-	Parms.InActorsToExclude = std::move(InActorsToExclude);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakGameplayActorStatics.QueryPlayers
-// (Final, BlueprintAuthorityOnly, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          WorldContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FOakPlayerQuerySpec&       InSpec                                                 (Parm, NativeAccessSpecifierPublic)
-// struct FOakPlayerQueryResult            ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-struct FOakPlayerQueryResult UOakGameplayActorStatics::QueryPlayers(class UObject* WorldContext, const struct FOakPlayerQuerySpec& InSpec)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakGameplayActorStatics", "QueryPlayers");
-
-	Params::OakGameplayActorStatics_QueryPlayers Parms{};
-
-	Parms.WorldContext = WorldContext;
-	Parms.InSpec = std::move(InSpec);
+	Parms.OverlappedComponent = OverlappedComponent;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakGameplayActorStatics.QueryResultToCharacters
-// (Final, BlueprintAuthorityOnly, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const TArray<struct FOakPlayerQueryResultItem>&InQueryResultItems                                     (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-// TArray<class AOakCharacter*>            ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-
-TArray<class AOakCharacter*> UOakGameplayActorStatics::QueryResultToCharacters(const TArray<struct FOakPlayerQueryResultItem>& InQueryResultItems)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakGameplayActorStatics", "QueryResultToCharacters");
-
-	Params::OakGameplayActorStatics_QueryResultToCharacters Parms{};
-
-	Parms.InQueryResultItems = std::move(InQueryResultItems);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakGameplayActorStatics.QueryResultToPlayerControllers
-// (Final, BlueprintAuthorityOnly, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const TArray<struct FOakPlayerQueryResultItem>&InQueryResultItems                                     (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-// TArray<class AOakPlayerController*>     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-
-TArray<class AOakPlayerController*> UOakGameplayActorStatics::QueryResultToPlayerControllers(const TArray<struct FOakPlayerQueryResultItem>& InQueryResultItems)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakGameplayActorStatics", "QueryResultToPlayerControllers");
-
-	Params::OakGameplayActorStatics_QueryResultToPlayerControllers Parms{};
-
-	Parms.InQueryResultItems = std::move(InQueryResultItems);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakGameplayActorStatics.SpawnSingularityActor
-// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
-// Parameters:
-// FGameDataHandleProperty_                SingularityDef                                         (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FTransform&                SingularityTransform                                   (ConstParm, Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class AActor*                     owner                                                  (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const TArray<class AActor*>&            IgnoreActors                                           (Parm, ZeroConstructor, NativeAccessSpecifierPublic)
-// const struct FOakSingularityOverrides&  Overrides                                              (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// class AOakSingularity*                  ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class AOakSingularity* UOakGameplayActorStatics::SpawnSingularityActor(FGameDataHandleProperty_ SingularityDef, const struct FTransform& SingularityTransform, const class AActor* owner, const TArray<class AActor*>& IgnoreActors, const struct FOakSingularityOverrides& Overrides)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakGameplayActorStatics", "SpawnSingularityActor");
-
-	Params::OakGameplayActorStatics_SpawnSingularityActor Parms{};
-
-	Parms.SingularityDef = SingularityDef;
-	Parms.SingularityTransform = std::move(SingularityTransform);
-	Parms.owner = owner;
-	Parms.IgnoreActors = std::move(IgnoreActors);
-	Parms.Overrides = std::move(Overrides);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
@@ -23811,6 +22396,95 @@ void UOakStatusEffectContainerStatics::SetCryoSlowLocked(class AActor* Context, 
 	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakGameMode.RequestTravelViaLink
+// (Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const class FName&                      LinkName                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AGbxPlayerController*             Controller                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bImmediate                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool AOakGameMode::RequestTravelViaLink(const class FName& LinkName, class AGbxPlayerController* Controller, bool bImmediate)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakGameMode", "RequestTravelViaLink");
+
+	Params::OakGameMode_RequestTravelViaLink Parms{};
+
+	Parms.LinkName = LinkName;
+	Parms.Controller = Controller;
+	Parms.bImmediate = bImmediate;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakSkillStatics.FireKillSkillEvent
+// (Final, Native, Static, Private, HasDefaults, BlueprintCallable)
+// Parameters:
+// class AOakCharacter*                    target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           KilledTarget                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector&                   Location                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   damage                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakSkillStatics::FireKillSkillEvent(class AOakCharacter* target, class AActor* KilledTarget, const struct FVector& Location, float damage)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakSkillStatics", "FireKillSkillEvent");
+
+	Params::OakSkillStatics_FireKillSkillEvent Parms{};
+
+	Parms.target = target;
+	Parms.KilledTarget = KilledTarget;
+	Parms.Location = std::move(Location);
+	Parms.damage = damage;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakSpawnPointPreviewComponent.GetPreviewDecoStateOptions
+// (Final, Native, Private, HasOutParams)
+// Parameters:
+// TArray<class FName>*                    OutOptions                                             (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+
+void UOakSpawnPointPreviewComponent::GetPreviewDecoStateOptions(TArray<class FName>* OutOptions)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakSpawnPointPreviewComponent", "GetPreviewDecoStateOptions");
+
+	Params::OakSpawnPointPreviewComponent_GetPreviewDecoStateOptions Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (OutOptions != nullptr)
+		*OutOptions = std::move(Parms.OutOptions);
 }
 
 
@@ -24089,32 +22763,6 @@ void UOakGlideModifierComponent::OnActorExitedGlideModifierVolume(class AActor* 
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakSpawnPointPreviewComponent.GetPreviewDecoStateOptions
-// (Final, Native, Private, HasOutParams)
-// Parameters:
-// TArray<class FName>*                    OutOptions                                             (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-
-void UOakSpawnPointPreviewComponent::GetPreviewDecoStateOptions(TArray<class FName>* OutOptions)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakSpawnPointPreviewComponent", "GetPreviewDecoStateOptions");
-
-	Params::OakSpawnPointPreviewComponent_GetPreviewDecoStateOptions Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (OutOptions != nullptr)
-		*OutOptions = std::move(Parms.OutOptions);
 }
 
 
@@ -24463,20 +23111,55 @@ void IOakIntrinsicElement::OnOwnerElementChanged(const EOakElementalType NewElem
 }
 
 
-// Function OakGame.WeaponBehavior_AtlasLock.WeaponDetached
-// (Final, Native, Protected)
+// Function OakGame.VaultCardsManager.Server_PurchaseCosmetic
+// (Final, Net, NetReliable, Native, Event, Private, NetServer)
+// Parameters:
+// FGbxDefPtrProperty_                     VaultCard                                              (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   CosmeticIndex                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UWeaponBehavior_AtlasLock::WeaponDetached()
+void UVaultCardsManager::Server_PurchaseCosmetic(FGbxDefPtrProperty_ VaultCard, int32 CosmeticIndex)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("WeaponBehavior_AtlasLock", "WeaponDetached");
+		Func = Class->GetFunction("VaultCardsManager", "Server_PurchaseCosmetic");
+
+	Params::VaultCardsManager_Server_PurchaseCosmetic Parms{};
+
+	Parms.VaultCard = VaultCard;
+	Parms.CosmeticIndex = CosmeticIndex;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, nullptr);
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.VaultCardsManager.Server_PurchaseInventoryItem
+// (Final, Net, NetReliable, Native, Event, Private, NetServer)
+// Parameters:
+// FGbxDefPtrProperty_                     VaultCard                                              (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FName                             InvItemName                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UVaultCardsManager::Server_PurchaseInventoryItem(FGbxDefPtrProperty_ VaultCard, class FName InvItemName)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("VaultCardsManager", "Server_PurchaseInventoryItem");
+
+	Params::VaultCardsManager_Server_PurchaseInventoryItem Parms{};
+
+	Parms.VaultCard = VaultCard;
+	Parms.InvItemName = InvItemName;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -29954,66 +28637,84 @@ TArray<class AOakLocustGas*> UOakLocustGasBlueprintFunctionLibrary::GetLocustGas
 }
 
 
-// Function OakGame.WeaponBehavior_Sight.StartInitSequence
-// (Final, Native, Protected)
+// Function OakGame.OakWeaponPoseStatics.BreakOakWeaponPose
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class AWeapon*                          Weapon                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FOakWeaponPose&            Pose                                                   (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+// class UAnimSequence**                   GripPose                                               (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAnimSequence**                   ForegripPose                                           (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAnimSequence**                   AlternateGrip                                          (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAnimSequence**                   BodyPose                                               (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAnimSequence**                   SecondaryBodyPose                                      (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAnimSequence**                   AdsRefPose                                             (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAnimSequence**                   AdsPose                                                (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAnimSequence**                   SecondaryAdsPose                                       (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAnimSequence**                   AdsEnter                                               (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAnimSequence**                   AdsExit                                                (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAnimSequence**                   WeaponGripPose                                         (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAnimSequence**                   WeaponForegripPose                                     (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FName*                            GripIkBone                                             (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FName*                            ForegripIkBone                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UWeaponBehavior_Sight::StartInitSequence(class AWeapon* Weapon)
+void UOakWeaponPoseStatics::BreakOakWeaponPose(const struct FOakWeaponPose& Pose, class UAnimSequence** GripPose, class UAnimSequence** ForegripPose, class UAnimSequence** AlternateGrip, class UAnimSequence** BodyPose, class UAnimSequence** SecondaryBodyPose, class UAnimSequence** AdsRefPose, class UAnimSequence** AdsPose, class UAnimSequence** SecondaryAdsPose, class UAnimSequence** AdsEnter, class UAnimSequence** AdsExit, class UAnimSequence** WeaponGripPose, class UAnimSequence** WeaponForegripPose, class FName* GripIkBone, class FName* ForegripIkBone)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("WeaponBehavior_Sight", "StartInitSequence");
+		Func = StaticClass()->GetFunction("OakWeaponPoseStatics", "BreakOakWeaponPose");
 
-	Params::WeaponBehavior_Sight_StartInitSequence Parms{};
+	Params::OakWeaponPoseStatics_BreakOakWeaponPose Parms{};
 
-	Parms.Weapon = Weapon;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.WeaponBehavior_Sight.WeaponAttached
-// (Final, Native, Protected)
-
-void UWeaponBehavior_Sight::WeaponAttached()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WeaponBehavior_Sight", "WeaponAttached");
+	Parms.Pose = std::move(Pose);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, nullptr);
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-}
 
+	if (GripPose != nullptr)
+		*GripPose = Parms.GripPose;
 
-// Function OakGame.WeaponBehavior_Sight.WeaponDetached
-// (Final, Native, Protected)
+	if (ForegripPose != nullptr)
+		*ForegripPose = Parms.ForegripPose;
 
-void UWeaponBehavior_Sight::WeaponDetached()
-{
-	static class UFunction* Func = nullptr;
+	if (AlternateGrip != nullptr)
+		*AlternateGrip = Parms.AlternateGrip;
 
-	if (Func == nullptr)
-		Func = Class->GetFunction("WeaponBehavior_Sight", "WeaponDetached");
+	if (BodyPose != nullptr)
+		*BodyPose = Parms.BodyPose;
 
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
+	if (SecondaryBodyPose != nullptr)
+		*SecondaryBodyPose = Parms.SecondaryBodyPose;
 
-	UObject::ProcessEvent(Func, nullptr);
+	if (AdsRefPose != nullptr)
+		*AdsRefPose = Parms.AdsRefPose;
 
-	Func->FunctionFlags = Flgs;
+	if (AdsPose != nullptr)
+		*AdsPose = Parms.AdsPose;
+
+	if (SecondaryAdsPose != nullptr)
+		*SecondaryAdsPose = Parms.SecondaryAdsPose;
+
+	if (AdsEnter != nullptr)
+		*AdsEnter = Parms.AdsEnter;
+
+	if (AdsExit != nullptr)
+		*AdsExit = Parms.AdsExit;
+
+	if (WeaponGripPose != nullptr)
+		*WeaponGripPose = Parms.WeaponGripPose;
+
+	if (WeaponForegripPose != nullptr)
+		*WeaponForegripPose = Parms.WeaponForegripPose;
+
+	if (GripIkBone != nullptr)
+		*GripIkBone = Parms.GripIkBone;
+
+	if (ForegripIkBone != nullptr)
+		*ForegripIkBone = Parms.ForegripIkBone;
 }
 
 
@@ -30043,354 +28744,6 @@ void UOakMainMenuCameraComponent::GetFocusedCharacterNames(TArray<class FName>* 
 }
 
 
-// Function OakGame.OakWheeledVehicleMovementComponent.FreeBoostElapsed
-// (Final, Native, Private)
-
-void UOakWheeledVehicleMovementComponent::FreeBoostElapsed()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "FreeBoostElapsed");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakWheeledVehicleMovementComponent.OnBoostDepleted
-// (Final, Native, Public)
-
-void UOakWheeledVehicleMovementComponent::OnBoostDepleted()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "OnBoostDepleted");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakWheeledVehicleMovementComponent.OnBoostFilled
-// (Final, Native, Public)
-
-void UOakWheeledVehicleMovementComponent::OnBoostFilled()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "OnBoostFilled");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakWheeledVehicleMovementComponent.OnHit
-// (Native, Public, HasOutParams, HasDefaults)
-// Parameters:
-// class AActor*                           SelfActor                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector&                   NormalImpulse                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FHitResult&                Hit                                                    (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-void UOakWheeledVehicleMovementComponent::OnHit(class AActor* SelfActor, class AActor* OtherActor, const struct FVector& NormalImpulse, const struct FHitResult& Hit)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "OnHit");
-
-	Params::OakWheeledVehicleMovementComponent_OnHit Parms{};
-
-	Parms.SelfActor = SelfActor;
-	Parms.OtherActor = OtherActor;
-	Parms.NormalImpulse = std::move(NormalImpulse);
-	Parms.Hit = std::move(Hit);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakWheeledVehicleMovementComponent.OnPrimitiveBeginOverlap
-// (Native, Public, HasOutParams)
-// Parameters:
-// class UPrimitiveComponent*              OverlappedComp                                         (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bFromSweep                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FHitResult&                SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-void UOakWheeledVehicleMovementComponent::OnPrimitiveBeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "OnPrimitiveBeginOverlap");
-
-	Params::OakWheeledVehicleMovementComponent_OnPrimitiveBeginOverlap Parms{};
-
-	Parms.OverlappedComp = OverlappedComp;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-	Parms.bFromSweep = bFromSweep;
-	Parms.SweepResult = std::move(SweepResult);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakWheeledVehicleMovementComponent.OnPrimitiveEndOverlap
-// (Native, Public)
-// Parameters:
-// class UPrimitiveComponent*              OverlappedComp                                         (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakWheeledVehicleMovementComponent::OnPrimitiveEndOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "OnPrimitiveEndOverlap");
-
-	Params::OakWheeledVehicleMovementComponent_OnPrimitiveEndOverlap Parms{};
-
-	Parms.OverlappedComp = OverlappedComp;
-	Parms.OtherActor = OtherActor;
-	Parms.OtherComp = OtherComp;
-	Parms.OtherBodyIndex = OtherBodyIndex;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakWheeledVehicleMovementComponent.PowerslideCooldownElapsed
-// (Final, Native, Private)
-
-void UOakWheeledVehicleMovementComponent::PowerslideCooldownElapsed()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "PowerslideCooldownElapsed");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakWheeledVehicleMovementComponent.GetAirTime
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UOakWheeledVehicleMovementComponent::GetAirTime() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "GetAirTime");
-
-	Params::OakWheeledVehicleMovementComponent_GetAirTime Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakWheeledVehicleMovementComponent.GetGroundNormal
-// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-struct FVector UOakWheeledVehicleMovementComponent::GetGroundNormal() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "GetGroundNormal");
-
-	Params::OakWheeledVehicleMovementComponent_GetGroundNormal Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakWheeledVehicleMovementComponent.GetGroundSpeed
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UOakWheeledVehicleMovementComponent::GetGroundSpeed() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "GetGroundSpeed");
-
-	Params::OakWheeledVehicleMovementComponent_GetGroundSpeed Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakWheeledVehicleMovementComponent.GetGroundTraceResult
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// struct FHitResult                       ReturnValue                                            (Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-struct FHitResult UOakWheeledVehicleMovementComponent::GetGroundTraceResult() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "GetGroundTraceResult");
-
-	Params::OakWheeledVehicleMovementComponent_GetGroundTraceResult Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakWheeledVehicleMovementComponent.GetHoverVector
-// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-struct FVector UOakWheeledVehicleMovementComponent::GetHoverVector() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "GetHoverVector");
-
-	Params::OakWheeledVehicleMovementComponent_GetHoverVector Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakWheeledVehicleMovementComponent.GetWorldVelocity
-// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-struct FVector UOakWheeledVehicleMovementComponent::GetWorldVelocity() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "GetWorldVelocity");
-
-	Params::OakWheeledVehicleMovementComponent_GetWorldVelocity Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakWheeledVehicleMovementComponent.IsBoosting
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UOakWheeledVehicleMovementComponent::IsBoosting() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "IsBoosting");
-
-	Params::OakWheeledVehicleMovementComponent_IsBoosting Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function OakGame.OakNavFormationeStatics.GetAllSetupNames
 // (Final, Native, Static, Public, HasOutParams)
 // Parameters:
@@ -30417,6 +28770,78 @@ void UOakNavFormationeStatics::GetAllSetupNames(class UObject* OuterObject, TArr
 
 	if (OutNames != nullptr)
 		*OutNames = std::move(Parms.OutNames);
+}
+
+
+// Function OakGame.OakUIScript_WeaponWheel.Closing
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_WeaponWheel::Closing(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_WeaponWheel", "Closing");
+
+	Params::OakUIScript_WeaponWheel_Closing Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_WeaponWheel.Highlighting
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_WeaponWheel::Highlighting(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_WeaponWheel", "Highlighting");
+
+	Params::OakUIScript_WeaponWheel_Highlighting Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_WeaponWheel.Opening
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_WeaponWheel::Opening(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_WeaponWheel", "Opening");
+
+	Params::OakUIScript_WeaponWheel_Opening Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -30500,23 +28925,80 @@ void UOakPlayerPuppetStatics::Unpuppet(class AActor* Actor)
 }
 
 
-// Function OakGame.OakPlayerState.BP_SetExperienceLevel
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const FGbxDefPtrProperty_               ExperienceDef                                          (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   ExperienceLevel                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// Function OakGame.WeaponBehavior_Repair.OnAttached
+// (Final, Native, Protected)
 
-void AOakPlayerState::BP_SetExperienceLevel(const FGbxDefPtrProperty_ ExperienceDef, int32 ExperienceLevel)
+void UWeaponBehavior_Repair::OnAttached()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "BP_SetExperienceLevel");
+		Func = Class->GetFunction("WeaponBehavior_Repair", "OnAttached");
 
-	Params::OakPlayerState_BP_SetExperienceLevel Parms{};
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
 
-	Parms.ExperienceDef = ExperienceDef;
-	Parms.ExperienceLevel = ExperienceLevel;
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.WeaponBehavior_Repair.OnBegunPlay
+// (Final, Native, Protected)
+
+void UWeaponBehavior_Repair::OnBegunPlay()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WeaponBehavior_Repair", "OnBegunPlay");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.WeaponBehavior_Repair.OnDetached
+// (Final, Native, Protected)
+
+void UWeaponBehavior_Repair::OnDetached()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WeaponBehavior_Repair", "OnDetached");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.WeaponBehavior_Repair.OnMaxShotsToBreakChanged
+// (Final, Native, Protected)
+// Parameters:
+// float                                   OldValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UWeaponBehavior_Repair::OnMaxShotsToBreakChanged(float OldValue, float NewValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WeaponBehavior_Repair", "OnMaxShotsToBreakChanged");
+
+	Params::WeaponBehavior_Repair_OnMaxShotsToBreakChanged Parms{};
+
+	Parms.OldValue = OldValue;
+	Parms.NewValue = NewValue;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -30527,21 +29009,23 @@ void AOakPlayerState::BP_SetExperienceLevel(const FGbxDefPtrProperty_ Experience
 }
 
 
-// Function OakGame.OakPlayerState.BP_UnlockExperienceType
-// (Final, Native, Public, BlueprintCallable)
+// Function OakGame.WeaponBehavior_Repair.OnMinShotsToBreakChanged
+// (Final, Native, Protected)
 // Parameters:
-// const FGbxDefPtrProperty_               ExperienceDef                                          (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   OldValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void AOakPlayerState::BP_UnlockExperienceType(const FGbxDefPtrProperty_ ExperienceDef)
+void UWeaponBehavior_Repair::OnMinShotsToBreakChanged(float OldValue, float NewValue)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "BP_UnlockExperienceType");
+		Func = Class->GetFunction("WeaponBehavior_Repair", "OnMinShotsToBreakChanged");
 
-	Params::OakPlayerState_BP_UnlockExperienceType Parms{};
+	Params::WeaponBehavior_Repair_OnMinShotsToBreakChanged Parms{};
 
-	Parms.ExperienceDef = ExperienceDef;
+	Parms.OldValue = OldValue;
+	Parms.NewValue = NewValue;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -30552,122 +29036,15 @@ void AOakPlayerState::BP_UnlockExperienceType(const FGbxDefPtrProperty_ Experien
 }
 
 
-// Function OakGame.OakPlayerState.ClearPrototypeToastMessage
-// (Final, Native, Public, BlueprintCallable)
-
-void AOakPlayerState::ClearPrototypeToastMessage()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "ClearPrototypeToastMessage");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.GetGenericProperty
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const class FName&                      Name_0                                                 (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString*                          Value                                                  (Parm, OutParm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool AOakPlayerState::GetGenericProperty(const class FName& Name_0, class FString* Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "GetGenericProperty");
-
-	Params::OakPlayerState_GetGenericProperty Parms{};
-
-	Parms.Name_0 = Name_0;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Value != nullptr)
-		*Value = std::move(Parms.Value);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakPlayerState.NotifyWatchedGenericPropertyDelta
-// (Native, Event, Public, HasOutParams, BlueprintEvent)
-// Parameters:
-// const class FName&                      Name_0                                                 (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Value                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakPlayerState::NotifyWatchedGenericPropertyDelta(const class FName& Name_0, const class FString& Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "NotifyWatchedGenericPropertyDelta");
-
-	Params::OakPlayerState_NotifyWatchedGenericPropertyDelta Parms{};
-
-	Parms.Name_0 = Name_0;
-	Parms.Value = std::move(Value);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.OnOakPawnSet
-// (Final, Native, Protected)
-// Parameters:
-// class APlayerState*                     player                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class APawn*                            NewPawn                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class APawn*                            OldPawn                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakPlayerState::OnOakPawnSet(class APlayerState* player, class APawn* NewPawn, class APawn* OldPawn)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "OnOakPawnSet");
-
-	Params::OakPlayerState_OnOakPawnSet Parms{};
-
-	Parms.player = player;
-	Parms.NewPawn = NewPawn;
-	Parms.OldPawn = OldPawn;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.OnRep_BackpackItems
+// Function OakGame.WeaponBehavior_Repair.OnRep_ClientRepairState
 // (Final, Native, Protected)
 
-void AOakPlayerState::OnRep_BackpackItems()
+void UWeaponBehavior_Repair::OnRep_ClientRepairState()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "OnRep_BackpackItems");
+		Func = Class->GetFunction("WeaponBehavior_Repair", "OnRep_ClientRepairState");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -30678,91 +29055,15 @@ void AOakPlayerState::OnRep_BackpackItems()
 }
 
 
-// Function OakGame.OakPlayerState.OnRep_BankItems
-// (Final, Native, Protected)
-
-void AOakPlayerState::OnRep_BankItems()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "OnRep_BankItems");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.OnRep_BuddyIndex
-// (Final, Native, Protected)
-
-void AOakPlayerState::OnRep_BuddyIndex()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "OnRep_BuddyIndex");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.OnRep_ChallengeCompletion
-// (Final, Native, Public)
-
-void AOakPlayerState::OnRep_ChallengeCompletion()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "OnRep_ChallengeCompletion");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.OnRep_CurrentCharacterSelectPhase
-// (Final, Native, Protected)
-
-void AOakPlayerState::OnRep_CurrentCharacterSelectPhase()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "OnRep_CurrentCharacterSelectPhase");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.OnRep_DiscoveryPinningState
+// Function OakGame.WeaponBehavior_Repair.OnRep_NumShotsToBreak
 // (Final, Native, Private)
 
-void AOakPlayerState::OnRep_DiscoveryPinningState()
+void UWeaponBehavior_Repair::OnRep_NumShotsToBreak()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "OnRep_DiscoveryPinningState");
+		Func = Class->GetFunction("WeaponBehavior_Repair", "OnRep_NumShotsToBreak");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -30773,496 +29074,15 @@ void AOakPlayerState::OnRep_DiscoveryPinningState()
 }
 
 
-// Function OakGame.OakPlayerState.OnRep_ExperienceState
+// Function OakGame.WeaponBehavior_Repair.OnUsed
 // (Final, Native, Protected)
 
-void AOakPlayerState::OnRep_ExperienceState()
+void UWeaponBehavior_Repair::OnUsed()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "OnRep_ExperienceState");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.OnRep_GenericProperties
-// (Final, Native, Public)
-
-void AOakPlayerState::OnRep_GenericProperties()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "OnRep_GenericProperties");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.OnRep_IsBusyInMenu
-// (Final, Native, Private)
-
-void AOakPlayerState::OnRep_IsBusyInMenu()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "OnRep_IsBusyInMenu");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.OnRep_PlayerDifficulty
-// (Final, Native, Protected)
-
-void AOakPlayerState::OnRep_PlayerDifficulty()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "OnRep_PlayerDifficulty");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.OnRep_TravelStatus
-// (Final, Native, Protected)
-
-void AOakPlayerState::OnRep_TravelStatus()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "OnRep_TravelStatus");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.RemoveGenericPropertyWatch
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const class FName&                      Name_0                                                 (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakPlayerState::RemoveGenericPropertyWatch(const class FName& Name_0)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "RemoveGenericPropertyWatch");
-
-	Params::OakPlayerState_RemoveGenericPropertyWatch Parms{};
-
-	Parms.Name_0 = Name_0;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.Server_CreateDiscoveryPin
-// (Net, NetReliable, Native, Event, Public, NetServer)
-// Parameters:
-// const struct FGbxDiscoveryPinningPinData&InPinData                                              (ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void AOakPlayerState::Server_CreateDiscoveryPin(const struct FGbxDiscoveryPinningPinData& InPinData)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "Server_CreateDiscoveryPin");
-
-	Params::OakPlayerState_Server_CreateDiscoveryPin Parms{};
-
-	Parms.InPinData = std::move(InPinData);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.Server_RemoveAllDiscoveryPins
-// (Net, NetReliable, Native, Event, Public, NetServer)
-
-void AOakPlayerState::Server_RemoveAllDiscoveryPins()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "Server_RemoveAllDiscoveryPins");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.Server_RemoveDiscoveryPin
-// (Net, NetReliable, Native, Event, Public, NetServer)
-// Parameters:
-// EGbxDiscoveryPinType                    InPinType                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   InPinIndex                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakPlayerState::Server_RemoveDiscoveryPin(EGbxDiscoveryPinType InPinType, int32 InPinIndex)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "Server_RemoveDiscoveryPin");
-
-	Params::OakPlayerState_Server_RemoveDiscoveryPin Parms{};
-
-	Parms.InPinType = InPinType;
-	Parms.InPinIndex = InPinIndex;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.ServerEnteredWorldRegion
-// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
-// Parameters:
-// const FGameDataHandleProperty_&         region                                                 (ConstParm, Parm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bNewDiscovery                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakPlayerState::ServerEnteredWorldRegion(const FGameDataHandleProperty_& region, bool bNewDiscovery)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "ServerEnteredWorldRegion");
-
-	Params::OakPlayerState_ServerEnteredWorldRegion Parms{};
-
-	Parms.region = region;
-	Parms.bNewDiscovery = bNewDiscovery;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.ServerSetCurrentCharacterSelectPhase
-// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
-// Parameters:
-// ECharacterSelectPhase                   NewCurrentCharacterSelectPhase                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakPlayerState::ServerSetCurrentCharacterSelectPhase(ECharacterSelectPhase NewCurrentCharacterSelectPhase)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "ServerSetCurrentCharacterSelectPhase");
-
-	Params::OakPlayerState_ServerSetCurrentCharacterSelectPhase Parms{};
-
-	Parms.NewCurrentCharacterSelectPhase = NewCurrentCharacterSelectPhase;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.ServerSetGbxActorParts
-// (Net, NetReliable, Native, Event, Public, NetServer)
-// Parameters:
-// const class FName&                      ActorType                                              (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    SerialNumberStr                                        (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakPlayerState::ServerSetGbxActorParts(const class FName& ActorType, const class FString& SerialNumberStr)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "ServerSetGbxActorParts");
-
-	Params::OakPlayerState_ServerSetGbxActorParts Parms{};
-
-	Parms.ActorType = ActorType;
-	Parms.SerialNumberStr = std::move(SerialNumberStr);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.ServerSetPlayerBusyInMenu
-// (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
-// Parameters:
-// bool                                    InIsBusy                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakPlayerState::ServerSetPlayerBusyInMenu(bool InIsBusy)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "ServerSetPlayerBusyInMenu");
-
-	Params::OakPlayerState_ServerSetPlayerBusyInMenu Parms{};
-
-	Parms.InIsBusy = InIsBusy;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.ServerSetPlayerProfileDifficulty
-// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
-// Parameters:
-// uint8                                   NewDifficulty                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakPlayerState::ServerSetPlayerProfileDifficulty(uint8 NewDifficulty)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "ServerSetPlayerProfileDifficulty");
-
-	Params::OakPlayerState_ServerSetPlayerProfileDifficulty Parms{};
-
-	Parms.NewDifficulty = NewDifficulty;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.ServerSetTravelStatus
-// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
-// Parameters:
-// EPlayerTravelStatus                     NewStatus                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakPlayerState::ServerSetTravelStatus(EPlayerTravelStatus NewStatus)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "ServerSetTravelStatus");
-
-	Params::OakPlayerState_ServerSetTravelStatus Parms{};
-
-	Parms.NewStatus = NewStatus;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.SetGenericProperty
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const class FName&                      Name_0                                                 (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Value                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakPlayerState::SetGenericProperty(const class FName& Name_0, const class FString& Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "SetGenericProperty");
-
-	Params::OakPlayerState_SetGenericProperty Parms{};
-
-	Parms.Name_0 = Name_0;
-	Parms.Value = std::move(Value);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.SetGenericPropertyWatch
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const class FName&                      Name_0                                                 (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakPlayerState::SetGenericPropertyWatch(const class FName& Name_0)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "SetGenericPropertyWatch");
-
-	Params::OakPlayerState_SetGenericPropertyWatch Parms{};
-
-	Parms.Name_0 = Name_0;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.SetPrototypeToastMessage
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Header                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Style                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   Duration                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakPlayerState::SetPrototypeToastMessage(const class FString& Header, const class FString& Message, const class FString& Style, float Duration)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "SetPrototypeToastMessage");
-
-	Params::OakPlayerState_SetPrototypeToastMessage Parms{};
-
-	Parms.Header = std::move(Header);
-	Parms.Message = std::move(Message);
-	Parms.Style = std::move(Style);
-	Parms.Duration = Duration;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakPlayerState.BP_GetExperienceLevel
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const FGbxDefPtrProperty_               ExperienceDef                                          (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 AOakPlayerState::BP_GetExperienceLevel(const FGbxDefPtrProperty_ ExperienceDef) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "BP_GetExperienceLevel");
-
-	Params::OakPlayerState_BP_GetExperienceLevel Parms{};
-
-	Parms.ExperienceDef = ExperienceDef;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.OakPlayerState.GetTotalPlaytimeSeconds
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float AOakPlayerState::GetTotalPlaytimeSeconds() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakPlayerState", "GetTotalPlaytimeSeconds");
-
-	Params::OakPlayerState_GetTotalPlaytimeSeconds Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function OakGame.WeaponProjectile.OnRep_HomingMod
-// (Final, Native, Protected)
-
-void AWeaponProjectile::OnRep_HomingMod()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WeaponProjectile", "OnRep_HomingMod");
+		Func = Class->GetFunction("WeaponBehavior_Repair", "OnUsed");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -31566,77 +29386,21 @@ void UOakThroughCollisionHandler::EnableThroughCollisionModifiers(bool bEnabled)
 }
 
 
-// Function OakGame.OakTrackerBlueprintLibrary.ToggleVaultTrackingEnabled_Actor
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AOakVaultTrackable*               TrackedActor                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bEnabled                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakTrackerBlueprintLibrary::ToggleVaultTrackingEnabled_Actor(class AOakVaultTrackable* TrackedActor, bool bEnabled)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakTrackerBlueprintLibrary", "ToggleVaultTrackingEnabled_Actor");
-
-	Params::OakTrackerBlueprintLibrary_ToggleVaultTrackingEnabled_Actor Parms{};
-
-	Parms.TrackedActor = TrackedActor;
-	Parms.bEnabled = bEnabled;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakTrackerBlueprintLibrary.ToggleVaultTrackingEnabled_Def
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UWorld*                           World                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGameDataHandleProperty_                LocDef                                                 (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bEnabled                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakTrackerBlueprintLibrary::ToggleVaultTrackingEnabled_Def(class UWorld* World, FGameDataHandleProperty_ LocDef, bool bEnabled)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakTrackerBlueprintLibrary", "ToggleVaultTrackingEnabled_Def");
-
-	Params::OakTrackerBlueprintLibrary_ToggleVaultTrackingEnabled_Def Parms{};
-
-	Parms.World = World;
-	Parms.LocDef = LocDef;
-	Parms.bEnabled = bEnabled;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakUIScript_InGameMessage.DisplayGenericSlideOut
+// Function OakGame.OakUIScript_EchoUpgrades.InsufficientPoints
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_InGameMessage::DisplayGenericSlideOut(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_EchoUpgrades::InsufficientPoints(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_InGameMessage", "DisplayGenericSlideOut");
+		Func = Class->GetFunction("OakUIScript_EchoUpgrades", "InsufficientPoints");
 
-	Params::OakUIScript_InGameMessage_DisplayGenericSlideOut Parms{};
+	Params::OakUIScript_EchoUpgrades_InsufficientPoints Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -31646,21 +29410,21 @@ void UOakUIScript_InGameMessage::DisplayGenericSlideOut(class UObject* WorldCont
 }
 
 
-// Function OakGame.OakUIScript_MainMenu.ContinueCampaign
+// Function OakGame.OakUIScript_EchoUpgrades.StartTutorial
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MainMenu::ContinueCampaign(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_EchoUpgrades::StartTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MainMenu", "ContinueCampaign");
+		Func = Class->GetFunction("OakUIScript_EchoUpgrades", "StartTutorial");
 
-	Params::OakUIScript_MainMenu_ContinueCampaign Parms{};
+	Params::OakUIScript_EchoUpgrades_StartTutorial Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -31670,21 +29434,21 @@ void UOakUIScript_MainMenu::ContinueCampaign(class UObject* WorldContextObject, 
 }
 
 
-// Function OakGame.OakUIScript_MainMenu.CoopRelinquish
+// Function OakGame.OakUIScript_EchoUpgrades.Upgraded
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MainMenu::CoopRelinquish(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_EchoUpgrades::Upgraded(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MainMenu", "CoopRelinquish");
+		Func = Class->GetFunction("OakUIScript_EchoUpgrades", "Upgraded");
 
-	Params::OakUIScript_MainMenu_CoopRelinquish Parms{};
+	Params::OakUIScript_EchoUpgrades_Upgraded Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -31694,21 +29458,21 @@ void UOakUIScript_MainMenu::CoopRelinquish(class UObject* WorldContextObject, FG
 }
 
 
-// Function OakGame.OakUIScript_MainMenu.DifficultySwapEasy
+// Function OakGame.OakUIScript_ItemInspect.InspectNewItem
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MainMenu::DifficultySwapEasy(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_ItemInspect::InspectNewItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MainMenu", "DifficultySwapEasy");
+		Func = Class->GetFunction("OakUIScript_ItemInspect", "InspectNewItem");
 
-	Params::OakUIScript_MainMenu_DifficultySwapEasy Parms{};
+	Params::OakUIScript_ItemInspect_InspectNewItem Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -31718,21 +29482,21 @@ void UOakUIScript_MainMenu::DifficultySwapEasy(class UObject* WorldContextObject
 }
 
 
-// Function OakGame.OakUIScript_MainMenu.DifficultySwapHard
+// Function OakGame.OakUIScript_MenuBase.ElementClicked
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MainMenu::DifficultySwapHard(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_MenuBase::ElementClicked(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MainMenu", "DifficultySwapHard");
+		Func = Class->GetFunction("OakUIScript_MenuBase", "ElementClicked");
 
-	Params::OakUIScript_MainMenu_DifficultySwapHard Parms{};
+	Params::OakUIScript_MenuBase_ElementClicked Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -31742,21 +29506,21 @@ void UOakUIScript_MainMenu::DifficultySwapHard(class UObject* WorldContextObject
 }
 
 
-// Function OakGame.OakUIScript_MainMenu.DifficultySwapMedium
+// Function OakGame.OakUIScript_MenuBase.ElementFocused
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MainMenu::DifficultySwapMedium(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_MenuBase::ElementFocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MainMenu", "DifficultySwapMedium");
+		Func = Class->GetFunction("OakUIScript_MenuBase", "ElementFocused");
 
-	Params::OakUIScript_MainMenu_DifficultySwapMedium Parms{};
+	Params::OakUIScript_MenuBase_ElementFocused Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -31766,21 +29530,21 @@ void UOakUIScript_MainMenu::DifficultySwapMedium(class UObject* WorldContextObje
 }
 
 
-// Function OakGame.OakUIScript_MainMenu.DifficultySwapVeryHard
+// Function OakGame.OakUIScript_MenuBase.ElementUnfocused
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MainMenu::DifficultySwapVeryHard(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_MenuBase::ElementUnfocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MainMenu", "DifficultySwapVeryHard");
+		Func = Class->GetFunction("OakUIScript_MenuBase", "ElementUnfocused");
 
-	Params::OakUIScript_MainMenu_DifficultySwapVeryHard Parms{};
+	Params::OakUIScript_MenuBase_ElementUnfocused Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -31790,65 +29554,117 @@ void UOakUIScript_MainMenu::DifficultySwapVeryHard(class UObject* WorldContextOb
 }
 
 
-// Function OakGame.OakUIScript_MissionLog.StartMissionLogMenuTutorial
-// (Event, Public, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_MissionLog::StartMissionLogMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MissionLog", "StartMissionLogMenuTutorial");
-
-	Params::OakUIScript_MissionLog_StartMissionLogMenuTutorial Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_MissionLog.StartMissionReplayMenuTutorial
-// (Event, Public, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_MissionLog::StartMissionReplayMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MissionLog", "StartMissionReplayMenuTutorial");
-
-	Params::OakUIScript_MissionLog_StartMissionReplayMenuTutorial Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_MissionLog.TrackMission
+// Function OakGame.OakUIScript_MenuBase.EscapeInput
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MissionLog::TrackMission(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_MenuBase::EscapeInput(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MissionLog", "TrackMission");
+		Func = Class->GetFunction("OakUIScript_MenuBase", "EscapeInput");
 
-	Params::OakUIScript_MissionLog_TrackMission Parms{};
+	Params::OakUIScript_MenuBase_EscapeInput Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_MenuBase.MenuClose
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_MenuBase::MenuClose(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_MenuBase", "MenuClose");
+
+	Params::OakUIScript_MenuBase_MenuClose Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_MenuBase.MenuOpen
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_MenuBase::MenuOpen(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_MenuBase", "MenuOpen");
+
+	Params::OakUIScript_MenuBase_MenuOpen Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_MenuBase.ScrollDown
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_MenuBase::ScrollDown(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_MenuBase", "ScrollDown");
+
+	Params::OakUIScript_MenuBase_ScrollDown Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_MenuBase.ScrollUp
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_MenuBase::ScrollUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_MenuBase", "ScrollUp");
+
+	Params::OakUIScript_MenuBase_ScrollUp Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -31975,21 +29791,21 @@ bool UOakTraitStatics::RemoveTrait(class UObject* Context, FGbxDefPtrProperty_ T
 }
 
 
-// Function OakGame.OakUIScript_RepairKit.FailToUseRepairKit
+// Function OakGame.OakUIScript_MissionTracker.HideObjectives
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_RepairKit::FailToUseRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_MissionTracker::HideObjectives(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_RepairKit", "FailToUseRepairKit");
+		Func = Class->GetFunction("OakUIScript_MissionTracker", "HideObjectives");
 
-	Params::OakUIScript_RepairKit_FailToUseRepairKit Parms{};
+	Params::OakUIScript_MissionTracker_HideObjectives Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -31999,21 +29815,21 @@ void UOakUIScript_RepairKit::FailToUseRepairKit(class UObject* WorldContextObjec
 }
 
 
-// Function OakGame.OakUIScript_RepairKit.GainChargeRepairKit
+// Function OakGame.OakUIScript_MissionTracker.missioncompleted
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_RepairKit::GainChargeRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_MissionTracker::missioncompleted(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_RepairKit", "GainChargeRepairKit");
+		Func = Class->GetFunction("OakUIScript_MissionTracker", "missioncompleted");
 
-	Params::OakUIScript_RepairKit_GainChargeRepairKit Parms{};
+	Params::OakUIScript_MissionTracker_missioncompleted Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -32023,21 +29839,21 @@ void UOakUIScript_RepairKit::GainChargeRepairKit(class UObject* WorldContextObje
 }
 
 
-// Function OakGame.OakUIScript_RepairKit.ReadyToUseRepairKit
+// Function OakGame.OakUIScript_MissionTracker.MissionFailed
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_RepairKit::ReadyToUseRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_MissionTracker::MissionFailed(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_RepairKit", "ReadyToUseRepairKit");
+		Func = Class->GetFunction("OakUIScript_MissionTracker", "MissionFailed");
 
-	Params::OakUIScript_RepairKit_ReadyToUseRepairKit Parms{};
+	Params::OakUIScript_MissionTracker_MissionFailed Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -32047,21 +29863,21 @@ void UOakUIScript_RepairKit::ReadyToUseRepairKit(class UObject* WorldContextObje
 }
 
 
-// Function OakGame.OakUIScript_RepairKit.StartReadyCountdownRepairKit
+// Function OakGame.OakUIScript_MissionTracker.ObjectiveCompleted
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_RepairKit::StartReadyCountdownRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_MissionTracker::ObjectiveCompleted(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_RepairKit", "StartReadyCountdownRepairKit");
+		Func = Class->GetFunction("OakUIScript_MissionTracker", "ObjectiveCompleted");
 
-	Params::OakUIScript_RepairKit_StartReadyCountdownRepairKit Parms{};
+	Params::OakUIScript_MissionTracker_ObjectiveCompleted Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -32071,21 +29887,21 @@ void UOakUIScript_RepairKit::StartReadyCountdownRepairKit(class UObject* WorldCo
 }
 
 
-// Function OakGame.OakUIScript_RepairKit.TickReadyCountdownOneRepairKit
+// Function OakGame.OakUIScript_MissionTracker.ObjectiveFailed
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_RepairKit::TickReadyCountdownOneRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_MissionTracker::ObjectiveFailed(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_RepairKit", "TickReadyCountdownOneRepairKit");
+		Func = Class->GetFunction("OakUIScript_MissionTracker", "ObjectiveFailed");
 
-	Params::OakUIScript_RepairKit_TickReadyCountdownOneRepairKit Parms{};
+	Params::OakUIScript_MissionTracker_ObjectiveFailed Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -32095,21 +29911,21 @@ void UOakUIScript_RepairKit::TickReadyCountdownOneRepairKit(class UObject* World
 }
 
 
-// Function OakGame.OakUIScript_RepairKit.TickReadyCountdownThreeRepairKit
+// Function OakGame.OakUIScript_MissionTracker.ShowObjectives
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_RepairKit::TickReadyCountdownThreeRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_MissionTracker::ShowObjectives(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_RepairKit", "TickReadyCountdownThreeRepairKit");
+		Func = Class->GetFunction("OakUIScript_MissionTracker", "ShowObjectives");
 
-	Params::OakUIScript_RepairKit_TickReadyCountdownThreeRepairKit Parms{};
+	Params::OakUIScript_MissionTracker_ShowObjectives Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -32119,51 +29935,57 @@ void UOakUIScript_RepairKit::TickReadyCountdownThreeRepairKit(class UObject* Wor
 }
 
 
-// Function OakGame.OakUIScript_RepairKit.TickReadyCountdownTwoRepairKit
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Function OakGame.RepairKit.BroadcastEffect
+// (Net, Native, Event, NetMulticast, Protected)
 // Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FName                             EffectID                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          AdditionalContext                                      (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_RepairKit::TickReadyCountdownTwoRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void ARepairKit::BroadcastEffect(class FName EffectID, class UObject* AdditionalContext)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_RepairKit", "TickReadyCountdownTwoRepairKit");
+		Func = Class->GetFunction("RepairKit", "BroadcastEffect");
 
-	Params::OakUIScript_RepairKit_TickReadyCountdownTwoRepairKit Parms{};
+	Params::RepairKit_BroadcastEffect Parms{};
 
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
+	Parms.EffectID = EffectID;
+	Parms.AdditionalContext = AdditionalContext;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
 }
 
 
-// Function OakGame.OakUIScript_RepairKit.UseRepairKit
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Function OakGame.RepairKit.PlayReplicatedEffect
+// (Final, Native, Protected, BlueprintCallable)
 // Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FName                             EffectID                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          AdditionalContext                                      (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_RepairKit::UseRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void ARepairKit::PlayReplicatedEffect(class FName EffectID, class UObject* AdditionalContext)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_RepairKit", "UseRepairKit");
+		Func = Class->GetFunction("RepairKit", "PlayReplicatedEffect");
 
-	Params::OakUIScript_RepairKit_UseRepairKit Parms{};
+	Params::RepairKit_PlayReplicatedEffect Parms{};
 
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
+	Parms.EffectID = EffectID;
+	Parms.AdditionalContext = AdditionalContext;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
 }
 
 
@@ -32195,6 +30017,156 @@ void UOakUIBlueprintHelperLibrary::StartMenuTutorialSequence(class UObject* Worl
 	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.Shield.GetCapacity
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float AShield::GetCapacity() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Shield", "GetCapacity");
+
+	Params::Shield_GetCapacity Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.Shield.GetNumSegments
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+int32 AShield::GetNumSegments() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Shield", "GetNumSegments");
+
+	Params::Shield_GetNumSegments Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.Shield.GetRegenDelay
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float AShield::GetRegenDelay() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Shield", "GetRegenDelay");
+
+	Params::Shield_GetRegenDelay Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.Shield.GetRegenRate
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float AShield::GetRegenRate() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Shield", "GetRegenRate");
+
+	Params::Shield_GetRegenRate Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.Shield.K2_GetDamageType
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// FGameDataHandleProperty_                ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+FGameDataHandleProperty_ AShield::K2_GetDamageType() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Shield", "K2_GetDamageType");
+
+	Params::Shield_K2_GetDamageType Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.Shield.K2_GetHealthSystem
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// EShieldHealthSystem                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+EShieldHealthSystem AShield::K2_GetHealthSystem() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Shield", "K2_GetHealthSystem");
+
+	Params::Shield_K2_GetHealthSystem Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 
@@ -32990,50 +30962,6 @@ void UOakUIDataCollector_CharacterVitals::OnResourcePoolSegmentCountChanged(stru
 }
 
 
-// Function OakGame.OakVaultTrackable.DiscoverTrackerObject
-// (Final, Native, Public, BlueprintCallable)
-
-void AOakVaultTrackable::DiscoverTrackerObject()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakVaultTrackable", "DiscoverTrackerObject");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.OakVaultTrackable.ToggleTrackingEnabled
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bEnabled                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AOakVaultTrackable::ToggleTrackingEnabled(bool bEnabled)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakVaultTrackable", "ToggleTrackingEnabled");
-
-	Params::OakVaultTrackable_ToggleTrackingEnabled Parms{};
-
-	Parms.bEnabled = bEnabled;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function OakGame.OakUIDataCollector_Customization.OnCharacterRenameComplete
 // (Final, Native, Protected)
 // Parameters:
@@ -33348,434 +31276,6 @@ void UOakUIDataCollector_Echo_Portrait::OnEchoStarted(const struct FEchoInfo& Ec
 }
 
 
-// Function OakGame.OakUIScript_BigMap.AddWaypoint
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::AddWaypoint(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "AddWaypoint");
-
-	Params::OakUIScript_BigMap_AddWaypoint Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.CantDo
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::CantDo(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "CantDo");
-
-	Params::OakUIScript_BigMap_CantDo Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.Center
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::Center(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "Center");
-
-	Params::OakUIScript_BigMap_Center Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.DragEnd
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::DragEnd(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "DragEnd");
-
-	Params::OakUIScript_BigMap_DragEnd Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.DragMoved
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::DragMoved(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "DragMoved");
-
-	Params::OakUIScript_BigMap_DragMoved Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.DragStart
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::DragStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "DragStart");
-
-	Params::OakUIScript_BigMap_DragStart Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.ExploreMenuClose
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::ExploreMenuClose(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "ExploreMenuClose");
-
-	Params::OakUIScript_BigMap_ExploreMenuClose Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.ExploreMenuOpen
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::ExploreMenuOpen(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "ExploreMenuOpen");
-
-	Params::OakUIScript_BigMap_ExploreMenuOpen Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.InteractableElementRollOver
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::InteractableElementRollOver(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "InteractableElementRollOver");
-
-	Params::OakUIScript_BigMap_InteractableElementRollOver Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.LocateOnMap
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::LocateOnMap(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "LocateOnMap");
-
-	Params::OakUIScript_BigMap_LocateOnMap Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.NewMap
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::NewMap(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "NewMap");
-
-	Params::OakUIScript_BigMap_NewMap Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.RemoveWaypoint
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::RemoveWaypoint(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "RemoveWaypoint");
-
-	Params::OakUIScript_BigMap_RemoveWaypoint Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.Select
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::Select(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "Select");
-
-	Params::OakUIScript_BigMap_Select Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.StartBigMapEndGameMenuTutorial
-// (Event, Public, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::StartBigMapEndGameMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "StartBigMapEndGameMenuTutorial");
-
-	Params::OakUIScript_BigMap_StartBigMapEndGameMenuTutorial Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.StartBigMapIntroMenuTutorial
-// (Event, Public, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::StartBigMapIntroMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "StartBigMapIntroMenuTutorial");
-
-	Params::OakUIScript_BigMap_StartBigMapIntroMenuTutorial Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.ToggleLegendItem
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::ToggleLegendItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "ToggleLegendItem");
-
-	Params::OakUIScript_BigMap_ToggleLegendItem Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.ZoomIn
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::ZoomIn(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "ZoomIn");
-
-	Params::OakUIScript_BigMap_ZoomIn Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_BigMap.ZoomOut
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_BigMap::ZoomOut(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_BigMap", "ZoomOut");
-
-	Params::OakUIScript_BigMap_ZoomOut Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
 // Function OakGame.OakUIDataCollector_EquippedAmmo.OnSwitchedMode
 // (Final, Native, Protected)
 
@@ -34026,6 +31526,462 @@ void UOakUIDataCollector_EquippedGadget::SetGadgetCooldownDelegates()
 }
 
 
+// Function OakGame.OakUIScript_CelebratoryNotifications.AcceptContract
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::AcceptContract(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "AcceptContract");
+
+	Params::OakUIScript_CelebratoryNotifications_AcceptContract Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.AcceptMission
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::AcceptMission(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "AcceptMission");
+
+	Params::OakUIScript_CelebratoryNotifications_AcceptMission Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.ActivateMayhemMode
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::ActivateMayhemMode(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "ActivateMayhemMode");
+
+	Params::OakUIScript_CelebratoryNotifications_ActivateMayhemMode Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.ActivityComplete
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::ActivityComplete(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "ActivityComplete");
+
+	Params::OakUIScript_CelebratoryNotifications_ActivityComplete Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.ActivityDiscovered
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::ActivityDiscovered(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "ActivityDiscovered");
+
+	Params::OakUIScript_CelebratoryNotifications_ActivityDiscovered Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.CollectibleFound
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::CollectibleFound(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "CollectibleFound");
+
+	Params::OakUIScript_CelebratoryNotifications_CollectibleFound Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.CompleteChallenge
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::CompleteChallenge(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "CompleteChallenge");
+
+	Params::OakUIScript_CelebratoryNotifications_CompleteChallenge Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.CompleteContract
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::CompleteContract(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "CompleteContract");
+
+	Params::OakUIScript_CelebratoryNotifications_CompleteContract Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.CompleteMission
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::CompleteMission(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "CompleteMission");
+
+	Params::OakUIScript_CelebratoryNotifications_CompleteMission Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.DeactivateMayhemMode
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::DeactivateMayhemMode(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "DeactivateMayhemMode");
+
+	Params::OakUIScript_CelebratoryNotifications_DeactivateMayhemMode Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.DiscoverLocation
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::DiscoverLocation(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "DiscoverLocation");
+
+	Params::OakUIScript_CelebratoryNotifications_DiscoverLocation Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.EnterLocation
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::EnterLocation(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "EnterLocation");
+
+	Params::OakUIScript_CelebratoryNotifications_EnterLocation Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.NotifyLevelUp
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::NotifyLevelUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "NotifyLevelUp");
+
+	Params::OakUIScript_CelebratoryNotifications_NotifyLevelUp Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.NotifyReachLevel2
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::NotifyReachLevel2(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "NotifyReachLevel2");
+
+	Params::OakUIScript_CelebratoryNotifications_NotifyReachLevel2 Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.PressButtonPrompt
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::PressButtonPrompt(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "PressButtonPrompt");
+
+	Params::OakUIScript_CelebratoryNotifications_PressButtonPrompt Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.TrackContract
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::TrackContract(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "TrackContract");
+
+	Params::OakUIScript_CelebratoryNotifications_TrackContract Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.TrackMission
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::TrackMission(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "TrackMission");
+
+	Params::OakUIScript_CelebratoryNotifications_TrackMission Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.UnlockChallenge
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::UnlockChallenge(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "UnlockChallenge");
+
+	Params::OakUIScript_CelebratoryNotifications_UnlockChallenge Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_CelebratoryNotifications.UnlockMode
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_CelebratoryNotifications::UnlockMode(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_CelebratoryNotifications", "UnlockMode");
+
+	Params::OakUIScript_CelebratoryNotifications_UnlockMode Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function OakGame.OakUIDataCollector_GrapplePoint.OnGrapple
 // (Final, Native, Protected, HasOutParams)
 // Parameters:
@@ -34080,54 +32036,6 @@ void UOakUIDataCollector_GrapplePoint::OnGrappleEnded(class AActor* OtherActor, 
 }
 
 
-// Function OakGame.OakUIScript_Customization.ApplyCustomization
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Customization::ApplyCustomization(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Customization", "ApplyCustomization");
-
-	Params::OakUIScript_Customization_ApplyCustomization Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_Customization.CantDo
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_Customization::CantDo(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Customization", "CantDo");
-
-	Params::OakUIScript_Customization_CantDo Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
 // Function OakGame.OakUIDataCollector_HealthShield.OnPossessPawnChanged
 // (Final, Native, Protected)
 // Parameters:
@@ -34150,6 +32058,245 @@ void UOakUIDataCollector_HealthShield::OnPossessPawnChanged(class APawn* OldPawn
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakWeaponStatics.AbsorbAmmoToCurrentCharacterWeapon
+// (Final, BlueprintAuthorityOnly, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   Amount                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bAsPercent                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bAllowForHeavyWeapons                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakWeaponStatics::AbsorbAmmoToCurrentCharacterWeapon(class UObject* OwnerContext, int32 Amount, bool bAsPercent, bool bAllowForHeavyWeapons)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakWeaponStatics", "AbsorbAmmoToCurrentCharacterWeapon");
+
+	Params::OakWeaponStatics_AbsorbAmmoToCurrentCharacterWeapon Parms{};
+
+	Parms.OwnerContext = OwnerContext;
+	Parms.Amount = Amount;
+	Parms.bAsPercent = bAsPercent;
+	Parms.bAllowForHeavyWeapons = bAllowForHeavyWeapons;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakWeaponStatics.GetCurrentElementalType
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class AWeapon*                          Weapon                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EOakElementalType                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+EOakElementalType UOakWeaponStatics::GetCurrentElementalType(class AWeapon* Weapon)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakWeaponStatics", "GetCurrentElementalType");
+
+	Params::OakWeaponStatics_GetCurrentElementalType Parms{};
+
+	Parms.Weapon = Weapon;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakWeaponStatics.GetElementalType
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class AWeapon*                          Weapon                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// uint8                                   UseMode                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EOakElementalType                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+EOakElementalType UOakWeaponStatics::GetElementalType(class AWeapon* Weapon, uint8 UseMode)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakWeaponStatics", "GetElementalType");
+
+	Params::OakWeaponStatics_GetElementalType Parms{};
+
+	Parms.Weapon = Weapon;
+	Parms.UseMode = UseMode;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakWeaponStatics.GetWeaponDefinitionOverrideTags
+// (Final, Native, Static, Protected, HasOutParams)
+// Parameters:
+// TArray<class FName>*                    OutNames                                               (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+
+void UOakWeaponStatics::GetWeaponDefinitionOverrideTags(TArray<class FName>* OutNames)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakWeaponStatics", "GetWeaponDefinitionOverrideTags");
+
+	Params::OakWeaponStatics_GetWeaponDefinitionOverrideTags Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (OutNames != nullptr)
+		*OutNames = std::move(Parms.OutNames);
+}
+
+
+// Function OakGame.OakWeaponStatics.GiveAmmoToCurrentCharacterWeapon
+// (Final, BlueprintAuthorityOnly, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   Amount                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bLoaded                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bAsPercent                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bAllowForHeavyWeapons                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakWeaponStatics::GiveAmmoToCurrentCharacterWeapon(class UObject* OwnerContext, int32 Amount, bool bLoaded, bool bAsPercent, bool bAllowForHeavyWeapons)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakWeaponStatics", "GiveAmmoToCurrentCharacterWeapon");
+
+	Params::OakWeaponStatics_GiveAmmoToCurrentCharacterWeapon Parms{};
+
+	Parms.OwnerContext = OwnerContext;
+	Parms.Amount = Amount;
+	Parms.bLoaded = bLoaded;
+	Parms.bAsPercent = bAsPercent;
+	Parms.bAllowForHeavyWeapons = bAllowForHeavyWeapons;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakWeaponStatics.RefillAmmoForCurrentCharacterWeapon
+// (Final, BlueprintAuthorityOnly, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   Amount                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bAsPercent                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakWeaponStatics::RefillAmmoForCurrentCharacterWeapon(class UObject* OwnerContext, int32 Amount, bool bAsPercent)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakWeaponStatics", "RefillAmmoForCurrentCharacterWeapon");
+
+	Params::OakWeaponStatics_RefillAmmoForCurrentCharacterWeapon Parms{};
+
+	Parms.OwnerContext = OwnerContext;
+	Parms.Amount = Amount;
+	Parms.bAsPercent = bAsPercent;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakWeaponStatics.ReloadAllWeapons
+// (Final, BlueprintAuthorityOnly, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          OwnerContext                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bActiveWeaponIncluded                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakWeaponStatics::ReloadAllWeapons(class UObject* OwnerContext, bool bActiveWeaponIncluded)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakWeaponStatics", "ReloadAllWeapons");
+
+	Params::OakWeaponStatics_ReloadAllWeapons Parms{};
+
+	Parms.OwnerContext = OwnerContext;
+	Parms.bActiveWeaponIncluded = bActiveWeaponIncluded;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakWeaponStatics.ThrowEquippedWeapon
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           WeaponUser                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   actions                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// uint8                                   slot                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   DamageOverride                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   DamageRadiusOverride                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   LifetimeOverride                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakWeaponStatics::ThrowEquippedWeapon(class AActor* WeaponUser, int32 actions, uint8 slot, float DamageOverride, float DamageRadiusOverride, float LifetimeOverride)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakWeaponStatics", "ThrowEquippedWeapon");
+
+	Params::OakWeaponStatics_ThrowEquippedWeapon Parms{};
+
+	Parms.WeaponUser = WeaponUser;
+	Parms.actions = actions;
+	Parms.slot = slot;
+	Parms.DamageOverride = DamageOverride;
+	Parms.DamageRadiusOverride = DamageRadiusOverride;
+	Parms.LifetimeOverride = LifetimeOverride;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -35025,50 +33172,21 @@ void UOakUIDataCollector_ResourceMeter::OnResourcePoolValueChanged(struct FGameR
 }
 
 
-// Function OakGame.StructuredInteractableUserState.ClientSetCurrentInteractable
-// (Final, Net, NetReliable, Native, Event, Private, NetClient)
+// Function OakGame.TerminalGadget.RegisterTerminal
+// (Final, Native, Protected)
 // Parameters:
-// const TScriptInterface<class IStructuredInteractable>&NewInteractable                                        (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName                             InteractionName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bInstant                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           Actor                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UStructuredInteractableUserState::ClientSetCurrentInteractable(const TScriptInterface<class IStructuredInteractable>& NewInteractable, class FName InteractionName, bool bInstant)
+void ATerminalGadget::RegisterTerminal(class AActor* Actor)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("StructuredInteractableUserState", "ClientSetCurrentInteractable");
+		Func = Class->GetFunction("TerminalGadget", "RegisterTerminal");
 
-	Params::StructuredInteractableUserState_ClientSetCurrentInteractable Parms{};
+	Params::TerminalGadget_RegisterTerminal Parms{};
 
-	Parms.NewInteractable = NewInteractable;
-	Parms.InteractionName = InteractionName;
-	Parms.bInstant = bInstant;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.StructuredInteractableUserState.ServerClearCurrentInteractable
-// (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
-// Parameters:
-// bool                                    bImmediate                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UStructuredInteractableUserState::ServerClearCurrentInteractable(bool bImmediate)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StructuredInteractableUserState", "ServerClearCurrentInteractable");
-
-	Params::StructuredInteractableUserState_ServerClearCurrentInteractable Parms{};
-
-	Parms.bImmediate = bImmediate;
+	Parms.Actor = Actor;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -35138,6 +33256,81 @@ void UOakUIDataCollector_TravelNotification::OnPlayerDisconnected(class APlayerS
 	Params::OakUIDataCollector_TravelNotification_OnPlayerDisconnected Parms{};
 
 	Parms.DisconnectedPlayer = DisconnectedPlayer;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.TurretGadget.ProjectileDestroyed
+// (Final, Native, Protected)
+// Parameters:
+// class AActor*                           Actor                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void ATurretGadget::ProjectileDestroyed(class AActor* Actor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("TurretGadget", "ProjectileDestroyed");
+
+	Params::TurretGadget_ProjectileDestroyed Parms{};
+
+	Parms.Actor = Actor;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.TurretGadget.RegisterTurret
+// (Final, Native, Protected)
+// Parameters:
+// class AActor*                           Actor                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void ATurretGadget::RegisterTurret(class AActor* Actor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("TurretGadget", "RegisterTurret");
+
+	Params::TurretGadget_RegisterTurret Parms{};
+
+	Parms.Actor = Actor;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.TurretGadget.UnregisterTurret
+// (Final, Native, Protected)
+// Parameters:
+// class AActor*                           Actor                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void ATurretGadget::UnregisterTurret(class AActor* Actor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("TurretGadget", "UnregisterTurret");
+
+	Params::TurretGadget_UnregisterTurret Parms{};
+
+	Parms.Actor = Actor;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -36416,87 +34609,6 @@ class FString UOakUIHelpers_Capital::GetCurrencyCantAffordMarkupBoundFromName(cl
 }
 
 
-// Function OakGame.OakWeaponPoseStatics.BreakOakWeaponPose
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const struct FOakWeaponPose&            Pose                                                   (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-// class UAnimSequence**                   GripPose                                               (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UAnimSequence**                   ForegripPose                                           (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UAnimSequence**                   AlternateGrip                                          (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UAnimSequence**                   BodyPose                                               (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UAnimSequence**                   SecondaryBodyPose                                      (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UAnimSequence**                   AdsRefPose                                             (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UAnimSequence**                   AdsPose                                                (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UAnimSequence**                   SecondaryAdsPose                                       (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UAnimSequence**                   AdsEnter                                               (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UAnimSequence**                   AdsExit                                                (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UAnimSequence**                   WeaponGripPose                                         (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UAnimSequence**                   WeaponForegripPose                                     (Parm, OutParm, ZeroConstructor, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName*                            GripIkBone                                             (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FName*                            ForegripIkBone                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakWeaponPoseStatics::BreakOakWeaponPose(const struct FOakWeaponPose& Pose, class UAnimSequence** GripPose, class UAnimSequence** ForegripPose, class UAnimSequence** AlternateGrip, class UAnimSequence** BodyPose, class UAnimSequence** SecondaryBodyPose, class UAnimSequence** AdsRefPose, class UAnimSequence** AdsPose, class UAnimSequence** SecondaryAdsPose, class UAnimSequence** AdsEnter, class UAnimSequence** AdsExit, class UAnimSequence** WeaponGripPose, class UAnimSequence** WeaponForegripPose, class FName* GripIkBone, class FName* ForegripIkBone)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("OakWeaponPoseStatics", "BreakOakWeaponPose");
-
-	Params::OakWeaponPoseStatics_BreakOakWeaponPose Parms{};
-
-	Parms.Pose = std::move(Pose);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (GripPose != nullptr)
-		*GripPose = Parms.GripPose;
-
-	if (ForegripPose != nullptr)
-		*ForegripPose = Parms.ForegripPose;
-
-	if (AlternateGrip != nullptr)
-		*AlternateGrip = Parms.AlternateGrip;
-
-	if (BodyPose != nullptr)
-		*BodyPose = Parms.BodyPose;
-
-	if (SecondaryBodyPose != nullptr)
-		*SecondaryBodyPose = Parms.SecondaryBodyPose;
-
-	if (AdsRefPose != nullptr)
-		*AdsRefPose = Parms.AdsRefPose;
-
-	if (AdsPose != nullptr)
-		*AdsPose = Parms.AdsPose;
-
-	if (SecondaryAdsPose != nullptr)
-		*SecondaryAdsPose = Parms.SecondaryAdsPose;
-
-	if (AdsEnter != nullptr)
-		*AdsEnter = Parms.AdsEnter;
-
-	if (AdsExit != nullptr)
-		*AdsExit = Parms.AdsExit;
-
-	if (WeaponGripPose != nullptr)
-		*WeaponGripPose = Parms.WeaponGripPose;
-
-	if (WeaponForegripPose != nullptr)
-		*WeaponForegripPose = Parms.WeaponForegripPose;
-
-	if (GripIkBone != nullptr)
-		*GripIkBone = Parms.GripIkBone;
-
-	if (ForegripIkBone != nullptr)
-		*ForegripIkBone = Parms.ForegripIkBone;
-}
-
-
 // Function OakGame.OakUILabelWidgetComponent.SetText
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
@@ -36547,21 +34659,21 @@ void UOakUILabelWidgetComponent::SetWidgetVisible(bool Visible)
 }
 
 
-// Function OakGame.OakUIScript_CharacterSelect.AllPlayersReady
+// Function OakGame.OakUIScript_Backpack.BackpackSlotFocused
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_CharacterSelect::AllPlayersReady(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::BackpackSlotFocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CharacterSelect", "AllPlayersReady");
+		Func = Class->GetFunction("OakUIScript_Backpack", "BackpackSlotFocused");
 
-	Params::OakUIScript_CharacterSelect_AllPlayersReady Parms{};
+	Params::OakUIScript_Backpack_BackpackSlotFocused Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36571,21 +34683,21 @@ void UOakUIScript_CharacterSelect::AllPlayersReady(class UObject* WorldContextOb
 }
 
 
-// Function OakGame.OakUIScript_CharacterSelect.CycleRapSheetCharacter
+// Function OakGame.OakUIScript_Backpack.BackpackSlotUnfocused
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_CharacterSelect::CycleRapSheetCharacter(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::BackpackSlotUnfocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CharacterSelect", "CycleRapSheetCharacter");
+		Func = Class->GetFunction("OakUIScript_Backpack", "BackpackSlotUnfocused");
 
-	Params::OakUIScript_CharacterSelect_CycleRapSheetCharacter Parms{};
+	Params::OakUIScript_Backpack_BackpackSlotUnfocused Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36595,21 +34707,21 @@ void UOakUIScript_CharacterSelect::CycleRapSheetCharacter(class UObject* WorldCo
 }
 
 
-// Function OakGame.OakUIScript_CharacterSelect.LineupCharacterClick
+// Function OakGame.OakUIScript_Backpack.BuyItem
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_CharacterSelect::LineupCharacterClick(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::BuyItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CharacterSelect", "LineupCharacterClick");
+		Func = Class->GetFunction("OakUIScript_Backpack", "BuyItem");
 
-	Params::OakUIScript_CharacterSelect_LineupCharacterClick Parms{};
+	Params::OakUIScript_Backpack_BuyItem Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36619,21 +34731,21 @@ void UOakUIScript_CharacterSelect::LineupCharacterClick(class UObject* WorldCont
 }
 
 
-// Function OakGame.OakUIScript_CharacterSelect.LineupCharacterHover
+// Function OakGame.OakUIScript_Backpack.ClickAssaultRifle
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_CharacterSelect::LineupCharacterHover(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::ClickAssaultRifle(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CharacterSelect", "LineupCharacterHover");
+		Func = Class->GetFunction("OakUIScript_Backpack", "ClickAssaultRifle");
 
-	Params::OakUIScript_CharacterSelect_LineupCharacterHover Parms{};
+	Params::OakUIScript_Backpack_ClickAssaultRifle Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36643,21 +34755,21 @@ void UOakUIScript_CharacterSelect::LineupCharacterHover(class UObject* WorldCont
 }
 
 
-// Function OakGame.OakUIScript_CharacterSelect.LineupIntro
+// Function OakGame.OakUIScript_Backpack.ClickClassMod
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_CharacterSelect::LineupIntro(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::ClickClassMod(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CharacterSelect", "LineupIntro");
+		Func = Class->GetFunction("OakUIScript_Backpack", "ClickClassMod");
 
-	Params::OakUIScript_CharacterSelect_LineupIntro Parms{};
+	Params::OakUIScript_Backpack_ClickClassMod Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36667,21 +34779,21 @@ void UOakUIScript_CharacterSelect::LineupIntro(class UObject* WorldContextObject
 }
 
 
-// Function OakGame.OakUIScript_CharacterSelect.MakeCharacterChoice
+// Function OakGame.OakUIScript_Backpack.ClickEnhancement
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_CharacterSelect::MakeCharacterChoice(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::ClickEnhancement(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CharacterSelect", "MakeCharacterChoice");
+		Func = Class->GetFunction("OakUIScript_Backpack", "ClickEnhancement");
 
-	Params::OakUIScript_CharacterSelect_MakeCharacterChoice Parms{};
+	Params::OakUIScript_Backpack_ClickEnhancement Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36691,21 +34803,21 @@ void UOakUIScript_CharacterSelect::MakeCharacterChoice(class UObject* WorldConte
 }
 
 
-// Function OakGame.OakUIScript_CharacterSelect.TransitionBackToLineup
+// Function OakGame.OakUIScript_Backpack.ClickGadget
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_CharacterSelect::TransitionBackToLineup(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::ClickGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CharacterSelect", "TransitionBackToLineup");
+		Func = Class->GetFunction("OakUIScript_Backpack", "ClickGadget");
 
-	Params::OakUIScript_CharacterSelect_TransitionBackToLineup Parms{};
+	Params::OakUIScript_Backpack_ClickGadget Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36715,21 +34827,21 @@ void UOakUIScript_CharacterSelect::TransitionBackToLineup(class UObject* WorldCo
 }
 
 
-// Function OakGame.OakUIScript_CharacterSelect.TransitionToCharacterSelected
+// Function OakGame.OakUIScript_Backpack.ClickGrenade
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_CharacterSelect::TransitionToCharacterSelected(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::ClickGrenade(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CharacterSelect", "TransitionToCharacterSelected");
+		Func = Class->GetFunction("OakUIScript_Backpack", "ClickGrenade");
 
-	Params::OakUIScript_CharacterSelect_TransitionToCharacterSelected Parms{};
+	Params::OakUIScript_Backpack_ClickGrenade Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36739,21 +34851,21 @@ void UOakUIScript_CharacterSelect::TransitionToCharacterSelected(class UObject* 
 }
 
 
-// Function OakGame.OakUIScript_CharacterSelect.TransitionToRapSheet
+// Function OakGame.OakUIScript_Backpack.ClickHeavyWeapon
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_CharacterSelect::TransitionToRapSheet(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::ClickHeavyWeapon(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_CharacterSelect", "TransitionToRapSheet");
+		Func = Class->GetFunction("OakUIScript_Backpack", "ClickHeavyWeapon");
 
-	Params::OakUIScript_CharacterSelect_TransitionToRapSheet Parms{};
+	Params::OakUIScript_Backpack_ClickHeavyWeapon Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36763,21 +34875,21 @@ void UOakUIScript_CharacterSelect::TransitionToRapSheet(class UObject* WorldCont
 }
 
 
-// Function OakGame.OakUIScript_Global.HoldActionLoop
+// Function OakGame.OakUIScript_Backpack.ClickPistol
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_Global::HoldActionLoop(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::ClickPistol(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Global", "HoldActionLoop");
+		Func = Class->GetFunction("OakUIScript_Backpack", "ClickPistol");
 
-	Params::OakUIScript_Global_HoldActionLoop Parms{};
+	Params::OakUIScript_Backpack_ClickPistol Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36787,21 +34899,21 @@ void UOakUIScript_Global::HoldActionLoop(class UObject* WorldContextObject, FGbx
 }
 
 
-// Function OakGame.OakUIScript_Global.HoldActionStart
+// Function OakGame.OakUIScript_Backpack.ClickRepKit
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_Global::HoldActionStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::ClickRepKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Global", "HoldActionStart");
+		Func = Class->GetFunction("OakUIScript_Backpack", "ClickRepKit");
 
-	Params::OakUIScript_Global_HoldActionStart Parms{};
+	Params::OakUIScript_Backpack_ClickRepKit Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36811,21 +34923,21 @@ void UOakUIScript_Global::HoldActionStart(class UObject* WorldContextObject, FGb
 }
 
 
-// Function OakGame.OakUIScript_Global.HoldActionStop
+// Function OakGame.OakUIScript_Backpack.ClickShield
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_Global::HoldActionStop(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::ClickShield(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Global", "HoldActionStop");
+		Func = Class->GetFunction("OakUIScript_Backpack", "ClickShield");
 
-	Params::OakUIScript_Global_HoldActionStop Parms{};
+	Params::OakUIScript_Backpack_ClickShield Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36835,21 +34947,21 @@ void UOakUIScript_Global::HoldActionStop(class UObject* WorldContextObject, FGbx
 }
 
 
-// Function OakGame.OakUIScript_Global.SliderDown
+// Function OakGame.OakUIScript_Backpack.ClickShotgun
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_Global::SliderDown(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::ClickShotgun(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Global", "SliderDown");
+		Func = Class->GetFunction("OakUIScript_Backpack", "ClickShotgun");
 
-	Params::OakUIScript_Global_SliderDown Parms{};
+	Params::OakUIScript_Backpack_ClickShotgun Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36859,21 +34971,21 @@ void UOakUIScript_Global::SliderDown(class UObject* WorldContextObject, FGbxDefP
 }
 
 
-// Function OakGame.OakUIScript_Global.SliderError
+// Function OakGame.OakUIScript_Backpack.ClickSMG
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_Global::SliderError(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::ClickSMG(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Global", "SliderError");
+		Func = Class->GetFunction("OakUIScript_Backpack", "ClickSMG");
 
-	Params::OakUIScript_Global_SliderError Parms{};
+	Params::OakUIScript_Backpack_ClickSMG Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36883,21 +34995,21 @@ void UOakUIScript_Global::SliderError(class UObject* WorldContextObject, FGbxDef
 }
 
 
-// Function OakGame.OakUIScript_Global.SliderUp
+// Function OakGame.OakUIScript_Backpack.ClickSniper
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_Global::SliderUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::ClickSniper(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Global", "SliderUp");
+		Func = Class->GetFunction("OakUIScript_Backpack", "ClickSniper");
 
-	Params::OakUIScript_Global_SliderUp Parms{};
+	Params::OakUIScript_Backpack_ClickSniper Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36907,21 +35019,21 @@ void UOakUIScript_Global::SliderUp(class UObject* WorldContextObject, FGbxDefPtr
 }
 
 
-// Function OakGame.OakUIScript_Global.StepperLeft
+// Function OakGame.OakUIScript_Backpack.CloseBackpack
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_Global::StepperLeft(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::CloseBackpack(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Global", "StepperLeft");
+		Func = Class->GetFunction("OakUIScript_Backpack", "CloseBackpack");
 
-	Params::OakUIScript_Global_StepperLeft Parms{};
+	Params::OakUIScript_Backpack_CloseBackpack Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36931,21 +35043,21 @@ void UOakUIScript_Global::StepperLeft(class UObject* WorldContextObject, FGbxDef
 }
 
 
-// Function OakGame.OakUIScript_Global.StepperRight
+// Function OakGame.OakUIScript_Backpack.ClosePlayerStats
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_Global::StepperRight(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::ClosePlayerStats(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Global", "StepperRight");
+		Func = Class->GetFunction("OakUIScript_Backpack", "ClosePlayerStats");
 
-	Params::OakUIScript_Global_StepperRight Parms{};
+	Params::OakUIScript_Backpack_ClosePlayerStats Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36955,21 +35067,21 @@ void UOakUIScript_Global::StepperRight(class UObject* WorldContextObject, FGbxDe
 }
 
 
-// Function OakGame.OakUIScript_Global.SwitchOff
+// Function OakGame.OakUIScript_Backpack.CloseRewardCenter
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_Global::SwitchOff(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::CloseRewardCenter(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Global", "SwitchOff");
+		Func = Class->GetFunction("OakUIScript_Backpack", "CloseRewardCenter");
 
-	Params::OakUIScript_Global_SwitchOff Parms{};
+	Params::OakUIScript_Backpack_CloseRewardCenter Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -36979,21 +35091,1709 @@ void UOakUIScript_Global::SwitchOff(class UObject* WorldContextObject, FGbxDefPt
 }
 
 
-// Function OakGame.OakUIScript_Global.SwitchOn
+// Function OakGame.OakUIScript_Backpack.CompareStart
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_Global::SwitchOn(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Backpack::CompareStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_Global", "SwitchOn");
+		Func = Class->GetFunction("OakUIScript_Backpack", "CompareStart");
 
-	Params::OakUIScript_Global_SwitchOn Parms{};
+	Params::OakUIScript_Backpack_CompareStart Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.CompareStop
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::CompareStop(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "CompareStop");
+
+	Params::OakUIScript_Backpack_CompareStop Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.DropItem
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::DropItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "DropItem");
+
+	Params::OakUIScript_Backpack_DropItem Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.EquipAssaultRifle
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::EquipAssaultRifle(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "EquipAssaultRifle");
+
+	Params::OakUIScript_Backpack_EquipAssaultRifle Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.EquipClassMod
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::EquipClassMod(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "EquipClassMod");
+
+	Params::OakUIScript_Backpack_EquipClassMod Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.EquipEnhancement
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::EquipEnhancement(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "EquipEnhancement");
+
+	Params::OakUIScript_Backpack_EquipEnhancement Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.EquipGadget
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::EquipGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "EquipGadget");
+
+	Params::OakUIScript_Backpack_EquipGadget Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.EquipGrenade
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::EquipGrenade(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "EquipGrenade");
+
+	Params::OakUIScript_Backpack_EquipGrenade Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.EquipHeavyWeapon
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::EquipHeavyWeapon(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "EquipHeavyWeapon");
+
+	Params::OakUIScript_Backpack_EquipHeavyWeapon Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.EquipItem
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::EquipItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "EquipItem");
+
+	Params::OakUIScript_Backpack_EquipItem Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.EquipPistol
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::EquipPistol(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "EquipPistol");
+
+	Params::OakUIScript_Backpack_EquipPistol Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.EquipRepKit
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::EquipRepKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "EquipRepKit");
+
+	Params::OakUIScript_Backpack_EquipRepKit Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.EquipShield
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::EquipShield(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "EquipShield");
+
+	Params::OakUIScript_Backpack_EquipShield Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.EquipShotgun
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::EquipShotgun(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "EquipShotgun");
+
+	Params::OakUIScript_Backpack_EquipShotgun Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.EquipSMG
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::EquipSMG(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "EquipSMG");
+
+	Params::OakUIScript_Backpack_EquipSMG Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.EquipSniper
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::EquipSniper(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "EquipSniper");
+
+	Params::OakUIScript_Backpack_EquipSniper Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.Error
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::Error(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "Error");
+
+	Params::OakUIScript_Backpack_Error Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.FirmwareTransferComplete
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::FirmwareTransferComplete(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "FirmwareTransferComplete");
+
+	Params::OakUIScript_Backpack_FirmwareTransferComplete Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.GearSlotFocused
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::GearSlotFocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "GearSlotFocused");
+
+	Params::OakUIScript_Backpack_GearSlotFocused Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.GearSlotUnfocused
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::GearSlotUnfocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "GearSlotUnfocused");
+
+	Params::OakUIScript_Backpack_GearSlotUnfocused Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.MarkItem
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::MarkItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "MarkItem");
+
+	Params::OakUIScript_Backpack_MarkItem Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.MarkItemBank
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::MarkItemBank(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "MarkItemBank");
+
+	Params::OakUIScript_Backpack_MarkItemBank Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.MarkItemFavorite
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::MarkItemFavorite(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "MarkItemFavorite");
+
+	Params::OakUIScript_Backpack_MarkItemFavorite Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.MarkItemTrash
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::MarkItemTrash(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "MarkItemTrash");
+
+	Params::OakUIScript_Backpack_MarkItemTrash Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.OpenBackpack
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::OpenBackpack(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "OpenBackpack");
+
+	Params::OakUIScript_Backpack_OpenBackpack Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.OpenLegendaryReward
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::OpenLegendaryReward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "OpenLegendaryReward");
+
+	Params::OakUIScript_Backpack_OpenLegendaryReward Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.OpenPlayerStats
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::OpenPlayerStats(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "OpenPlayerStats");
+
+	Params::OakUIScript_Backpack_OpenPlayerStats Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.OpenReward
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::OpenReward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "OpenReward");
+
+	Params::OakUIScript_Backpack_OpenReward Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.OpenRewardCenter
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::OpenRewardCenter(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "OpenRewardCenter");
+
+	Params::OakUIScript_Backpack_OpenRewardCenter Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.PutItemInTransferSlot
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::PutItemInTransferSlot(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "PutItemInTransferSlot");
+
+	Params::OakUIScript_Backpack_PutItemInTransferSlot Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.RemoveItemFromTransferSlot
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::RemoveItemFromTransferSlot(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "RemoveItemFromTransferSlot");
+
+	Params::OakUIScript_Backpack_RemoveItemFromTransferSlot Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.SellItem
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::SellItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "SellItem");
+
+	Params::OakUIScript_Backpack_SellItem Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.StartEchoLogsMenuTutorial
+// (Event, Public, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::StartEchoLogsMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "StartEchoLogsMenuTutorial");
+
+	Params::OakUIScript_Backpack_StartEchoLogsMenuTutorial Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.StartEquipMenuTutorial
+// (Event, Public, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::StartEquipMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "StartEquipMenuTutorial");
+
+	Params::OakUIScript_Backpack_StartEquipMenuTutorial Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.StartEquippedFirmwareTutorial
+// (Event, Public, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::StartEquippedFirmwareTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "StartEquippedFirmwareTutorial");
+
+	Params::OakUIScript_Backpack_StartEquippedFirmwareTutorial Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.StartFirmwareTransferTutorial
+// (Event, Public, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::StartFirmwareTransferTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "StartFirmwareTransferTutorial");
+
+	Params::OakUIScript_Backpack_StartFirmwareTransferTutorial Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.StartLostLootTutorial
+// (Event, Public, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::StartLostLootTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "StartLostLootTutorial");
+
+	Params::OakUIScript_Backpack_StartLostLootTutorial Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.StartRewardCenterTutorial
+// (Event, Public, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::StartRewardCenterTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "StartRewardCenterTutorial");
+
+	Params::OakUIScript_Backpack_StartRewardCenterTutorial Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.StartVendingMachineTutorial
+// (Event, Public, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::StartVendingMachineTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "StartVendingMachineTutorial");
+
+	Params::OakUIScript_Backpack_StartVendingMachineTutorial Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.TakeItem
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::TakeItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "TakeItem");
+
+	Params::OakUIScript_Backpack_TakeItem Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.TrashItem
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::TrashItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "TrashItem");
+
+	Params::OakUIScript_Backpack_TrashItem Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.UnequipItem
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::UnequipItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "UnequipItem");
+
+	Params::OakUIScript_Backpack_UnequipItem Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.WeaponSlotFocused
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::WeaponSlotFocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "WeaponSlotFocused");
+
+	Params::OakUIScript_Backpack_WeaponSlotFocused Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Backpack.WeaponSlotUnfocused
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Backpack::WeaponSlotUnfocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Backpack", "WeaponSlotUnfocused");
+
+	Params::OakUIScript_Backpack_WeaponSlotUnfocused Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_Cursor.OnPulse
+// (Event, Public, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_Cursor::OnPulse(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_Cursor", "OnPulse");
+
+	Params::OakUIScript_Cursor_OnPulse Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.FailToUseGadget
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::FailToUseGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "FailToUseGadget");
+
+	Params::OakUIScript_HudSkills_FailToUseGadget Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.FailToUsePrimarySkill
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::FailToUsePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "FailToUsePrimarySkill");
+
+	Params::OakUIScript_HudSkills_FailToUsePrimarySkill Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.FailToUseSecondarySkill
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::FailToUseSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "FailToUseSecondarySkill");
+
+	Params::OakUIScript_HudSkills_FailToUseSecondarySkill Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.GainChargeGadget
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::GainChargeGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "GainChargeGadget");
+
+	Params::OakUIScript_HudSkills_GainChargeGadget Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.GainChargePrimarySkill
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::GainChargePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "GainChargePrimarySkill");
+
+	Params::OakUIScript_HudSkills_GainChargePrimarySkill Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.GainChargeSecondarySkill
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::GainChargeSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "GainChargeSecondarySkill");
+
+	Params::OakUIScript_HudSkills_GainChargeSecondarySkill Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.ReadyToUseGadgetGrenade
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::ReadyToUseGadgetGrenade(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "ReadyToUseGadgetGrenade");
+
+	Params::OakUIScript_HudSkills_ReadyToUseGadgetGrenade Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.ReadyToUseGadgetHeavyWeapon
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::ReadyToUseGadgetHeavyWeapon(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "ReadyToUseGadgetHeavyWeapon");
+
+	Params::OakUIScript_HudSkills_ReadyToUseGadgetHeavyWeapon Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.ReadyToUseGadgetOther
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::ReadyToUseGadgetOther(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "ReadyToUseGadgetOther");
+
+	Params::OakUIScript_HudSkills_ReadyToUseGadgetOther Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.ReadyToUsePrimarySkill
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::ReadyToUsePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "ReadyToUsePrimarySkill");
+
+	Params::OakUIScript_HudSkills_ReadyToUsePrimarySkill Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.ReadyToUseSecondarySkill
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::ReadyToUseSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "ReadyToUseSecondarySkill");
+
+	Params::OakUIScript_HudSkills_ReadyToUseSecondarySkill Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.StartReadyCountdownGadget
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::StartReadyCountdownGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "StartReadyCountdownGadget");
+
+	Params::OakUIScript_HudSkills_StartReadyCountdownGadget Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.StartReadyCountdownPrimarySkill
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::StartReadyCountdownPrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "StartReadyCountdownPrimarySkill");
+
+	Params::OakUIScript_HudSkills_StartReadyCountdownPrimarySkill Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.StartReadyCountdownSecondarySkill
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::StartReadyCountdownSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "StartReadyCountdownSecondarySkill");
+
+	Params::OakUIScript_HudSkills_StartReadyCountdownSecondarySkill Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownOneGadget
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::TickReadyCountdownOneGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownOneGadget");
+
+	Params::OakUIScript_HudSkills_TickReadyCountdownOneGadget Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownOnePrimarySkill
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::TickReadyCountdownOnePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownOnePrimarySkill");
+
+	Params::OakUIScript_HudSkills_TickReadyCountdownOnePrimarySkill Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownOneSecondarySkill
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::TickReadyCountdownOneSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownOneSecondarySkill");
+
+	Params::OakUIScript_HudSkills_TickReadyCountdownOneSecondarySkill Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownThreeGadget
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::TickReadyCountdownThreeGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownThreeGadget");
+
+	Params::OakUIScript_HudSkills_TickReadyCountdownThreeGadget Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownThreePrimarySkill
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::TickReadyCountdownThreePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownThreePrimarySkill");
+
+	Params::OakUIScript_HudSkills_TickReadyCountdownThreePrimarySkill Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownThreeSecondarySkill
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::TickReadyCountdownThreeSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownThreeSecondarySkill");
+
+	Params::OakUIScript_HudSkills_TickReadyCountdownThreeSecondarySkill Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownTwoGadget
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::TickReadyCountdownTwoGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownTwoGadget");
+
+	Params::OakUIScript_HudSkills_TickReadyCountdownTwoGadget Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownTwoPrimarySkill
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::TickReadyCountdownTwoPrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownTwoPrimarySkill");
+
+	Params::OakUIScript_HudSkills_TickReadyCountdownTwoPrimarySkill Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.TickReadyCountdownTwoSecondarySkill
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::TickReadyCountdownTwoSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "TickReadyCountdownTwoSecondarySkill");
+
+	Params::OakUIScript_HudSkills_TickReadyCountdownTwoSecondarySkill Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.UseGadget
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::UseGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "UseGadget");
+
+	Params::OakUIScript_HudSkills_UseGadget Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.UsePrimarySkill
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::UsePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "UsePrimarySkill");
+
+	Params::OakUIScript_HudSkills_UsePrimarySkill Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_HudSkills.UseSecondarySkill
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_HudSkills::UseSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_HudSkills", "UseSecondarySkill");
+
+	Params::OakUIScript_HudSkills_UseSecondarySkill Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_InGameMessage.DisplayGenericSlideOut
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_InGameMessage::DisplayGenericSlideOut(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_InGameMessage", "DisplayGenericSlideOut");
+
+	Params::OakUIScript_InGameMessage_DisplayGenericSlideOut Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -37315,21 +37115,21 @@ void UOakUIScript_LootFeed::CashLower(class UObject* WorldContextObject, FGbxDef
 }
 
 
-// Function OakGame.OakUIScript_MenuBase.ElementClicked
+// Function OakGame.OakUIScript_MissionAccept.MissionAccepted
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MenuBase::ElementClicked(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_MissionAccept::MissionAccepted(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MenuBase", "ElementClicked");
+		Func = Class->GetFunction("OakUIScript_MissionAccept", "MissionAccepted");
 
-	Params::OakUIScript_MenuBase_ElementClicked Parms{};
+	Params::OakUIScript_MissionAccept_MissionAccepted Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -37339,21 +37139,21 @@ void UOakUIScript_MenuBase::ElementClicked(class UObject* WorldContextObject, FG
 }
 
 
-// Function OakGame.OakUIScript_MenuBase.ElementFocused
+// Function OakGame.OakUIScript_MissionAccept.MissionAcceptedAndTracked
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MenuBase::ElementFocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_MissionAccept::MissionAcceptedAndTracked(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MenuBase", "ElementFocused");
+		Func = Class->GetFunction("OakUIScript_MissionAccept", "MissionAcceptedAndTracked");
 
-	Params::OakUIScript_MenuBase_ElementFocused Parms{};
+	Params::OakUIScript_MissionAccept_MissionAcceptedAndTracked Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -37363,21 +37163,21 @@ void UOakUIScript_MenuBase::ElementFocused(class UObject* WorldContextObject, FG
 }
 
 
-// Function OakGame.OakUIScript_MenuBase.ElementUnfocused
+// Function OakGame.OakUIScript_MissionAccept.MissionTracked
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MenuBase::ElementUnfocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_MissionAccept::MissionTracked(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MenuBase", "ElementUnfocused");
+		Func = Class->GetFunction("OakUIScript_MissionAccept", "MissionTracked");
 
-	Params::OakUIScript_MenuBase_ElementUnfocused Parms{};
+	Params::OakUIScript_MissionAccept_MissionTracked Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -37387,165 +37187,65 @@ void UOakUIScript_MenuBase::ElementUnfocused(class UObject* WorldContextObject, 
 }
 
 
-// Function OakGame.OakUIScript_MenuBase.EscapeInput
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Function OakGame.OakUIScript_MissionLog.StartMissionLogMenuTutorial
+// (Event, Public, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MenuBase::EscapeInput(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_MissionLog::StartMissionLogMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MenuBase", "EscapeInput");
+		Func = Class->GetFunction("OakUIScript_MissionLog", "StartMissionLogMenuTutorial");
 
-	Params::OakUIScript_MenuBase_EscapeInput Parms{};
+	Params::OakUIScript_MissionLog_StartMissionLogMenuTutorial Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
 
 	UObject::ProcessEvent(Func, &Parms);
 }
 
 
-// Function OakGame.OakUIScript_MenuBase.MenuClose
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Function OakGame.OakUIScript_MissionLog.StartMissionReplayMenuTutorial
+// (Event, Public, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MenuBase::MenuClose(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_MissionLog::StartMissionReplayMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MenuBase", "MenuClose");
+		Func = Class->GetFunction("OakUIScript_MissionLog", "StartMissionReplayMenuTutorial");
 
-	Params::OakUIScript_MenuBase_MenuClose Parms{};
+	Params::OakUIScript_MissionLog_StartMissionReplayMenuTutorial Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
 
 	UObject::ProcessEvent(Func, &Parms);
 }
 
 
-// Function OakGame.OakUIScript_MenuBase.MenuOpen
+// Function OakGame.OakUIScript_MissionLog.TrackMission
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_MenuBase::MenuOpen(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_MissionLog::TrackMission(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MenuBase", "MenuOpen");
+		Func = Class->GetFunction("OakUIScript_MissionLog", "TrackMission");
 
-	Params::OakUIScript_MenuBase_MenuOpen Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_MenuBase.ScrollDown
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_MenuBase::ScrollDown(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MenuBase", "ScrollDown");
-
-	Params::OakUIScript_MenuBase_ScrollDown Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_MenuBase.ScrollUp
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_MenuBase::ScrollUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MenuBase", "ScrollUp");
-
-	Params::OakUIScript_MenuBase_ScrollUp Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_MenuTutorial.OnMenuTutorialSequenceClosed
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_MenuTutorial::OnMenuTutorialSequenceClosed(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MenuTutorial", "OnMenuTutorialSequenceClosed");
-
-	Params::OakUIScript_MenuTutorial_OnMenuTutorialSequenceClosed Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_MenuTutorial.OnMenuTutorialSequenceOpen
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_MenuTutorial::OnMenuTutorialSequenceOpen(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_MenuTutorial", "OnMenuTutorialSequenceOpen");
-
-	Params::OakUIScript_MenuTutorial_OnMenuTutorialSequenceOpen Parms{};
+	Params::OakUIScript_MissionLog_TrackMission Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -37690,30 +37390,6 @@ void UOakUIScript_OutOfBounds::Suspense(class UObject* WorldContextObject, FGbxD
 		Func = Class->GetFunction("OakUIScript_OutOfBounds", "Suspense");
 
 	Params::OakUIScript_OutOfBounds_Suspense Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function OakGame.OakUIScript_ResourceMeter.NotEnoughFuelError
-// (Event, Public, HasDefaults, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UOakUIScript_ResourceMeter::NotEnoughFuelError(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_ResourceMeter", "NotEnoughFuelError");
-
-	Params::OakUIScript_ResourceMeter_NotEnoughFuelError Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -38527,21 +38203,21 @@ void UOakUIScript_Skills::UnlockTier(class UObject* WorldContextObject, FGbxDefP
 }
 
 
-// Function OakGame.OakUIScript_TitleScreen.PressedStart
+// Function OakGame.OakUIScript_Social.FriendRequestReceived
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_TitleScreen::PressedStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Social::FriendRequestReceived(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_TitleScreen", "PressedStart");
+		Func = Class->GetFunction("OakUIScript_Social", "FriendRequestReceived");
 
-	Params::OakUIScript_TitleScreen_PressedStart Parms{};
+	Params::OakUIScript_Social_FriendRequestReceived Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -38551,21 +38227,21 @@ void UOakUIScript_TitleScreen::PressedStart(class UObject* WorldContextObject, F
 }
 
 
-// Function OakGame.OakUIScript_TitleScreen.SplashIntro
+// Function OakGame.OakUIScript_Social.PromotedToPartyLeader
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_TitleScreen::SplashIntro(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Social::PromotedToPartyLeader(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_TitleScreen", "SplashIntro");
+		Func = Class->GetFunction("OakUIScript_Social", "PromotedToPartyLeader");
 
-	Params::OakUIScript_TitleScreen_SplashIntro Parms{};
+	Params::OakUIScript_Social_PromotedToPartyLeader Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -38575,21 +38251,213 @@ void UOakUIScript_TitleScreen::SplashIntro(class UObject* WorldContextObject, FG
 }
 
 
-// Function OakGame.OakUIScript_TitleScreen.SplashTransition
+// Function OakGame.OakUIScript_Social.SessionInviteReceived
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_TitleScreen::SplashTransition(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_Social::SessionInviteReceived(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_TitleScreen", "SplashTransition");
+		Func = Class->GetFunction("OakUIScript_Social", "SessionInviteReceived");
 
-	Params::OakUIScript_TitleScreen_SplashTransition Parms{};
+	Params::OakUIScript_Social_SessionInviteReceived Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_StatusMenuNavBar.NavBackward
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_StatusMenuNavBar::NavBackward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_StatusMenuNavBar", "NavBackward");
+
+	Params::OakUIScript_StatusMenuNavBar_NavBackward Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_StatusMenuNavBar.NavEntered
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_StatusMenuNavBar::NavEntered(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_StatusMenuNavBar", "NavEntered");
+
+	Params::OakUIScript_StatusMenuNavBar_NavEntered Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_StatusMenuNavBar.NavExited
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_StatusMenuNavBar::NavExited(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_StatusMenuNavBar", "NavExited");
+
+	Params::OakUIScript_StatusMenuNavBar_NavExited Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_StatusMenuNavBar.NavForward
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_StatusMenuNavBar::NavForward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_StatusMenuNavBar", "NavForward");
+
+	Params::OakUIScript_StatusMenuNavBar_NavForward Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_StatusMenuNavBar.SubNavBackward
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_StatusMenuNavBar::SubNavBackward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_StatusMenuNavBar", "SubNavBackward");
+
+	Params::OakUIScript_StatusMenuNavBar_SubNavBackward Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_StatusMenuNavBar.SubNavEntered
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_StatusMenuNavBar::SubNavEntered(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_StatusMenuNavBar", "SubNavEntered");
+
+	Params::OakUIScript_StatusMenuNavBar_SubNavEntered Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_StatusMenuNavBar.SubNavExited
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_StatusMenuNavBar::SubNavExited(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_StatusMenuNavBar", "SubNavExited");
+
+	Params::OakUIScript_StatusMenuNavBar_SubNavExited Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.OakUIScript_StatusMenuNavBar.SubNavForward
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_StatusMenuNavBar::SubNavForward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_StatusMenuNavBar", "SubNavForward");
+
+	Params::OakUIScript_StatusMenuNavBar_SubNavForward Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -38767,21 +38635,21 @@ void UOakUIScript_Tutorial::OnTutorialExpanded(class UObject* WorldContextObject
 }
 
 
-// Function OakGame.OakUIScript_WeaponWheel.Closing
+// Function OakGame.OakUIScript_VaultTracker.SearchPing
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_WeaponWheel::Closing(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_VaultTracker::SearchPing(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_WeaponWheel", "Closing");
+		Func = Class->GetFunction("OakUIScript_VaultTracker", "SearchPing");
 
-	Params::OakUIScript_WeaponWheel_Closing Parms{};
+	Params::OakUIScript_VaultTracker_SearchPing Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -38791,21 +38659,21 @@ void UOakUIScript_WeaponWheel::Closing(class UObject* WorldContextObject, FGbxDe
 }
 
 
-// Function OakGame.OakUIScript_WeaponWheel.Highlighting
+// Function OakGame.OakUIScript_VaultTracker.SearchSuccess
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_WeaponWheel::Highlighting(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_VaultTracker::SearchSuccess(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_WeaponWheel", "Highlighting");
+		Func = Class->GetFunction("OakUIScript_VaultTracker", "SearchSuccess");
 
-	Params::OakUIScript_WeaponWheel_Highlighting Parms{};
+	Params::OakUIScript_VaultTracker_SearchSuccess Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -38815,21 +38683,21 @@ void UOakUIScript_WeaponWheel::Highlighting(class UObject* WorldContextObject, F
 }
 
 
-// Function OakGame.OakUIScript_WeaponWheel.Opening
+// Function OakGame.OakUIScript_VaultTracker.Switch
 // (Event, Public, HasDefaults, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOakUIScript_WeaponWheel::Opening(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void UOakUIScript_VaultTracker::Switch(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("OakUIScript_WeaponWheel", "Opening");
+		Func = Class->GetFunction("OakUIScript_VaultTracker", "Switch");
 
-	Params::OakUIScript_WeaponWheel_Opening Parms{};
+	Params::OakUIScript_VaultTracker_Switch Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -38839,19 +38707,43 @@ void UOakUIScript_WeaponWheel::Opening(class UObject* WorldContextObject, FGbxDe
 }
 
 
-// Function OakGame.NexusConfigStoreUISkillTree.GetAllProgressGraphGroupDefs
+// Function OakGame.OakUIScript_VaultTracker.TrackerActivate
+// (Event, Public, HasDefaults, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakUIScript_VaultTracker::TrackerActivate(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakUIScript_VaultTracker", "TrackerActivate");
+
+	Params::OakUIScript_VaultTracker_TrackerActivate Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OakGame.NexusConfigStoreUISpecializations.GetAllProgressGraphGroupDefs
 // (Final, Native, Static, Public, HasOutParams)
 // Parameters:
 // TArray<FGbxDefPtrProperty_>*            graphs                                                 (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 
-void UNexusConfigStoreUISkillTree::GetAllProgressGraphGroupDefs(TArray<FGbxDefPtrProperty_>* graphs)
+void UNexusConfigStoreUISpecializations::GetAllProgressGraphGroupDefs(TArray<FGbxDefPtrProperty_>* graphs)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("NexusConfigStoreUISkillTree", "GetAllProgressGraphGroupDefs");
+		Func = StaticClass()->GetFunction("NexusConfigStoreUISpecializations", "GetAllProgressGraphGroupDefs");
 
-	Params::NexusConfigStoreUISkillTree_GetAllProgressGraphGroupDefs Parms{};
+	Params::NexusConfigStoreUISpecializations_GetAllProgressGraphGroupDefs Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -38865,21 +38757,21 @@ void UNexusConfigStoreUISkillTree::GetAllProgressGraphGroupDefs(TArray<FGbxDefPt
 }
 
 
-// Function OakGame.NexusConfigStoreUISkillTree.GetNodeNames
+// Function OakGame.NexusConfigStoreUISpecializations.GetNodeNames
 // (Final, Native, Static, Public, HasOutParams)
 // Parameters:
 // class UObject*                          EditObject                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // FGbxDefPtrProperty_                     ProgressGraph                                          (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<class FName>*                    OutNames                                               (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 
-void UNexusConfigStoreUISkillTree::GetNodeNames(class UObject* EditObject, FGbxDefPtrProperty_ ProgressGraph, TArray<class FName>* OutNames)
+void UNexusConfigStoreUISpecializations::GetNodeNames(class UObject* EditObject, FGbxDefPtrProperty_ ProgressGraph, TArray<class FName>* OutNames)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("NexusConfigStoreUISkillTree", "GetNodeNames");
+		Func = StaticClass()->GetFunction("NexusConfigStoreUISpecializations", "GetNodeNames");
 
-	Params::NexusConfigStoreUISkillTree_GetNodeNames Parms{};
+	Params::NexusConfigStoreUISpecializations_GetNodeNames Parms{};
 
 	Parms.EditObject = EditObject;
 	Parms.ProgressGraph = ProgressGraph;
@@ -38893,6 +38785,178 @@ void UNexusConfigStoreUISkillTree::GetNodeNames(class UObject* EditObject, FGbxD
 
 	if (OutNames != nullptr)
 		*OutNames = std::move(Parms.OutNames);
+}
+
+
+// Function OakGame.OakVehicleBlueprintLibrary.AssignHoverDriveEffectParameters
+// (Final, Native, Static, Private, BlueprintCallable)
+// Parameters:
+// class UFXSystemComponent*               FXComponent                                            (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AOakVehicle*                      Vehicle                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakVehicleBlueprintLibrary::AssignHoverDriveEffectParameters(class UFXSystemComponent* FXComponent, class AOakVehicle* Vehicle)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakVehicleBlueprintLibrary", "AssignHoverDriveEffectParameters");
+
+	Params::OakVehicleBlueprintLibrary_AssignHoverDriveEffectParameters Parms{};
+
+	Parms.FXComponent = FXComponent;
+	Parms.Vehicle = Vehicle;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakVehicleBlueprintLibrary.CanBoost
+// (Final, Native, Static, Private, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class AOakVehicle*                      Vehicle                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UOakVehicleBlueprintLibrary::CanBoost(class AOakVehicle* Vehicle)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakVehicleBlueprintLibrary", "CanBoost");
+
+	Params::OakVehicleBlueprintLibrary_CanBoost Parms{};
+
+	Parms.Vehicle = Vehicle;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakVehicleBlueprintLibrary.GetAssociatedVehicle
+// (Final, Native, Static, Private, HasOutParams, BlueprintCallable)
+// Parameters:
+// class AActor*                           Context                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EGetOakVehicleResult*                   Exec                                                   (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AOakVehicle*                      ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class AOakVehicle* UOakVehicleBlueprintLibrary::GetAssociatedVehicle(class AActor* Context, EGetOakVehicleResult* Exec)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakVehicleBlueprintLibrary", "GetAssociatedVehicle");
+
+	Params::OakVehicleBlueprintLibrary_GetAssociatedVehicle Parms{};
+
+	Parms.Context = Context;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (Exec != nullptr)
+		*Exec = Parms.Exec;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakVehicleBlueprintLibrary.GetHoverDriveEffectByName
+// (Final, Native, Static, Private, BlueprintCallable)
+// Parameters:
+// class AOakVehicle*                      Vehicle                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FName                             EffectName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFXSystemAsset*                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UFXSystemAsset* UOakVehicleBlueprintLibrary::GetHoverDriveEffectByName(class AOakVehicle* Vehicle, class FName EffectName)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakVehicleBlueprintLibrary", "GetHoverDriveEffectByName");
+
+	Params::OakVehicleBlueprintLibrary_GetHoverDriveEffectByName Parms{};
+
+	Parms.Vehicle = Vehicle;
+	Parms.EffectName = EffectName;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakVehicleBlueprintLibrary.IsBoosting
+// (Final, Native, Static, Private, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class AOakVehicle*                      Vehicle                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UOakVehicleBlueprintLibrary::IsBoosting(class AOakVehicle* Vehicle)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakVehicleBlueprintLibrary", "IsBoosting");
+
+	Params::OakVehicleBlueprintLibrary_IsBoosting Parms{};
+
+	Parms.Vehicle = Vehicle;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakVehicleBlueprintLibrary.ToggleBoost
+// (Final, Native, Static, Private, BlueprintCallable)
+// Parameters:
+// class AOakVehicle*                      Vehicle                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bBoost                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakVehicleBlueprintLibrary::ToggleBoost(class AOakVehicle* Vehicle, bool bBoost)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("OakVehicleBlueprintLibrary", "ToggleBoost");
+
+	Params::OakVehicleBlueprintLibrary_ToggleBoost Parms{};
+
+	Parms.Vehicle = Vehicle;
+	Parms.bBoost = bBoost;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
 }
 
 
@@ -39177,23 +39241,84 @@ bool UOakVendorBlueprintLibrary::HasHostFoundBMVMThisWeek(class AActor* BMVM)
 }
 
 
-// Function OakGame.WaypointSystemDelegateProxy.OnDataLayerStateChanged
-// (Final, Native, Public)
-// Parameters:
-// const class UDataLayerInstance*         InDataLayer                                            (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EDataLayerRuntimeState                  InState                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// Function OakGame.OakWheeledVehicleMovementComponent.FreeBoostElapsed
+// (Final, Native, Private)
 
-void UWaypointSystemDelegateProxy::OnDataLayerStateChanged(const class UDataLayerInstance* InDataLayer, EDataLayerRuntimeState InState)
+void UOakWheeledVehicleMovementComponent::FreeBoostElapsed()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("WaypointSystemDelegateProxy", "OnDataLayerStateChanged");
+		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "FreeBoostElapsed");
 
-	Params::WaypointSystemDelegateProxy_OnDataLayerStateChanged Parms{};
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
 
-	Parms.InDataLayer = InDataLayer;
-	Parms.InState = InState;
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakWheeledVehicleMovementComponent.OnBoostDepleted
+// (Final, Native, Public)
+
+void UOakWheeledVehicleMovementComponent::OnBoostDepleted()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "OnBoostDepleted");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakWheeledVehicleMovementComponent.OnBoostFilled
+// (Final, Native, Public)
+
+void UOakWheeledVehicleMovementComponent::OnBoostFilled()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "OnBoostFilled");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakWheeledVehicleMovementComponent.OnHit
+// (Native, Public, HasOutParams, HasDefaults)
+// Parameters:
+// class AActor*                           SelfActor                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector&                   NormalImpulse                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FHitResult&                Hit                                                    (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+void UOakWheeledVehicleMovementComponent::OnHit(class AActor* SelfActor, class AActor* OtherActor, const struct FVector& NormalImpulse, const struct FHitResult& Hit)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "OnHit");
+
+	Params::OakWheeledVehicleMovementComponent_OnHit Parms{};
+
+	Parms.SelfActor = SelfActor;
+	Parms.OtherActor = OtherActor;
+	Parms.NormalImpulse = std::move(NormalImpulse);
+	Parms.Hit = std::move(Hit);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -39204,27 +39329,109 @@ void UWaypointSystemDelegateProxy::OnDataLayerStateChanged(const class UDataLaye
 }
 
 
-// Function OakGame.PhasedObjectStatics.IsPhased
-// (Final, Native, Static, Public, BlueprintCallable)
+// Function OakGame.OakWheeledVehicleMovementComponent.OnPrimitiveBeginOverlap
+// (Native, Public, HasOutParams)
 // Parameters:
-// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OverlappedComp                                         (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bFromSweep                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FHitResult&                SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
-bool UPhasedObjectStatics::IsPhased(class AActor* target)
+void UOakWheeledVehicleMovementComponent::OnPrimitiveBeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("PhasedObjectStatics", "IsPhased");
+		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "OnPrimitiveBeginOverlap");
 
-	Params::PhasedObjectStatics_IsPhased Parms{};
+	Params::OakWheeledVehicleMovementComponent_OnPrimitiveBeginOverlap Parms{};
 
-	Parms.target = target;
+	Parms.OverlappedComp = OverlappedComp;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
+	Parms.bFromSweep = bFromSweep;
+	Parms.SweepResult = std::move(SweepResult);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakWheeledVehicleMovementComponent.OnPrimitiveEndOverlap
+// (Native, Public)
+// Parameters:
+// class UPrimitiveComponent*              OverlappedComp                                         (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UOakWheeledVehicleMovementComponent::OnPrimitiveEndOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "OnPrimitiveEndOverlap");
+
+	Params::OakWheeledVehicleMovementComponent_OnPrimitiveEndOverlap Parms{};
+
+	Parms.OverlappedComp = OverlappedComp;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakWheeledVehicleMovementComponent.PowerslideCooldownElapsed
+// (Final, Native, Private)
+
+void UOakWheeledVehicleMovementComponent::PowerslideCooldownElapsed()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "PowerslideCooldownElapsed");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.OakWheeledVehicleMovementComponent.GetAirTime
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float UOakWheeledVehicleMovementComponent::GetAirTime() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "GetAirTime");
+
+	Params::OakWheeledVehicleMovementComponent_GetAirTime Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 
@@ -39232,73 +39439,19 @@ bool UPhasedObjectStatics::IsPhased(class AActor* target)
 }
 
 
-// Function OakGame.PhasedObjectStatics.TryEnterPhasedState
-// (Final, Native, Static, Public, BlueprintCallable)
+// Function OakGame.OakWheeledVehicleMovementComponent.GetGroundNormal
+// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UPhasedObjectStatics::TryEnterPhasedState(class AActor* target)
+struct FVector UOakWheeledVehicleMovementComponent::GetGroundNormal() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("PhasedObjectStatics", "TryEnterPhasedState");
+		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "GetGroundNormal");
 
-	Params::PhasedObjectStatics_TryEnterPhasedState Parms{};
-
-	Parms.target = target;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.PhasedObjectStatics.TryExitPhasedState
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AActor*                           target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UPhasedObjectStatics::TryExitPhasedState(class AActor* target)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("PhasedObjectStatics", "TryExitPhasedState");
-
-	Params::PhasedObjectStatics_TryExitPhasedState Parms{};
-
-	Parms.target = target;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.RepairKit.BroadcastEffect
-// (Net, Native, Event, NetMulticast, Protected)
-// Parameters:
-// class FName                             EffectID                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UObject*                          AdditionalContext                                      (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void ARepairKit::BroadcastEffect(class FName EffectID, class UObject* AdditionalContext)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RepairKit", "BroadcastEffect");
-
-	Params::RepairKit_BroadcastEffect Parms{};
-
-	Parms.EffectID = EffectID;
-	Parms.AdditionalContext = AdditionalContext;
+	Params::OakWheeledVehicleMovementComponent_GetGroundNormal Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -39306,56 +39459,217 @@ void ARepairKit::BroadcastEffect(class FName EffectID, class UObject* Additional
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 
-// Function OakGame.RepairKit.PlayReplicatedEffect
+// Function OakGame.OakWheeledVehicleMovementComponent.GetGroundSpeed
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float UOakWheeledVehicleMovementComponent::GetGroundSpeed() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "GetGroundSpeed");
+
+	Params::OakWheeledVehicleMovementComponent_GetGroundSpeed Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakWheeledVehicleMovementComponent.GetGroundTraceResult
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// struct FHitResult                       ReturnValue                                            (Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+struct FHitResult UOakWheeledVehicleMovementComponent::GetGroundTraceResult() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "GetGroundTraceResult");
+
+	Params::OakWheeledVehicleMovementComponent_GetGroundTraceResult Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakWheeledVehicleMovementComponent.GetHoverVector
+// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+struct FVector UOakWheeledVehicleMovementComponent::GetHoverVector() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "GetHoverVector");
+
+	Params::OakWheeledVehicleMovementComponent_GetHoverVector Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakWheeledVehicleMovementComponent.GetWorldVelocity
+// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+struct FVector UOakWheeledVehicleMovementComponent::GetWorldVelocity() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "GetWorldVelocity");
+
+	Params::OakWheeledVehicleMovementComponent_GetWorldVelocity Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.OakWheeledVehicleMovementComponent.IsBoosting
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UOakWheeledVehicleMovementComponent::IsBoosting() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OakWheeledVehicleMovementComponent", "IsBoosting");
+
+	Params::OakWheeledVehicleMovementComponent_IsBoosting Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function OakGame.SiloBaseObject.OnBalloonReady
 // (Final, Native, Protected, BlueprintCallable)
-// Parameters:
-// class FName                             EffectID                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UObject*                          AdditionalContext                                      (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void ARepairKit::PlayReplicatedEffect(class FName EffectID, class UObject* AdditionalContext)
+void ASiloBaseObject::OnBalloonReady()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("RepairKit", "PlayReplicatedEffect");
-
-	Params::RepairKit_PlayReplicatedEffect Parms{};
-
-	Parms.EffectID = EffectID;
-	Parms.AdditionalContext = AdditionalContext;
+		Func = Class->GetFunction("SiloBaseObject", "OnBalloonReady");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
 
 
-// Function OakGame.SoloTravelStationObject.TeleportPlayerToDestination
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class AOakPlayerController*             OakPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// Function OakGame.SiloBaseObject.OnPlayerProxySpawned
+// (Final, Native, Protected)
 
-void ASoloTravelStationObject::TeleportPlayerToDestination(class AOakPlayerController* OakPC)
+void ASiloBaseObject::OnPlayerProxySpawned()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("SoloTravelStationObject", "TeleportPlayerToDestination");
-
-	Params::SoloTravelStationObject_TeleportPlayerToDestination Parms{};
-
-	Parms.OakPC = OakPC;
+		Func = Class->GetFunction("SiloBaseObject", "OnPlayerProxySpawned");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.SiloBaseObject.OnRep_Sliders
+// (Final, Native, Protected)
+
+void ASiloBaseObject::OnRep_Sliders()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SiloBaseObject", "OnRep_Sliders");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.StructuredInteractableFunctionLibrary.StartStructuredInteraction
+// (Final, BlueprintAuthorityOnly, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           Interactable                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FName                             InteractionName                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class APlayerController*                User                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UStructuredInteractableFunctionLibrary::StartStructuredInteraction(class AActor* Interactable, class FName InteractionName, class APlayerController* User)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("StructuredInteractableFunctionLibrary", "StartStructuredInteraction");
+
+	Params::StructuredInteractableFunctionLibrary_StartStructuredInteraction Parms{};
+
+	Parms.Interactable = Interactable;
+	Parms.InteractionName = InteractionName;
+	Parms.User = User;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -39416,6 +39730,25 @@ void UWeaponBehavior_AmmoPool::OnRep_SpareAmmo()
 
 	if (Func == nullptr)
 		Func = Class->GetFunction("WeaponBehavior_AmmoPool", "OnRep_SpareAmmo");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.WeaponBehavior_AtlasLock.WeaponDetached
+// (Final, Native, Protected)
+
+void UWeaponBehavior_AtlasLock::WeaponDetached()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WeaponBehavior_AtlasLock", "WeaponDetached");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -39511,174 +39844,6 @@ void UWeaponBehavior_Borg::RefreshAttributeEffects()
 
 	if (Func == nullptr)
 		Func = Class->GetFunction("WeaponBehavior_Borg", "RefreshAttributeEffects");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.WeaponBehavior_Repair.OnAttached
-// (Final, Native, Protected)
-
-void UWeaponBehavior_Repair::OnAttached()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WeaponBehavior_Repair", "OnAttached");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.WeaponBehavior_Repair.OnBegunPlay
-// (Final, Native, Protected)
-
-void UWeaponBehavior_Repair::OnBegunPlay()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WeaponBehavior_Repair", "OnBegunPlay");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.WeaponBehavior_Repair.OnDetached
-// (Final, Native, Protected)
-
-void UWeaponBehavior_Repair::OnDetached()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WeaponBehavior_Repair", "OnDetached");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.WeaponBehavior_Repair.OnMaxShotsToBreakChanged
-// (Final, Native, Protected)
-// Parameters:
-// float                                   OldValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UWeaponBehavior_Repair::OnMaxShotsToBreakChanged(float OldValue, float NewValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WeaponBehavior_Repair", "OnMaxShotsToBreakChanged");
-
-	Params::WeaponBehavior_Repair_OnMaxShotsToBreakChanged Parms{};
-
-	Parms.OldValue = OldValue;
-	Parms.NewValue = NewValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.WeaponBehavior_Repair.OnMinShotsToBreakChanged
-// (Final, Native, Protected)
-// Parameters:
-// float                                   OldValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UWeaponBehavior_Repair::OnMinShotsToBreakChanged(float OldValue, float NewValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WeaponBehavior_Repair", "OnMinShotsToBreakChanged");
-
-	Params::WeaponBehavior_Repair_OnMinShotsToBreakChanged Parms{};
-
-	Parms.OldValue = OldValue;
-	Parms.NewValue = NewValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.WeaponBehavior_Repair.OnRep_ClientRepairState
-// (Final, Native, Protected)
-
-void UWeaponBehavior_Repair::OnRep_ClientRepairState()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WeaponBehavior_Repair", "OnRep_ClientRepairState");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.WeaponBehavior_Repair.OnRep_NumShotsToBreak
-// (Final, Native, Private)
-
-void UWeaponBehavior_Repair::OnRep_NumShotsToBreak()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WeaponBehavior_Repair", "OnRep_NumShotsToBreak");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function OakGame.WeaponBehavior_Repair.OnUsed
-// (Final, Native, Protected)
-
-void UWeaponBehavior_Repair::OnUsed()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WeaponBehavior_Repair", "OnUsed");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -39859,6 +40024,69 @@ void UWeaponBehavior_Shield::OnRep_TakeDamage() const
 }
 
 
+// Function OakGame.WeaponBehavior_Sight.StartInitSequence
+// (Final, Native, Protected)
+// Parameters:
+// class AWeapon*                          Weapon                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UWeaponBehavior_Sight::StartInitSequence(class AWeapon* Weapon)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WeaponBehavior_Sight", "StartInitSequence");
+
+	Params::WeaponBehavior_Sight_StartInitSequence Parms{};
+
+	Parms.Weapon = Weapon;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.WeaponBehavior_Sight.WeaponAttached
+// (Final, Native, Protected)
+
+void UWeaponBehavior_Sight::WeaponAttached()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WeaponBehavior_Sight", "WeaponAttached");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.WeaponBehavior_Sight.WeaponDetached
+// (Final, Native, Protected)
+
+void UWeaponBehavior_Sight::WeaponDetached()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WeaponBehavior_Sight", "WeaponDetached");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function OakGame.WeaponBehavior_StockReload.OnRep_ClientReloadState
 // (Final, Native, Protected)
 
@@ -39868,6 +40096,25 @@ void UWeaponBehavior_StockReload::OnRep_ClientReloadState()
 
 	if (Func == nullptr)
 		Func = Class->GetFunction("WeaponBehavior_StockReload", "OnRep_ClientReloadState");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OakGame.WeaponProjectile.OnRep_HomingMod
+// (Final, Native, Protected)
+
+void AWeaponProjectile::OnRep_HomingMod()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WeaponProjectile", "OnRep_HomingMod");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

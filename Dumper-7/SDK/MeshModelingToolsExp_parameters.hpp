@@ -50,15 +50,6 @@ public:
 };
 DUMPER7_ASSERTS_BakeMultiTexture2DProperties_GetUVLayerNamesFunc;
 
-// Function MeshModelingToolsExp.ConvertToPolygonsToolProperties.GetGroupOptionsList
-// 0x0010 (0x0010 - 0x0000)
-struct ConvertToPolygonsToolProperties_GetGroupOptionsList final
-{
-public:
-	TArray<class FString>                         ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ConvertToPolygonsToolProperties_GetGroupOptionsList;
-
 // Function MeshModelingToolsExp.MeshConstraintProperties.IsPreventNormalFlipsEnabled
 // 0x0001 (0x0001 - 0x0000)
 struct MeshConstraintProperties_IsPreventNormalFlipsEnabled final
@@ -103,6 +94,15 @@ public:
 	TArray<class FString>                         ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_BakeMultiMeshInputToolProperties_GetTargetUVLayerNamesFunc;
+
+// Function MeshModelingToolsExp.ConvertToPolygonsToolProperties.GetGroupOptionsList
+// 0x0010 (0x0010 - 0x0000)
+struct ConvertToPolygonsToolProperties_GetGroupOptionsList final
+{
+public:
+	TArray<class FString>                         ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ConvertToPolygonsToolProperties_GetGroupOptionsList;
 
 // Function MeshModelingToolsExp.DisplaceMeshCommonProperties.GetWeightMapsFunc
 // 0x0010 (0x0010 - 0x0000)

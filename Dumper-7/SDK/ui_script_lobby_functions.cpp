@@ -17,30 +17,6 @@
 namespace SDK
 {
 
-// Function ui_script_lobby.ui_script_lobby_C.ListExpanded
-// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void Uui_script_lobby_C::ListExpanded(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_lobby_C", "ListExpanded");
-
-	Params::ui_script_lobby_C_ListExpanded Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
 // Function ui_script_lobby.ui_script_lobby_C.ListCollapsed
 // (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
@@ -56,6 +32,30 @@ void Uui_script_lobby_C::ListCollapsed(class UObject* WorldContextObject, FGbxDe
 		Func = Class->GetFunction("ui_script_lobby_C", "ListCollapsed");
 
 	Params::ui_script_lobby_C_ListCollapsed Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ui_script_lobby.ui_script_lobby_C.ListExpanded
+// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void Uui_script_lobby_C::ListExpanded(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ui_script_lobby_C", "ListExpanded");
+
+	Params::ui_script_lobby_C_ListExpanded Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;

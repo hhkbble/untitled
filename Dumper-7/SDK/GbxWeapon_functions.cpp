@@ -548,6 +548,25 @@ void AWeapon::PlayEffects(class FName type, uint8 UseModeIndex, int32 ID, bool b
 }
 
 
+// Function GbxWeapon.Weapon.ServerAmmoGivenToInterruptedReload
+// (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
+
+void AWeapon::ServerAmmoGivenToInterruptedReload()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Weapon", "ServerAmmoGivenToInterruptedReload");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function GbxWeapon.Weapon.ServerEquipInterruptible
 // (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
 

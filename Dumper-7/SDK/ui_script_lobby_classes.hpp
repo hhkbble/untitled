@@ -21,8 +21,8 @@ namespace SDK
 class Uui_script_lobby_C final : public UOakUIScript_Lobby
 {
 public:
-	void ListExpanded(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 	void ListCollapsed(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ListExpanded(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 
 public:
 	static class UClass* StaticClass()

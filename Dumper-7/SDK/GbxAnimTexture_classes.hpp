@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "GbxAnimTexture_structs.hpp"
 #include "Engine_classes.hpp"
+#include "GbxAnimTexture_structs.hpp"
 
 
 namespace SDK
@@ -41,14 +41,14 @@ public:
 DUMPER7_ASSERTS_AGbxAnimTextureActor;
 
 // Class GbxAnimTexture.GbxAnimTextureComponent
-// 0x0030 (0x0B20 - 0x0AF0)
+// 0x0030 (0x0B40 - 0x0B10)
 class UGbxAnimTextureComponent : public UInstancedStaticMeshComponent
 {
 public:
-	TArray<struct FGbxAnimTextureAnimInstance>    Animations;                                        // 0x0AF0(0x0010)(Edit, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_B00[0x8];                                      // 0x0B00(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGbxAnimTextureData*                    data;                                              // 0x0B08(0x0008)(Edit, ZeroConstructor, NoClear, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_B10[0x10];                                     // 0x0B10(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TArray<struct FGbxAnimTextureAnimInstance>    Animations;                                        // 0x0B10(0x0010)(Edit, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_B20[0x8];                                      // 0x0B20(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGbxAnimTextureData*                    data;                                              // 0x0B28(0x0008)(Edit, ZeroConstructor, NoClear, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_B30[0x10];                                     // 0x0B30(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

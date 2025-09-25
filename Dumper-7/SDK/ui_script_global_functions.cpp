@@ -17,165 +17,65 @@
 namespace SDK
 {
 
-// Function ui_script_global.ui_script_global_C.SwitchOn
+// Function ui_script_global.ui_script_global_C.Activate
 // (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void Uui_script_global_C::SwitchOn(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void Uui_script_global_C::Activate(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_global_C", "SwitchOn");
+		Func = Class->GetFunction("ui_script_global_C", "Activate");
 
-	Params::ui_script_global_C_SwitchOn Parms{};
+	Params::ui_script_global_C_Activate Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
 
 	UObject::ProcessEvent(Func, &Parms);
 }
 
 
-// Function ui_script_global.ui_script_global_C.SwitchOff
+// Function ui_script_global.ui_script_global_C.deactivate
 // (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void Uui_script_global_C::SwitchOff(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void Uui_script_global_C::deactivate(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_global_C", "SwitchOff");
+		Func = Class->GetFunction("ui_script_global_C", "deactivate");
 
-	Params::ui_script_global_C_SwitchOff Parms{};
+	Params::ui_script_global_C_deactivate Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
 
 	UObject::ProcessEvent(Func, &Parms);
 }
 
 
-// Function ui_script_global.ui_script_global_C.StepperRight
+// Function ui_script_global.ui_script_global_C.HoldActionStart
 // (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
 // const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void Uui_script_global_C::StepperRight(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void Uui_script_global_C::HoldActionStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_global_C", "StepperRight");
+		Func = Class->GetFunction("ui_script_global_C", "HoldActionStart");
 
-	Params::ui_script_global_C_StepperRight Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function ui_script_global.ui_script_global_C.StepperLeft
-// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void Uui_script_global_C::StepperLeft(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_global_C", "StepperLeft");
-
-	Params::ui_script_global_C_StepperLeft Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function ui_script_global.ui_script_global_C.SliderUp
-// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void Uui_script_global_C::SliderUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_global_C", "SliderUp");
-
-	Params::ui_script_global_C_SliderUp Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function ui_script_global.ui_script_global_C.SliderError
-// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void Uui_script_global_C::SliderError(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_global_C", "SliderError");
-
-	Params::ui_script_global_C_SliderError Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.OwningWidgetDef = OwningWidgetDef;
-	Parms.position = std::move(position);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function ui_script_global.ui_script_global_C.SliderDown
-// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
-// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void Uui_script_global_C::SliderDown(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_global_C", "SliderDown");
-
-	Params::ui_script_global_C_SliderDown Parms{};
+	Params::ui_script_global_C_HoldActionStart Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -209,21 +109,21 @@ void Uui_script_global_C::HoldActionStop(class UObject* WorldContextObject, FGbx
 }
 
 
-// Function ui_script_global.ui_script_global_C.HoldActionStart
+// Function ui_script_global.ui_script_global_C.SliderDown
 // (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
 // const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void Uui_script_global_C::HoldActionStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+void Uui_script_global_C::SliderDown(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_global_C", "HoldActionStart");
+		Func = Class->GetFunction("ui_script_global_C", "SliderDown");
 
-	Params::ui_script_global_C_HoldActionStart Parms{};
+	Params::ui_script_global_C_SliderDown Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
@@ -233,45 +133,145 @@ void Uui_script_global_C::HoldActionStart(class UObject* WorldContextObject, FGb
 }
 
 
-// Function ui_script_global.ui_script_global_C.deactivate
+// Function ui_script_global.ui_script_global_C.SliderError
 // (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void Uui_script_global_C::deactivate(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
+void Uui_script_global_C::SliderError(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_global_C", "deactivate");
+		Func = Class->GetFunction("ui_script_global_C", "SliderError");
 
-	Params::ui_script_global_C_deactivate Parms{};
+	Params::ui_script_global_C_SliderError Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
 
 	UObject::ProcessEvent(Func, &Parms);
 }
 
 
-// Function ui_script_global.ui_script_global_C.Activate
+// Function ui_script_global.ui_script_global_C.SliderUp
 // (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void Uui_script_global_C::Activate(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const
+void Uui_script_global_C::SliderUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ui_script_global_C", "Activate");
+		Func = Class->GetFunction("ui_script_global_C", "SliderUp");
 
-	Params::ui_script_global_C_Activate Parms{};
+	Params::ui_script_global_C_SliderUp Parms{};
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ui_script_global.ui_script_global_C.StepperLeft
+// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void Uui_script_global_C::StepperLeft(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ui_script_global_C", "StepperLeft");
+
+	Params::ui_script_global_C_StepperLeft Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ui_script_global.ui_script_global_C.StepperRight
+// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void Uui_script_global_C::StepperRight(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ui_script_global_C", "StepperRight");
+
+	Params::ui_script_global_C_StepperRight Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ui_script_global.ui_script_global_C.SwitchOff
+// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void Uui_script_global_C::SwitchOff(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ui_script_global_C", "SwitchOff");
+
+	Params::ui_script_global_C_SwitchOff Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ui_script_global.ui_script_global_C.SwitchOn
+// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// FGbxDefPtrProperty_                     OwningWidgetDef                                        (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, HasGetValueTypeHash)
+// const struct FVector2D&                 position                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void Uui_script_global_C::SwitchOn(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ui_script_global_C", "SwitchOn");
+
+	Params::ui_script_global_C_SwitchOn Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.OwningWidgetDef = OwningWidgetDef;
+	Parms.position = std::move(position);
 
 	UObject::ProcessEvent(Func, &Parms);
 }

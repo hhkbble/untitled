@@ -20,6 +20,29 @@
 namespace SDK
 {
 
+// Class ModelViewViewModel.MVVMBindingSubsystem
+// 0x0068 (0x0098 - 0x0030)
+class UMVVMBindingSubsystem final : public UEngineSubsystem
+{
+public:
+	uint8                                         Pad_30[0x68];                                      // 0x0030(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("MVVMBindingSubsystem")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"MVVMBindingSubsystem")
+	}
+	static class UMVVMBindingSubsystem* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMVVMBindingSubsystem>();
+	}
+};
+DUMPER7_ASSERTS_UMVVMBindingSubsystem;
+
 // Class ModelViewViewModel.MVVMConversionLibrary
 // 0x0000 (0x0028 - 0x0028)
 class UMVVMConversionLibrary final : public UBlueprintFunctionLibrary
@@ -70,6 +93,32 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UMVVMSlateBrushConversionLibrary;
+
+// Class ModelViewViewModel.MVVMGameSubsystem
+// 0x0008 (0x0038 - 0x0030)
+class UMVVMGameSubsystem final : public UGameInstanceSubsystem
+{
+public:
+	class UMVVMViewModelCollectionObject*         ViewModelCollection;                               // 0x0030(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+
+public:
+	class UMVVMViewModelCollectionObject* GetViewModelCollection() const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("MVVMGameSubsystem")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"MVVMGameSubsystem")
+	}
+	static class UMVVMGameSubsystem* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMVVMGameSubsystem>();
+	}
+};
+DUMPER7_ASSERTS_UMVVMGameSubsystem;
 
 // Class ModelViewViewModel.MVVMView
 // 0x0048 (0x0070 - 0x0028)
@@ -199,6 +248,30 @@ public:
 };
 DUMPER7_ASSERTS_UMVVMViewClassExtension;
 
+// Class ModelViewViewModel.MVVMInstancedViewModelGeneratedClass
+// 0x0060 (0x0410 - 0x03B0)
+class UMVVMInstancedViewModelGeneratedClass final : public UBlueprintGeneratedClass
+{
+public:
+	TArray<class UFunction*>                      OnRepFunctionToLink;                               // 0x03B0(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_3C0[0x50];                                     // 0x03C0(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("MVVMInstancedViewModelGeneratedClass")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"MVVMInstancedViewModelGeneratedClass")
+	}
+	static class UMVVMInstancedViewModelGeneratedClass* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMVVMInstancedViewModelGeneratedClass>();
+	}
+};
+DUMPER7_ASSERTS_UMVVMInstancedViewModelGeneratedClass;
+
 // Class ModelViewViewModel.MVVMViewListViewBaseClassExtension
 // 0x0068 (0x0090 - 0x0028)
 class UMVVMViewListViewBaseClassExtension final : public UMVVMViewClassExtension
@@ -252,29 +325,6 @@ public:
 };
 DUMPER7_ASSERTS_UMVVMPanelWidgetViewExtension;
 
-// Class ModelViewViewModel.MVVMBindingSubsystem
-// 0x0068 (0x0098 - 0x0030)
-class UMVVMBindingSubsystem final : public UEngineSubsystem
-{
-public:
-	uint8                                         Pad_30[0x68];                                      // 0x0030(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MVVMBindingSubsystem")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MVVMBindingSubsystem")
-	}
-	static class UMVVMBindingSubsystem* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMVVMBindingSubsystem>();
-	}
-};
-DUMPER7_ASSERTS_UMVVMBindingSubsystem;
-
 // Class ModelViewViewModel.MVVMViewPanelWidgetClassExtension
 // 0x0038 (0x0060 - 0x0028)
 class UMVVMViewPanelWidgetClassExtension final : public UMVVMViewClassExtension
@@ -304,32 +354,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UMVVMViewPanelWidgetClassExtension;
-
-// Class ModelViewViewModel.MVVMGameSubsystem
-// 0x0008 (0x0038 - 0x0030)
-class UMVVMGameSubsystem final : public UGameInstanceSubsystem
-{
-public:
-	class UMVVMViewModelCollectionObject*         ViewModelCollection;                               // 0x0030(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-
-public:
-	class UMVVMViewModelCollectionObject* GetViewModelCollection() const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MVVMGameSubsystem")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MVVMGameSubsystem")
-	}
-	static class UMVVMGameSubsystem* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMVVMGameSubsystem>();
-	}
-};
-DUMPER7_ASSERTS_UMVVMGameSubsystem;
 
 // Class ModelViewViewModel.MVVMSubsystem
 // 0x0000 (0x0030 - 0x0030)
@@ -419,30 +443,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UMVVMViewModelCollectionObject;
-
-// Class ModelViewViewModel.MVVMInstancedViewModelGeneratedClass
-// 0x0060 (0x0410 - 0x03B0)
-class UMVVMInstancedViewModelGeneratedClass final : public UBlueprintGeneratedClass
-{
-public:
-	TArray<class UFunction*>                      OnRepFunctionToLink;                               // 0x03B0(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_3C0[0x50];                                     // 0x03C0(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MVVMInstancedViewModelGeneratedClass")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MVVMInstancedViewModelGeneratedClass")
-	}
-	static class UMVVMInstancedViewModelGeneratedClass* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMVVMInstancedViewModelGeneratedClass>();
-	}
-};
-DUMPER7_ASSERTS_UMVVMInstancedViewModelGeneratedClass;
 
 // Class ModelViewViewModel.MVVMViewModelBlueprintGeneratedClass
 // 0x0000 (0x03B0 - 0x03B0)

@@ -111,6 +111,15 @@ public:
 };
 DUMPER7_ASSERTS_MVVMSlateBrushConversionLibrary_Conv_SetVectorParameterMID;
 
+// Function ModelViewViewModel.MVVMGameSubsystem.GetViewModelCollection
+// 0x0008 (0x0008 - 0x0000)
+struct MVVMGameSubsystem_GetViewModelCollection final
+{
+public:
+	class UMVVMViewModelCollectionObject*         ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_MVVMGameSubsystem_GetViewModelCollection;
+
 // Function ModelViewViewModel.MVVMView.ExecuteViewModelBindings
 // 0x000C (0x000C - 0x0000)
 struct MVVMView_ExecuteViewModelBindings final
@@ -212,15 +221,6 @@ public:
 	TArray<class UObject*>                        InItems;                                           // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_MVVMPanelWidgetViewExtension_BP_SetItems;
-
-// Function ModelViewViewModel.MVVMGameSubsystem.GetViewModelCollection
-// 0x0008 (0x0008 - 0x0000)
-struct MVVMGameSubsystem_GetViewModelCollection final
-{
-public:
-	class UMVVMViewModelCollectionObject*         ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_MVVMGameSubsystem_GetViewModelCollection;
 
 // Function ModelViewViewModel.MVVMSubsystem.K2_CompareFloatValues
 // 0x0014 (0x0014 - 0x0000)

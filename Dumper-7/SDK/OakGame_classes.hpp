@@ -10,52 +10,72 @@
 
 #include "Basic.hpp"
 
-#include "GbxDefaultLoadingScreen_classes.hpp"
-#include "GbxOnline_structs.hpp"
-#include "GbxOnline_classes.hpp"
-#include "OakGame_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "GbxAI_structs.hpp"
 #include "GbxAI_classes.hpp"
-#include "GbxSpawn_structs.hpp"
-#include "GbxSpawn_classes.hpp"
 #include "GbxGame_structs.hpp"
 #include "GbxGame_classes.hpp"
+#include "GbxUICore_classes.hpp"
+#include "GbxDefaultLoadingScreen_classes.hpp"
+#include "GbxOnline_structs.hpp"
+#include "GbxOnline_classes.hpp"
+#include "OakGame_structs.hpp"
+#include "GbxSpawn_structs.hpp"
+#include "GbxSpawn_classes.hpp"
 #include "GbxEngine_structs.hpp"
 #include "GbxEngine_classes.hpp"
+#include "GbxCore_structs.hpp"
 #include "GbxWeapon_structs.hpp"
 #include "GbxWeapon_classes.hpp"
-#include "GbxCore_structs.hpp"
-#include "GameSettings_classes.hpp"
 #include "GbxUICoherent_structs.hpp"
 #include "GbxUICoherent_classes.hpp"
 #include "GameplayTags_structs.hpp"
 #include "DeveloperSettings_classes.hpp"
 #include "GbxAudio_structs.hpp"
 #include "GbxAudio_classes.hpp"
-#include "CinematicCamera_classes.hpp"
-#include "GbxUICore_classes.hpp"
-#include "GbxAnimTexture_classes.hpp"
 #include "GbxDecorator_classes.hpp"
+#include "CinematicCamera_classes.hpp"
+#include "GbxAnimTexture_classes.hpp"
 #include "Niagara_classes.hpp"
 #include "GbxNav_classes.hpp"
-#include "ChaosVehicles_classes.hpp"
+#include "GbxUISettings_classes.hpp"
 #include "GbxEnhancedInput_classes.hpp"
-#include "GbxNetGame_classes.hpp"
 #include "EnhancedInput_classes.hpp"
-#include "GbxWorldPainter_classes.hpp"
+#include "GbxNetGame_classes.hpp"
+#include "GameSettings_classes.hpp"
 #include "UMG_classes.hpp"
 #include "MovieScene_classes.hpp"
 #include "PhysicsCore_structs.hpp"
+#include "ChaosVehicles_classes.hpp"
+#include "GbxWorldPainter_classes.hpp"
 #include "EngineSettings_structs.hpp"
-#include "GbxUISettings_classes.hpp"
 
 
 namespace SDK
 {
+
+// Class OakGame.NexusConfigStoreGbxSkillTokenStack
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStoreGbxSkillTokenStack final : public UNexusConfigStoreBasic
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStoreGbxSkillTokenStack")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStoreGbxSkillTokenStack")
+	}
+	static class UNexusConfigStoreGbxSkillTokenStack* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStoreGbxSkillTokenStack>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStoreGbxSkillTokenStack;
 
 // Class OakGame.AITargetLockBlueprintLibrary
 // 0x0000 (0x0028 - 0x0028)
@@ -83,54 +103,123 @@ public:
 };
 DUMPER7_ASSERTS_UAITargetLockBlueprintLibrary;
 
-// Class OakGame.NameplateInfoProviderInterface
-// 0x0000 (0x0000 - 0x0000)
-class INameplateInfoProviderInterface final
+// Class OakGame.OakProjectile
+// 0x02F0 (0x1810 - 0x1520)
+class AOakProjectile : public Aprojectile
 {
+public:
+	uint8                                         Pad_1520[0x20];                                    // 0x1520(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         damagemultiplier;                                  // 0x1540(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_1544[0x64];                                    // 0x1544(0x0064)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGrappleableState                      GrappleableState;                                  // 0x15A8(0x0098)(Net, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	bool                                          bGrappleableEnabled;                               // 0x1640(0x0001)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_1641[0x7];                                     // 0x1641(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(class AActor* Grappler, const struct FGrappleableTarget& GrappleTarget)> OnGrappled; // 0x1648(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
+	TMulticastInlineDelegate<void(class AActor* Grappler, const struct FGrappleableTarget& GrappleTarget)> OnGrapplerAttached; // 0x1658(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
+	TMulticastInlineDelegate<void(class AActor* Grappler, const struct FGrappleableTarget& GrappleTarget)> OnGrapplerDetached; // 0x1668(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_1678[0x48];                                    // 0x1678(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FOakIntrinsicElementState              IntrinsicElementState;                             // 0x16C0(0x0060)(Transient, ContainsInstancedReference, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_1720[0xF0];                                    // 0x1720(0x00F0)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void OnActorOverlap(class AActor* OverlappedActor, class AActor* OtherActor);
+	void SetGrappleableEnabled(bool bNewIsEnabled);
+
+	bool IsGrappleableEnabled() const;
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("NameplateInfoProviderInterface")
+		STATIC_CLASS_IMPL("OakProjectile")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"NameplateInfoProviderInterface")
+		STATIC_NAME_IMPL(L"OakProjectile")
 	}
-	static class INameplateInfoProviderInterface* GetDefaultObj()
+	static class AOakProjectile* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<INameplateInfoProviderInterface>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
+		return GetDefaultObjImpl<AOakProjectile>();
 	}
 };
-DUMPER7_ASSERTS_INameplateInfoProviderInterface;
+DUMPER7_ASSERTS_AOakProjectile;
 
-// Class OakGame.NexusConfigStorePoAActor
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStorePoAActor final : public UNexusConfigStoreBasic
+// Class OakGame.ModularGrenade
+// 0x04C0 (0x1CD0 - 0x1810)
+class AModularGrenade : public AOakProjectile
 {
+public:
+	uint8                                         Pad_1810[0x20];                                    // 0x1810(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FOakDamageCauserData                   DamageCauserData;                                  // 0x1830(0x0270)(Transient, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              OnInitializedFromIdentity;                         // 0x1AA0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              OnActivated;                                       // 0x1AB0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(class AActor* Actor)> OnSpawnedActor;                              // 0x1AC0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	int32                                         Generation;                                        // 0x1AD0(0x0004)(BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_1AD4[0x4];                                     // 0x1AD4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         FullFuseTime;                                      // 0x1AD8(0x0004)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         GenericPayload;                                    // 0x1ADC(0x0004)(BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         RepPayloadPostExploded;                            // 0x1AE0(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bIsClone;                                          // 0x1AE1(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_1AE2[0x6];                                     // 0x1AE2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FOakStatusEffectModifierData_Gear      StatusEffectModifierData;                          // 0x1AE8(0x0040)(Protected, NativeAccessSpecifierProtected)
+	struct FDamageModifierData                    DamageModifierData;                                // 0x1B28(0x0068)(Transient, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_1B90[0x8];                                     // 0x1B90(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FInventoryIdentity                     Identity;                                          // 0x1B98(0x00D8)(BlueprintVisible, BlueprintReadOnly, Net, Transient, NativeAccessSpecifierPrivate)
+	class UGbxBodyData*                           BodyData;                                          // 0x1C70(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_1C78[0x58];                                    // 0x1C78(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void ActivateGrenade();
+	void DivideGrenade(const struct FVector& Direction);
+	void OnRep_PayloadPostExploded();
+	void PayloadBeginExplodeCallback();
+	void PayloadBounceCallback(const struct FHitResult& Impact, const struct FVector& ImpactVelocity);
+	void PayloadExplodeCallback(const class AActor* projectile);
+	void PayloadImpactCallback(const struct FHitResult& Impact);
+	void PayloadTakingDamageCallback(const struct FProjectileTakingDamageDetails& Details);
+	void SpawnChildGrenade(const struct FVector& Location, const struct FVector& Direction, float ChildDamage, float ChildRadius, float ChildForce, float delay, float SpeedOverride, class AActor* IgnoreActor, class AActor* TargetActor, float InFuseTime);
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("NexusConfigStorePoAActor")
+		STATIC_CLASS_IMPL("ModularGrenade")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"NexusConfigStorePoAActor")
+		STATIC_NAME_IMPL(L"ModularGrenade")
 	}
-	static class UNexusConfigStorePoAActor* GetDefaultObj()
+	static class AModularGrenade* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UNexusConfigStorePoAActor>();
+		return GetDefaultObjImpl<AModularGrenade>();
 	}
 };
-DUMPER7_ASSERTS_UNexusConfigStorePoAActor;
+DUMPER7_ASSERTS_AModularGrenade;
+
+// Class OakGame.ShootingGrenade
+// 0x00D0 (0x1DA0 - 0x1CD0)
+class AShootingGrenade final : public AModularGrenade
+{
+public:
+	uint8                                         Pad_1CD0[0x10];                                    // 0x1CD0(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         firerate;                                          // 0x1CE0(0x0004)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	int32                                         MaxLoadedAmmo;                                     // 0x1CE4(0x0004)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	int32                                         ShotCost;                                          // 0x1CE8(0x0004)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_1CEC[0xB4];                                    // 0x1CEC(0x00B4)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("ShootingGrenade")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"ShootingGrenade")
+	}
+	static class AShootingGrenade* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AShootingGrenade>();
+	}
+};
+DUMPER7_ASSERTS_AShootingGrenade;
 
 // Class OakGame.AITargetLock
 // 0x0000 (0x0000 - 0x0000)
@@ -161,26 +250,6 @@ public:
 };
 DUMPER7_ASSERTS_IAITargetLock;
 
-// Class OakGame.NexusConfigStoreLuckCategory
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStoreLuckCategory final : public UNexusConfigStoreBasic
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NexusConfigStoreLuckCategory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreLuckCategory")
-	}
-	static class UNexusConfigStoreLuckCategory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNexusConfigStoreLuckCategory>();
-	}
-};
-DUMPER7_ASSERTS_UNexusConfigStoreLuckCategory;
-
 // Class OakGame.AITargetLockUser
 // 0x0000 (0x0000 - 0x0000)
 class IAITargetLockUser final
@@ -209,6 +278,78 @@ public:
 	}
 };
 DUMPER7_ASSERTS_IAITargetLockUser;
+
+// Class OakGame.OakAINodeComponent
+// 0x0050 (0x1120 - 0x10D0)
+class UOakAINodeComponent final : public UGbxAINodeComponent
+{
+public:
+	TSoftObjectPtr<class AOakAINode>              NextNodePtr;                                       // 0x10C8(0x0028)(Deprecated, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_10F0[0x18];                                    // 0x10F0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	FGbxDefPtrProperty_                           UXDisplayName;                                     // 0x1108(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakAINodeComponent")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakAINodeComponent")
+	}
+	static class UOakAINodeComponent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakAINodeComponent>();
+	}
+};
+DUMPER7_ASSERTS_UOakAINodeComponent;
+
+// Class OakGame.OakUILabelWidget
+// 0x0008 (0x02D8 - 0x02D0)
+class UOakUILabelWidget : public UUserWidget
+{
+public:
+	class UTextBlock*                             TextBlock;                                         // 0x02D0(0x0008)(BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUILabelWidget")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUILabelWidget")
+	}
+	static class UOakUILabelWidget* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUILabelWidget>();
+	}
+};
+DUMPER7_ASSERTS_UOakUILabelWidget;
+
+// Class OakGame.AnimNotifyState_DeathLootState
+// 0x0008 (0x0038 - 0x0030)
+class UAnimNotifyState_DeathLootState final : public UAnimNotifyState
+{
+public:
+	float                                         LootSpawnWeight;                                   // 0x0030(0x0004)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_34[0x4];                                       // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("AnimNotifyState_DeathLootState")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"AnimNotifyState_DeathLootState")
+	}
+	static class UAnimNotifyState_DeathLootState* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UAnimNotifyState_DeathLootState>();
+	}
+};
+DUMPER7_ASSERTS_UAnimNotifyState_DeathLootState;
 
 // Class OakGame.OakInteractiveObject
 // 0x0B60 (0x25B0 - 0x1A50)
@@ -292,103 +433,6 @@ public:
 };
 DUMPER7_ASSERTS_AGrappleableObject;
 
-// Class OakGame.GrapplePoint
-// 0x0040 (0x2670 - 0x2630)
-class AGrapplePoint : public AGrappleableObject
-{
-public:
-	bool                                          bSearchForMantleUpDestination;                     // 0x2630(0x0001)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bSearchForDropDownDestination;                     // 0x2631(0x0001)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bOverrideDropDownTrace;                            // 0x2632(0x0001)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_2633[0x1];                                     // 0x2633(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         DropDownTraceDistance;                             // 0x2634(0x0004)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bOverrideDestinationApexDimensions;                // 0x2638(0x0001)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_2639[0x3];                                     // 0x2639(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         DestinationApexDistance;                           // 0x263C(0x0004)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         DestinationApexHeight;                             // 0x2640(0x0004)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bOverrideApexOffset;                               // 0x2644(0x0001)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_2645[0x3];                                     // 0x2645(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         ApexOffset;                                        // 0x2648(0x0004)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bOverrideDestinationLocation;                      // 0x264C(0x0001)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_264D[0x3];                                     // 0x264D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class AActor*                                 OverrideDestinationLocationActor;                  // 0x2650(0x0008)(Edit, ZeroConstructor, DisableEditOnTemplate, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bOverrideMantleUpPushbackDimensions;               // 0x2658(0x0001)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_2659[0x3];                                     // 0x2659(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         PushbackDistance;                                  // 0x265C(0x0004)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         PushbackFloorSearchDistance;                       // 0x2660(0x0004)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_2664[0xC];                                     // 0x2664(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void OnPlayerProxySpawned();
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GrapplePoint")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GrapplePoint")
-	}
-	static class AGrapplePoint* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AGrapplePoint>();
-	}
-};
-DUMPER7_ASSERTS_AGrapplePoint;
-
-// Class OakGame.SiloGrappleSlider
-// 0x0020 (0x2690 - 0x2670)
-class ASiloGrappleSlider final : public AGrapplePoint
-{
-public:
-	class ASiloBaseObject*                        AssociatedSiloBase;                                // 0x2670(0x0008)(Net, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SiloBalloonApexHeight;                             // 0x2678(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SiloBalloonApexDistance;                           // 0x267C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SiloBalloonTimeToApex;                             // 0x2680(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SiloBalloonEasingTime;                             // 0x2684(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2688[0x8];                                     // 0x2688(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("SiloGrappleSlider")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"SiloGrappleSlider")
-	}
-	static class ASiloGrappleSlider* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<ASiloGrappleSlider>();
-	}
-};
-DUMPER7_ASSERTS_ASiloGrappleSlider;
-
-// Class OakGame.AnimNotifyState_DeathLootState
-// 0x0008 (0x0038 - 0x0030)
-class UAnimNotifyState_DeathLootState final : public UAnimNotifyState
-{
-public:
-	float                                         LootSpawnWeight;                                   // 0x0030(0x0004)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_34[0x4];                                       // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("AnimNotifyState_DeathLootState")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"AnimNotifyState_DeathLootState")
-	}
-	static class UAnimNotifyState_DeathLootState* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UAnimNotifyState_DeathLootState>();
-	}
-};
-DUMPER7_ASSERTS_UAnimNotifyState_DeathLootState;
-
 // Class OakGame.AnimNotify_ActivateAttachedLoot
 // 0x0000 (0x0038 - 0x0038)
 class UAnimNotify_ActivateAttachedLoot final : public UAnimNotify
@@ -409,95 +453,25 @@ public:
 };
 DUMPER7_ASSERTS_UAnimNotify_ActivateAttachedLoot;
 
-// Class OakGame.OakZoneTransition
-// 0x00A0 (0x0468 - 0x03C8)
-class AOakZoneTransition : public AVolume
-{
-public:
-	TMulticastInlineDelegate<void(EOakZoneTransitionGate EntryGate)> OnTravelAttemptSucceeded;       // 0x03C8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(EOakZoneTransitionGate EntryGate)> OnTravelAttemptBlocked;         // 0x03D8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	EOakZoneTransitionDirection                   Direction;                                         // 0x03E8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_3E9[0x7];                                      // 0x03E9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FOakZoneTransitionGate                 Gate[0x2];                                         // 0x03F0(0x0008)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	FGameDataHandleProperty_                      StationActorDef;                                   // 0x0400(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bLinkStationTransform;                             // 0x0418(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_419[0x7];                                      // 0x0419(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class AOakCharacter*>                  PlayersInZone;                                     // 0x0420(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
-	TArray<class AOakCharacter*>                  PlayersEnteringVehicle;                            // 0x0430(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
-	TArray<class AOakCharacter*>                  PlayersExitingVehicle;                             // 0x0440(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
-	TArray<class AOakVehicle*>                    DriverlessVehicles;                                // 0x0450(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
-	uint8                                         Pad_460[0x8];                                      // 0x0460(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void OnZoneBeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* Other, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult);
-	void OnZoneEndOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* Other, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
-
-	EOakZoneTransitionGate GetTransitionEntryGate() const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakZoneTransition")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakZoneTransition")
-	}
-	static class AOakZoneTransition* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakZoneTransition>();
-	}
-};
-DUMPER7_ASSERTS_AOakZoneTransition;
-
-// Class OakGame.OakAirlockTransition
-// 0x0040 (0x04A8 - 0x0468)
-class AOakAirlockTransition : public AOakZoneTransition
-{
-public:
-	struct FFactExpression                        dependency;                                        // 0x0468(0x0010)(Edit, Protected, NativeAccessSpecifierProtected)
-	FGameDataHandleProperty_                      GateARespawnStationHandle;                         // 0x0478(0x0018)(Edit, EditConst, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	FGameDataHandleProperty_                      GateBRespawnStationHandle;                         // 0x0490(0x0018)(Edit, EditConst, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-
-public:
-	void PerformZoneTransition();
-	void PrepareZoneTransition(class AOakPlayerController* Controller);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakAirlockTransition")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakAirlockTransition")
-	}
-	static class AOakAirlockTransition* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakAirlockTransition>();
-	}
-};
-DUMPER7_ASSERTS_AOakAirlockTransition;
-
-// Class OakGame.NexusConfigStoreNewsImageRepoDef
-// 0x0000 (0x0380 - 0x0380)
-class UNexusConfigStoreNewsImageRepoDef final : public UNexusConfigStoreBasicDefFlat
+// Class OakGame.OakUISystem
+// 0x0000 (0x0118 - 0x0118)
+class UOakUISystem final : public UGbxUISystem
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("NexusConfigStoreNewsImageRepoDef")
+		STATIC_CLASS_IMPL("OakUISystem")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreNewsImageRepoDef")
+		STATIC_NAME_IMPL(L"OakUISystem")
 	}
-	static class UNexusConfigStoreNewsImageRepoDef* GetDefaultObj()
+	static class UOakUISystem* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UNexusConfigStoreNewsImageRepoDef>();
+		return GetDefaultObjImpl<UOakUISystem>();
 	}
 };
-DUMPER7_ASSERTS_UNexusConfigStoreNewsImageRepoDef;
+DUMPER7_ASSERTS_UOakUISystem;
 
 // Class OakGame.AnimNotify_Carry
 // 0x0008 (0x0040 - 0x0038)
@@ -523,29 +497,6 @@ public:
 };
 DUMPER7_ASSERTS_UAnimNotify_Carry;
 
-// Class OakGame.GrappleGrate
-// 0x0010 (0x2640 - 0x2630)
-class AGrappleGrate final : public AGrappleableObject
-{
-public:
-	uint8                                         Pad_2630[0x10];                                    // 0x2630(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GrappleGrate")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GrappleGrate")
-	}
-	static class AGrappleGrate* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AGrappleGrate>();
-	}
-};
-DUMPER7_ASSERTS_AGrappleGrate;
-
 // Class OakGame.AnimNotify_DeathLoot
 // 0x0000 (0x0038 - 0x0038)
 class UAnimNotify_DeathLoot final : public UAnimNotify
@@ -565,76 +516,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UAnimNotify_DeathLoot;
-
-// Class OakGame.OakUIView
-// 0x0030 (0x0600 - 0x05D0)
-class UOakUIView final : public UGbxUIView
-{
-public:
-	uint8                                         Pad_5D0[0x30];                                     // 0x05D0(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIView")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIView")
-	}
-	static class UOakUIView* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUIView>();
-	}
-};
-DUMPER7_ASSERTS_UOakUIView;
-
-// Class OakGame.AnimNotify_DeathLootLootsplosion
-// 0x0008 (0x0040 - 0x0038)
-class UAnimNotify_DeathLootLootsplosion final : public UAnimNotify
-{
-public:
-	float                                         LootSpawnWeight;                                   // 0x0038(0x0004)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("AnimNotify_DeathLootLootsplosion")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"AnimNotify_DeathLootLootsplosion")
-	}
-	static class UAnimNotify_DeathLootLootsplosion* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UAnimNotify_DeathLootLootsplosion>();
-	}
-};
-DUMPER7_ASSERTS_UAnimNotify_DeathLootLootsplosion;
-
-// Class OakGame.AnimNotify_DeathLootSocketOverride
-// 0x0008 (0x0040 - 0x0038)
-class UAnimNotify_DeathLootSocketOverride final : public UAnimNotify
-{
-public:
-	class FName                                   DeathLootSocketOverride;                           // 0x0038(0x0008)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("AnimNotify_DeathLootSocketOverride")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"AnimNotify_DeathLootSocketOverride")
-	}
-	static class UAnimNotify_DeathLootSocketOverride* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UAnimNotify_DeathLootSocketOverride>();
-	}
-};
-DUMPER7_ASSERTS_UAnimNotify_DeathLootSocketOverride;
 
 // Class OakGame.GbxTrick_AICharge
 // 0x0060 (0x0130 - 0x00D0)
@@ -664,89 +545,125 @@ public:
 };
 DUMPER7_ASSERTS_UGbxTrick_AICharge;
 
-// Class OakGame.GbxTrick_AISwoop
-// 0x0020 (0x0150 - 0x0130)
-class UGbxTrick_AISwoop final : public UGbxTrick_AICharge
+// Class OakGame.Reviver
+// 0x0000 (0x0000 - 0x0000)
+class IReviver final
 {
 public:
-	TArray<struct FGbxTrickAnimRandomData>        Loop;                                              // 0x0130(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-	TArray<struct FGbxTrickAnimRandomData>        Stop;                                              // 0x0140(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("Reviver")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"Reviver")
+	}
+	static class IReviver* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<IReviver>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
+	}
+};
+DUMPER7_ASSERTS_IReviver;
+
+// Class OakGame.AnimNotify_DeathLootLootsplosion
+// 0x0008 (0x0040 - 0x0038)
+class UAnimNotify_DeathLootLootsplosion final : public UAnimNotify
+{
+public:
+	float                                         LootSpawnWeight;                                   // 0x0038(0x0004)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("GbxTrick_AISwoop")
+		STATIC_CLASS_IMPL("AnimNotify_DeathLootLootsplosion")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"GbxTrick_AISwoop")
+		STATIC_NAME_IMPL(L"AnimNotify_DeathLootLootsplosion")
 	}
-	static class UGbxTrick_AISwoop* GetDefaultObj()
+	static class UAnimNotify_DeathLootLootsplosion* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UGbxTrick_AISwoop>();
+		return GetDefaultObjImpl<UAnimNotify_DeathLootLootsplosion>();
 	}
 };
-DUMPER7_ASSERTS_UGbxTrick_AISwoop;
+DUMPER7_ASSERTS_UAnimNotify_DeathLootLootsplosion;
 
-// Class OakGame.SiloBaseObject
-// 0x02D0 (0x2880 - 0x25B0)
-class ASiloBaseObject final : public AOakInteractiveObject
+// Class OakGame.GbxTrick_OakGib
+// 0x0000 (0x02B8 - 0x02B8)
+class UGbxTrick_OakGib final : public UGbxTrick_Gib
 {
 public:
-	uint8                                         Pad_25B0[0x8];                                     // 0x25B0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bOverrideBalloonHeight;                            // 0x25B8(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_25B9[0x3];                                     // 0x25B9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         OverrideBalloonHeight;                             // 0x25BC(0x0004)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bOverrideBalloonFwdDist;                           // 0x25C0(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_25C1[0x3];                                     // 0x25C1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         OverrideBalloonFwdDist;                            // 0x25C4(0x0004)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bOverrideSliderHeight;                             // 0x25C8(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_25C9[0x3];                                     // 0x25C9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         OverrideSliderHeight;                              // 0x25CC(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bDoNotMoveSlider;                                  // 0x25D0(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_25D1[0x7];                                     // 0x25D1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class USceneComponent*                        BaseComponent;                                     // 0x25D8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class USceneComponent*                        BalloonComponent;                                  // 0x25E0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class USceneComponent*                        HolderComponent;                                   // 0x25E8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class USceneComponent*                        LineComponent;                                     // 0x25F0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class USceneComponent*                        LineStartComponent;                                // 0x25F8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class USceneComponent*                        LineEndComponent;                                  // 0x2600(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	TArray<class ASiloGrappleSlider*>             Sliders;                                           // 0x2608(0x0010)(BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, Transient, RepNotify, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
-	struct FVector                                LineStart;                                         // 0x2618(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FVector                                LineEnd;                                           // 0x2630(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FGbxMovingPlatformConfig               PlatformConfig;                                    // 0x2648(0x0120)(BlueprintVisible, BlueprintReadOnly, Transient, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_2768[0x8];                                     // 0x2768(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FTransform                             SliderStart;                                       // 0x2770(0x0060)(BlueprintVisible, BlueprintReadOnly, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FTransform                             SliderEnd;                                         // 0x27D0(0x0060)(BlueprintVisible, BlueprintReadOnly, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         ApexOffset;                                        // 0x2830(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         SliderDuration;                                    // 0x2834(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         TimeToApex;                                        // 0x2838(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         EasingTime;                                        // 0x283C(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         ReturnDelay;                                       // 0x2840(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_2844[0x4];                                     // 0x2844(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(class ASiloGrappleSlider* InSlider, int32 SliderIndex, float InSliderDuration, float InReturnDelay, const struct FVector& SliderStart, const struct FVector& SliderEnd)> OnInitializedSlider; // 0x2848(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_2858[0x28];                                    // 0x2858(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GbxTrick_OakGib")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GbxTrick_OakGib")
+	}
+	static class UGbxTrick_OakGib* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGbxTrick_OakGib>();
+	}
+};
+DUMPER7_ASSERTS_UGbxTrick_OakGib;
 
+// Class OakGame.AnimNotify_DeathLootSocketOverride
+// 0x0008 (0x0040 - 0x0038)
+class UAnimNotify_DeathLootSocketOverride final : public UAnimNotify
+{
 public:
-	void OnBalloonReady();
-	void OnPlayerProxySpawned();
-	void OnRep_Sliders();
+	class FName                                   DeathLootSocketOverride;                           // 0x0038(0x0008)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("SiloBaseObject")
+		STATIC_CLASS_IMPL("AnimNotify_DeathLootSocketOverride")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"SiloBaseObject")
+		STATIC_NAME_IMPL(L"AnimNotify_DeathLootSocketOverride")
 	}
-	static class ASiloBaseObject* GetDefaultObj()
+	static class UAnimNotify_DeathLootSocketOverride* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<ASiloBaseObject>();
+		return GetDefaultObjImpl<UAnimNotify_DeathLootSocketOverride>();
 	}
 };
-DUMPER7_ASSERTS_ASiloBaseObject;
+DUMPER7_ASSERTS_UAnimNotify_DeathLootSocketOverride;
+
+// Class OakGame.NexusConfigStoreUISkillTree
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStoreUISkillTree final : public UNexusConfigStoreBasic
+{
+public:
+	static void GetAllProgressGraphGroupDefs(TArray<FGbxDefPtrProperty_>* graphs);
+	static void GetNodeNames(class UObject* EditObject, FGbxDefPtrProperty_ ProgressGraph, TArray<class FName>* OutNames);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStoreUISkillTree")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStoreUISkillTree")
+	}
+	static class UNexusConfigStoreUISkillTree* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStoreUISkillTree>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStoreUISkillTree;
 
 // Class OakGame.AnimNotify_DeathLootSpawnPatternOverride
 // 0x0018 (0x0050 - 0x0038)
@@ -770,35 +687,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UAnimNotify_DeathLootSpawnPatternOverride;
-
-// Class OakGame.GbxTrick_Slam
-// 0x0070 (0x0100 - 0x0090)
-class UGbxTrick_Slam final : public UGbxTrick
-{
-public:
-	bool                                          bAutoEnableRagdoll;                                // 0x0090(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bAutoDisableRagdoll;                               // 0x0091(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bDisableAndRestoreBodyTargets;                     // 0x0092(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_93[0x1];                                       // 0x0093(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSlamTrickProperties                   ReelProperties;                                    // 0x0094(0x0034)(Edit, NoDestructor, NativeAccessSpecifierPrivate)
-	struct FSlamTrickProperties                   SlamProperties;                                    // 0x00C8(0x0034)(Edit, NoDestructor, NativeAccessSpecifierPrivate)
-	float                                         CollisionBufferDistance;                           // 0x00FC(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GbxTrick_Slam")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GbxTrick_Slam")
-	}
-	static class UGbxTrick_Slam* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGbxTrick_Slam>();
-	}
-};
-DUMPER7_ASSERTS_UGbxTrick_Slam;
 
 // Class OakGame.AnimNotify_GiveTakeItem
 // 0x0008 (0x0040 - 0x0038)
@@ -824,25 +712,28 @@ public:
 };
 DUMPER7_ASSERTS_UAnimNotify_GiveTakeItem;
 
-// Class OakGame.OakUISubtitleRole
-// 0x0000 (0x0100 - 0x0100)
-class UOakUISubtitleRole final : public UGbxProfileProgressRoleClientLocal
+// Class OakGame.LocalPlayerSubsystem_CoreDelegates
+// 0x0090 (0x00C0 - 0x0030)
+class ULocalPlayerSubsystem_CoreDelegates final : public ULocalPlayerSubsystem
 {
+public:
+	uint8                                         Pad_30[0x90];                                      // 0x0030(0x0090)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUISubtitleRole")
+		STATIC_CLASS_IMPL("LocalPlayerSubsystem_CoreDelegates")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUISubtitleRole")
+		STATIC_NAME_IMPL(L"LocalPlayerSubsystem_CoreDelegates")
 	}
-	static class UOakUISubtitleRole* GetDefaultObj()
+	static class ULocalPlayerSubsystem_CoreDelegates* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUISubtitleRole>();
+		return GetDefaultObjImpl<ULocalPlayerSubsystem_CoreDelegates>();
 	}
 };
-DUMPER7_ASSERTS_UOakUISubtitleRole;
+DUMPER7_ASSERTS_ULocalPlayerSubsystem_CoreDelegates;
 
 // Class OakGame.AnimNotify_GrappleLineExtend
 // 0x0008 (0x0040 - 0x0038)
@@ -868,6 +759,29 @@ public:
 };
 DUMPER7_ASSERTS_UAnimNotify_GrappleLineExtend;
 
+// Class OakGame.OakEnhancedInputActionHandler_Character
+// 0x0018 (0x0048 - 0x0030)
+class UOakEnhancedInputActionHandler_Character : public UGbxEnhancedInputActionHandler
+{
+public:
+	uint8                                         Pad_30[0x18];                                      // 0x0030(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakEnhancedInputActionHandler_Character")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakEnhancedInputActionHandler_Character")
+	}
+	static class UOakEnhancedInputActionHandler_Character* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakEnhancedInputActionHandler_Character>();
+	}
+};
+DUMPER7_ASSERTS_UOakEnhancedInputActionHandler_Character;
+
 // Class OakGame.AnimNotify_Melee
 // 0x0008 (0x0040 - 0x0038)
 class UAnimNotify_Melee final : public UAnimNotify
@@ -892,45 +806,32 @@ public:
 };
 DUMPER7_ASSERTS_UAnimNotify_Melee;
 
-// Class OakGame.LootableObject
-// 0x0330 (0x28E0 - 0x25B0)
-class ALootableObject final : public AOakInteractiveObject
+// Class OakGame.OakGameplayActorStatics
+// 0x0000 (0x0028 - 0x0028)
+class UOakGameplayActorStatics final : public UBlueprintFunctionLibrary
 {
 public:
-	uint8                                         Pad_25B0[0x10];                                    // 0x25B0(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(const struct FJunkId& JunkId, class AGbxPlayerController* PickedUpBy)> OnJunkPickedUpEvent; // 0x25C0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnAllJunkPickedUpEvent;                            // 0x25D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(const struct FJunkId& JunkId)> OnJunkAttachedEvent;                // 0x25E0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	bool                                          bOverrideLootConfigDef;                            // 0x25F0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bOverrideLootToDrop;                               // 0x25F1(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_25F2[0x6];                                     // 0x25F2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	FGbxDefPtrProperty_                           LootConfigDefOverride;                             // 0x25F8(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	FGameDataHandleProperty_                      LootToDropOverride;                                // 0x2610(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class APawn*                                  PawnThatOpenedMe;                                  // 0x2628(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class USkinnedMeshComponent*                  MeshComponent;                                     // 0x2630(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class ULootableObjectAnimInstance*            LootableAnimInstance;                              // 0x2638(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_2640[0x2A0];                                   // 0x2640(0x02A0)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void OnComponentSleep(class UPrimitiveComponent* SleepingComponent, class FName BoneName);
-	void OnMeshCollision(class UPrimitiveComponent* HitComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const struct FVector& NormalImpulse, const struct FHitResult& Hit);
-	void OnMeshPhysicsStateChanged(class UPrimitiveComponent* Component, EComponentPhysicsStateChange StateChange);
+	static TArray<class AActor*> FilterActors(const TArray<class AActor*>& InActorsToFilter, const TArray<class AActor*>& InActorsToExclude);
+	static struct FOakPlayerQueryResult QueryPlayers(class UObject* WorldContext, const struct FOakPlayerQuerySpec& InSpec);
+	static TArray<class AOakCharacter*> QueryResultToCharacters(const TArray<struct FOakPlayerQueryResultItem>& InQueryResultItems);
+	static TArray<class AOakPlayerController*> QueryResultToPlayerControllers(const TArray<struct FOakPlayerQueryResultItem>& InQueryResultItems);
+	static class AOakSingularity* SpawnSingularityActor(FGameDataHandleProperty_ SingularityDef, const struct FTransform& SingularityTransform, const class AActor* owner, const TArray<class AActor*>& IgnoreActors, const struct FOakSingularityOverrides& Overrides);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("LootableObject")
+		STATIC_CLASS_IMPL("OakGameplayActorStatics")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"LootableObject")
+		STATIC_NAME_IMPL(L"OakGameplayActorStatics")
 	}
-	static class ALootableObject* GetDefaultObj()
+	static class UOakGameplayActorStatics* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<ALootableObject>();
+		return GetDefaultObjImpl<UOakGameplayActorStatics>();
 	}
 };
-DUMPER7_ASSERTS_ALootableObject;
+DUMPER7_ASSERTS_UOakGameplayActorStatics;
 
 // Class OakGame.AnimNotify_SpawnLoot
 // 0x0000 (0x0038 - 0x0038)
@@ -951,49 +852,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UAnimNotify_SpawnLoot;
-
-// Class OakGame.OakEnhancedInputActionHandler_Character
-// 0x0018 (0x0048 - 0x0030)
-class UOakEnhancedInputActionHandler_Character : public UGbxEnhancedInputActionHandler
-{
-public:
-	uint8                                         Pad_30[0x18];                                      // 0x0030(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakEnhancedInputActionHandler_Character")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakEnhancedInputActionHandler_Character")
-	}
-	static class UOakEnhancedInputActionHandler_Character* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakEnhancedInputActionHandler_Character>();
-	}
-};
-DUMPER7_ASSERTS_UOakEnhancedInputActionHandler_Character;
-
-// Class OakGame.OakEnhancedInputActionHandler_FFYL
-// 0x0000 (0x0048 - 0x0048)
-class UOakEnhancedInputActionHandler_FFYL final : public UOakEnhancedInputActionHandler_Character
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakEnhancedInputActionHandler_FFYL")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakEnhancedInputActionHandler_FFYL")
-	}
-	static class UOakEnhancedInputActionHandler_FFYL* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakEnhancedInputActionHandler_FFYL>();
-	}
-};
-DUMPER7_ASSERTS_UOakEnhancedInputActionHandler_FFYL;
 
 // Class OakGame.AnimNotify_Vehicle
 // 0x0008 (0x0040 - 0x0038)
@@ -1019,28 +877,48 @@ public:
 };
 DUMPER7_ASSERTS_UAnimNotify_Vehicle;
 
-// Class OakGame.OakGameSettingDiscrete_AudioLanguage
-// 0x0008 (0x01A0 - 0x0198)
-class UOakGameSettingDiscrete_AudioLanguage final : public UGameSettingValueDiscreteDynamic
+// Class OakGame.OakUISettingValueDiscrete_VoiceDevice
+// 0x0038 (0x0170 - 0x0138)
+class UOakUISettingValueDiscrete_VoiceDevice : public UGameSettingValueDiscrete
 {
 public:
-	uint8                                         Pad_198[0x8];                                      // 0x0198(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_138[0x38];                                     // 0x0138(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakGameSettingDiscrete_AudioLanguage")
+		STATIC_CLASS_IMPL("OakUISettingValueDiscrete_VoiceDevice")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakGameSettingDiscrete_AudioLanguage")
+		STATIC_NAME_IMPL(L"OakUISettingValueDiscrete_VoiceDevice")
 	}
-	static class UOakGameSettingDiscrete_AudioLanguage* GetDefaultObj()
+	static class UOakUISettingValueDiscrete_VoiceDevice* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakGameSettingDiscrete_AudioLanguage>();
+		return GetDefaultObjImpl<UOakUISettingValueDiscrete_VoiceDevice>();
 	}
 };
-DUMPER7_ASSERTS_UOakGameSettingDiscrete_AudioLanguage;
+DUMPER7_ASSERTS_UOakUISettingValueDiscrete_VoiceDevice;
+
+// Class OakGame.OakUISettingValueDiscrete_VoiceDeviceInput
+// 0x0000 (0x0170 - 0x0170)
+class UOakUISettingValueDiscrete_VoiceDeviceInput final : public UOakUISettingValueDiscrete_VoiceDevice
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUISettingValueDiscrete_VoiceDeviceInput")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUISettingValueDiscrete_VoiceDeviceInput")
+	}
+	static class UOakUISettingValueDiscrete_VoiceDeviceInput* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUISettingValueDiscrete_VoiceDeviceInput>();
+	}
+};
+DUMPER7_ASSERTS_UOakUISettingValueDiscrete_VoiceDeviceInput;
 
 // Class OakGame.AOEActor
 // 0x0460 (0x07F0 - 0x0390)
@@ -1070,6 +948,35 @@ public:
 };
 DUMPER7_ASSERTS_AAOEActor;
 
+// Class OakGame.Grappleable
+// 0x0000 (0x0000 - 0x0000)
+class IGrappleable final
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("Grappleable")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"Grappleable")
+	}
+	static class IGrappleable* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<IGrappleable>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
+	}
+};
+DUMPER7_ASSERTS_IGrappleable;
+
 // Class OakGame.AOEActorBodyData
 // 0x0000 (0x0060 - 0x0060)
 class UAOEActorBodyData final : public UGbxBodyData
@@ -1090,29 +997,28 @@ public:
 };
 DUMPER7_ASSERTS_UAOEActorBodyData;
 
-// Class OakGame.NexusConfigStoreUISpecializations
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStoreUISpecializations final : public UNexusConfigStoreBasic
+// Class OakGame.OakUIViewManager
+// 0x00A0 (0x0228 - 0x0188)
+class UOakUIViewManager final : public UGbxUIViewManager
 {
 public:
-	static void GetAllProgressGraphGroupDefs(TArray<FGbxDefPtrProperty_>* graphs);
-	static void GetNodeNames(class UObject* EditObject, FGbxDefPtrProperty_ ProgressGraph, TArray<class FName>* OutNames);
+	uint8                                         Pad_188[0xA0];                                     // 0x0188(0x00A0)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("NexusConfigStoreUISpecializations")
+		STATIC_CLASS_IMPL("OakUIViewManager")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreUISpecializations")
+		STATIC_NAME_IMPL(L"OakUIViewManager")
 	}
-	static class UNexusConfigStoreUISpecializations* GetDefaultObj()
+	static class UOakUIViewManager* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UNexusConfigStoreUISpecializations>();
+		return GetDefaultObjImpl<UOakUIViewManager>();
 	}
 };
-DUMPER7_ASSERTS_UNexusConfigStoreUISpecializations;
+DUMPER7_ASSERTS_UOakUIViewManager;
 
 // Class OakGame.BioArmorStatics
 // 0x0000 (0x0028 - 0x0028)
@@ -1169,47 +1075,32 @@ public:
 };
 DUMPER7_ASSERTS_IBulletMagnetismInterface;
 
-// Class OakGame.OakVehicleAnimInstance
-// 0x0080 (0x06B0 - 0x0630)
-class UOakVehicleAnimInstance final : public UGbxGameAnimInstance
+// Class OakGame.MissionTaskType_EventBoundary_Observer
+// 0x0008 (0x0030 - 0x0028)
+class UMissionTaskType_EventBoundary_Observer final : public UObject
 {
 public:
-	bool                                          bIsDriving;                                        // 0x0630(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_631[0x7];                                      // 0x0631(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector2D                              DriveDirection;                                    // 0x0638(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SteeringAngle;                                     // 0x0648(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Leaning;                                           // 0x064C(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         VehicleSpeed;                                      // 0x0650(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_654[0x4];                                      // 0x0654(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                VehicleWorldVelocity;                              // 0x0658(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                VehicleLocalVelocity;                              // 0x0670(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsBoosting;                                       // 0x0688(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsBraking;                                        // 0x0689(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bVehicleAirborne;                                  // 0x068A(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bVehiclePowerslideJumping;                         // 0x068B(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bVehicleLanded;                                    // 0x068C(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_68D[0x3];                                      // 0x068D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         VehicleLandedAirTime;                              // 0x0690(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         VehicleLandedVelZ;                                 // 0x0694(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UAnimSequence*                          CharAddAdjustmentPose;                             // 0x0698(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGameplayTag                           CharAddAdjustmentPoseTag;                          // 0x06A0(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AOakVehicle*                            OakVehicle;                                        // 0x06A8(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void OnActorEntered(class AActor* TouchingActor, bool bIsPlayer);
+	void OnActorLeft(class AActor* TouchingActor, bool bIsPlayer);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakVehicleAnimInstance")
+		STATIC_CLASS_IMPL("MissionTaskType_EventBoundary_Observer")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakVehicleAnimInstance")
+		STATIC_NAME_IMPL(L"MissionTaskType_EventBoundary_Observer")
 	}
-	static class UOakVehicleAnimInstance* GetDefaultObj()
+	static class UMissionTaskType_EventBoundary_Observer* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakVehicleAnimInstance>();
+		return GetDefaultObjImpl<UMissionTaskType_EventBoundary_Observer>();
 	}
 };
-DUMPER7_ASSERTS_UOakVehicleAnimInstance;
+DUMPER7_ASSERTS_UMissionTaskType_EventBoundary_Observer;
 
 // Class OakGame.BlueprintableCameraModeTransition
 // 0x0000 (0x0028 - 0x0028)
@@ -1237,28 +1128,130 @@ public:
 };
 DUMPER7_ASSERTS_UBlueprintableCameraModeTransition;
 
-// Class OakGame.MissionUsable
-// 0x0010 (0x25C0 - 0x25B0)
-class AMissionUsable final : public AOakInteractiveObject
+// Class OakGame.OakEnhancedInputDebugger
+// 0x0000 (0x0028 - 0x0028)
+class UOakEnhancedInputDebugger : public UObject
 {
 public:
-	uint8                                         Pad_25B0[0x10];                                    // 0x25B0(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakEnhancedInputDebugger")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakEnhancedInputDebugger")
+	}
+	static class UOakEnhancedInputDebugger* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakEnhancedInputDebugger>();
+	}
+};
+DUMPER7_ASSERTS_UOakEnhancedInputDebugger;
+
+// Class OakGame.OakEnhancedInputDebugger_Move
+// 0x0000 (0x0028 - 0x0028)
+class UOakEnhancedInputDebugger_Move final : public UOakEnhancedInputDebugger
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakEnhancedInputDebugger_Move")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakEnhancedInputDebugger_Move")
+	}
+	static class UOakEnhancedInputDebugger_Move* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakEnhancedInputDebugger_Move>();
+	}
+};
+DUMPER7_ASSERTS_UOakEnhancedInputDebugger_Move;
+
+// Class OakGame.OakInteractiveObjectBodyData
+// 0x0000 (0x0060 - 0x0060)
+class UOakInteractiveObjectBodyData : public UInteractiveObjectBodyData
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakInteractiveObjectBodyData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakInteractiveObjectBodyData")
+	}
+	static class UOakInteractiveObjectBodyData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakInteractiveObjectBodyData>();
+	}
+};
+DUMPER7_ASSERTS_UOakInteractiveObjectBodyData;
+
+// Class OakGame.TravelStationObjectBodyData
+// 0x0018 (0x0078 - 0x0060)
+class UTravelStationObjectBodyData : public UOakInteractiveObjectBodyData
+{
+public:
+	float                                         CharacterSpawnPointHalfHeight;                     // 0x0060(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         CharacterSpawnPointRadius;                         // 0x0064(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<struct FTravelStationSpawnPoint>       CharacterSpawnPoints;                              // 0x0068(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("MissionUsable")
+		STATIC_CLASS_IMPL("TravelStationObjectBodyData")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"MissionUsable")
+		STATIC_NAME_IMPL(L"TravelStationObjectBodyData")
 	}
-	static class AMissionUsable* GetDefaultObj()
+	static class UTravelStationObjectBodyData* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AMissionUsable>();
+		return GetDefaultObjImpl<UTravelStationObjectBodyData>();
 	}
 };
-DUMPER7_ASSERTS_AMissionUsable;
+DUMPER7_ASSERTS_UTravelStationObjectBodyData;
+
+// Class OakGame.HoldingStationObjectBodyData
+// 0x0000 (0x0078 - 0x0078)
+class UHoldingStationObjectBodyData final : public UTravelStationObjectBodyData
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("HoldingStationObjectBodyData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"HoldingStationObjectBodyData")
+	}
+	static class UHoldingStationObjectBodyData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UHoldingStationObjectBodyData>();
+	}
+};
+DUMPER7_ASSERTS_UHoldingStationObjectBodyData;
+
+// Class OakGame.OakDroneSubsystem
+// 0x0000 (0x0030 - 0x0030)
+class UOakDroneSubsystem : public USubsystem
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakDroneSubsystem")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakDroneSubsystem")
+	}
+	static class UOakDroneSubsystem* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakDroneSubsystem>();
+	}
+};
+DUMPER7_ASSERTS_UOakDroneSubsystem;
 
 // Class OakGame.CarryableObject
 // 0x0320 (0x28D0 - 0x25B0)
@@ -1307,109 +1300,25 @@ public:
 };
 DUMPER7_ASSERTS_ACarryableObject;
 
-// Class OakGame.OakInputModifier_SouthpawAxisCorrector_OnFoot
-// 0x0008 (0x0030 - 0x0028)
-class UOakInputModifier_SouthpawAxisCorrector_OnFoot final : public UInputModifier
-{
-public:
-	EOakInvertAxisContext                         Context;                                           // 0x0028(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakInputModifier_SouthpawAxisCorrector_OnFoot")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakInputModifier_SouthpawAxisCorrector_OnFoot")
-	}
-	static class UOakInputModifier_SouthpawAxisCorrector_OnFoot* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakInputModifier_SouthpawAxisCorrector_OnFoot>();
-	}
-};
-DUMPER7_ASSERTS_UOakInputModifier_SouthpawAxisCorrector_OnFoot;
-
-// Class OakGame.NexusConfigStoreHoverDrive
-// 0x0000 (0x0380 - 0x0380)
-class UNexusConfigStoreHoverDrive final : public UNexusConfigStoreBasicDefFlat
+// Class OakGame.OakUIUserPreferencesRole
+// 0x0000 (0x0100 - 0x0100)
+class UOakUIUserPreferencesRole final : public UGbxProfileProgressRoleClientLocal
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("NexusConfigStoreHoverDrive")
+		STATIC_CLASS_IMPL("OakUIUserPreferencesRole")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreHoverDrive")
+		STATIC_NAME_IMPL(L"OakUIUserPreferencesRole")
 	}
-	static class UNexusConfigStoreHoverDrive* GetDefaultObj()
+	static class UOakUIUserPreferencesRole* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UNexusConfigStoreHoverDrive>();
+		return GetDefaultObjImpl<UOakUIUserPreferencesRole>();
 	}
 };
-DUMPER7_ASSERTS_UNexusConfigStoreHoverDrive;
-
-// Class OakGame.OakInteractiveObjectBodyData
-// 0x0000 (0x0060 - 0x0060)
-class UOakInteractiveObjectBodyData : public UInteractiveObjectBodyData
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakInteractiveObjectBodyData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakInteractiveObjectBodyData")
-	}
-	static class UOakInteractiveObjectBodyData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakInteractiveObjectBodyData>();
-	}
-};
-DUMPER7_ASSERTS_UOakInteractiveObjectBodyData;
-
-// Class OakGame.OakSpawnPoint
-// 0x0000 (0x0850 - 0x0850)
-class AOakSpawnPoint : public AGbxGameSpawnPoint
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakSpawnPoint")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakSpawnPoint")
-	}
-	static class AOakSpawnPoint* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakSpawnPoint>();
-	}
-};
-DUMPER7_ASSERTS_AOakSpawnPoint;
-
-// Class OakGame.OakDropship
-// 0x0000 (0x0850 - 0x0850)
-class AOakDropship final : public AOakSpawnPoint
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakDropship")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakDropship")
-	}
-	static class AOakDropship* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakDropship>();
-	}
-};
-DUMPER7_ASSERTS_AOakDropship;
+DUMPER7_ASSERTS_UOakUIUserPreferencesRole;
 
 // Class OakGame.CarryableObjectBodyData
 // 0x0000 (0x0060 - 0x0060)
@@ -1431,6 +1340,86 @@ public:
 };
 DUMPER7_ASSERTS_UCarryableObjectBodyData;
 
+// Class OakGame.InventoryGadget
+// 0x0300 (0x0BB0 - 0x08B0)
+class AInventoryGadget : public Ainventory
+{
+public:
+	uint8                                         Pad_8B0[0x158];                                    // 0x08B0(0x0158)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxAttributeFloat                     CooldownTime;                                      // 0x0A08(0x000C)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	uint8                                         bIsUsing : 1;                                      // 0x0A14(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (BlueprintVisible, BlueprintReadOnly, Net, Transient, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
+	uint8                                         AttachState;                                       // 0x0A15(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_A16[0x2];                                      // 0x0A16(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	class ACommandRing*                           CommandRing;                                       // 0x0A18(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FCommandRingTarget                     CachedCommandRingTarget;                           // 0x0A20(0x0040)(Transient, NoDestructor, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	struct FOakStatusEffectModifierData_Gear      StatusEffectModifierData;                          // 0x0A60(0x0040)(Protected, NativeAccessSpecifierProtected)
+	struct FDamageModifierData                    DamageModifierData;                                // 0x0AA0(0x0068)(Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeInteger                   MaxNumberOfCharges;                                // 0x0B08(0x000C)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	int32                                         NumberOfCharges;                                   // 0x0B14(0x0004)(Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_B18[0x28];                                     // 0x0B18(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
+	class AOakCharacter*                          OwningCharacter;                                   // 0x0B40(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_B48[0x68];                                     // 0x0B48(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void OnRep_Attached();
+	void OnRep_NumberOfCharges();
+	void OnRep_Using();
+	void ServerInputDoubleTap();
+	void ServerInputHeld(bool bStarted);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InventoryGadget")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InventoryGadget")
+	}
+	static class AInventoryGadget* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AInventoryGadget>();
+	}
+};
+DUMPER7_ASSERTS_AInventoryGadget;
+
+// Class OakGame.GrenadeGadget
+// 0x0108 (0x0CB8 - 0x0BB0)
+class AGrenadeGadget final : public AInventoryGadget
+{
+public:
+	uint8                                         Pad_BB0[0x48];                                     // 0x0BB0(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxAttributeFloat                     damage;                                            // 0x0BF8(0x000C)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     Radius;                                            // 0x0C04(0x000C)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     FuseTime;                                          // 0x0C10(0x000C)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     force;                                             // 0x0C1C(0x000C)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_C28[0x50];                                     // 0x0C28(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxAttributeFloat                     ProjectileSpeedScale;                              // 0x0C78(0x000C)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     HomingTurnSpeedScale;                              // 0x0C84(0x000C)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     CriticalHitChance;                                 // 0x0C90(0x000C)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_C9C[0x1C];                                     // 0x0C9C(0x001C)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void DetonateGrenades();
+	void ExplodeCallback(const class AActor* projectile);
+	void SpawnGrenade(const struct FSpawnGrenadeOptions& SpawnGrenadeOptions);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GrenadeGadget")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GrenadeGadget")
+	}
+	static class AGrenadeGadget* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AGrenadeGadget>();
+	}
+};
+DUMPER7_ASSERTS_AGrenadeGadget;
+
 // Class OakGame.NexusConfigStoreCarryableObjectCategoryDef
 // 0x0000 (0x0380 - 0x0380)
 class UNexusConfigStoreCarryableObjectCategoryDef final : public UNexusConfigStoreBasicDefFlat
@@ -1451,34 +1440,45 @@ public:
 };
 DUMPER7_ASSERTS_UNexusConfigStoreCarryableObjectCategoryDef;
 
-// Class OakGame.OakUIVitalsInterface
-// 0x0000 (0x0000 - 0x0000)
-class IOakUIVitalsInterface final
+// Class OakGame.OakUIPipsRoleBase
+// 0x0000 (0x0100 - 0x0100)
+class UOakUIPipsRoleBase : public UGbxProfileProgressRoleFiltered
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIVitalsInterface")
+		STATIC_CLASS_IMPL("OakUIPipsRoleBase")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIVitalsInterface")
+		STATIC_NAME_IMPL(L"OakUIPipsRoleBase")
 	}
-	static class IOakUIVitalsInterface* GetDefaultObj()
+	static class UOakUIPipsRoleBase* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<IOakUIVitalsInterface>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
+		return GetDefaultObjImpl<UOakUIPipsRoleBase>();
 	}
 };
-DUMPER7_ASSERTS_IOakUIVitalsInterface;
+DUMPER7_ASSERTS_UOakUIPipsRoleBase;
+
+// Class OakGame.OakUICharacterPipsRole
+// 0x0000 (0x0100 - 0x0100)
+class UOakUICharacterPipsRole final : public UOakUIPipsRoleBase
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUICharacterPipsRole")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUICharacterPipsRole")
+	}
+	static class UOakUICharacterPipsRole* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUICharacterPipsRole>();
+	}
+};
+DUMPER7_ASSERTS_UOakUICharacterPipsRole;
 
 // Class OakGame.CarryableObjectContainer
 // 0x01F0 (0x27A0 - 0x25B0)
@@ -1518,83 +1518,8 @@ public:
 };
 DUMPER7_ASSERTS_ACarryableObjectContainer;
 
-// Class OakGame.OakWeapon
-// 0x0280 (0x1030 - 0x0DB0)
-class AOakWeapon : public AWeapon
-{
-public:
-	uint8                                         Pad_DB0[0x30];                                     // 0x0DB0(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
-	class UInventoryMaterialParamsDataAsset*      ProjectileMaterialParamsAsset;                     // 0x0DE0(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AOakCharacter*                          OwningCharacter;                                   // 0x0DE8(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_DF0[0x12];                                     // 0x0DF0(0x0012)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bHasPistolStock;                                   // 0x0E02(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_E03[0x45];                                     // 0x0E03(0x0045)(Fixing Size After Last Property [ Dumper-7 ])
-	class UInventoryMaterialsDataAsset*           AppliedMaterialAsset;                              // 0x0E48(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UInventoryMaterialParamsDataAsset*      AppliedMaterialParamsAsset;                        // 0x0E50(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_E58[0x8];                                      // 0x0E58(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	EWeaponManufacturerMod                        ManufacturerMod;                                   // 0x0E60(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     ManufacturerModParam1;                             // 0x0E64(0x000C)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     ManufacturerModParam2;                             // 0x0E70(0x000C)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     ManufacturerModParam3;                             // 0x0E7C(0x000C)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_E88[0x18];                                     // 0x0E88(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FOakStatusEffectModifierData_Gear      StatusEffectModifierData;                          // 0x0EA0(0x0040)(Protected, NativeAccessSpecifierProtected)
-	class ACommandRing*                           CommandRing;                                       // 0x0EE0(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FCommandRingTarget                     RemoteCommandRingTarget;                           // 0x0EE8(0x0040)(Transient, NoDestructor, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_F28[0x18];                                     // 0x0F28(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxTrickState                         TrickData;                                         // 0x0F40(0x00F0)(Transient, NativeAccessSpecifierPublic)
-
-public:
-	void ClientReduceWear(uint8 UseModeIndex, float Percent);
-	void ServerSetCommandRingTarget(const struct FCommandRingTarget& target);
-
-	float GetChargePercent() const;
-	int32 GetPartValue(EWeaponPartValue type) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakWeapon")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakWeapon")
-	}
-	static class AOakWeapon* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakWeapon>();
-	}
-};
-DUMPER7_ASSERTS_AOakWeapon;
-
-// Class OakGame.HeavyWeaponGadget
-// 0x0068 (0x1098 - 0x1030)
-class AHeavyWeaponGadget final : public AOakWeapon
-{
-public:
-	uint8                                         Pad_1030[0x34];                                    // 0x1030(0x0034)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxAttributeFloat                     CooldownTime;                                      // 0x1064(0x000C)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_1070[0xE];                                     // 0x1070(0x000E)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bIsUsing;                                          // 0x107E(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_107F[0x19];                                    // 0x107F(0x0019)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("HeavyWeaponGadget")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"HeavyWeaponGadget")
-	}
-	static class AHeavyWeaponGadget* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AHeavyWeaponGadget>();
-	}
-};
-DUMPER7_ASSERTS_AHeavyWeaponGadget;
-
 // Class OakGame.CarryableObjectContainerRenderingComponent
-// 0x0000 (0x0650 - 0x0650)
+// 0x0000 (0x0670 - 0x0670)
 class UCarryableObjectContainerRenderingComponent final : public UDebugDrawComponent
 {
 public:
@@ -1613,25 +1538,51 @@ public:
 };
 DUMPER7_ASSERTS_UCarryableObjectContainerRenderingComponent;
 
-// Class OakGame.OakUIProgressionRole
-// 0x0000 (0x0100 - 0x0100)
-class UOakUIProgressionRole final : public UGbxProfileProgressRoleFiltered
+// Class OakGame.OakSkillNetSpecializationComponent
+// 0x0010 (0x0120 - 0x0110)
+class UOakSkillNetSpecializationComponent : public UGbxSkillNetSpecializationComponent
 {
+public:
+	uint8                                         Pad_110[0x10];                                     // 0x0110(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIProgressionRole")
+		STATIC_CLASS_IMPL("OakSkillNetSpecializationComponent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIProgressionRole")
+		STATIC_NAME_IMPL(L"OakSkillNetSpecializationComponent")
 	}
-	static class UOakUIProgressionRole* GetDefaultObj()
+	static class UOakSkillNetSpecializationComponent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIProgressionRole>();
+		return GetDefaultObjImpl<UOakSkillNetSpecializationComponent>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIProgressionRole;
+DUMPER7_ASSERTS_UOakSkillNetSpecializationComponent;
+
+// Class OakGame.GbxSkillNetSpecializationComponent_Paladin
+// 0x0138 (0x0258 - 0x0120)
+class UGbxSkillNetSpecializationComponent_Paladin final : public UOakSkillNetSpecializationComponent
+{
+public:
+	struct FOakSpecializationComponent_Paladin_PrimedEnemyList PrimedEnemyList;                      // 0x0120(0x0138)(Net, ContainsInstancedReference, NativeAccessSpecifierPrivate)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GbxSkillNetSpecializationComponent_Paladin")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GbxSkillNetSpecializationComponent_Paladin")
+	}
+	static class UGbxSkillNetSpecializationComponent_Paladin* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGbxSkillNetSpecializationComponent_Paladin>();
+	}
+};
+DUMPER7_ASSERTS_UGbxSkillNetSpecializationComponent_Paladin;
 
 // Class OakGame.CarryableObjectContainerBodyData
 // 0x0000 (0x0060 - 0x0060)
@@ -1652,6 +1603,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UCarryableObjectContainerBodyData;
+
+// Class OakGame.NexusConfigStoreInventoryEquipment
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStoreInventoryEquipment final : public UNexusConfigStoreBasic
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStoreInventoryEquipment")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStoreInventoryEquipment")
+	}
+	static class UNexusConfigStoreInventoryEquipment* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStoreInventoryEquipment>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStoreInventoryEquipment;
 
 // Class OakGame.CarryableObjectDispenser
 // 0x00D0 (0x2680 - 0x25B0)
@@ -1689,29 +1660,50 @@ public:
 };
 DUMPER7_ASSERTS_ACarryableObjectDispenser;
 
-// Class OakGame.GbxTrickAnimNotify_ThrowWeapon
-// 0x0008 (0x0040 - 0x0038)
-class UGbxTrickAnimNotify_ThrowWeapon final : public UGbxTrickAnimNotify
+// Class OakGame.OakSpawnPointComponent
+// 0x0040 (0x0990 - 0x0950)
+class UOakSpawnPointComponent : public UGbxGameSpawnPointComponent
 {
 public:
-	bool                                          bReloadAmmo;                                       // 0x0038(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FOakAISpawnScripting                   AIScripting;                                       // 0x0948(0x0038)(Edit, NoDestructor, NativeAccessSpecifierPrivate)
+	class UGbxTrick*                              SpawnTrick;                                        // 0x0980(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_988[0x8];                                      // 0x0988(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("GbxTrickAnimNotify_ThrowWeapon")
+		STATIC_CLASS_IMPL("OakSpawnPointComponent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"GbxTrickAnimNotify_ThrowWeapon")
+		STATIC_NAME_IMPL(L"OakSpawnPointComponent")
 	}
-	static class UGbxTrickAnimNotify_ThrowWeapon* GetDefaultObj()
+	static class UOakSpawnPointComponent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UGbxTrickAnimNotify_ThrowWeapon>();
+		return GetDefaultObjImpl<UOakSpawnPointComponent>();
 	}
 };
-DUMPER7_ASSERTS_UGbxTrickAnimNotify_ThrowWeapon;
+DUMPER7_ASSERTS_UOakSpawnPointComponent;
+
+// Class OakGame.OakDynamicSpawnPointComponent
+// 0x0000 (0x0990 - 0x0990)
+class UOakDynamicSpawnPointComponent final : public UOakSpawnPointComponent
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakDynamicSpawnPointComponent")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakDynamicSpawnPointComponent")
+	}
+	static class UOakDynamicSpawnPointComponent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakDynamicSpawnPointComponent>();
+	}
+};
+DUMPER7_ASSERTS_UOakDynamicSpawnPointComponent;
 
 // Class OakGame.CarryableObjectDispenserBodyData
 // 0x0000 (0x0060 - 0x0060)
@@ -1732,29 +1724,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UCarryableObjectDispenserBodyData;
-
-// Class OakGame.InventoryItemBlueprintLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UInventoryItemBlueprintLibrary final : public UBlueprintFunctionLibrary
-{
-public:
-	static class FString GetSummary_InventoryItemSelectionData(const struct FInventoryItemSelectionData& data);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InventoryItemBlueprintLibrary")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InventoryItemBlueprintLibrary")
-	}
-	static class UInventoryItemBlueprintLibrary* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInventoryItemBlueprintLibrary>();
-	}
-};
-DUMPER7_ASSERTS_UInventoryItemBlueprintLibrary;
 
 // Class OakGame.CarryableObjectStatics
 // 0x0000 (0x0028 - 0x0028)
@@ -1784,42 +1753,25 @@ public:
 };
 DUMPER7_ASSERTS_UCarryableObjectStatics;
 
-// Class OakGame.OakEcho4Statics
-// 0x0000 (0x0028 - 0x0028)
-class UOakEcho4Statics final : public UBlueprintFunctionLibrary
+// Class OakGame.OakUINewsRole
+// 0x0000 (0x0100 - 0x0100)
+class UOakUINewsRole final : public UGbxProfileProgressRoleClientLocal
 {
-public:
-	static bool CanEcho4BeInterrupted(class AOakCharacter* DroneOwner);
-	static bool CanEcho4Deploy(class AOakCharacter* DroneOwner);
-	static void DeployEcho4AtLocationLatent(const struct FVector& Location, float Echo4DeployCooldown, class AOakCharacter* DroneOwner, class AOakDrone** projectile, const struct FLatentActionInfo& LatentInfo, bool bUseOverrideRotation, const struct FRotator& OverrideRotation);
-	static void DeployEcho4Latent(const struct FGbxRelativeLocation& LocationOptions, float Echo4DeployCooldown, class AOakCharacter* DroneOwner, class AOakDrone** projectile, const struct FLatentActionInfo& LatentInfo, bool bUseOverrideRotation, const struct FRotator& OverrideRotation, class AActor* OverrideActor);
-	static void DeployEcho4WithDefLatent(FGbxDefPtrProperty_ DroneDef, const struct FGbxRelativeLocation& LocationOptions, float Echo4DeployCooldown, class AOakCharacter* DroneOwner, class AOakDrone** projectile, const struct FLatentActionInfo& LatentInfo, bool bUseOverrideRotation, const struct FRotator& OverrideRotation, class AActor* OverrideActor);
-	static void FlyToActor(class AOakDrone* OakDrone, class AActor* MoveActor, float DroneSpeed, float DroneAccelerationTime, float StopFlyAtTargetDisance);
-	static void FlyToLocation(class AOakDrone* OakDrone, const struct FVector& MoveLocation, float DroneSpeed, float DroneAccelerationTime, float StopFlyAtTargetDisance);
-	static class UOakActorScript_Echo4* GetEcho4ActorScript(class AOakDrone* OakDrone);
-	static class AOakDrone* GetEcho4Drone(class AOakCharacter* DroneOwner);
-	static bool IsEcho4Deployed(class AOakCharacter* DroneOwner);
-	static void NotifyEchoLocationAnimFinished(class AOakDrone* OakDrone);
-	static void RetrieveEcho4(class AOakCharacter* DroneOwner);
-	static void SetEcho4DeploymentLocked(class AOakCharacter* DroneOwner, bool InLock);
-	static bool WasWaypointPathFound(class AActor* DroneOrOwner);
-	static void WasWaypointPathFoundLatent(class AActor* DroneOrOwner, bool* Result, const struct FLatentActionInfo& LatentInfo);
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakEcho4Statics")
+		STATIC_CLASS_IMPL("OakUINewsRole")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakEcho4Statics")
+		STATIC_NAME_IMPL(L"OakUINewsRole")
 	}
-	static class UOakEcho4Statics* GetDefaultObj()
+	static class UOakUINewsRole* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakEcho4Statics>();
+		return GetDefaultObjImpl<UOakUINewsRole>();
 	}
 };
-DUMPER7_ASSERTS_UOakEcho4Statics;
+DUMPER7_ASSERTS_UOakUINewsRole;
 
 // Class OakGame.Carryable
 // 0x0000 (0x0000 - 0x0000)
@@ -1850,6 +1802,38 @@ public:
 };
 DUMPER7_ASSERTS_ICarryable;
 
+// Class OakGame.AICloakData
+// 0x0050 (0x0080 - 0x0030)
+class UAICloakData final : public UDataAsset
+{
+public:
+	class UGbxTrick*                              CloakTrick;                                        // 0x0030(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EAICloakTransitionAt                          CloakedAt;                                         // 0x0038(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGbxTrick*                              UncloakTrick;                                      // 0x0040(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EAICloakTransitionAt                          UncloakedAt;                                       // 0x0048(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGbxTrick*                              OffTerrainFailedTrick;                             // 0x0050(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGbxTrick*                              StaggerUncloakTrickOverride;                       // 0x0058(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGbxTrick*                              DeathTrickOverride;                                // 0x0060(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           CloakedStance;                                     // 0x0068(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("AICloakData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"AICloakData")
+	}
+	static class UAICloakData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UAICloakData>();
+	}
+};
+DUMPER7_ASSERTS_UAICloakData;
+
 // Class OakGame.Carrier
 // 0x0000 (0x0000 - 0x0000)
 class ICarrier final
@@ -1879,45 +1863,36 @@ public:
 };
 DUMPER7_ASSERTS_ICarrier;
 
-// Class OakGame.OakUIPipsRoleBase
-// 0x0000 (0x0100 - 0x0100)
-class UOakUIPipsRoleBase : public UGbxProfileProgressRoleFiltered
+// Class OakGame.OakUIScript_CharacterSelect
+// 0x0000 (0x0028 - 0x0028)
+class UOakUIScript_CharacterSelect final : public UGbxUIScript
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIPipsRoleBase")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIPipsRoleBase")
-	}
-	static class UOakUIPipsRoleBase* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUIPipsRoleBase>();
-	}
-};
-DUMPER7_ASSERTS_UOakUIPipsRoleBase;
+	void AllPlayersReady(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void CycleRapSheetCharacter(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void LineupCharacterClick(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void LineupCharacterHover(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void LineupIntro(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void MakeCharacterChoice(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TransitionBackToLineup(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TransitionToCharacterSelected(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TransitionToRapSheet(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 
-// Class OakGame.OakUIProfilePipsRole
-// 0x0000 (0x0100 - 0x0100)
-class UOakUIProfilePipsRole final : public UOakUIPipsRoleBase
-{
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIProfilePipsRole")
+		STATIC_CLASS_IMPL("OakUIScript_CharacterSelect")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIProfilePipsRole")
+		STATIC_NAME_IMPL(L"OakUIScript_CharacterSelect")
 	}
-	static class UOakUIProfilePipsRole* GetDefaultObj()
+	static class UOakUIScript_CharacterSelect* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIProfilePipsRole>();
+		return GetDefaultObjImpl<UOakUIScript_CharacterSelect>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIProfilePipsRole;
+DUMPER7_ASSERTS_UOakUIScript_CharacterSelect;
 
 // Class OakGame.NexusConfigStoreDash
 // 0x0000 (0x0380 - 0x0380)
@@ -1939,41 +1914,6 @@ public:
 };
 DUMPER7_ASSERTS_UNexusConfigStoreDash;
 
-// Class OakGame.OakAIHeldLootableComponent
-// 0x0400 (0x07B0 - 0x03B0)
-class UOakAIHeldLootableComponent final : public UGbxAIHeldActorComponent
-{
-public:
-	uint8                                         Pad_3A8[0x8];                                      // 0x03A8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	FGbxDefPtrProperty_                           LootableDef;                                       // 0x03B0(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bLockOnSpawn;                                      // 0x03C8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bUnlockOnDeath;                                    // 0x03C9(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bDropOnDeath;                                      // 0x03CA(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_3CB[0x5];                                      // 0x03CB(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGpsQueryRunData                       GlobalQueryData;                                   // 0x03D0(0x01E0)(Edit, NativeAccessSpecifierPrivate)
-	struct FGpsQueryRunData                       OverrideQueryData;                                 // 0x05B0(0x01E0)(Edit, NativeAccessSpecifierPrivate)
-	bool                                          bUseOverrideQuery;                                 // 0x0790(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_791[0x1F];                                     // 0x0791(0x001F)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void Lootable_OnPhysicsSleep(class UPrimitiveComponent* Component, class FName BoneName);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakAIHeldLootableComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakAIHeldLootableComponent")
-	}
-	static class UOakAIHeldLootableComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakAIHeldLootableComponent>();
-	}
-};
-DUMPER7_ASSERTS_UOakAIHeldLootableComponent;
-
 // Class OakGame.NexusConfigStoreGroundSlam
 // 0x0000 (0x0380 - 0x0380)
 class UNexusConfigStoreGroundSlam final : public UNexusConfigStoreBasicDefFlat
@@ -1994,43 +1934,76 @@ public:
 };
 DUMPER7_ASSERTS_UNexusConfigStoreGroundSlam;
 
-// Class OakGame.OakUIScript_EchoUpgrades
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_EchoUpgrades final : public UGbxUIScript
+// Class OakGame.GbxTrick_AITargetLock
+// 0x0068 (0x04A0 - 0x0438)
+class UGbxTrick_AITargetLock final : public UGbxTrick_Loop
 {
 public:
-	void InsufficientPoints(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void StartTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void Upgraded(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	bool                                          bApplyTargetLockOnStartEnd;                        // 0x0438(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_439[0x7];                                      // 0x0439(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxAttributeInit                      LockTimer;                                         // 0x0440(0x0050)(Edit, NoDestructor, NativeAccessSpecifierPrivate)
+	struct FGbxBlackboardEntryRef                 LockResultKey;                                     // 0x0490(0x000C)(Edit, NoDestructor, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_49C[0x4];                                      // 0x049C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIScript_EchoUpgrades")
+		STATIC_CLASS_IMPL("GbxTrick_AITargetLock")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIScript_EchoUpgrades")
+		STATIC_NAME_IMPL(L"GbxTrick_AITargetLock")
 	}
-	static class UOakUIScript_EchoUpgrades* GetDefaultObj()
+	static class UGbxTrick_AITargetLock* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIScript_EchoUpgrades>();
+		return GetDefaultObjImpl<UGbxTrick_AITargetLock>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIScript_EchoUpgrades;
+DUMPER7_ASSERTS_UGbxTrick_AITargetLock;
+
+// Class OakGame.OakUIScript_RepairKit
+// 0x0000 (0x0028 - 0x0028)
+class UOakUIScript_RepairKit final : public UGbxUIScript
+{
+public:
+	void FailToUseRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void GainChargeRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ReadyToUseRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void StartReadyCountdownRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TickReadyCountdownOneRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TickReadyCountdownThreeRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TickReadyCountdownTwoRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void UseRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIScript_RepairKit")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIScript_RepairKit")
+	}
+	static class UOakUIScript_RepairKit* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIScript_RepairKit>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIScript_RepairKit;
 
 // Class OakGame.CharacterSelectBoxComponent
-// 0x00A0 (0x06D0 - 0x0630)
+// 0x00A0 (0x0700 - 0x0660)
 class UCharacterSelectBoxComponent final : public UBoxComponent
 {
 public:
-	bool                                          bIsSelectable;                                     // 0x0630(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bOverrideSpawnLocation;                            // 0x0631(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_632[0x6];                                      // 0x0632(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                CharacterSpawnPointOffset;                         // 0x0638(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FTransform                             CharacterSpawnPointFromOwnerRoot;                  // 0x0650(0x0060)(Edit, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_6B0[0x8];                                      // 0x06B0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	FGbxDefPtrProperty_                           CharacterDef;                                      // 0x06B8(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bIsSelectable;                                     // 0x0658(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bOverrideSpawnLocation;                            // 0x0659(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_65A[0x6];                                      // 0x065A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                CharacterSpawnPointOffset;                         // 0x0660(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_678[0x8];                                      // 0x0678(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FTransform                             CharacterSpawnPointFromOwnerRoot;                  // 0x0680(0x0060)(Edit, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_6E0[0x8];                                      // 0x06E0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	FGbxDefPtrProperty_                           CharacterDef;                                      // 0x06E8(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 public:
 	static class UClass* StaticClass()
@@ -2085,50 +2058,73 @@ public:
 };
 DUMPER7_ASSERTS_ATravelStationObject;
 
-// Class OakGame.GbxTrick_OakGib
-// 0x0000 (0x02B8 - 0x02B8)
-class UGbxTrick_OakGib final : public UGbxTrick_Gib
+// Class OakGame.LevelTravelStationObject
+// 0x0340 (0x29D0 - 0x2690)
+class ALevelTravelStationObject final : public ATravelStationObject
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GbxTrick_OakGib")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GbxTrick_OakGib")
-	}
-	static class UGbxTrick_OakGib* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGbxTrick_OakGib>();
-	}
-};
-DUMPER7_ASSERTS_UGbxTrick_OakGib;
-
-// Class OakGame.OakUIScript_Social
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_Social : public UGbxUIScript
-{
-public:
-	void FriendRequestReceived(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void PromotedToPartyLeader(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void SessionInviteReceived(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	uint8                                         Pad_2690[0x268];                                   // 0x2690(0x0268)(Fixing Size After Last Property [ Dumper-7 ])
+	class UStaticMeshComponent*                   LevelTravelPlane;                                  // 0x28F8(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UOakUILabelWidgetComponent*             StationLabelComponent;                             // 0x2900(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bVaultTrackingEnabled;                             // 0x2908(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_2909[0x7];                                     // 0x2909(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	FGameDataHandleProperty_                      TrackerObjectLocationData;                         // 0x2910(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	EOakTrackerObjectIconType                     IconType;                                          // 0x2928(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bIsTrackableByDefault;                             // 0x292C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bDiscoveredByProximity;                            // 0x292D(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_292E[0x2];                                     // 0x292E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                ActivationCenter;                                  // 0x2930(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FOakTrackerRangeSettings               TrackerRangeSettings;                              // 0x2948(0x0010)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	FGbxDefPtrProperty_                           DiscoveryType;                                     // 0x2958(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	FGbxDefPtrProperty_                           AssociatedVaultTrackerDiscoveryChallenge;          // 0x2970(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	FGbxDefPtrProperty_                           AssociatedVaultTrackerEnabledChallenge;            // 0x2988(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_29A0[0x28];                                    // 0x29A0(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
+	TWeakObjectPtr<class UGbxActorDrawComponent>  DrawComponent;                                     // 0x29C8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIScript_Social")
+		STATIC_CLASS_IMPL("LevelTravelStationObject")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIScript_Social")
+		STATIC_NAME_IMPL(L"LevelTravelStationObject")
 	}
-	static class UOakUIScript_Social* GetDefaultObj()
+	static class ALevelTravelStationObject* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIScript_Social>();
+		return GetDefaultObjImpl<ALevelTravelStationObject>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIScript_Social;
+DUMPER7_ASSERTS_ALevelTravelStationObject;
+
+// Class OakGame.OakEchoLogStateInterface
+// 0x0000 (0x0000 - 0x0000)
+class IOakEchoLogStateInterface final
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakEchoLogStateInterface")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakEchoLogStateInterface")
+	}
+	static class IOakEchoLogStateInterface* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<IOakEchoLogStateInterface>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
+	}
+};
+DUMPER7_ASSERTS_IOakEchoLogStateInterface;
 
 // Class OakGame.StreamableTravelStationObject
 // 0x0020 (0x26B0 - 0x2690)
@@ -2152,29 +2148,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_AStreamableTravelStationObject;
-
-// Class OakGame.LocalPlayerSubsystem_CoreDelegates
-// 0x0090 (0x00C0 - 0x0030)
-class ULocalPlayerSubsystem_CoreDelegates final : public ULocalPlayerSubsystem
-{
-public:
-	uint8                                         Pad_30[0x90];                                      // 0x0030(0x0090)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("LocalPlayerSubsystem_CoreDelegates")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"LocalPlayerSubsystem_CoreDelegates")
-	}
-	static class ULocalPlayerSubsystem_CoreDelegates* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<ULocalPlayerSubsystem_CoreDelegates>();
-	}
-};
-DUMPER7_ASSERTS_ULocalPlayerSubsystem_CoreDelegates;
 
 // Class OakGame.CharacterSelectStationObject
 // 0x0B90 (0x3240 - 0x26B0)
@@ -2209,6 +2182,71 @@ public:
 };
 DUMPER7_ASSERTS_ACharacterSelectStationObject;
 
+// Class OakGame.InteractiveSwitch
+// 0x0020 (0x25D0 - 0x25B0)
+class AInteractiveSwitch final : public AOakInteractiveObject
+{
+public:
+	uint8                                         Pad_25B0[0x8];                                     // 0x25B0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FInteractiveSwitchTarget>       SwitchTargets;                                     // 0x25B8(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_25C8[0x8];                                     // 0x25C8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InteractiveSwitch")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InteractiveSwitch")
+	}
+	static class AInteractiveSwitch* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AInteractiveSwitch>();
+	}
+};
+DUMPER7_ASSERTS_AInteractiveSwitch;
+
+// Class OakGame.OakUIScript_BigMap
+// 0x0000 (0x0028 - 0x0028)
+class UOakUIScript_BigMap final : public UGbxUIScript
+{
+public:
+	void AddWaypoint(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void CantDo(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void Center(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void DragEnd(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void DragMoved(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void DragStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ExploreMenuClose(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ExploreMenuOpen(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void InteractableElementRollOver(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void LocateOnMap(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void NewMap(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void RemoveWaypoint(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void Select(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void StartBigMapEndGameMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
+	void StartBigMapIntroMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
+	void ToggleLegendItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ZoomIn(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ZoomOut(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIScript_BigMap")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIScript_BigMap")
+	}
+	static class UOakUIScript_BigMap* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIScript_BigMap>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIScript_BigMap;
+
 // Class OakGame.OakFocusedCameraModifier
 // 0x08F8 (0x0940 - 0x0048)
 class UOakFocusedCameraModifier final : public UCameraModifier
@@ -2232,73 +2270,76 @@ public:
 };
 DUMPER7_ASSERTS_UOakFocusedCameraModifier;
 
-// Class OakGame.TravelStationObjectBodyData
-// 0x0018 (0x0078 - 0x0060)
-class UTravelStationObjectBodyData : public UOakInteractiveObjectBodyData
+// Class OakGame.OakMapViewerLabelWidget
+// 0x0008 (0x02D8 - 0x02D0)
+class UOakMapViewerLabelWidget final : public UUserWidget
 {
 public:
-	float                                         CharacterSpawnPointHalfHeight;                     // 0x0060(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         CharacterSpawnPointRadius;                         // 0x0064(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<struct FTravelStationSpawnPoint>       CharacterSpawnPoints;                              // 0x0068(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	class UTextBlock*                             TextBlock;                                         // 0x02D0(0x0008)(BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("TravelStationObjectBodyData")
+		STATIC_CLASS_IMPL("OakMapViewerLabelWidget")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"TravelStationObjectBodyData")
+		STATIC_NAME_IMPL(L"OakMapViewerLabelWidget")
 	}
-	static class UTravelStationObjectBodyData* GetDefaultObj()
+	static class UOakMapViewerLabelWidget* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UTravelStationObjectBodyData>();
+		return GetDefaultObjImpl<UOakMapViewerLabelWidget>();
 	}
 };
-DUMPER7_ASSERTS_UTravelStationObjectBodyData;
+DUMPER7_ASSERTS_UOakMapViewerLabelWidget;
 
-// Class OakGame.NexusConfigStoreInventoryEquipment
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStoreInventoryEquipment final : public UNexusConfigStoreBasic
+// Class OakGame.OakCritterInstancedStaticMeshComponent
+// 0x0050 (0x0B90 - 0x0B40)
+class UOakCritterInstancedStaticMeshComponent final : public UGbxAnimTextureComponent
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NexusConfigStoreInventoryEquipment")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreInventoryEquipment")
-	}
-	static class UNexusConfigStoreInventoryEquipment* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNexusConfigStoreInventoryEquipment>();
-	}
-};
-DUMPER7_ASSERTS_UNexusConfigStoreInventoryEquipment;
-
-// Class OakGame.OakUIScript_Cursor
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_Cursor : public UGbxUIScript
-{
-public:
-	void OnPulse(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
+	uint8                                         Pad_B40[0x20];                                     // 0x0B40(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FOakCritterMeshData                    CritterData;                                       // 0x0B60(0x0028)(Transient, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_B88[0x8];                                      // 0x0B88(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIScript_Cursor")
+		STATIC_CLASS_IMPL("OakCritterInstancedStaticMeshComponent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIScript_Cursor")
+		STATIC_NAME_IMPL(L"OakCritterInstancedStaticMeshComponent")
 	}
-	static class UOakUIScript_Cursor* GetDefaultObj()
+	static class UOakCritterInstancedStaticMeshComponent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIScript_Cursor>();
+		return GetDefaultObjImpl<UOakCritterInstancedStaticMeshComponent>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIScript_Cursor;
+DUMPER7_ASSERTS_UOakCritterInstancedStaticMeshComponent;
+
+// Class OakGame.OakWorldPainterLayer_Critter
+// 0x0010 (0x0070 - 0x0060)
+class UOakWorldPainterLayer_Critter final : public UGbxWorldPainterLayer
+{
+public:
+	TArray<struct FOakCritterZone>                CritterZones;                                      // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakWorldPainterLayer_Critter")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakWorldPainterLayer_Critter")
+	}
+	static class UOakWorldPainterLayer_Critter* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakWorldPainterLayer_Critter>();
+	}
+};
+DUMPER7_ASSERTS_UOakWorldPainterLayer_Critter;
 
 // Class OakGame.CharacterSelectStationObjectBodyData
 // 0x0000 (0x0078 - 0x0078)
@@ -2345,96 +2386,57 @@ public:
 };
 DUMPER7_ASSERTS_UChildCarryableObjectComponent;
 
-// Class OakGame.OakMapViewerPOIIconComponent
-// 0x0170 (0x0770 - 0x0600)
-class UOakMapViewerPOIIconComponent final : public UPrimitiveComponent
+// Class OakGame.NPCInteractionHost
+// 0x0000 (0x0000 - 0x0000)
+class INPCInteractionHost final
 {
 public:
-	class UMaterialInterface*                     Material;                                          // 0x05F8(0x0008)(Edit, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class FName                                   MaterialTextureParamName;                          // 0x0600(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class FName                                   MaterialPinTextureParamName;                       // 0x0608(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class FName                                   MaterialPinOpacityParamName;                       // 0x0610(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class FName                                   MaterialUseBackgroundParamName;                    // 0x0618(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class FName                                   MaterialBackgroundTextureParamName;                // 0x0620(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class FName                                   MaterialPulseEnabledParamName;                     // 0x0628(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class FName                                   MaterialIsHiddenParamName;                         // 0x0630(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class FName                                   MaterialIsBlipParamName;                           // 0x0638(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class FName                                   RadiusMaterialTextureParamName;                    // 0x0640(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bSizeInScreenSpace;                                // 0x0648(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_649[0x3];                                      // 0x0649(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         BaseIconRotation;                                  // 0x064C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         IconResizeDuration;                                // 0x0650(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bIsAreaComponent;                                  // 0x0654(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_655[0x3];                                      // 0x0655(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMaterialInstanceDynamic*               MaterialInstance;                                  // 0x0658(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_660[0x110];                                    // 0x0660(0x0110)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NPCInteractionHost")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NPCInteractionHost")
+	}
+	static class INPCInteractionHost* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<INPCInteractionHost>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
+	}
+};
+DUMPER7_ASSERTS_INPCInteractionHost;
+
+// Class OakGame.PoAActorManager
+// 0x0120 (0x0148 - 0x0028)
+class UPoAActorManager final : public UObject
+{
+public:
+	uint8                                         Pad_28[0x120];                                     // 0x0028(0x0120)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakMapViewerPOIIconComponent")
+		STATIC_CLASS_IMPL("PoAActorManager")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakMapViewerPOIIconComponent")
+		STATIC_NAME_IMPL(L"PoAActorManager")
 	}
-	static class UOakMapViewerPOIIconComponent* GetDefaultObj()
+	static class UPoAActorManager* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakMapViewerPOIIconComponent>();
+		return GetDefaultObjImpl<UPoAActorManager>();
 	}
 };
-DUMPER7_ASSERTS_UOakMapViewerPOIIconComponent;
-
-// Class OakGame.OakCritterAnimTextureData
-// 0x0060 (0x00B0 - 0x0050)
-class UOakCritterAnimTextureData final : public UGbxAnimTextureData
-{
-public:
-	TArray<struct FOakCritterAnimInfo>            SpawnAnimInfos;                                    // 0x0050(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-	TArray<struct FOakCritterAnimInfo>            PassiveAnimInfos;                                  // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-	TArray<struct FOakCritterAnimInfo>            ReactAnimInfos;                                    // 0x0070(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-	TArray<struct FOakCritterAnimInfo>            ScaredAnimInfos;                                   // 0x0080(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-	TArray<struct FOakCritterAnimInfo>            DespawnAnimInfos;                                  // 0x0090(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-	TArray<struct FOakCritterAnimInfo>            IdleAnimInfos;                                     // 0x00A0(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakCritterAnimTextureData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakCritterAnimTextureData")
-	}
-	static class UOakCritterAnimTextureData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakCritterAnimTextureData>();
-	}
-};
-DUMPER7_ASSERTS_UOakCritterAnimTextureData;
-
-// Class OakGame.OakWorldPainterLayer_Element
-// 0x0010 (0x0070 - 0x0060)
-class UOakWorldPainterLayer_Element final : public UGbxWorldPainterLayer
-{
-public:
-	TArray<struct FOakElementPainterZone>         ElementZones;                                      // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakWorldPainterLayer_Element")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakWorldPainterLayer_Element")
-	}
-	static class UOakWorldPainterLayer_Element* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakWorldPainterLayer_Element>();
-	}
-};
-DUMPER7_ASSERTS_UOakWorldPainterLayer_Element;
+DUMPER7_ASSERTS_UPoAActorManager;
 
 // Class OakGame.ClassMod
 // 0x00A0 (0x0950 - 0x08B0)
@@ -2461,6 +2463,41 @@ public:
 	}
 };
 DUMPER7_ASSERTS_AClassMod;
+
+// Class OakGame.OakSpawnerComponent
+// 0x0100 (0x0FC0 - 0x0EC0)
+class UOakSpawnerComponent : public UGbxGameSpawnerComponent
+{
+public:
+	uint8                                         Pad_EC0[0x8];                                      // 0x0EC0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class AOakSpawner*                            OakSpawner;                                        // 0x0EC8(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FOakAISpawnScripting                   AIScripting;                                       // 0x0ED0(0x0038)(Edit, NoDestructor, NativeAccessSpecifierPrivate)
+	class UGbxTrick*                              SpawnTrick;                                        // 0x0F08(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	EOakSpawnZoneOption                           SpawnZoneLayer;                                    // 0x0F10(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_F11[0x7];                                      // 0x0F11(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGameplayTagContainer                  SpawnZoneFilter_Locomotion;                        // 0x0F18(0x0020)(Edit, NativeAccessSpecifierPrivate)
+	struct FGameplayTagContainer                  SpawnZoneFilter_CombatStyle;                       // 0x0F38(0x0020)(Edit, NativeAccessSpecifierPrivate)
+	struct FGameplayTagContainer                  SpawnZoneFilter_Rank;                              // 0x0F58(0x0020)(Edit, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_F78[0x20];                                     // 0x0F78(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bSetSpawnedActorElement;                           // 0x0F98(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	EOakElementalType                             SpawnerElement;                                    // 0x0F99(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_F9A[0x26];                                     // 0x0F9A(0x0026)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakSpawnerComponent")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakSpawnerComponent")
+	}
+	static class UOakSpawnerComponent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakSpawnerComponent>();
+	}
+};
+DUMPER7_ASSERTS_UOakSpawnerComponent;
 
 // Class OakGame.CommandRing
 // 0x0700 (0x0A90 - 0x0390)
@@ -2514,48 +2551,30 @@ public:
 };
 DUMPER7_ASSERTS_ACommandRing;
 
-// Class OakGame.OakAcousticsConfig
-// 0x0028 (0x04A0 - 0x0478)
-class UOakAcousticsConfig final : public UGbxAcousticsConfig
+// Class OakGame.PhasedObjectStatics
+// 0x0000 (0x0028 - 0x0028)
+class UPhasedObjectStatics final : public UBlueprintFunctionLibrary
 {
 public:
-	TSoftObjectPtr<class UOakWorldPainterLayer_LateReflectionBlendZone> LateReflectionBlendLayer;    // 0x0478(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	static bool IsPhased(class AActor* target);
+	static void TryEnterPhasedState(class AActor* target);
+	static void TryExitPhasedState(class AActor* target);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakAcousticsConfig")
+		STATIC_CLASS_IMPL("PhasedObjectStatics")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakAcousticsConfig")
+		STATIC_NAME_IMPL(L"PhasedObjectStatics")
 	}
-	static class UOakAcousticsConfig* GetDefaultObj()
+	static class UPhasedObjectStatics* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakAcousticsConfig>();
+		return GetDefaultObjImpl<UPhasedObjectStatics>();
 	}
 };
-DUMPER7_ASSERTS_UOakAcousticsConfig;
-
-// Class OakGame.ResurrectTravelStationObjectBodyData
-// 0x0000 (0x0078 - 0x0078)
-class UResurrectTravelStationObjectBodyData final : public UTravelStationObjectBodyData
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("ResurrectTravelStationObjectBodyData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"ResurrectTravelStationObjectBodyData")
-	}
-	static class UResurrectTravelStationObjectBodyData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UResurrectTravelStationObjectBodyData>();
-	}
-};
-DUMPER7_ASSERTS_UResurrectTravelStationObjectBodyData;
+DUMPER7_ASSERTS_UPhasedObjectStatics;
 
 // Class OakGame.CommandRingBodyData
 // 0x0000 (0x0060 - 0x0060)
@@ -2577,26 +2596,6 @@ public:
 };
 DUMPER7_ASSERTS_UCommandRingBodyData;
 
-// Class OakGame.OakBiomeTerritoryComponent
-// 0x0000 (0x0990 - 0x0990)
-class UOakBiomeTerritoryComponent final : public UGbxTerritoryComponent
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakBiomeTerritoryComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakBiomeTerritoryComponent")
-	}
-	static class UOakBiomeTerritoryComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakBiomeTerritoryComponent>();
-	}
-};
-DUMPER7_ASSERTS_UOakBiomeTerritoryComponent;
-
 // Class OakGame.NexusConfigStoreDamageAffinity
 // 0x0000 (0x0390 - 0x0390)
 class UNexusConfigStoreDamageAffinity final : public UNexusConfigStoreBasic
@@ -2617,30 +2616,49 @@ public:
 };
 DUMPER7_ASSERTS_UNexusConfigStoreDamageAffinity;
 
-// Class OakGame.PlaceableActor
-// 0x0030 (0x25E0 - 0x25B0)
-class APlaceableActor final : public AOakInteractiveObject
+// Class OakGame.OakAIWeaponUserFunctionLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UOakAIWeaponUserFunctionLibrary final : public UBlueprintFunctionLibrary
 {
 public:
-	uint8                                         Pad_25B0[0x20];                                    // 0x25B0(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	class UBoxComponent*                          InventoryCollisionProxy;                           // 0x25D0(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class UPlaceableActorInventoryChildComponent* InventoryChildComponent;                           // 0x25D8(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, DuplicateTransient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	static void LockAIFiring(class AActor* AIActor, class FName reason, bool Block, const struct FGbxAIHeldFilter& WeaponFilter);
+	static void LockAIScriptedFiring(class AActor* AIActor, class FName reason, bool Block, bool bIgnoreFiringRestrictions, const struct FGbxAIHeldFilter& WeaponFilter);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PlaceableActor")
+		STATIC_CLASS_IMPL("OakAIWeaponUserFunctionLibrary")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PlaceableActor")
+		STATIC_NAME_IMPL(L"OakAIWeaponUserFunctionLibrary")
 	}
-	static class APlaceableActor* GetDefaultObj()
+	static class UOakAIWeaponUserFunctionLibrary* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<APlaceableActor>();
+		return GetDefaultObjImpl<UOakAIWeaponUserFunctionLibrary>();
 	}
 };
-DUMPER7_ASSERTS_APlaceableActor;
+DUMPER7_ASSERTS_UOakAIWeaponUserFunctionLibrary;
+
+// Class OakGame.OakWorldPainterActor
+// 0x0000 (0x03D8 - 0x03D8)
+class AOakWorldPainterActor final : public AGbxWorldPainterActor
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakWorldPainterActor")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakWorldPainterActor")
+	}
+	static class AOakWorldPainterActor* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakWorldPainterActor>();
+	}
+};
+DUMPER7_ASSERTS_AOakWorldPainterActor;
 
 // Class OakGame.NexusConfigStoreDLC
 // 0x0000 (0x0380 - 0x0380)
@@ -2662,6 +2680,36 @@ public:
 };
 DUMPER7_ASSERTS_UNexusConfigStoreDLC;
 
+// Class OakGame.OakMapViewerLabelComponent
+// 0x0070 (0x0810 - 0x07A0)
+class UOakMapViewerLabelComponent final : public UWidgetComponent
+{
+public:
+	EOakMapViewerLabelTextSource                  TextSource;                                        // 0x0798(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_79C[0x4];                                      // 0x079C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	FGbxDefPtrProperty_                           WorldRegion;                                       // 0x07A0(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	FGbxDefPtrProperty_                           LocalizedText;                                     // 0x07B8(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         FadeDuration;                                      // 0x07D0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_7D4[0x4];                                      // 0x07D4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FFloatRange>                    EffectiveZoomRangesToShowLabel;                    // 0x07D8(0x0010)(Edit, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_7E8[0x28];                                     // 0x07E8(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakMapViewerLabelComponent")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakMapViewerLabelComponent")
+	}
+	static class UOakMapViewerLabelComponent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakMapViewerLabelComponent>();
+	}
+};
+DUMPER7_ASSERTS_UOakMapViewerLabelComponent;
+
 // Class OakGame.DLCFunctionLibrary
 // 0x0000 (0x0028 - 0x0028)
 class UDLCFunctionLibrary final : public UBlueprintFunctionLibrary
@@ -2682,53 +2730,81 @@ public:
 };
 DUMPER7_ASSERTS_UDLCFunctionLibrary;
 
-// Class OakGame.OakAnimSettings
-// 0x0018 (0x0050 - 0x0038)
-class UOakAnimSettings final : public UDeveloperSettings
+// Class OakGame.OakMeleeExecutionInterface
+// 0x0000 (0x0000 - 0x0000)
+class IOakMeleeExecutionInterface final
 {
 public:
-	class FName                                   DefaultSpineBoneName;                              // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   DefaultObjectBoneName;                             // 0x0040(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGameplayTag                           DefaultCombatIdlePose;                             // 0x0048(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakMeleeExecutionInterface")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakMeleeExecutionInterface")
+	}
+	static class IOakMeleeExecutionInterface* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<IOakMeleeExecutionInterface>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
+	}
+};
+DUMPER7_ASSERTS_IOakMeleeExecutionInterface;
+
+// Class OakGame.OakCritterExclusionAreaComponent
+// 0x0040 (0x0660 - 0x0620)
+class UOakCritterExclusionAreaComponent final : public UPrimitiveComponent
+{
+public:
+	uint8                                         Pad_620[0x20];                                     // 0x0620(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         ExclusionAreaRadius;                               // 0x0640(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_644[0x4];                                      // 0x0644(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<FGbxDefPtrProperty_>                   ExcludedBiomeDefs;                                 // 0x0648(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_658[0x8];                                      // 0x0658(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakAnimSettings")
+		STATIC_CLASS_IMPL("OakCritterExclusionAreaComponent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakAnimSettings")
+		STATIC_NAME_IMPL(L"OakCritterExclusionAreaComponent")
 	}
-	static class UOakAnimSettings* GetDefaultObj()
+	static class UOakCritterExclusionAreaComponent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakAnimSettings>();
+		return GetDefaultObjImpl<UOakCritterExclusionAreaComponent>();
 	}
 };
-DUMPER7_ASSERTS_UOakAnimSettings;
+DUMPER7_ASSERTS_UOakCritterExclusionAreaComponent;
 
-// Class OakGame.OakWorldPainterLayer_Difficulty
-// 0x0010 (0x0070 - 0x0060)
-class UOakWorldPainterLayer_Difficulty final : public UGbxWorldPainterLayer
+// Class OakGame.OakWorldPainterActor_Spawn
+// 0x0000 (0x03D8 - 0x03D8)
+class AOakWorldPainterActor_Spawn final : public AGbxWorldPainterActor
 {
-public:
-	TArray<struct FOakDifficultyLevel>            DifficultyLevels;                                  // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakWorldPainterLayer_Difficulty")
+		STATIC_CLASS_IMPL("OakWorldPainterActor_Spawn")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakWorldPainterLayer_Difficulty")
+		STATIC_NAME_IMPL(L"OakWorldPainterActor_Spawn")
 	}
-	static class UOakWorldPainterLayer_Difficulty* GetDefaultObj()
+	static class AOakWorldPainterActor_Spawn* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakWorldPainterLayer_Difficulty>();
+		return GetDefaultObjImpl<AOakWorldPainterActor_Spawn>();
 	}
 };
-DUMPER7_ASSERTS_UOakWorldPainterLayer_Difficulty;
+DUMPER7_ASSERTS_AOakWorldPainterActor_Spawn;
 
 // Class OakGame.EchoManager
 // 0x0098 (0x00C0 - 0x0028)
@@ -2755,29 +2831,6 @@ public:
 };
 DUMPER7_ASSERTS_UEchoManager;
 
-// Class OakGame.OakMapViewerPOI
-// 0x0070 (0x0400 - 0x0390)
-class AOakMapViewerPOI : public AActor
-{
-public:
-	uint8                                         Pad_390[0x70];                                     // 0x0390(0x0070)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakMapViewerPOI")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakMapViewerPOI")
-	}
-	static class AOakMapViewerPOI* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakMapViewerPOI>();
-	}
-};
-DUMPER7_ASSERTS_AOakMapViewerPOI;
-
 // Class OakGame.Enhancement
 // 0x0058 (0x0908 - 0x08B0)
 class AEnhancement final : public Ainventory
@@ -2803,79 +2856,54 @@ public:
 };
 DUMPER7_ASSERTS_AEnhancement;
 
-// Class OakGame.NexusConfigStore_OakMigrationEvent
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStore_OakMigrationEvent final : public UNexusConfigStoreBasic
+// Class OakGame.OakActorGlow
+// 0x0000 (0x0000 - 0x0000)
+class IOakActorGlow final
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("NexusConfigStore_OakMigrationEvent")
+		STATIC_CLASS_IMPL("OakActorGlow")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"NexusConfigStore_OakMigrationEvent")
+		STATIC_NAME_IMPL(L"OakActorGlow")
 	}
-	static class UNexusConfigStore_OakMigrationEvent* GetDefaultObj()
+	static class IOakActorGlow* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UNexusConfigStore_OakMigrationEvent>();
+		return GetDefaultObjImpl<IOakActorGlow>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
 	}
 };
-DUMPER7_ASSERTS_UNexusConfigStore_OakMigrationEvent;
+DUMPER7_ASSERTS_IOakActorGlow;
 
-// Class OakGame.OakDecoCharacter
-// 0x0298 (0x1EF0 - 0x1C58)
-class alignas(0x10) AOakDecoCharacter final : public AGbxDecoCharacter
+// Class OakGame.SiloBaseRangeComponent
+// 0x0000 (0x0620 - 0x0620)
+class USiloBaseRangeComponent final : public UPrimitiveComponent
 {
-public:
-	uint8                                         Pad_1C58[0x18];                                    // 0x1C58(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         RandomNameIdx;                                     // 0x1C70(0x0004)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_1C74[0x23C];                                   // 0x1C74(0x023C)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGbxDialogProvider*                     GbxDialogProvider;                                 // 0x1EB0(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_1EB8[0x38];                                    // 0x1EB8(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakDecoCharacter")
+		STATIC_CLASS_IMPL("SiloBaseRangeComponent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakDecoCharacter")
+		STATIC_NAME_IMPL(L"SiloBaseRangeComponent")
 	}
-	static class AOakDecoCharacter* GetDefaultObj()
+	static class USiloBaseRangeComponent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakDecoCharacter>();
+		return GetDefaultObjImpl<USiloBaseRangeComponent>();
 	}
 };
-DUMPER7_ASSERTS_AOakDecoCharacter;
-
-// Class OakGame.OverheadNameplateStrategy
-// 0x0100 (0x0128 - 0x0028)
-class UOverheadNameplateStrategy final : public UObject
-{
-public:
-	uint8                                         Pad_28[0x18];                                      // 0x0028(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	class AOakPlayerController*                   OakPlayerController;                               // 0x0040(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	TArray<TScriptInterface<class INameplateInfoProviderInterface>> NameplateProvidersInView;        // 0x0048(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
-	bool                                          bNameplateProvidersChanged;                        // 0x0058(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_59[0xCF];                                      // 0x0059(0x00CF)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OverheadNameplateStrategy")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OverheadNameplateStrategy")
-	}
-	static class UOverheadNameplateStrategy* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOverheadNameplateStrategy>();
-	}
-};
-DUMPER7_ASSERTS_UOverheadNameplateStrategy;
+DUMPER7_ASSERTS_USiloBaseRangeComponent;
 
 // Class OakGame.EridiumEncasingComponent
 // 0x0040 (0x02F0 - 0x02B0)
@@ -2908,6 +2936,35 @@ public:
 };
 DUMPER7_ASSERTS_UEridiumEncasingComponent;
 
+// Class OakGame.NameplateInfoProviderInterface
+// 0x0000 (0x0000 - 0x0000)
+class INameplateInfoProviderInterface final
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NameplateInfoProviderInterface")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NameplateInfoProviderInterface")
+	}
+	static class INameplateInfoProviderInterface* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<INameplateInfoProviderInterface>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
+	}
+};
+DUMPER7_ASSERTS_INameplateInfoProviderInterface;
+
 // Class OakGame.ExternalShieldInterface
 // 0x0000 (0x0000 - 0x0000)
 class IExternalShieldInterface final
@@ -2937,81 +2994,28 @@ public:
 };
 DUMPER7_ASSERTS_IExternalShieldInterface;
 
-// Class OakGame.OakActorScript_BioArmor
-// 0x00D0 (0x0170 - 0x00A0)
-class UOakActorScript_BioArmor final : public UGbxActorScript
+// Class OakGame.ResurrectTravelStationObject
+// 0x0220 (0x28B0 - 0x2690)
+class AResurrectTravelStationObject final : public ATravelStationObject
 {
 public:
-	TMulticastInlineDelegate<void()>              OnBioArmorActivated;                               // 0x00A0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnBioArmorDeactivated;                             // 0x00B0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C0[0x1];                                       // 0x00C0(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bActivateArmorOnSpawn;                             // 0x00C1(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bInvulnerableWhenArmored;                          // 0x00C2(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bAutoReactivateAfterDelay;                         // 0x00C3(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bIsAutoReactivationFxInstantaneous;                // 0x00C4(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_C5[0x3];                                       // 0x00C5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         ReactivationDelay;                                 // 0x00C8(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bLockUsabilityWhenArmored;                         // 0x00CC(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bStopAutoReactivationAfterUsed;                    // 0x00CD(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bCanStackSuccessiveDisable;                        // 0x00CE(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_CF[0x1];                                       // 0x00CF(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         ActorDiameterOverride;                             // 0x00D0(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_D4[0x4];                                       // 0x00D4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bUseVFXBeforeDeactivation;                         // 0x00D8(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_D9[0x3];                                       // 0x00D9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	TWeakObjectPtr<class UNiagaraSystem>          VFXBeforeDeactivation;                             // 0x00DC(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_E4[0x1C];                                      // 0x00E4(0x001C)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         TimeForArmorActivation;                            // 0x0100(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_104[0x4];                                      // 0x0104(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FOakPrimitiveDataValue>         CustomPrimitiveDataChangeActivation;               // 0x0108(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_118[0x20];                                     // 0x0118(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         TimeForArmorDeactivation;                          // 0x0138(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_13C[0x4];                                      // 0x013C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FOakPrimitiveDataValue>         CustomPrimitiveDataChangeDeactivation;             // 0x0140(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_150[0x20];                                     // 0x0150(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void BioArmorVFXTransitionDeactivation(class UNiagaraComponent* PSystem);
-	void SetReactivationDelay(float ReactivationDelay_0);
-	bool TryActivateArmor(bool bIsInstantaneous);
-
-	bool IsArmored() const;
+	uint8                                         Pad_2690[0x220];                                   // 0x2690(0x0220)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakActorScript_BioArmor")
+		STATIC_CLASS_IMPL("ResurrectTravelStationObject")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakActorScript_BioArmor")
+		STATIC_NAME_IMPL(L"ResurrectTravelStationObject")
 	}
-	static class UOakActorScript_BioArmor* GetDefaultObj()
+	static class AResurrectTravelStationObject* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakActorScript_BioArmor>();
+		return GetDefaultObjImpl<AResurrectTravelStationObject>();
 	}
 };
-DUMPER7_ASSERTS_UOakActorScript_BioArmor;
-
-// Class OakGame.SoloTravelStationObjectBodyData
-// 0x0000 (0x0078 - 0x0078)
-class USoloTravelStationObjectBodyData final : public UTravelStationObjectBodyData
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("SoloTravelStationObjectBodyData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"SoloTravelStationObjectBodyData")
-	}
-	static class USoloTravelStationObjectBodyData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<USoloTravelStationObjectBodyData>();
-	}
-};
-DUMPER7_ASSERTS_USoloTravelStationObjectBodyData;
+DUMPER7_ASSERTS_AResurrectTravelStationObject;
 
 // Class OakGame.FastTravelStationObject
 // 0x0230 (0x28C0 - 0x2690)
@@ -3038,26 +3042,6 @@ public:
 };
 DUMPER7_ASSERTS_AFastTravelStationObject;
 
-// Class OakGame.NexusConfigStoreFaction
-// 0x0000 (0x0380 - 0x0380)
-class UNexusConfigStoreFaction final : public UNexusConfigStoreBasicDefFlat
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NexusConfigStoreFaction")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreFaction")
-	}
-	static class UNexusConfigStoreFaction* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNexusConfigStoreFaction>();
-	}
-};
-DUMPER7_ASSERTS_UNexusConfigStoreFaction;
-
 // Class OakGame.FastTravelStationObjectBodyData
 // 0x0000 (0x0078 - 0x0078)
 class UFastTravelStationObjectBodyData final : public UTravelStationObjectBodyData
@@ -3078,56 +3062,70 @@ public:
 };
 DUMPER7_ASSERTS_UFastTravelStationObjectBodyData;
 
-// Class OakGame.Shield
-// 0x02A0 (0x0B50 - 0x08B0)
-class AShield final : public Ainventory
+// Class OakGame.OakAudioUserSettings
+// 0x01B8 (0x0258 - 0x00A0)
+class UOakAudioUserSettings final : public UGbxAudioUserSettings
 {
 public:
-	uint8                                         Pad_8B0[0x20];                                     // 0x08B0(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(class AOakCharacter* owner)> OnEquipped;                           // 0x08D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class AOakCharacter* owner)> OnUnequipped;                         // 0x08E0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnShieldFull;                                      // 0x08F0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnShieldNotFull;                                   // 0x0900(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnShieldEmpty;                                     // 0x0910(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnShieldNotEmpty;                                  // 0x0920(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnArmorSegmentFilled;                              // 0x0930(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnArmorSegmentBroken;                              // 0x0940(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_950[0xC8];                                     // 0x0950(0x00C8)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxAttributeFloat                     Capacity;                                          // 0x0A18(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     RegenRate;                                         // 0x0A24(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     RegenDelay;                                        // 0x0A30(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeInteger                   Segments;                                          // 0x0A3C(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     DamageReduction;                                   // 0x0A48(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     ChargeCapacity;                                    // 0x0A54(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     ReactiveArmorDamageCapacity;                       // 0x0A60(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     SegmentRefilledByDamageScale;                      // 0x0A6C(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_A78[0x40];                                     // 0x0A78(0x0040)(Fixing Size After Last Property [ Dumper-7 ])
-	class AOakCharacter*                          OwningCharacter;                                   // 0x0AB8(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_AC0[0x90];                                     // 0x0AC0(0x0090)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	float GetCapacity() const;
-	int32 GetNumSegments() const;
-	float GetRegenDelay() const;
-	float GetRegenRate() const;
-	FGameDataHandleProperty_ K2_GetDamageType() const;
-	EShieldHealthSystem K2_GetHealthSystem() const;
+	FGbxDefPtrProperty_                           UITrimRTPC;                                        // 0x00A0(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           UI_ControllerSpeakerSendRTPC;                      // 0x00B8(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           PlayerWeaponTrimRTPC;                              // 0x00D0(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           ExplosionsTrimRTPC;                                // 0x00E8(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           OutgoingDamageTrimRTPC;                            // 0x0100(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           IncomingDamageTrimRTPC;                            // 0x0118(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           PlayerVoiceVolumeRTPC;                             // 0x0130(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           PlayerEffortsTrimRTPC;                             // 0x0148(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           PlayerCalloutsTrimRTPC;                            // 0x0160(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           PlayerIdleLinesTrimRTPC;                           // 0x0178(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           CombatVoiceVolumeRTPC;                             // 0x0190(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           ClaptrapVolumeRTPC;                                // 0x01A8(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           ClaptrapIncreaseEvent;                             // 0x01C0(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           ClaptrapDecreaseEvent;                             // 0x01D8(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ClaptrapCooldown;                                  // 0x01F0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1F4[0x4];                                      // 0x01F4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	FGbxDefPtrProperty_                           MenuMusicVolumeRTPC;                               // 0x01F8(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           GameMusicVolumeRTPC;                               // 0x0210(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           CinematicMusicVolumeRTPC;                          // 0x0228(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           BossMusicTrimRTPC;                                 // 0x0240(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("Shield")
+		STATIC_CLASS_IMPL("OakAudioUserSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"Shield")
+		STATIC_NAME_IMPL(L"OakAudioUserSettings")
 	}
-	static class AShield* GetDefaultObj()
+	static class UOakAudioUserSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AShield>();
+		return GetDefaultObjImpl<UOakAudioUserSettings>();
 	}
 };
-DUMPER7_ASSERTS_AShield;
+DUMPER7_ASSERTS_UOakAudioUserSettings;
+
+// Class OakGame.OakWorldPainterLayer_RadioStation
+// 0x0010 (0x0070 - 0x0060)
+class UOakWorldPainterLayer_RadioStation final : public UGbxWorldPainterLayer
+{
+public:
+	TArray<struct FOakRadioStationZone>           RadioStationZones;                                 // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakWorldPainterLayer_RadioStation")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakWorldPainterLayer_RadioStation")
+	}
+	static class UOakWorldPainterLayer_RadioStation* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakWorldPainterLayer_RadioStation>();
+	}
+};
+DUMPER7_ASSERTS_UOakWorldPainterLayer_RadioStation;
 
 // Class OakGame.NexusConfigStoreFFYL
 // 0x0000 (0x0390 - 0x0390)
@@ -3148,6 +3146,29 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UNexusConfigStoreFFYL;
+
+// Class OakGame.OakMatchmakingSubsystem
+// 0x0010 (0x0040 - 0x0030)
+class UOakMatchmakingSubsystem final : public UGbxMatchmakingSubsystem
+{
+public:
+	uint8                                         Pad_30[0x10];                                      // 0x0030(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakMatchmakingSubsystem")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakMatchmakingSubsystem")
+	}
+	static class UOakMatchmakingSubsystem* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakMatchmakingSubsystem>();
+	}
+};
+DUMPER7_ASSERTS_UOakMatchmakingSubsystem;
 
 // Class OakGame.FirmwareOwner
 // 0x0000 (0x0000 - 0x0000)
@@ -3178,63 +3199,45 @@ public:
 };
 DUMPER7_ASSERTS_IFirmwareOwner;
 
-// Class OakGame.OakSpawnerComponent
-// 0x0100 (0x0FA0 - 0x0EA0)
-class UOakSpawnerComponent : public UGbxGameSpawnerComponent
+// Class OakGame.OakMultiSpawnPointComponent
+// 0x0000 (0x0990 - 0x0990)
+class UOakMultiSpawnPointComponent final : public UOakSpawnPointComponent
 {
-public:
-	uint8                                         Pad_EA0[0x8];                                      // 0x0EA0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class AOakSpawner*                            OakSpawner;                                        // 0x0EA8(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	struct FOakAISpawnScripting                   AIScripting;                                       // 0x0EB0(0x0038)(Edit, NoDestructor, NativeAccessSpecifierPrivate)
-	class UGbxTrick*                              SpawnTrick;                                        // 0x0EE8(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	EOakSpawnZoneOption                           SpawnZoneLayer;                                    // 0x0EF0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_EF1[0x7];                                      // 0x0EF1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGameplayTagContainer                  SpawnZoneFilter_Locomotion;                        // 0x0EF8(0x0020)(Edit, NativeAccessSpecifierPrivate)
-	struct FGameplayTagContainer                  SpawnZoneFilter_CombatStyle;                       // 0x0F18(0x0020)(Edit, NativeAccessSpecifierPrivate)
-	struct FGameplayTagContainer                  SpawnZoneFilter_Rank;                              // 0x0F38(0x0020)(Edit, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_F58[0x20];                                     // 0x0F58(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bSetSpawnedActorElement;                           // 0x0F78(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	EOakElementalType                             SpawnerElement;                                    // 0x0F79(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_F7A[0x26];                                     // 0x0F7A(0x0026)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakSpawnerComponent")
+		STATIC_CLASS_IMPL("OakMultiSpawnPointComponent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakSpawnerComponent")
+		STATIC_NAME_IMPL(L"OakMultiSpawnPointComponent")
 	}
-	static class UOakSpawnerComponent* GetDefaultObj()
+	static class UOakMultiSpawnPointComponent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakSpawnerComponent>();
+		return GetDefaultObjImpl<UOakMultiSpawnPointComponent>();
 	}
 };
-DUMPER7_ASSERTS_UOakSpawnerComponent;
+DUMPER7_ASSERTS_UOakMultiSpawnPointComponent;
 
-// Class OakGame.OakWorldPainterLayer_WwiseSwitch
-// 0x0010 (0x0070 - 0x0060)
-class UOakWorldPainterLayer_WwiseSwitch final : public UGbxWorldPainterLayer
+// Class OakGame.NexusConfigStoreOakDiscoveryPriorityGroupDef
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStoreOakDiscoveryPriorityGroupDef final : public UNexusConfigStoreBasic
 {
-public:
-	TArray<struct FOakWwiseSwitchZone>            SwitchZones;                                       // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakWorldPainterLayer_WwiseSwitch")
+		STATIC_CLASS_IMPL("NexusConfigStoreOakDiscoveryPriorityGroupDef")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakWorldPainterLayer_WwiseSwitch")
+		STATIC_NAME_IMPL(L"NexusConfigStoreOakDiscoveryPriorityGroupDef")
 	}
-	static class UOakWorldPainterLayer_WwiseSwitch* GetDefaultObj()
+	static class UNexusConfigStoreOakDiscoveryPriorityGroupDef* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakWorldPainterLayer_WwiseSwitch>();
+		return GetDefaultObjImpl<UNexusConfigStoreOakDiscoveryPriorityGroupDef>();
 	}
 };
-DUMPER7_ASSERTS_UOakWorldPainterLayer_WwiseSwitch;
+DUMPER7_ASSERTS_UNexusConfigStoreOakDiscoveryPriorityGroupDef;
 
 // Class OakGame.FirmwareTransferBlueprintLibrary
 // 0x0000 (0x0028 - 0x0028)
@@ -3261,28 +3264,34 @@ public:
 };
 DUMPER7_ASSERTS_UFirmwareTransferBlueprintLibrary;
 
-// Class OakGame.OakMenuGameMode
-// 0x0030 (0x04A8 - 0x0478)
-class AOakMenuGameMode final : public Agamemode
+// Class OakGame.OakMapViewerFog
+// 0x00A8 (0x0438 - 0x0390)
+class AOakMapViewerFog final : public AActor
 {
 public:
-	uint8                                         Pad_478[0x30];                                     // 0x0478(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class USceneComponent*                        FogRoot;                                           // 0x0390(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UStaticMeshComponent*                   FogMesh;                                           // 0x0398(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         BaseMeshScale;                                     // 0x03A0(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_3A4[0x2C];                                     // 0x03A4(0x002C)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   FogMaterialTextureParameterName;                   // 0x03D0(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	ETextureFilter                                TextureFilter;                                     // 0x03D8(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_3D9[0x5F];                                     // 0x03D9(0x005F)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakMenuGameMode")
+		STATIC_CLASS_IMPL("OakMapViewerFog")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakMenuGameMode")
+		STATIC_NAME_IMPL(L"OakMapViewerFog")
 	}
-	static class AOakMenuGameMode* GetDefaultObj()
+	static class AOakMapViewerFog* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakMenuGameMode>();
+		return GetDefaultObjImpl<AOakMapViewerFog>();
 	}
 };
-DUMPER7_ASSERTS_AOakMenuGameMode;
+DUMPER7_ASSERTS_AOakMapViewerFog;
 
 // Class OakGame.FirmwareTransferMachine
 // 0x0030 (0x25E0 - 0x25B0)
@@ -3309,54 +3318,52 @@ public:
 };
 DUMPER7_ASSERTS_AFirmwareTransferMachine;
 
-// Class OakGame.NexusConfigStore_OakNavFormation
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStore_OakNavFormation final : public UNexusConfigStoreBasic
+// Class OakGame.OakClimbableInteractData
+// 0x0000 (0x0030 - 0x0030)
+class UOakClimbableInteractData final : public UClimbableInteractData
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("NexusConfigStore_OakNavFormation")
+		STATIC_CLASS_IMPL("OakClimbableInteractData")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"NexusConfigStore_OakNavFormation")
+		STATIC_NAME_IMPL(L"OakClimbableInteractData")
 	}
-	static class UNexusConfigStore_OakNavFormation* GetDefaultObj()
+	static class UOakClimbableInteractData* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UNexusConfigStore_OakNavFormation>();
+		return GetDefaultObjImpl<UOakClimbableInteractData>();
 	}
 };
-DUMPER7_ASSERTS_UNexusConfigStore_OakNavFormation;
+DUMPER7_ASSERTS_UOakClimbableInteractData;
 
-// Class OakGame.OakDroneAnimInstance
-// 0x0050 (0x05B0 - 0x0560)
-class UOakDroneAnimInstance final : public UGbxEngineAnimInstance
+// Class OakGame.StructuredInteractableUserState
+// 0x0030 (0x0140 - 0x0110)
+class UStructuredInteractableUserState final : public UActorComponent
 {
 public:
-	struct FRotator                               RotationalVelocity;                                // 0x0558(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	struct FVector                                Velocity;                                          // 0x0570(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsMovingOrRotating2D;                             // 0x0588(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsAttachedToVehicle;                              // 0x0589(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_58A[0x6];                                      // 0x058A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                VehicleLocalVelocity;                              // 0x0590(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AGbxDrone*                              OwningDrone;                                       // 0x05A8(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_110[0x30];                                     // 0x0110(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void ClientSetCurrentInteractable(const TScriptInterface<class IStructuredInteractable>& NewInteractable, class FName InteractionName, bool bInstant);
+	void ServerClearCurrentInteractable(bool bImmediate);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakDroneAnimInstance")
+		STATIC_CLASS_IMPL("StructuredInteractableUserState")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakDroneAnimInstance")
+		STATIC_NAME_IMPL(L"StructuredInteractableUserState")
 	}
-	static class UOakDroneAnimInstance* GetDefaultObj()
+	static class UStructuredInteractableUserState* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakDroneAnimInstance>();
+		return GetDefaultObjImpl<UStructuredInteractableUserState>();
 	}
 };
-DUMPER7_ASSERTS_UOakDroneAnimInstance;
+DUMPER7_ASSERTS_UStructuredInteractableUserState;
 
 // Class OakGame.GameDataHandleBlueprintLibrary
 // 0x0000 (0x0028 - 0x0028)
@@ -3383,28 +3390,28 @@ public:
 };
 DUMPER7_ASSERTS_UGameDataHandleBlueprintLibrary;
 
-// Class OakGame.OakMapViewerLabelWidget
-// 0x0008 (0x02D8 - 0x02D0)
-class UOakMapViewerLabelWidget final : public UUserWidget
+// Class OakGame.NexusConfigStoreThumbnailScene
+// 0x0008 (0x0388 - 0x0380)
+class UNexusConfigStoreThumbnailScene final : public UNexusConfigStoreBasicDefFlat
 {
 public:
-	class UTextBlock*                             TextBlock;                                         // 0x02D0(0x0008)(BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_380[0x8];                                      // 0x0380(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakMapViewerLabelWidget")
+		STATIC_CLASS_IMPL("NexusConfigStoreThumbnailScene")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakMapViewerLabelWidget")
+		STATIC_NAME_IMPL(L"NexusConfigStoreThumbnailScene")
 	}
-	static class UOakMapViewerLabelWidget* GetDefaultObj()
+	static class UNexusConfigStoreThumbnailScene* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakMapViewerLabelWidget>();
+		return GetDefaultObjImpl<UNexusConfigStoreThumbnailScene>();
 	}
 };
-DUMPER7_ASSERTS_UOakMapViewerLabelWidget;
+DUMPER7_ASSERTS_UNexusConfigStoreThumbnailScene;
 
 // Class OakGame.NexusConfigStoreChallenges
 // 0x0000 (0x0390 - 0x0390)
@@ -3426,45 +3433,31 @@ public:
 };
 DUMPER7_ASSERTS_UNexusConfigStoreChallenges;
 
-// Class OakGame.NexusConfigStoreCollectible
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStoreCollectible final : public UNexusConfigStoreBasic
+// Class OakGame.SoloTravelStationObject
+// 0x0220 (0x28B0 - 0x2690)
+class ASoloTravelStationObject final : public ATravelStationObject
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NexusConfigStoreCollectible")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreCollectible")
-	}
-	static class UNexusConfigStoreCollectible* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNexusConfigStoreCollectible>();
-	}
-};
-DUMPER7_ASSERTS_UNexusConfigStoreCollectible;
+	uint8                                         Pad_2690[0x220];                                   // 0x2690(0x0220)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
-// Class OakGame.NexusConfigStore_TraitMissionDef
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStore_TraitMissionDef final : public UNexusConfigStoreBasic
-{
+public:
+	void TeleportPlayerToDestination(class AOakPlayerController* OakPC);
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("NexusConfigStore_TraitMissionDef")
+		STATIC_CLASS_IMPL("SoloTravelStationObject")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"NexusConfigStore_TraitMissionDef")
+		STATIC_NAME_IMPL(L"SoloTravelStationObject")
 	}
-	static class UNexusConfigStore_TraitMissionDef* GetDefaultObj()
+	static class ASoloTravelStationObject* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UNexusConfigStore_TraitMissionDef>();
+		return GetDefaultObjImpl<ASoloTravelStationObject>();
 	}
 };
-DUMPER7_ASSERTS_UNexusConfigStore_TraitMissionDef;
+DUMPER7_ASSERTS_ASoloTravelStationObject;
 
 // Class OakGame.NexusConfigStoreChallengeLists
 // 0x0000 (0x0390 - 0x0390)
@@ -3485,26 +3478,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UNexusConfigStoreChallengeLists;
-
-// Class OakGame.NexusConfigStoreUICharacterInfo
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStoreUICharacterInfo final : public UNexusConfigStoreBasic
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NexusConfigStoreUICharacterInfo")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreUICharacterInfo")
-	}
-	static class UNexusConfigStoreUICharacterInfo* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNexusConfigStoreUICharacterInfo>();
-	}
-};
-DUMPER7_ASSERTS_UNexusConfigStoreUICharacterInfo;
 
 // Class OakGame.GbxDiscoveryProviderObject_OakDiscoveryLocation
 // 0x0078 (0x0190 - 0x0118)
@@ -3529,29 +3502,28 @@ public:
 };
 DUMPER7_ASSERTS_UGbxDiscoveryProviderObject_OakDiscoveryLocation;
 
-// Class OakGame.SplitscreenInputMappingSubsystem
-// 0x0018 (0x0048 - 0x0030)
-class USplitscreenInputMappingSubsystem final : public UGameInstanceSubsystem
+// Class OakGame.OakBodyActionAnimData
+// 0x0008 (0x0098 - 0x0090)
+class UOakBodyActionAnimData final : public UBodyActionAnimData
 {
 public:
-	bool                                          bSplitscreenJoinSwapsInput;                        // 0x0030(0x0001)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_31[0x17];                                      // 0x0031(0x0017)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UOakWeaponPoseData*                     WeaponPoseData3rd;                                 // 0x0090(0x0008)(Edit, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("SplitscreenInputMappingSubsystem")
+		STATIC_CLASS_IMPL("OakBodyActionAnimData")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"SplitscreenInputMappingSubsystem")
+		STATIC_NAME_IMPL(L"OakBodyActionAnimData")
 	}
-	static class USplitscreenInputMappingSubsystem* GetDefaultObj()
+	static class UOakBodyActionAnimData* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<USplitscreenInputMappingSubsystem>();
+		return GetDefaultObjImpl<UOakBodyActionAnimData>();
 	}
 };
-DUMPER7_ASSERTS_USplitscreenInputMappingSubsystem;
+DUMPER7_ASSERTS_UOakBodyActionAnimData;
 
 // Class OakGame.GbxDiscoveryProviderObject_OakJunk
 // 0x0020 (0x00E8 - 0x00C8)
@@ -3576,6 +3548,46 @@ public:
 };
 DUMPER7_ASSERTS_UGbxDiscoveryProviderObject_OakJunk;
 
+// Class OakGame.OakSpawnPoint
+// 0x0000 (0x0850 - 0x0850)
+class AOakSpawnPoint : public AGbxGameSpawnPoint
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakSpawnPoint")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakSpawnPoint")
+	}
+	static class AOakSpawnPoint* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakSpawnPoint>();
+	}
+};
+DUMPER7_ASSERTS_AOakSpawnPoint;
+
+// Class OakGame.OakMultiSpawnPoint
+// 0x0000 (0x0850 - 0x0850)
+class AOakMultiSpawnPoint final : public AOakSpawnPoint
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakMultiSpawnPoint")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakMultiSpawnPoint")
+	}
+	static class AOakMultiSpawnPoint* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakMultiSpawnPoint>();
+	}
+};
+DUMPER7_ASSERTS_AOakMultiSpawnPoint;
+
 // Class OakGame.GbxDiscoveryProviderObject_OakLostCapsule
 // 0x0008 (0x00D0 - 0x00C8)
 class UGbxDiscoveryProviderObject_OakLostCapsule final : public UGbxDiscoveryProviderObject
@@ -3599,39 +3611,88 @@ public:
 };
 DUMPER7_ASSERTS_UGbxDiscoveryProviderObject_OakLostCapsule;
 
-// Class OakGame.OakBossStatics
-// 0x0000 (0x0028 - 0x0028)
-class UOakBossStatics final : public UBlueprintFunctionLibrary
+// Class OakGame.OakNiagaraDataInterfaceEnemyRadar
+// 0x0050 (0x0088 - 0x0038)
+class UOakNiagaraDataInterfaceEnemyRadar final : public UNiagaraDataInterface
 {
 public:
-	static class FText GetTextFromUICharacterName(FGbxDefPtrProperty_ UIName);
-	static bool HasFightBeenCompleted(class AOakBossFight* BossFightActor);
-	static void SetAllBossesDimmed(class AActor* Boss, bool bDimmed);
-	static void SetAllBossesInvulnerable(class AActor* Boss, bool bInvulnerable);
-	static void SetBossBarEnabled(class AActor* Boss, class AOakBossFight* BossFightInfo, bool bEnable);
-	static void SetBossDimmed(class AActor* Boss, bool bDimmed);
-	static void SetBossInvulnerable(class AActor* Boss, bool bInvulnerable);
-	static void ShakeEvent(class AActor* Boss);
-	static void StartBossFightTracking(class AActor* Boss);
-	static void StopBossFightTracking(class AActor* Boss);
-
-	TArray<class AOakCharacter*> GetPlayersInArena(class AOakBossFight* BossFightInfo) const;
+	uint8                                         Pad_38[0x50];                                      // 0x0038(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakBossStatics")
+		STATIC_CLASS_IMPL("OakNiagaraDataInterfaceEnemyRadar")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakBossStatics")
+		STATIC_NAME_IMPL(L"OakNiagaraDataInterfaceEnemyRadar")
 	}
-	static class UOakBossStatics* GetDefaultObj()
+	static class UOakNiagaraDataInterfaceEnemyRadar* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakBossStatics>();
+		return GetDefaultObjImpl<UOakNiagaraDataInterfaceEnemyRadar>();
 	}
 };
-DUMPER7_ASSERTS_UOakBossStatics;
+DUMPER7_ASSERTS_UOakNiagaraDataInterfaceEnemyRadar;
+
+// Class OakGame.OakTriggerVolume
+// 0x0000 (0x0610 - 0x0610)
+class AOakTriggerVolume : public AGbxTriggerVolume
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakTriggerVolume")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakTriggerVolume")
+	}
+	static class AOakTriggerVolume* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakTriggerVolume>();
+	}
+};
+DUMPER7_ASSERTS_AOakTriggerVolume;
+
+// Class OakGame.OakBoundaryVolume
+// 0x0000 (0x0610 - 0x0610)
+class AOakBoundaryVolume final : public AOakTriggerVolume
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakBoundaryVolume")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakBoundaryVolume")
+	}
+	static class AOakBoundaryVolume* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakBoundaryVolume>();
+	}
+};
+DUMPER7_ASSERTS_AOakBoundaryVolume;
+
+// Class OakGame.OakMapViewerDecoratorFactComponent
+// 0x0000 (0x0110 - 0x0110)
+class UOakMapViewerDecoratorFactComponent final : public UActorComponent
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakMapViewerDecoratorFactComponent")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakMapViewerDecoratorFactComponent")
+	}
+	static class UOakMapViewerDecoratorFactComponent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakMapViewerDecoratorFactComponent>();
+	}
+};
+DUMPER7_ASSERTS_UOakMapViewerDecoratorFactComponent;
 
 // Class OakGame.GbxDiscoveryProviderObject_OakMissionWaypoint
 // 0x0040 (0x0108 - 0x00C8)
@@ -3656,28 +3717,29 @@ public:
 };
 DUMPER7_ASSERTS_UGbxDiscoveryProviderObject_OakMissionWaypoint;
 
-// Class OakGame.OakMusicSystem
-// 0x0310 (0x03D0 - 0x00C0)
-class UOakMusicSystem final : public UGbxMusicSystem
+// Class OakGame.OakMarketingSettings
+// 0x0050 (0x0088 - 0x0038)
+class UOakMarketingSettings final : public UDeveloperSettings
 {
 public:
-	uint8                                         Pad_C0[0x310];                                     // 0x00C0(0x0310)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TSoftClassPtr<class UClass>                   UniversalCaptureCheatManager;                      // 0x0038(0x0028)(Edit, BlueprintVisible, BlueprintReadOnly, Config, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSoftClassPtr<class UClass>                   UniversalCaptureSpectatorClass;                    // 0x0060(0x0028)(Edit, BlueprintVisible, BlueprintReadOnly, Config, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakMusicSystem")
+		STATIC_CLASS_IMPL("OakMarketingSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakMusicSystem")
+		STATIC_NAME_IMPL(L"OakMarketingSettings")
 	}
-	static class UOakMusicSystem* GetDefaultObj()
+	static class UOakMarketingSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakMusicSystem>();
+		return GetDefaultObjImpl<UOakMarketingSettings>();
 	}
 };
-DUMPER7_ASSERTS_UOakMusicSystem;
+DUMPER7_ASSERTS_UOakMarketingSettings;
 
 // Class OakGame.GbxDiscoveryProviderObject_OakPing
 // 0x0078 (0x0140 - 0x00C8)
@@ -3702,80 +3764,72 @@ public:
 };
 DUMPER7_ASSERTS_UGbxDiscoveryProviderObject_OakPing;
 
-// Class OakGame.OakNiagaraDataInterfaceWeaponSight
-// 0x0000 (0x0038 - 0x0038)
-class UOakNiagaraDataInterfaceWeaponSight final : public UNiagaraDataInterface
+// Class OakGame.OakCreditsSlideshowManager
+// 0x0AF8 (0x0B20 - 0x0028)
+class alignas(0x10) UOakCreditsSlideshowManager final : public UObject
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakNiagaraDataInterfaceWeaponSight")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakNiagaraDataInterfaceWeaponSight")
-	}
-	static class UOakNiagaraDataInterfaceWeaponSight* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakNiagaraDataInterfaceWeaponSight>();
-	}
-};
-DUMPER7_ASSERTS_UOakNiagaraDataInterfaceWeaponSight;
-
-// Class OakGame.OakChallengeBlueprintLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UOakChallengeBlueprintLibrary final : public UBlueprintFunctionLibrary
-{
-public:
-	static void IncrementChallengeForAllPlayers(class UObject* OwnerContext, const FGameDataHandleProperty_ ChallengeToIncrement, int32 IncrementAmount);
-	static void IncrementChallengeForPlayer(class UObject* OwnerContext, class AOakPlayerController* OakPC, const FGameDataHandleProperty_ ChallengeToIncrement, int32 IncrementAmount);
-	static bool IsChallengeCompleteForPlayer(class AOakPlayerController* OakPC, const FGameDataHandleProperty_ challenge);
+	TArray<TSoftClassPtr<class UClass>>           SlideClasses;                                      // 0x0028(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPrivate)
+	struct FGbxAudioEvent                         EndCreditsMusicStart;                              // 0x0038(0x0030)(Edit, NativeAccessSpecifierPrivate)
+	struct FGbxAudioEvent                         EndCreditsMusicStop;                               // 0x0068(0x0030)(Edit, NativeAccessSpecifierPrivate)
+	float                                         SecondsPerSlide;                                   // 0x0098(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_9C[0xA84];                                     // 0x009C(0x0A84)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakChallengeBlueprintLibrary")
+		STATIC_CLASS_IMPL("OakCreditsSlideshowManager")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakChallengeBlueprintLibrary")
+		STATIC_NAME_IMPL(L"OakCreditsSlideshowManager")
 	}
-	static class UOakChallengeBlueprintLibrary* GetDefaultObj()
+	static class UOakCreditsSlideshowManager* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakChallengeBlueprintLibrary>();
+		return GetDefaultObjImpl<UOakCreditsSlideshowManager>();
 	}
 };
-DUMPER7_ASSERTS_UOakChallengeBlueprintLibrary;
+DUMPER7_ASSERTS_UOakCreditsSlideshowManager;
 
-// Class OakGame.OakMapViewerLabelComponent
-// 0x0070 (0x07E0 - 0x0770)
-class UOakMapViewerLabelComponent final : public UWidgetComponent
+// Class OakGame.OakVaultTrackable
+// 0x0100 (0x26B0 - 0x25B0)
+class AOakVaultTrackable final : public AOakInteractiveObject
 {
 public:
-	EOakMapViewerLabelTextSource                  TextSource;                                        // 0x0770(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_774[0x4];                                      // 0x0774(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	FGbxDefPtrProperty_                           WorldRegion;                                       // 0x0778(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	FGbxDefPtrProperty_                           LocalizedText;                                     // 0x0790(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         FadeDuration;                                      // 0x07A8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_7AC[0x4];                                      // 0x07AC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FFloatRange>                    EffectiveZoomRangesToShowLabel;                    // 0x07B0(0x0010)(Edit, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_7C0[0x20];                                     // 0x07C0(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_25B0[0x50];                                    // 0x25B0(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
+	FGameDataHandleProperty_                      VaultTrackerLocationData;                          // 0x2600(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EOakTrackerObjectIconType                     IconType;                                          // 0x2618(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsTrackableByDefault;                             // 0x261C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bDiscoveredByProximity;                            // 0x261D(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_261E[0x2];                                     // 0x261E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FFactAddress                           VaultTrackerCompletionProgressFact;                // 0x2620(0x0038)(Edit, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                ActivationCenter;                                  // 0x2658(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FOakTrackerRangeSettings               TrackerRangeSettings;                              // 0x2670(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           DiscoveryType;                                     // 0x2680(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bShouldBeSaved;                                    // 0x2698(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2699[0x7];                                     // 0x2699(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGbxActorDrawComponent*                 DrawCompPtr;                                       // 0x26A0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_26A8[0x8];                                     // 0x26A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void DiscoverTrackerObject();
+	void ToggleTrackingEnabled(bool bEnabled);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakMapViewerLabelComponent")
+		STATIC_CLASS_IMPL("OakVaultTrackable")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakMapViewerLabelComponent")
+		STATIC_NAME_IMPL(L"OakVaultTrackable")
 	}
-	static class UOakMapViewerLabelComponent* GetDefaultObj()
+	static class AOakVaultTrackable* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakMapViewerLabelComponent>();
+		return GetDefaultObjImpl<AOakVaultTrackable>();
 	}
 };
-DUMPER7_ASSERTS_UOakMapViewerLabelComponent;
+DUMPER7_ASSERTS_AOakVaultTrackable;
 
 // Class OakGame.GbxDiscoveryProviderObject_OakPlayer
 // 0x0018 (0x00E0 - 0x00C8)
@@ -3799,375 +3853,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UGbxDiscoveryProviderObject_OakPlayer;
-
-// Class OakGame.OakMeleeExecutionInterface
-// 0x0000 (0x0000 - 0x0000)
-class IOakMeleeExecutionInterface final
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakMeleeExecutionInterface")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakMeleeExecutionInterface")
-	}
-	static class IOakMeleeExecutionInterface* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<IOakMeleeExecutionInterface>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
-	}
-};
-DUMPER7_ASSERTS_IOakMeleeExecutionInterface;
-
-// Class OakGame.GbxDiscoveryProviderObject_OakResurrectStation
-// 0x0038 (0x0100 - 0x00C8)
-class UGbxDiscoveryProviderObject_OakResurrectStation final : public UGbxDiscoveryProviderObject
-{
-public:
-	uint8                                         Pad_C8[0x38];                                      // 0x00C8(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GbxDiscoveryProviderObject_OakResurrectStation")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GbxDiscoveryProviderObject_OakResurrectStation")
-	}
-	static class UGbxDiscoveryProviderObject_OakResurrectStation* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGbxDiscoveryProviderObject_OakResurrectStation>();
-	}
-};
-DUMPER7_ASSERTS_UGbxDiscoveryProviderObject_OakResurrectStation;
-
-// Class OakGame.OakCritterInstancedStaticMeshComponent
-// 0x0050 (0x0B70 - 0x0B20)
-class UOakCritterInstancedStaticMeshComponent final : public UGbxAnimTextureComponent
-{
-public:
-	uint8                                         Pad_B20[0x20];                                     // 0x0B20(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FOakCritterMeshData                    CritterData;                                       // 0x0B40(0x0028)(Transient, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_B68[0x8];                                      // 0x0B68(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakCritterInstancedStaticMeshComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakCritterInstancedStaticMeshComponent")
-	}
-	static class UOakCritterInstancedStaticMeshComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakCritterInstancedStaticMeshComponent>();
-	}
-};
-DUMPER7_ASSERTS_UOakCritterInstancedStaticMeshComponent;
-
-// Class OakGame.OakVehicleBlueprintLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UOakVehicleBlueprintLibrary final : public UBlueprintFunctionLibrary
-{
-public:
-	static void AssignHoverDriveEffectParameters(class UFXSystemComponent* FXComponent, class AOakVehicle* Vehicle);
-	static bool CanBoost(class AOakVehicle* Vehicle);
-	static class AOakVehicle* GetAssociatedVehicle(class AActor* Context, EGetOakVehicleResult* Exec);
-	static class UFXSystemAsset* GetHoverDriveEffectByName(class AOakVehicle* Vehicle, class FName EffectName);
-	static bool IsBoosting(class AOakVehicle* Vehicle);
-	static void ToggleBoost(class AOakVehicle* Vehicle, bool bBoost);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakVehicleBlueprintLibrary")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakVehicleBlueprintLibrary")
-	}
-	static class UOakVehicleBlueprintLibrary* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakVehicleBlueprintLibrary>();
-	}
-};
-DUMPER7_ASSERTS_UOakVehicleBlueprintLibrary;
-
-// Class OakGame.GbxDiscoveryProviderObject_OakVaultTracker
-// 0x0008 (0x00D0 - 0x00C8)
-class UGbxDiscoveryProviderObject_OakVaultTracker final : public UGbxDiscoveryProviderObject
-{
-public:
-	uint8                                         Pad_C8[0x8];                                       // 0x00C8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GbxDiscoveryProviderObject_OakVaultTracker")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GbxDiscoveryProviderObject_OakVaultTracker")
-	}
-	static class UGbxDiscoveryProviderObject_OakVaultTracker* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGbxDiscoveryProviderObject_OakVaultTracker>();
-	}
-};
-DUMPER7_ASSERTS_UGbxDiscoveryProviderObject_OakVaultTracker;
-
-// Class OakGame.NPCInteractionHost
-// 0x0000 (0x0000 - 0x0000)
-class INPCInteractionHost final
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NPCInteractionHost")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NPCInteractionHost")
-	}
-	static class INPCInteractionHost* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<INPCInteractionHost>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
-	}
-};
-DUMPER7_ASSERTS_INPCInteractionHost;
-
-// Class OakGame.GbxDiscoveryProvider_OakDiscoveryLocations
-// 0x0018 (0x00C0 - 0x00A8)
-class UGbxDiscoveryProvider_OakDiscoveryLocations final : public UGbxDiscoveryProvider_DiscoveryLocations
-{
-public:
-	uint8                                         Pad_A8[0x18];                                      // 0x00A8(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GbxDiscoveryProvider_OakDiscoveryLocations")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GbxDiscoveryProvider_OakDiscoveryLocations")
-	}
-	static class UGbxDiscoveryProvider_OakDiscoveryLocations* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGbxDiscoveryProvider_OakDiscoveryLocations>();
-	}
-};
-DUMPER7_ASSERTS_UGbxDiscoveryProvider_OakDiscoveryLocations;
-
-// Class OakGame.InventoryGadget
-// 0x0300 (0x0BB0 - 0x08B0)
-class AInventoryGadget : public Ainventory
-{
-public:
-	uint8                                         Pad_8B0[0x158];                                    // 0x08B0(0x0158)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxAttributeFloat                     CooldownTime;                                      // 0x0A08(0x000C)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         bIsUsing : 1;                                      // 0x0A14(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (BlueprintVisible, BlueprintReadOnly, Net, Transient, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
-	uint8                                         AttachState;                                       // 0x0A15(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_A16[0x2];                                      // 0x0A16(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	class ACommandRing*                           CommandRing;                                       // 0x0A18(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FCommandRingTarget                     CachedCommandRingTarget;                           // 0x0A20(0x0040)(Transient, NoDestructor, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	struct FOakStatusEffectModifierData_Gear      StatusEffectModifierData;                          // 0x0A60(0x0040)(Protected, NativeAccessSpecifierProtected)
-	struct FDamageModifierData                    DamageModifierData;                                // 0x0AA0(0x0068)(Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeInteger                   MaxNumberOfCharges;                                // 0x0B08(0x000C)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	int32                                         NumberOfCharges;                                   // 0x0B14(0x0004)(Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_B18[0x28];                                     // 0x0B18(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
-	class AOakCharacter*                          OwningCharacter;                                   // 0x0B40(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_B48[0x68];                                     // 0x0B48(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void OnRep_Attached();
-	void OnRep_NumberOfCharges();
-	void OnRep_Using();
-	void ServerInputDoubleTap();
-	void ServerInputHeld(bool bStarted);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InventoryGadget")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InventoryGadget")
-	}
-	static class AInventoryGadget* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AInventoryGadget>();
-	}
-};
-DUMPER7_ASSERTS_AInventoryGadget;
-
-// Class OakGame.TurretGadget
-// 0x0040 (0x0BF0 - 0x0BB0)
-class ATurretGadget final : public AInventoryGadget
-{
-public:
-	TArray<class AActor*>                         ActiveTurrets;                                     // 0x0BB0(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     Duration;                                          // 0x0BC0(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	int32                                         SpawnCount;                                        // 0x0BCC(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         SpawnSpeedMultiplier;                              // 0x0BD0(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_BD4[0x10];                                     // 0x0BD4(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         NumActiveTurrets;                                  // 0x0BE4(0x0004)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_BE8[0x8];                                      // 0x0BE8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void ProjectileDestroyed(class AActor* Actor);
-	void RegisterTurret(class AActor* Actor);
-	void UnregisterTurret(class AActor* Actor);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("TurretGadget")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"TurretGadget")
-	}
-	static class ATurretGadget* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<ATurretGadget>();
-	}
-};
-DUMPER7_ASSERTS_ATurretGadget;
-
-// Class OakGame.GbxDiscoveryProvider_OakJunk
-// 0x0018 (0x0070 - 0x0058)
-class UGbxDiscoveryProvider_OakJunk final : public UGbxDiscoveryProvider
-{
-public:
-	uint8                                         Pad_58[0x18];                                      // 0x0058(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GbxDiscoveryProvider_OakJunk")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GbxDiscoveryProvider_OakJunk")
-	}
-	static class UGbxDiscoveryProvider_OakJunk* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGbxDiscoveryProvider_OakJunk>();
-	}
-};
-DUMPER7_ASSERTS_UGbxDiscoveryProvider_OakJunk;
-
-// Class OakGame.GbxDiscoveryProvider_OakLostCapsule
-// 0x0038 (0x0090 - 0x0058)
-class UGbxDiscoveryProvider_OakLostCapsule final : public UGbxDiscoveryProvider
-{
-public:
-	uint8                                         Pad_58[0x38];                                      // 0x0058(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GbxDiscoveryProvider_OakLostCapsule")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GbxDiscoveryProvider_OakLostCapsule")
-	}
-	static class UGbxDiscoveryProvider_OakLostCapsule* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGbxDiscoveryProvider_OakLostCapsule>();
-	}
-};
-DUMPER7_ASSERTS_UGbxDiscoveryProvider_OakLostCapsule;
-
-// Class OakGame.NexusConfigStoreThumbnailScene
-// 0x0008 (0x0388 - 0x0380)
-class UNexusConfigStoreThumbnailScene final : public UNexusConfigStoreBasicDefFlat
-{
-public:
-	uint8                                         Pad_380[0x8];                                      // 0x0380(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NexusConfigStoreThumbnailScene")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreThumbnailScene")
-	}
-	static class UNexusConfigStoreThumbnailScene* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNexusConfigStoreThumbnailScene>();
-	}
-};
-DUMPER7_ASSERTS_UNexusConfigStoreThumbnailScene;
-
-// Class OakGame.GbxDiscoveryProvider_OakMissionWaypoints
-// 0x0008 (0x0060 - 0x0058)
-class UGbxDiscoveryProvider_OakMissionWaypoints final : public UGbxDiscoveryProvider
-{
-public:
-	uint8                                         Pad_58[0x8];                                       // 0x0058(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GbxDiscoveryProvider_OakMissionWaypoints")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GbxDiscoveryProvider_OakMissionWaypoints")
-	}
-	static class UGbxDiscoveryProvider_OakMissionWaypoints* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGbxDiscoveryProvider_OakMissionWaypoints>();
-	}
-};
-DUMPER7_ASSERTS_UGbxDiscoveryProvider_OakMissionWaypoints;
-
-// Class OakGame.OakNiagaraDataInterfaceIntrinsicElement
-// 0x0000 (0x0038 - 0x0038)
-class UOakNiagaraDataInterfaceIntrinsicElement final : public UNiagaraDataInterface
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakNiagaraDataInterfaceIntrinsicElement")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakNiagaraDataInterfaceIntrinsicElement")
-	}
-	static class UOakNiagaraDataInterfaceIntrinsicElement* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakNiagaraDataInterfaceIntrinsicElement>();
-	}
-};
-DUMPER7_ASSERTS_UOakNiagaraDataInterfaceIntrinsicElement;
 
 // Class OakGame.OakNoSignalZone
 // 0x0008 (0x03D0 - 0x03C8)
@@ -4198,6 +3883,276 @@ public:
 };
 DUMPER7_ASSERTS_AOakNoSignalZone;
 
+// Class OakGame.NoPlayerTeleportVolume
+// 0x0000 (0x03D0 - 0x03D0)
+class ANoPlayerTeleportVolume final : public AOakNoSignalZone
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NoPlayerTeleportVolume")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NoPlayerTeleportVolume")
+	}
+	static class ANoPlayerTeleportVolume* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<ANoPlayerTeleportVolume>();
+	}
+};
+DUMPER7_ASSERTS_ANoPlayerTeleportVolume;
+
+// Class OakGame.GbxDiscoveryProviderObject_OakResurrectStation
+// 0x0038 (0x0100 - 0x00C8)
+class UGbxDiscoveryProviderObject_OakResurrectStation final : public UGbxDiscoveryProviderObject
+{
+public:
+	uint8                                         Pad_C8[0x38];                                      // 0x00C8(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GbxDiscoveryProviderObject_OakResurrectStation")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GbxDiscoveryProviderObject_OakResurrectStation")
+	}
+	static class UGbxDiscoveryProviderObject_OakResurrectStation* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGbxDiscoveryProviderObject_OakResurrectStation>();
+	}
+};
+DUMPER7_ASSERTS_UGbxDiscoveryProviderObject_OakResurrectStation;
+
+// Class OakGame.TerminalObjectBodyData
+// 0x0000 (0x0060 - 0x0060)
+class UTerminalObjectBodyData final : public UOakInteractiveObjectBodyData
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("TerminalObjectBodyData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"TerminalObjectBodyData")
+	}
+	static class UTerminalObjectBodyData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UTerminalObjectBodyData>();
+	}
+};
+DUMPER7_ASSERTS_UTerminalObjectBodyData;
+
+// Class OakGame.GbxDiscoveryProviderObject_OakVaultTracker
+// 0x0008 (0x00D0 - 0x00C8)
+class UGbxDiscoveryProviderObject_OakVaultTracker final : public UGbxDiscoveryProviderObject
+{
+public:
+	uint8                                         Pad_C8[0x8];                                       // 0x00C8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GbxDiscoveryProviderObject_OakVaultTracker")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GbxDiscoveryProviderObject_OakVaultTracker")
+	}
+	static class UGbxDiscoveryProviderObject_OakVaultTracker* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGbxDiscoveryProviderObject_OakVaultTracker>();
+	}
+};
+DUMPER7_ASSERTS_UGbxDiscoveryProviderObject_OakVaultTracker;
+
+// Class OakGame.GbxDiscoveryProvider_OakDiscoveryLocations
+// 0x0018 (0x00C0 - 0x00A8)
+class UGbxDiscoveryProvider_OakDiscoveryLocations final : public UGbxDiscoveryProvider_DiscoveryLocations
+{
+public:
+	uint8                                         Pad_A8[0x18];                                      // 0x00A8(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GbxDiscoveryProvider_OakDiscoveryLocations")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GbxDiscoveryProvider_OakDiscoveryLocations")
+	}
+	static class UGbxDiscoveryProvider_OakDiscoveryLocations* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGbxDiscoveryProvider_OakDiscoveryLocations>();
+	}
+};
+DUMPER7_ASSERTS_UGbxDiscoveryProvider_OakDiscoveryLocations;
+
+// Class OakGame.NexusConfigStoreLuckCategory
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStoreLuckCategory final : public UNexusConfigStoreBasic
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStoreLuckCategory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStoreLuckCategory")
+	}
+	static class UNexusConfigStoreLuckCategory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStoreLuckCategory>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStoreLuckCategory;
+
+// Class OakGame.GbxDiscoveryProvider_OakJunk
+// 0x0018 (0x0070 - 0x0058)
+class UGbxDiscoveryProvider_OakJunk final : public UGbxDiscoveryProvider
+{
+public:
+	uint8                                         Pad_58[0x18];                                      // 0x0058(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GbxDiscoveryProvider_OakJunk")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GbxDiscoveryProvider_OakJunk")
+	}
+	static class UGbxDiscoveryProvider_OakJunk* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGbxDiscoveryProvider_OakJunk>();
+	}
+};
+DUMPER7_ASSERTS_UGbxDiscoveryProvider_OakJunk;
+
+// Class OakGame.OakNewGameSettings
+// 0x0010 (0x0038 - 0x0028)
+class UOakNewGameSettings final : public UObject
+{
+public:
+	int32                                         CharacterSelectTimeInSeconds;                      // 0x0028(0x0004)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         CharacterSelectQuickStartTimeInSeconds;            // 0x002C(0x0004)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          HasPostPrologueCinematic;                          // 0x0030(0x0001)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakNewGameSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakNewGameSettings")
+	}
+	static class UOakNewGameSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakNewGameSettings>();
+	}
+};
+DUMPER7_ASSERTS_UOakNewGameSettings;
+
+// Class OakGame.NexusConfigStoreProfileDefaultsDisplayDataDefs
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStoreProfileDefaultsDisplayDataDefs final : public UNexusConfigStoreBasic
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStoreProfileDefaultsDisplayDataDefs")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStoreProfileDefaultsDisplayDataDefs")
+	}
+	static class UNexusConfigStoreProfileDefaultsDisplayDataDefs* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStoreProfileDefaultsDisplayDataDefs>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStoreProfileDefaultsDisplayDataDefs;
+
+// Class OakGame.GbxDiscoveryProvider_OakLostCapsule
+// 0x0038 (0x0090 - 0x0058)
+class UGbxDiscoveryProvider_OakLostCapsule final : public UGbxDiscoveryProvider
+{
+public:
+	uint8                                         Pad_58[0x38];                                      // 0x0058(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GbxDiscoveryProvider_OakLostCapsule")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GbxDiscoveryProvider_OakLostCapsule")
+	}
+	static class UGbxDiscoveryProvider_OakLostCapsule* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGbxDiscoveryProvider_OakLostCapsule>();
+	}
+};
+DUMPER7_ASSERTS_UGbxDiscoveryProvider_OakLostCapsule;
+
+// Class OakGame.StatFactIncrementTriggerVolume
+// 0x0018 (0x0628 - 0x0610)
+class AStatFactIncrementTriggerVolume final : public AOakTriggerVolume
+{
+public:
+	bool                                          bOnlyTriggerOncePerPlayer;                         // 0x0610(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_611[0x3];                                      // 0x0611(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         IncrementAmount;                                   // 0x0614(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<struct FFactAddress>                   StatsToIncrement;                                  // 0x0618(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("StatFactIncrementTriggerVolume")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"StatFactIncrementTriggerVolume")
+	}
+	static class AStatFactIncrementTriggerVolume* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AStatFactIncrementTriggerVolume>();
+	}
+};
+DUMPER7_ASSERTS_AStatFactIncrementTriggerVolume;
+
+// Class OakGame.GbxDiscoveryProvider_OakMissionWaypoints
+// 0x0008 (0x0060 - 0x0058)
+class UGbxDiscoveryProvider_OakMissionWaypoints final : public UGbxDiscoveryProvider
+{
+public:
+	uint8                                         Pad_58[0x8];                                       // 0x0058(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GbxDiscoveryProvider_OakMissionWaypoints")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GbxDiscoveryProvider_OakMissionWaypoints")
+	}
+	static class UGbxDiscoveryProvider_OakMissionWaypoints* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGbxDiscoveryProvider_OakMissionWaypoints>();
+	}
+};
+DUMPER7_ASSERTS_UGbxDiscoveryProvider_OakMissionWaypoints;
+
 // Class OakGame.GbxDiscoveryProvider_OakPing
 // 0x0010 (0x0068 - 0x0058)
 class UGbxDiscoveryProvider_OakPing final : public UGbxDiscoveryProvider
@@ -4221,32 +4176,49 @@ public:
 };
 DUMPER7_ASSERTS_UGbxDiscoveryProvider_OakPing;
 
-// Class OakGame.TerminalGadget
-// 0x0020 (0x0BD0 - 0x0BB0)
-class ATerminalGadget final : public AInventoryGadget
+// Class OakGame.OakAttributeDefinedSummaryLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UOakAttributeDefinedSummaryLibrary final : public UBlueprintFunctionLibrary
 {
 public:
-	class AModularTerminal*                       ModularTerminalSpawned;                            // 0x0BB0(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_BB8[0x18];                                     // 0x0BB8(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void RegisterTerminal(class AActor* Actor);
+	static class FString GetSummary_ChanceDefinedValueRow(const struct FChanceDefinedValueRow& Struct);
+	static class FString GetSummary_LootChanceDefinedValueRow(const struct FLootChanceDefinedValueRow& Struct);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("TerminalGadget")
+		STATIC_CLASS_IMPL("OakAttributeDefinedSummaryLibrary")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"TerminalGadget")
+		STATIC_NAME_IMPL(L"OakAttributeDefinedSummaryLibrary")
 	}
-	static class ATerminalGadget* GetDefaultObj()
+	static class UOakAttributeDefinedSummaryLibrary* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<ATerminalGadget>();
+		return GetDefaultObjImpl<UOakAttributeDefinedSummaryLibrary>();
 	}
 };
-DUMPER7_ASSERTS_ATerminalGadget;
+DUMPER7_ASSERTS_UOakAttributeDefinedSummaryLibrary;
+
+// Class OakGame.OakUIDeepFreezePipsRole
+// 0x0000 (0x0100 - 0x0100)
+class UOakUIDeepFreezePipsRole final : public UOakUIPipsRoleBase
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIDeepFreezePipsRole")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIDeepFreezePipsRole")
+	}
+	static class UOakUIDeepFreezePipsRole* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIDeepFreezePipsRole>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIDeepFreezePipsRole;
 
 // Class OakGame.GbxDiscoveryProvider_OakPlayers
 // 0x0058 (0x00B0 - 0x0058)
@@ -4271,6 +4243,33 @@ public:
 };
 DUMPER7_ASSERTS_UGbxDiscoveryProvider_OakPlayers;
 
+// Class OakGame.OakBasePlayerController
+// 0x0038 (0x0DA8 - 0x0D70)
+class AOakBasePlayerController : public AGbxPlayerController
+{
+public:
+	uint8                                         Pad_D70[0x28];                                     // 0x0D70(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxUIViewHandle                       UIViewHandle;                                      // 0x0D98(0x0010)(Transient, NoDestructor, NativeAccessSpecifierPublic)
+
+public:
+	void AddUIViewState(const struct FGameplayTag& InState);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakBasePlayerController")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakBasePlayerController")
+	}
+	static class AOakBasePlayerController* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakBasePlayerController>();
+	}
+};
+DUMPER7_ASSERTS_AOakBasePlayerController;
+
 // Class OakGame.GbxDiscoveryProvider_OakResurrectStation
 // 0x0028 (0x0080 - 0x0058)
 class UGbxDiscoveryProvider_OakResurrectStation final : public UGbxDiscoveryProvider
@@ -4294,126 +4293,25 @@ public:
 };
 DUMPER7_ASSERTS_UGbxDiscoveryProvider_OakResurrectStation;
 
-// Class OakGame.OakAudioGlobals
-// 0x0200 (0x0620 - 0x0420)
-class UOakAudioGlobals final : public UGbxGameAudioGlobals
+// Class OakGame.NexusConfigStore_OakUINameWeightedListDef
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStore_OakUINameWeightedListDef final : public UNexusConfigStoreBasic
 {
-public:
-	class FString                                 AuxBusName;                                        // 0x0420(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         WetMindB;                                          // 0x0430(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         WetMaxdB;                                          // 0x0434(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ReverbScaleDistance;                               // 0x0438(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_43C[0x4];                                      // 0x043C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	FGbxDefPtrProperty_                           DiscoveredRegionAudio;                             // 0x0440(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           TimeDilationRTPC;                                  // 0x0458(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TMap<EWeaponType, FGbxDefPtrProperty_>        WeaponTypeSwitchMap;                               // 0x0470(0x0050)(Edit, NativeAccessSpecifierPublic)
-	class UOakKillStingers*                       Stingers;                                          // 0x04C0(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UOakAudioDamageFeedback*                DamageFeedback;                                    // 0x04C8(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           ElementalSwitches[0x6];                            // 0x04D0(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           GlobalWeatherEvent;                                // 0x0560(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TMap<EAudioPresetMode, FGbxDefPtrProperty_>   PresetConfigEvents;                                // 0x0578(0x0050)(Edit, NativeAccessSpecifierPublic)
-	TMap<EAudioEQMode, FGbxDefPtrProperty_>       EQConfigEvents;                                    // 0x05C8(0x0050)(Edit, NativeAccessSpecifierPublic)
-	uint8                                         Pad_618[0x8];                                      // 0x0618(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakAudioGlobals")
+		STATIC_CLASS_IMPL("NexusConfigStore_OakUINameWeightedListDef")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakAudioGlobals")
+		STATIC_NAME_IMPL(L"NexusConfigStore_OakUINameWeightedListDef")
 	}
-	static class UOakAudioGlobals* GetDefaultObj()
+	static class UNexusConfigStore_OakUINameWeightedListDef* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakAudioGlobals>();
+		return GetDefaultObjImpl<UNexusConfigStore_OakUINameWeightedListDef>();
 	}
 };
-DUMPER7_ASSERTS_UOakAudioGlobals;
-
-// Class OakGame.OakUIScript_Backpack
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_Backpack final : public UGbxUIScript
-{
-public:
-	void BackpackSlotFocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void BackpackSlotUnfocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void BuyItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ClickAssaultRifle(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ClickClassMod(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ClickEnhancement(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ClickGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ClickGrenade(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ClickHeavyWeapon(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ClickPistol(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ClickRepKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ClickShield(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ClickShotgun(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ClickSMG(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ClickSniper(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void CloseBackpack(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ClosePlayerStats(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void CloseRewardCenter(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void CompareStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void CompareStop(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void DropItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void EquipAssaultRifle(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void EquipClassMod(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void EquipEnhancement(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void EquipGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void EquipGrenade(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void EquipHeavyWeapon(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void EquipItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void EquipPistol(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void EquipRepKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void EquipShield(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void EquipShotgun(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void EquipSMG(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void EquipSniper(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void Error(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void FirmwareTransferComplete(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void GearSlotFocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void GearSlotUnfocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void MarkItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void MarkItemBank(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void MarkItemFavorite(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void MarkItemTrash(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void OpenBackpack(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void OpenLegendaryReward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void OpenPlayerStats(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void OpenReward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void OpenRewardCenter(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void PutItemInTransferSlot(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void RemoveItemFromTransferSlot(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void SellItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void StartEchoLogsMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
-	void StartEquipMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
-	void StartEquippedFirmwareTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
-	void StartFirmwareTransferTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
-	void StartLostLootTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
-	void StartRewardCenterTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
-	void StartVendingMachineTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
-	void TakeItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TrashItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void UnequipItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void WeaponSlotFocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void WeaponSlotUnfocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIScript_Backpack")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIScript_Backpack")
-	}
-	static class UOakUIScript_Backpack* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUIScript_Backpack>();
-	}
-};
-DUMPER7_ASSERTS_UOakUIScript_Backpack;
+DUMPER7_ASSERTS_UNexusConfigStore_OakUINameWeightedListDef;
 
 // Class OakGame.GbxDiscoveryProvider_OakVaultTracker
 // 0x0010 (0x0068 - 0x0058)
@@ -4437,39 +4335,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UGbxDiscoveryProvider_OakVaultTracker;
-
-// Class OakGame.GrappleTargetingStrategy
-// 0x0148 (0x0170 - 0x0028)
-class UGrappleTargetingStrategy final : public UObject
-{
-public:
-	uint8                                         Pad_28[0x18];                                      // 0x0028(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	class AOakPlayerController*                   OakPlayerController;                               // 0x0040(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_48[0x10];                                      // 0x0048(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGrappleableTargetReference            BestValidTarget;                                   // 0x0058(0x0018)(Transient, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_70[0x20];                                      // 0x0070(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGrappleableTargetReference            BestNonValidTarget;                                // 0x0090(0x0018)(Transient, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bAnyTargetChanged;                                 // 0x00A8(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bValidTargetChanged;                               // 0x00A9(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_AA[0x6];                                       // 0x00AA(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FGrappleableTargetReference>    AvailableTargets;                                  // 0x00B0(0x0010)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_C0[0xB0];                                      // 0x00C0(0x00B0)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GrappleTargetingStrategy")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GrappleTargetingStrategy")
-	}
-	static class UGrappleTargetingStrategy* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGrappleTargetingStrategy>();
-	}
-};
-DUMPER7_ASSERTS_UGrappleTargetingStrategy;
 
 // Class OakGame.GbxSkillComponentFunctions_ActionSkill
 // 0x0000 (0x0028 - 0x0028)
@@ -4510,6 +4375,60 @@ public:
 };
 DUMPER7_ASSERTS_UGbxSkillComponentFunctions_ActionSkill;
 
+// Class OakGame.GbxTrick_Slam
+// 0x0070 (0x0100 - 0x0090)
+class UGbxTrick_Slam final : public UGbxTrick
+{
+public:
+	bool                                          bAutoEnableRagdoll;                                // 0x0090(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bAutoDisableRagdoll;                               // 0x0091(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bDisableAndRestoreBodyTargets;                     // 0x0092(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_93[0x1];                                       // 0x0093(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FSlamTrickProperties                   ReelProperties;                                    // 0x0094(0x0034)(Edit, NoDestructor, NativeAccessSpecifierPrivate)
+	struct FSlamTrickProperties                   SlamProperties;                                    // 0x00C8(0x0034)(Edit, NoDestructor, NativeAccessSpecifierPrivate)
+	float                                         CollisionBufferDistance;                           // 0x00FC(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GbxTrick_Slam")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GbxTrick_Slam")
+	}
+	static class UGbxTrick_Slam* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGbxTrick_Slam>();
+	}
+};
+DUMPER7_ASSERTS_UGbxTrick_Slam;
+
+// Class OakGame.SpawnerStyle_OakTown
+// 0x0088 (0x00B0 - 0x0028)
+class USpawnerStyle_OakTown final : public USpawnerStyle
+{
+public:
+	FGbxDefPtrProperty_                           TownDef;                                           // 0x0028(0x0018)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGbxParam                              MaxActors;                                         // 0x0040(0x0038)(NativeAccessSpecifierPublic)
+	struct FGbxParam                              MaxDecoActors;                                     // 0x0078(0x0038)(NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("SpawnerStyle_OakTown")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"SpawnerStyle_OakTown")
+	}
+	static class USpawnerStyle_OakTown* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<USpawnerStyle_OakTown>();
+	}
+};
+DUMPER7_ASSERTS_USpawnerStyle_OakTown;
+
 // Class OakGame.GbxSkillComponentFunctions_DarkSiren
 // 0x0000 (0x0028 - 0x0028)
 class UGbxSkillComponentFunctions_DarkSiren final : public UObject
@@ -4532,6 +4451,29 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UGbxSkillComponentFunctions_DarkSiren;
+
+// Class OakGame.OakAcousticsConfig
+// 0x0028 (0x04A0 - 0x0478)
+class UOakAcousticsConfig final : public UGbxAcousticsConfig
+{
+public:
+	TSoftObjectPtr<class UOakWorldPainterLayer_LateReflectionBlendZone> LateReflectionBlendLayer;    // 0x0478(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakAcousticsConfig")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakAcousticsConfig")
+	}
+	static class UOakAcousticsConfig* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakAcousticsConfig>();
+	}
+};
+DUMPER7_ASSERTS_UOakAcousticsConfig;
 
 // Class OakGame.GbxSkillComponentFunctions_PhaseAvatar
 // 0x0000 (0x0028 - 0x0028)
@@ -4558,28 +4500,30 @@ public:
 };
 DUMPER7_ASSERTS_UGbxSkillComponentFunctions_PhaseAvatar;
 
-// Class OakGame.StructuredInteractableFunctionLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UStructuredInteractableFunctionLibrary final : public UBlueprintFunctionLibrary
+// Class OakGame.UIVitalsListener
+// 0x0140 (0x0168 - 0x0028)
+class UUIVitalsListener final : public UObject
 {
 public:
-	static void StartStructuredInteraction(class AActor* Interactable, class FName InteractionName, class APlayerController* User);
+	uint8                                         Pad_28[0xF0];                                      // 0x0028(0x00F0)(Fixing Size After Last Property [ Dumper-7 ])
+	class AActor*                                 TargetActor;                                       // 0x0118(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_120[0x48];                                     // 0x0120(0x0048)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("StructuredInteractableFunctionLibrary")
+		STATIC_CLASS_IMPL("UIVitalsListener")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"StructuredInteractableFunctionLibrary")
+		STATIC_NAME_IMPL(L"UIVitalsListener")
 	}
-	static class UStructuredInteractableFunctionLibrary* GetDefaultObj()
+	static class UUIVitalsListener* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UStructuredInteractableFunctionLibrary>();
+		return GetDefaultObjImpl<UUIVitalsListener>();
 	}
 };
-DUMPER7_ASSERTS_UStructuredInteractableFunctionLibrary;
+DUMPER7_ASSERTS_UUIVitalsListener;
 
 // Class OakGame.GbxActorScript_PhaseFamiliar
 // 0x0058 (0x00F8 - 0x00A0)
@@ -4623,29 +4567,6 @@ public:
 };
 DUMPER7_ASSERTS_UGbxActorScript_PhaseFamiliar;
 
-// Class OakGame.OakProfileProgressVault
-// 0x00E0 (0x03A8 - 0x02C8)
-class UOakProfileProgressVault final : public UGbxProfileProgressVault
-{
-public:
-	uint8                                         Pad_2C8[0xE0];                                     // 0x02C8(0x00E0)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakProfileProgressVault")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakProfileProgressVault")
-	}
-	static class UOakProfileProgressVault* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakProfileProgressVault>();
-	}
-};
-DUMPER7_ASSERTS_UOakProfileProgressVault;
-
 // Class OakGame.OakCharacterBodyData
 // 0x0000 (0x0060 - 0x0060)
 class UOakCharacterBodyData : public UGbxCharacterBodyData
@@ -4666,34 +4587,55 @@ public:
 };
 DUMPER7_ASSERTS_UOakCharacterBodyData;
 
-// Class OakGame.VehicleDriver
-// 0x0000 (0x0000 - 0x0000)
-class IVehicleDriver final
+// Class OakGame.OakBiomeTerritoryComponent
+// 0x0000 (0x09C0 - 0x09C0)
+class UOakBiomeTerritoryComponent final : public UGbxTerritoryComponent
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("VehicleDriver")
+		STATIC_CLASS_IMPL("OakBiomeTerritoryComponent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"VehicleDriver")
+		STATIC_NAME_IMPL(L"OakBiomeTerritoryComponent")
 	}
-	static class IVehicleDriver* GetDefaultObj()
+	static class UOakBiomeTerritoryComponent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<IVehicleDriver>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
+		return GetDefaultObjImpl<UOakBiomeTerritoryComponent>();
 	}
 };
-DUMPER7_ASSERTS_IVehicleDriver;
+DUMPER7_ASSERTS_UOakBiomeTerritoryComponent;
+
+// Class OakGame.OakUIScript_Customization
+// 0x0000 (0x0028 - 0x0028)
+class UOakUIScript_Customization : public UGbxUIScript
+{
+public:
+	void ApplyCustomization(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void CantDo(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void Customization_Hover(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void Customization_Select(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void CustomizationMenu_Hover(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void CustomizationMenu_Select(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void HideUI(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ShowUI(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIScript_Customization")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIScript_Customization")
+	}
+	static class UOakUIScript_Customization* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIScript_Customization>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIScript_Customization;
 
 // Class OakGame.OakSkillCharacterBodyData
 // 0x0000 (0x0060 - 0x0060)
@@ -4715,6 +4657,42 @@ public:
 };
 DUMPER7_ASSERTS_UOakSkillCharacterBodyData;
 
+// Class OakGame.OakActorScript_Phaseable
+// 0x0060 (0x0100 - 0x00A0)
+class UOakActorScript_Phaseable final : public UGbxActorScript
+{
+public:
+	TMulticastInlineDelegate<void()>              OnEnterPhasedState;                                // 0x00A0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              OnExitPhasedState;                                 // 0x00B0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C0[0x8];                                       // 0x00C0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bDisableCollisions;                                // 0x00C8(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_C9[0xF];                                       // 0x00C9(0x000F)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bPhaseOnSpawn;                                     // 0x00D8(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bAllowAutomaticRephase;                            // 0x00D9(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_DA[0x2];                                       // 0x00DA(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         TimeBeforeRephase;                                 // 0x00DC(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	TArray<TSoftObjectPtr<class AActor>>          DestinationsAsActors;                              // 0x00E0(0x0010)(Edit, ZeroConstructor, DisableEditOnTemplate, UObjectWrapper, NativeAccessSpecifierPrivate)
+	TArray<struct FVector>                        DestinationsAsVectors;                             // 0x00F0(0x0010)(Edit, ZeroConstructor, DisableEditOnTemplate, NativeAccessSpecifierPrivate)
+
+public:
+	void TryEnterPhasedState();
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakActorScript_Phaseable")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakActorScript_Phaseable")
+	}
+	static class UOakActorScript_Phaseable* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakActorScript_Phaseable>();
+	}
+};
+DUMPER7_ASSERTS_UOakActorScript_Phaseable;
+
 // Class OakGame.OakSkillCharacterBodyData_PhaseFamiliar
 // 0x0000 (0x0060 - 0x0060)
 class UOakSkillCharacterBodyData_PhaseFamiliar final : public UOakSkillCharacterBodyData
@@ -4735,96 +4713,28 @@ public:
 };
 DUMPER7_ASSERTS_UOakSkillCharacterBodyData_PhaseFamiliar;
 
-// Class OakGame.OakSpawner
-// 0x0000 (0x04A0 - 0x04A0)
-class AOakSpawner : public AGbxGameSpawner
+// Class OakGame.OakUIScreenDataRole
+// 0x0000 (0x0100 - 0x0100)
+class UOakUIScreenDataRole final : public UGbxProfileProgressRoleClientLocal
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakSpawner")
+		STATIC_CLASS_IMPL("OakUIScreenDataRole")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakSpawner")
+		STATIC_NAME_IMPL(L"OakUIScreenDataRole")
 	}
-	static class AOakSpawner* GetDefaultObj()
+	static class UOakUIScreenDataRole* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakSpawner>();
+		return GetDefaultObjImpl<UOakUIScreenDataRole>();
 	}
 };
-DUMPER7_ASSERTS_AOakSpawner;
-
-// Class OakGame.OakBiomeSpawner
-// 0x0000 (0x04A0 - 0x04A0)
-class AOakBiomeSpawner final : public AOakSpawner
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakBiomeSpawner")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakBiomeSpawner")
-	}
-	static class AOakBiomeSpawner* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakBiomeSpawner>();
-	}
-};
-DUMPER7_ASSERTS_AOakBiomeSpawner;
-
-// Class OakGame.OakUIScript_HudSkills
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_HudSkills final : public UGbxUIScript
-{
-public:
-	void FailToUseGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void FailToUsePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void FailToUseSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void GainChargeGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void GainChargePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void GainChargeSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ReadyToUseGadgetGrenade(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ReadyToUseGadgetHeavyWeapon(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ReadyToUseGadgetOther(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ReadyToUsePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ReadyToUseSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void StartReadyCountdownGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void StartReadyCountdownPrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void StartReadyCountdownSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TickReadyCountdownOneGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TickReadyCountdownOnePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TickReadyCountdownOneSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TickReadyCountdownThreeGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TickReadyCountdownThreePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TickReadyCountdownThreeSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TickReadyCountdownTwoGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TickReadyCountdownTwoPrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TickReadyCountdownTwoSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void UseGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void UsePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void UseSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIScript_HudSkills")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIScript_HudSkills")
-	}
-	static class UOakUIScript_HudSkills* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUIScript_HudSkills>();
-	}
-};
-DUMPER7_ASSERTS_UOakUIScript_HudSkills;
+DUMPER7_ASSERTS_UOakUIScreenDataRole;
 
 // Class OakGame.OakCharacter
-// 0x5E70 (0x97A0 - 0x3930)
+// 0x5E90 (0x97C0 - 0x3930)
 class AOakCharacter : public AGbxCharacter
 {
 public:
@@ -4909,103 +4819,103 @@ public:
 	struct FGbxStatusEffectPresentationList       GbxStatusEffectPresentationList;                   // 0x6890(0x0138)(Net, NativeAccessSpecifierPrivate)
 	struct FOakStatusEffectModifierData_Character StatusEffectModifierData;                          // 0x69C8(0x0070)(Transient, NativeAccessSpecifierPrivate)
 	struct FOakSkillContainer                     OakSkillContainer;                                 // 0x6A38(0x0320)(Transient, NativeAccessSpecifierPublic)
-	struct FGbxProgressionManager                 GbxProgressionManager;                             // 0x6D58(0x0110)(Net, Transient, RepNotify, NativeAccessSpecifierPublic)
-	struct FOakInventoryAugmentManager            InventoryAugmentManager;                           // 0x6E68(0x0098)(Transient, NativeAccessSpecifierPublic)
-	struct FOakCharacterElementalDamageModifiers  ElementalDamageModifiers;                          // 0x6F00(0x003C)(Transient, NativeAccessSpecifierPublic)
-	uint8                                         Pad_6F3C[0x4];                                     // 0x6F3C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FDownState                             DownState;                                         // 0x6F40(0x0398)(Transient, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	struct FReplicatedDownState                   ReplicatedDownState;                               // 0x72D8(0x0006)(Net, Transient, RepNotify, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	bool                                          bActorSucessfullyRevived;                          // 0x72DE(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_72DF[0x1];                                     // 0x72DF(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	class AOakCharacter*                          ActorBeingRevived;                                 // 0x72E0(0x0008)(Net, ZeroConstructor, Transient, RepNotify, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_72E8[0x8];                                     // 0x72E8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxAttributeInteger                   bCanZoomWhileInjured;                              // 0x72F0(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_72FC[0x4];                                     // 0x72FC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVehicleScriptEvents                   VehicleScriptEvents;                               // 0x7300(0x0030)(ContainsInstancedReference, NativeAccessSpecifierPublic)
-	TWeakObjectPtr<class UVehicleDriverComponent> VehicleDriverComponent;                            // 0x7330(0x0008)(ExportObject, Net, ZeroConstructor, Transient, InstancedReference, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_7338[0x30];                                    // 0x7338(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxAnimSetState                       FirstPersonPhantomAnims;                           // 0x7368(0x0178)(NativeAccessSpecifierPublic)
-	uint8                                         Pad_74E0[0x48];                                    // 0x74E0(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FEquippedInventorySlotsContainer       EquippedInventorySlots;                            // 0x7528(0x0120)(Net, Transient, RepNotify, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_7648[0x108];                                   // 0x7648(0x0108)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FOakHitReactionState                   HitReactionState;                                  // 0x7750(0x0248)(ContainsInstancedReference, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(const struct FOakLiveHitReactionInfo& HitReactionInfo)> OnActorLiveHitReaction; // 0x7998(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	struct FReplicatedDeathHitReactionState       ReplicatedDeathHitReactionState;                   // 0x79A8(0x0048)(Net, RepNotify, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_79F0[0x48];                                    // 0x79F0(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FOakCharacterUINameRepData             UXNameRepData;                                     // 0x7A38(0x0020)(Net, RepNotify, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_7A58[0x60];                                    // 0x7A58(0x0060)(Fixing Size After Last Property [ Dumper-7 ])
-	int8                                          bUseOverheadNameplateOverride;                     // 0x7AB8(0x0001)(Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_7AB9[0x7];                                     // 0x7AB9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FNPCInteractionRepState                NPCInteractionRepState;                            // 0x7AC0(0x01B0)(Net, Transient, RepNotify, Protected, NativeAccessSpecifierProtected)
-	struct FOakMeleeState                         MeleeState;                                        // 0x7C70(0x01B8)(Net, Transient, RepNotify, Protected, NativeAccessSpecifierProtected)
-	bool                                          bCanBeExecuted;                                    // 0x7E28(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_7E29[0x1F];                                    // 0x7E29(0x001F)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(bool NewCanBeExecuted)> OnCanBeExecutedChanged;                    // 0x7E48(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	struct FOakMeleeExecutionState                MeleeExecutionState;                               // 0x7E58(0x000C)(Net, Transient, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_7E64[0x4];                                     // 0x7E64(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bTired;                                            // 0x7E68(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_7E69[0x17];                                    // 0x7E69(0x0017)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGrapplerState                         GrapplerState;                                     // 0x7E80(0x0390)(Net, RepNotify, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	TMulticastInlineDelegate<void(class AActor* Other, const struct FGrappleableTarget& GrappleTarget)> OnGrappledBy; // 0x8210(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class AActor* Other, const struct FGrappleableTarget& GrappleTarget)> OnGrapplerAttached; // 0x8220(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class AActor* Other, const struct FGrappleableTarget& GrappleTarget)> OnGrapplerDetached; // 0x8230(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_8240[0x50];                                    // 0x8240(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGrappleableState                      GrappleableState;                                  // 0x8290(0x0098)(Net, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	TMulticastInlineDelegate<void(class AActor* Carryable)> OnCarry;                                 // 0x8328(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_8338[0x18];                                    // 0x8338(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(class AActor* Carryable)> OnUncarry;                               // 0x8350(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_8360[0x18];                                    // 0x8360(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(class AActor* Carryable)> OnThrow;                                 // 0x8378(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_8388[0x18];                                    // 0x8388(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FCarrierState                          CarrierState;                                      // 0x83A0(0x0080)(Net, RepNotify, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_8420[0x8];                                     // 0x8420(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FZoomHandlerState                      ZoomState;                                         // 0x8428(0x0048)(Protected, NativeAccessSpecifierProtected)
-	struct FRepZoomHandlerState                   ReplicatedZoomState;                               // 0x8470(0x0002)(Net, Transient, RepNotify, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_8472[0x6];                                     // 0x8472(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(class AOakPlayerController* OakPlayerController)> OnPuppetBegin;   // 0x8478(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class AOakPlayerController* OakPlayerController)> OnPuppetEnd;     // 0x8488(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_8498[0x18];                                    // 0x8498(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(class AActor* SkillUser, class AActor* PossessedActor)> OnSkillPossessionBeginBP; // 0x84B0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_84C0[0x18];                                    // 0x84C0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FOakHauntedState                       HauntedMutex;                                      // 0x84D8(0x0010)(Net, RepNotify, NoDestructor, NativeAccessSpecifierPrivate)
-	bool                                          bIsEntangled;                                      // 0x84E8(0x0001)(Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_84E9[0x3];                                     // 0x84E9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         ReplicatedPlayerStats[0x14];                       // 0x84EC(0x0004)(Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_853C[0x54];                                    // 0x853C(0x0054)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FCoverUserState                        CoverUserState;                                    // 0x8590(0x04D8)(Net, Transient, RepNotify, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	TMulticastInlineDelegate<void()>              OnDestroyManagedActor;                             // 0x8A68(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
-	struct FCinematicViewConsumerState            CinematicViewConsumerState;                        // 0x8A78(0x0018)(Net, Transient, RepNotify, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	struct FOakIntrinsicElementState              IntrinsicElementState;                             // 0x8A90(0x0060)(Transient, ContainsInstancedReference, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_8AF0[0x118];                                   // 0x8AF0(0x0118)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FOakAICloakState                       AICloakState;                                      // 0x8C08(0x0240)(Net, Transient, RepNotify, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	bool                                          bWaitingForSpawnTrick;                             // 0x8E48(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_8E49[0xF];                                     // 0x8E49(0x000F)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FAITargetLockUserState                 AITargetLockUserState;                             // 0x8E58(0x0088)(Transient, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	struct FAITargetLockState                     AITargetLockState;                                 // 0x8EE0(0x0060)(Net, Transient, RepNotify, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	struct FOakGoreState                          GoreState;                                         // 0x8F40(0x0498)(Net, Transient, RepNotify, ContainsInstancedReference, NativeAccessSpecifierPrivate)
-	struct FOakTraitContainer                     OakTraitContainer;                                 // 0x93D8(0x0040)(Net, RepNotify, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_9418[0x30];                                    // 0x9418(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxInlineStruct                       StructuredInteractableState;                       // 0x9448(0x0018)(Transient, Protected, NativeAccessSpecifierProtected)
-	TMulticastInlineDelegate<void(class AOakPlayerController* OakPC)> OnBeginInteraction;            // 0x9460(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
-	TMulticastInlineDelegate<void(class AOakPlayerController* OakPC)> OnEndInteraction;              // 0x9470(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
-	TMulticastInlineDelegate<void()>              OnBossReset;                                       // 0x9480(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9490[0x80];                                    // 0x9490(0x0080)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxAttributeFloat                     OverkillThresholdScalar;                           // 0x9510(0x000C)(Edit, BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, EditConst, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_951C[0x4];                                     // 0x951C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FOakOrderRewindState                   OrderRewindState;                                  // 0x9520(0x00C0)(Net, Transient, RepNotify, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_95E0[0x8];                                     // 0x95E0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxAttributeFloat                     ammoregenrate;                                     // 0x95E8(0x000C)(ZeroConstructor, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_95F4[0xC];                                     // 0x95F4(0x000C)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxLock                               AllowForcedGadgetUse;                              // 0x9600(0x0028)(Net, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FReplicatedFreezeState                 ReplicatedFreezeState;                             // 0x9628(0x0002)(Net, Transient, RepNotify, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_962A[0x6];                                     // 0x962A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FOakFreezeState                        FreezeState;                                       // 0x9630(0x0100)(Transient, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_9730[0x40];                                    // 0x9730(0x0040)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(EOakCharacterMovementRejectableMove MovementType, EOakCharacterMovementMoveRejectionReason RejectionReason)> OnMoveRejected; // 0x9770(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TWeakObjectPtr<class UNiagaraComponent>       NiagaraComp_WorldRTEffect;                         // 0x9780(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	TWeakObjectPtr<class UNiagaraComponent>       NiagaraComp_WorldRTManager;                        // 0x9788(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	TWeakObjectPtr<class UMaterialParameterCollection> WorldMPC;                                     // 0x9790(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_9798[0x8];                                     // 0x9798(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FGbxProgressionManager                 GbxProgressionManager;                             // 0x6D58(0x0128)(Net, Transient, RepNotify, NativeAccessSpecifierPublic)
+	struct FOakInventoryAugmentManager            InventoryAugmentManager;                           // 0x6E80(0x0098)(Transient, NativeAccessSpecifierPublic)
+	struct FOakCharacterElementalDamageModifiers  ElementalDamageModifiers;                          // 0x6F18(0x003C)(Transient, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6F54[0x4];                                     // 0x6F54(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FDownState                             DownState;                                         // 0x6F58(0x0398)(Transient, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	struct FReplicatedDownState                   ReplicatedDownState;                               // 0x72F0(0x0006)(Net, Transient, RepNotify, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	bool                                          bActorSucessfullyRevived;                          // 0x72F6(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_72F7[0x1];                                     // 0x72F7(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	class AOakCharacter*                          ActorBeingRevived;                                 // 0x72F8(0x0008)(Net, ZeroConstructor, Transient, RepNotify, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_7300[0x8];                                     // 0x7300(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxAttributeInteger                   bCanZoomWhileInjured;                              // 0x7308(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_7314[0x4];                                     // 0x7314(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVehicleScriptEvents                   VehicleScriptEvents;                               // 0x7318(0x0030)(ContainsInstancedReference, NativeAccessSpecifierPublic)
+	TWeakObjectPtr<class UVehicleDriverComponent> VehicleDriverComponent;                            // 0x7348(0x0008)(ExportObject, Net, ZeroConstructor, Transient, InstancedReference, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_7350[0x30];                                    // 0x7350(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxAnimSetState                       FirstPersonPhantomAnims;                           // 0x7380(0x0178)(NativeAccessSpecifierPublic)
+	uint8                                         Pad_74F8[0x48];                                    // 0x74F8(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FEquippedInventorySlotsContainer       EquippedInventorySlots;                            // 0x7540(0x0120)(Net, Transient, RepNotify, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_7660[0x108];                                   // 0x7660(0x0108)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FOakHitReactionState                   HitReactionState;                                  // 0x7768(0x0248)(ContainsInstancedReference, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(const struct FOakLiveHitReactionInfo& HitReactionInfo)> OnActorLiveHitReaction; // 0x79B0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	struct FReplicatedDeathHitReactionState       ReplicatedDeathHitReactionState;                   // 0x79C0(0x0048)(Net, RepNotify, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_7A08[0x48];                                    // 0x7A08(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FOakCharacterUINameRepData             UXNameRepData;                                     // 0x7A50(0x0020)(Net, RepNotify, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_7A70[0x60];                                    // 0x7A70(0x0060)(Fixing Size After Last Property [ Dumper-7 ])
+	int8                                          bUseOverheadNameplateOverride;                     // 0x7AD0(0x0001)(Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_7AD1[0xF];                                     // 0x7AD1(0x000F)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FNPCInteractionRepState                NPCInteractionRepState;                            // 0x7AE0(0x01B0)(Net, Transient, RepNotify, Protected, NativeAccessSpecifierProtected)
+	struct FOakMeleeState                         MeleeState;                                        // 0x7C90(0x01B8)(Net, Transient, RepNotify, Protected, NativeAccessSpecifierProtected)
+	bool                                          bCanBeExecuted;                                    // 0x7E48(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_7E49[0x1F];                                    // 0x7E49(0x001F)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(bool NewCanBeExecuted)> OnCanBeExecutedChanged;                    // 0x7E68(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	struct FOakMeleeExecutionState                MeleeExecutionState;                               // 0x7E78(0x000C)(Net, Transient, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_7E84[0x4];                                     // 0x7E84(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bTired;                                            // 0x7E88(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_7E89[0x17];                                    // 0x7E89(0x0017)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGrapplerState                         GrapplerState;                                     // 0x7EA0(0x0390)(Net, RepNotify, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	TMulticastInlineDelegate<void(class AActor* Other, const struct FGrappleableTarget& GrappleTarget)> OnGrappledBy; // 0x8230(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(class AActor* Other, const struct FGrappleableTarget& GrappleTarget)> OnGrapplerAttached; // 0x8240(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(class AActor* Other, const struct FGrappleableTarget& GrappleTarget)> OnGrapplerDetached; // 0x8250(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_8260[0x50];                                    // 0x8260(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGrappleableState                      GrappleableState;                                  // 0x82B0(0x0098)(Net, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	TMulticastInlineDelegate<void(class AActor* Carryable)> OnCarry;                                 // 0x8348(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_8358[0x18];                                    // 0x8358(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(class AActor* Carryable)> OnUncarry;                               // 0x8370(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_8380[0x18];                                    // 0x8380(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(class AActor* Carryable)> OnThrow;                                 // 0x8398(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_83A8[0x18];                                    // 0x83A8(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FCarrierState                          CarrierState;                                      // 0x83C0(0x0080)(Net, RepNotify, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_8440[0x8];                                     // 0x8440(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FZoomHandlerState                      ZoomState;                                         // 0x8448(0x0048)(Protected, NativeAccessSpecifierProtected)
+	struct FRepZoomHandlerState                   ReplicatedZoomState;                               // 0x8490(0x0002)(Net, Transient, RepNotify, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_8492[0x6];                                     // 0x8492(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(class AOakPlayerController* OakPlayerController)> OnPuppetBegin;   // 0x8498(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(class AOakPlayerController* OakPlayerController)> OnPuppetEnd;     // 0x84A8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_84B8[0x18];                                    // 0x84B8(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(class AActor* SkillUser, class AActor* PossessedActor)> OnSkillPossessionBeginBP; // 0x84D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_84E0[0x18];                                    // 0x84E0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FOakHauntedState                       HauntedMutex;                                      // 0x84F8(0x0010)(Net, RepNotify, NoDestructor, NativeAccessSpecifierPrivate)
+	bool                                          bIsEntangled;                                      // 0x8508(0x0001)(Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_8509[0x3];                                     // 0x8509(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         ReplicatedPlayerStats[0x14];                       // 0x850C(0x0004)(Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_855C[0x54];                                    // 0x855C(0x0054)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FCoverUserState                        CoverUserState;                                    // 0x85B0(0x04D8)(Net, Transient, RepNotify, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	TMulticastInlineDelegate<void()>              OnDestroyManagedActor;                             // 0x8A88(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
+	struct FCinematicViewConsumerState            CinematicViewConsumerState;                        // 0x8A98(0x0018)(Net, Transient, RepNotify, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	struct FOakIntrinsicElementState              IntrinsicElementState;                             // 0x8AB0(0x0060)(Transient, ContainsInstancedReference, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_8B10[0x118];                                   // 0x8B10(0x0118)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FOakAICloakState                       AICloakState;                                      // 0x8C28(0x0240)(Net, Transient, RepNotify, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	bool                                          bWaitingForSpawnTrick;                             // 0x8E68(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_8E69[0xF];                                     // 0x8E69(0x000F)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FAITargetLockUserState                 AITargetLockUserState;                             // 0x8E78(0x0088)(Transient, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	struct FAITargetLockState                     AITargetLockState;                                 // 0x8F00(0x0060)(Net, Transient, RepNotify, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	struct FOakGoreState                          GoreState;                                         // 0x8F60(0x0498)(Net, Transient, RepNotify, ContainsInstancedReference, NativeAccessSpecifierPrivate)
+	struct FOakTraitContainer                     OakTraitContainer;                                 // 0x93F8(0x0040)(Net, RepNotify, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_9438[0x30];                                    // 0x9438(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxInlineStruct                       StructuredInteractableState;                       // 0x9468(0x0018)(Transient, Protected, NativeAccessSpecifierProtected)
+	TMulticastInlineDelegate<void(class AOakPlayerController* OakPC)> OnBeginInteraction;            // 0x9480(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
+	TMulticastInlineDelegate<void(class AOakPlayerController* OakPC)> OnEndInteraction;              // 0x9490(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
+	TMulticastInlineDelegate<void()>              OnBossReset;                                       // 0x94A0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_94B0[0x80];                                    // 0x94B0(0x0080)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxAttributeFloat                     OverkillThresholdScalar;                           // 0x9530(0x000C)(Edit, BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, EditConst, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_953C[0x4];                                     // 0x953C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FOakOrderRewindState                   OrderRewindState;                                  // 0x9540(0x00C0)(Net, Transient, RepNotify, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_9600[0x8];                                     // 0x9600(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxAttributeFloat                     ammoregenrate;                                     // 0x9608(0x000C)(ZeroConstructor, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_9614[0xC];                                     // 0x9614(0x000C)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxLock                               AllowForcedGadgetUse;                              // 0x9620(0x0028)(Net, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FReplicatedFreezeState                 ReplicatedFreezeState;                             // 0x9648(0x0002)(Net, Transient, RepNotify, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_964A[0x6];                                     // 0x964A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FOakFreezeState                        FreezeState;                                       // 0x9650(0x0100)(Transient, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_9750[0x40];                                    // 0x9750(0x0040)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(EOakCharacterMovementRejectableMove MovementType, EOakCharacterMovementMoveRejectionReason RejectionReason)> OnMoveRejected; // 0x9790(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TWeakObjectPtr<class UNiagaraComponent>       NiagaraComp_WorldRTEffect;                         // 0x97A0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	TWeakObjectPtr<class UNiagaraComponent>       NiagaraComp_WorldRTManager;                        // 0x97A8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	TWeakObjectPtr<class UMaterialParameterCollection> WorldMPC;                                     // 0x97B0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_97B8[0x8];                                     // 0x97B8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void AddCharacterCombatStyles(const struct FGameplayTagContainer& CombatStyles);
@@ -5176,6 +5086,7 @@ public:
 	struct FGameplayTag GetCharacterRank() const;
 	struct FGameplayTag GetCharacterSize() const;
 	bool GetSerialNumber(const class FName& InChannel, class FString* OutSerial) const;
+	EOakSwimmingAreaType GetSwimmingAreaType() const;
 	bool InDownState() const;
 	bool IsBeingCaptured() const;
 	bool IsBeingRevived() const;
@@ -5206,32 +5117,8 @@ public:
 };
 DUMPER7_ASSERTS_AOakCharacter;
 
-// Class OakGame.AnimNotify_AICloak
-// 0x0008 (0x0040 - 0x0038)
-class UAnimNotify_AICloak final : public UAnimNotify
-{
-public:
-	bool                                          bCloak;                                            // 0x0038(0x0001)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("AnimNotify_AICloak")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"AnimNotify_AICloak")
-	}
-	static class UAnimNotify_AICloak* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UAnimNotify_AICloak>();
-	}
-};
-DUMPER7_ASSERTS_UAnimNotify_AICloak;
-
 // Class OakGame.OakSkillCharacter
-// 0x0000 (0x97A0 - 0x97A0)
+// 0x0000 (0x97C0 - 0x97C0)
 class AOakSkillCharacter : public AOakCharacter
 {
 public:
@@ -5250,57 +5137,81 @@ public:
 };
 DUMPER7_ASSERTS_AOakSkillCharacter;
 
-// Class OakGame.OakUIScript_CelebratoryNotifications
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_CelebratoryNotifications final : public UGbxUIScript
+// Class OakGame.GrapplePoint
+// 0x0040 (0x2670 - 0x2630)
+class AGrapplePoint : public AGrappleableObject
 {
 public:
-	void AcceptContract(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void AcceptMission(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ActivateMayhemMode(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ActivityComplete(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ActivityDiscovered(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void CollectibleFound(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void CompleteChallenge(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void CompleteContract(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void CompleteMission(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void DeactivateMayhemMode(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void DiscoverLocation(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void EnterLocation(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void NotifyLevelUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void NotifyReachLevel2(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void PressButtonPrompt(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TrackContract(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TrackMission(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void UnlockChallenge(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void UnlockMode(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	bool                                          bSearchForMantleUpDestination;                     // 0x2630(0x0001)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bSearchForDropDownDestination;                     // 0x2631(0x0001)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bOverrideDropDownTrace;                            // 0x2632(0x0001)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_2633[0x1];                                     // 0x2633(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         DropDownTraceDistance;                             // 0x2634(0x0004)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bOverrideDestinationApexDimensions;                // 0x2638(0x0001)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_2639[0x3];                                     // 0x2639(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         DestinationApexDistance;                           // 0x263C(0x0004)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         DestinationApexHeight;                             // 0x2640(0x0004)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bOverrideApexOffset;                               // 0x2644(0x0001)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_2645[0x3];                                     // 0x2645(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         ApexOffset;                                        // 0x2648(0x0004)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bOverrideDestinationLocation;                      // 0x264C(0x0001)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_264D[0x3];                                     // 0x264D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class AActor*                                 OverrideDestinationLocationActor;                  // 0x2650(0x0008)(Edit, ZeroConstructor, DisableEditOnTemplate, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bOverrideMantleUpPushbackDimensions;               // 0x2658(0x0001)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_2659[0x3];                                     // 0x2659(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         PushbackDistance;                                  // 0x265C(0x0004)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         PushbackFloorSearchDistance;                       // 0x2660(0x0004)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_2664[0xC];                                     // 0x2664(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void OnPlayerProxySpawned();
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIScript_CelebratoryNotifications")
+		STATIC_CLASS_IMPL("GrapplePoint")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIScript_CelebratoryNotifications")
+		STATIC_NAME_IMPL(L"GrapplePoint")
 	}
-	static class UOakUIScript_CelebratoryNotifications* GetDefaultObj()
+	static class AGrapplePoint* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIScript_CelebratoryNotifications>();
+		return GetDefaultObjImpl<AGrapplePoint>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIScript_CelebratoryNotifications;
+DUMPER7_ASSERTS_AGrapplePoint;
+
+// Class OakGame.TravelPointCapsuleComponent
+// 0x0000 (0x0650 - 0x0650)
+class UTravelPointCapsuleComponent final : public UCapsuleComponent
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("TravelPointCapsuleComponent")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"TravelPointCapsuleComponent")
+	}
+	static class UTravelPointCapsuleComponent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UTravelPointCapsuleComponent>();
+	}
+};
+DUMPER7_ASSERTS_UTravelPointCapsuleComponent;
 
 // Class OakGame.OakSkillCharacter_PhaseFamiliar
-// 0x0030 (0x97D0 - 0x97A0)
+// 0x0030 (0x97F0 - 0x97C0)
 class AOakSkillCharacter_PhaseFamiliar final : public AOakSkillCharacter
 {
 public:
-	bool                                          bRevealed;                                         // 0x97A0(0x0001)(BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_97A1[0x7];                                     // 0x97A1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGbxActorScript_PhaseFamiliar*          script;                                            // 0x97A8(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	EOakElementalType                             ElementalAttunement;                               // 0x97B0(0x0001)(BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_97B1[0x1F];                                    // 0x97B1(0x001F)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bRevealed;                                         // 0x97C0(0x0001)(BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_97C1[0x7];                                     // 0x97C1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGbxActorScript_PhaseFamiliar*          Script;                                            // 0x97C8(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	EOakElementalType                             ElementalAttunement;                               // 0x97D0(0x0001)(BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_97D1[0x1F];                                    // 0x97D1(0x001F)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void ClientReveal();
@@ -5322,6 +5233,62 @@ public:
 	}
 };
 DUMPER7_ASSERTS_AOakSkillCharacter_PhaseFamiliar;
+
+// Class OakGame.OakActorScript_BioArmor
+// 0x00D0 (0x0170 - 0x00A0)
+class UOakActorScript_BioArmor final : public UGbxActorScript
+{
+public:
+	TMulticastInlineDelegate<void()>              OnBioArmorActivated;                               // 0x00A0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              OnBioArmorDeactivated;                             // 0x00B0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C0[0x1];                                       // 0x00C0(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bActivateArmorOnSpawn;                             // 0x00C1(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bInvulnerableWhenArmored;                          // 0x00C2(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bAutoReactivateAfterDelay;                         // 0x00C3(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bIsAutoReactivationFxInstantaneous;                // 0x00C4(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_C5[0x3];                                       // 0x00C5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         ReactivationDelay;                                 // 0x00C8(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bLockUsabilityWhenArmored;                         // 0x00CC(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bStopAutoReactivationAfterUsed;                    // 0x00CD(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bCanStackSuccessiveDisable;                        // 0x00CE(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_CF[0x1];                                       // 0x00CF(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         ActorDiameterOverride;                             // 0x00D0(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_D4[0x4];                                       // 0x00D4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bUseVFXBeforeDeactivation;                         // 0x00D8(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_D9[0x3];                                       // 0x00D9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	TWeakObjectPtr<class UNiagaraSystem>          VFXBeforeDeactivation;                             // 0x00DC(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_E4[0x1C];                                      // 0x00E4(0x001C)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         TimeForArmorActivation;                            // 0x0100(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_104[0x4];                                      // 0x0104(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FOakPrimitiveDataValue>         CustomPrimitiveDataChangeActivation;               // 0x0108(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_118[0x20];                                     // 0x0118(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         TimeForArmorDeactivation;                          // 0x0138(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_13C[0x4];                                      // 0x013C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FOakPrimitiveDataValue>         CustomPrimitiveDataChangeDeactivation;             // 0x0140(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_150[0x20];                                     // 0x0150(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void BioArmorVFXTransitionDeactivation(class UNiagaraComponent* PSystem);
+	void SetReactivationDelay(float ReactivationDelay_0);
+	bool TryActivateArmor(bool bIsInstantaneous);
+
+	bool IsArmored() const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakActorScript_BioArmor")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakActorScript_BioArmor")
+	}
+	static class UOakActorScript_BioArmor* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakActorScript_BioArmor>();
+	}
+};
+DUMPER7_ASSERTS_UOakActorScript_BioArmor;
 
 // Class OakGame.GbxSkillComponentFunctions_PhaseFamiliar
 // 0x0000 (0x0028 - 0x0028)
@@ -5353,137 +5320,28 @@ public:
 };
 DUMPER7_ASSERTS_UGbxSkillComponentFunctions_PhaseFamiliar;
 
-// Class OakGame.OakBasePlayerController
-// 0x0038 (0x0DA8 - 0x0D70)
-class AOakBasePlayerController : public AGbxPlayerController
+// Class OakGame.OakVehicleStandIn
+// 0x0030 (0x0BC0 - 0x0B90)
+class AOakVehicleStandIn final : public AGbxStandIn
 {
 public:
-	uint8                                         Pad_D70[0x28];                                     // 0x0D70(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxUIViewHandle                       UIViewHandle;                                      // 0x0D98(0x0010)(Transient, NoDestructor, NativeAccessSpecifierPublic)
-
-public:
-	void AddUIViewState(const struct FGameplayTag& InState);
+	uint8                                         Pad_B90[0x30];                                     // 0x0B90(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakBasePlayerController")
+		STATIC_CLASS_IMPL("OakVehicleStandIn")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakBasePlayerController")
+		STATIC_NAME_IMPL(L"OakVehicleStandIn")
 	}
-	static class AOakBasePlayerController* GetDefaultObj()
+	static class AOakVehicleStandIn* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakBasePlayerController>();
+		return GetDefaultObjImpl<AOakVehicleStandIn>();
 	}
 };
-DUMPER7_ASSERTS_AOakBasePlayerController;
-
-// Class OakGame.VaultPowerCheats
-// 0x0038 (0x0060 - 0x0028)
-class UVaultPowerCheats final : public UObject
-{
-public:
-	struct FSToken                                VaultPowerUpgradeFactNames[0x3];                   // 0x0028(0x000C)(Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   EnabledValue;                                      // 0x004C(0x0008)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   DisabledValue;                                     // 0x0054(0x0008)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_5C[0x4];                                       // 0x005C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("VaultPowerCheats")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"VaultPowerCheats")
-	}
-	static class UVaultPowerCheats* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UVaultPowerCheats>();
-	}
-};
-DUMPER7_ASSERTS_UVaultPowerCheats;
-
-// Class OakGame.OakProjectile
-// 0x02F0 (0x1810 - 0x1520)
-class AOakProjectile : public Aprojectile
-{
-public:
-	uint8                                         Pad_1520[0x20];                                    // 0x1520(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         damagemultiplier;                                  // 0x1540(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_1544[0x64];                                    // 0x1544(0x0064)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGrappleableState                      GrappleableState;                                  // 0x15A8(0x0098)(Net, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	bool                                          bGrappleableEnabled;                               // 0x1640(0x0001)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_1641[0x7];                                     // 0x1641(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(class AActor* Grappler, const struct FGrappleableTarget& GrappleTarget)> OnGrappled; // 0x1648(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
-	TMulticastInlineDelegate<void(class AActor* Grappler, const struct FGrappleableTarget& GrappleTarget)> OnGrapplerAttached; // 0x1658(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
-	TMulticastInlineDelegate<void(class AActor* Grappler, const struct FGrappleableTarget& GrappleTarget)> OnGrapplerDetached; // 0x1668(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_1678[0x48];                                    // 0x1678(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FOakIntrinsicElementState              IntrinsicElementState;                             // 0x16C0(0x0060)(Transient, ContainsInstancedReference, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_1720[0xF0];                                    // 0x1720(0x00F0)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void OnActorOverlap(class AActor* OverlappedActor, class AActor* OtherActor);
-	void SetGrappleableEnabled(bool bNewIsEnabled);
-
-	bool IsGrappleableEnabled() const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakProjectile")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakProjectile")
-	}
-	static class AOakProjectile* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakProjectile>();
-	}
-};
-DUMPER7_ASSERTS_AOakProjectile;
-
-// Class OakGame.OakActorScript_Echo4
-// 0x00A8 (0x0148 - 0x00A0)
-class UOakActorScript_Echo4 final : public UGbxActorScript
-{
-public:
-	TMulticastInlineDelegate<void(bool bIsVehicleEchoLocation)> EchoLocationPingStartedBP;           // 0x00A0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(bool bIsVehicleEchoLocation)> EchoLocationPingEndedBP;             // 0x00B0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              RepairStartedBP;                                   // 0x00C0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              RepairStoppedBP;                                   // 0x00D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              PerchFinishedBP;                                   // 0x00E0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              DeployCooldownFinishedBP;                          // 0x00F0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              RepeployRequestedBP;                               // 0x0100(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              Echo4ActionFailedBP;                               // 0x0110(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	class AActor*                                 PerchTarget;                                       // 0x0120(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_128[0x20];                                     // 0x0128(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void ExitPerch();
-	class AActor* GetPerchTarget();
-	void NotifyEchoLocationAnimFinished();
-
-	bool IsDeployedForEchoLocation() const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakActorScript_Echo4")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakActorScript_Echo4")
-	}
-	static class UOakActorScript_Echo4* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakActorScript_Echo4>();
-	}
-};
-DUMPER7_ASSERTS_UOakActorScript_Echo4;
+DUMPER7_ASSERTS_AOakVehicleStandIn;
 
 // Class OakGame.OakSkillProjectile
 // 0x0010 (0x1820 - 0x1810)
@@ -5511,25 +5369,53 @@ public:
 #pragma pack(pop)
 DUMPER7_ASSERTS_AOakSkillProjectile;
 
-// Class OakGame.OakVehicleWheel
-// 0x0000 (0x02E0 - 0x02E0)
-class UOakVehicleWheel final : public UChaosVehicleWheel
+// Class OakGame.NexusConfigStoreFaction
+// 0x0000 (0x0380 - 0x0380)
+class UNexusConfigStoreFaction final : public UNexusConfigStoreBasicDefFlat
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakVehicleWheel")
+		STATIC_CLASS_IMPL("NexusConfigStoreFaction")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakVehicleWheel")
+		STATIC_NAME_IMPL(L"NexusConfigStoreFaction")
 	}
-	static class UOakVehicleWheel* GetDefaultObj()
+	static class UNexusConfigStoreFaction* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakVehicleWheel>();
+		return GetDefaultObjImpl<UNexusConfigStoreFaction>();
 	}
 };
-DUMPER7_ASSERTS_UOakVehicleWheel;
+DUMPER7_ASSERTS_UNexusConfigStoreFaction;
+
+// Class OakGame.OakUIScript_MainMenu
+// 0x0000 (0x0028 - 0x0028)
+class UOakUIScript_MainMenu : public UGbxUIScript
+{
+public:
+	void ContinueCampaign(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void CoopRelinquish(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void DifficultySwapEasy(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void DifficultySwapHard(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void DifficultySwapMedium(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void DifficultySwapVeryHard(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIScript_MainMenu")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIScript_MainMenu")
+	}
+	static class UOakUIScript_MainMenu* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIScript_MainMenu>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIScript_MainMenu;
 
 // Class OakGame.OakSkillProjectile_BunkerBuster
 // 0x0000 (0x1820 - 0x1820)
@@ -5554,6 +5440,36 @@ public:
 	}
 };
 DUMPER7_ASSERTS_AOakSkillProjectile_BunkerBuster;
+
+// Class OakGame.OakAimAssistStrategy
+// 0x0150 (0x0178 - 0x0028)
+class UOakAimAssistStrategy final : public UAimAssistStrategy
+{
+public:
+	class AOakPlayerController*                   OakPlayerController;                               // 0x0028(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_30[0x8];                                       // 0x0030(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class UOakGameInstance*                       OakGameInstance;                                   // 0x0038(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class AActor*                                 AimAssistActor;                                    // 0x0040(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FAimAssistSmoothingProperties          AimAssistSmoothingProperties;                      // 0x0048(0x0020)(Transient, NoDestructor, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_68[0x20];                                      // 0x0068(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	class AActor*                                 CurrentBestTarget;                                 // 0x0088(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_90[0xE8];                                      // 0x0090(0x00E8)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakAimAssistStrategy")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakAimAssistStrategy")
+	}
+	static class UOakAimAssistStrategy* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakAimAssistStrategy>();
+	}
+};
+DUMPER7_ASSERTS_UOakAimAssistStrategy;
 
 // Class OakGame.GbxSkillComponentFunctions_ActionSkill_Exo
 // 0x0000 (0x0028 - 0x0028)
@@ -5581,50 +5497,37 @@ public:
 };
 DUMPER7_ASSERTS_UGbxSkillComponentFunctions_ActionSkill_Exo;
 
-// Class OakGame.NexusConfigStoreGbxSkillTokenStack
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStoreGbxSkillTokenStack final : public UNexusConfigStoreBasic
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NexusConfigStoreGbxSkillTokenStack")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreGbxSkillTokenStack")
-	}
-	static class UNexusConfigStoreGbxSkillTokenStack* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNexusConfigStoreGbxSkillTokenStack>();
-	}
-};
-DUMPER7_ASSERTS_UNexusConfigStoreGbxSkillTokenStack;
-
-// Class OakGame.OakUIScript_MissionAccept
+// Class OakGame.OakUIScript_Global
 // 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_MissionAccept : public UGbxUIScript
+class UOakUIScript_Global : public UGbxUIScript
 {
 public:
-	void MissionAccepted(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void MissionAcceptedAndTracked(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void MissionTracked(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void HoldActionLoop(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void HoldActionStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void HoldActionStop(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SliderDown(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SliderError(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SliderUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void StepperLeft(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void StepperRight(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SwitchOff(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SwitchOn(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIScript_MissionAccept")
+		STATIC_CLASS_IMPL("OakUIScript_Global")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIScript_MissionAccept")
+		STATIC_NAME_IMPL(L"OakUIScript_Global")
 	}
-	static class UOakUIScript_MissionAccept* GetDefaultObj()
+	static class UOakUIScript_Global* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIScript_MissionAccept>();
+		return GetDefaultObjImpl<UOakUIScript_Global>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIScript_MissionAccept;
+DUMPER7_ASSERTS_UOakUIScript_Global;
 
 // Class OakGame.GbxTrickScript_Stasis
 // 0x0010 (0x0050 - 0x0040)
@@ -5655,32 +5558,6 @@ public:
 };
 DUMPER7_ASSERTS_UGbxTrickScript_Stasis;
 
-// Class OakGame.OakAINodeComponent
-// 0x0060 (0x1100 - 0x10A0)
-class UOakAINodeComponent final : public UGbxAINodeComponent
-{
-public:
-	TSoftObjectPtr<class AOakAINode>              NextNodePtr;                                       // 0x10A0(0x0028)(Deprecated, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_10C8[0x18];                                    // 0x10C8(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	FGbxDefPtrProperty_                           UXDisplayName;                                     // 0x10E0(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_10F8[0x8];                                     // 0x10F8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakAINodeComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakAINodeComponent")
-	}
-	static class UOakAINodeComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakAINodeComponent>();
-	}
-};
-DUMPER7_ASSERTS_UOakAINodeComponent;
-
 // Class OakGame.GbxTrickScript_Stasis_Grav
 // 0x0028 (0x0078 - 0x0050)
 class UGbxTrickScript_Stasis_Grav final : public UGbxTrickScript_Stasis
@@ -5709,28 +5586,100 @@ public:
 };
 DUMPER7_ASSERTS_UGbxTrickScript_Stasis_Grav;
 
-// Class OakGame.OakUIScript_ItemInspect
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_ItemInspect final : public UGbxUIScript
+// Class OakGame.OakWeapon
+// 0x0280 (0x1030 - 0x0DB0)
+class AOakWeapon : public AWeapon
 {
 public:
-	void InspectNewItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	uint8                                         Pad_DB0[0x30];                                     // 0x0DB0(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
+	class UInventoryMaterialParamsDataAsset*      ProjectileMaterialParamsAsset;                     // 0x0DE0(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AOakCharacter*                          OwningCharacter;                                   // 0x0DE8(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_DF0[0x12];                                     // 0x0DF0(0x0012)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bHasPistolStock;                                   // 0x0E02(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_E03[0x45];                                     // 0x0E03(0x0045)(Fixing Size After Last Property [ Dumper-7 ])
+	class UInventoryMaterialsDataAsset*           AppliedMaterialAsset;                              // 0x0E48(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UInventoryMaterialParamsDataAsset*      AppliedMaterialParamsAsset;                        // 0x0E50(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_E58[0x8];                                      // 0x0E58(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	EWeaponManufacturerMod                        ManufacturerMod;                                   // 0x0E60(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     ManufacturerModParam1;                             // 0x0E64(0x000C)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     ManufacturerModParam2;                             // 0x0E70(0x000C)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     ManufacturerModParam3;                             // 0x0E7C(0x000C)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_E88[0x18];                                     // 0x0E88(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FOakStatusEffectModifierData_Gear      StatusEffectModifierData;                          // 0x0EA0(0x0040)(Protected, NativeAccessSpecifierProtected)
+	class ACommandRing*                           CommandRing;                                       // 0x0EE0(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FCommandRingTarget                     RemoteCommandRingTarget;                           // 0x0EE8(0x0040)(Transient, NoDestructor, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_F28[0x18];                                     // 0x0F28(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxTrickState                         TrickData;                                         // 0x0F40(0x00F0)(Transient, NativeAccessSpecifierPublic)
+
+public:
+	void ClientReduceWear(uint8 UseModeIndex, float Percent);
+	void ServerSetCommandRingTarget(const struct FCommandRingTarget& target);
+
+	float GetChargePercent() const;
+	int32 GetPartValue(EWeaponPartValue type) const;
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIScript_ItemInspect")
+		STATIC_CLASS_IMPL("OakWeapon")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIScript_ItemInspect")
+		STATIC_NAME_IMPL(L"OakWeapon")
 	}
-	static class UOakUIScript_ItemInspect* GetDefaultObj()
+	static class AOakWeapon* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIScript_ItemInspect>();
+		return GetDefaultObjImpl<AOakWeapon>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIScript_ItemInspect;
+DUMPER7_ASSERTS_AOakWeapon;
+
+// Class OakGame.HeavyWeaponGadget
+// 0x0068 (0x1098 - 0x1030)
+class AHeavyWeaponGadget final : public AOakWeapon
+{
+public:
+	uint8                                         Pad_1030[0x34];                                    // 0x1030(0x0034)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxAttributeFloat                     CooldownTime;                                      // 0x1064(0x000C)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_1070[0xE];                                     // 0x1070(0x000E)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bIsUsing;                                          // 0x107E(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_107F[0x19];                                    // 0x107F(0x0019)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("HeavyWeaponGadget")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"HeavyWeaponGadget")
+	}
+	static class AHeavyWeaponGadget* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AHeavyWeaponGadget>();
+	}
+};
+DUMPER7_ASSERTS_AHeavyWeaponGadget;
+
+// Class OakGame.OakVehicleBodyData
+// 0x0000 (0x0060 - 0x0060)
+class UOakVehicleBodyData final : public UGbxBodyData
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakVehicleBodyData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakVehicleBodyData")
+	}
+	static class UOakVehicleBodyData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakVehicleBodyData>();
+	}
+};
+DUMPER7_ASSERTS_UOakVehicleBodyData;
 
 // Class OakGame.GbxTrick_Stasis
 // 0x0478 (0x0508 - 0x0090)
@@ -5776,6 +5725,26 @@ public:
 };
 DUMPER7_ASSERTS_UGbxTrick_Stasis;
 
+// Class OakGame.NexusConfigStoreCollectible
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStoreCollectible final : public UNexusConfigStoreBasic
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStoreCollectible")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStoreCollectible")
+	}
+	static class UNexusConfigStoreCollectible* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStoreCollectible>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStoreCollectible;
+
 // Class OakGame.GbxTrick_Stasis_Grav
 // 0x0000 (0x0508 - 0x0508)
 class UGbxTrick_Stasis_Grav final : public UGbxTrick_Stasis
@@ -5796,115 +5765,31 @@ public:
 };
 DUMPER7_ASSERTS_UGbxTrick_Stasis_Grav;
 
-// Class OakGame.HoldingStationObjectBodyData
-// 0x0000 (0x0078 - 0x0078)
-class UHoldingStationObjectBodyData final : public UTravelStationObjectBodyData
+// Class OakGame.WaypointSystemDelegateProxy
+// 0x0008 (0x0030 - 0x0028)
+class UWaypointSystemDelegateProxy final : public UObject
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("HoldingStationObjectBodyData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"HoldingStationObjectBodyData")
-	}
-	static class UHoldingStationObjectBodyData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UHoldingStationObjectBodyData>();
-	}
-};
-DUMPER7_ASSERTS_UHoldingStationObjectBodyData;
+	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
-// Class OakGame.OakVehicleWeapon
-// 0x0000 (0x1030 - 0x1030)
-class AOakVehicleWeapon final : public AOakWeapon
-{
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakVehicleWeapon")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakVehicleWeapon")
-	}
-	static class AOakVehicleWeapon* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakVehicleWeapon>();
-	}
-};
-DUMPER7_ASSERTS_AOakVehicleWeapon;
-
-// Class OakGame.OakSkillNetSpecializationComponent
-// 0x0010 (0x0120 - 0x0110)
-class UOakSkillNetSpecializationComponent : public UGbxSkillNetSpecializationComponent
-{
-public:
-	uint8                                         Pad_110[0x10];                                     // 0x0110(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	void OnDataLayerStateChanged(const class UDataLayerInstance* InDataLayer, EDataLayerRuntimeState InState);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakSkillNetSpecializationComponent")
+		STATIC_CLASS_IMPL("WaypointSystemDelegateProxy")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakSkillNetSpecializationComponent")
+		STATIC_NAME_IMPL(L"WaypointSystemDelegateProxy")
 	}
-	static class UOakSkillNetSpecializationComponent* GetDefaultObj()
+	static class UWaypointSystemDelegateProxy* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakSkillNetSpecializationComponent>();
+		return GetDefaultObjImpl<UWaypointSystemDelegateProxy>();
 	}
 };
-DUMPER7_ASSERTS_UOakSkillNetSpecializationComponent;
-
-// Class OakGame.OakControlledMove
-// 0x0008 (0x0C90 - 0x0C88)
-class UOakControlledMove : public UControlledMove
-{
-public:
-	uint8                                         bBlockGroundSlam : 1;                              // 0x0C88(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bSpeedAffectedByCryo : 1;                          // 0x0C88(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bEndGlide : 1;                                     // 0x0C88(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bBlockStatusMenu : 1;                              // 0x0C88(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_C89[0x7];                                      // 0x0C89(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakControlledMove")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakControlledMove")
-	}
-	static class UOakControlledMove* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakControlledMove>();
-	}
-};
-DUMPER7_ASSERTS_UOakControlledMove;
-
-// Class OakGame.OakControlledMove_GroundSlam
-// 0x0000 (0x0C90 - 0x0C90)
-class UOakControlledMove_GroundSlam final : public UOakControlledMove
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakControlledMove_GroundSlam")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakControlledMove_GroundSlam")
-	}
-	static class UOakControlledMove_GroundSlam* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakControlledMove_GroundSlam>();
-	}
-};
-DUMPER7_ASSERTS_UOakControlledMove_GroundSlam;
+DUMPER7_ASSERTS_UWaypointSystemDelegateProxy;
 
 // Class OakGame.GbxSkillNetSpecializationComponent_Gravitar
 // 0x0000 (0x0120 - 0x0120)
@@ -5926,35 +5811,58 @@ public:
 };
 DUMPER7_ASSERTS_UGbxSkillNetSpecializationComponent_Gravitar;
 
-// Class OakGame.OakWeaponStatics
-// 0x0000 (0x0028 - 0x0028)
-class UOakWeaponStatics final : public UWeaponStatics
+// Class OakGame.NexusConfigStoreUICharacterInfo
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStoreUICharacterInfo final : public UNexusConfigStoreBasic
 {
 public:
-	static void AbsorbAmmoToCurrentCharacterWeapon(class UObject* OwnerContext, int32 Amount, bool bAsPercent, bool bAllowForHeavyWeapons);
-	static EOakElementalType GetCurrentElementalType(class AWeapon* Weapon);
-	static EOakElementalType GetElementalType(class AWeapon* Weapon, uint8 UseMode);
-	static void GetWeaponDefinitionOverrideTags(TArray<class FName>* OutNames);
-	static void GiveAmmoToCurrentCharacterWeapon(class UObject* OwnerContext, int32 Amount, bool bLoaded, bool bAsPercent, bool bAllowForHeavyWeapons);
-	static void RefillAmmoForCurrentCharacterWeapon(class UObject* OwnerContext, int32 Amount, bool bAsPercent);
-	static void ReloadAllWeapons(class UObject* OwnerContext, bool bActiveWeaponIncluded);
-	static void ThrowEquippedWeapon(class AActor* WeaponUser, int32 actions, uint8 slot, float DamageOverride, float DamageRadiusOverride, float LifetimeOverride);
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStoreUICharacterInfo")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStoreUICharacterInfo")
+	}
+	static class UNexusConfigStoreUICharacterInfo* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStoreUICharacterInfo>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStoreUICharacterInfo;
+
+// Class OakGame.OakWorldSettings
+// 0x0090 (0x06F8 - 0x0668)
+class AOakWorldSettings final : public AGbxGameWorldSettings
+{
+public:
+	bool                                          bIsMenuLevel;                                      // 0x0668(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_669[0x7];                                      // 0x0669(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	FGbxDefPtrProperty_                           MusicDef;                                          // 0x0670(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           SymphonicAmbienceDef;                              // 0x0688(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAllowPersonalVehicle;                             // 0x06A0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAllowPlayerGlide;                                 // 0x06A1(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bBlockTravel;                                      // 0x06A2(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bBlockMapViewing;                                  // 0x06A3(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6A4[0x4];                                      // 0x06A4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TSoftObjectPtr<class UOakWorldPainterLayer_Spawn> ArmySpawnZones;                                // 0x06A8(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSoftObjectPtr<class UOakWorldPainterLayer_Spawn> CreatureSpawnZones;                            // 0x06D0(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakWeaponStatics")
+		STATIC_CLASS_IMPL("OakWorldSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakWeaponStatics")
+		STATIC_NAME_IMPL(L"OakWorldSettings")
 	}
-	static class UOakWeaponStatics* GetDefaultObj()
+	static class AOakWorldSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakWeaponStatics>();
+		return GetDefaultObjImpl<AOakWorldSettings>();
 	}
 };
-DUMPER7_ASSERTS_UOakWeaponStatics;
+DUMPER7_ASSERTS_AOakWorldSettings;
 
 // Class OakGame.GbxSkillComponentFunctions_Gravitar
 // 0x0000 (0x0028 - 0x0028)
@@ -5981,6 +5889,31 @@ public:
 };
 DUMPER7_ASSERTS_UGbxSkillComponentFunctions_Gravitar;
 
+// Class OakGame.OakAnimSettings
+// 0x0018 (0x0050 - 0x0038)
+class UOakAnimSettings final : public UDeveloperSettings
+{
+public:
+	class FName                                   DefaultSpineBoneName;                              // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   DefaultObjectBoneName;                             // 0x0040(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGameplayTag                           DefaultCombatIdlePose;                             // 0x0048(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakAnimSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakAnimSettings")
+	}
+	static class UOakAnimSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakAnimSettings>();
+	}
+};
+DUMPER7_ASSERTS_UOakAnimSettings;
+
 // Class OakGame.GbxSkillComponentFunctions_ActionSkill_Onslaught
 // 0x0000 (0x0028 - 0x0028)
 class UGbxSkillComponentFunctions_ActionSkill_Onslaught final : public UObject
@@ -6001,45 +5934,30 @@ public:
 };
 DUMPER7_ASSERTS_UGbxSkillComponentFunctions_ActionSkill_Onslaught;
 
-// Class OakGame.NexusConfigStoreProfileDefaultsDisplayDataDefs
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStoreProfileDefaultsDisplayDataDefs final : public UNexusConfigStoreBasic
+// Class OakGame.OakUIScript_MenuTutorial
+// 0x0000 (0x0028 - 0x0028)
+class UOakUIScript_MenuTutorial final : public UGbxUIScript
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NexusConfigStoreProfileDefaultsDisplayDataDefs")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreProfileDefaultsDisplayDataDefs")
-	}
-	static class UNexusConfigStoreProfileDefaultsDisplayDataDefs* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNexusConfigStoreProfileDefaultsDisplayDataDefs>();
-	}
-};
-DUMPER7_ASSERTS_UNexusConfigStoreProfileDefaultsDisplayDataDefs;
+	void OnMenuTutorialSequenceClosed(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void OnMenuTutorialSequenceNext(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void OnMenuTutorialSequenceOpen(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 
-// Class OakGame.PhysicsObjectBodyData
-// 0x0000 (0x0060 - 0x0060)
-class UPhysicsObjectBodyData final : public UOakInteractiveObjectBodyData
-{
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PhysicsObjectBodyData")
+		STATIC_CLASS_IMPL("OakUIScript_MenuTutorial")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PhysicsObjectBodyData")
+		STATIC_NAME_IMPL(L"OakUIScript_MenuTutorial")
 	}
-	static class UPhysicsObjectBodyData* GetDefaultObj()
+	static class UOakUIScript_MenuTutorial* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPhysicsObjectBodyData>();
+		return GetDefaultObjImpl<UOakUIScript_MenuTutorial>();
 	}
 };
-DUMPER7_ASSERTS_UPhysicsObjectBodyData;
+DUMPER7_ASSERTS_UOakUIScript_MenuTutorial;
 
 // Class OakGame.GbxSkillComponentFunctions_ActionSkill_Paladin
 // 0x0000 (0x0028 - 0x0028)
@@ -6070,30 +5988,6 @@ public:
 };
 DUMPER7_ASSERTS_UGbxSkillComponentFunctions_ActionSkill_Paladin;
 
-// Class OakGame.OakAttributeDefinedSummaryLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UOakAttributeDefinedSummaryLibrary final : public UBlueprintFunctionLibrary
-{
-public:
-	static class FString GetSummary_ChanceDefinedValueRow(const struct FChanceDefinedValueRow& Struct);
-	static class FString GetSummary_LootChanceDefinedValueRow(const struct FLootChanceDefinedValueRow& Struct);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakAttributeDefinedSummaryLibrary")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakAttributeDefinedSummaryLibrary")
-	}
-	static class UOakAttributeDefinedSummaryLibrary* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakAttributeDefinedSummaryLibrary>();
-	}
-};
-DUMPER7_ASSERTS_UOakAttributeDefinedSummaryLibrary;
-
 // Class OakGame.GbxSkillComponentFunctions_CharacterLocks
 // 0x0000 (0x0028 - 0x0028)
 class UGbxSkillComponentFunctions_CharacterLocks final : public UObject
@@ -6119,33 +6013,60 @@ public:
 };
 DUMPER7_ASSERTS_UGbxSkillComponentFunctions_CharacterLocks;
 
-// Class OakGame.OakUIScript_MissionTracker
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_MissionTracker final : public UGbxUIScript
+// Class OakGame.OakAIHeldLootableComponent
+// 0x0400 (0x07B0 - 0x03B0)
+class UOakAIHeldLootableComponent final : public UGbxAIHeldActorComponent
 {
 public:
-	void HideObjectives(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void missioncompleted(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void MissionFailed(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ObjectiveCompleted(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ObjectiveFailed(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ShowObjectives(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	uint8                                         Pad_3A8[0x8];                                      // 0x03A8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	FGbxDefPtrProperty_                           LootableDef;                                       // 0x03B0(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bLockOnSpawn;                                      // 0x03C8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bUnlockOnDeath;                                    // 0x03C9(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bDropOnDeath;                                      // 0x03CA(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_3CB[0x5];                                      // 0x03CB(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGpsQueryRunData                       GlobalQueryData;                                   // 0x03D0(0x01E0)(Edit, NativeAccessSpecifierPrivate)
+	struct FGpsQueryRunData                       OverrideQueryData;                                 // 0x05B0(0x01E0)(Edit, NativeAccessSpecifierPrivate)
+	bool                                          bUseOverrideQuery;                                 // 0x0790(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_791[0x1F];                                     // 0x0791(0x001F)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void Lootable_OnPhysicsSleep(class UPrimitiveComponent* Component, class FName BoneName);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIScript_MissionTracker")
+		STATIC_CLASS_IMPL("OakAIHeldLootableComponent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIScript_MissionTracker")
+		STATIC_NAME_IMPL(L"OakAIHeldLootableComponent")
 	}
-	static class UOakUIScript_MissionTracker* GetDefaultObj()
+	static class UOakAIHeldLootableComponent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIScript_MissionTracker>();
+		return GetDefaultObjImpl<UOakAIHeldLootableComponent>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIScript_MissionTracker;
+DUMPER7_ASSERTS_UOakAIHeldLootableComponent;
+
+// Class OakGame.OakVoice
+// 0x0000 (0x0220 - 0x0220)
+class UOakVoice final : public UGbxVoice
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakVoice")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakVoice")
+	}
+	static class UOakVoice* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakVoice>();
+	}
+};
+DUMPER7_ASSERTS_UOakVoice;
 
 // Class OakGame.GbxSkillComponentFunctions_Charges
 // 0x0000 (0x0028 - 0x0028)
@@ -6177,6 +6098,35 @@ public:
 };
 DUMPER7_ASSERTS_UGbxSkillComponentFunctions_Charges;
 
+// Class OakGame.OakUIBaseDataCollector
+// 0x0000 (0x0000 - 0x0000)
+class IOakUIBaseDataCollector final
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIBaseDataCollector")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIBaseDataCollector")
+	}
+	static class IOakUIBaseDataCollector* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<IOakUIBaseDataCollector>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
+	}
+};
+DUMPER7_ASSERTS_IOakUIBaseDataCollector;
+
 // Class OakGame.GbxSkillComponentFunctions_Turret
 // 0x0000 (0x0028 - 0x0028)
 class UGbxSkillComponentFunctions_Turret final : public UObject
@@ -6199,59 +6149,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UGbxSkillComponentFunctions_Turret;
-
-// Class OakGame.OakAimAssistStrategy
-// 0x0150 (0x0178 - 0x0028)
-class UOakAimAssistStrategy final : public UAimAssistStrategy
-{
-public:
-	class AOakPlayerController*                   OakPlayerController;                               // 0x0028(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_30[0x8];                                       // 0x0030(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UOakGameInstance*                       OakGameInstance;                                   // 0x0038(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class AActor*                                 AimAssistActor;                                    // 0x0040(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	struct FAimAssistSmoothingProperties          AimAssistSmoothingProperties;                      // 0x0048(0x0020)(Transient, NoDestructor, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_68[0x20];                                      // 0x0068(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	class AActor*                                 CurrentBestTarget;                                 // 0x0088(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_90[0xE8];                                      // 0x0090(0x00E8)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakAimAssistStrategy")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakAimAssistStrategy")
-	}
-	static class UOakAimAssistStrategy* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakAimAssistStrategy>();
-	}
-};
-DUMPER7_ASSERTS_UOakAimAssistStrategy;
-
-// Class OakGame.OakWeaponPoseData
-// 0x0010 (0x0040 - 0x0030)
-class UOakWeaponPoseData final : public UDataAsset
-{
-public:
-	TArray<struct FOakWeaponPoseOption>           options;                                           // 0x0030(0x0010)(Edit, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakWeaponPoseData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakWeaponPoseData")
-	}
-	static class UOakWeaponPoseData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakWeaponPoseData>();
-	}
-};
-DUMPER7_ASSERTS_UOakWeaponPoseData;
 
 // Class OakGame.OakSkillNetSpecializationComponent_VHE
 // 0x0130 (0x0250 - 0x0120)
@@ -6276,25 +6173,262 @@ public:
 };
 DUMPER7_ASSERTS_UOakSkillNetSpecializationComponent_VHE;
 
-// Class OakGame.OakDroneSubsystem
-// 0x0000 (0x0030 - 0x0030)
-class UOakDroneSubsystem : public USubsystem
+// Class OakGame.NexusConfigStore_OakTraitSettings
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStore_OakTraitSettings final : public UNexusConfigStoreBasic
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakDroneSubsystem")
+		STATIC_CLASS_IMPL("NexusConfigStore_OakTraitSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakDroneSubsystem")
+		STATIC_NAME_IMPL(L"NexusConfigStore_OakTraitSettings")
 	}
-	static class UOakDroneSubsystem* GetDefaultObj()
+	static class UNexusConfigStore_OakTraitSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakDroneSubsystem>();
+		return GetDefaultObjImpl<UNexusConfigStore_OakTraitSettings>();
 	}
 };
-DUMPER7_ASSERTS_UOakDroneSubsystem;
+DUMPER7_ASSERTS_UNexusConfigStore_OakTraitSettings;
+
+// Class OakGame.GbxSkillNetSpecializationComponent_Exo
+// 0x0000 (0x0250 - 0x0250)
+class UGbxSkillNetSpecializationComponent_Exo final : public UOakSkillNetSpecializationComponent_VHE
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GbxSkillNetSpecializationComponent_Exo")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GbxSkillNetSpecializationComponent_Exo")
+	}
+	static class UGbxSkillNetSpecializationComponent_Exo* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGbxSkillNetSpecializationComponent_Exo>();
+	}
+};
+DUMPER7_ASSERTS_UGbxSkillNetSpecializationComponent_Exo;
+
+// Class OakGame.NexusConfigStoreTrackerObject
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStoreTrackerObject final : public UNexusConfigStoreBasic
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStoreTrackerObject")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStoreTrackerObject")
+	}
+	static class UNexusConfigStoreTrackerObject* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStoreTrackerObject>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStoreTrackerObject;
+
+// Class OakGame.GbxSkillTokenProviderStatics
+// 0x0000 (0x0028 - 0x0028)
+class UGbxSkillTokenProviderStatics final : public UBlueprintFunctionLibrary
+{
+public:
+	static void AddToTokenStack(class UObject* Context, FGameDataHandleProperty_ StackDef, int32 Count);
+	static void ConsumeAll(class UObject* Context, FGameDataHandleProperty_ StackDef);
+	static void ConsumeFromTokenStack(class UObject* Context, FGameDataHandleProperty_ StackDef, int32 Count);
+	static int32 GetCurrentAmount(class UObject* Context, FGameDataHandleProperty_ StackDef);
+	static float GetExpirationDelay(class UObject* Context, FGameDataHandleProperty_ StackDef);
+	static int32 GetMaxAmount(class UObject* Context, FGameDataHandleProperty_ StackDef);
+	static void ResetExpirationDelay(class UObject* Context, FGameDataHandleProperty_ StackDef);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GbxSkillTokenProviderStatics")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GbxSkillTokenProviderStatics")
+	}
+	static class UGbxSkillTokenProviderStatics* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGbxSkillTokenProviderStatics>();
+	}
+};
+DUMPER7_ASSERTS_UGbxSkillTokenProviderStatics;
+
+// Class OakGame.GbxTrickAnimNotify_ThrowWeapon
+// 0x0008 (0x0040 - 0x0038)
+class UGbxTrickAnimNotify_ThrowWeapon final : public UGbxTrickAnimNotify
+{
+public:
+	bool                                          bReloadAmmo;                                       // 0x0038(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GbxTrickAnimNotify_ThrowWeapon")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GbxTrickAnimNotify_ThrowWeapon")
+	}
+	static class UGbxTrickAnimNotify_ThrowWeapon* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGbxTrickAnimNotify_ThrowWeapon>();
+	}
+};
+DUMPER7_ASSERTS_UGbxTrickAnimNotify_ThrowWeapon;
+
+// Class OakGame.OakTriggerCapsule
+// 0x0000 (0x05E0 - 0x05E0)
+class AOakTriggerCapsule final : public AGbxTriggerCapsule
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakTriggerCapsule")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakTriggerCapsule")
+	}
+	static class AOakTriggerCapsule* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakTriggerCapsule>();
+	}
+};
+DUMPER7_ASSERTS_AOakTriggerCapsule;
+
+// Class OakGame.GbxTrickScript_AICharge
+// 0x0000 (0x0040 - 0x0040)
+class UGbxTrickScript_AICharge : public UGbxTrickScript
+{
+public:
+	void OnHitWall_Mut(class AActor* Actor);
+	void OnLoop_Mut(class AActor* Actor);
+	void OnLoopRep_Mut(class AActor* Actor);
+	void OnMiss_Mut(class AActor* Actor);
+	void OnReachCliff_Mut(class AActor* Actor);
+	void OnStopForFriendly_Mut(class AActor* Actor);
+	void OnStrike_Mut(class AActor* Actor);
+
+	void OnHitWall_Const(class AActor* Actor) const;
+	void OnLoop_Const(class AActor* Actor) const;
+	void OnLoopRep_Const(class AActor* Actor) const;
+	void OnMiss_Const(class AActor* Actor) const;
+	void OnReachCliff_Const(class AActor* Actor) const;
+	void OnStopForFriendly_Const(class AActor* Actor) const;
+	void OnStrike_Const(class AActor* Actor) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GbxTrickScript_AICharge")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GbxTrickScript_AICharge")
+	}
+	static class UGbxTrickScript_AICharge* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGbxTrickScript_AICharge>();
+	}
+};
+DUMPER7_ASSERTS_UGbxTrickScript_AICharge;
+
+// Class OakGame.OakVehicleSubsystem
+// 0x0000 (0x0030 - 0x0030)
+class UOakVehicleSubsystem : public USubsystem
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakVehicleSubsystem")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakVehicleSubsystem")
+	}
+	static class UOakVehicleSubsystem* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakVehicleSubsystem>();
+	}
+};
+DUMPER7_ASSERTS_UOakVehicleSubsystem;
+
+// Class OakGame.OakUIBaseDataCollector_Vehicle
+// 0x0018 (0x0048 - 0x0030)
+class UOakUIBaseDataCollector_Vehicle : public UOakVehicleSubsystem
+{
+public:
+	uint8                                         Pad_30[0x18];                                      // 0x0030(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIBaseDataCollector_Vehicle")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIBaseDataCollector_Vehicle")
+	}
+	static class UOakUIBaseDataCollector_Vehicle* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIBaseDataCollector_Vehicle>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIBaseDataCollector_Vehicle;
+
+// Class OakGame.GbxTrickScript_AISwoop
+// 0x0000 (0x0040 - 0x0040)
+class UGbxTrickScript_AISwoop final : public UGbxTrickScript_AICharge
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GbxTrickScript_AISwoop")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GbxTrickScript_AISwoop")
+	}
+	static class UGbxTrickScript_AISwoop* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGbxTrickScript_AISwoop>();
+	}
+};
+DUMPER7_ASSERTS_UGbxTrickScript_AISwoop;
+
+// Class OakGame.GbxTrick_AISwoop
+// 0x0020 (0x0150 - 0x0130)
+class UGbxTrick_AISwoop final : public UGbxTrick_AICharge
+{
+public:
+	TArray<struct FGbxTrickAnimRandomData>        Loop;                                              // 0x0130(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<struct FGbxTrickAnimRandomData>        Stop;                                              // 0x0140(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GbxTrick_AISwoop")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GbxTrick_AISwoop")
+	}
+	static class UGbxTrick_AISwoop* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGbxTrick_AISwoop>();
+	}
+};
+DUMPER7_ASSERTS_UGbxTrick_AISwoop;
 
 // Class OakGame.OakUIBaseDataCollector_Drone
 // 0x0018 (0x0048 - 0x0030)
@@ -6319,48 +6453,28 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIBaseDataCollector_Drone;
 
-// Class OakGame.GbxSkillNetSpecializationComponent_Exo
-// 0x0000 (0x0250 - 0x0250)
-class UGbxSkillNetSpecializationComponent_Exo final : public UOakSkillNetSpecializationComponent_VHE
+// Class OakGame.GbxTrickScript_AITargetLock
+// 0x0000 (0x0040 - 0x0040)
+class UGbxTrickScript_AITargetLock final : public UGbxTrickScript_Loop
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GbxSkillNetSpecializationComponent_Exo")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GbxSkillNetSpecializationComponent_Exo")
-	}
-	static class UGbxSkillNetSpecializationComponent_Exo* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGbxSkillNetSpecializationComponent_Exo>();
-	}
-};
-DUMPER7_ASSERTS_UGbxSkillNetSpecializationComponent_Exo;
-
-// Class OakGame.GbxSkillNetSpecializationComponent_Paladin
-// 0x0138 (0x0258 - 0x0120)
-class UGbxSkillNetSpecializationComponent_Paladin final : public UOakSkillNetSpecializationComponent
-{
-public:
-	struct FOakSpecializationComponent_Paladin_PrimedEnemyList PrimedEnemyList;                      // 0x0120(0x0138)(Net, ContainsInstancedReference, NativeAccessSpecifierPrivate)
+	void OnTargetLockEnded(class AActor* Actor, EAITargetLockExitReason reason);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("GbxSkillNetSpecializationComponent_Paladin")
+		STATIC_CLASS_IMPL("GbxTrickScript_AITargetLock")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"GbxSkillNetSpecializationComponent_Paladin")
+		STATIC_NAME_IMPL(L"GbxTrickScript_AITargetLock")
 	}
-	static class UGbxSkillNetSpecializationComponent_Paladin* GetDefaultObj()
+	static class UGbxTrickScript_AITargetLock* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UGbxSkillNetSpecializationComponent_Paladin>();
+		return GetDefaultObjImpl<UGbxTrickScript_AITargetLock>();
 	}
 };
-DUMPER7_ASSERTS_UGbxSkillNetSpecializationComponent_Paladin;
+DUMPER7_ASSERTS_UGbxTrickScript_AITargetLock;
 
 // Class OakGame.OakTrickOptions
 // 0x0060 (0x0270 - 0x0210)
@@ -6421,234 +6535,6 @@ public:
 };
 DUMPER7_ASSERTS_UOakTrickOptions;
 
-// Class OakGame.GbxSkillTokenProviderStatics
-// 0x0000 (0x0028 - 0x0028)
-class UGbxSkillTokenProviderStatics final : public UBlueprintFunctionLibrary
-{
-public:
-	static void AddToTokenStack(class UObject* Context, FGameDataHandleProperty_ StackDef, int32 Count);
-	static void ConsumeAll(class UObject* Context, FGameDataHandleProperty_ StackDef);
-	static void ConsumeFromTokenStack(class UObject* Context, FGameDataHandleProperty_ StackDef, int32 Count);
-	static int32 GetCurrentAmount(class UObject* Context, FGameDataHandleProperty_ StackDef);
-	static float GetExpirationDelay(class UObject* Context, FGameDataHandleProperty_ StackDef);
-	static int32 GetMaxAmount(class UObject* Context, FGameDataHandleProperty_ StackDef);
-	static void ResetExpirationDelay(class UObject* Context, FGameDataHandleProperty_ StackDef);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GbxSkillTokenProviderStatics")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GbxSkillTokenProviderStatics")
-	}
-	static class UGbxSkillTokenProviderStatics* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGbxSkillTokenProviderStatics>();
-	}
-};
-DUMPER7_ASSERTS_UGbxSkillTokenProviderStatics;
-
-// Class OakGame.NexusConfigStore_OakTrait
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStore_OakTrait final : public UNexusConfigStoreBasic
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NexusConfigStore_OakTrait")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NexusConfigStore_OakTrait")
-	}
-	static class UNexusConfigStore_OakTrait* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNexusConfigStore_OakTrait>();
-	}
-};
-DUMPER7_ASSERTS_UNexusConfigStore_OakTrait;
-
-// Class OakGame.GbxTrickScript_AICharge
-// 0x0000 (0x0040 - 0x0040)
-class UGbxTrickScript_AICharge : public UGbxTrickScript
-{
-public:
-	void OnHitWall_Mut(class AActor* Actor);
-	void OnLoop_Mut(class AActor* Actor);
-	void OnLoopRep_Mut(class AActor* Actor);
-	void OnMiss_Mut(class AActor* Actor);
-	void OnReachCliff_Mut(class AActor* Actor);
-	void OnStopForFriendly_Mut(class AActor* Actor);
-	void OnStrike_Mut(class AActor* Actor);
-
-	void OnHitWall_Const(class AActor* Actor) const;
-	void OnLoop_Const(class AActor* Actor) const;
-	void OnLoopRep_Const(class AActor* Actor) const;
-	void OnMiss_Const(class AActor* Actor) const;
-	void OnReachCliff_Const(class AActor* Actor) const;
-	void OnStopForFriendly_Const(class AActor* Actor) const;
-	void OnStrike_Const(class AActor* Actor) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GbxTrickScript_AICharge")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GbxTrickScript_AICharge")
-	}
-	static class UGbxTrickScript_AICharge* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGbxTrickScript_AICharge>();
-	}
-};
-DUMPER7_ASSERTS_UGbxTrickScript_AICharge;
-
-// Class OakGame.OakUIBaseDataCollector
-// 0x0000 (0x0000 - 0x0000)
-class IOakUIBaseDataCollector final
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIBaseDataCollector")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIBaseDataCollector")
-	}
-	static class IOakUIBaseDataCollector* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<IOakUIBaseDataCollector>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
-	}
-};
-DUMPER7_ASSERTS_IOakUIBaseDataCollector;
-
-// Class OakGame.GbxTrickScript_AISwoop
-// 0x0000 (0x0040 - 0x0040)
-class UGbxTrickScript_AISwoop final : public UGbxTrickScript_AICharge
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GbxTrickScript_AISwoop")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GbxTrickScript_AISwoop")
-	}
-	static class UGbxTrickScript_AISwoop* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGbxTrickScript_AISwoop>();
-	}
-};
-DUMPER7_ASSERTS_UGbxTrickScript_AISwoop;
-
-// Class OakGame.GbxTrickScript_AITargetLock
-// 0x0000 (0x0040 - 0x0040)
-class UGbxTrickScript_AITargetLock final : public UGbxTrickScript_Loop
-{
-public:
-	void OnTargetLockEnded(class AActor* Actor, EAITargetLockExitReason reason);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GbxTrickScript_AITargetLock")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GbxTrickScript_AITargetLock")
-	}
-	static class UGbxTrickScript_AITargetLock* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGbxTrickScript_AITargetLock>();
-	}
-};
-DUMPER7_ASSERTS_UGbxTrickScript_AITargetLock;
-
-// Class OakGame.GbxTrick_AITargetLock
-// 0x0068 (0x04A0 - 0x0438)
-class UGbxTrick_AITargetLock final : public UGbxTrick_Loop
-{
-public:
-	bool                                          bApplyTargetLockOnStartEnd;                        // 0x0438(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_439[0x7];                                      // 0x0439(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxAttributeInit                      LockTimer;                                         // 0x0440(0x0050)(Edit, NoDestructor, NativeAccessSpecifierPrivate)
-	struct FGbxBlackboardEntryRef                 LockResultKey;                                     // 0x0490(0x000C)(Edit, NoDestructor, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_49C[0x4];                                      // 0x049C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GbxTrick_AITargetLock")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GbxTrick_AITargetLock")
-	}
-	static class UGbxTrick_AITargetLock* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGbxTrick_AITargetLock>();
-	}
-};
-DUMPER7_ASSERTS_UGbxTrick_AITargetLock;
-
-// Class OakGame.OakPlayerControllerSubsystem
-// 0x0000 (0x0030 - 0x0030)
-class UOakPlayerControllerSubsystem : public USubsystem
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakPlayerControllerSubsystem")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakPlayerControllerSubsystem")
-	}
-	static class UOakPlayerControllerSubsystem* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakPlayerControllerSubsystem>();
-	}
-};
-DUMPER7_ASSERTS_UOakPlayerControllerSubsystem;
-
-// Class OakGame.OakUIBaseDataCollector_PlayerController
-// 0x0018 (0x0048 - 0x0030)
-class UOakUIBaseDataCollector_PlayerController : public UOakPlayerControllerSubsystem
-{
-public:
-	uint8                                         Pad_30[0x18];                                      // 0x0030(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIBaseDataCollector_PlayerController")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIBaseDataCollector_PlayerController")
-	}
-	static class UOakUIBaseDataCollector_PlayerController* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUIBaseDataCollector_PlayerController>();
-	}
-};
-DUMPER7_ASSERTS_UOakUIBaseDataCollector_PlayerController;
-
 // Class OakGame.GbxTrick_ElementalHitReaction
 // 0x0018 (0x00E8 - 0x00D0)
 class UGbxTrick_ElementalHitReaction final : public UGbxTrick_AnimBase
@@ -6671,190 +6557,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UGbxTrick_ElementalHitReaction;
-
-// Class OakGame.OakTriggerCapsule
-// 0x0000 (0x05E0 - 0x05E0)
-class AOakTriggerCapsule final : public AGbxTriggerCapsule
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakTriggerCapsule")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakTriggerCapsule")
-	}
-	static class AOakTriggerCapsule* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakTriggerCapsule>();
-	}
-};
-DUMPER7_ASSERTS_AOakTriggerCapsule;
-
-// Class OakGame.GbxTrick_OakLeap
-// 0x0050 (0x0518 - 0x04C8)
-class UGbxTrick_OakLeap final : public UGbxTrick_Leap
-{
-public:
-	TMap<ELiveHitReaction, ELiveHitReaction>      HitReactionOverrides;                              // 0x04C8(0x0050)(Edit, NativeAccessSpecifierPrivate)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GbxTrick_OakLeap")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GbxTrick_OakLeap")
-	}
-	static class UGbxTrick_OakLeap* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGbxTrick_OakLeap>();
-	}
-};
-DUMPER7_ASSERTS_UGbxTrick_OakLeap;
-
-// Class OakGame.OakVehicleSubsystem
-// 0x0000 (0x0030 - 0x0030)
-class UOakVehicleSubsystem : public USubsystem
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakVehicleSubsystem")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakVehicleSubsystem")
-	}
-	static class UOakVehicleSubsystem* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakVehicleSubsystem>();
-	}
-};
-DUMPER7_ASSERTS_UOakVehicleSubsystem;
-
-// Class OakGame.OakUIBaseDataCollector_Vehicle
-// 0x0018 (0x0048 - 0x0030)
-class UOakUIBaseDataCollector_Vehicle : public UOakVehicleSubsystem
-{
-public:
-	uint8                                         Pad_30[0x18];                                      // 0x0030(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIBaseDataCollector_Vehicle")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIBaseDataCollector_Vehicle")
-	}
-	static class UOakUIBaseDataCollector_Vehicle* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUIBaseDataCollector_Vehicle>();
-	}
-};
-DUMPER7_ASSERTS_UOakUIBaseDataCollector_Vehicle;
-
-// Class OakGame.OakStasisBlueprintLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UOakStasisBlueprintLibrary final : public UBlueprintFunctionLibrary
-{
-public:
-	static void End(class AActor* target);
-	static void Fling(class AActor* target, const struct FVector& TargetLocation, TDelegate<void(class AActor* target)> OnEnd);
-	static void Hold(class AActor* target, class UGbxTrick_Stasis* Trick, const struct FVector& HoldLocation, float SpeedModifier);
-	static void Hold_WithOnHoldTargetReachedDelegate(class AActor* target, class UGbxTrick_Stasis* Trick, const struct FVector& HoldLocation, TDelegate<void(class AActor* target)> OnHoldTargetReached, float SpeedModifier);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakStasisBlueprintLibrary")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakStasisBlueprintLibrary")
-	}
-	static class UOakStasisBlueprintLibrary* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakStasisBlueprintLibrary>();
-	}
-};
-DUMPER7_ASSERTS_UOakStasisBlueprintLibrary;
-
-// Class OakGame.GrappleableObjectBodyData
-// 0x0000 (0x0060 - 0x0060)
-class UGrappleableObjectBodyData final : public UOakInteractiveObjectBodyData
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GrappleableObjectBodyData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GrappleableObjectBodyData")
-	}
-	static class UGrappleableObjectBodyData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGrappleableObjectBodyData>();
-	}
-};
-DUMPER7_ASSERTS_UGrappleableObjectBodyData;
-
-// Class OakGame.GrappleInteractable
-// 0x0010 (0x2640 - 0x2630)
-class AGrappleInteractable final : public AGrappleableObject
-{
-public:
-	uint8                                         Pad_2630[0x10];                                    // 0x2630(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GrappleInteractable")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GrappleInteractable")
-	}
-	static class AGrappleInteractable* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AGrappleInteractable>();
-	}
-};
-DUMPER7_ASSERTS_AGrappleInteractable;
-
-// Class OakGame.Grappleable
-// 0x0000 (0x0000 - 0x0000)
-class IGrappleable final
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("Grappleable")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"Grappleable")
-	}
-	static class IGrappleable* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<IGrappleable>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
-	}
-};
-DUMPER7_ASSERTS_IGrappleable;
 
 // Class OakGame.OakVehicle
 // 0x2108 (0x2540 - 0x0438)
@@ -6958,6 +6660,164 @@ public:
 	}
 };
 DUMPER7_ASSERTS_AOakVehicle;
+
+// Class OakGame.GbxTrick_OakLeap
+// 0x0050 (0x0518 - 0x04C8)
+class UGbxTrick_OakLeap final : public UGbxTrick_Leap
+{
+public:
+	TMap<ELiveHitReaction, ELiveHitReaction>      HitReactionOverrides;                              // 0x04C8(0x0050)(Edit, NativeAccessSpecifierPrivate)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GbxTrick_OakLeap")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GbxTrick_OakLeap")
+	}
+	static class UGbxTrick_OakLeap* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGbxTrick_OakLeap>();
+	}
+};
+DUMPER7_ASSERTS_UGbxTrick_OakLeap;
+
+// Class OakGame.OakStasisBlueprintLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UOakStasisBlueprintLibrary final : public UBlueprintFunctionLibrary
+{
+public:
+	static void End(class AActor* target);
+	static void Fling(class AActor* target, const struct FVector& TargetLocation, TDelegate<void(class AActor* target)> OnEnd);
+	static void Hold(class AActor* target, class UGbxTrick_Stasis* Trick, const struct FVector& HoldLocation, float SpeedModifier);
+	static void Hold_WithOnHoldTargetReachedDelegate(class AActor* target, class UGbxTrick_Stasis* Trick, const struct FVector& HoldLocation, TDelegate<void(class AActor* target)> OnHoldTargetReached, float SpeedModifier);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakStasisBlueprintLibrary")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakStasisBlueprintLibrary")
+	}
+	static class UOakStasisBlueprintLibrary* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakStasisBlueprintLibrary>();
+	}
+};
+DUMPER7_ASSERTS_UOakStasisBlueprintLibrary;
+
+// Class OakGame.GrappleableObjectBodyData
+// 0x0000 (0x0060 - 0x0060)
+class UGrappleableObjectBodyData final : public UOakInteractiveObjectBodyData
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GrappleableObjectBodyData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GrappleableObjectBodyData")
+	}
+	static class UGrappleableObjectBodyData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGrappleableObjectBodyData>();
+	}
+};
+DUMPER7_ASSERTS_UGrappleableObjectBodyData;
+
+// Class OakGame.GrappleGrate
+// 0x0010 (0x2640 - 0x2630)
+class AGrappleGrate final : public AGrappleableObject
+{
+public:
+	uint8                                         Pad_2630[0x10];                                    // 0x2630(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GrappleGrate")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GrappleGrate")
+	}
+	static class AGrappleGrate* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AGrappleGrate>();
+	}
+};
+DUMPER7_ASSERTS_AGrappleGrate;
+
+// Class OakGame.OakPlayerControllerSubsystem
+// 0x0000 (0x0030 - 0x0030)
+class UOakPlayerControllerSubsystem : public USubsystem
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakPlayerControllerSubsystem")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakPlayerControllerSubsystem")
+	}
+	static class UOakPlayerControllerSubsystem* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakPlayerControllerSubsystem>();
+	}
+};
+DUMPER7_ASSERTS_UOakPlayerControllerSubsystem;
+
+// Class OakGame.OakUIBaseDataCollector_PlayerController
+// 0x0018 (0x0048 - 0x0030)
+class UOakUIBaseDataCollector_PlayerController : public UOakPlayerControllerSubsystem
+{
+public:
+	uint8                                         Pad_30[0x18];                                      // 0x0030(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIBaseDataCollector_PlayerController")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIBaseDataCollector_PlayerController")
+	}
+	static class UOakUIBaseDataCollector_PlayerController* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIBaseDataCollector_PlayerController>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIBaseDataCollector_PlayerController;
+
+// Class OakGame.GrappleInteractable
+// 0x0010 (0x2640 - 0x2630)
+class AGrappleInteractable final : public AGrappleableObject
+{
+public:
+	uint8                                         Pad_2630[0x10];                                    // 0x2630(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GrappleInteractable")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GrappleInteractable")
+	}
+	static class AGrappleInteractable* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AGrappleInteractable>();
+	}
+};
+DUMPER7_ASSERTS_AGrappleInteractable;
 
 // Class OakGame.Grappler
 // 0x0000 (0x0000 - 0x0000)
@@ -7086,7 +6946,8 @@ public:
 	struct FOakUIStatusMenuManager                UIStatusMenuManager;                               // 0x3B98(0x0030)(Transient, NativeAccessSpecifierPublic)
 	uint8                                         Pad_3BC8[0x98];                                    // 0x3BC8(0x0098)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FOakBossState                          BossState;                                         // 0x3C60(0x0018)(Net, RepNotify, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_3C78[0x88];                                    // 0x3C78(0x0088)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_3C78[0x80];                                    // 0x3C78(0x0080)(Fixing Size After Last Property [ Dumper-7 ])
+	class UVaultCardsManager*                     VaultCardsManager;                                 // 0x3CF8(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 
 public:
 	void CameraTransition(class FName NewMode, class FName Transition, float BlendTimeOverride, bool bTeleport, bool bForceResetMode);
@@ -7213,42 +7074,38 @@ public:
 };
 DUMPER7_ASSERTS_AOakPlayerController;
 
-// Class OakGame.GrenadeGadget
-// 0x0108 (0x0CB8 - 0x0BB0)
-class AGrenadeGadget final : public AInventoryGadget
+// Class OakGame.GrappleTargetingStrategy
+// 0x0148 (0x0170 - 0x0028)
+class UGrappleTargetingStrategy final : public UObject
 {
 public:
-	uint8                                         Pad_BB0[0x48];                                     // 0x0BB0(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxAttributeFloat                     damage;                                            // 0x0BF8(0x000C)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     Radius;                                            // 0x0C04(0x000C)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     FuseTime;                                          // 0x0C10(0x000C)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     force;                                             // 0x0C1C(0x000C)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_C28[0x50];                                     // 0x0C28(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxAttributeFloat                     ProjectileSpeedScale;                              // 0x0C78(0x000C)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     HomingTurnSpeedScale;                              // 0x0C84(0x000C)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     CriticalHitChance;                                 // 0x0C90(0x000C)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_C9C[0x1C];                                     // 0x0C9C(0x001C)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void DetonateGrenades();
-	void ExplodeCallback(const class AActor* projectile);
-	void SpawnGrenade(const struct FSpawnGrenadeOptions& SpawnGrenadeOptions);
+	uint8                                         Pad_28[0x18];                                      // 0x0028(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	class AOakPlayerController*                   OakPlayerController;                               // 0x0040(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_48[0x10];                                      // 0x0048(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGrappleableTargetReference            BestValidTarget;                                   // 0x0058(0x0018)(Transient, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_70[0x20];                                      // 0x0070(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGrappleableTargetReference            BestNonValidTarget;                                // 0x0090(0x0018)(Transient, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bAnyTargetChanged;                                 // 0x00A8(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bValidTargetChanged;                               // 0x00A9(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_AA[0x6];                                       // 0x00AA(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FGrappleableTargetReference>    AvailableTargets;                                  // 0x00B0(0x0010)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_C0[0xB0];                                      // 0x00C0(0x00B0)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("GrenadeGadget")
+		STATIC_CLASS_IMPL("GrappleTargetingStrategy")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"GrenadeGadget")
+		STATIC_NAME_IMPL(L"GrappleTargetingStrategy")
 	}
-	static class AGrenadeGadget* GetDefaultObj()
+	static class UGrappleTargetingStrategy* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AGrenadeGadget>();
+		return GetDefaultObjImpl<UGrappleTargetingStrategy>();
 	}
 };
-DUMPER7_ASSERTS_AGrenadeGadget;
+DUMPER7_ASSERTS_UGrappleTargetingStrategy;
 
 // Class OakGame.HoldingStationObject
 // 0x0220 (0x28B0 - 0x2690)
@@ -7292,6 +7149,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UNexusConfigStoreHoverDriveAttributeSet;
+
+// Class OakGame.NexusConfigStoreHoverDrive
+// 0x0000 (0x0380 - 0x0380)
+class UNexusConfigStoreHoverDrive final : public UNexusConfigStoreBasicDefFlat
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStoreHoverDrive")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStoreHoverDrive")
+	}
+	static class UNexusConfigStoreHoverDrive* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStoreHoverDrive>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStoreHoverDrive;
 
 // Class OakGame.interactivedamageable
 // 0x0020 (0x25D0 - 0x25B0)
@@ -7382,31 +7259,6 @@ public:
 };
 DUMPER7_ASSERTS_AInteractiveItemContainer;
 
-// Class OakGame.InteractiveSwitch
-// 0x0020 (0x25D0 - 0x25B0)
-class AInteractiveSwitch final : public AOakInteractiveObject
-{
-public:
-	uint8                                         Pad_25B0[0x8];                                     // 0x25B0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FInteractiveSwitchTarget>       SwitchTargets;                                     // 0x25B8(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_25C8[0x8];                                     // 0x25C8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InteractiveSwitch")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InteractiveSwitch")
-	}
-	static class AInteractiveSwitch* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AInteractiveSwitch>();
-	}
-};
-DUMPER7_ASSERTS_AInteractiveSwitch;
-
 // Class OakGame.NexusConfigStoreInventoryContainer
 // 0x0000 (0x0390 - 0x0390)
 class UNexusConfigStoreInventoryContainer final : public UNexusConfigStoreBasic
@@ -7455,6 +7307,29 @@ public:
 	}
 };
 DUMPER7_ASSERTS_IInventoryGadgetInterface;
+
+// Class OakGame.InventoryItemBlueprintLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UInventoryItemBlueprintLibrary final : public UBlueprintFunctionLibrary
+{
+public:
+	static class FString GetSummary_InventoryItemSelectionData(const struct FInventoryItemSelectionData& data);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InventoryItemBlueprintLibrary")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InventoryItemBlueprintLibrary")
+	}
+	static class UInventoryItemBlueprintLibrary* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInventoryItemBlueprintLibrary>();
+	}
+};
+DUMPER7_ASSERTS_UInventoryItemBlueprintLibrary;
 
 // Class OakGame.StructuredInteractable
 // 0x0000 (0x0000 - 0x0000)
@@ -7580,7 +7455,7 @@ public:
 DUMPER7_ASSERTS_AJumpPad;
 
 // Class OakGame.JumpPadRenderingComponent
-// 0x0000 (0x0650 - 0x0650)
+// 0x0000 (0x0670 - 0x0670)
 class UJumpPadRenderingComponent final : public UDebugDrawComponent
 {
 public:
@@ -7598,45 +7473,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UJumpPadRenderingComponent;
-
-// Class OakGame.LevelTravelStationObject
-// 0x0340 (0x29D0 - 0x2690)
-class ALevelTravelStationObject final : public ATravelStationObject
-{
-public:
-	uint8                                         Pad_2690[0x268];                                   // 0x2690(0x0268)(Fixing Size After Last Property [ Dumper-7 ])
-	class UStaticMeshComponent*                   LevelTravelPlane;                                  // 0x28F8(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UOakUILabelWidgetComponent*             StationLabelComponent;                             // 0x2900(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bVaultTrackingEnabled;                             // 0x2908(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_2909[0x7];                                     // 0x2909(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	FGameDataHandleProperty_                      TrackerObjectLocationData;                         // 0x2910(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	EOakTrackerObjectIconType                     IconType;                                          // 0x2928(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bIsTrackableByDefault;                             // 0x292C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bDiscoveredByProximity;                            // 0x292D(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_292E[0x2];                                     // 0x292E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                ActivationCenter;                                  // 0x2930(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FOakTrackerRangeSettings               TrackerRangeSettings;                              // 0x2948(0x0010)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	FGbxDefPtrProperty_                           DiscoveryType;                                     // 0x2958(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	FGbxDefPtrProperty_                           AssociatedVaultTrackerDiscoveryChallenge;          // 0x2970(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	FGbxDefPtrProperty_                           AssociatedVaultTrackerEnabledChallenge;            // 0x2988(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_29A0[0x28];                                    // 0x29A0(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
-	TWeakObjectPtr<class UGbxActorDrawComponent>  DrawComponent;                                     // 0x29C8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("LevelTravelStationObject")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"LevelTravelStationObject")
-	}
-	static class ALevelTravelStationObject* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<ALevelTravelStationObject>();
-	}
-};
-DUMPER7_ASSERTS_ALevelTravelStationObject;
 
 // Class OakGame.LevelTravelStationObjectBodyData
 // 0x0000 (0x0078 - 0x0078)
@@ -7684,6 +7520,46 @@ public:
 };
 DUMPER7_ASSERTS_ULocalPlayerSubsystem_DispatchEvents;
 
+// Class OakGame.LootableObject
+// 0x0330 (0x28E0 - 0x25B0)
+class ALootableObject final : public AOakInteractiveObject
+{
+public:
+	uint8                                         Pad_25B0[0x10];                                    // 0x25B0(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(const struct FJunkId& JunkId, class AGbxPlayerController* PickedUpBy)> OnJunkPickedUpEvent; // 0x25C0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              OnAllJunkPickedUpEvent;                            // 0x25D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(const struct FJunkId& JunkId)> OnJunkAttachedEvent;                // 0x25E0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	bool                                          bOverrideLootConfigDef;                            // 0x25F0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bOverrideLootToDrop;                               // 0x25F1(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_25F2[0x6];                                     // 0x25F2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	FGbxDefPtrProperty_                           LootConfigDefOverride;                             // 0x25F8(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	FGameDataHandleProperty_                      LootToDropOverride;                                // 0x2610(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class APawn*                                  PawnThatOpenedMe;                                  // 0x2628(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class USkinnedMeshComponent*                  MeshComponent;                                     // 0x2630(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class ULootableObjectAnimInstance*            LootableAnimInstance;                              // 0x2638(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_2640[0x2A0];                                   // 0x2640(0x02A0)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void OnComponentSleep(class UPrimitiveComponent* SleepingComponent, class FName BoneName);
+	void OnMeshCollision(class UPrimitiveComponent* HitComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const struct FVector& NormalImpulse, const struct FHitResult& Hit);
+	void OnMeshPhysicsStateChanged(class UPrimitiveComponent* Component, EComponentPhysicsStateChange StateChange);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("LootableObject")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"LootableObject")
+	}
+	static class ALootableObject* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<ALootableObject>();
+	}
+};
+DUMPER7_ASSERTS_ALootableObject;
+
 // Class OakGame.LootableObjectAnimInstance
 // 0x1630 (0x1A70 - 0x0440)
 class ULootableObjectAnimInstance final : public UAnimInstance
@@ -7727,6 +7603,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_ULootableObjectBodyData;
+
+// Class OakGame.NexusConfigStore_OakTraitPool
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStore_OakTraitPool final : public UNexusConfigStoreBasic
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStore_OakTraitPool")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStore_OakTraitPool")
+	}
+	static class UNexusConfigStore_OakTraitPool* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStore_OakTraitPool>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStore_OakTraitPool;
 
 // Class OakGame.LootGlobalsDefSummaryLibrary
 // 0x0000 (0x0028 - 0x0028)
@@ -7779,25 +7675,29 @@ public:
 };
 DUMPER7_ASSERTS_AMainMenuStationObject;
 
-// Class OakGame.NexusConfigStore_OakTraitSettings
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStore_OakTraitSettings final : public UNexusConfigStoreBasic
+// Class OakGame.OakTrackerBlueprintLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UOakTrackerBlueprintLibrary final : public UBlueprintFunctionLibrary
 {
+public:
+	static void ToggleVaultTrackingEnabled_Actor(class AOakVaultTrackable* TrackedActor, bool bEnabled);
+	static void ToggleVaultTrackingEnabled_Def(class UWorld* World, FGameDataHandleProperty_ LocDef, bool bEnabled);
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("NexusConfigStore_OakTraitSettings")
+		STATIC_CLASS_IMPL("OakTrackerBlueprintLibrary")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"NexusConfigStore_OakTraitSettings")
+		STATIC_NAME_IMPL(L"OakTrackerBlueprintLibrary")
 	}
-	static class UNexusConfigStore_OakTraitSettings* GetDefaultObj()
+	static class UOakTrackerBlueprintLibrary* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UNexusConfigStore_OakTraitSettings>();
+		return GetDefaultObjImpl<UOakTrackerBlueprintLibrary>();
 	}
 };
-DUMPER7_ASSERTS_UNexusConfigStore_OakTraitSettings;
+DUMPER7_ASSERTS_UOakTrackerBlueprintLibrary;
 
 // Class OakGame.MainMenuStationObjectBodyData
 // 0x0000 (0x0078 - 0x0078)
@@ -7818,53 +7718,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UMainMenuStationObjectBodyData;
-
-// Class OakGame.MissionTaskType_EventBoundary_Observer
-// 0x0008 (0x0030 - 0x0028)
-class UMissionTaskType_EventBoundary_Observer final : public UObject
-{
-public:
-	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void OnActorEntered(class AActor* TouchingActor, bool bIsPlayer);
-	void OnActorLeft(class AActor* TouchingActor, bool bIsPlayer);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MissionTaskType_EventBoundary_Observer")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MissionTaskType_EventBoundary_Observer")
-	}
-	static class UMissionTaskType_EventBoundary_Observer* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMissionTaskType_EventBoundary_Observer>();
-	}
-};
-DUMPER7_ASSERTS_UMissionTaskType_EventBoundary_Observer;
-
-// Class OakGame.NexusConfigStoreTrackerObject
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStoreTrackerObject final : public UNexusConfigStoreBasic
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NexusConfigStoreTrackerObject")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreTrackerObject")
-	}
-	static class UNexusConfigStoreTrackerObject* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNexusConfigStoreTrackerObject>();
-	}
-};
-DUMPER7_ASSERTS_UNexusConfigStoreTrackerObject;
 
 // Class OakGame.MissionTaskType_TriggerVolume_Observer
 // 0x0008 (0x0030 - 0x0028)
@@ -7893,56 +7746,48 @@ public:
 };
 DUMPER7_ASSERTS_UMissionTaskType_TriggerVolume_Observer;
 
-// Class OakGame.ModularGrenade
-// 0x04C0 (0x1CD0 - 0x1810)
-class AModularGrenade : public AOakProjectile
+// Class OakGame.MissionUsable
+// 0x0010 (0x25C0 - 0x25B0)
+class AMissionUsable final : public AOakInteractiveObject
 {
 public:
-	uint8                                         Pad_1810[0x20];                                    // 0x1810(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FOakDamageCauserData                   DamageCauserData;                                  // 0x1830(0x0270)(Transient, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnInitializedFromIdentity;                         // 0x1AA0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnActivated;                                       // 0x1AB0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class AActor* Actor)> OnSpawnedActor;                              // 0x1AC0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	int32                                         Generation;                                        // 0x1AD0(0x0004)(BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_1AD4[0x4];                                     // 0x1AD4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         FullFuseTime;                                      // 0x1AD8(0x0004)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         GenericPayload;                                    // 0x1ADC(0x0004)(BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         RepPayloadPostExploded;                            // 0x1AE0(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bIsClone;                                          // 0x1AE1(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_1AE2[0x6];                                     // 0x1AE2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FOakStatusEffectModifierData_Gear      StatusEffectModifierData;                          // 0x1AE8(0x0040)(Protected, NativeAccessSpecifierProtected)
-	struct FDamageModifierData                    DamageModifierData;                                // 0x1B28(0x0068)(Transient, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_1B90[0x8];                                     // 0x1B90(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FInventoryIdentity                     Identity;                                          // 0x1B98(0x00D8)(BlueprintVisible, BlueprintReadOnly, Net, Transient, NativeAccessSpecifierPrivate)
-	class UGbxBodyData*                           BodyData;                                          // 0x1C70(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_1C78[0x58];                                    // 0x1C78(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void ActivateGrenade();
-	void DivideGrenade(const struct FVector& Direction);
-	void OnRep_PayloadPostExploded();
-	void PayloadBeginExplodeCallback();
-	void PayloadBounceCallback(const struct FHitResult& Impact, const struct FVector& ImpactVelocity);
-	void PayloadExplodeCallback(const class AActor* projectile);
-	void PayloadImpactCallback(const struct FHitResult& Impact);
-	void PayloadTakingDamageCallback(const struct FProjectileTakingDamageDetails& Details);
-	void SpawnChildGrenade(const struct FVector& Location, const struct FVector& Direction, float ChildDamage, float ChildRadius, float ChildForce, float delay, float SpeedOverride, class AActor* IgnoreActor, class AActor* TargetActor, float InFuseTime);
+	uint8                                         Pad_25B0[0x10];                                    // 0x25B0(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("ModularGrenade")
+		STATIC_CLASS_IMPL("MissionUsable")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"ModularGrenade")
+		STATIC_NAME_IMPL(L"MissionUsable")
 	}
-	static class AModularGrenade* GetDefaultObj()
+	static class AMissionUsable* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AModularGrenade>();
+		return GetDefaultObjImpl<AMissionUsable>();
 	}
 };
-DUMPER7_ASSERTS_AModularGrenade;
+DUMPER7_ASSERTS_AMissionUsable;
+
+// Class OakGame.NexusConfigStore_OakTrait
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStore_OakTrait final : public UNexusConfigStoreBasic
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStore_OakTrait")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStore_OakTrait")
+	}
+	static class UNexusConfigStore_OakTrait* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStore_OakTrait>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStore_OakTrait;
 
 // Class OakGame.ModularTerminal
 // 0x06A0 (0x2C50 - 0x25B0)
@@ -7985,34 +7830,14 @@ public:
 };
 DUMPER7_ASSERTS_AModularTerminal;
 
-// Class OakGame.NexusConfigStore_OakTraitPool
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStore_OakTraitPool final : public UNexusConfigStoreBasic
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NexusConfigStore_OakTraitPool")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NexusConfigStore_OakTraitPool")
-	}
-	static class UNexusConfigStore_OakTraitPool* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNexusConfigStore_OakTraitPool>();
-	}
-};
-DUMPER7_ASSERTS_UNexusConfigStore_OakTraitPool;
-
 // Class OakGame.ModularTurret
-// 0x0100 (0x98A0 - 0x97A0)
+// 0x0100 (0x98C0 - 0x97C0)
 class AModularTurret final : public AOakCharacter
 {
 public:
-	uint8                                         Pad_97A0[0x10];                                    // 0x97A0(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FInventoryIdentity                     InventoryIdentity;                                 // 0x97B0(0x00D8)(BlueprintVisible, BlueprintReadOnly, Net, Transient, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_9888[0x18];                                    // 0x9888(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_97C0[0x10];                                    // 0x97C0(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FInventoryIdentity                     InventoryIdentity;                                 // 0x97D0(0x00D8)(BlueprintVisible, BlueprintReadOnly, Net, Transient, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_98A8[0x18];                                    // 0x98A8(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -8190,26 +8015,6 @@ public:
 };
 DUMPER7_ASSERTS_ANoMapViewingVolume;
 
-// Class OakGame.NoPlayerTeleportVolume
-// 0x0000 (0x03D0 - 0x03D0)
-class ANoPlayerTeleportVolume final : public AOakNoSignalZone
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NoPlayerTeleportVolume")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NoPlayerTeleportVolume")
-	}
-	static class ANoPlayerTeleportVolume* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<ANoPlayerTeleportVolume>();
-	}
-};
-DUMPER7_ASSERTS_ANoPlayerTeleportVolume;
-
 // Class OakGame.NPCInteractionBlueprintLibrary
 // 0x0000 (0x0028 - 0x0028)
 class UNPCInteractionBlueprintLibrary final : public UBlueprintFunctionLibrary
@@ -8276,6 +8081,29 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakAcousticSystem;
+
+// Class OakGame.OakProfileProgressVault
+// 0x00E0 (0x03A8 - 0x02C8)
+class UOakProfileProgressVault final : public UGbxProfileProgressVault
+{
+public:
+	uint8                                         Pad_2C8[0xE0];                                     // 0x02C8(0x00E0)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakProfileProgressVault")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakProfileProgressVault")
+	}
+	static class UOakProfileProgressVault* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakProfileProgressVault>();
+	}
+};
+DUMPER7_ASSERTS_UOakProfileProgressVault;
 
 // Class OakGame.OakActiveProfile
 // 0x0018 (0x0188 - 0x0170)
@@ -8347,35 +8175,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_AOakActivityAreaStamp;
-
-// Class OakGame.OakActorGlow
-// 0x0000 (0x0000 - 0x0000)
-class IOakActorGlow final
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakActorGlow")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakActorGlow")
-	}
-	static class IOakActorGlow* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<IOakActorGlow>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
-	}
-};
-DUMPER7_ASSERTS_IOakActorGlow;
 
 // Class OakGame.OakActorScript_AscensionBeam
 // 0x00D0 (0x0170 - 0x00A0)
@@ -8454,6 +8253,45 @@ public:
 };
 DUMPER7_ASSERTS_UOakActorScript_DamageableBell;
 
+// Class OakGame.OakActorScript_Echo4
+// 0x00A8 (0x0148 - 0x00A0)
+class UOakActorScript_Echo4 final : public UGbxActorScript
+{
+public:
+	TMulticastInlineDelegate<void(bool bIsVehicleEchoLocation)> EchoLocationPingStartedBP;           // 0x00A0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(bool bIsVehicleEchoLocation)> EchoLocationPingEndedBP;             // 0x00B0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              RepairStartedBP;                                   // 0x00C0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              RepairStoppedBP;                                   // 0x00D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              PerchFinishedBP;                                   // 0x00E0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              DeployCooldownFinishedBP;                          // 0x00F0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              RepeployRequestedBP;                               // 0x0100(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              Echo4ActionFailedBP;                               // 0x0110(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	class AActor*                                 PerchTarget;                                       // 0x0120(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_128[0x20];                                     // 0x0128(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void ExitPerch();
+	class AActor* GetPerchTarget();
+	void NotifyEchoLocationAnimFinished();
+
+	bool IsDeployedForEchoLocation() const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakActorScript_Echo4")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakActorScript_Echo4")
+	}
+	static class UOakActorScript_Echo4* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakActorScript_Echo4>();
+	}
+};
+DUMPER7_ASSERTS_UOakActorScript_Echo4;
+
 // Class OakGame.OakActorScript_GrassBoss
 // 0x0028 (0x00C8 - 0x00A0)
 class UOakActorScript_GrassBoss final : public UGbxActorScript
@@ -8482,42 +8320,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakActorScript_GrassBoss;
-
-// Class OakGame.OakActorScript_Phaseable
-// 0x0060 (0x0100 - 0x00A0)
-class UOakActorScript_Phaseable final : public UGbxActorScript
-{
-public:
-	TMulticastInlineDelegate<void()>              OnEnterPhasedState;                                // 0x00A0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnExitPhasedState;                                 // 0x00B0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C0[0x8];                                       // 0x00C0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bDisableCollisions;                                // 0x00C8(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_C9[0xF];                                       // 0x00C9(0x000F)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bPhaseOnSpawn;                                     // 0x00D8(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bAllowAutomaticRephase;                            // 0x00D9(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_DA[0x2];                                       // 0x00DA(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         TimeBeforeRephase;                                 // 0x00DC(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	TArray<TSoftObjectPtr<class AActor>>          DestinationsAsActors;                              // 0x00E0(0x0010)(Edit, ZeroConstructor, DisableEditOnTemplate, UObjectWrapper, NativeAccessSpecifierPrivate)
-	TArray<struct FVector>                        DestinationsAsVectors;                             // 0x00F0(0x0010)(Edit, ZeroConstructor, DisableEditOnTemplate, NativeAccessSpecifierPrivate)
-
-public:
-	void TryEnterPhasedState();
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakActorScript_Phaseable")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakActorScript_Phaseable")
-	}
-	static class UOakActorScript_Phaseable* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakActorScript_Phaseable>();
-	}
-};
-DUMPER7_ASSERTS_UOakActorScript_Phaseable;
 
 // Class OakGame.OakAIChargeData
 // 0x0158 (0x0188 - 0x0030)
@@ -8577,6 +8379,30 @@ public:
 };
 DUMPER7_ASSERTS_UOakAIChargeData;
 
+// Class OakGame.AnimNotify_AICloak
+// 0x0008 (0x0040 - 0x0038)
+class UAnimNotify_AICloak final : public UAnimNotify
+{
+public:
+	bool                                          bCloak;                                            // 0x0038(0x0001)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("AnimNotify_AICloak")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"AnimNotify_AICloak")
+	}
+	static class UAnimNotify_AICloak* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UAnimNotify_AICloak>();
+	}
+};
+DUMPER7_ASSERTS_UAnimNotify_AICloak;
+
 // Class OakGame.OakAICloakBlueprintLibrary
 // 0x0000 (0x0028 - 0x0028)
 class UOakAICloakBlueprintLibrary final : public UBlueprintFunctionLibrary
@@ -8602,38 +8428,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakAICloakBlueprintLibrary;
-
-// Class OakGame.AICloakData
-// 0x0050 (0x0080 - 0x0030)
-class UAICloakData final : public UDataAsset
-{
-public:
-	class UGbxTrick*                              CloakTrick;                                        // 0x0030(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EAICloakTransitionAt                          CloakedAt;                                         // 0x0038(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGbxTrick*                              UncloakTrick;                                      // 0x0040(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EAICloakTransitionAt                          UncloakedAt;                                       // 0x0048(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGbxTrick*                              OffTerrainFailedTrick;                             // 0x0050(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UGbxTrick*                              StaggerUncloakTrickOverride;                       // 0x0058(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UGbxTrick*                              DeathTrickOverride;                                // 0x0060(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           CloakedStance;                                     // 0x0068(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("AICloakData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"AICloakData")
-	}
-	static class UAICloakData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UAICloakData>();
-	}
-};
-DUMPER7_ASSERTS_UAICloakData;
 
 // Class OakGame.AICloakUser
 // 0x0000 (0x0000 - 0x0000)
@@ -8708,6 +8502,76 @@ public:
 };
 DUMPER7_ASSERTS_AOakAINode;
 
+// Class OakGame.OakZoneTransition
+// 0x00A0 (0x0468 - 0x03C8)
+class AOakZoneTransition : public AVolume
+{
+public:
+	TMulticastInlineDelegate<void(EOakZoneTransitionGate EntryGate)> OnTravelAttemptSucceeded;       // 0x03C8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(EOakZoneTransitionGate EntryGate)> OnTravelAttemptBlocked;         // 0x03D8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	EOakZoneTransitionDirection                   Direction;                                         // 0x03E8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_3E9[0x7];                                      // 0x03E9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FOakZoneTransitionGate                 Gate[0x2];                                         // 0x03F0(0x0008)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	FGameDataHandleProperty_                      StationActorDef;                                   // 0x0400(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bLinkStationTransform;                             // 0x0418(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_419[0x7];                                      // 0x0419(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class AOakCharacter*>                  PlayersInZone;                                     // 0x0420(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	TArray<class AOakCharacter*>                  PlayersEnteringVehicle;                            // 0x0430(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	TArray<class AOakCharacter*>                  PlayersExitingVehicle;                             // 0x0440(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	TArray<class AOakVehicle*>                    DriverlessVehicles;                                // 0x0450(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	uint8                                         Pad_460[0x8];                                      // 0x0460(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void OnZoneBeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* Other, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult);
+	void OnZoneEndOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* Other, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+	EOakZoneTransitionGate GetTransitionEntryGate() const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakZoneTransition")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakZoneTransition")
+	}
+	static class AOakZoneTransition* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakZoneTransition>();
+	}
+};
+DUMPER7_ASSERTS_AOakZoneTransition;
+
+// Class OakGame.OakAirlockTransition
+// 0x0040 (0x04A8 - 0x0468)
+class AOakAirlockTransition : public AOakZoneTransition
+{
+public:
+	struct FFactExpression                        dependency;                                        // 0x0468(0x0010)(Edit, Protected, NativeAccessSpecifierProtected)
+	FGameDataHandleProperty_                      GateARespawnStationHandle;                         // 0x0478(0x0018)(Edit, EditConst, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	FGameDataHandleProperty_                      GateBRespawnStationHandle;                         // 0x0490(0x0018)(Edit, EditConst, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+
+public:
+	void PerformZoneTransition();
+	void PrepareZoneTransition(class AOakPlayerController* Controller);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakAirlockTransition")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakAirlockTransition")
+	}
+	static class AOakAirlockTransition* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakAirlockTransition>();
+	}
+};
+DUMPER7_ASSERTS_AOakAirlockTransition;
+
 // Class OakGame.OakAISwoopData
 // 0x0028 (0x01B0 - 0x0188)
 class UOakAISwoopData final : public UOakAIChargeData
@@ -8736,30 +8600,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakAISwoopData;
-
-// Class OakGame.OakAIWeaponUserFunctionLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UOakAIWeaponUserFunctionLibrary final : public UBlueprintFunctionLibrary
-{
-public:
-	static void LockAIFiring(class AActor* AIActor, class FName reason, bool Block, const struct FGbxAIHeldFilter& WeaponFilter);
-	static void LockAIScriptedFiring(class AActor* AIActor, class FName reason, bool Block, bool bIgnoreFiringRestrictions, const struct FGbxAIHeldFilter& WeaponFilter);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakAIWeaponUserFunctionLibrary")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakAIWeaponUserFunctionLibrary")
-	}
-	static class UOakAIWeaponUserFunctionLibrary* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakAIWeaponUserFunctionLibrary>();
-	}
-};
-DUMPER7_ASSERTS_UOakAIWeaponUserFunctionLibrary;
 
 // Class OakGame.OakAnalyticsIdentityResolver
 // 0x0000 (0x0028 - 0x0028)
@@ -8838,6 +8678,43 @@ public:
 };
 DUMPER7_ASSERTS_UOakAudioDamageFeedback;
 
+// Class OakGame.OakAudioGlobals
+// 0x0200 (0x0620 - 0x0420)
+class UOakAudioGlobals final : public UGbxGameAudioGlobals
+{
+public:
+	class FString                                 AuxBusName;                                        // 0x0420(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         WetMindB;                                          // 0x0430(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         WetMaxdB;                                          // 0x0434(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReverbScaleDistance;                               // 0x0438(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_43C[0x4];                                      // 0x043C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	FGbxDefPtrProperty_                           DiscoveredRegionAudio;                             // 0x0440(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           TimeDilationRTPC;                                  // 0x0458(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TMap<EWeaponType, FGbxDefPtrProperty_>        WeaponTypeSwitchMap;                               // 0x0470(0x0050)(Edit, NativeAccessSpecifierPublic)
+	class UOakKillStingers*                       Stingers;                                          // 0x04C0(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UOakAudioDamageFeedback*                DamageFeedback;                                    // 0x04C8(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           ElementalSwitches[0x6];                            // 0x04D0(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           GlobalWeatherEvent;                                // 0x0560(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TMap<EAudioPresetMode, FGbxDefPtrProperty_>   PresetConfigEvents;                                // 0x0578(0x0050)(Edit, NativeAccessSpecifierPublic)
+	TMap<EAudioEQMode, FGbxDefPtrProperty_>       EQConfigEvents;                                    // 0x05C8(0x0050)(Edit, NativeAccessSpecifierPublic)
+	uint8                                         Pad_618[0x8];                                      // 0x0618(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakAudioGlobals")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakAudioGlobals")
+	}
+	static class UOakAudioGlobals* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakAudioGlobals>();
+	}
+};
+DUMPER7_ASSERTS_UOakAudioGlobals;
+
 // Class OakGame.OakAudioPreferencesRole
 // 0x0070 (0x0170 - 0x0100)
 class UOakAudioPreferencesRole final : public UGbxProfileProgressRoleClientLocal
@@ -8860,48 +8737,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakAudioPreferencesRole;
-
-// Class OakGame.OakAudioUserSettings
-// 0x01B8 (0x0258 - 0x00A0)
-class UOakAudioUserSettings final : public UGbxAudioUserSettings
-{
-public:
-	FGbxDefPtrProperty_                           UITrimRTPC;                                        // 0x00A0(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           UI_ControllerSpeakerSendRTPC;                      // 0x00B8(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           PlayerWeaponTrimRTPC;                              // 0x00D0(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           ExplosionsTrimRTPC;                                // 0x00E8(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           OutgoingDamageTrimRTPC;                            // 0x0100(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           IncomingDamageTrimRTPC;                            // 0x0118(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           PlayerVoiceVolumeRTPC;                             // 0x0130(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           PlayerEffortsTrimRTPC;                             // 0x0148(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           PlayerCalloutsTrimRTPC;                            // 0x0160(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           PlayerIdleLinesTrimRTPC;                           // 0x0178(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           CombatVoiceVolumeRTPC;                             // 0x0190(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           ClaptrapVolumeRTPC;                                // 0x01A8(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           ClaptrapIncreaseEvent;                             // 0x01C0(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           ClaptrapDecreaseEvent;                             // 0x01D8(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ClaptrapCooldown;                                  // 0x01F0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1F4[0x4];                                      // 0x01F4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	FGbxDefPtrProperty_                           MenuMusicVolumeRTPC;                               // 0x01F8(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           GameMusicVolumeRTPC;                               // 0x0210(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           CinematicMusicVolumeRTPC;                          // 0x0228(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           BossMusicTrimRTPC;                                 // 0x0240(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakAudioUserSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakAudioUserSettings")
-	}
-	static class UOakAudioUserSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakAudioUserSettings>();
-	}
-};
-DUMPER7_ASSERTS_UOakAudioUserSettings;
 
 // Class OakGame.OakBalanceStatics
 // 0x0000 (0x0028 - 0x0028)
@@ -8932,7 +8767,7 @@ public:
 DUMPER7_ASSERTS_UOakBalanceStatics;
 
 // Class OakGame.OakBiomeSpawnerComponent
-// 0x0000 (0x0FA0 - 0x0FA0)
+// 0x0000 (0x0FC0 - 0x0FC0)
 class UOakBiomeSpawnerComponent final : public UOakSpawnerComponent
 {
 public:
@@ -8950,6 +8785,46 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakBiomeSpawnerComponent;
+
+// Class OakGame.OakSpawner
+// 0x0000 (0x04A0 - 0x04A0)
+class AOakSpawner : public AGbxGameSpawner
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakSpawner")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakSpawner")
+	}
+	static class AOakSpawner* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakSpawner>();
+	}
+};
+DUMPER7_ASSERTS_AOakSpawner;
+
+// Class OakGame.OakBiomeSpawner
+// 0x0000 (0x04A0 - 0x04A0)
+class AOakBiomeSpawner final : public AOakSpawner
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakBiomeSpawner")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakBiomeSpawner")
+	}
+	static class AOakBiomeSpawner* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakBiomeSpawner>();
+	}
+};
+DUMPER7_ASSERTS_AOakBiomeSpawner;
 
 // Class OakGame.OakBlackMarketVendingMachineScript
 // 0x00D8 (0x0178 - 0x00A0)
@@ -8993,29 +8868,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakBlackMarketVendingMachineScript;
-
-// Class OakGame.OakBodyActionAnimData
-// 0x0008 (0x0098 - 0x0090)
-class UOakBodyActionAnimData final : public UBodyActionAnimData
-{
-public:
-	class UOakWeaponPoseData*                     WeaponPoseData3rd;                                 // 0x0090(0x0008)(Edit, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakBodyActionAnimData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakBodyActionAnimData")
-	}
-	static class UOakBodyActionAnimData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakBodyActionAnimData>();
-	}
-};
-DUMPER7_ASSERTS_UOakBodyActionAnimData;
 
 // Class OakGame.OakBossFight
 // 0x04F8 (0x0888 - 0x0390)
@@ -9096,6 +8948,60 @@ public:
 };
 DUMPER7_ASSERTS_AOakBossFight;
 
+// Class OakGame.OakNavMesh
+// 0x0000 (0x03A8 - 0x03A8)
+class AOakNavMesh final : public AGbxNavMesh
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakNavMesh")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakNavMesh")
+	}
+	static class AOakNavMesh* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakNavMesh>();
+	}
+};
+DUMPER7_ASSERTS_AOakNavMesh;
+
+// Class OakGame.OakBossStatics
+// 0x0000 (0x0028 - 0x0028)
+class UOakBossStatics final : public UBlueprintFunctionLibrary
+{
+public:
+	static class FText GetTextFromUICharacterName(FGbxDefPtrProperty_ UIName);
+	static bool HasFightBeenCompleted(class AOakBossFight* BossFightActor);
+	static void SetAllBossesDimmed(class AActor* Boss, bool bDimmed);
+	static void SetAllBossesInvulnerable(class AActor* Boss, bool bInvulnerable);
+	static void SetBossBarEnabled(class AActor* Boss, class AOakBossFight* BossFightInfo, bool bEnable);
+	static void SetBossDimmed(class AActor* Boss, bool bDimmed);
+	static void SetBossInvulnerable(class AActor* Boss, bool bInvulnerable);
+	static void ShakeEvent(class AActor* Boss);
+	static void StartBossFightTracking(class AActor* Boss);
+	static void StopBossFightTracking(class AActor* Boss);
+
+	TArray<class AOakCharacter*> GetPlayersInArena(class AOakBossFight* BossFightInfo) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakBossStatics")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakBossStatics")
+	}
+	static class UOakBossStatics* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakBossStatics>();
+	}
+};
+DUMPER7_ASSERTS_UOakBossStatics;
+
 // Class OakGame.OakBoundary
 // 0x0090 (0x2640 - 0x25B0)
 class AOakBoundary final : public AOakInteractiveObject
@@ -9130,31 +9036,32 @@ public:
 };
 DUMPER7_ASSERTS_AOakBoundary;
 
-// Class OakGame.OakNewGameFlow
-// 0x0100 (0x0490 - 0x0390)
-class AOakNewGameFlow final : public AInfo
+// Class OakGame.OakHitReactionData
+// 0x00B8 (0x00E8 - 0x0030)
+class UOakHitReactionData final : public UDataAsset
 {
 public:
-	uint8                                         Pad_390[0xD0];                                     // 0x0390(0x00D0)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 RockAndRollMovieName;                              // 0x0460(0x0010)(Edit, ZeroConstructor, DisableEditOnTemplate, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UGbxMomentData*                         BoltingSequenceMoment;                             // 0x0470(0x0008)(Edit, ZeroConstructor, DisableEditOnTemplate, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	FGbxDefPtrProperty_                           IntroMovieCinematicMode;                           // 0x0478(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UGbxTrick*                              HitReactions[0x6];                                 // 0x0030(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class UGbxTrick*                              ElementalHitReactions[0x4];                        // 0x0060(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         Cooldowns[0x6];                                    // 0x0080(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class UGbxTrick*                              Deaths[0x4];                                       // 0x0098(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class UGbxTrick*                              ElementalDeaths[0x6];                              // 0x00B8(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakNewGameFlow")
+		STATIC_CLASS_IMPL("OakHitReactionData")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakNewGameFlow")
+		STATIC_NAME_IMPL(L"OakHitReactionData")
 	}
-	static class AOakNewGameFlow* GetDefaultObj()
+	static class UOakHitReactionData* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakNewGameFlow>();
+		return GetDefaultObjImpl<UOakHitReactionData>();
 	}
 };
-DUMPER7_ASSERTS_AOakNewGameFlow;
+DUMPER7_ASSERTS_UOakHitReactionData;
 
 // Class OakGame.OakBoundaryManager
 // 0x0030 (0x0058 - 0x0028)
@@ -9178,90 +9085,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakBoundaryManager;
-
-// Class OakGame.OakTriggerVolume
-// 0x0000 (0x0610 - 0x0610)
-class AOakTriggerVolume : public AGbxTriggerVolume
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakTriggerVolume")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakTriggerVolume")
-	}
-	static class AOakTriggerVolume* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakTriggerVolume>();
-	}
-};
-DUMPER7_ASSERTS_AOakTriggerVolume;
-
-// Class OakGame.OakHitReactionSettings
-// 0x00B0 (0x00E0 - 0x0030)
-class UOakHitReactionSettings final : public UDataAsset
-{
-public:
-	EOakBaseHitReaction                           BaseHitReaction;                                   // 0x0030(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_31[0x3];                                       // 0x0031(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         LaunchChanceScale;                                 // 0x0034(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         StaggerChanceScale;                                // 0x0038(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         LaunchChance;                                      // 0x003C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         StaggerChance;                                     // 0x0040(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_44[0x4];                                       // 0x0044(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FOakHitReactionMassData>        ForceThresholds;                                   // 0x0048(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-	int32                                         LevelDowngradeThreshold;                           // 0x0058(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_5C[0x4];                                       // 0x005C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	FGameDataHandleProperty_                      VehicleDamageSource;                               // 0x0060(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	TMap<struct FGameplayTag, struct FOakHitReactionVehicleData> VehicleHitReactionsBySize;          // 0x0078(0x0050)(Edit, NativeAccessSpecifierPrivate)
-	bool                                          bUseShieldLayer;                                   // 0x00C8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bUseCritLayer;                                     // 0x00C9(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bUseLevelOffsetLayer;                              // 0x00CA(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_CB[0x1];                                       // 0x00CB(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         LaunchRagdollThresholdRatio;                       // 0x00CC(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bEnableMinForcePitchAngle;                         // 0x00D0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_D1[0x3];                                       // 0x00D1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         MinForcePitchAngle;                                // 0x00D4(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bUseIncomingForceWithoutUpwardForceScale;          // 0x00D8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_D9[0x7];                                       // 0x00D9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakHitReactionSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakHitReactionSettings")
-	}
-	static class UOakHitReactionSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakHitReactionSettings>();
-	}
-};
-DUMPER7_ASSERTS_UOakHitReactionSettings;
-
-// Class OakGame.OakBoundaryVolume
-// 0x0000 (0x0610 - 0x0610)
-class AOakBoundaryVolume final : public AOakTriggerVolume
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakBoundaryVolume")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakBoundaryVolume")
-	}
-	static class AOakBoundaryVolume* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakBoundaryVolume>();
-	}
-};
-DUMPER7_ASSERTS_AOakBoundaryVolume;
 
 // Class OakGame.OakCameraModeInputs
 // 0x0010 (0x0A50 - 0x0A40)
@@ -9287,6 +9110,51 @@ public:
 };
 DUMPER7_ASSERTS_UOakCameraModeInputs;
 
+// Class OakGame.NexusConfigStore_OakNavFormation
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStore_OakNavFormation final : public UNexusConfigStoreBasic
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStore_OakNavFormation")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStore_OakNavFormation")
+	}
+	static class UNexusConfigStore_OakNavFormation* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStore_OakNavFormation>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStore_OakNavFormation;
+
+// Class OakGame.OakChallengeBlueprintLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UOakChallengeBlueprintLibrary final : public UBlueprintFunctionLibrary
+{
+public:
+	static void IncrementChallengeForAllPlayers(class UObject* OwnerContext, const FGameDataHandleProperty_ ChallengeToIncrement, int32 IncrementAmount);
+	static void IncrementChallengeForPlayer(class UObject* OwnerContext, class AOakPlayerController* OakPC, const FGameDataHandleProperty_ ChallengeToIncrement, int32 IncrementAmount);
+	static bool IsChallengeCompleteForPlayer(class AOakPlayerController* OakPC, const FGameDataHandleProperty_ challenge);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakChallengeBlueprintLibrary")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakChallengeBlueprintLibrary")
+	}
+	static class UOakChallengeBlueprintLibrary* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakChallengeBlueprintLibrary>();
+	}
+};
+DUMPER7_ASSERTS_UOakChallengeBlueprintLibrary;
+
 // Class OakGame.OakChallengeCollectible
 // 0x0030 (0x25E0 - 0x25B0)
 class AOakChallengeCollectible final : public AOakInteractiveObject
@@ -9311,25 +9179,25 @@ public:
 };
 DUMPER7_ASSERTS_AOakChallengeCollectible;
 
-// Class OakGame.OakNavMesh
-// 0x0000 (0x03A8 - 0x03A8)
-class AOakNavMesh final : public AGbxNavMesh
+// Class OakGame.OakGrappleTrajectoryComponent
+// 0x0000 (0x0620 - 0x0620)
+class UOakGrappleTrajectoryComponent final : public UPrimitiveComponent
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakNavMesh")
+		STATIC_CLASS_IMPL("OakGrappleTrajectoryComponent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakNavMesh")
+		STATIC_NAME_IMPL(L"OakGrappleTrajectoryComponent")
 	}
-	static class AOakNavMesh* GetDefaultObj()
+	static class UOakGrappleTrajectoryComponent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakNavMesh>();
+		return GetDefaultObjImpl<UOakGrappleTrajectoryComponent>();
 	}
 };
-DUMPER7_ASSERTS_AOakNavMesh;
+DUMPER7_ASSERTS_UOakGrappleTrajectoryComponent;
 
 // Class OakGame.OakChallengeCollectibleScript
 // 0x00D8 (0x0178 - 0x00A0)
@@ -9395,32 +9263,36 @@ public:
 };
 DUMPER7_ASSERTS_UOakChallengeManager;
 
-// Class OakGame.OakHitReactionData
-// 0x00B8 (0x00E8 - 0x0030)
-class UOakHitReactionData final : public UDataAsset
+// Class OakGame.OakIntrinsicElementStatics
+// 0x0000 (0x0028 - 0x0028)
+class UOakIntrinsicElementStatics final : public UBlueprintFunctionLibrary
 {
 public:
-	class UGbxTrick*                              HitReactions[0x6];                                 // 0x0030(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class UGbxTrick*                              ElementalHitReactions[0x4];                        // 0x0060(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         Cooldowns[0x6];                                    // 0x0080(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class UGbxTrick*                              Deaths[0x4];                                       // 0x0098(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class UGbxTrick*                              ElementalDeaths[0x6];                              // 0x00B8(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	static void BindEventToIntrinsicElementChanged(class UObject* OwnerContext, TDelegate<void(const EOakElementalType NewElement)> Delegate);
+	static EOakElementalType GetDamageElementalType(FGameDataHandleProperty_ DamageDef);
+	static FGameDataHandleProperty_ GetElementalDamageType(EOakElementalType type);
+	static EOakElementalType GetIntrinsicElement(class UObject* OwnerContext);
+	static FGameDataHandleProperty_ GetIntrinsicElementDamageType(class UObject* OwnerContext);
+	static bool IsInitialIntrinsicElementRandom(class UObject* OwnerContext);
+	static void SetExplosiveBarrelBackwardsCompatibility(class UObject* OwnerContext, EOakElementalType Element, bool bRandomize);
+	static bool SetIntrinsicElement(class UObject* OwnerContext, EOakElementalType Element);
+	static bool SetIntrinsicElementAffinity(class UObject* OwnerContext, EDamageAffinity Affinity);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakHitReactionData")
+		STATIC_CLASS_IMPL("OakIntrinsicElementStatics")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakHitReactionData")
+		STATIC_NAME_IMPL(L"OakIntrinsicElementStatics")
 	}
-	static class UOakHitReactionData* GetDefaultObj()
+	static class UOakIntrinsicElementStatics* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakHitReactionData>();
+		return GetDefaultObjImpl<UOakIntrinsicElementStatics>();
 	}
 };
-DUMPER7_ASSERTS_UOakHitReactionData;
+DUMPER7_ASSERTS_UOakIntrinsicElementStatics;
 
 // Class OakGame.OakChallengeProgressRoleBase
 // 0x0000 (0x0100 - 0x0100)
@@ -9462,28 +9334,49 @@ public:
 };
 DUMPER7_ASSERTS_UOakChallengeProgressRoleCharacter;
 
-// Class OakGame.OakInventoryChannel
-// 0x0010 (0x0078 - 0x0068)
-class UOakInventoryChannel final : public Uchannel
+// Class OakGame.OakHitReactionSettings
+// 0x00B0 (0x00E0 - 0x0030)
+class UOakHitReactionSettings final : public UDataAsset
 {
 public:
-	uint8                                         Pad_68[0x10];                                      // 0x0068(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	EOakBaseHitReaction                           BaseHitReaction;                                   // 0x0030(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_31[0x3];                                       // 0x0031(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         LaunchChanceScale;                                 // 0x0034(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         StaggerChanceScale;                                // 0x0038(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         LaunchChance;                                      // 0x003C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         StaggerChance;                                     // 0x0040(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_44[0x4];                                       // 0x0044(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FOakHitReactionMassData>        ForceThresholds;                                   // 0x0048(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	int32                                         LevelDowngradeThreshold;                           // 0x0058(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_5C[0x4];                                       // 0x005C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	FGameDataHandleProperty_                      VehicleDamageSource;                               // 0x0060(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	TMap<struct FGameplayTag, struct FOakHitReactionVehicleData> VehicleHitReactionsBySize;          // 0x0078(0x0050)(Edit, NativeAccessSpecifierPrivate)
+	bool                                          bUseShieldLayer;                                   // 0x00C8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bUseCritLayer;                                     // 0x00C9(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bUseLevelOffsetLayer;                              // 0x00CA(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_CB[0x1];                                       // 0x00CB(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         LaunchRagdollThresholdRatio;                       // 0x00CC(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bEnableMinForcePitchAngle;                         // 0x00D0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_D1[0x3];                                       // 0x00D1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         MinForcePitchAngle;                                // 0x00D4(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bUseIncomingForceWithoutUpwardForceScale;          // 0x00D8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_D9[0x7];                                       // 0x00D9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakInventoryChannel")
+		STATIC_CLASS_IMPL("OakHitReactionSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakInventoryChannel")
+		STATIC_NAME_IMPL(L"OakHitReactionSettings")
 	}
-	static class UOakInventoryChannel* GetDefaultObj()
+	static class UOakHitReactionSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakInventoryChannel>();
+		return GetDefaultObjImpl<UOakHitReactionSettings>();
 	}
 };
-DUMPER7_ASSERTS_UOakInventoryChannel;
+DUMPER7_ASSERTS_UOakHitReactionSettings;
 
 // Class OakGame.OakCharacterAnimInstance
 // 0x11E0 (0x1950 - 0x0770)
@@ -9641,28 +9534,34 @@ public:
 };
 DUMPER7_ASSERTS_UOakCharacterFunctionLibrary;
 
-// Class OakGame.OakHUD
-// 0x0010 (0x0490 - 0x0480)
-class AOakHUD final : public AHUD
+// Class OakGame.OakBalanceEditorPreviewSettingsProvider
+// 0x0000 (0x0000 - 0x0000)
+class IOakBalanceEditorPreviewSettingsProvider final
 {
-public:
-	uint8                                         Pad_480[0x10];                                     // 0x0480(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakHUD")
+		STATIC_CLASS_IMPL("OakBalanceEditorPreviewSettingsProvider")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakHUD")
+		STATIC_NAME_IMPL(L"OakBalanceEditorPreviewSettingsProvider")
 	}
-	static class AOakHUD* GetDefaultObj()
+	static class IOakBalanceEditorPreviewSettingsProvider* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakHUD>();
+		return GetDefaultObjImpl<IOakBalanceEditorPreviewSettingsProvider>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
 	}
 };
-DUMPER7_ASSERTS_AOakHUD;
+DUMPER7_ASSERTS_IOakBalanceEditorPreviewSettingsProvider;
 
 // Class OakGame.OakCharacterLockVolume
 // 0x0040 (0x0408 - 0x03C8)
@@ -9714,88 +9613,92 @@ public:
 };
 DUMPER7_ASSERTS_UOakCharacterMemorySubsystem;
 
-// Class OakGame.OakGrappleTrajectoryComponent
-// 0x0000 (0x0600 - 0x0600)
-class UOakGrappleTrajectoryComponent final : public UPrimitiveComponent
+// Class OakGame.OakInputTriggerDelayedPressAndRelease
+// 0x0008 (0x0060 - 0x0058)
+class UOakInputTriggerDelayedPressAndRelease final : public UInputTriggerTimedBase
 {
+public:
+	uint8                                         Pad_58[0x4];                                       // 0x0058(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         PressDelay;                                        // 0x005C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakGrappleTrajectoryComponent")
+		STATIC_CLASS_IMPL("OakInputTriggerDelayedPressAndRelease")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakGrappleTrajectoryComponent")
+		STATIC_NAME_IMPL(L"OakInputTriggerDelayedPressAndRelease")
 	}
-	static class UOakGrappleTrajectoryComponent* GetDefaultObj()
+	static class UOakInputTriggerDelayedPressAndRelease* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakGrappleTrajectoryComponent>();
+		return GetDefaultObjImpl<UOakInputTriggerDelayedPressAndRelease>();
 	}
 };
-DUMPER7_ASSERTS_UOakGrappleTrajectoryComponent;
+DUMPER7_ASSERTS_UOakInputTriggerDelayedPressAndRelease;
 
 // Class OakGame.OakCharacterMovementComponent
-// 0x0490 (0x4630 - 0x41A0)
+// 0x0490 (0x4640 - 0x41B0)
 class UOakCharacterMovementComponent final : public UGbxCharacterMovementComponent
 {
 public:
-	uint8                                         Pad_41A0[0x18];                                    // 0x41A0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	class AOakCharacter*                          OakCharacterOwner;                                 // 0x41B8(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_41C0[0x18];                                    // 0x41C0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bJumpedFromWater;                                  // 0x41D8(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bWantsToGlide;                                     // 0x41D9(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bMayWantToGlide;                                   // 0x41DA(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bIsGlideReady;                                     // 0x41DB(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bIsGliding;                                        // 0x41DC(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_41DD[0x3];                                     // 0x41DD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         GlidingTerminalVelocity;                           // 0x41E0(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bStopGlidingOnButtonRelease;                       // 0x41E4(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bIsExtendedGliding;                                // 0x41E5(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_41E6[0x2];                                     // 0x41E6(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FLiveGlideSettings                     LiveGlideSettings;                                 // 0x41E8(0x002C)(Transient, NoDestructor, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_4214[0x54];                                    // 0x4214(0x0054)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVaultPowerState                       VaultPowerState;                                   // 0x4268(0x00C8)(ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_4330[0x8];                                     // 0x4330(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGroundSlamEndedDetails                LastGroundSlamEndedDetails;                        // 0x4338(0x0048)(Transient, NoDestructor, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_4380[0x28];                                    // 0x4380(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(const struct FGroundSlamStartedDetails& Details)> OnStartGroundSlam; // 0x43A8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(const struct FGroundSlamEndedDetails& Details)> OnStopGroundSlam;  // 0x43B8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_43C8[0x31];                                    // 0x43C8(0x0031)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bWantsToTryDashingOnCrouch;                        // 0x43F9(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_43FA[0x6];                                     // 0x43FA(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        LastDashTime;                                      // 0x4400(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         bWantsToDash : 1;                                  // 0x4408(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Transient, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_4409[0x7];                                     // 0x4409(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void()>              OnStartDash;                                       // 0x4410(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(const struct FDashEndedDetails& Details)> OnStopDash;              // 0x4420(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	float                                         MaxLadderSlideDownSpeed;                           // 0x4430(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         LadderSlideAcceleration;                           // 0x4434(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         LadderSlideBrakingDeceleration;                    // 0x4438(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_443C[0x4];                                     // 0x443C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TSoftObjectPtr<class UGbxTrick>               LadderSlideLandingAnimation;                       // 0x4440(0x0028)(Transient, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         bWantsToLadderSlide : 1;                           // 0x4468(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Transient, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
-	uint8                                         bIsSlidingDownLadder : 1;                          // 0x4468(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, Net, DisableEditOnTemplate, Transient, EditConst, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
-	uint8                                         Pad_4469[0x3];                                     // 0x4469(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bDeceleratingAfterLadderSlide;                     // 0x446C(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_446D[0x23];                                    // 0x446D(0x0023)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxAttributeFloat                     GroundSlamHeightScalar;                            // 0x4490(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     GroundSlamDamage;                                  // 0x449C(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     GroundSlamRange;                                   // 0x44A8(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     DashSpeed;                                         // 0x44B4(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     GlidingAirControl;                                 // 0x44C0(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     GlidingSpeed;                                      // 0x44CC(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     GlidingSpeedBoost;                                 // 0x44D8(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     GlidingAcceleration;                               // 0x44E4(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     GlidingDeceleration;                               // 0x44F0(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     VaultPowerCost_Dash;                               // 0x44FC(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     VaultPowerCost_DoubleJump;                         // 0x4508(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     VaultPowerCost_Glide;                              // 0x4514(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     VaultPowerCost_Grapple;                            // 0x4520(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     VaultPowerCost_GroundSlam;                         // 0x452C(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeInteger                   VaultPower_Forgiveness;                            // 0x4538(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_4544[0xBC];                                    // 0x4544(0x00BC)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class AOakCharacter*>                  ActorsToPushAwayFrom;                              // 0x4600(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_4610[0x20];                                    // 0x4610(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_41B0[0x18];                                    // 0x41B0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	class AOakCharacter*                          OakCharacterOwner;                                 // 0x41C8(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_41D0[0x18];                                    // 0x41D0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bJumpedFromWater;                                  // 0x41E8(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bWantsToGlide;                                     // 0x41E9(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bMayWantToGlide;                                   // 0x41EA(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bIsGlideReady;                                     // 0x41EB(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bIsGliding;                                        // 0x41EC(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_41ED[0x3];                                     // 0x41ED(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         GlidingTerminalVelocity;                           // 0x41F0(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bStopGlidingOnButtonRelease;                       // 0x41F4(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bIsExtendedGliding;                                // 0x41F5(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_41F6[0x2];                                     // 0x41F6(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FLiveGlideSettings                     LiveGlideSettings;                                 // 0x41F8(0x002C)(Transient, NoDestructor, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_4224[0x54];                                    // 0x4224(0x0054)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVaultPowerState                       VaultPowerState;                                   // 0x4278(0x00C8)(ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_4340[0x8];                                     // 0x4340(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGroundSlamEndedDetails                LastGroundSlamEndedDetails;                        // 0x4348(0x0048)(Transient, NoDestructor, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_4390[0x28];                                    // 0x4390(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(const struct FGroundSlamStartedDetails& Details)> OnStartGroundSlam; // 0x43B8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(const struct FGroundSlamEndedDetails& Details)> OnStopGroundSlam;  // 0x43C8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_43D8[0x31];                                    // 0x43D8(0x0031)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bWantsToTryDashingOnCrouch;                        // 0x4409(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_440A[0x6];                                     // 0x440A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        LastDashTime;                                      // 0x4410(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         bWantsToDash : 1;                                  // 0x4418(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Transient, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_4419[0x7];                                     // 0x4419(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void()>              OnStartDash;                                       // 0x4420(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(const struct FDashEndedDetails& Details)> OnStopDash;              // 0x4430(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	float                                         MaxLadderSlideDownSpeed;                           // 0x4440(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         LadderSlideAcceleration;                           // 0x4444(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         LadderSlideBrakingDeceleration;                    // 0x4448(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_444C[0x4];                                     // 0x444C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TSoftObjectPtr<class UGbxTrick>               LadderSlideLandingAnimation;                       // 0x4450(0x0028)(Transient, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         bWantsToLadderSlide : 1;                           // 0x4478(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Transient, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
+	uint8                                         bIsSlidingDownLadder : 1;                          // 0x4478(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, Net, DisableEditOnTemplate, Transient, EditConst, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
+	uint8                                         Pad_4479[0x3];                                     // 0x4479(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bDeceleratingAfterLadderSlide;                     // 0x447C(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_447D[0x27];                                    // 0x447D(0x0027)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxAttributeFloat                     GroundSlamHeightScalar;                            // 0x44A4(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     GroundSlamDamage;                                  // 0x44B0(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     GroundSlamRange;                                   // 0x44BC(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     DashSpeed;                                         // 0x44C8(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     GlidingAirControl;                                 // 0x44D4(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     GlidingSpeed;                                      // 0x44E0(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     GlidingSpeedBoost;                                 // 0x44EC(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     GlidingAcceleration;                               // 0x44F8(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     GlidingDeceleration;                               // 0x4504(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     VaultPowerCost_Dash;                               // 0x4510(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     VaultPowerCost_DoubleJump;                         // 0x451C(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     VaultPowerCost_Glide;                              // 0x4528(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     VaultPowerCost_Grapple;                            // 0x4534(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     VaultPowerCost_GroundSlam;                         // 0x4540(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeInteger                   VaultPower_Forgiveness;                            // 0x454C(0x000C)(Net, ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_4558[0xB8];                                    // 0x4558(0x00B8)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class AOakCharacter*>                  ActorsToPushAwayFrom;                              // 0x4610(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_4620[0x20];                                    // 0x4620(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void ClientOnVaultPowerDepleted();
@@ -9826,13 +9729,13 @@ public:
 DUMPER7_ASSERTS_UOakCharacterMovementComponent;
 
 // Class OakGame.OakCharacterStandIn
-// 0x0080 (0x0C10 - 0x0B90)
+// 0x0090 (0x0C20 - 0x0B90)
 class AOakCharacterStandIn final : public AGbxStandIn
 {
 public:
 	uint8                                         Pad_B90[0x30];                                     // 0x0B90(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
 	TMulticastInlineDelegate<void(const TArray<struct FGameplayTag>& SkillLoadoutTags)> OnSkillLoadoutChanged; // 0x0BC0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_BD0[0x40];                                     // 0x0BD0(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_BD0[0x50];                                     // 0x0BD0(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -9850,36 +9753,25 @@ public:
 };
 DUMPER7_ASSERTS_AOakCharacterStandIn;
 
-// Class OakGame.OakIntrinsicElementStatics
-// 0x0000 (0x0028 - 0x0028)
-class UOakIntrinsicElementStatics final : public UBlueprintFunctionLibrary
+// Class OakGame.OakLevelSequenceActor
+// 0x0000 (0x0780 - 0x0780)
+class AOakLevelSequenceActor final : public AGbxLevelSequenceActor
 {
-public:
-	static void BindEventToIntrinsicElementChanged(class UObject* OwnerContext, TDelegate<void(const EOakElementalType NewElement)> Delegate);
-	static EOakElementalType GetDamageElementalType(FGameDataHandleProperty_ DamageDef);
-	static FGameDataHandleProperty_ GetElementalDamageType(EOakElementalType type);
-	static EOakElementalType GetIntrinsicElement(class UObject* OwnerContext);
-	static FGameDataHandleProperty_ GetIntrinsicElementDamageType(class UObject* OwnerContext);
-	static bool IsInitialIntrinsicElementRandom(class UObject* OwnerContext);
-	static void SetExplosiveBarrelBackwardsCompatibility(class UObject* OwnerContext, EOakElementalType Element, bool bRandomize);
-	static bool SetIntrinsicElement(class UObject* OwnerContext, EOakElementalType Element);
-	static bool SetIntrinsicElementAffinity(class UObject* OwnerContext, EDamageAffinity Affinity);
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakIntrinsicElementStatics")
+		STATIC_CLASS_IMPL("OakLevelSequenceActor")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakIntrinsicElementStatics")
+		STATIC_NAME_IMPL(L"OakLevelSequenceActor")
 	}
-	static class UOakIntrinsicElementStatics* GetDefaultObj()
+	static class AOakLevelSequenceActor* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakIntrinsicElementStatics>();
+		return GetDefaultObjImpl<AOakLevelSequenceActor>();
 	}
 };
-DUMPER7_ASSERTS_UOakIntrinsicElementStatics;
+DUMPER7_ASSERTS_AOakLevelSequenceActor;
 
 // Class OakGame.OakCharacterSubsystem
 // 0x0000 (0x0030 - 0x0030)
@@ -9921,29 +9813,28 @@ public:
 };
 DUMPER7_ASSERTS_UOakCheatManager;
 
-// Class OakGame.OakLevelSequencePlayerCharacterObject
-// 0x0008 (0x0040 - 0x0038)
-class UOakLevelSequencePlayerCharacterObject final : public UGbxLevelSequencePlayerAssociatedStandInObject
+// Class OakGame.OakInventoryChannel
+// 0x0010 (0x0078 - 0x0068)
+class UOakInventoryChannel final : public Uchannel
 {
 public:
-	bool                                          bIsPOV;                                            // 0x0038(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_68[0x10];                                      // 0x0068(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakLevelSequencePlayerCharacterObject")
+		STATIC_CLASS_IMPL("OakInventoryChannel")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakLevelSequencePlayerCharacterObject")
+		STATIC_NAME_IMPL(L"OakInventoryChannel")
 	}
-	static class UOakLevelSequencePlayerCharacterObject* GetDefaultObj()
+	static class UOakInventoryChannel* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakLevelSequencePlayerCharacterObject>();
+		return GetDefaultObjImpl<UOakInventoryChannel>();
 	}
 };
-DUMPER7_ASSERTS_UOakLevelSequencePlayerCharacterObject;
+DUMPER7_ASSERTS_UOakInventoryChannel;
 
 // Class OakGame.OakCineCameraActor
 // 0x0090 (0x0D80 - 0x0CF0)
@@ -10001,25 +9892,28 @@ public:
 };
 DUMPER7_ASSERTS_UOakCineCameraComponent;
 
-// Class OakGame.NexusConfigStoreVendingMachine
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStoreVendingMachine final : public UNexusConfigStoreBasic
+// Class OakGame.OakHUD
+// 0x0010 (0x0490 - 0x0480)
+class AOakHUD final : public AHUD
 {
+public:
+	uint8                                         Pad_480[0x10];                                     // 0x0480(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("NexusConfigStoreVendingMachine")
+		STATIC_CLASS_IMPL("OakHUD")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreVendingMachine")
+		STATIC_NAME_IMPL(L"OakHUD")
 	}
-	static class UNexusConfigStoreVendingMachine* GetDefaultObj()
+	static class AOakHUD* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UNexusConfigStoreVendingMachine>();
+		return GetDefaultObjImpl<AOakHUD>();
 	}
 };
-DUMPER7_ASSERTS_UNexusConfigStoreVendingMachine;
+DUMPER7_ASSERTS_AOakHUD;
 
 // Class OakGame.OakLevelSequence
 // 0x0000 (0x01A0 - 0x01A0)
@@ -10061,29 +9955,52 @@ public:
 };
 DUMPER7_ASSERTS_UOakCinematicLevelSequence;
 
-// Class OakGame.OakInputTriggerDelayedPressAndRelease
-// 0x0008 (0x0060 - 0x0058)
-class UOakInputTriggerDelayedPressAndRelease final : public UInputTriggerTimedBase
+// Class OakGame.OakInventoryStatics
+// 0x0000 (0x0028 - 0x0028)
+class UOakInventoryStatics final : public UBlueprintFunctionLibrary
 {
 public:
-	uint8                                         Pad_58[0x4];                                       // 0x0058(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         PressDelay;                                        // 0x005C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	static void AddOvershield(class UObject* OwnerContext, float Amount);
+	static void AddOvershieldToOakCharacter(class AOakCharacter* TargetActor, float Amount);
+	static void BlockCharacterHealth(class AOakCharacter* TargetActor, float Value);
+	static struct FInventoryIdentity CreateMatchingItem(class AActor* ContextActor, const struct FInventorySelectionCriteria& Criteria, class Ainventory* SourceItem, int32 SourceOptions, const struct FInventorySelectionCriteria& FallbackCriteria);
+	static void DrainResourcePool(class UObject* OwnerContext, class FName ResourceName, float Percentage, float MinPercentage);
+	static void DrainShieldArmorSegment(class UObject* OwnerContext, float Percentage, bool bWholeSegmentsOnly, float ProtectionTime, bool bExternalDamage);
+	static void EmptyContainer(class AOakPlayerController* PlayerController, FGbxDefPtrProperty_ Container);
+	static int32 GetNumItemsInContainer(class UObject* WorldContext, const class AOakPlayerController* PlayerController, class FName ContainerType);
+	static class ARepairKit* GetRepairKit(class AActor* User);
+	static class AShield* GetShield(class AActor* ShieldUser);
+	static int64 GetTotalValueItemsInContainer(class AOakPlayerController* PlayerController, FGbxDefPtrProperty_ Container);
+	static void LatentOpenItemContainers(class AOakPlayerController* PlayerController, class FName Container1Type, class FName Container2Type, EInventoryTransactionType TransactionType, class FName TransactionTag, EItemContainerMenuButton* Exec, const struct FLatentActionInfo& LatentInfo);
+	static void OpenInventoryContainers(class AOakPlayerController* PlayerController, class FName Container1Type, class FName Container2Type, EInventoryTransactionType TransactionType, class FName TransactionTag);
+	static void OpenItemContainer(class AOakPlayerController* PlayerController, class FName ContainerType, EInventoryTransactionType TransactionType, class FName TransactionTag);
+	static void PickUpArmorSegment(class UObject* OwnerContext, class FName ResourceName, float Percentage, bool bWholeSegmentsOnly);
+	static void PickUpHealth(class UObject* OwnerContext, class FName HealthAttribute);
+	static void ReduceRepairKitCooldown(class AActor* ContextActor, ERepairKitCooldownReductionMethod Method, float Value);
+	static void RefreshOvershield(class UObject* OwnerContext);
+	static void RefreshOvershieldToOakCharacter(class AOakCharacter* TargetActor);
+	static void RegenShieldToMatchPlayerHealth(class UObject* OwnerContext, bool AwardOvershieldIfShieldIsMoreThanHealth);
+	static void RemoveOvershield(class UObject* OwnerContext, float Amount);
+	static void RemoveOvershieldToOakCharacter(class AOakCharacter* TargetActor, float Amount);
+	static void SpawnInventoryFromCharacter(class UObject* OwnerContext, const class FString& InventoryType, const class FString& InventoryComp, int32 InstancingPolicy, bool bOwnerOnly, class AActor* owner);
+	static void SpillOutItemsInContainer(class AOakPlayerController* PlayerController, class FName ContainerType, class AActor* ActorToSpawnFrom, FGameDataHandleProperty_ SpawnPattern, class FName SpawnSocketName);
+	static void UnblockCharacterHealth(class AOakCharacter* TargetActor);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakInputTriggerDelayedPressAndRelease")
+		STATIC_CLASS_IMPL("OakInventoryStatics")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakInputTriggerDelayedPressAndRelease")
+		STATIC_NAME_IMPL(L"OakInventoryStatics")
 	}
-	static class UOakInputTriggerDelayedPressAndRelease* GetDefaultObj()
+	static class UOakInventoryStatics* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakInputTriggerDelayedPressAndRelease>();
+		return GetDefaultObjImpl<UOakInventoryStatics>();
 	}
 };
-DUMPER7_ASSERTS_UOakInputTriggerDelayedPressAndRelease;
+DUMPER7_ASSERTS_UOakInventoryStatics;
 
 // Class OakGame.NexusConfigStoreOakCinematicPlayerAnim
 // 0x0050 (0x03E0 - 0x0390)
@@ -10135,25 +10052,69 @@ public:
 };
 DUMPER7_ASSERTS_UOakCinematicSettings;
 
-// Class OakGame.OakLevelSequenceActor
-// 0x0000 (0x0780 - 0x0780)
-class AOakLevelSequenceActor final : public AGbxLevelSequenceActor
+// Class OakGame.OakDrone
+// 0x02D0 (0x2E70 - 0x2BA0)
+#pragma pack(push, 0x1)
+class alignas(0x10) AOakDrone : public AGbxDrone
 {
+public:
+	uint8                                         Pad_2BA0[0x148];                                   // 0x2BA0(0x0148)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FInventoryIdentity                     Identity;                                          // 0x2CE8(0x00D8)(Net, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FOakStatusEffectModifierData_Gear      StatusEffectModifierData;                          // 0x2DC0(0x0040)(Protected, NativeAccessSpecifierProtected)
+	struct FDamageModifierData                    DamageModifierData;                                // 0x2E00(0x0068)(Transient, Protected, NativeAccessSpecifierProtected)
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakLevelSequenceActor")
+		STATIC_CLASS_IMPL("OakDrone")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakLevelSequenceActor")
+		STATIC_NAME_IMPL(L"OakDrone")
 	}
-	static class AOakLevelSequenceActor* GetDefaultObj()
+	static class AOakDrone* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakLevelSequenceActor>();
+		return GetDefaultObjImpl<AOakDrone>();
 	}
 };
-DUMPER7_ASSERTS_AOakLevelSequenceActor;
+#pragma pack(pop)
+DUMPER7_ASSERTS_AOakDrone;
+
+// Class OakGame.OakLocustGas
+// 0x0050 (0x2EC0 - 0x2E70)
+class AOakLocustGas final : public AOakDrone
+{
+public:
+	TMulticastInlineDelegate<void()>              OnLocustGasAbsorbTargetReached;                    // 0x2E68(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2E78[0x8];                                     // 0x2E78(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                OriginalLocation;                                  // 0x2E80(0x0018)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	int32                                         PatrolCount;                                       // 0x2E98(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bCanPatrol;                                        // 0x2E9C(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bIsAbsorbing;                                      // 0x2E9D(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_2E9E[0x22];                                    // 0x2E9E(0x0022)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void Absorb(class AActor* TargetAbsorbing);
+	bool IsAbsorbing();
+	void OnPatrolPointReached(class AActor* target);
+	void OnTargetAbsorbingReached(class AActor* target);
+	void SetPatrolState(bool bIsEnable);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakLocustGas")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakLocustGas")
+	}
+	static class AOakLocustGas* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakLocustGas>();
+	}
+};
+DUMPER7_ASSERTS_AOakLocustGas;
 
 // Class OakGame.OakCinematicStage
 // 0x03C8 (0x0758 - 0x0390)
@@ -10202,7 +10163,7 @@ public:
 DUMPER7_ASSERTS_AOakCinematicStage;
 
 // Class OakGame.OakCinematicStageSpawnPointComponent
-// 0x0000 (0x0600 - 0x0600)
+// 0x0000 (0x0620 - 0x0620)
 class UOakCinematicStageSpawnPointComponent final : public UPrimitiveComponent
 {
 public:
@@ -10221,39 +10182,29 @@ public:
 };
 DUMPER7_ASSERTS_UOakCinematicStageSpawnPointComponent;
 
-// Class OakGame.OakLostLootMachine
-// 0x00D0 (0x2680 - 0x25B0)
-class AOakLostLootMachine final : public AOakInteractiveObject
+// Class OakGame.OakLevelSequencePlayerCharacterObject
+// 0x0008 (0x0040 - 0x0038)
+class UOakLevelSequencePlayerCharacterObject final : public UGbxLevelSequencePlayerAssociatedStandInObject
 {
 public:
-	uint8                                         Pad_25B0[0x40];                                    // 0x25B0(0x0040)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(int32 Rarity)>  PlayerTakeLostLoot_ScriptEvent;                    // 0x25F0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class AOakPlayerController* OakPC)> OnBeginVending_ScriptEvent;    // 0x2600(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(class AOakPlayerController* OakPC)> OnEndVending_ScriptEvent;      // 0x2610(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2620[0x60];                                    // 0x2620(0x0060)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void EndParticleOverride();
-	int32 GetFilledSlots(class AOakPlayerController* OakPC);
-	int32 GetMaxSlots(class AOakPlayerController* OakPC);
-	void OverrideAllParticlePresentations(bool bShowParticle);
-	void UpdateParticlePresentations();
+	bool                                          bIsPOV;                                            // 0x0038(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakLostLootMachine")
+		STATIC_CLASS_IMPL("OakLevelSequencePlayerCharacterObject")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakLostLootMachine")
+		STATIC_NAME_IMPL(L"OakLevelSequencePlayerCharacterObject")
 	}
-	static class AOakLostLootMachine* GetDefaultObj()
+	static class UOakLevelSequencePlayerCharacterObject* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakLostLootMachine>();
+		return GetDefaultObjImpl<UOakLevelSequencePlayerCharacterObject>();
 	}
 };
-DUMPER7_ASSERTS_AOakLostLootMachine;
+DUMPER7_ASSERTS_UOakLevelSequencePlayerCharacterObject;
 
 // Class OakGame.OakCinematicStageCameraComponent
 // 0x0000 (0x0D40 - 0x0D40)
@@ -10298,28 +10249,25 @@ public:
 };
 DUMPER7_ASSERTS_UOakCinematicStageScript;
 
-// Class OakGame.OakLightBeam
-// 0x0008 (0x0988 - 0x0980)
-class UOakLightBeam final : public ULightBeam
+// Class OakGame.NexusConfigStoreVendingMachine
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStoreVendingMachine final : public UNexusConfigStoreBasic
 {
-public:
-	uint8                                         Pad_980[0x8];                                      // 0x0980(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakLightBeam")
+		STATIC_CLASS_IMPL("NexusConfigStoreVendingMachine")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakLightBeam")
+		STATIC_NAME_IMPL(L"NexusConfigStoreVendingMachine")
 	}
-	static class UOakLightBeam* GetDefaultObj()
+	static class UNexusConfigStoreVendingMachine* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakLightBeam>();
+		return GetDefaultObjImpl<UNexusConfigStoreVendingMachine>();
 	}
 };
-DUMPER7_ASSERTS_UOakLightBeam;
+DUMPER7_ASSERTS_UNexusConfigStoreVendingMachine;
 
 // Class OakGame.NexusConfigStoreCinematicMissionGrantStage
 // 0x0000 (0x0380 - 0x0380)
@@ -10360,53 +10308,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UNexusConfigStoreCinematicMissionGrantScript;
-
-// Class OakGame.OakInventoryStatics
-// 0x0000 (0x0028 - 0x0028)
-class UOakInventoryStatics final : public UBlueprintFunctionLibrary
-{
-public:
-	static void AddOvershield(class UObject* OwnerContext, float Amount);
-	static void AddOvershieldToOakCharacter(class AOakCharacter* TargetActor, float Amount);
-	static void BlockCharacterHealth(class AOakCharacter* TargetActor, float Value);
-	static struct FInventoryIdentity CreateMatchingItem(class AActor* ContextActor, const struct FInventorySelectionCriteria& Criteria, class Ainventory* SourceItem, int32 SourceOptions, const struct FInventorySelectionCriteria& FallbackCriteria);
-	static void DrainResourcePool(class UObject* OwnerContext, class FName ResourceName, float Percentage, float MinPercentage);
-	static void DrainShieldArmorSegment(class UObject* OwnerContext, float Percentage, bool bWholeSegmentsOnly, float ProtectionTime, bool bExternalDamage);
-	static void EmptyContainer(class AOakPlayerController* PlayerController, FGbxDefPtrProperty_ Container);
-	static int32 GetNumItemsInContainer(class UObject* WorldContext, const class AOakPlayerController* PlayerController, class FName ContainerType);
-	static class ARepairKit* GetRepairKit(class AActor* User);
-	static class AShield* GetShield(class AActor* ShieldUser);
-	static int64 GetTotalValueItemsInContainer(class AOakPlayerController* PlayerController, FGbxDefPtrProperty_ Container);
-	static void LatentOpenItemContainers(class AOakPlayerController* PlayerController, class FName Container1Type, class FName Container2Type, EInventoryTransactionType TransactionType, class FName TransactionTag, EItemContainerMenuButton* Exec, const struct FLatentActionInfo& LatentInfo);
-	static void OpenInventoryContainers(class AOakPlayerController* PlayerController, class FName Container1Type, class FName Container2Type, EInventoryTransactionType TransactionType, class FName TransactionTag);
-	static void OpenItemContainer(class AOakPlayerController* PlayerController, class FName ContainerType, EInventoryTransactionType TransactionType, class FName TransactionTag);
-	static void PickUpArmorSegment(class UObject* OwnerContext, class FName ResourceName, float Percentage, bool bWholeSegmentsOnly);
-	static void PickUpHealth(class UObject* OwnerContext, class FName HealthAttribute);
-	static void ReduceRepairKitCooldown(class AActor* ContextActor, ERepairKitCooldownReductionMethod Method, float Value);
-	static void RefreshOvershield(class UObject* OwnerContext);
-	static void RefreshOvershieldToOakCharacter(class AOakCharacter* TargetActor);
-	static void RegenShieldToMatchPlayerHealth(class UObject* OwnerContext, bool AwardOvershieldIfShieldIsMoreThanHealth);
-	static void RemoveOvershield(class UObject* OwnerContext, float Amount);
-	static void RemoveOvershieldToOakCharacter(class AOakCharacter* TargetActor, float Amount);
-	static void SpawnInventoryFromCharacter(class UObject* OwnerContext, const class FString& InventoryType, const class FString& InventoryComp, int32 InstancingPolicy, bool bOwnerOnly, class AActor* owner);
-	static void SpillOutItemsInContainer(class AOakPlayerController* PlayerController, class FName ContainerType, class AActor* ActorToSpawnFrom, FGameDataHandleProperty_ SpawnPattern, class FName SpawnSocketName);
-	static void UnblockCharacterHealth(class AOakCharacter* TargetActor);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakInventoryStatics")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakInventoryStatics")
-	}
-	static class UOakInventoryStatics* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakInventoryStatics>();
-	}
-};
-DUMPER7_ASSERTS_UOakInventoryStatics;
 
 // Class OakGame.OakCinematicViewProviderInterface
 // 0x0000 (0x0000 - 0x0000)
@@ -10466,26 +10367,6 @@ public:
 };
 DUMPER7_ASSERTS_IOakCinematicViewConsumerInterface;
 
-// Class OakGame.OakClimbableInteractData
-// 0x0000 (0x0030 - 0x0030)
-class UOakClimbableInteractData final : public UClimbableInteractData
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakClimbableInteractData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakClimbableInteractData")
-	}
-	static class UOakClimbableInteractData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakClimbableInteractData>();
-	}
-};
-DUMPER7_ASSERTS_UOakClimbableInteractData;
-
 // Class OakGame.OakCodedVendingMachineScript
 // 0x0038 (0x00D8 - 0x00A0)
 class UOakCodedVendingMachineScript final : public UGbxActorScript
@@ -10515,6 +10396,53 @@ public:
 };
 DUMPER7_ASSERTS_UOakCodedVendingMachineScript;
 
+// Class OakGame.OakControlledMove
+// 0x0008 (0x0C90 - 0x0C88)
+class UOakControlledMove : public UControlledMove
+{
+public:
+	uint8                                         bBlockGroundSlam : 1;                              // 0x0C88(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bSpeedAffectedByCryo : 1;                          // 0x0C88(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bEndGlide : 1;                                     // 0x0C88(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bBlockStatusMenu : 1;                              // 0x0C88(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_C89[0x7];                                      // 0x0C89(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakControlledMove")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakControlledMove")
+	}
+	static class UOakControlledMove* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakControlledMove>();
+	}
+};
+DUMPER7_ASSERTS_UOakControlledMove;
+
+// Class OakGame.OakControlledMove_GroundSlam
+// 0x0000 (0x0C90 - 0x0C90)
+class UOakControlledMove_GroundSlam final : public UOakControlledMove
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakControlledMove_GroundSlam")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakControlledMove_GroundSlam")
+	}
+	static class UOakControlledMove_GroundSlam* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakControlledMove_GroundSlam>();
+	}
+};
+DUMPER7_ASSERTS_UOakControlledMove_GroundSlam;
+
 // Class OakGame.OakControlledMove_Sliding
 // 0x0000 (0x0C90 - 0x0C90)
 class UOakControlledMove_Sliding final : public UOakControlledMove
@@ -10534,6 +10462,35 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakControlledMove_Sliding;
+
+// Class OakGame.OakMapViewer
+// 0x06E0 (0x0B18 - 0x0438)
+class AOakMapViewer final : public AGbxSceneViewer
+{
+public:
+	uint8                                         Pad_438[0xA8];                                     // 0x0438(0x00A8)(Fixing Size After Last Property [ Dumper-7 ])
+	class USpringArmComponent*                    ViewSpringArmComponent;                            // 0x04E0(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class USceneComponent*                        MapBaseComponent;                                  // 0x04E8(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_4F0[0x3C0];                                    // 0x04F0(0x03C0)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMaterialInstanceDynamic*               RegionMeshMaterials[0x8];                          // 0x08B0(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UMaterialInstanceDynamic*               PostImpactRegionMeshMaterials[0x8];                // 0x08F0(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_930[0x1E8];                                    // 0x0930(0x01E8)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakMapViewer")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakMapViewer")
+	}
+	static class AOakMapViewer* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakMapViewer>();
+	}
+};
+DUMPER7_ASSERTS_AOakMapViewer;
 
 // Class OakGame.NexusConfigStore_CorpseArchetype
 // 0x0000 (0x0390 - 0x0390)
@@ -10586,62 +10543,6 @@ public:
 };
 DUMPER7_ASSERTS_AOakCreditsSlide;
 
-// Class OakGame.OakMapViewerFog
-// 0x00A8 (0x0438 - 0x0390)
-class AOakMapViewerFog final : public AActor
-{
-public:
-	class USceneComponent*                        FogRoot;                                           // 0x0390(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UStaticMeshComponent*                   FogMesh;                                           // 0x0398(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         BaseMeshScale;                                     // 0x03A0(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_3A4[0x2C];                                     // 0x03A4(0x002C)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   FogMaterialTextureParameterName;                   // 0x03D0(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	ETextureFilter                                TextureFilter;                                     // 0x03D8(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_3D9[0x5F];                                     // 0x03D9(0x005F)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakMapViewerFog")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakMapViewerFog")
-	}
-	static class AOakMapViewerFog* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakMapViewerFog>();
-	}
-};
-DUMPER7_ASSERTS_AOakMapViewerFog;
-
-// Class OakGame.OakCreditsSlideshowManager
-// 0x0AF8 (0x0B20 - 0x0028)
-class alignas(0x10) UOakCreditsSlideshowManager final : public UObject
-{
-public:
-	TArray<TSoftClassPtr<class UClass>>           SlideClasses;                                      // 0x0028(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPrivate)
-	struct FGbxAudioEvent                         EndCreditsMusicStart;                              // 0x0038(0x0030)(Edit, NativeAccessSpecifierPrivate)
-	struct FGbxAudioEvent                         EndCreditsMusicStop;                               // 0x0068(0x0030)(Edit, NativeAccessSpecifierPrivate)
-	float                                         SecondsPerSlide;                                   // 0x0098(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_9C[0xA84];                                     // 0x009C(0x0A84)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakCreditsSlideshowManager")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakCreditsSlideshowManager")
-	}
-	static class UOakCreditsSlideshowManager* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakCreditsSlideshowManager>();
-	}
-};
-DUMPER7_ASSERTS_UOakCreditsSlideshowManager;
-
 // Class OakGame.OakCritterActor
 // 0x0018 (0x03A8 - 0x0390)
 class AOakCritterActor final : public AActor
@@ -10690,6 +10591,63 @@ public:
 };
 DUMPER7_ASSERTS_UOakCritterAnimInstance;
 
+// Class OakGame.OakMainMenuCameraViewModifier
+// 0x0000 (0x0000 - 0x0000)
+class IOakMainMenuCameraViewModifier final
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakMainMenuCameraViewModifier")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakMainMenuCameraViewModifier")
+	}
+	static class IOakMainMenuCameraViewModifier* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<IOakMainMenuCameraViewModifier>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
+	}
+};
+DUMPER7_ASSERTS_IOakMainMenuCameraViewModifier;
+
+// Class OakGame.OakCritterAnimTextureData
+// 0x0060 (0x00B0 - 0x0050)
+class UOakCritterAnimTextureData final : public UGbxAnimTextureData
+{
+public:
+	TArray<struct FOakCritterAnimInfo>            SpawnAnimInfos;                                    // 0x0050(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<struct FOakCritterAnimInfo>            PassiveAnimInfos;                                  // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<struct FOakCritterAnimInfo>            ReactAnimInfos;                                    // 0x0070(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<struct FOakCritterAnimInfo>            ScaredAnimInfos;                                   // 0x0080(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<struct FOakCritterAnimInfo>            DespawnAnimInfos;                                  // 0x0090(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<struct FOakCritterAnimInfo>            IdleAnimInfos;                                     // 0x00A0(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakCritterAnimTextureData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakCritterAnimTextureData")
+	}
+	static class UOakCritterAnimTextureData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakCritterAnimTextureData>();
+	}
+};
+DUMPER7_ASSERTS_UOakCritterAnimTextureData;
+
 // Class OakGame.OakCritterBiome
 // 0x0008 (0x0398 - 0x0390)
 class AOakCritterBiome final : public AActor
@@ -10713,44 +10671,64 @@ public:
 };
 DUMPER7_ASSERTS_AOakCritterBiome;
 
-// Class OakGame.OakMapViewer
-// 0x06E0 (0x0B18 - 0x0438)
-class AOakMapViewer final : public AGbxSceneViewer
+// Class OakGame.OakMapViewerRegionMeshComponent
+// 0x0040 (0x0760 - 0x0720)
+class UOakMapViewerRegionMeshComponent : public UStaticMeshComponent
 {
 public:
-	uint8                                         Pad_438[0xA8];                                     // 0x0438(0x00A8)(Fixing Size After Last Property [ Dumper-7 ])
-	class USpringArmComponent*                    ViewSpringArmComponent;                            // 0x04E0(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class USceneComponent*                        MapBaseComponent;                                  // 0x04E8(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_4F0[0x3C0];                                    // 0x04F0(0x03C0)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMaterialInstanceDynamic*               RegionMeshMaterials[0x8];                          // 0x08B0(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UMaterialInstanceDynamic*               PostImpactRegionMeshMaterials[0x8];                // 0x08F0(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_930[0x1E8];                                    // 0x0930(0x01E8)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	FGbxDefPtrProperty_                           RegionDef;                                         // 0x0718(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_730[0x12];                                     // 0x0730(0x0012)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bCanHovered;                                       // 0x0742(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_743[0x1D];                                     // 0x0743(0x001D)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void UpdateOpacity(float Value);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakMapViewer")
+		STATIC_CLASS_IMPL("OakMapViewerRegionMeshComponent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakMapViewer")
+		STATIC_NAME_IMPL(L"OakMapViewerRegionMeshComponent")
 	}
-	static class AOakMapViewer* GetDefaultObj()
+	static class UOakMapViewerRegionMeshComponent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakMapViewer>();
+		return GetDefaultObjImpl<UOakMapViewerRegionMeshComponent>();
 	}
 };
-DUMPER7_ASSERTS_AOakMapViewer;
+DUMPER7_ASSERTS_UOakMapViewerRegionMeshComponent;
+
+// Class OakGame.OakMapViewerSplitMeshComponent
+// 0x0000 (0x0760 - 0x0760)
+class UOakMapViewerSplitMeshComponent final : public UOakMapViewerRegionMeshComponent
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakMapViewerSplitMeshComponent")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakMapViewerSplitMeshComponent")
+	}
+	static class UOakMapViewerSplitMeshComponent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakMapViewerSplitMeshComponent>();
+	}
+};
+DUMPER7_ASSERTS_UOakMapViewerSplitMeshComponent;
 
 // Class OakGame.OakCritterBiomeComponent
-// 0x0040 (0x0640 - 0x0600)
+// 0x0040 (0x0660 - 0x0620)
 class UOakCritterBiomeComponent final : public UPrimitiveComponent
 {
 public:
-	float                                         CritterBiomeRadius;                                // 0x05F8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_5FC[0x4];                                      // 0x05FC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	FGameDataHandleProperty_                      CritterBiomeDef;                                   // 0x0600(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_618[0x28];                                     // 0x0618(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	float                                         CritterBiomeRadius;                                // 0x0620(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_624[0x4];                                      // 0x0624(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	FGameDataHandleProperty_                      CritterBiomeDef;                                   // 0x0628(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_640[0x20];                                     // 0x0640(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -10788,29 +10766,25 @@ public:
 };
 DUMPER7_ASSERTS_UNexusConfigStore_OakCritterBiome;
 
-// Class OakGame.OakMarketingSettings
-// 0x0050 (0x0088 - 0x0038)
-class UOakMarketingSettings final : public UDeveloperSettings
+// Class OakGame.OakMovieSceneNoUpgradeBinding
+// 0x0000 (0x0030 - 0x0030)
+class UOakMovieSceneNoUpgradeBinding final : public UMovieSceneSpawnableBindingBase
 {
-public:
-	TSoftClassPtr<class UClass>                   UniversalCaptureCheatManager;                      // 0x0038(0x0028)(Edit, BlueprintVisible, BlueprintReadOnly, Config, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSoftClassPtr<class UClass>                   UniversalCaptureSpectatorClass;                    // 0x0060(0x0028)(Edit, BlueprintVisible, BlueprintReadOnly, Config, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakMarketingSettings")
+		STATIC_CLASS_IMPL("OakMovieSceneNoUpgradeBinding")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakMarketingSettings")
+		STATIC_NAME_IMPL(L"OakMovieSceneNoUpgradeBinding")
 	}
-	static class UOakMarketingSettings* GetDefaultObj()
+	static class UOakMovieSceneNoUpgradeBinding* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakMarketingSettings>();
+		return GetDefaultObjImpl<UOakMovieSceneNoUpgradeBinding>();
 	}
 };
-DUMPER7_ASSERTS_UOakMarketingSettings;
+DUMPER7_ASSERTS_UOakMovieSceneNoUpgradeBinding;
 
 // Class OakGame.NexusConfigStore_OakCritter
 // 0x0000 (0x0390 - 0x0390)
@@ -10855,77 +10829,6 @@ public:
 };
 DUMPER7_ASSERTS_AOakCritterExclusionArea;
 
-// Class OakGame.OakSpawnPointComponent
-// 0x0040 (0x0970 - 0x0930)
-class UOakSpawnPointComponent : public UGbxGameSpawnPointComponent
-{
-public:
-	struct FOakAISpawnScripting                   AIScripting;                                       // 0x0928(0x0038)(Edit, NoDestructor, NativeAccessSpecifierPrivate)
-	class UGbxTrick*                              SpawnTrick;                                        // 0x0960(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_968[0x8];                                      // 0x0968(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakSpawnPointComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakSpawnPointComponent")
-	}
-	static class UOakSpawnPointComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakSpawnPointComponent>();
-	}
-};
-DUMPER7_ASSERTS_UOakSpawnPointComponent;
-
-// Class OakGame.OakMultiSpawnPointComponent
-// 0x0000 (0x0970 - 0x0970)
-class UOakMultiSpawnPointComponent final : public UOakSpawnPointComponent
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakMultiSpawnPointComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakMultiSpawnPointComponent")
-	}
-	static class UOakMultiSpawnPointComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakMultiSpawnPointComponent>();
-	}
-};
-DUMPER7_ASSERTS_UOakMultiSpawnPointComponent;
-
-// Class OakGame.OakCritterExclusionAreaComponent
-// 0x0030 (0x0630 - 0x0600)
-class UOakCritterExclusionAreaComponent final : public UPrimitiveComponent
-{
-public:
-	uint8                                         Pad_5F8[0x20];                                     // 0x05F8(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         ExclusionAreaRadius;                               // 0x0618(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_61C[0x4];                                      // 0x061C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<FGbxDefPtrProperty_>                   ExcludedBiomeDefs;                                 // 0x0620(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakCritterExclusionAreaComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakCritterExclusionAreaComponent")
-	}
-	static class UOakCritterExclusionAreaComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakCritterExclusionAreaComponent>();
-	}
-};
-DUMPER7_ASSERTS_UOakCritterExclusionAreaComponent;
-
 // Class OakGame.OakDamageStatics
 // 0x0000 (0x0028 - 0x0028)
 class UOakDamageStatics final : public UBlueprintFunctionLibrary
@@ -10960,6 +10863,73 @@ public:
 };
 DUMPER7_ASSERTS_UOakDamageStatics;
 
+// Class OakGame.OakMapViewerPOIIconComponent
+// 0x0170 (0x0790 - 0x0620)
+class UOakMapViewerPOIIconComponent final : public UPrimitiveComponent
+{
+public:
+	class UMaterialInterface*                     Material;                                          // 0x0620(0x0008)(Edit, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class FName                                   MaterialTextureParamName;                          // 0x0628(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class FName                                   MaterialPinTextureParamName;                       // 0x0630(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class FName                                   MaterialPinOpacityParamName;                       // 0x0638(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class FName                                   MaterialUseBackgroundParamName;                    // 0x0640(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class FName                                   MaterialBackgroundTextureParamName;                // 0x0648(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class FName                                   MaterialPulseEnabledParamName;                     // 0x0650(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class FName                                   MaterialIsHiddenParamName;                         // 0x0658(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class FName                                   MaterialIsBlipParamName;                           // 0x0660(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class FName                                   RadiusMaterialTextureParamName;                    // 0x0668(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bSizeInScreenSpace;                                // 0x0670(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_671[0x3];                                      // 0x0671(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         BaseIconRotation;                                  // 0x0674(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         IconResizeDuration;                                // 0x0678(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bIsAreaComponent;                                  // 0x067C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_67D[0x3];                                      // 0x067D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMaterialInstanceDynamic*               MaterialInstance;                                  // 0x0680(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_688[0x108];                                    // 0x0688(0x0108)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakMapViewerPOIIconComponent")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakMapViewerPOIIconComponent")
+	}
+	static class UOakMapViewerPOIIconComponent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakMapViewerPOIIconComponent>();
+	}
+};
+DUMPER7_ASSERTS_UOakMapViewerPOIIconComponent;
+
+// Class OakGame.OakDecoCharacter
+// 0x0298 (0x1EF0 - 0x1C58)
+class alignas(0x10) AOakDecoCharacter final : public AGbxDecoCharacter
+{
+public:
+	uint8                                         Pad_1C58[0x18];                                    // 0x1C58(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         RandomNameIdx;                                     // 0x1C70(0x0004)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_1C74[0x23C];                                   // 0x1C74(0x023C)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGbxDialogProvider*                     GbxDialogProvider;                                 // 0x1EB0(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_1EB8[0x38];                                    // 0x1EB8(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakDecoCharacter")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakDecoCharacter")
+	}
+	static class AOakDecoCharacter* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakDecoCharacter>();
+	}
+};
+DUMPER7_ASSERTS_AOakDecoCharacter;
+
 // Class OakGame.OakDecoCharacterBodyData
 // 0x0000 (0x0060 - 0x0060)
 class UOakDecoCharacterBodyData final : public UGbxDecoCharacterBodyData
@@ -10980,57 +10950,25 @@ public:
 };
 DUMPER7_ASSERTS_UOakDecoCharacterBodyData;
 
-// Class OakGame.OakMapViewerRegionMeshComponent
-// 0x0040 (0x0730 - 0x06F0)
-class UOakMapViewerRegionMeshComponent : public UStaticMeshComponent
+// Class OakGame.NexusConfigSubType_MigrationEventPoint
+// 0x0000 (0x0040 - 0x0040)
+class UNexusConfigSubType_MigrationEventPoint final : public UNexusConfigLevelSubType
 {
-public:
-	FGbxDefPtrProperty_                           RegionDef;                                         // 0x06F0(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_708[0x12];                                     // 0x0708(0x0012)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bCanHovered;                                       // 0x071A(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_71B[0x15];                                     // 0x071B(0x0015)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void UpdateOpacity(float Value);
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakMapViewerRegionMeshComponent")
+		STATIC_CLASS_IMPL("NexusConfigSubType_MigrationEventPoint")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakMapViewerRegionMeshComponent")
+		STATIC_NAME_IMPL(L"NexusConfigSubType_MigrationEventPoint")
 	}
-	static class UOakMapViewerRegionMeshComponent* GetDefaultObj()
+	static class UNexusConfigSubType_MigrationEventPoint* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakMapViewerRegionMeshComponent>();
+		return GetDefaultObjImpl<UNexusConfigSubType_MigrationEventPoint>();
 	}
 };
-DUMPER7_ASSERTS_UOakMapViewerRegionMeshComponent;
-
-// Class OakGame.OakMapViewerSplitMeshComponent
-// 0x0010 (0x0740 - 0x0730)
-class UOakMapViewerSplitMeshComponent final : public UOakMapViewerRegionMeshComponent
-{
-public:
-	uint8                                         Pad_730[0x10];                                     // 0x0730(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakMapViewerSplitMeshComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakMapViewerSplitMeshComponent")
-	}
-	static class UOakMapViewerSplitMeshComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakMapViewerSplitMeshComponent>();
-	}
-};
-DUMPER7_ASSERTS_UOakMapViewerSplitMeshComponent;
+DUMPER7_ASSERTS_UNexusConfigSubType_MigrationEventPoint;
 
 // Class OakGame.OakDecoratorHoloFactComponent
 // 0x0038 (0x01B0 - 0x0178)
@@ -11084,25 +11022,31 @@ public:
 };
 DUMPER7_ASSERTS_UOakDecoratorLightFactComponent;
 
-// Class OakGame.OakMovieSceneNoUpgradeBinding
-// 0x0000 (0x0030 - 0x0030)
-class UOakMovieSceneNoUpgradeBinding final : public UMovieSceneSpawnableBindingBase
+// Class OakGame.OakNewGameFlow
+// 0x0100 (0x0490 - 0x0390)
+class AOakNewGameFlow final : public AInfo
 {
+public:
+	uint8                                         Pad_390[0xD0];                                     // 0x0390(0x00D0)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 RockAndRollMovieName;                              // 0x0460(0x0010)(Edit, ZeroConstructor, DisableEditOnTemplate, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UGbxMomentData*                         BoltingSequenceMoment;                             // 0x0470(0x0008)(Edit, ZeroConstructor, DisableEditOnTemplate, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	FGbxDefPtrProperty_                           IntroMovieCinematicMode;                           // 0x0478(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakMovieSceneNoUpgradeBinding")
+		STATIC_CLASS_IMPL("OakNewGameFlow")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakMovieSceneNoUpgradeBinding")
+		STATIC_NAME_IMPL(L"OakNewGameFlow")
 	}
-	static class UOakMovieSceneNoUpgradeBinding* GetDefaultObj()
+	static class AOakNewGameFlow* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakMovieSceneNoUpgradeBinding>();
+		return GetDefaultObjImpl<AOakNewGameFlow>();
 	}
 };
-DUMPER7_ASSERTS_UOakMovieSceneNoUpgradeBinding;
+DUMPER7_ASSERTS_AOakNewGameFlow;
 
 // Class OakGame.OakDiscoveryFunctionLibrary
 // 0x0000 (0x0028 - 0x0028)
@@ -11147,125 +11091,117 @@ public:
 };
 DUMPER7_ASSERTS_UOakDiscoveryLocationComponent;
 
-// Class OakGame.OakNiagaraDataInterfaceEnemyRadar
-// 0x0050 (0x0088 - 0x0038)
-class UOakNiagaraDataInterfaceEnemyRadar final : public UNiagaraDataInterface
-{
-public:
-	uint8                                         Pad_38[0x50];                                      // 0x0038(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakNiagaraDataInterfaceEnemyRadar")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakNiagaraDataInterfaceEnemyRadar")
-	}
-	static class UOakNiagaraDataInterfaceEnemyRadar* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakNiagaraDataInterfaceEnemyRadar>();
-	}
-};
-DUMPER7_ASSERTS_UOakNiagaraDataInterfaceEnemyRadar;
-
-// Class OakGame.NexusConfigStoreOakDiscoveryPriorityGroupDef
+// Class OakGame.NexusConfigStore_OakMigrationEvent
 // 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStoreOakDiscoveryPriorityGroupDef final : public UNexusConfigStoreBasic
+class UNexusConfigStore_OakMigrationEvent final : public UNexusConfigStoreBasic
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("NexusConfigStoreOakDiscoveryPriorityGroupDef")
+		STATIC_CLASS_IMPL("NexusConfigStore_OakMigrationEvent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreOakDiscoveryPriorityGroupDef")
+		STATIC_NAME_IMPL(L"NexusConfigStore_OakMigrationEvent")
 	}
-	static class UNexusConfigStoreOakDiscoveryPriorityGroupDef* GetDefaultObj()
+	static class UNexusConfigStore_OakMigrationEvent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UNexusConfigStoreOakDiscoveryPriorityGroupDef>();
+		return GetDefaultObjImpl<UNexusConfigStore_OakMigrationEvent>();
 	}
 };
-DUMPER7_ASSERTS_UNexusConfigStoreOakDiscoveryPriorityGroupDef;
+DUMPER7_ASSERTS_UNexusConfigStore_OakMigrationEvent;
 
-// Class OakGame.OakDrone
-// 0x02D0 (0x2E70 - 0x2BA0)
-#pragma pack(push, 0x1)
-class alignas(0x10) AOakDrone : public AGbxDrone
+// Class OakGame.OakDroneAnimInstance
+// 0x0050 (0x05B0 - 0x0560)
+class UOakDroneAnimInstance final : public UGbxEngineAnimInstance
 {
 public:
-	uint8                                         Pad_2BA0[0x148];                                   // 0x2BA0(0x0148)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FInventoryIdentity                     Identity;                                          // 0x2CE8(0x00D8)(Net, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FOakStatusEffectModifierData_Gear      StatusEffectModifierData;                          // 0x2DC0(0x0040)(Protected, NativeAccessSpecifierProtected)
-	struct FDamageModifierData                    DamageModifierData;                                // 0x2E00(0x0068)(Transient, Protected, NativeAccessSpecifierProtected)
+	struct FRotator                               RotationalVelocity;                                // 0x0558(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	struct FVector                                Velocity;                                          // 0x0570(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsMovingOrRotating2D;                             // 0x0588(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsAttachedToVehicle;                              // 0x0589(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_58A[0x6];                                      // 0x058A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                VehicleLocalVelocity;                              // 0x0590(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AGbxDrone*                              OwningDrone;                                       // 0x05A8(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakDrone")
+		STATIC_CLASS_IMPL("OakDroneAnimInstance")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakDrone")
+		STATIC_NAME_IMPL(L"OakDroneAnimInstance")
 	}
-	static class AOakDrone* GetDefaultObj()
+	static class UOakDroneAnimInstance* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakDrone>();
+		return GetDefaultObjImpl<UOakDroneAnimInstance>();
 	}
 };
-#pragma pack(pop)
-DUMPER7_ASSERTS_AOakDrone;
+DUMPER7_ASSERTS_UOakDroneAnimInstance;
 
-// Class OakGame.NexusConfigSubType_MigrationEventPoint
+// Class OakGame.OakTextChatSubsystem
 // 0x0000 (0x0040 - 0x0040)
-class UNexusConfigSubType_MigrationEventPoint final : public UNexusConfigLevelSubType
+class UOakTextChatSubsystem final : public UGbxTextChatSubsystem
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("NexusConfigSubType_MigrationEventPoint")
+		STATIC_CLASS_IMPL("OakTextChatSubsystem")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"NexusConfigSubType_MigrationEventPoint")
+		STATIC_NAME_IMPL(L"OakTextChatSubsystem")
 	}
-	static class UNexusConfigSubType_MigrationEventPoint* GetDefaultObj()
+	static class UOakTextChatSubsystem* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UNexusConfigSubType_MigrationEventPoint>();
+		return GetDefaultObjImpl<UOakTextChatSubsystem>();
 	}
 };
-DUMPER7_ASSERTS_UNexusConfigSubType_MigrationEventPoint;
+DUMPER7_ASSERTS_UOakTextChatSubsystem;
 
-// Class OakGame.OakThroughCollisionHandlerInterface
-// 0x0000 (0x0000 - 0x0000)
-class IOakThroughCollisionHandlerInterface final
+// Class OakGame.OakDropship
+// 0x0000 (0x0850 - 0x0850)
+class AOakDropship final : public AOakSpawnPoint
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakThroughCollisionHandlerInterface")
+		STATIC_CLASS_IMPL("OakDropship")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakThroughCollisionHandlerInterface")
+		STATIC_NAME_IMPL(L"OakDropship")
 	}
-	static class IOakThroughCollisionHandlerInterface* GetDefaultObj()
+	static class AOakDropship* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<IOakThroughCollisionHandlerInterface>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
+		return GetDefaultObjImpl<AOakDropship>();
 	}
 };
-DUMPER7_ASSERTS_IOakThroughCollisionHandlerInterface;
+DUMPER7_ASSERTS_AOakDropship;
+
+// Class OakGame.OakOnlineSessionClient
+// 0x0468 (0x0920 - 0x04B8)
+class UOakOnlineSessionClient final : public UGbxOnlineSessionClient
+{
+public:
+	uint8                                         Pad_4B8[0x468];                                    // 0x04B8(0x0468)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakOnlineSessionClient")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakOnlineSessionClient")
+	}
+	static class UOakOnlineSessionClient* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakOnlineSessionClient>();
+	}
+};
+DUMPER7_ASSERTS_UOakOnlineSessionClient;
 
 // Class OakGame.OakDropshipPreviewComponent
 // 0x0000 (0x02B0 - 0x02B0)
@@ -11307,28 +11243,58 @@ public:
 };
 DUMPER7_ASSERTS_UOakDropshipData;
 
-// Class OakGame.NexusConfigStore_OakOrderRewind
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStore_OakOrderRewind final : public UNexusConfigStoreBasic
+// Class OakGame.OakUIBaseDataCollector_GameInstance
+// 0x0018 (0x0048 - 0x0030)
+class UOakUIBaseDataCollector_GameInstance : public UGameInstanceSubsystem
 {
+public:
+	uint8                                         Pad_30[0x18];                                      // 0x0030(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("NexusConfigStore_OakOrderRewind")
+		STATIC_CLASS_IMPL("OakUIBaseDataCollector_GameInstance")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"NexusConfigStore_OakOrderRewind")
+		STATIC_NAME_IMPL(L"OakUIBaseDataCollector_GameInstance")
 	}
-	static class UNexusConfigStore_OakOrderRewind* GetDefaultObj()
+	static class UOakUIBaseDataCollector_GameInstance* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UNexusConfigStore_OakOrderRewind>();
+		return GetDefaultObjImpl<UOakUIBaseDataCollector_GameInstance>();
 	}
 };
-DUMPER7_ASSERTS_UNexusConfigStore_OakOrderRewind;
+DUMPER7_ASSERTS_UOakUIBaseDataCollector_GameInstance;
+
+// Class OakGame.OakThumbnailManager
+// 0x0160 (0x01A8 - 0x0048)
+class UOakThumbnailManager final : public UOakUIBaseDataCollector_GameInstance
+{
+public:
+	TMap<struct FThumbnailID, class UTextureRenderTarget2D*> RenderedThumbnails;                     // 0x0048(0x0050)(Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	TMap<struct FIntPoint, class UTextureRenderTarget2D*> RawRenderTargets;                          // 0x0098(0x0050)(Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	class UMaterialInstanceDynamic*               ThumbnailMaterialInstance;                         // 0x00E8(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	TArray<struct FThumbnailStandInLoadRequest>   StandInLoadRequests;                               // 0x00F0(0x0010)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_100[0xA8];                                     // 0x0100(0x00A8)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakThumbnailManager")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakThumbnailManager")
+	}
+	static class UOakThumbnailManager* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakThumbnailManager>();
+	}
+};
+DUMPER7_ASSERTS_UOakThumbnailManager;
 
 // Class OakGame.OakDropshipSpawnPointComponent
-// 0x0000 (0x0970 - 0x0970)
+// 0x0000 (0x0990 - 0x0990)
 class UOakDropshipSpawnPointComponent final : public UOakSpawnPointComponent
 {
 public:
@@ -11347,37 +11313,28 @@ public:
 };
 DUMPER7_ASSERTS_UOakDropshipSpawnPointComponent;
 
-// Class OakGame.OakTrackableSpawner
-// 0x0920 (0x0DC0 - 0x04A0)
-class AOakTrackableSpawner final : public AOakSpawner
+// Class OakGame.OakSymphonicAmbientAudio
+// 0x0030 (0x00B0 - 0x0080)
+class UOakSymphonicAmbientAudio final : public UGbxSymphonicAmbientAudioSystem
 {
 public:
-	uint8                                         Pad_4A0[0x60];                                     // 0x04A0(0x0060)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bVaultTrackingEnabled;                             // 0x0500(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDrawVaultTrackingRings;                           // 0x0501(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_502[0x6];                                      // 0x0502(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	FGbxDefPtrProperty_                           VaultTrackerLocationData;                          // 0x0508(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGbxDiscoveryLocationInstanceConfig    DiscoveryLocationConfig;                           // 0x0520(0x03F8)(Deprecated, Protected, NativeAccessSpecifierProtected)
-	struct FOakDiscoveryLocationInstanceConfig    OakDiscoveryLocationConfig;                        // 0x0918(0x0480)(Edit, DisableEditOnTemplate, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_D98[0x8];                                      // 0x0D98(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 EditorGeneratedDiscoveryLocationGuidString;        // 0x0DA0(0x0010)(Edit, ZeroConstructor, EditConst, Protected, TextExportTransient, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_DB0[0x10];                                     // 0x0DB0(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_80[0x30];                                      // 0x0080(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakTrackableSpawner")
+		STATIC_CLASS_IMPL("OakSymphonicAmbientAudio")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakTrackableSpawner")
+		STATIC_NAME_IMPL(L"OakSymphonicAmbientAudio")
 	}
-	static class AOakTrackableSpawner* GetDefaultObj()
+	static class UOakSymphonicAmbientAudio* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakTrackableSpawner>();
+		return GetDefaultObjImpl<UOakSymphonicAmbientAudio>();
 	}
 };
-DUMPER7_ASSERTS_AOakTrackableSpawner;
+DUMPER7_ASSERTS_UOakSymphonicAmbientAudio;
 
 // Class OakGame.OakDynamicSpawnPoint
 // 0x0000 (0x0850 - 0x0850)
@@ -11399,45 +11356,28 @@ public:
 };
 DUMPER7_ASSERTS_AOakDynamicSpawnPoint;
 
-// Class OakGame.OakDynamicSpawnPointComponent
-// 0x0000 (0x0970 - 0x0970)
-class UOakDynamicSpawnPointComponent final : public UOakSpawnPointComponent
+// Class OakGame.OakOnlineMessaging
+// 0x00A8 (0x00D8 - 0x0030)
+class UOakOnlineMessaging final : public UGameInstanceSubsystem
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakDynamicSpawnPointComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakDynamicSpawnPointComponent")
-	}
-	static class UOakDynamicSpawnPointComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakDynamicSpawnPointComponent>();
-	}
-};
-DUMPER7_ASSERTS_UOakDynamicSpawnPointComponent;
+	uint8                                         Pad_30[0xA8];                                      // 0x0030(0x00A8)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
-// Class OakGame.OakTextChatSubsystem
-// 0x0000 (0x0040 - 0x0040)
-class UOakTextChatSubsystem final : public UGbxTextChatSubsystem
-{
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakTextChatSubsystem")
+		STATIC_CLASS_IMPL("OakOnlineMessaging")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakTextChatSubsystem")
+		STATIC_NAME_IMPL(L"OakOnlineMessaging")
 	}
-	static class UOakTextChatSubsystem* GetDefaultObj()
+	static class UOakOnlineMessaging* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakTextChatSubsystem>();
+		return GetDefaultObjImpl<UOakOnlineMessaging>();
 	}
 };
-DUMPER7_ASSERTS_UOakTextChatSubsystem;
+DUMPER7_ASSERTS_UOakOnlineMessaging;
 
 // Class OakGame.OakEcho4StandIn
 // 0x0020 (0x0BB0 - 0x0B90)
@@ -11464,28 +11404,65 @@ public:
 };
 DUMPER7_ASSERTS_AOakEcho4StandIn;
 
-// Class OakGame.OakOnlineSessionClient
-// 0x0468 (0x0920 - 0x04B8)
-class UOakOnlineSessionClient final : public UGbxOnlineSessionClient
+// Class OakGame.OakEcho4Statics
+// 0x0000 (0x0028 - 0x0028)
+class UOakEcho4Statics final : public UBlueprintFunctionLibrary
 {
 public:
-	uint8                                         Pad_4B8[0x468];                                    // 0x04B8(0x0468)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	static bool CanEcho4BeInterrupted(class AOakCharacter* DroneOwner);
+	static bool CanEcho4Deploy(class AOakCharacter* DroneOwner);
+	static void DeployEcho4AtLocationLatent(const struct FVector& Location, float Echo4DeployCooldown, class AOakCharacter* DroneOwner, class AOakDrone** projectile, const struct FLatentActionInfo& LatentInfo, bool bUseOverrideRotation, const struct FRotator& OverrideRotation);
+	static void DeployEcho4Latent(const struct FGbxRelativeLocation& LocationOptions, float Echo4DeployCooldown, class AOakCharacter* DroneOwner, class AOakDrone** projectile, const struct FLatentActionInfo& LatentInfo, bool bUseOverrideRotation, const struct FRotator& OverrideRotation, class AActor* OverrideActor);
+	static void DeployEcho4WithDefLatent(FGbxDefPtrProperty_ DroneDef, const struct FGbxRelativeLocation& LocationOptions, float Echo4DeployCooldown, class AOakCharacter* DroneOwner, class AOakDrone** projectile, const struct FLatentActionInfo& LatentInfo, bool bUseOverrideRotation, const struct FRotator& OverrideRotation, class AActor* OverrideActor);
+	static void FlyToActor(class AOakDrone* OakDrone, class AActor* MoveActor, float DroneSpeed, float DroneAccelerationTime, float StopFlyAtTargetDisance);
+	static void FlyToLocation(class AOakDrone* OakDrone, const struct FVector& MoveLocation, float DroneSpeed, float DroneAccelerationTime, float StopFlyAtTargetDisance);
+	static class UOakActorScript_Echo4* GetEcho4ActorScript(class AOakDrone* OakDrone);
+	static class AOakDrone* GetEcho4Drone(class AOakCharacter* DroneOwner);
+	static bool IsEcho4Deployed(class AOakCharacter* DroneOwner);
+	static void NotifyEchoLocationAnimFinished(class AOakDrone* OakDrone);
+	static void RetrieveEcho4(class AOakCharacter* DroneOwner);
+	static void SetEcho4DeploymentLocked(class AOakCharacter* DroneOwner, bool InLock);
+	static bool WasWaypointPathFound(class AActor* DroneOrOwner);
+	static void WasWaypointPathFoundLatent(class AActor* DroneOrOwner, bool* Result, const struct FLatentActionInfo& LatentInfo);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakOnlineSessionClient")
+		STATIC_CLASS_IMPL("OakEcho4Statics")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakOnlineSessionClient")
+		STATIC_NAME_IMPL(L"OakEcho4Statics")
 	}
-	static class UOakOnlineSessionClient* GetDefaultObj()
+	static class UOakEcho4Statics* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakOnlineSessionClient>();
+		return GetDefaultObjImpl<UOakEcho4Statics>();
 	}
 };
-DUMPER7_ASSERTS_UOakOnlineSessionClient;
+DUMPER7_ASSERTS_UOakEcho4Statics;
+
+// Class OakGame.OakPerchSpawner
+// 0x0008 (0x04A8 - 0x04A0)
+class AOakPerchSpawner final : public AGbxGameSpawner
+{
+public:
+	class UPerchComponent*                        PerchComponent;                                    // 0x04A0(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakPerchSpawner")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakPerchSpawner")
+	}
+	static class AOakPerchSpawner* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakPerchSpawner>();
+	}
+};
+DUMPER7_ASSERTS_AOakPerchSpawner;
 
 // Class OakGame.NexusConfigStoreOakEchoLocationData
 // 0x0000 (0x0390 - 0x0390)
@@ -11527,28 +11504,25 @@ public:
 };
 DUMPER7_ASSERTS_UNexusConfigStoreOakEchoLogCategoryDef;
 
-// Class OakGame.OakPerchSpawnPoint
-// 0x0000 (0x0850 - 0x0850)
-class AOakPerchSpawnPoint final : public AGbxGameSpawnPoint
+// Class OakGame.NexusConfigStore_OakOrderRewind
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStore_OakOrderRewind final : public UNexusConfigStoreBasic
 {
-public:
-	class UPerchComponent*                        PerchComponent;                                    // 0x0848(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakPerchSpawnPoint")
+		STATIC_CLASS_IMPL("NexusConfigStore_OakOrderRewind")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakPerchSpawnPoint")
+		STATIC_NAME_IMPL(L"NexusConfigStore_OakOrderRewind")
 	}
-	static class AOakPerchSpawnPoint* GetDefaultObj()
+	static class UNexusConfigStore_OakOrderRewind* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakPerchSpawnPoint>();
+		return GetDefaultObjImpl<UNexusConfigStore_OakOrderRewind>();
 	}
 };
-DUMPER7_ASSERTS_AOakPerchSpawnPoint;
+DUMPER7_ASSERTS_UNexusConfigStore_OakOrderRewind;
 
 // Class OakGame.OakEchoLogComponent
 // 0x0000 (0x0110 - 0x0110)
@@ -11590,31 +11564,25 @@ public:
 };
 DUMPER7_ASSERTS_UNexusConfigStoreOakEchoLogDef;
 
-// Class OakGame.OakOrderRewindStatics
-// 0x0000 (0x0028 - 0x0028)
-class UOakOrderRewindStatics final : public UBlueprintFunctionLibrary
+// Class OakGame.OakNiagaraDataInterfaceWeaponSight
+// 0x0000 (0x0038 - 0x0038)
+class UOakNiagaraDataInterfaceWeaponSight final : public UNiagaraDataInterface
 {
-public:
-	static bool CanStart(class UObject* OwnerContext);
-	static bool IsActive(class UObject* OwnerContext);
-	static void Start(class UObject* OwnerContext, float InIdealDuration);
-	static void Stop(class UObject* OwnerContext);
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakOrderRewindStatics")
+		STATIC_CLASS_IMPL("OakNiagaraDataInterfaceWeaponSight")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakOrderRewindStatics")
+		STATIC_NAME_IMPL(L"OakNiagaraDataInterfaceWeaponSight")
 	}
-	static class UOakOrderRewindStatics* GetDefaultObj()
+	static class UOakNiagaraDataInterfaceWeaponSight* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakOrderRewindStatics>();
+		return GetDefaultObjImpl<UOakNiagaraDataInterfaceWeaponSight>();
 	}
 };
-DUMPER7_ASSERTS_UOakOrderRewindStatics;
+DUMPER7_ASSERTS_UOakNiagaraDataInterfaceWeaponSight;
 
 // Class OakGame.OakEchoLogFunctionLibrary
 // 0x0000 (0x0028 - 0x0028)
@@ -11649,57 +11617,25 @@ public:
 };
 DUMPER7_ASSERTS_UOakEchoLogFunctionLibrary;
 
-// Class OakGame.OakEchoLogStateInterface
-// 0x0000 (0x0000 - 0x0000)
-class IOakEchoLogStateInterface final
+// Class OakGame.OakInstallationDoorHelper
+// 0x0000 (0x0390 - 0x0390)
+class AOakInstallationDoorHelper final : public AActor
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakEchoLogStateInterface")
+		STATIC_CLASS_IMPL("OakInstallationDoorHelper")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakEchoLogStateInterface")
+		STATIC_NAME_IMPL(L"OakInstallationDoorHelper")
 	}
-	static class IOakEchoLogStateInterface* GetDefaultObj()
+	static class AOakInstallationDoorHelper* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<IOakEchoLogStateInterface>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
+		return GetDefaultObjImpl<AOakInstallationDoorHelper>();
 	}
 };
-DUMPER7_ASSERTS_IOakEchoLogStateInterface;
-
-// Class OakGame.OakOnlineMessaging
-// 0x00A8 (0x00D8 - 0x0030)
-class UOakOnlineMessaging final : public UGameInstanceSubsystem
-{
-public:
-	uint8                                         Pad_30[0xA8];                                      // 0x0030(0x00A8)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakOnlineMessaging")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakOnlineMessaging")
-	}
-	static class UOakOnlineMessaging* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakOnlineMessaging>();
-	}
-};
-DUMPER7_ASSERTS_UOakOnlineMessaging;
+DUMPER7_ASSERTS_AOakInstallationDoorHelper;
 
 // Class OakGame.OakEchoPreferencesRole
 // 0x0000 (0x0100 - 0x0100)
@@ -11721,28 +11657,50 @@ public:
 };
 DUMPER7_ASSERTS_UOakEchoPreferencesRole;
 
-// Class OakGame.OakPerchSpawner
-// 0x0008 (0x04A8 - 0x04A0)
-class AOakPerchSpawner final : public AGbxGameSpawner
+// Class OakGame.OakUIScript_TitleScreen
+// 0x0000 (0x0028 - 0x0028)
+class UOakUIScript_TitleScreen : public UGbxUIScript
 {
 public:
-	class UPerchComponent*                        PerchComponent;                                    // 0x04A0(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	void PressedStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SplashIntro(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SplashTransition(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakPerchSpawner")
+		STATIC_CLASS_IMPL("OakUIScript_TitleScreen")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakPerchSpawner")
+		STATIC_NAME_IMPL(L"OakUIScript_TitleScreen")
 	}
-	static class AOakPerchSpawner* GetDefaultObj()
+	static class UOakUIScript_TitleScreen* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakPerchSpawner>();
+		return GetDefaultObjImpl<UOakUIScript_TitleScreen>();
 	}
 };
-DUMPER7_ASSERTS_AOakPerchSpawner;
+DUMPER7_ASSERTS_UOakUIScript_TitleScreen;
+
+// Class OakGame.OakPlayerMetricsActor
+// 0x0000 (0x0390 - 0x0390)
+class AOakPlayerMetricsActor final : public AActor
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakPlayerMetricsActor")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakPlayerMetricsActor")
+	}
+	static class AOakPlayerMetricsActor* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakPlayerMetricsActor>();
+	}
+};
+DUMPER7_ASSERTS_AOakPlayerMetricsActor;
 
 // Class OakGame.OakEnhancedInputActionHandler_Carry
 // 0x0000 (0x0048 - 0x0048)
@@ -11764,59 +11722,48 @@ public:
 };
 DUMPER7_ASSERTS_UOakEnhancedInputActionHandler_Carry;
 
-// Class OakGame.OakUIScript_VaultTracker
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_VaultTracker final : public UGbxUIScript
+// Class OakGame.OakEnhancedInputActionHandler_FFYL
+// 0x0000 (0x0048 - 0x0048)
+class UOakEnhancedInputActionHandler_FFYL final : public UOakEnhancedInputActionHandler_Character
 {
 public:
-	void SearchPing(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void SearchSuccess(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void Switch(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TrackerActivate(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakEnhancedInputActionHandler_FFYL")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakEnhancedInputActionHandler_FFYL")
+	}
+	static class UOakEnhancedInputActionHandler_FFYL* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakEnhancedInputActionHandler_FFYL>();
+	}
+};
+DUMPER7_ASSERTS_UOakEnhancedInputActionHandler_FFYL;
+
+// Class OakGame.OakPerchSpawnPoint
+// 0x0000 (0x0850 - 0x0850)
+class AOakPerchSpawnPoint final : public AGbxGameSpawnPoint
+{
+public:
+	class UPerchComponent*                        PerchComponent;                                    // 0x0848(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIScript_VaultTracker")
+		STATIC_CLASS_IMPL("OakPerchSpawnPoint")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIScript_VaultTracker")
+		STATIC_NAME_IMPL(L"OakPerchSpawnPoint")
 	}
-	static class UOakUIScript_VaultTracker* GetDefaultObj()
+	static class AOakPerchSpawnPoint* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIScript_VaultTracker>();
+		return GetDefaultObjImpl<AOakPerchSpawnPoint>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIScript_VaultTracker;
-
-// Class OakGame.OakPlayerMetricsData
-// 0x0090 (0x00C0 - 0x0030)
-class UOakPlayerMetricsData final : public UDataAsset
-{
-public:
-	FGameDataHandleProperty_                      CharacterDefinition;                               // 0x0030(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           JumpGoal_Default;                                  // 0x0048(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           JumpGoal_Sprint;                                   // 0x0060(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           JumpGoal_DoubleJump;                               // 0x0078(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGameDataHandleProperty_                      Stance_Default;                                    // 0x0090(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGameDataHandleProperty_                      Stance_Sprint;                                     // 0x00A8(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakPlayerMetricsData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakPlayerMetricsData")
-	}
-	static class UOakPlayerMetricsData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakPlayerMetricsData>();
-	}
-};
-DUMPER7_ASSERTS_UOakPlayerMetricsData;
+DUMPER7_ASSERTS_AOakPerchSpawnPoint;
 
 // Class OakGame.OakEnhancedInputActionHandler_OnFoot
 // 0x0008 (0x0050 - 0x0048)
@@ -11864,25 +11811,31 @@ public:
 };
 DUMPER7_ASSERTS_UOakEnhancedInputActionHandler_OnFoot_Possessed;
 
-// Class OakGame.OakPhysicsObject
-// 0x0000 (0x25B0 - 0x25B0)
-class AOakPhysicsObject final : public AOakInteractiveObject
+// Class OakGame.OakOrderRewindStatics
+// 0x0000 (0x0028 - 0x0028)
+class UOakOrderRewindStatics final : public UBlueprintFunctionLibrary
 {
+public:
+	static bool CanStart(class UObject* OwnerContext);
+	static bool IsActive(class UObject* OwnerContext);
+	static void Start(class UObject* OwnerContext, float InIdealDuration);
+	static void Stop(class UObject* OwnerContext);
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakPhysicsObject")
+		STATIC_CLASS_IMPL("OakOrderRewindStatics")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakPhysicsObject")
+		STATIC_NAME_IMPL(L"OakOrderRewindStatics")
 	}
-	static class AOakPhysicsObject* GetDefaultObj()
+	static class UOakOrderRewindStatics* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakPhysicsObject>();
+		return GetDefaultObjImpl<UOakOrderRewindStatics>();
 	}
 };
-DUMPER7_ASSERTS_AOakPhysicsObject;
+DUMPER7_ASSERTS_UOakOrderRewindStatics;
 
 // Class OakGame.OakEnhancedInputActionHandler_Vehicle
 // 0x0020 (0x0050 - 0x0030)
@@ -11907,45 +11860,30 @@ public:
 };
 DUMPER7_ASSERTS_UOakEnhancedInputActionHandler_Vehicle;
 
-// Class OakGame.OakEnhancedInputDebugger
-// 0x0000 (0x0028 - 0x0028)
-class UOakEnhancedInputDebugger : public UObject
+// Class OakGame.OakPlayerCameraManager
+// 0x01A0 (0x3C60 - 0x3AC0)
+class AOakPlayerCameraManager final : public APlayerCameraModeManager
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakEnhancedInputDebugger")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakEnhancedInputDebugger")
-	}
-	static class UOakEnhancedInputDebugger* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakEnhancedInputDebugger>();
-	}
-};
-DUMPER7_ASSERTS_UOakEnhancedInputDebugger;
+	uint8                                         Pad_3AC0[0x140];                                   // 0x3AC0(0x0140)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FDefaultCameraModeConfig>       DefaultCameraModesByActorClass;                    // 0x3C00(0x0010)(ZeroConstructor, Config, GlobalConfig, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_3C10[0x50];                                    // 0x3C10(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
-// Class OakGame.OakInstallationDoorHelper
-// 0x0000 (0x0390 - 0x0390)
-class AOakInstallationDoorHelper final : public AActor
-{
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakInstallationDoorHelper")
+		STATIC_CLASS_IMPL("OakPlayerCameraManager")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakInstallationDoorHelper")
+		STATIC_NAME_IMPL(L"OakPlayerCameraManager")
 	}
-	static class AOakInstallationDoorHelper* GetDefaultObj()
+	static class AOakPlayerCameraManager* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakInstallationDoorHelper>();
+		return GetDefaultObjImpl<AOakPlayerCameraManager>();
 	}
 };
-DUMPER7_ASSERTS_AOakInstallationDoorHelper;
+DUMPER7_ASSERTS_AOakPlayerCameraManager;
 
 // Class OakGame.OakEnhancedInputDebugger_Look
 // 0x0000 (0x0028 - 0x0028)
@@ -11967,45 +11905,153 @@ public:
 };
 DUMPER7_ASSERTS_UOakEnhancedInputDebugger_Look;
 
-// Class OakGame.OakEnhancedInputDebugger_Move
-// 0x0000 (0x0028 - 0x0028)
-class UOakEnhancedInputDebugger_Move final : public UOakEnhancedInputDebugger
+// Class OakGame.OakUISettingValueDiscrete_GamepadPreset
+// 0x0028 (0x01C0 - 0x0198)
+class UOakUISettingValueDiscrete_GamepadPreset : public UGameSettingValueDiscreteDynamic
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakEnhancedInputDebugger_Move")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakEnhancedInputDebugger_Move")
-	}
-	static class UOakEnhancedInputDebugger_Move* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakEnhancedInputDebugger_Move>();
-	}
-};
-DUMPER7_ASSERTS_UOakEnhancedInputDebugger_Move;
+	uint8                                         Pad_198[0x28];                                     // 0x0198(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
-// Class OakGame.OakPlayerMetricsActor
-// 0x0000 (0x0390 - 0x0390)
-class AOakPlayerMetricsActor final : public AActor
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUISettingValueDiscrete_GamepadPreset")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUISettingValueDiscrete_GamepadPreset")
+	}
+	static class UOakUISettingValueDiscrete_GamepadPreset* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUISettingValueDiscrete_GamepadPreset>();
+	}
+};
+DUMPER7_ASSERTS_UOakUISettingValueDiscrete_GamepadPreset;
+
+// Class OakGame.OakUISettingValueDiscrete_GamepadPreset_Stick_OnFoot
+// 0x0000 (0x01C0 - 0x01C0)
+class UOakUISettingValueDiscrete_GamepadPreset_Stick_OnFoot final : public UOakUISettingValueDiscrete_GamepadPreset
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakPlayerMetricsActor")
+		STATIC_CLASS_IMPL("OakUISettingValueDiscrete_GamepadPreset_Stick_OnFoot")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakPlayerMetricsActor")
+		STATIC_NAME_IMPL(L"OakUISettingValueDiscrete_GamepadPreset_Stick_OnFoot")
 	}
-	static class AOakPlayerMetricsActor* GetDefaultObj()
+	static class UOakUISettingValueDiscrete_GamepadPreset_Stick_OnFoot* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakPlayerMetricsActor>();
+		return GetDefaultObjImpl<UOakUISettingValueDiscrete_GamepadPreset_Stick_OnFoot>();
 	}
 };
-DUMPER7_ASSERTS_AOakPlayerMetricsActor;
+DUMPER7_ASSERTS_UOakUISettingValueDiscrete_GamepadPreset_Stick_OnFoot;
+
+// Class OakGame.OakPlayerState
+// 0x0CA8 (0x1340 - 0x0698)
+class AOakPlayerState final : public AGbxPlayerState
+{
+public:
+	uint8                                         Pad_698[0x28];                                     // 0x0698(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FPlayerExperienceState>         ExperienceState;                                   // 0x06C0(0x0010)(Net, ZeroConstructor, Transient, RepNotify, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_6D0[0x39];                                     // 0x06D0(0x0039)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         PlayerDifficulty;                                  // 0x0709(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_70A[0x2E];                                     // 0x070A(0x002E)(Fixing Size After Last Property [ Dumper-7 ])
+	EPlayerTravelStatus                           TravelStatus;                                      // 0x0738(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bInNoSignal_NoTravelZone;                          // 0x0739(0x0001)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bInNoSignal_WorldSettings_NoTravelZone;            // 0x073A(0x0001)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_73B[0x1D];                                     // 0x073B(0x001D)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         AmmoNeeds;                                         // 0x0758(0x0004)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_75C[0x4];                                      // 0x075C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxItemSlotsContainer                 BackpackItems;                                     // 0x0760(0x0128)(Net, RepNotify, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_888[0x8];                                      // 0x0888(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxItemContainer                      BackpackContainer;                                 // 0x0890(0x0160)(Net, Protected, NativeAccessSpecifierProtected)
+	struct FGbxItemSlotsContainer                 BankItems;                                         // 0x09F0(0x0128)(Net, RepNotify, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_B18[0x8];                                      // 0x0B18(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxItemContainer                      BankContainer;                                     // 0x0B20(0x0160)(Net, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_C80[0x50];                                     // 0x0C80(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         ActiveWeaponEquipSlot;                             // 0x0CD0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint32                                        ActiveWeaponRestoreEquipSlots;                     // 0x0CD4(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_CD8[0xC0];                                     // 0x0CD8(0x00C0)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         VaultHunterLevel;                                  // 0x0D98(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_D9C[0x4C];                                     // 0x0D9C(0x004C)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         MusicThreat;                                       // 0x0DE8(0x0004)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         CriticalMusicThreat;                               // 0x0DEC(0x0004)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bMinibossCombat;                                   // 0x0DF0(0x0001)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         MusicCombatZone;                                   // 0x0DF1(0x0001)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bDrivingVehicle;                                   // 0x0DF2(0x0001)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_DF3[0x5];                                      // 0x0DF3(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPlayerGenericProperties               GenericProperties;                                 // 0x0DF8(0x00D8)(Net, RepNotify, NativeAccessSpecifierPublic)
+	uint8                                         Pad_ED0[0x8];                                      // 0x0ED0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         BuddyIndex;                                        // 0x0ED8(0x0004)(Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_EDC[0x24];                                     // 0x0EDC(0x0024)(Fixing Size After Last Property [ Dumper-7 ])
+	ECharacterSelectPhase                         CurrentCharacterSelectPhase;                       // 0x0F00(0x0001)(Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_F01[0x7];                                      // 0x0F01(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	uint64                                        BlackMarketCooldownTimestamp;                      // 0x0F08(0x0008)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bBlackMarketMachineDiscovered;                     // 0x0F10(0x0001)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_F11[0x57];                                     // 0x0F11(0x0057)(Fixing Size After Last Property [ Dumper-7 ])
+	class UOakLostLootSubsystem*                  LostLootManager;                                   // 0x0F68(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FGbxFastReplicatedBitArray             ReplicatedChallengeCompletion;                     // 0x0F70(0x0120)(Net, RepNotify, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1090[0x250];                                   // 0x1090(0x0250)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FChallengeObjectiveState>       ChallengeObjectiveStates;                          // 0x12E0(0x0010)(Net, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	uint32                                        SeenEridiumLogs;                                   // 0x12F0(0x0004)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_12F4[0x4];                                     // 0x12F4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxDiscoveryPinningState              DiscoveryPinningState;                             // 0x12F8(0x0028)(Net, Transient, RepNotify, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_1320[0x18];                                    // 0x1320(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bIsBusyInMenu;                                     // 0x1338(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_1339[0x7];                                     // 0x1339(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void BP_SetExperienceLevel(const FGbxDefPtrProperty_ ExperienceDef, int32 ExperienceLevel);
+	void BP_UnlockExperienceType(const FGbxDefPtrProperty_ ExperienceDef);
+	void ClearPrototypeToastMessage();
+	bool GetGenericProperty(const class FName& Name_0, class FString* Value);
+	void NotifyWatchedGenericPropertyDelta(const class FName& Name_0, const class FString& Value);
+	void OnOakPawnSet(class APlayerState* player, class APawn* NewPawn, class APawn* OldPawn);
+	void OnRep_BackpackItems();
+	void OnRep_BankItems();
+	void OnRep_BuddyIndex();
+	void OnRep_ChallengeCompletion();
+	void OnRep_CurrentCharacterSelectPhase();
+	void OnRep_DiscoveryPinningState();
+	void OnRep_ExperienceState();
+	void OnRep_GenericProperties();
+	void OnRep_IsBusyInMenu();
+	void OnRep_PlayerDifficulty();
+	void OnRep_TravelStatus();
+	void RemoveGenericPropertyWatch(const class FName& Name_0);
+	void Server_CreateDiscoveryPin(const struct FGbxDiscoveryPinningPinData& InPinData);
+	void Server_RemoveAllDiscoveryPins();
+	void Server_RemoveDiscoveryPin(EGbxDiscoveryPinType InPinType, int32 InPinIndex);
+	void ServerEnteredWorldRegion(const FGameDataHandleProperty_& region, bool bNewDiscovery);
+	void ServerSetCurrentCharacterSelectPhase(ECharacterSelectPhase NewCurrentCharacterSelectPhase);
+	void ServerSetGbxActorParts(const class FName& ActorType, const class FString& SerialNumberStr);
+	void ServerSetPlayerBusyInMenu(bool InIsBusy);
+	void ServerSetPlayerProfileDifficulty(uint8 NewDifficulty);
+	void ServerSetTravelStatus(EPlayerTravelStatus NewStatus);
+	void SetGenericProperty(const class FName& Name_0, const class FString& Value);
+	void SetGenericPropertyWatch(const class FName& Name_0);
+	void SetPrototypeToastMessage(const class FString& Header, const class FString& Message, const class FString& Style, float Duration);
+
+	int32 BP_GetExperienceLevel(const FGbxDefPtrProperty_ ExperienceDef) const;
+	float GetTotalPlaytimeSeconds() const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakPlayerState")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakPlayerState")
+	}
+	static class AOakPlayerState* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakPlayerState>();
+	}
+};
+DUMPER7_ASSERTS_AOakPlayerState;
 
 // Class OakGame.OakInputModifier_InvertAxis
 // 0x0008 (0x0030 - 0x0028)
@@ -12031,48 +12077,57 @@ public:
 };
 DUMPER7_ASSERTS_UOakInputModifier_InvertAxis;
 
-// Class OakGame.OakUISettingValueDiscrete_Resolution
-// 0x0048 (0x0180 - 0x0138)
-class UOakUISettingValueDiscrete_Resolution final : public UGameSettingValueDiscrete
+// Class OakGame.OakInputModifier_SouthpawAxisCorrector_OnFoot
+// 0x0008 (0x0030 - 0x0028)
+class UOakInputModifier_SouthpawAxisCorrector_OnFoot final : public UInputModifier
 {
 public:
-	uint8                                         Pad_138[0x48];                                     // 0x0138(0x0048)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	EOakInvertAxisContext                         Context;                                           // 0x0028(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUISettingValueDiscrete_Resolution")
+		STATIC_CLASS_IMPL("OakInputModifier_SouthpawAxisCorrector_OnFoot")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUISettingValueDiscrete_Resolution")
+		STATIC_NAME_IMPL(L"OakInputModifier_SouthpawAxisCorrector_OnFoot")
 	}
-	static class UOakUISettingValueDiscrete_Resolution* GetDefaultObj()
+	static class UOakInputModifier_SouthpawAxisCorrector_OnFoot* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUISettingValueDiscrete_Resolution>();
+		return GetDefaultObjImpl<UOakInputModifier_SouthpawAxisCorrector_OnFoot>();
 	}
 };
-DUMPER7_ASSERTS_UOakUISettingValueDiscrete_Resolution;
+DUMPER7_ASSERTS_UOakInputModifier_SouthpawAxisCorrector_OnFoot;
 
-// Class OakGame.OakProgression_ProgressRole
-// 0x0000 (0x0100 - 0x0100)
-class UOakProgression_ProgressRole final : public UGbxProgression_ProgressRole
+// Class OakGame.OakPlayerMetricsData
+// 0x0090 (0x00C0 - 0x0030)
+class UOakPlayerMetricsData final : public UDataAsset
 {
+public:
+	FGameDataHandleProperty_                      CharacterDefinition;                               // 0x0030(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           JumpGoal_Default;                                  // 0x0048(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           JumpGoal_Sprint;                                   // 0x0060(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGbxDefPtrProperty_                           JumpGoal_DoubleJump;                               // 0x0078(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGameDataHandleProperty_                      Stance_Default;                                    // 0x0090(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	FGameDataHandleProperty_                      Stance_Sprint;                                     // 0x00A8(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakProgression_ProgressRole")
+		STATIC_CLASS_IMPL("OakPlayerMetricsData")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakProgression_ProgressRole")
+		STATIC_NAME_IMPL(L"OakPlayerMetricsData")
 	}
-	static class UOakProgression_ProgressRole* GetDefaultObj()
+	static class UOakPlayerMetricsData* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakProgression_ProgressRole>();
+		return GetDefaultObjImpl<UOakPlayerMetricsData>();
 	}
 };
-DUMPER7_ASSERTS_UOakProgression_ProgressRole;
+DUMPER7_ASSERTS_UOakPlayerMetricsData;
 
 // Class OakGame.OakInputModifier_SouthpawAxisCorrector_OnVehicle
 // 0x0008 (0x0030 - 0x0028)
@@ -12118,25 +12173,48 @@ public:
 };
 DUMPER7_ASSERTS_UOakInputModifier_JcmsLookSensitivitySettings;
 
-// Class OakGame.OakPlayerProxy
-// 0x0000 (0x97A0 - 0x97A0)
-class AOakPlayerProxy final : public AOakCharacter
+// Class OakGame.OakUIScript_ResourceMeter
+// 0x0000 (0x0028 - 0x0028)
+class UOakUIScript_ResourceMeter final : public UGbxUIScript
+{
+public:
+	void NotEnoughFuelError(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIScript_ResourceMeter")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIScript_ResourceMeter")
+	}
+	static class UOakUIScript_ResourceMeter* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIScript_ResourceMeter>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIScript_ResourceMeter;
+
+// Class OakGame.OakPhysicsObject
+// 0x0000 (0x25B0 - 0x25B0)
+class AOakPhysicsObject final : public AOakInteractiveObject
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakPlayerProxy")
+		STATIC_CLASS_IMPL("OakPhysicsObject")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakPlayerProxy")
+		STATIC_NAME_IMPL(L"OakPhysicsObject")
 	}
-	static class AOakPlayerProxy* GetDefaultObj()
+	static class AOakPhysicsObject* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakPlayerProxy>();
+		return GetDefaultObjImpl<AOakPhysicsObject>();
 	}
 };
-DUMPER7_ASSERTS_AOakPlayerProxy;
+DUMPER7_ASSERTS_AOakPhysicsObject;
 
 // Class OakGame.OakInputModifier_IgnoredWithJcmsContact
 // 0x0000 (0x0028 - 0x0028)
@@ -12178,60 +12256,28 @@ public:
 };
 DUMPER7_ASSERTS_UOakEnhancedInputPlayerMappableKeySettings;
 
-// Class OakGame.OakUIScript_StatusMenuNavBar
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_StatusMenuNavBar : public UGbxUIScript
+// Class OakGame.OakLoadingScreenSubsystem
+// 0x0050 (0x0160 - 0x0110)
+class UOakLoadingScreenSubsystem final : public UGbxDefaultLoadingScreenManager
 {
 public:
-	void NavBackward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void NavEntered(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void NavExited(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void NavForward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void SubNavBackward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void SubNavEntered(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void SubNavExited(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void SubNavForward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	uint8                                         Pad_110[0x50];                                     // 0x0110(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIScript_StatusMenuNavBar")
+		STATIC_CLASS_IMPL("OakLoadingScreenSubsystem")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIScript_StatusMenuNavBar")
+		STATIC_NAME_IMPL(L"OakLoadingScreenSubsystem")
 	}
-	static class UOakUIScript_StatusMenuNavBar* GetDefaultObj()
+	static class UOakLoadingScreenSubsystem* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIScript_StatusMenuNavBar>();
+		return GetDefaultObjImpl<UOakLoadingScreenSubsystem>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIScript_StatusMenuNavBar;
-
-// Class OakGame.OakPlayerCameraManager
-// 0x01A0 (0x3C60 - 0x3AC0)
-class AOakPlayerCameraManager final : public APlayerCameraModeManager
-{
-public:
-	uint8                                         Pad_3AC0[0x140];                                   // 0x3AC0(0x0140)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FDefaultCameraModeConfig>       DefaultCameraModesByActorClass;                    // 0x3C00(0x0010)(ZeroConstructor, Config, GlobalConfig, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_3C10[0x50];                                    // 0x3C10(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakPlayerCameraManager")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakPlayerCameraManager")
-	}
-	static class AOakPlayerCameraManager* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakPlayerCameraManager>();
-	}
-};
-DUMPER7_ASSERTS_AOakPlayerCameraManager;
+DUMPER7_ASSERTS_UOakLoadingScreenSubsystem;
 
 // Class OakGame.OakEnhancedInputSettings
 // 0x0010 (0x0048 - 0x0038)
@@ -12280,41 +12326,28 @@ public:
 };
 DUMPER7_ASSERTS_UOakEnhancedInputUserSettings;
 
-// Class OakGame.OakLocustGas
-// 0x0050 (0x2EC0 - 0x2E70)
-class AOakLocustGas final : public AOakDrone
+// Class OakGame.OakShiftUISubsystem
+// 0x0010 (0x0040 - 0x0030)
+class UOakShiftUISubsystem final : public UGameInstanceSubsystem
 {
 public:
-	TMulticastInlineDelegate<void()>              OnLocustGasAbsorbTargetReached;                    // 0x2E68(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2E78[0x8];                                     // 0x2E78(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                OriginalLocation;                                  // 0x2E80(0x0018)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	int32                                         PatrolCount;                                       // 0x2E98(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bCanPatrol;                                        // 0x2E9C(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bIsAbsorbing;                                      // 0x2E9D(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_2E9E[0x22];                                    // 0x2E9E(0x0022)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void Absorb(class AActor* TargetAbsorbing);
-	bool IsAbsorbing();
-	void OnPatrolPointReached(class AActor* target);
-	void OnTargetAbsorbingReached(class AActor* target);
-	void SetPatrolState(bool bIsEnable);
+	uint8                                         Pad_30[0x10];                                      // 0x0030(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakLocustGas")
+		STATIC_CLASS_IMPL("OakShiftUISubsystem")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakLocustGas")
+		STATIC_NAME_IMPL(L"OakShiftUISubsystem")
 	}
-	static class AOakLocustGas* GetDefaultObj()
+	static class UOakShiftUISubsystem* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakLocustGas>();
+		return GetDefaultObjImpl<UOakShiftUISubsystem>();
 	}
 };
-DUMPER7_ASSERTS_AOakLocustGas;
+DUMPER7_ASSERTS_UOakShiftUISubsystem;
 
 // Class OakGame.OakEntitlementProgressRole
 // 0x0000 (0x0100 - 0x0100)
@@ -12359,41 +12392,39 @@ public:
 };
 DUMPER7_ASSERTS_AOakEquipableExecution;
 
-// Class OakGame.OakSingularity
-// 0x0210 (0x05A0 - 0x0390)
-class alignas(0x10) AOakSingularity final : public AActor
+// Class OakGame.OakLostLootMachine
+// 0x00D0 (0x2680 - 0x25B0)
+class AOakLostLootMachine final : public AOakInteractiveObject
 {
 public:
-	uint8                                         Pad_390[0x28];                                     // 0x0390(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
-	class UNiagaraComponent*                      SingularityParticleComponent;                      // 0x03B8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class USphereComponent*                       SingularityZone;                                   // 0x03C0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	FGameDataHandleProperty_                      DefHandle;                                         // 0x03C8(0x0018)(Net, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         MinRadius;                                         // 0x03E0(0x0004)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         MaxRadius;                                         // 0x03E4(0x0004)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	FGameDataHandleProperty_                      DamageType;                                        // 0x03E8(0x0018)(Net, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_400[0xB8];                                     // 0x0400(0x00B8)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FOakStatusEffectModifierData_Gear      StatusEffectModifierData;                          // 0x04B8(0x0040)(Transient, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_4F8[0xA8];                                     // 0x04F8(0x00A8)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_25B0[0x40];                                    // 0x25B0(0x0040)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(int32 Rarity)>  PlayerTakeLostLoot_ScriptEvent;                    // 0x25F0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(class AOakPlayerController* OakPC)> OnBeginVending_ScriptEvent;    // 0x2600(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(class AOakPlayerController* OakPC)> OnEndVending_ScriptEvent;      // 0x2610(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2620[0x60];                                    // 0x2620(0x0060)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	void OnEnteringSingularityZone(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult);
-	void OnExitingSingularityZone(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+	void EndParticleOverride();
+	int32 GetFilledSlots(class AOakPlayerController* OakPC);
+	int32 GetMaxSlots(class AOakPlayerController* OakPC);
+	void OverrideAllParticlePresentations(bool bShowParticle);
+	void UpdateParticlePresentations();
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakSingularity")
+		STATIC_CLASS_IMPL("OakLostLootMachine")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakSingularity")
+		STATIC_NAME_IMPL(L"OakLostLootMachine")
 	}
-	static class AOakSingularity* GetDefaultObj()
+	static class AOakLostLootMachine* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakSingularity>();
+		return GetDefaultObjImpl<AOakLostLootMachine>();
 	}
 };
-DUMPER7_ASSERTS_AOakSingularity;
+DUMPER7_ASSERTS_AOakLostLootMachine;
 
 // Class OakGame.OakEquipableInventory
 // 0x0000 (0x0000 - 0x0000)
@@ -12447,34 +12478,28 @@ public:
 };
 DUMPER7_ASSERTS_UOakEridiumEncasingFunctionLibrary;
 
-// Class OakGame.OakMainMenuCameraViewModifier
-// 0x0000 (0x0000 - 0x0000)
-class IOakMainMenuCameraViewModifier final
+// Class OakGame.OakLightBeam
+// 0x0008 (0x0988 - 0x0980)
+class UOakLightBeam final : public ULightBeam
 {
+public:
+	uint8                                         Pad_980[0x8];                                      // 0x0980(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakMainMenuCameraViewModifier")
+		STATIC_CLASS_IMPL("OakLightBeam")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakMainMenuCameraViewModifier")
+		STATIC_NAME_IMPL(L"OakLightBeam")
 	}
-	static class IOakMainMenuCameraViewModifier* GetDefaultObj()
+	static class UOakLightBeam* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<IOakMainMenuCameraViewModifier>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
+		return GetDefaultObjImpl<UOakLightBeam>();
 	}
 };
-DUMPER7_ASSERTS_IOakMainMenuCameraViewModifier;
+DUMPER7_ASSERTS_UOakLightBeam;
 
 // Class OakGame.OakEvocarium
 // 0x0010 (0x25C0 - 0x25B0)
@@ -12522,28 +12547,32 @@ public:
 };
 DUMPER7_ASSERTS_UOakExperienceStatics;
 
-// Class OakGame.OakLoadingScreenSubsystem
-// 0x0050 (0x0160 - 0x0110)
-class UOakLoadingScreenSubsystem final : public UGbxDefaultLoadingScreenManager
+// Class OakGame.OakShard
+// 0x0090 (0x01F8 - 0x0168)
+class UOakShard final : public UGbxShard
 {
 public:
-	uint8                                         Pad_110[0x50];                                     // 0x0110(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UOakGameInstance*                       OakInstance;                                       // 0x0168(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class UOakChallengeManager*                   ChallengeManager;                                  // 0x0170(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_178[0x28];                                     // 0x0178(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
+	TMap<uint8, class UOakShard*>                 SubShards;                                         // 0x01A0(0x0050)(Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_1F0[0x8];                                      // 0x01F0(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakLoadingScreenSubsystem")
+		STATIC_CLASS_IMPL("OakShard")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakLoadingScreenSubsystem")
+		STATIC_NAME_IMPL(L"OakShard")
 	}
-	static class UOakLoadingScreenSubsystem* GetDefaultObj()
+	static class UOakShard* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakLoadingScreenSubsystem>();
+		return GetDefaultObjImpl<UOakShard>();
 	}
 };
-DUMPER7_ASSERTS_UOakLoadingScreenSubsystem;
+DUMPER7_ASSERTS_UOakShard;
 
 // Class OakGame.OakFactionFunctionLibrary
 // 0x0000 (0x0028 - 0x0028)
@@ -12625,28 +12654,25 @@ public:
 };
 DUMPER7_ASSERTS_UOakFirstPersonData;
 
-// Class OakGame.OakShiftUISubsystem
-// 0x0010 (0x0040 - 0x0030)
-class UOakShiftUISubsystem final : public UGameInstanceSubsystem
+// Class OakGame.OakSocialSubsystem
+// 0x0000 (0x0038 - 0x0038)
+class UOakSocialSubsystem final : public UGbxSocialSubsystem
 {
-public:
-	uint8                                         Pad_30[0x10];                                      // 0x0030(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakShiftUISubsystem")
+		STATIC_CLASS_IMPL("OakSocialSubsystem")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakShiftUISubsystem")
+		STATIC_NAME_IMPL(L"OakSocialSubsystem")
 	}
-	static class UOakShiftUISubsystem* GetDefaultObj()
+	static class UOakSocialSubsystem* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakShiftUISubsystem>();
+		return GetDefaultObjImpl<UOakSocialSubsystem>();
 	}
 };
-DUMPER7_ASSERTS_UOakShiftUISubsystem;
+DUMPER7_ASSERTS_UOakSocialSubsystem;
 
 // Class OakGame.NexusConfigStoreOakFirstPerson
 // 0x0000 (0x0380 - 0x0380)
@@ -12696,25 +12722,41 @@ public:
 };
 DUMPER7_ASSERTS_UOakFirstPersonSettings;
 
-// Class OakGame.OakSpawnEncounter
-// 0x0000 (0x0610 - 0x0610)
-class AOakSpawnEncounter final : public AGbxGameSpawnEncounter
+// Class OakGame.OakSingularity
+// 0x0210 (0x05A0 - 0x0390)
+class alignas(0x10) AOakSingularity final : public AActor
 {
+public:
+	uint8                                         Pad_390[0x28];                                     // 0x0390(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
+	class UNiagaraComponent*                      SingularityParticleComponent;                      // 0x03B8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class USphereComponent*                       SingularityZone;                                   // 0x03C0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	FGameDataHandleProperty_                      DefHandle;                                         // 0x03C8(0x0018)(Net, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         MinRadius;                                         // 0x03E0(0x0004)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         MaxRadius;                                         // 0x03E4(0x0004)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	FGameDataHandleProperty_                      DamageType;                                        // 0x03E8(0x0018)(Net, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_400[0xB8];                                     // 0x0400(0x00B8)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FOakStatusEffectModifierData_Gear      StatusEffectModifierData;                          // 0x04B8(0x0040)(Transient, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_4F8[0xA8];                                     // 0x04F8(0x00A8)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void OnEnteringSingularityZone(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult);
+	void OnExitingSingularityZone(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakSpawnEncounter")
+		STATIC_CLASS_IMPL("OakSingularity")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakSpawnEncounter")
+		STATIC_NAME_IMPL(L"OakSingularity")
 	}
-	static class AOakSpawnEncounter* GetDefaultObj()
+	static class AOakSingularity* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakSpawnEncounter>();
+		return GetDefaultObjImpl<AOakSingularity>();
 	}
 };
-DUMPER7_ASSERTS_AOakSpawnEncounter;
+DUMPER7_ASSERTS_AOakSingularity;
 
 // Class OakGame.FreezeableInterface
 // 0x0000 (0x0000 - 0x0000)
@@ -12821,28 +12863,28 @@ public:
 };
 DUMPER7_ASSERTS_UOakFreezeData;
 
-// Class OakGame.OakSkillStatics
-// 0x0000 (0x0028 - 0x0028)
-class UOakSkillStatics final : public UObject
+// Class OakGame.OakRadiateDamageAreaActor
+// 0x0070 (0x0720 - 0x06B0)
+class AOakRadiateDamageAreaActor final : public ARadiateDamageAreaActor
 {
 public:
-	static void FireKillSkillEvent(class AOakCharacter* target, class AActor* KilledTarget, const struct FVector& Location, float damage);
+	uint8                                         Pad_6B0[0x70];                                     // 0x06B0(0x0070)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakSkillStatics")
+		STATIC_CLASS_IMPL("OakRadiateDamageAreaActor")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakSkillStatics")
+		STATIC_NAME_IMPL(L"OakRadiateDamageAreaActor")
 	}
-	static class UOakSkillStatics* GetDefaultObj()
+	static class AOakRadiateDamageAreaActor* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakSkillStatics>();
+		return GetDefaultObjImpl<AOakRadiateDamageAreaActor>();
 	}
 };
-DUMPER7_ASSERTS_UOakSkillStatics;
+DUMPER7_ASSERTS_AOakRadiateDamageAreaActor;
 
 // Class OakGame.OakFriendsSubsystem
 // 0x0010 (0x0040 - 0x0030)
@@ -12887,32 +12929,31 @@ public:
 };
 DUMPER7_ASSERTS_AOakGameDifficultyVolume;
 
-// Class OakGame.OakShard
-// 0x0090 (0x01F8 - 0x0168)
-class UOakShard final : public UGbxShard
+// Class OakGame.OakSkillManagerStatics
+// 0x0000 (0x0028 - 0x0028)
+class UOakSkillManagerStatics final : public UObject
 {
 public:
-	class UOakGameInstance*                       OakInstance;                                       // 0x0168(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class UOakChallengeManager*                   ChallengeManager;                                  // 0x0170(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_178[0x28];                                     // 0x0178(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
-	TMap<uint8, class UOakShard*>                 SubShards;                                         // 0x01A0(0x0050)(Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_1F0[0x8];                                      // 0x01F0(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	static void Detangle(class AOakCharacter* target);
+	static void Entangle(class AOakCharacter* target);
+	static void ForEachEntangled(class UObject* WorldContext, class AOakCharacter* Ignore, TDelegate<void(class AOakCharacter* target)> func);
+	static int32 GetEntangledNum(class UObject* WorldContext);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakShard")
+		STATIC_CLASS_IMPL("OakSkillManagerStatics")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakShard")
+		STATIC_NAME_IMPL(L"OakSkillManagerStatics")
 	}
-	static class UOakShard* GetDefaultObj()
+	static class UOakSkillManagerStatics* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakShard>();
+		return GetDefaultObjImpl<UOakSkillManagerStatics>();
 	}
 };
-DUMPER7_ASSERTS_UOakShard;
+DUMPER7_ASSERTS_UOakSkillManagerStatics;
 
 // Class OakGame.OakGameEngine
 // 0x0010 (0x13B8 - 0x13A8)
@@ -12962,25 +13003,29 @@ public:
 };
 DUMPER7_ASSERTS_UOakGameInstance;
 
-// Class OakGame.OakSocialSubsystem
-// 0x0000 (0x0038 - 0x0038)
-class UOakSocialSubsystem final : public UGbxSocialSubsystem
+// Class OakGame.OakStatusEffectContainerStatics
+// 0x0000 (0x0028 - 0x0028)
+class UOakStatusEffectContainerStatics final : public UObject
 {
+public:
+	static void OnTechDeathStarted(class AActor* Context, const struct FTechDeathCoordinatorData& TechData);
+	static void SetCryoSlowLocked(class AActor* Context, bool bLocked, class FName reason);
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakSocialSubsystem")
+		STATIC_CLASS_IMPL("OakStatusEffectContainerStatics")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakSocialSubsystem")
+		STATIC_NAME_IMPL(L"OakStatusEffectContainerStatics")
 	}
-	static class UOakSocialSubsystem* GetDefaultObj()
+	static class UOakStatusEffectContainerStatics* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakSocialSubsystem>();
+		return GetDefaultObjImpl<UOakStatusEffectContainerStatics>();
 	}
 };
-DUMPER7_ASSERTS_UOakSocialSubsystem;
+DUMPER7_ASSERTS_UOakStatusEffectContainerStatics;
 
 // Class OakGame.OakGameLiftServer
 // 0x0000 (0x0038 - 0x0038)
@@ -13034,34 +13079,25 @@ public:
 };
 DUMPER7_ASSERTS_UOakGameMapsSettings;
 
-// Class OakGame.OakSubsystemProvider
-// 0x0000 (0x0000 - 0x0000)
-class IOakSubsystemProvider final
+// Class OakGame.OakSpawnEncounter
+// 0x0000 (0x0610 - 0x0610)
+class AOakSpawnEncounter final : public AGbxGameSpawnEncounter
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakSubsystemProvider")
+		STATIC_CLASS_IMPL("OakSpawnEncounter")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakSubsystemProvider")
+		STATIC_NAME_IMPL(L"OakSpawnEncounter")
 	}
-	static class IOakSubsystemProvider* GetDefaultObj()
+	static class AOakSpawnEncounter* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<IOakSubsystemProvider>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
+		return GetDefaultObjImpl<AOakSpawnEncounter>();
 	}
 };
-DUMPER7_ASSERTS_IOakSubsystemProvider;
+DUMPER7_ASSERTS_AOakSpawnEncounter;
 
 // Class OakGame.OakGameMode
 // 0x00C0 (0x07E0 - 0x0720)
@@ -13109,25 +13145,28 @@ public:
 };
 DUMPER7_ASSERTS_UOakGameModeModuleHost_Basic;
 
-// Class OakGame.OakSpawnPointBodyData
-// 0x0000 (0x0060 - 0x0060)
-class UOakSpawnPointBodyData final : public USpawnPointBodyData
+// Class OakGame.OakSkillStatics
+// 0x0000 (0x0028 - 0x0028)
+class UOakSkillStatics final : public UObject
 {
+public:
+	static void FireKillSkillEvent(class AOakCharacter* target, class AActor* KilledTarget, const struct FVector& Location, float damage);
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakSpawnPointBodyData")
+		STATIC_CLASS_IMPL("OakSkillStatics")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakSpawnPointBodyData")
+		STATIC_NAME_IMPL(L"OakSkillStatics")
 	}
-	static class UOakSpawnPointBodyData* GetDefaultObj()
+	static class UOakSkillStatics* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakSpawnPointBodyData>();
+		return GetDefaultObjImpl<UOakSkillStatics>();
 	}
 };
-DUMPER7_ASSERTS_UOakSpawnPointBodyData;
+DUMPER7_ASSERTS_UOakSkillStatics;
 
 // Class OakGame.OakGameModeModuleHost_PlayerModifiers
 // 0x0050 (0x0120 - 0x00D0)
@@ -13152,58 +13191,28 @@ public:
 };
 DUMPER7_ASSERTS_UOakGameModeModuleHost_PlayerModifiers;
 
-// Class OakGame.OakGameplayActorStatics
-// 0x0000 (0x0028 - 0x0028)
-class UOakGameplayActorStatics final : public UBlueprintFunctionLibrary
+// Class OakGame.OakSpawnPointPreviewComponent
+// 0x0000 (0x02B0 - 0x02B0)
+class UOakSpawnPointPreviewComponent final : public UGbxNavSpawnPointPreviewComponent
 {
 public:
-	static TArray<class AActor*> FilterActors(const TArray<class AActor*>& InActorsToFilter, const TArray<class AActor*>& InActorsToExclude);
-	static struct FOakPlayerQueryResult QueryPlayers(class UObject* WorldContext, const struct FOakPlayerQuerySpec& InSpec);
-	static TArray<class AOakCharacter*> QueryResultToCharacters(const TArray<struct FOakPlayerQueryResultItem>& InQueryResultItems);
-	static TArray<class AOakPlayerController*> QueryResultToPlayerControllers(const TArray<struct FOakPlayerQueryResultItem>& InQueryResultItems);
-	static class AOakSingularity* SpawnSingularityActor(FGameDataHandleProperty_ SingularityDef, const struct FTransform& SingularityTransform, const class AActor* owner, const TArray<class AActor*>& IgnoreActors, const struct FOakSingularityOverrides& Overrides);
+	void GetPreviewDecoStateOptions(TArray<class FName>* OutOptions);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakGameplayActorStatics")
+		STATIC_CLASS_IMPL("OakSpawnPointPreviewComponent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakGameplayActorStatics")
+		STATIC_NAME_IMPL(L"OakSpawnPointPreviewComponent")
 	}
-	static class UOakGameplayActorStatics* GetDefaultObj()
+	static class UOakSpawnPointPreviewComponent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakGameplayActorStatics>();
+		return GetDefaultObjImpl<UOakSpawnPointPreviewComponent>();
 	}
 };
-DUMPER7_ASSERTS_UOakGameplayActorStatics;
-
-// Class OakGame.OakSkillManagerStatics
-// 0x0000 (0x0028 - 0x0028)
-class UOakSkillManagerStatics final : public UObject
-{
-public:
-	static void Detangle(class AOakCharacter* target);
-	static void Entangle(class AOakCharacter* target);
-	static void ForEachEntangled(class UObject* WorldContext, class AOakCharacter* Ignore, TDelegate<void(class AOakCharacter* target)> func);
-	static int32 GetEntangledNum(class UObject* WorldContext);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakSkillManagerStatics")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakSkillManagerStatics")
-	}
-	static class UOakSkillManagerStatics* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakSkillManagerStatics>();
-	}
-};
-DUMPER7_ASSERTS_UOakSkillManagerStatics;
+DUMPER7_ASSERTS_UOakSpawnPointPreviewComponent;
 
 // Class OakGame.OakGameSession
 // 0x0000 (0x03B8 - 0x03B8)
@@ -13225,29 +13234,57 @@ public:
 };
 DUMPER7_ASSERTS_AOakGameSession;
 
-// Class OakGame.OakStatusEffectContainerStatics
-// 0x0000 (0x0028 - 0x0028)
-class UOakStatusEffectContainerStatics final : public UObject
+// Class OakGame.OakGameSettingDiscrete_AudioLanguage
+// 0x0008 (0x01A0 - 0x0198)
+class UOakGameSettingDiscrete_AudioLanguage final : public UGameSettingValueDiscreteDynamic
 {
 public:
-	static void OnTechDeathStarted(class AActor* Context, const struct FTechDeathCoordinatorData& TechData);
-	static void SetCryoSlowLocked(class AActor* Context, bool bLocked, class FName reason);
+	uint8                                         Pad_198[0x8];                                      // 0x0198(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakStatusEffectContainerStatics")
+		STATIC_CLASS_IMPL("OakGameSettingDiscrete_AudioLanguage")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakStatusEffectContainerStatics")
+		STATIC_NAME_IMPL(L"OakGameSettingDiscrete_AudioLanguage")
 	}
-	static class UOakStatusEffectContainerStatics* GetDefaultObj()
+	static class UOakGameSettingDiscrete_AudioLanguage* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakStatusEffectContainerStatics>();
+		return GetDefaultObjImpl<UOakGameSettingDiscrete_AudioLanguage>();
 	}
 };
-DUMPER7_ASSERTS_UOakStatusEffectContainerStatics;
+DUMPER7_ASSERTS_UOakGameSettingDiscrete_AudioLanguage;
+
+// Class OakGame.OakThroughCollisionHandlerInterface
+// 0x0000 (0x0000 - 0x0000)
+class IOakThroughCollisionHandlerInterface final
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakThroughCollisionHandlerInterface")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakThroughCollisionHandlerInterface")
+	}
+	static class IOakThroughCollisionHandlerInterface* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<IOakThroughCollisionHandlerInterface>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
+	}
+};
+DUMPER7_ASSERTS_IOakThroughCollisionHandlerInterface;
 
 // Class OakGame.OakGameSettingValueDiscrete_PlayerDifficulty
 // 0x0010 (0x0148 - 0x0138)
@@ -13329,55 +13366,34 @@ public:
 };
 DUMPER7_ASSERTS_AOakGameState;
 
-// Class OakGame.OakUIBaseDataCollector_GameInstance
-// 0x0018 (0x0048 - 0x0030)
-class UOakUIBaseDataCollector_GameInstance : public UGameInstanceSubsystem
+// Class OakGame.OakSubsystemProvider
+// 0x0000 (0x0000 - 0x0000)
+class IOakSubsystemProvider final
 {
-public:
-	uint8                                         Pad_30[0x18];                                      // 0x0030(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIBaseDataCollector_GameInstance")
+		STATIC_CLASS_IMPL("OakSubsystemProvider")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIBaseDataCollector_GameInstance")
+		STATIC_NAME_IMPL(L"OakSubsystemProvider")
 	}
-	static class UOakUIBaseDataCollector_GameInstance* GetDefaultObj()
+	static class IOakSubsystemProvider* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIBaseDataCollector_GameInstance>();
+		return GetDefaultObjImpl<IOakSubsystemProvider>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
 	}
 };
-DUMPER7_ASSERTS_UOakUIBaseDataCollector_GameInstance;
-
-// Class OakGame.OakThumbnailManager
-// 0x0150 (0x0198 - 0x0048)
-class UOakThumbnailManager final : public UOakUIBaseDataCollector_GameInstance
-{
-public:
-	TMap<struct FThumbnailID, class UTextureRenderTarget2D*> RenderedThumbnails;                     // 0x0048(0x0050)(Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
-	TMap<struct FIntPoint, class UTextureRenderTarget2D*> RawRenderTargets;                          // 0x0098(0x0050)(Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
-	class UMaterialInstanceDynamic*               ThumbnailMaterialInstance;                         // 0x00E8(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	TArray<struct FThumbnailStandInLoadRequest>   StandInLoadRequests;                               // 0x00F0(0x0010)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_100[0x98];                                     // 0x0100(0x0098)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakThumbnailManager")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakThumbnailManager")
-	}
-	static class UOakThumbnailManager* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakThumbnailManager>();
-	}
-};
-DUMPER7_ASSERTS_UOakThumbnailManager;
+DUMPER7_ASSERTS_IOakSubsystemProvider;
 
 // Class OakGame.OakGameViewportClient
 // 0x0000 (0x0430 - 0x0430)
@@ -13426,28 +13442,25 @@ public:
 };
 DUMPER7_ASSERTS_UOakGlideModifierComponent;
 
-// Class OakGame.OakSymphonicAmbientAudio
-// 0x0030 (0x00B0 - 0x0080)
-class UOakSymphonicAmbientAudio final : public UGbxSymphonicAmbientAudioSystem
+// Class OakGame.OakSpawnPointBodyData
+// 0x0000 (0x0060 - 0x0060)
+class UOakSpawnPointBodyData final : public USpawnPointBodyData
 {
-public:
-	uint8                                         Pad_80[0x30];                                      // 0x0080(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakSymphonicAmbientAudio")
+		STATIC_CLASS_IMPL("OakSpawnPointBodyData")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakSymphonicAmbientAudio")
+		STATIC_NAME_IMPL(L"OakSpawnPointBodyData")
 	}
-	static class UOakSymphonicAmbientAudio* GetDefaultObj()
+	static class UOakSpawnPointBodyData* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakSymphonicAmbientAudio>();
+		return GetDefaultObjImpl<UOakSpawnPointBodyData>();
 	}
 };
-DUMPER7_ASSERTS_UOakSymphonicAmbientAudio;
+DUMPER7_ASSERTS_UOakSpawnPointBodyData;
 
 // Class OakGame.OakGlobalInputManager
 // 0x0008 (0x0090 - 0x0088)
@@ -13472,60 +13485,8 @@ public:
 };
 DUMPER7_ASSERTS_UOakGlobalInputManager;
 
-// Class OakGame.OakBalanceEditorPreviewSettingsProvider
-// 0x0000 (0x0000 - 0x0000)
-class IOakBalanceEditorPreviewSettingsProvider final
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakBalanceEditorPreviewSettingsProvider")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakBalanceEditorPreviewSettingsProvider")
-	}
-	static class IOakBalanceEditorPreviewSettingsProvider* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<IOakBalanceEditorPreviewSettingsProvider>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
-	}
-};
-DUMPER7_ASSERTS_IOakBalanceEditorPreviewSettingsProvider;
-
-// Class OakGame.OakSpawnPointPreviewComponent
-// 0x0000 (0x02B0 - 0x02B0)
-class UOakSpawnPointPreviewComponent final : public UGbxNavSpawnPointPreviewComponent
-{
-public:
-	void GetPreviewDecoStateOptions(TArray<class FName>* OutOptions);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakSpawnPointPreviewComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakSpawnPointPreviewComponent")
-	}
-	static class UOakSpawnPointPreviewComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakSpawnPointPreviewComponent>();
-	}
-};
-DUMPER7_ASSERTS_UOakSpawnPointPreviewComponent;
-
 // Class OakGame.OakGrappleRangeComponent
-// 0x0000 (0x0600 - 0x0600)
+// 0x0000 (0x0620 - 0x0620)
 class UOakGrappleRangeComponent final : public UPrimitiveComponent
 {
 public:
@@ -13725,6 +13686,36 @@ public:
 };
 DUMPER7_ASSERTS_IOakInventoryOwner;
 
+// Class OakGame.VaultCardsManager
+// 0x0038 (0x0060 - 0x0028)
+class UVaultCardsManager final : public UObject
+{
+public:
+	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FVaultCard>                     VaultCards;                                        // 0x0030(0x0010)(Net, ZeroConstructor, NativeAccessSpecifierPrivate)
+	FGbxDefPtrProperty_                           ActivatedVaultCardDef;                             // 0x0040(0x0018)(Net, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_58[0x8];                                       // 0x0058(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void Server_PurchaseCosmetic(FGbxDefPtrProperty_ VaultCard, int32 CosmeticIndex);
+	void Server_PurchaseInventoryItem(FGbxDefPtrProperty_ VaultCard, class FName InvItemName);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("VaultCardsManager")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"VaultCardsManager")
+	}
+	static class UVaultCardsManager* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UVaultCardsManager>();
+	}
+};
+DUMPER7_ASSERTS_UVaultCardsManager;
+
 // Class OakGame.OakInventoryShopStateSubsystem
 // 0x02C0 (0x02F0 - 0x0030)
 class UOakInventoryShopStateSubsystem final : public UGameInstanceSubsystem
@@ -13747,39 +13738,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakInventoryShopStateSubsystem;
-
-// Class OakGame.WeaponBehavior_AtlasLock
-// 0x0080 (0x0108 - 0x0088)
-class UWeaponBehavior_AtlasLock final : public UWeaponBehavior_Zoom
-{
-public:
-	uint8                                         Pad_88[0x28];                                      // 0x0088(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         MaxTargetsPerLock;                                 // 0x00B0(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         FirstLockDelay;                                    // 0x00B4(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         LockSpeed;                                         // 0x00B8(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         LockReleaseDelay;                                  // 0x00BC(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         MinDistance;                                       // 0x00C0(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         MaxDistance;                                       // 0x00C4(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_C8[0x40];                                      // 0x00C8(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void WeaponDetached();
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("WeaponBehavior_AtlasLock")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"WeaponBehavior_AtlasLock")
-	}
-	static class UWeaponBehavior_AtlasLock* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UWeaponBehavior_AtlasLock>();
-	}
-};
-DUMPER7_ASSERTS_UWeaponBehavior_AtlasLock;
 
 // Class OakGame.OakKillStingers
 // 0x01D0 (0x0200 - 0x0030)
@@ -13810,6 +13768,35 @@ public:
 };
 DUMPER7_ASSERTS_UOakKillStingers;
 
+// Class OakGame.VehicleDriver
+// 0x0000 (0x0000 - 0x0000)
+class IVehicleDriver final
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("VehicleDriver")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"VehicleDriver")
+	}
+	static class IVehicleDriver* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<IVehicleDriver>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
+	}
+};
+DUMPER7_ASSERTS_IVehicleDriver;
+
 // Class OakGame.OakLevelSequenceEcho4Object
 // 0x0000 (0x0038 - 0x0038)
 class UOakLevelSequenceEcho4Object final : public UGbxLevelSequencePlayerAssociatedStandInObject
@@ -13830,55 +13817,6 @@ public:
 };
 DUMPER7_ASSERTS_UOakLevelSequenceEcho4Object;
 
-// Class OakGame.WeaponBehavior_OakFire
-// 0x0028 (0x0358 - 0x0330)
-class UWeaponBehavior_OakFire : public UWeaponBehavior_Fire
-{
-public:
-	struct FGbxAttributeFloat                     movementaccuracymaxvalue;                          // 0x0330(0x000C)(ZeroConstructor, NativeAccessSpecifierPublic)
-	struct FGbxAttributeFloat                     standingaccuracypenaltypercent;                    // 0x033C(0x000C)(ZeroConstructor, NativeAccessSpecifierPublic)
-	struct FGbxAttributeFloat                     crouchmaxaccuracypenaltypercent;                   // 0x0348(0x000C)(ZeroConstructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_354[0x4];                                      // 0x0354(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("WeaponBehavior_OakFire")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"WeaponBehavior_OakFire")
-	}
-	static class UWeaponBehavior_OakFire* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UWeaponBehavior_OakFire>();
-	}
-};
-DUMPER7_ASSERTS_UWeaponBehavior_OakFire;
-
-// Class OakGame.WeaponBehavior_FireBeam
-// 0x0020 (0x0378 - 0x0358)
-class UWeaponBehavior_FireBeam final : public UWeaponBehavior_OakFire
-{
-public:
-	uint8                                         Pad_358[0x20];                                     // 0x0358(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("WeaponBehavior_FireBeam")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"WeaponBehavior_FireBeam")
-	}
-	static class UWeaponBehavior_FireBeam* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UWeaponBehavior_FireBeam>();
-	}
-};
-DUMPER7_ASSERTS_UWeaponBehavior_FireBeam;
-
 // Class OakGame.NexusConfigStore_OakLevelSequencePlayerExit
 // 0x0000 (0x0390 - 0x0390)
 class UNexusConfigStore_OakLevelSequencePlayerExit final : public UNexusConfigStoreBasic
@@ -13898,32 +13836,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UNexusConfigStore_OakLevelSequencePlayerExit;
-
-// Class OakGame.OakLightProjectile
-// 0x0020 (0x07B0 - 0x0790)
-class UOakLightProjectile final : public ULightProjectile
-{
-public:
-	uint8                                         Pad_790[0x8];                                      // 0x0790(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UInventoryMaterialsDataAsset*           BodyMaterialsOverride;                             // 0x0798(0x0008)(Net, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class UInventoryMaterialParamsDataAsset*      BodyMaterialParamsOverride;                        // 0x07A0(0x0008)(Net, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_7A8[0x8];                                      // 0x07A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakLightProjectile")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakLightProjectile")
-	}
-	static class UOakLightProjectile* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakLightProjectile>();
-	}
-};
-DUMPER7_ASSERTS_UOakLightProjectile;
 
 // Class OakGame.WeaponBehavior_Charge
 // 0x00B0 (0x0118 - 0x0068)
@@ -13962,28 +13874,31 @@ public:
 };
 DUMPER7_ASSERTS_UWeaponBehavior_Charge;
 
-// Class OakGame.WeaponBehavior_OrderCharge
-// 0x0008 (0x0120 - 0x0118)
-class UWeaponBehavior_OrderCharge final : public UWeaponBehavior_Charge
+// Class OakGame.OakLightProjectile
+// 0x0020 (0x07B0 - 0x0790)
+class UOakLightProjectile final : public ULightProjectile
 {
 public:
-	uint8                                         Pad_118[0x8];                                      // 0x0118(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_790[0x8];                                      // 0x0790(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class UInventoryMaterialsDataAsset*           BodyMaterialsOverride;                             // 0x0798(0x0008)(Net, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class UInventoryMaterialParamsDataAsset*      BodyMaterialParamsOverride;                        // 0x07A0(0x0008)(Net, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_7A8[0x8];                                      // 0x07A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("WeaponBehavior_OrderCharge")
+		STATIC_CLASS_IMPL("OakLightProjectile")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"WeaponBehavior_OrderCharge")
+		STATIC_NAME_IMPL(L"OakLightProjectile")
 	}
-	static class UWeaponBehavior_OrderCharge* GetDefaultObj()
+	static class UOakLightProjectile* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UWeaponBehavior_OrderCharge>();
+		return GetDefaultObjImpl<UOakLightProjectile>();
 	}
 };
-DUMPER7_ASSERTS_UWeaponBehavior_OrderCharge;
+DUMPER7_ASSERTS_UOakLightProjectile;
 
 // Class OakGame.OakLocalPlayer
 // 0x01B8 (0x0498 - 0x02E0)
@@ -14257,6 +14172,31 @@ public:
 };
 DUMPER7_ASSERTS_UOakLocalPlayer;
 
+// Class OakGame.WeaponBehavior_OakStatusEffectModifier
+// 0x0070 (0x00B8 - 0x0048)
+class UWeaponBehavior_OakStatusEffectModifier final : public UWeaponBehavior_StatusEffectModifier
+{
+public:
+	struct FOakStatusEffectModifierData_WeaponBehavior StatusEffectModifierData;                     // 0x0048(0x0068)(NativeAccessSpecifierPrivate)
+	float                                         ImpactContributionScalar;                          // 0x00B0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_B4[0x4];                                       // 0x00B4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("WeaponBehavior_OakStatusEffectModifier")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"WeaponBehavior_OakStatusEffectModifier")
+	}
+	static class UWeaponBehavior_OakStatusEffectModifier* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UWeaponBehavior_OakStatusEffectModifier>();
+	}
+};
+DUMPER7_ASSERTS_UWeaponBehavior_OakStatusEffectModifier;
+
 // Class OakGame.OakLocustGasBlueprintFunctionLibrary
 // 0x0000 (0x0028 - 0x0028)
 class UOakLocustGasBlueprintFunctionLibrary final : public UBlueprintFunctionLibrary
@@ -14281,62 +14221,6 @@ public:
 };
 DUMPER7_ASSERTS_UOakLocustGasBlueprintFunctionLibrary;
 
-// Class OakGame.WeaponBehavior_OakZoom
-// 0x0020 (0x00A8 - 0x0088)
-class UWeaponBehavior_OakZoom : public UWeaponBehavior_Zoom
-{
-public:
-	uint8                                         Pad_88[0x10];                                      // 0x0088(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxAttributeFloat                     PuppetZoomFOVScale;                                // 0x0098(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_A4[0x4];                                       // 0x00A4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("WeaponBehavior_OakZoom")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"WeaponBehavior_OakZoom")
-	}
-	static class UWeaponBehavior_OakZoom* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UWeaponBehavior_OakZoom>();
-	}
-};
-DUMPER7_ASSERTS_UWeaponBehavior_OakZoom;
-
-// Class OakGame.WeaponBehavior_Sight
-// 0x0050 (0x00F8 - 0x00A8)
-class UWeaponBehavior_Sight final : public UWeaponBehavior_OakZoom
-{
-public:
-	uint8                                         Pad_A8[0x30];                                      // 0x00A8(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
-	class UStaticMeshComponent*                   MaskMeshComponent;                                 // 0x00D8(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class UFXSystemComponent*                     VignetteComponent;                                 // 0x00E0(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_E8[0x10];                                      // 0x00E8(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void StartInitSequence(class AWeapon* Weapon);
-	void WeaponAttached();
-	void WeaponDetached();
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("WeaponBehavior_Sight")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"WeaponBehavior_Sight")
-	}
-	static class UWeaponBehavior_Sight* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UWeaponBehavior_Sight>();
-	}
-};
-DUMPER7_ASSERTS_UWeaponBehavior_Sight;
-
 // Class OakGame.OakLostLootSubsystem
 // 0x0148 (0x0170 - 0x0028)
 class UOakLostLootSubsystem final : public UObject
@@ -14359,6 +14243,29 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakLostLootSubsystem;
+
+// Class OakGame.OakWeaponPoseStatics
+// 0x0000 (0x0028 - 0x0028)
+class UOakWeaponPoseStatics final : public UBlueprintFunctionLibrary
+{
+public:
+	static void BreakOakWeaponPose(const struct FOakWeaponPose& Pose, class UAnimSequence** GripPose, class UAnimSequence** ForegripPose, class UAnimSequence** AlternateGrip, class UAnimSequence** BodyPose, class UAnimSequence** SecondaryBodyPose, class UAnimSequence** AdsRefPose, class UAnimSequence** AdsPose, class UAnimSequence** SecondaryAdsPose, class UAnimSequence** AdsEnter, class UAnimSequence** AdsExit, class UAnimSequence** WeaponGripPose, class UAnimSequence** WeaponForegripPose, class FName* GripIkBone, class FName* ForegripIkBone);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakWeaponPoseStatics")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakWeaponPoseStatics")
+	}
+	static class UOakWeaponPoseStatics* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakWeaponPoseStatics>();
+	}
+};
+DUMPER7_ASSERTS_UOakWeaponPoseStatics;
 
 // Class OakGame.OakMainMenuCameraComponent
 // 0x0070 (0x0C90 - 0x0C20)
@@ -14390,109 +14297,48 @@ public:
 };
 DUMPER7_ASSERTS_UOakMainMenuCameraComponent;
 
-// Class OakGame.OakWheeledVehicleMovementComponent
-// 0x10D0 (0x1DC0 - 0x0CF0)
-class UOakWheeledVehicleMovementComponent final : public UChaosWheeledVehicleMovementComponent
+// Class OakGame.OakMapViewerPOI
+// 0x0070 (0x0400 - 0x0390)
+class AOakMapViewerPOI : public AActor
 {
 public:
-	bool                                          bHoverSimEnabled;                                  // 0x0CF0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_CF1[0x7];                                      // 0x0CF1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVehicleHoverConfig                    HoverSetup;                                        // 0x0CF8(0x0C80)(Edit, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1978[0x18];                                    // 0x1978(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	class AOakVehicle*                            OakVehicleOwner;                                   // 0x1990(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         DesiredYaw;                                        // 0x1998(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         DesiredPitch;                                      // 0x199C(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bHasReceivedDesiredRotation;                       // 0x19A0(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bBoostInput;                                       // 0x19A1(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bWantsToBoost;                                     // 0x19A2(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	EPowerslideInput                              PowerslideInput;                                   // 0x19A3(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bHornInput;                                        // 0x19A4(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_19A5[0x3];                                     // 0x19A5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                InitialImpulse;                                    // 0x19A8(0x0018)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	EInitialImpulseState                          InitialImpulseState_GT;                            // 0x19C0(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_19C1[0x7];                                     // 0x19C1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TMap<class AActor*, float>                    DamageCooldownRemaining;                           // 0x19C8(0x0050)(Transient, NativeAccessSpecifierPrivate)
-	TSet<class AOakVehicleBlockingVolume*>        SpeedLimitingVolumes;                              // 0x1A18(0x0050)(Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
-	float                                         CurrentSpeedLimit;                                 // 0x1A68(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	EBoostFailureReason                           LastBoostFailureReason;                            // 0x1A6C(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_1A6D[0x353];                                   // 0x1A6D(0x0353)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void FreeBoostElapsed();
-	void OnBoostDepleted();
-	void OnBoostFilled();
-	void OnHit(class AActor* SelfActor, class AActor* OtherActor, const struct FVector& NormalImpulse, const struct FHitResult& Hit);
-	void OnPrimitiveBeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult);
-	void OnPrimitiveEndOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
-	void PowerslideCooldownElapsed();
-
-	float GetAirTime() const;
-	struct FVector GetGroundNormal() const;
-	float GetGroundSpeed() const;
-	struct FHitResult GetGroundTraceResult() const;
-	struct FVector GetHoverVector() const;
-	struct FVector GetWorldVelocity() const;
-	bool IsBoosting() const;
+	uint8                                         Pad_390[0x70];                                     // 0x0390(0x0070)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakWheeledVehicleMovementComponent")
+		STATIC_CLASS_IMPL("OakMapViewerPOI")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakWheeledVehicleMovementComponent")
+		STATIC_NAME_IMPL(L"OakMapViewerPOI")
 	}
-	static class UOakWheeledVehicleMovementComponent* GetDefaultObj()
+	static class AOakMapViewerPOI* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakWheeledVehicleMovementComponent>();
+		return GetDefaultObjImpl<AOakMapViewerPOI>();
 	}
 };
-DUMPER7_ASSERTS_UOakWheeledVehicleMovementComponent;
+DUMPER7_ASSERTS_AOakMapViewerPOI;
 
-// Class OakGame.OakMapViewerDecoratorFactComponent
-// 0x0000 (0x0110 - 0x0110)
-class UOakMapViewerDecoratorFactComponent final : public UActorComponent
+// Class OakGame.OakWorldPainterActor_Difficulty
+// 0x0000 (0x03D8 - 0x03D8)
+class AOakWorldPainterActor_Difficulty final : public AGbxWorldPainterActor
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakMapViewerDecoratorFactComponent")
+		STATIC_CLASS_IMPL("OakWorldPainterActor_Difficulty")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakMapViewerDecoratorFactComponent")
+		STATIC_NAME_IMPL(L"OakWorldPainterActor_Difficulty")
 	}
-	static class UOakMapViewerDecoratorFactComponent* GetDefaultObj()
+	static class AOakWorldPainterActor_Difficulty* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakMapViewerDecoratorFactComponent>();
+		return GetDefaultObjImpl<AOakWorldPainterActor_Difficulty>();
 	}
 };
-DUMPER7_ASSERTS_UOakMapViewerDecoratorFactComponent;
-
-// Class OakGame.OakWorldPainterLayer_MusicZone
-// 0x0028 (0x0088 - 0x0060)
-class UOakWorldPainterLayer_MusicZone final : public UGbxWorldPainterLayer
-{
-public:
-	TArray<struct FOakMusicZone>                  MusicZones;                                        // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_70[0x18];                                      // 0x0070(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakWorldPainterLayer_MusicZone")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakWorldPainterLayer_MusicZone")
-	}
-	static class UOakWorldPainterLayer_MusicZone* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakWorldPainterLayer_MusicZone>();
-	}
-};
-DUMPER7_ASSERTS_UOakWorldPainterLayer_MusicZone;
+DUMPER7_ASSERTS_AOakWorldPainterActor_Difficulty;
 
 // Class OakGame.OakMapViewerWaypointPath
 // 0x0088 (0x0418 - 0x0390)
@@ -14519,28 +14365,28 @@ public:
 };
 DUMPER7_ASSERTS_AOakMapViewerWaypointPath;
 
-// Class OakGame.OakMatchmakingSubsystem
-// 0x0010 (0x0040 - 0x0030)
-class UOakMatchmakingSubsystem final : public UGbxMatchmakingSubsystem
+// Class OakGame.OakMenuGameMode
+// 0x0030 (0x04A8 - 0x0478)
+class AOakMenuGameMode final : public Agamemode
 {
 public:
-	uint8                                         Pad_30[0x10];                                      // 0x0030(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_478[0x30];                                     // 0x0478(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakMatchmakingSubsystem")
+		STATIC_CLASS_IMPL("OakMenuGameMode")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakMatchmakingSubsystem")
+		STATIC_NAME_IMPL(L"OakMenuGameMode")
 	}
-	static class UOakMatchmakingSubsystem* GetDefaultObj()
+	static class AOakMenuGameMode* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakMatchmakingSubsystem>();
+		return GetDefaultObjImpl<AOakMenuGameMode>();
 	}
 };
-DUMPER7_ASSERTS_UOakMatchmakingSubsystem;
+DUMPER7_ASSERTS_AOakMenuGameMode;
 
 // Class OakGame.OakMigrationEventPoint
 // 0x0148 (0x04D8 - 0x0390)
@@ -14588,25 +14434,28 @@ public:
 };
 DUMPER7_ASSERTS_UNexusConfigStore_MissionDifficulty;
 
-// Class OakGame.OakMultiSpawnPoint
-// 0x0000 (0x0850 - 0x0850)
-class AOakMultiSpawnPoint final : public AOakSpawnPoint
+// Class OakGame.OakMusicSystem
+// 0x0310 (0x03D0 - 0x00C0)
+class UOakMusicSystem final : public UGbxMusicSystem
 {
+public:
+	uint8                                         Pad_C0[0x310];                                     // 0x00C0(0x0310)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakMultiSpawnPoint")
+		STATIC_CLASS_IMPL("OakMusicSystem")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakMultiSpawnPoint")
+		STATIC_NAME_IMPL(L"OakMusicSystem")
 	}
-	static class AOakMultiSpawnPoint* GetDefaultObj()
+	static class UOakMusicSystem* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakMultiSpawnPoint>();
+		return GetDefaultObjImpl<UOakMusicSystem>();
 	}
 };
-DUMPER7_ASSERTS_AOakMultiSpawnPoint;
+DUMPER7_ASSERTS_UOakMusicSystem;
 
 // Class OakGame.OakNavFormationeStatics
 // 0x0000 (0x0028 - 0x0028)
@@ -14632,7 +14481,7 @@ public:
 DUMPER7_ASSERTS_UOakNavFormationeStatics;
 
 // Class OakGame.OakNavMeshComponent
-// 0x0000 (0x06D0 - 0x06D0)
+// 0x0000 (0x06F0 - 0x06F0)
 class UOakNavMeshComponent final : public UGbxNavMeshComponent
 {
 public:
@@ -14651,31 +14500,25 @@ public:
 };
 DUMPER7_ASSERTS_UOakNavMeshComponent;
 
-// Class OakGame.OakNewGameSettings
-// 0x0010 (0x0038 - 0x0028)
-class UOakNewGameSettings final : public UObject
+// Class OakGame.OakNiagaraDataInterfaceIntrinsicElement
+// 0x0000 (0x0038 - 0x0038)
+class UOakNiagaraDataInterfaceIntrinsicElement final : public UNiagaraDataInterface
 {
-public:
-	int32                                         CharacterSelectTimeInSeconds;                      // 0x0028(0x0004)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         CharacterSelectQuickStartTimeInSeconds;            // 0x002C(0x0004)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          HasPostPrologueCinematic;                          // 0x0030(0x0001)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakNewGameSettings")
+		STATIC_CLASS_IMPL("OakNiagaraDataInterfaceIntrinsicElement")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakNewGameSettings")
+		STATIC_NAME_IMPL(L"OakNiagaraDataInterfaceIntrinsicElement")
 	}
-	static class UOakNewGameSettings* GetDefaultObj()
+	static class UOakNiagaraDataInterfaceIntrinsicElement* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakNewGameSettings>();
+		return GetDefaultObjImpl<UOakNiagaraDataInterfaceIntrinsicElement>();
 	}
 };
-DUMPER7_ASSERTS_UOakNewGameSettings;
+DUMPER7_ASSERTS_UOakNiagaraDataInterfaceIntrinsicElement;
 
 // Class OakGame.OakOnlineLoginManager
 // 0x0008 (0x0210 - 0x0208)
@@ -14814,7 +14657,7 @@ public:
 DUMPER7_ASSERTS_AOakPerch;
 
 // Class OakGame.OakPerchSpawnerComponent
-// 0x0000 (0x0EA0 - 0x0EA0)
+// 0x0000 (0x0EC0 - 0x0EC0)
 class UOakPerchSpawnerComponent final : public UGbxGameSpawnerComponent
 {
 public:
@@ -14834,7 +14677,7 @@ public:
 DUMPER7_ASSERTS_UOakPerchSpawnerComponent;
 
 // Class OakGame.OakPerchSpawnPointComponent
-// 0x0000 (0x0930 - 0x0930)
+// 0x0000 (0x0950 - 0x0950)
 class UOakPerchSpawnPointComponent final : public UGbxGameSpawnPointComponent
 {
 public:
@@ -14897,7 +14740,7 @@ public:
 DUMPER7_ASSERTS_UOakPlayerMetricsPreviewComponent;
 
 // Class OakGame.OakPlayerMetricsTrajectoryComponent
-// 0x0000 (0x0600 - 0x0600)
+// 0x0000 (0x0620 - 0x0620)
 class UOakPlayerMetricsTrajectoryComponent final : public UPrimitiveComponent
 {
 public:
@@ -14915,6 +14758,51 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakPlayerMetricsTrajectoryComponent;
+
+// Class OakGame.OakUIScript_WeaponWheel
+// 0x0000 (0x0028 - 0x0028)
+class UOakUIScript_WeaponWheel final : public UGbxUIScript
+{
+public:
+	void Closing(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void Highlighting(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void Opening(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIScript_WeaponWheel")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIScript_WeaponWheel")
+	}
+	static class UOakUIScript_WeaponWheel* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIScript_WeaponWheel>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIScript_WeaponWheel;
+
+// Class OakGame.OakPlayerProxy
+// 0x0000 (0x97C0 - 0x97C0)
+class AOakPlayerProxy final : public AOakCharacter
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakPlayerProxy")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakPlayerProxy")
+	}
+	static class AOakPlayerProxy* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakPlayerProxy>();
+	}
+};
+DUMPER7_ASSERTS_AOakPlayerProxy;
 
 // Class OakGame.OakPlayerPuppetData
 // 0x00A0 (0x00D0 - 0x0030)
@@ -14947,29 +14835,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakPlayerPuppetData;
-
-// Class OakGame.OakUISettingValueDiscrete_GamepadPreset
-// 0x0028 (0x01C0 - 0x0198)
-class UOakUISettingValueDiscrete_GamepadPreset : public UGameSettingValueDiscreteDynamic
-{
-public:
-	uint8                                         Pad_198[0x28];                                     // 0x0198(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUISettingValueDiscrete_GamepadPreset")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUISettingValueDiscrete_GamepadPreset")
-	}
-	static class UOakUISettingValueDiscrete_GamepadPreset* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUISettingValueDiscrete_GamepadPreset>();
-	}
-};
-DUMPER7_ASSERTS_UOakUISettingValueDiscrete_GamepadPreset;
 
 // Class OakGame.NexusConfigStoreOakPlayerPuppet
 // 0x0000 (0x0380 - 0x0380)
@@ -15016,111 +14881,6 @@ public:
 };
 DUMPER7_ASSERTS_UOakPlayerPuppetStatics;
 
-// Class OakGame.OakPlayerState
-// 0x0CA8 (0x1340 - 0x0698)
-class AOakPlayerState final : public AGbxPlayerState
-{
-public:
-	uint8                                         Pad_698[0x28];                                     // 0x0698(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FPlayerExperienceState>         ExperienceState;                                   // 0x06C0(0x0010)(Net, ZeroConstructor, Transient, RepNotify, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_6D0[0x39];                                     // 0x06D0(0x0039)(Fixing Size After Last Property [ Dumper-7 ])
-	uint8                                         PlayerDifficulty;                                  // 0x0709(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_70A[0x2E];                                     // 0x070A(0x002E)(Fixing Size After Last Property [ Dumper-7 ])
-	EPlayerTravelStatus                           TravelStatus;                                      // 0x0738(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bInNoSignal_NoTravelZone;                          // 0x0739(0x0001)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bInNoSignal_WorldSettings_NoTravelZone;            // 0x073A(0x0001)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_73B[0x1D];                                     // 0x073B(0x001D)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         AmmoNeeds;                                         // 0x0758(0x0004)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_75C[0x4];                                      // 0x075C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxItemSlotsContainer                 BackpackItems;                                     // 0x0760(0x0128)(Net, RepNotify, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_888[0x8];                                      // 0x0888(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxItemContainer                      BackpackContainer;                                 // 0x0890(0x0160)(Net, Protected, NativeAccessSpecifierProtected)
-	struct FGbxItemSlotsContainer                 BankItems;                                         // 0x09F0(0x0128)(Net, RepNotify, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_B18[0x8];                                      // 0x0B18(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxItemContainer                      BankContainer;                                     // 0x0B20(0x0160)(Net, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_C80[0x50];                                     // 0x0C80(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         ActiveWeaponEquipSlot;                             // 0x0CD0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint32                                        ActiveWeaponRestoreEquipSlots;                     // 0x0CD4(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_CD8[0xC0];                                     // 0x0CD8(0x00C0)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         VaultHunterLevel;                                  // 0x0D98(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_D9C[0x4C];                                     // 0x0D9C(0x004C)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         MusicThreat;                                       // 0x0DE8(0x0004)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         CriticalMusicThreat;                               // 0x0DEC(0x0004)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bMinibossCombat;                                   // 0x0DF0(0x0001)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         MusicCombatZone;                                   // 0x0DF1(0x0001)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDrivingVehicle;                                   // 0x0DF2(0x0001)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_DF3[0x5];                                      // 0x0DF3(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPlayerGenericProperties               GenericProperties;                                 // 0x0DF8(0x00D8)(Net, RepNotify, NativeAccessSpecifierPublic)
-	uint8                                         Pad_ED0[0x8];                                      // 0x0ED0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         BuddyIndex;                                        // 0x0ED8(0x0004)(Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_EDC[0x24];                                     // 0x0EDC(0x0024)(Fixing Size After Last Property [ Dumper-7 ])
-	ECharacterSelectPhase                         CurrentCharacterSelectPhase;                       // 0x0F00(0x0001)(Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_F01[0x7];                                      // 0x0F01(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	uint64                                        BlackMarketCooldownTimestamp;                      // 0x0F08(0x0008)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bBlackMarketMachineDiscovered;                     // 0x0F10(0x0001)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_F11[0x57];                                     // 0x0F11(0x0057)(Fixing Size After Last Property [ Dumper-7 ])
-	class UOakLostLootSubsystem*                  LostLootManager;                                   // 0x0F68(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	struct FGbxFastReplicatedBitArray             ReplicatedChallengeCompletion;                     // 0x0F70(0x0120)(Net, RepNotify, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1090[0x250];                                   // 0x1090(0x0250)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FChallengeObjectiveState>       ChallengeObjectiveStates;                          // 0x12E0(0x0010)(Net, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	uint32                                        SeenEridiumLogs;                                   // 0x12F0(0x0004)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_12F4[0x4];                                     // 0x12F4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxDiscoveryPinningState              DiscoveryPinningState;                             // 0x12F8(0x0028)(Net, Transient, RepNotify, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_1320[0x18];                                    // 0x1320(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bIsBusyInMenu;                                     // 0x1338(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_1339[0x7];                                     // 0x1339(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void BP_SetExperienceLevel(const FGbxDefPtrProperty_ ExperienceDef, int32 ExperienceLevel);
-	void BP_UnlockExperienceType(const FGbxDefPtrProperty_ ExperienceDef);
-	void ClearPrototypeToastMessage();
-	bool GetGenericProperty(const class FName& Name_0, class FString* Value);
-	void NotifyWatchedGenericPropertyDelta(const class FName& Name_0, const class FString& Value);
-	void OnOakPawnSet(class APlayerState* player, class APawn* NewPawn, class APawn* OldPawn);
-	void OnRep_BackpackItems();
-	void OnRep_BankItems();
-	void OnRep_BuddyIndex();
-	void OnRep_ChallengeCompletion();
-	void OnRep_CurrentCharacterSelectPhase();
-	void OnRep_DiscoveryPinningState();
-	void OnRep_ExperienceState();
-	void OnRep_GenericProperties();
-	void OnRep_IsBusyInMenu();
-	void OnRep_PlayerDifficulty();
-	void OnRep_TravelStatus();
-	void RemoveGenericPropertyWatch(const class FName& Name_0);
-	void Server_CreateDiscoveryPin(const struct FGbxDiscoveryPinningPinData& InPinData);
-	void Server_RemoveAllDiscoveryPins();
-	void Server_RemoveDiscoveryPin(EGbxDiscoveryPinType InPinType, int32 InPinIndex);
-	void ServerEnteredWorldRegion(const FGameDataHandleProperty_& region, bool bNewDiscovery);
-	void ServerSetCurrentCharacterSelectPhase(ECharacterSelectPhase NewCurrentCharacterSelectPhase);
-	void ServerSetGbxActorParts(const class FName& ActorType, const class FString& SerialNumberStr);
-	void ServerSetPlayerBusyInMenu(bool InIsBusy);
-	void ServerSetPlayerProfileDifficulty(uint8 NewDifficulty);
-	void ServerSetTravelStatus(EPlayerTravelStatus NewStatus);
-	void SetGenericProperty(const class FName& Name_0, const class FString& Value);
-	void SetGenericPropertyWatch(const class FName& Name_0);
-	void SetPrototypeToastMessage(const class FString& Header, const class FString& Message, const class FString& Style, float Duration);
-
-	int32 BP_GetExperienceLevel(const FGbxDefPtrProperty_ ExperienceDef) const;
-	float GetTotalPlaytimeSeconds() const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakPlayerState")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakPlayerState")
-	}
-	static class AOakPlayerState* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakPlayerState>();
-	}
-};
-DUMPER7_ASSERTS_AOakPlayerState;
-
 // Class OakGame.OakPresenceSubsystem
 // 0x0010 (0x0040 - 0x0030)
 class UOakPresenceSubsystem final : public UGbxPresenceSubsystem
@@ -15144,6 +14904,26 @@ public:
 };
 DUMPER7_ASSERTS_UOakPresenceSubsystem;
 
+// Class OakGame.OakProgression_ProgressRole
+// 0x0000 (0x0100 - 0x0100)
+class UOakProgression_ProgressRole final : public UGbxProgression_ProgressRole
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakProgression_ProgressRole")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakProgression_ProgressRole")
+	}
+	static class UOakProgression_ProgressRole* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakProgression_ProgressRole>();
+	}
+};
+DUMPER7_ASSERTS_UOakProgression_ProgressRole;
+
 // Class OakGame.OakProjectileSubsystem
 // 0x0000 (0x0030 - 0x0030)
 class UOakProjectileSubsystem : public USubsystem
@@ -15164,28 +14944,51 @@ public:
 };
 DUMPER7_ASSERTS_UOakProjectileSubsystem;
 
-// Class OakGame.OakRadiateDamageAreaActor
-// 0x0070 (0x0720 - 0x06B0)
-class AOakRadiateDamageAreaActor final : public ARadiateDamageAreaActor
+// Class OakGame.WeaponBehavior_Repair
+// 0x00B0 (0x0148 - 0x0098)
+class UWeaponBehavior_Repair final : public UWeaponBehavior_Reload
 {
 public:
-	uint8                                         Pad_6B0[0x70];                                     // 0x06B0(0x0070)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_98[0x10];                                      // 0x0098(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxAttributeInteger                   MinShotsToBreak;                                   // 0x00A8(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeInteger                   MaxShotsToBreak;                                   // 0x00B4(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	float                                         ConsecutiveBreakInfluence;                         // 0x00C0(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	int32                                         NumShotsToBreak;                                   // 0x00C4(0x0004)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_C8[0x5];                                       // 0x00C8(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         ClientRepairState;                                 // 0x00CD(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bResumingReload;                                   // 0x00CE(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_CF[0x5];                                       // 0x00CF(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         Jankiness;                                         // 0x00D4(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	int32                                         NumOverheatedShots;                                // 0x00D8(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_DC[0x4];                                       // 0x00DC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         ResetOverheatedShotsThresold;                      // 0x00E0(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_E4[0x64];                                      // 0x00E4(0x0064)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void OnAttached();
+	void OnBegunPlay();
+	void OnDetached();
+	void OnMaxShotsToBreakChanged(float OldValue, float NewValue);
+	void OnMinShotsToBreakChanged(float OldValue, float NewValue);
+	void OnRep_ClientRepairState();
+	void OnRep_NumShotsToBreak();
+	void OnUsed();
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakRadiateDamageAreaActor")
+		STATIC_CLASS_IMPL("WeaponBehavior_Repair")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakRadiateDamageAreaActor")
+		STATIC_NAME_IMPL(L"WeaponBehavior_Repair")
 	}
-	static class AOakRadiateDamageAreaActor* GetDefaultObj()
+	static class UWeaponBehavior_Repair* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakRadiateDamageAreaActor>();
+		return GetDefaultObjImpl<UWeaponBehavior_Repair>();
 	}
 };
-DUMPER7_ASSERTS_AOakRadiateDamageAreaActor;
+DUMPER7_ASSERTS_UWeaponBehavior_Repair;
 
 // Class OakGame.OakRadioConfig
 // 0x0028 (0x00C0 - 0x0098)
@@ -15210,36 +15013,6 @@ public:
 };
 DUMPER7_ASSERTS_UOakRadioConfig;
 
-// Class OakGame.WeaponProjectile
-// 0x0070 (0x1880 - 0x1810)
-class AWeaponProjectile final : public AOakProjectile
-{
-public:
-	FGameDataHandleProperty_                      ManufacturerMod;                                   // 0x1810(0x0018)(Net, Transient, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	FGameDataHandleProperty_                      ManufacturerHomingMod;                             // 0x1828(0x0018)(Net, Transient, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UInventoryMaterialsDataAsset*           MaterialAsset;                                     // 0x1840(0x0008)(Net, ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UInventoryMaterialParamsDataAsset*      MaterialParamsAsset;                               // 0x1848(0x0008)(Net, ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_1850[0x30];                                    // 0x1850(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void OnRep_HomingMod();
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("WeaponProjectile")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"WeaponProjectile")
-	}
-	static class AWeaponProjectile* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AWeaponProjectile>();
-	}
-};
-DUMPER7_ASSERTS_AWeaponProjectile;
-
 // Class OakGame.OakShiftSubsystem
 // 0x0010 (0x0040 - 0x0030)
 class UOakShiftSubsystem final : public UGameInstanceSubsystem
@@ -15262,6 +15035,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakShiftSubsystem;
+
+// Class OakGame.NexusConfigStoreWeaponManufacturerMod
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStoreWeaponManufacturerMod final : public UNexusConfigStoreBasic
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStoreWeaponManufacturerMod")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStoreWeaponManufacturerMod")
+	}
+	static class UNexusConfigStoreWeaponManufacturerMod* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStoreWeaponManufacturerMod>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStoreWeaponManufacturerMod;
 
 // Class OakGame.OakSingletons
 // 0x0040 (0x00D0 - 0x0090)
@@ -15320,6 +15113,31 @@ public:
 	}
 };
 DUMPER7_ASSERTS_AOakSkeletalCorpse;
+
+// Class OakGame.ZoneTravelStationObject
+// 0x0230 (0x28C0 - 0x2690)
+class AZoneTravelStationObject final : public ATravelStationObject
+{
+public:
+	uint8                                         Pad_2690[0x220];                                   // 0x2690(0x0220)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bLinkTransform;                                    // 0x28B0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_28B1[0xF];                                     // 0x28B1(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("ZoneTravelStationObject")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"ZoneTravelStationObject")
+	}
+	static class AZoneTravelStationObject* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AZoneTravelStationObject>();
+	}
+};
+DUMPER7_ASSERTS_AZoneTravelStationObject;
 
 // Class OakGame.OakSkillDelegatesStatics
 // 0x0000 (0x0028 - 0x0028)
@@ -15582,52 +15400,62 @@ public:
 };
 DUMPER7_ASSERTS_UNexusConfigStore_OakTown;
 
-// Class OakGame.OakTrackerBlueprintLibrary
+// Class OakGame.OakUIScript_EchoUpgrades
 // 0x0000 (0x0028 - 0x0028)
-class UOakTrackerBlueprintLibrary final : public UBlueprintFunctionLibrary
+class UOakUIScript_EchoUpgrades final : public UGbxUIScript
 {
 public:
-	static void ToggleVaultTrackingEnabled_Actor(class AOakVaultTrackable* TrackedActor, bool bEnabled);
-	static void ToggleVaultTrackingEnabled_Def(class UWorld* World, FGameDataHandleProperty_ LocDef, bool bEnabled);
+	void InsufficientPoints(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void StartTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void Upgraded(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakTrackerBlueprintLibrary")
+		STATIC_CLASS_IMPL("OakUIScript_EchoUpgrades")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakTrackerBlueprintLibrary")
+		STATIC_NAME_IMPL(L"OakUIScript_EchoUpgrades")
 	}
-	static class UOakTrackerBlueprintLibrary* GetDefaultObj()
+	static class UOakUIScript_EchoUpgrades* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakTrackerBlueprintLibrary>();
+		return GetDefaultObjImpl<UOakUIScript_EchoUpgrades>();
 	}
 };
-DUMPER7_ASSERTS_UOakTrackerBlueprintLibrary;
+DUMPER7_ASSERTS_UOakUIScript_EchoUpgrades;
 
-// Class OakGame.OakUIScript_InGameMessage
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_InGameMessage final : public UGbxUIScript
+// Class OakGame.OakTrackableSpawner
+// 0x0920 (0x0DC0 - 0x04A0)
+class AOakTrackableSpawner final : public AOakSpawner
 {
 public:
-	void DisplayGenericSlideOut(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	uint8                                         Pad_4A0[0x60];                                     // 0x04A0(0x0060)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bVaultTrackingEnabled;                             // 0x0500(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bDrawVaultTrackingRings;                           // 0x0501(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_502[0x6];                                      // 0x0502(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	FGbxDefPtrProperty_                           VaultTrackerLocationData;                          // 0x0508(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGbxDiscoveryLocationInstanceConfig    DiscoveryLocationConfig;                           // 0x0520(0x03F8)(Deprecated, Protected, NativeAccessSpecifierProtected)
+	struct FOakDiscoveryLocationInstanceConfig    OakDiscoveryLocationConfig;                        // 0x0918(0x0480)(Edit, DisableEditOnTemplate, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_D98[0x8];                                      // 0x0D98(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 EditorGeneratedDiscoveryLocationGuidString;        // 0x0DA0(0x0010)(Edit, ZeroConstructor, EditConst, Protected, TextExportTransient, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_DB0[0x10];                                     // 0x0DB0(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIScript_InGameMessage")
+		STATIC_CLASS_IMPL("OakTrackableSpawner")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIScript_InGameMessage")
+		STATIC_NAME_IMPL(L"OakTrackableSpawner")
 	}
-	static class UOakUIScript_InGameMessage* GetDefaultObj()
+	static class AOakTrackableSpawner* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIScript_InGameMessage>();
+		return GetDefaultObjImpl<AOakTrackableSpawner>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIScript_InGameMessage;
+DUMPER7_ASSERTS_AOakTrackableSpawner;
 
 // Class OakGame.OakTrackableObject
 // 0x0000 (0x0000 - 0x0000)
@@ -15658,6 +15486,29 @@ public:
 };
 DUMPER7_ASSERTS_IOakTrackableObject;
 
+// Class OakGame.OakUIScript_ItemInspect
+// 0x0000 (0x0028 - 0x0028)
+class UOakUIScript_ItemInspect final : public UGbxUIScript
+{
+public:
+	void InspectNewItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIScript_ItemInspect")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIScript_ItemInspect")
+	}
+	static class UOakUIScript_ItemInspect* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIScript_ItemInspect>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIScript_ItemInspect;
+
 // Class OakGame.OakTrackerObjectManager
 // 0x0298 (0x02C8 - 0x0030)
 class UOakTrackerObjectManager final : public UGameInstanceSubsystem
@@ -15680,34 +15531,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakTrackerObjectManager;
-
-// Class OakGame.OakUIScript_MainMenu
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_MainMenu : public UGbxUIScript
-{
-public:
-	void ContinueCampaign(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void CoopRelinquish(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void DifficultySwapEasy(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void DifficultySwapHard(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void DifficultySwapMedium(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void DifficultySwapVeryHard(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIScript_MainMenu")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIScript_MainMenu")
-	}
-	static class UOakUIScript_MainMenu* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUIScript_MainMenu>();
-	}
-};
-DUMPER7_ASSERTS_UOakUIScript_MainMenu;
 
 // Class OakGame.OakTraitOwner
 // 0x0000 (0x0000 - 0x0000)
@@ -15738,6 +15561,36 @@ public:
 };
 DUMPER7_ASSERTS_IOakTraitOwner;
 
+// Class OakGame.OakUIScript_MenuBase
+// 0x0000 (0x0028 - 0x0028)
+class UOakUIScript_MenuBase : public UGbxUIScript
+{
+public:
+	void ElementClicked(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ElementFocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ElementUnfocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void EscapeInput(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void MenuClose(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void MenuOpen(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ScrollDown(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ScrollUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIScript_MenuBase")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIScript_MenuBase")
+	}
+	static class UOakUIScript_MenuBase* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIScript_MenuBase>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIScript_MenuBase;
+
 // Class OakGame.NexusConfigStore_OakTraitPoolList
 // 0x0000 (0x0390 - 0x0390)
 class UNexusConfigStore_OakTraitPoolList final : public UNexusConfigStoreBasic
@@ -15757,31 +15610,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UNexusConfigStore_OakTraitPoolList;
-
-// Class OakGame.OakUIScript_MissionLog
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_MissionLog final : public UGbxUIScript
-{
-public:
-	void StartMissionLogMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
-	void StartMissionReplayMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
-	void TrackMission(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIScript_MissionLog")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIScript_MissionLog")
-	}
-	static class UOakUIScript_MissionLog* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUIScript_MissionLog>();
-	}
-};
-DUMPER7_ASSERTS_UOakUIScript_MissionLog;
 
 // Class OakGame.OakTraitStatics
 // 0x0000 (0x0028 - 0x0028)
@@ -15809,6 +15637,34 @@ public:
 };
 DUMPER7_ASSERTS_UOakTraitStatics;
 
+// Class OakGame.OakUIScript_MissionTracker
+// 0x0000 (0x0028 - 0x0028)
+class UOakUIScript_MissionTracker final : public UGbxUIScript
+{
+public:
+	void HideObjectives(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void missioncompleted(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void MissionFailed(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ObjectiveCompleted(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ObjectiveFailed(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ShowObjectives(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIScript_MissionTracker")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIScript_MissionTracker")
+	}
+	static class UOakUIScript_MissionTracker* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIScript_MissionTracker>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIScript_MissionTracker;
+
 // Class OakGame.OakTriggerBox
 // 0x0000 (0x05E0 - 0x05E0)
 class AOakTriggerBox final : public AGbxTriggerBox
@@ -15829,36 +15685,6 @@ public:
 };
 DUMPER7_ASSERTS_AOakTriggerBox;
 
-// Class OakGame.OakUIScript_RepairKit
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_RepairKit final : public UGbxUIScript
-{
-public:
-	void FailToUseRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void GainChargeRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ReadyToUseRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void StartReadyCountdownRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TickReadyCountdownOneRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TickReadyCountdownThreeRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TickReadyCountdownTwoRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void UseRepairKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIScript_RepairKit")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIScript_RepairKit")
-	}
-	static class UOakUIScript_RepairKit* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUIScript_RepairKit>();
-	}
-};
-DUMPER7_ASSERTS_UOakUIScript_RepairKit;
-
 // Class OakGame.OakTriggerSphere
 // 0x0000 (0x05E0 - 0x05E0)
 class AOakTriggerSphere final : public AGbxTriggerSphere
@@ -15878,6 +15704,33 @@ public:
 	}
 };
 DUMPER7_ASSERTS_AOakTriggerSphere;
+
+// Class OakGame.OverheadNameplateStrategy
+// 0x0100 (0x0128 - 0x0028)
+class UOverheadNameplateStrategy final : public UObject
+{
+public:
+	uint8                                         Pad_28[0x18];                                      // 0x0028(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	class AOakPlayerController*                   OakPlayerController;                               // 0x0040(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	TArray<TScriptInterface<class INameplateInfoProviderInterface>> NameplateProvidersInView;        // 0x0048(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	bool                                          bNameplateProvidersChanged;                        // 0x0058(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_59[0xCF];                                      // 0x0059(0x00CF)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OverheadNameplateStrategy")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OverheadNameplateStrategy")
+	}
+	static class UOverheadNameplateStrategy* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOverheadNameplateStrategy>();
+	}
+};
+DUMPER7_ASSERTS_UOverheadNameplateStrategy;
 
 // Class OakGame.OakUIBaseDataCollector_Character
 // 0x0018 (0x0048 - 0x0030)
@@ -15902,29 +15755,6 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIBaseDataCollector_Character;
 
-// Class OakGame.PlaceableActorInventoryChildComponent
-// 0x0000 (0x02B0 - 0x02B0)
-class UPlaceableActorInventoryChildComponent final : public UChildActorBaseComponent
-{
-public:
-	class AInventoryBase*                         ChildActor;                                        // 0x02A8(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PlaceableActorInventoryChildComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PlaceableActorInventoryChildComponent")
-	}
-	static class UPlaceableActorInventoryChildComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPlaceableActorInventoryChildComponent>();
-	}
-};
-DUMPER7_ASSERTS_UPlaceableActorInventoryChildComponent;
-
 // Class OakGame.OakUIBaseDataCollector_LocalPlayer
 // 0x0028 (0x0058 - 0x0030)
 class UOakUIBaseDataCollector_LocalPlayer : public ULocalPlayerSubsystem
@@ -15947,6 +15777,31 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIBaseDataCollector_LocalPlayer;
+
+// Class OakGame.PlaceableActor
+// 0x0030 (0x25E0 - 0x25B0)
+class APlaceableActor final : public AOakInteractiveObject
+{
+public:
+	uint8                                         Pad_25B0[0x20];                                    // 0x25B0(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	class UBoxComponent*                          InventoryCollisionProxy;                           // 0x25D0(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class UPlaceableActorInventoryChildComponent* InventoryChildComponent;                           // 0x25D8(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, DuplicateTransient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PlaceableActor")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PlaceableActor")
+	}
+	static class APlaceableActor* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<APlaceableActor>();
+	}
+};
+DUMPER7_ASSERTS_APlaceableActor;
 
 // Class OakGame.OakUIBaseDataCollector_Projectile
 // 0x0018 (0x0048 - 0x0030)
@@ -15971,28 +15826,49 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIBaseDataCollector_Projectile;
 
-// Class OakGame.PoAActorManager
-// 0x0120 (0x0148 - 0x0028)
-class UPoAActorManager final : public UObject
+// Class OakGame.RepairKit
+// 0x0270 (0x0B20 - 0x08B0)
+class ARepairKit final : public Ainventory
 {
 public:
-	uint8                                         Pad_28[0x120];                                     // 0x0028(0x0120)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_8B0[0x28];                                     // 0x08B0(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(int32 ActiveCharges)> OnStartRepair;                               // 0x08D8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_8E8[0x18];                                     // 0x08E8(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(int32 ActiveCharges, bool bInterrupted)> OnStopRepair;             // 0x0900(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_910[0x18];                                     // 0x0910(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxAttributeFloat                     Health;                                            // 0x0928(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     Duration;                                          // 0x0934(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     cooldown;                                          // 0x0940(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     HealthInstantPct;                                  // 0x094C(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     HealthOverTimePct;                                 // 0x0958(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeInteger                   MaxCharges;                                        // 0x0964(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeInteger                   SimultaneousRecharging;                            // 0x0970(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	int32                                         ActiveCharges;                                     // 0x097C(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	TMulticastInlineDelegate<void(class FName AugmentName, class UObject* AdditionalContext)> OnPlayReplicatedEffect; // 0x0980(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
+	bool                                          bIsUsing;                                          // 0x0990(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_991[0x17F];                                    // 0x0991(0x017F)(Fixing Size After Last Property [ Dumper-7 ])
+	class AOakCharacter*                          OwningCharacter;                                   // 0x0B10(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_B18[0x8];                                      // 0x0B18(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void BroadcastEffect(class FName EffectID, class UObject* AdditionalContext);
+	void PlayReplicatedEffect(class FName EffectID, class UObject* AdditionalContext);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PoAActorManager")
+		STATIC_CLASS_IMPL("RepairKit")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PoAActorManager")
+		STATIC_NAME_IMPL(L"RepairKit")
 	}
-	static class UPoAActorManager* GetDefaultObj()
+	static class ARepairKit* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPoAActorManager>();
+		return GetDefaultObjImpl<ARepairKit>();
 	}
 };
-DUMPER7_ASSERTS_UPoAActorManager;
+DUMPER7_ASSERTS_ARepairKit;
 
 // Class OakGame.OakUIBlueprintHelperLibrary
 // 0x0000 (0x0028 - 0x0028)
@@ -16039,35 +15915,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUICoherentSubsystem;
-
-// Class OakGame.Reviver
-// 0x0000 (0x0000 - 0x0000)
-class IReviver final
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("Reviver")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"Reviver")
-	}
-	static class IReviver* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<IReviver>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
-	}
-};
-DUMPER7_ASSERTS_IReviver;
 
 // Class OakGame.OakUICommand
 // 0x0000 (0x0000 - 0x0000)
@@ -16118,6 +15965,57 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIContentWarningRole;
 
+// Class OakGame.Shield
+// 0x02A0 (0x0B50 - 0x08B0)
+class AShield final : public Ainventory
+{
+public:
+	uint8                                         Pad_8B0[0x20];                                     // 0x08B0(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(class AOakCharacter* owner)> OnEquipped;                           // 0x08D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(class AOakCharacter* owner)> OnUnequipped;                         // 0x08E0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              OnShieldFull;                                      // 0x08F0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              OnShieldNotFull;                                   // 0x0900(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              OnShieldEmpty;                                     // 0x0910(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              OnShieldNotEmpty;                                  // 0x0920(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              OnArmorSegmentFilled;                              // 0x0930(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              OnArmorSegmentBroken;                              // 0x0940(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_950[0xC8];                                     // 0x0950(0x00C8)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxAttributeFloat                     Capacity;                                          // 0x0A18(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     RegenRate;                                         // 0x0A24(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     RegenDelay;                                        // 0x0A30(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeInteger                   Segments;                                          // 0x0A3C(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     DamageReduction;                                   // 0x0A48(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     ChargeCapacity;                                    // 0x0A54(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     ReactiveArmorDamageCapacity;                       // 0x0A60(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     SegmentRefilledByDamageScale;                      // 0x0A6C(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_A78[0x40];                                     // 0x0A78(0x0040)(Fixing Size After Last Property [ Dumper-7 ])
+	class AOakCharacter*                          OwningCharacter;                                   // 0x0AB8(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_AC0[0x90];                                     // 0x0AC0(0x0090)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	float GetCapacity() const;
+	int32 GetNumSegments() const;
+	float GetRegenDelay() const;
+	float GetRegenRate() const;
+	FGameDataHandleProperty_ K2_GetDamageType() const;
+	EShieldHealthSystem K2_GetHealthSystem() const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("Shield")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"Shield")
+	}
+	static class AShield* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AShield>();
+	}
+};
+DUMPER7_ASSERTS_AShield;
+
 // Class OakGame.OakUICoreSubsystem
 // 0x0000 (0x00D8 - 0x00D8)
 class UOakUICoreSubsystem final : public UGbxUICoreSubsystem
@@ -16157,26 +16055,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUICrosshairSettingsRole;
-
-// Class OakGame.SiloBaseRangeComponent
-// 0x0000 (0x0600 - 0x0600)
-class USiloBaseRangeComponent final : public UPrimitiveComponent
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("SiloBaseRangeComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"SiloBaseRangeComponent")
-	}
-	static class USiloBaseRangeComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<USiloBaseRangeComponent>();
-	}
-};
-DUMPER7_ASSERTS_USiloBaseRangeComponent;
 
 // Class OakGame.OakUICursorPreferencesRole
 // 0x0000 (0x0100 - 0x0100)
@@ -16220,6 +16098,29 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_Ammo;
+
+// Class OakGame.OakUISettingValueDiscrete_ShiftProfileVisibility
+// 0x0018 (0x01B0 - 0x0198)
+class UOakUISettingValueDiscrete_ShiftProfileVisibility final : public UGameSettingValueDiscreteDynamic_Bool
+{
+public:
+	uint8                                         Pad_198[0x18];                                     // 0x0198(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUISettingValueDiscrete_ShiftProfileVisibility")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUISettingValueDiscrete_ShiftProfileVisibility")
+	}
+	static class UOakUISettingValueDiscrete_ShiftProfileVisibility* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUISettingValueDiscrete_ShiftProfileVisibility>();
+	}
+};
+DUMPER7_ASSERTS_UOakUISettingValueDiscrete_ShiftProfileVisibility;
 
 // Class OakGame.OakUIDataCollector_Backpack
 // 0x0020 (0x0068 - 0x0048)
@@ -16266,49 +16167,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_BigMap;
-
-// Class OakGame.OakUISettingValueDiscrete_VoiceDevice
-// 0x0038 (0x0170 - 0x0138)
-class UOakUISettingValueDiscrete_VoiceDevice : public UGameSettingValueDiscrete
-{
-public:
-	uint8                                         Pad_138[0x38];                                     // 0x0138(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUISettingValueDiscrete_VoiceDevice")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUISettingValueDiscrete_VoiceDevice")
-	}
-	static class UOakUISettingValueDiscrete_VoiceDevice* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUISettingValueDiscrete_VoiceDevice>();
-	}
-};
-DUMPER7_ASSERTS_UOakUISettingValueDiscrete_VoiceDevice;
-
-// Class OakGame.OakUISettingValueDiscrete_VoiceDeviceInput
-// 0x0000 (0x0170 - 0x0170)
-class UOakUISettingValueDiscrete_VoiceDeviceInput final : public UOakUISettingValueDiscrete_VoiceDevice
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUISettingValueDiscrete_VoiceDeviceInput")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUISettingValueDiscrete_VoiceDeviceInput")
-	}
-	static class UOakUISettingValueDiscrete_VoiceDeviceInput* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUISettingValueDiscrete_VoiceDeviceInput>();
-	}
-};
-DUMPER7_ASSERTS_UOakUISettingValueDiscrete_VoiceDeviceInput;
 
 // Class OakGame.OakUIDataCollector_BlackboardCleaner
 // 0x0008 (0x0050 - 0x0048)
@@ -16367,6 +16225,26 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_BossBar;
 
+// Class OakGame.OakUISettingValueDiscrete_VoiceDeviceOutput
+// 0x0000 (0x0170 - 0x0170)
+class UOakUISettingValueDiscrete_VoiceDeviceOutput final : public UOakUISettingValueDiscrete_VoiceDevice
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUISettingValueDiscrete_VoiceDeviceOutput")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUISettingValueDiscrete_VoiceDeviceOutput")
+	}
+	static class UOakUISettingValueDiscrete_VoiceDeviceOutput* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUISettingValueDiscrete_VoiceDeviceOutput>();
+	}
+};
+DUMPER7_ASSERTS_UOakUISettingValueDiscrete_VoiceDeviceOutput;
+
 // Class OakGame.OakUIDataCollector_BuddyInfo
 // 0x0070 (0x00C8 - 0x0058)
 class UOakUIDataCollector_BuddyInfo final : public UOakUIBaseDataCollector_LocalPlayer
@@ -16421,30 +16299,6 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_Message;
 
-// Class OakGame.OakUIStateManager
-// 0x00B0 (0x01F0 - 0x0140)
-class UOakUIStateManager final : public UGbxUIStateManager
-{
-public:
-	uint8                                         Pad_140[0x60];                                     // 0x0140(0x0060)(Fixing Size After Last Property [ Dumper-7 ])
-	TMap<struct FGameplayTag, class UGbxGameplayStateDef*> NexusUIStateDefs;                         // 0x01A0(0x0050)(Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIStateManager")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIStateManager")
-	}
-	static class UOakUIStateManager* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUIStateManager>();
-	}
-};
-DUMPER7_ASSERTS_UOakUIStateManager;
-
 // Class OakGame.OakUIDataCollector_CelebNotifMessage
 // 0x0228 (0x0270 - 0x0048)
 class UOakUIDataCollector_CelebNotifMessage final : public UOakUIDataCollector_Message
@@ -16491,6 +16345,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_Challenge;
+
+// Class OakGame.OakUISubtitleRole
+// 0x0000 (0x0100 - 0x0100)
+class UOakUISubtitleRole final : public UGbxProfileProgressRoleClientLocal
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUISubtitleRole")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUISubtitleRole")
+	}
+	static class UOakUISubtitleRole* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUISubtitleRole>();
+	}
+};
+DUMPER7_ASSERTS_UOakUISubtitleRole;
 
 // Class OakGame.OakUIDataCollector_CharacterInfo
 // 0x0030 (0x0078 - 0x0048)
@@ -16546,26 +16420,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_CharacterSelect;
-
-// Class OakGame.OakUIUserPreferencesRole
-// 0x0000 (0x0100 - 0x0100)
-class UOakUIUserPreferencesRole final : public UGbxProfileProgressRoleClientLocal
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIUserPreferencesRole")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIUserPreferencesRole")
-	}
-	static class UOakUIUserPreferencesRole* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUIUserPreferencesRole>();
-	}
-};
-DUMPER7_ASSERTS_UOakUIUserPreferencesRole;
 
 // Class OakGame.OakUIDataCollector_CharacterVitals
 // 0x0160 (0x01A8 - 0x0048)
@@ -16631,6 +16485,29 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_Compass;
 
+// Class OakGame.OakUIView
+// 0x0030 (0x0600 - 0x05D0)
+class UOakUIView final : public UGbxUIView
+{
+public:
+	uint8                                         Pad_5D0[0x30];                                     // 0x05D0(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIView")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIView")
+	}
+	static class UOakUIView* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIView>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIView;
+
 // Class OakGame.OakUIDataCollector_CreditsMenu
 // 0x0058 (0x00A0 - 0x0048)
 class UOakUIDataCollector_CreditsMenu final : public UOakUIBaseDataCollector_PlayerController
@@ -16673,46 +16550,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_CrosshairSettings;
-
-// Class OakGame.OakVaultTrackable
-// 0x0100 (0x26B0 - 0x25B0)
-class AOakVaultTrackable final : public AOakInteractiveObject
-{
-public:
-	uint8                                         Pad_25B0[0x50];                                    // 0x25B0(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
-	FGameDataHandleProperty_                      VaultTrackerLocationData;                          // 0x2600(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EOakTrackerObjectIconType                     IconType;                                          // 0x2618(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsTrackableByDefault;                             // 0x261C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDiscoveredByProximity;                            // 0x261D(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_261E[0x2];                                     // 0x261E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FFactAddress                           VaultTrackerCompletionProgressFact;                // 0x2620(0x0038)(Edit, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                ActivationCenter;                                  // 0x2658(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FOakTrackerRangeSettings               TrackerRangeSettings;                              // 0x2670(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           DiscoveryType;                                     // 0x2680(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bShouldBeSaved;                                    // 0x2698(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2699[0x7];                                     // 0x2699(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGbxActorDrawComponent*                 DrawCompPtr;                                       // 0x26A0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_26A8[0x8];                                     // 0x26A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void DiscoverTrackerObject();
-	void ToggleTrackingEnabled(bool bEnabled);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakVaultTrackable")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakVaultTrackable")
-	}
-	static class AOakVaultTrackable* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakVaultTrackable>();
-	}
-};
-DUMPER7_ASSERTS_AOakVaultTrackable;
 
 // Class OakGame.OakUIDataCollector_Currency
 // 0x0008 (0x0050 - 0x0048)
@@ -16759,6 +16596,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_Cursor;
+
+// Class OakGame.NexusConfigStore_UIMovementType
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStore_UIMovementType final : public UNexusConfigStoreBasic
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStore_UIMovementType")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStore_UIMovementType")
+	}
+	static class UNexusConfigStore_UIMovementType* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStore_UIMovementType>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStore_UIMovementType;
 
 // Class OakGame.OakUIDataCollector_Customization
 // 0x0128 (0x0170 - 0x0048)
@@ -16808,26 +16665,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_DangerIndicators;
-
-// Class OakGame.OakUINewsRole
-// 0x0000 (0x0100 - 0x0100)
-class UOakUINewsRole final : public UGbxProfileProgressRoleClientLocal
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUINewsRole")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUINewsRole")
-	}
-	static class UOakUINewsRole* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUINewsRole>();
-	}
-};
-DUMPER7_ASSERTS_UOakUINewsRole;
 
 // Class OakGame.OakUIDataCollector_DialogBox
 // 0x0008 (0x0060 - 0x0058)
@@ -16932,26 +16769,6 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_DroneVitals;
 
-// Class OakGame.OakUIDeepFreezePipsRole
-// 0x0000 (0x0100 - 0x0100)
-class UOakUIDeepFreezePipsRole final : public UOakUIPipsRoleBase
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIDeepFreezePipsRole")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIDeepFreezePipsRole")
-	}
-	static class UOakUIDeepFreezePipsRole* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUIDeepFreezePipsRole>();
-	}
-};
-DUMPER7_ASSERTS_UOakUIDeepFreezePipsRole;
-
 // Class OakGame.OakUIDataCollector_EchoLogs
 // 0x0000 (0x0048 - 0x0048)
 class UOakUIDataCollector_EchoLogs final : public UOakUIBaseDataCollector_PlayerController
@@ -16994,6 +16811,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_EchoUpgrade;
+
+// Class OakGame.OakUIProgressionRole
+// 0x0000 (0x0100 - 0x0100)
+class UOakUIProgressionRole final : public UGbxProfileProgressRoleFiltered
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIProgressionRole")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIProgressionRole")
+	}
+	static class UOakUIProgressionRole* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIProgressionRole>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIProgressionRole;
 
 // Class OakGame.OakUIDataCollector_Echo_Portrait
 // 0x0020 (0x0068 - 0x0048)
@@ -17048,46 +16885,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_EnemyRadar;
-
-// Class OakGame.OakUIScript_BigMap
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_BigMap final : public UGbxUIScript
-{
-public:
-	void AddWaypoint(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void CantDo(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void Center(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void DragEnd(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void DragMoved(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void DragStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ExploreMenuClose(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ExploreMenuOpen(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void InteractableElementRollOver(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void LocateOnMap(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void NewMap(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void RemoveWaypoint(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void Select(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void StartBigMapEndGameMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
-	void StartBigMapIntroMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
-	void ToggleLegendItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ZoomIn(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ZoomOut(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIScript_BigMap")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIScript_BigMap")
-	}
-	static class UOakUIScript_BigMap* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUIScript_BigMap>();
-	}
-};
-DUMPER7_ASSERTS_UOakUIScript_BigMap;
 
 // Class OakGame.OakUIDataCollector_EquippedAmmo
 // 0x0040 (0x0088 - 0x0048)
@@ -17150,6 +16947,47 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_EquippedGadget;
 
+// Class OakGame.OakUIScript_CelebratoryNotifications
+// 0x0000 (0x0028 - 0x0028)
+class UOakUIScript_CelebratoryNotifications final : public UGbxUIScript
+{
+public:
+	void AcceptContract(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void AcceptMission(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ActivateMayhemMode(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ActivityComplete(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ActivityDiscovered(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void CollectibleFound(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void CompleteChallenge(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void CompleteContract(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void CompleteMission(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void DeactivateMayhemMode(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void DiscoverLocation(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void EnterLocation(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void NotifyLevelUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void NotifyReachLevel2(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void PressButtonPrompt(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TrackContract(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TrackMission(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void UnlockChallenge(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void UnlockMode(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIScript_CelebratoryNotifications")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIScript_CelebratoryNotifications")
+	}
+	static class UOakUIScript_CelebratoryNotifications* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIScript_CelebratoryNotifications>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIScript_CelebratoryNotifications;
+
 // Class OakGame.OakUIDataCollector_GameInstance
 // 0x0008 (0x0060 - 0x0058)
 class UOakUIDataCollector_GameInstance final : public UOakUIBaseDataCollector_LocalPlayer
@@ -17204,30 +17042,6 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_GrapplePoint;
 
-// Class OakGame.OakUIScript_Customization
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_Customization final : public UGbxUIScript
-{
-public:
-	void ApplyCustomization(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void CantDo(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIScript_Customization")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIScript_Customization")
-	}
-	static class UOakUIScript_Customization* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUIScript_Customization>();
-	}
-};
-DUMPER7_ASSERTS_UOakUIScript_Customization;
-
 // Class OakGame.OakUIDataCollector_HealthShield
 // 0x0000 (0x0048 - 0x0048)
 class UOakUIDataCollector_HealthShield final : public UOakUIBaseDataCollector_PlayerController
@@ -17274,6 +17088,36 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_HintBar;
 
+// Class OakGame.OakWeaponStatics
+// 0x0000 (0x0028 - 0x0028)
+class UOakWeaponStatics final : public UWeaponStatics
+{
+public:
+	static void AbsorbAmmoToCurrentCharacterWeapon(class UObject* OwnerContext, int32 Amount, bool bAsPercent, bool bAllowForHeavyWeapons);
+	static EOakElementalType GetCurrentElementalType(class AWeapon* Weapon);
+	static EOakElementalType GetElementalType(class AWeapon* Weapon, uint8 UseMode);
+	static void GetWeaponDefinitionOverrideTags(TArray<class FName>* OutNames);
+	static void GiveAmmoToCurrentCharacterWeapon(class UObject* OwnerContext, int32 Amount, bool bLoaded, bool bAsPercent, bool bAllowForHeavyWeapons);
+	static void RefillAmmoForCurrentCharacterWeapon(class UObject* OwnerContext, int32 Amount, bool bAsPercent);
+	static void ReloadAllWeapons(class UObject* OwnerContext, bool bActiveWeaponIncluded);
+	static void ThrowEquippedWeapon(class AActor* WeaponUser, int32 actions, uint8 slot, float DamageOverride, float DamageRadiusOverride, float LifetimeOverride);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakWeaponStatics")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakWeaponStatics")
+	}
+	static class UOakWeaponStatics* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakWeaponStatics>();
+	}
+};
+DUMPER7_ASSERTS_UOakWeaponStatics;
+
 // Class OakGame.OakUIDataCollector_HudIndicators
 // 0x0030 (0x0078 - 0x0048)
 class UOakUIDataCollector_HudIndicators final : public UOakUIBaseDataCollector_PlayerController
@@ -17319,26 +17163,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_HUDStates;
-
-// Class OakGame.OakWorldPainterActor
-// 0x0000 (0x03D8 - 0x03D8)
-class AOakWorldPainterActor final : public AGbxWorldPainterActor
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakWorldPainterActor")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakWorldPainterActor")
-	}
-	static class AOakWorldPainterActor* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakWorldPainterActor>();
-	}
-};
-DUMPER7_ASSERTS_AOakWorldPainterActor;
 
 // Class OakGame.OakUIDataCollector_InGameMessage
 // 0x0018 (0x0060 - 0x0048)
@@ -17392,6 +17216,30 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_InteractPrompt;
 
+// Class OakGame.OakWorldPainterLayer_AmbientAudio
+// 0x0028 (0x0088 - 0x0060)
+class UOakWorldPainterLayer_AmbientAudio final : public UGbxWorldPainterLayer
+{
+public:
+	TArray<struct FOakAmbientAudioZone>           AmbientAudioZones;                                 // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_70[0x18];                                      // 0x0070(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakWorldPainterLayer_AmbientAudio")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakWorldPainterLayer_AmbientAudio")
+	}
+	static class UOakWorldPainterLayer_AmbientAudio* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakWorldPainterLayer_AmbientAudio>();
+	}
+};
+DUMPER7_ASSERTS_UOakWorldPainterLayer_AmbientAudio;
+
 // Class OakGame.OakUIDataCollector_ItemCard
 // 0x0200 (0x0248 - 0x0048)
 class UOakUIDataCollector_ItemCard final : public UOakUIBaseDataCollector_PlayerController
@@ -17442,26 +17290,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_ItemIcon;
-
-// Class OakGame.OakWorldPainterActor_Difficulty
-// 0x0000 (0x03D8 - 0x03D8)
-class AOakWorldPainterActor_Difficulty final : public AGbxWorldPainterActor
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakWorldPainterActor_Difficulty")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakWorldPainterActor_Difficulty")
-	}
-	static class AOakWorldPainterActor_Difficulty* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakWorldPainterActor_Difficulty>();
-	}
-};
-DUMPER7_ASSERTS_AOakWorldPainterActor_Difficulty;
 
 // Class OakGame.OakUIDataCollector_LoadCharacter
 // 0x0130 (0x0188 - 0x0058)
@@ -17515,6 +17343,29 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_LootFeed;
 
+// Class OakGame.OakWorldPainterLayer_Element
+// 0x0010 (0x0070 - 0x0060)
+class UOakWorldPainterLayer_Element final : public UGbxWorldPainterLayer
+{
+public:
+	TArray<struct FOakElementPainterZone>         ElementZones;                                      // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakWorldPainterLayer_Element")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakWorldPainterLayer_Element")
+	}
+	static class UOakWorldPainterLayer_Element* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakWorldPainterLayer_Element>();
+	}
+};
+DUMPER7_ASSERTS_UOakWorldPainterLayer_Element;
+
 // Class OakGame.OakUIDataCollector_LostLoot
 // 0x0010 (0x0058 - 0x0048)
 class UOakUIDataCollector_LostLoot final : public UOakUIBaseDataCollector_PlayerController
@@ -17561,29 +17412,6 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_Matchmaking;
 
-// Class OakGame.OakWorldPainterLayer_RadioStation
-// 0x0010 (0x0070 - 0x0060)
-class UOakWorldPainterLayer_RadioStation final : public UGbxWorldPainterLayer
-{
-public:
-	TArray<struct FOakRadioStationZone>           RadioStationZones;                                 // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakWorldPainterLayer_RadioStation")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakWorldPainterLayer_RadioStation")
-	}
-	static class UOakWorldPainterLayer_RadioStation* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakWorldPainterLayer_RadioStation>();
-	}
-};
-DUMPER7_ASSERTS_UOakWorldPainterLayer_RadioStation;
-
 // Class OakGame.OakUIDataCollector_MenuTutorial
 // 0x0018 (0x0060 - 0x0048)
 class UOakUIDataCollector_MenuTutorial final : public UOakUIBaseDataCollector_PlayerController
@@ -17626,6 +17454,29 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_MessagesDebug;
+
+// Class OakGame.OakWorldPainterLayer_Spawn
+// 0x0010 (0x0070 - 0x0060)
+class UOakWorldPainterLayer_Spawn final : public UGbxWorldPainterLayer
+{
+public:
+	TArray<struct FOakSpawnZone>                  SpawnZones;                                        // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakWorldPainterLayer_Spawn")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakWorldPainterLayer_Spawn")
+	}
+	static class UOakWorldPainterLayer_Spawn* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakWorldPainterLayer_Spawn>();
+	}
+};
+DUMPER7_ASSERTS_UOakWorldPainterLayer_Spawn;
 
 // Class OakGame.OakUIDataCollector_Mission
 // 0x0080 (0x00C8 - 0x0048)
@@ -17674,39 +17525,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_MissionAccept;
-
-// Class OakGame.OakWorldSettings
-// 0x0090 (0x06F8 - 0x0668)
-class AOakWorldSettings final : public AGbxGameWorldSettings
-{
-public:
-	bool                                          bIsMenuLevel;                                      // 0x0668(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_669[0x7];                                      // 0x0669(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	FGbxDefPtrProperty_                           MusicDef;                                          // 0x0670(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	FGbxDefPtrProperty_                           SymphonicAmbienceDef;                              // 0x0688(0x0018)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAllowPersonalVehicle;                             // 0x06A0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAllowPlayerGlide;                                 // 0x06A1(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bBlockTravel;                                      // 0x06A2(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bBlockMapViewing;                                  // 0x06A3(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_6A4[0x4];                                      // 0x06A4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TSoftObjectPtr<class UOakWorldPainterLayer_Spawn> ArmySpawnZones;                                // 0x06A8(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSoftObjectPtr<class UOakWorldPainterLayer_Spawn> CreatureSpawnZones;                            // 0x06D0(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakWorldSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakWorldSettings")
-	}
-	static class AOakWorldSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AOakWorldSettings>();
-	}
-};
-DUMPER7_ASSERTS_AOakWorldSettings;
 
 // Class OakGame.OakUIDataCollector_MissionLog
 // 0x0080 (0x00C8 - 0x0048)
@@ -18152,6 +17970,34 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_PlayerGroup;
 
+// Class OakGame.SiloGrappleSlider
+// 0x0020 (0x2690 - 0x2670)
+class ASiloGrappleSlider final : public AGrapplePoint
+{
+public:
+	class ASiloBaseObject*                        AssociatedSiloBase;                                // 0x2670(0x0008)(Net, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SiloBalloonApexHeight;                             // 0x2678(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SiloBalloonApexDistance;                           // 0x267C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SiloBalloonTimeToApex;                             // 0x2680(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SiloBalloonEasingTime;                             // 0x2684(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2688[0x8];                                     // 0x2688(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("SiloGrappleSlider")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"SiloGrappleSlider")
+	}
+	static class ASiloGrappleSlider* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<ASiloGrappleSlider>();
+	}
+};
+DUMPER7_ASSERTS_ASiloGrappleSlider;
+
 // Class OakGame.OakUIDataCollector_PlayerStats
 // 0x0000 (0x0048 - 0x0048)
 class UOakUIDataCollector_PlayerStats final : public UOakUIBaseDataCollector_PlayerController
@@ -18197,31 +18043,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_Progression;
-
-// Class OakGame.SpawnerStyle_OakTown
-// 0x0088 (0x00B0 - 0x0028)
-class USpawnerStyle_OakTown final : public USpawnerStyle
-{
-public:
-	FGbxDefPtrProperty_                           TownDef;                                           // 0x0028(0x0018)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGbxParam                              MaxActors;                                         // 0x0040(0x0038)(NativeAccessSpecifierPublic)
-	struct FGbxParam                              MaxDecoActors;                                     // 0x0078(0x0038)(NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("SpawnerStyle_OakTown")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"SpawnerStyle_OakTown")
-	}
-	static class USpawnerStyle_OakTown* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<USpawnerStyle_OakTown>();
-	}
-};
-DUMPER7_ASSERTS_USpawnerStyle_OakTown;
 
 // Class OakGame.OakUIDataCollector_ProjectileVitals
 // 0x0020 (0x0068 - 0x0048)
@@ -18277,6 +18098,30 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_ResourceMeter;
 
+// Class OakGame.SplitscreenInputMappingSubsystem
+// 0x0018 (0x0048 - 0x0030)
+class USplitscreenInputMappingSubsystem final : public UGameInstanceSubsystem
+{
+public:
+	bool                                          bSplitscreenJoinSwapsInput;                        // 0x0030(0x0001)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_31[0x17];                                      // 0x0031(0x0017)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("SplitscreenInputMappingSubsystem")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"SplitscreenInputMappingSubsystem")
+	}
+	static class USplitscreenInputMappingSubsystem* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<USplitscreenInputMappingSubsystem>();
+	}
+};
+DUMPER7_ASSERTS_USplitscreenInputMappingSubsystem;
+
 // Class OakGame.OakUIDataCollector_RewardCenter
 // 0x0018 (0x0060 - 0x0048)
 class UOakUIDataCollector_RewardCenter final : public UOakUIBaseDataCollector_PlayerController
@@ -18323,33 +18168,6 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_StartMenu;
 
-// Class OakGame.StructuredInteractableUserState
-// 0x0030 (0x0140 - 0x0110)
-class UStructuredInteractableUserState final : public UActorComponent
-{
-public:
-	uint8                                         Pad_110[0x30];                                     // 0x0110(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void ClientSetCurrentInteractable(const TScriptInterface<class IStructuredInteractable>& NewInteractable, class FName InteractionName, bool bInstant);
-	void ServerClearCurrentInteractable(bool bImmediate);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("StructuredInteractableUserState")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"StructuredInteractableUserState")
-	}
-	static class UStructuredInteractableUserState* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UStructuredInteractableUserState>();
-	}
-};
-DUMPER7_ASSERTS_UStructuredInteractableUserState;
-
 // Class OakGame.OakUIDataCollector_StressTest
 // 0x0000 (0x0048 - 0x0048)
 class UOakUIDataCollector_StressTest final : public UOakUIBaseDataCollector_PlayerController
@@ -18392,6 +18210,33 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_SubtitleData;
+
+// Class OakGame.TerminalGadget
+// 0x0020 (0x0BD0 - 0x0BB0)
+class ATerminalGadget final : public AInventoryGadget
+{
+public:
+	class AModularTerminal*                       ModularTerminalSpawned;                            // 0x0BB0(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_BB8[0x18];                                     // 0x0BB8(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void RegisterTerminal(class AActor* Actor);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("TerminalGadget")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"TerminalGadget")
+	}
+	static class ATerminalGadget* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<ATerminalGadget>();
+	}
+};
+DUMPER7_ASSERTS_ATerminalGadget;
 
 // Class OakGame.OakUIDataCollector_TitleScreen
 // 0x0028 (0x0070 - 0x0048)
@@ -18438,26 +18283,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_Travel;
-
-// Class OakGame.TravelPointCapsuleComponent
-// 0x0000 (0x0620 - 0x0620)
-class UTravelPointCapsuleComponent final : public UCapsuleComponent
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("TravelPointCapsuleComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"TravelPointCapsuleComponent")
-	}
-	static class UTravelPointCapsuleComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UTravelPointCapsuleComponent>();
-	}
-};
-DUMPER7_ASSERTS_UTravelPointCapsuleComponent;
 
 // Class OakGame.OakUIDataCollector_TravelNotification
 // 0x0038 (0x0080 - 0x0048)
@@ -18510,6 +18335,40 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_TutorialMessage;
 
+// Class OakGame.TurretGadget
+// 0x0040 (0x0BF0 - 0x0BB0)
+class ATurretGadget final : public AInventoryGadget
+{
+public:
+	TArray<class AActor*>                         ActiveTurrets;                                     // 0x0BB0(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	struct FGbxAttributeFloat                     Duration;                                          // 0x0BC0(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	int32                                         SpawnCount;                                        // 0x0BCC(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         SpawnSpeedMultiplier;                              // 0x0BD0(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_BD4[0x10];                                     // 0x0BD4(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         NumActiveTurrets;                                  // 0x0BE4(0x0004)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_BE8[0x8];                                      // 0x0BE8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void ProjectileDestroyed(class AActor* Actor);
+	void RegisterTurret(class AActor* Actor);
+	void UnregisterTurret(class AActor* Actor);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("TurretGadget")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"TurretGadget")
+	}
+	static class ATurretGadget* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<ATurretGadget>();
+	}
+};
+DUMPER7_ASSERTS_ATurretGadget;
+
 // Class OakGame.OakUIDevSettings
 // 0x0008 (0x0040 - 0x0038)
 class UOakUIDevSettings final : public UDeveloperSettings
@@ -18534,6 +18393,29 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDevSettings;
+
+// Class OakGame.OakUIDataCollector_VaultCards
+// 0x0068 (0x00B0 - 0x0048)
+class UOakUIDataCollector_VaultCards final : public UOakUIBaseDataCollector_PlayerController
+{
+public:
+	uint8                                         Pad_48[0x68];                                      // 0x0048(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIDataCollector_VaultCards")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIDataCollector_VaultCards")
+	}
+	static class UOakUIDataCollector_VaultCards* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIDataCollector_VaultCards>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIDataCollector_VaultCards;
 
 // Class OakGame.OakUIDataCollector_VaultTracker
 // 0x0020 (0x0078 - 0x0058)
@@ -18564,31 +18446,6 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_VaultTracker;
 
-// Class OakGame.VehicleDriverComponent
-// 0x0270 (0x0380 - 0x0110)
-class UVehicleDriverComponent final : public UActorComponent
-{
-public:
-	struct FVehicleDriverState                    VehicleDriverState;                                // 0x0110(0x0158)(Net, Transient, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	struct FVehicleAttributesState                VehicleAttributesState;                            // 0x0268(0x0114)(Net, Transient, NativeAccessSpecifierPublic)
-	uint8                                         Pad_37C[0x4];                                      // 0x037C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("VehicleDriverComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"VehicleDriverComponent")
-	}
-	static class UVehicleDriverComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UVehicleDriverComponent>();
-	}
-};
-DUMPER7_ASSERTS_UVehicleDriverComponent;
-
 // Class OakGame.OakUIDataCollector_VehicleInfo
 // 0x0060 (0x00A8 - 0x0048)
 class UOakUIDataCollector_VehicleInfo final : public UOakUIBaseDataCollector_PlayerController
@@ -18617,6 +18474,48 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_VehicleInfo;
+
+// Class OakGame.OakVehicleAnimInstance
+// 0x0080 (0x06B0 - 0x0630)
+class UOakVehicleAnimInstance final : public UGbxGameAnimInstance
+{
+public:
+	bool                                          bIsDriving;                                        // 0x0630(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_631[0x7];                                      // 0x0631(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector2D                              DriveDirection;                                    // 0x0638(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SteeringAngle;                                     // 0x0648(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Leaning;                                           // 0x064C(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         VehicleSpeed;                                      // 0x0650(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_654[0x4];                                      // 0x0654(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                VehicleWorldVelocity;                              // 0x0658(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                VehicleLocalVelocity;                              // 0x0670(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsBoosting;                                       // 0x0688(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsBraking;                                        // 0x0689(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bVehicleAirborne;                                  // 0x068A(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bVehiclePowerslideJumping;                         // 0x068B(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bVehicleLanded;                                    // 0x068C(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_68D[0x3];                                      // 0x068D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         VehicleLandedAirTime;                              // 0x0690(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         VehicleLandedVelZ;                                 // 0x0694(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAnimSequence*                          CharAddAdjustmentPose;                             // 0x0698(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGameplayTag                           CharAddAdjustmentPoseTag;                          // 0x06A0(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AOakVehicle*                            OakVehicle;                                        // 0x06A8(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakVehicleAnimInstance")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakVehicleAnimInstance")
+	}
+	static class UOakVehicleAnimInstance* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakVehicleAnimInstance>();
+	}
+};
+DUMPER7_ASSERTS_UOakVehicleAnimInstance;
 
 // Class OakGame.OakUIDataCollector_VehicleVitals
 // 0x0100 (0x0148 - 0x0048)
@@ -18709,26 +18608,6 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_Weapon;
 
-// Class OakGame.OakVehicleBodyData
-// 0x0000 (0x0060 - 0x0060)
-class UOakVehicleBodyData final : public UGbxBodyData
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakVehicleBodyData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakVehicleBodyData")
-	}
-	static class UOakVehicleBodyData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakVehicleBodyData>();
-	}
-};
-DUMPER7_ASSERTS_UOakVehicleBodyData;
-
 // Class OakGame.OakUIDataCollector_WeaponStatus
 // 0x0060 (0x00A8 - 0x0048)
 class UOakUIDataCollector_WeaponStatus final : public UOakUIBaseDataCollector_PlayerController
@@ -18765,6 +18644,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIDataCollector_WeaponStatus;
+
+// Class OakGame.NexusConfigStoreOakVehicleInteraction
+// 0x0000 (0x0380 - 0x0380)
+class UNexusConfigStoreOakVehicleInteraction final : public UNexusConfigStoreBasicDefFlat
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStoreOakVehicleInteraction")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStoreOakVehicleInteraction")
+	}
+	static class UNexusConfigStoreOakVehicleInteraction* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStoreOakVehicleInteraction>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStoreOakVehicleInteraction;
 
 // Class OakGame.OakUIDataCollector_XP
 // 0x0028 (0x0070 - 0x0048)
@@ -18832,30 +18731,6 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIEnhancedInputComponent;
 
-// Class OakGame.OakVehicleWeaponAnimInstance
-// 0x0000 (0x0640 - 0x0640)
-class UOakVehicleWeaponAnimInstance final : public UInventoryBodyAnimInstance
-{
-public:
-	bool                                          bMirrored;                                         // 0x0638(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_639[0x7];                                      // 0x0639(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakVehicleWeaponAnimInstance")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakVehicleWeaponAnimInstance")
-	}
-	static class UOakVehicleWeaponAnimInstance* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakVehicleWeaponAnimInstance>();
-	}
-};
-DUMPER7_ASSERTS_UOakVehicleWeaponAnimInstance;
-
 // Class OakGame.OakUIEULAData
 // 0x0098 (0x00C8 - 0x0030)
 class UOakUIEULAData final : public UDataAsset
@@ -18879,6 +18754,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIEULAData;
+
+// Class OakGame.OakVehicleWheel
+// 0x0000 (0x02E0 - 0x02E0)
+class UOakVehicleWheel final : public UChaosVehicleWheel
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakVehicleWheel")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakVehicleWheel")
+	}
+	static class UOakVehicleWheel* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakVehicleWheel>();
+	}
+};
+DUMPER7_ASSERTS_UOakVehicleWheel;
 
 // Class OakGame.OakUIEulaRole
 // 0x0000 (0x0100 - 0x0100)
@@ -18947,26 +18842,6 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIFunctionLibrary;
 
-// Class OakGame.OakVoice
-// 0x0000 (0x0220 - 0x0220)
-class UOakVoice final : public UGbxVoice
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakVoice")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakVoice")
-	}
-	static class UOakVoice* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakVoice>();
-	}
-};
-DUMPER7_ASSERTS_UOakVoice;
-
 // Class OakGame.OakUIGameUserSettings
 // 0x0040 (0x02C8 - 0x0288)
 class UOakUIGameUserSettings final : public UGbxUIGameUserSettings
@@ -18999,6 +18874,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIGameUserSettings;
+
+// Class OakGame.OakVoiceManager
+// 0x0000 (0x0070 - 0x0070)
+class UOakVoiceManager final : public UGbxAudioVoiceManager
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakVoiceManager")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakVoiceManager")
+	}
+	static class UOakVoiceManager* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakVoiceManager>();
+	}
+};
+DUMPER7_ASSERTS_UOakVoiceManager;
 
 // Class OakGame.OakUIGlobalBlackboardRepo
 // 0x0010 (0x0040 - 0x0030)
@@ -19075,41 +18970,18 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIInputSettingsGamepadPreset;
 
-// Class OakGame.OakWeaponPoseStatics
-// 0x0000 (0x0028 - 0x0028)
-class UOakWeaponPoseStatics final : public UBlueprintFunctionLibrary
-{
-public:
-	static void BreakOakWeaponPose(const struct FOakWeaponPose& Pose, class UAnimSequence** GripPose, class UAnimSequence** ForegripPose, class UAnimSequence** AlternateGrip, class UAnimSequence** BodyPose, class UAnimSequence** SecondaryBodyPose, class UAnimSequence** AdsRefPose, class UAnimSequence** AdsPose, class UAnimSequence** SecondaryAdsPose, class UAnimSequence** AdsEnter, class UAnimSequence** AdsExit, class UAnimSequence** WeaponGripPose, class UAnimSequence** WeaponForegripPose, class FName* GripIkBone, class FName* ForegripIkBone);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakWeaponPoseStatics")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakWeaponPoseStatics")
-	}
-	static class UOakWeaponPoseStatics* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakWeaponPoseStatics>();
-	}
-};
-DUMPER7_ASSERTS_UOakWeaponPoseStatics;
-
 // Class OakGame.OakUILabelWidgetComponent
-// 0x0050 (0x07C0 - 0x0770)
+// 0x0040 (0x07E0 - 0x07A0)
 class UOakUILabelWidgetComponent final : public UWidgetComponent
 {
 public:
-	FGbxDefPtrProperty_                           LocalizedText;                                     // 0x0770(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         FontSize;                                          // 0x0788(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FLinearColor                           FontColor;                                         // 0x078C(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         LineHeight;                                        // 0x079C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         SkewAmount;                                        // 0x07A0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          WidgetVisible;                                     // 0x07A4(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_7A5[0x1B];                                     // 0x07A5(0x001B)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	FGbxDefPtrProperty_                           LocalizedText;                                     // 0x0798(0x0018)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         FontSize;                                          // 0x07B0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FLinearColor                           FontColor;                                         // 0x07B4(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         LineHeight;                                        // 0x07C4(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         SkewAmount;                                        // 0x07C8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          WidgetVisible;                                     // 0x07CC(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_7CD[0x13];                                     // 0x07CD(0x0013)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void SetText(const class FText& Text);
@@ -19131,171 +19003,223 @@ public:
 };
 DUMPER7_ASSERTS_UOakUILabelWidgetComponent;
 
-// Class OakGame.OakUILabelWidget
-// 0x0008 (0x02D8 - 0x02D0)
-class UOakUILabelWidget final : public UUserWidget
-{
-public:
-	class UTextBlock*                             TextBlock;                                         // 0x02D0(0x0008)(BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUILabelWidget")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUILabelWidget")
-	}
-	static class UOakUILabelWidget* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUILabelWidget>();
-	}
-};
-DUMPER7_ASSERTS_UOakUILabelWidget;
-
-// Class OakGame.NexusConfigStore_UIMovementType
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStore_UIMovementType final : public UNexusConfigStoreBasic
+// Class OakGame.NexusConfigStoreNewsImageRepoDef
+// 0x0000 (0x0380 - 0x0380)
+class UNexusConfigStoreNewsImageRepoDef final : public UNexusConfigStoreBasicDefFlat
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("NexusConfigStore_UIMovementType")
+		STATIC_CLASS_IMPL("NexusConfigStoreNewsImageRepoDef")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"NexusConfigStore_UIMovementType")
+		STATIC_NAME_IMPL(L"NexusConfigStoreNewsImageRepoDef")
 	}
-	static class UNexusConfigStore_UIMovementType* GetDefaultObj()
+	static class UNexusConfigStoreNewsImageRepoDef* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UNexusConfigStore_UIMovementType>();
+		return GetDefaultObjImpl<UNexusConfigStoreNewsImageRepoDef>();
 	}
 };
-DUMPER7_ASSERTS_UNexusConfigStore_UIMovementType;
+DUMPER7_ASSERTS_UNexusConfigStoreNewsImageRepoDef;
 
-// Class OakGame.NexusConfigStore_OakUINameWeightedListDef
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStore_OakUINameWeightedListDef final : public UNexusConfigStoreBasic
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NexusConfigStore_OakUINameWeightedListDef")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NexusConfigStore_OakUINameWeightedListDef")
-	}
-	static class UNexusConfigStore_OakUINameWeightedListDef* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNexusConfigStore_OakUINameWeightedListDef>();
-	}
-};
-DUMPER7_ASSERTS_UNexusConfigStore_OakUINameWeightedListDef;
-
-// Class OakGame.OakUICharacterPipsRole
+// Class OakGame.OakUIProfilePipsRole
 // 0x0000 (0x0100 - 0x0100)
-class UOakUICharacterPipsRole final : public UOakUIPipsRoleBase
+class UOakUIProfilePipsRole final : public UOakUIPipsRoleBase
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUICharacterPipsRole")
+		STATIC_CLASS_IMPL("OakUIProfilePipsRole")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUICharacterPipsRole")
+		STATIC_NAME_IMPL(L"OakUIProfilePipsRole")
 	}
-	static class UOakUICharacterPipsRole* GetDefaultObj()
+	static class UOakUIProfilePipsRole* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUICharacterPipsRole>();
+		return GetDefaultObjImpl<UOakUIProfilePipsRole>();
 	}
 };
-DUMPER7_ASSERTS_UOakUICharacterPipsRole;
+DUMPER7_ASSERTS_UOakUIProfilePipsRole;
 
-// Class OakGame.OakUIScreenDataRole
-// 0x0000 (0x0100 - 0x0100)
-class UOakUIScreenDataRole final : public UGbxProfileProgressRoleClientLocal
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIScreenDataRole")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIScreenDataRole")
-	}
-	static class UOakUIScreenDataRole* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUIScreenDataRole>();
-	}
-};
-DUMPER7_ASSERTS_UOakUIScreenDataRole;
-
-// Class OakGame.OakUIScript_CharacterSelect
+// Class OakGame.OakUIScript_Backpack
 // 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_CharacterSelect final : public UGbxUIScript
+class UOakUIScript_Backpack final : public UGbxUIScript
 {
 public:
-	void AllPlayersReady(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void CycleRapSheetCharacter(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void LineupCharacterClick(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void LineupCharacterHover(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void LineupIntro(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void MakeCharacterChoice(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TransitionBackToLineup(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TransitionToCharacterSelected(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void TransitionToRapSheet(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void BackpackSlotFocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void BackpackSlotUnfocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void BuyItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ClickAssaultRifle(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ClickClassMod(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ClickEnhancement(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ClickGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ClickGrenade(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ClickHeavyWeapon(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ClickPistol(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ClickRepKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ClickShield(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ClickShotgun(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ClickSMG(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ClickSniper(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void CloseBackpack(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ClosePlayerStats(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void CloseRewardCenter(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void CompareStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void CompareStop(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void DropItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void EquipAssaultRifle(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void EquipClassMod(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void EquipEnhancement(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void EquipGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void EquipGrenade(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void EquipHeavyWeapon(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void EquipItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void EquipPistol(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void EquipRepKit(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void EquipShield(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void EquipShotgun(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void EquipSMG(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void EquipSniper(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void Error(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void FirmwareTransferComplete(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void GearSlotFocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void GearSlotUnfocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void MarkItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void MarkItemBank(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void MarkItemFavorite(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void MarkItemTrash(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void OpenBackpack(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void OpenLegendaryReward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void OpenPlayerStats(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void OpenReward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void OpenRewardCenter(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void PutItemInTransferSlot(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void RemoveItemFromTransferSlot(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SellItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void StartEchoLogsMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
+	void StartEquipMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
+	void StartEquippedFirmwareTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
+	void StartFirmwareTransferTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
+	void StartLostLootTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
+	void StartRewardCenterTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
+	void StartVendingMachineTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
+	void TakeItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TrashItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void UnequipItem(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void WeaponSlotFocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void WeaponSlotUnfocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIScript_CharacterSelect")
+		STATIC_CLASS_IMPL("OakUIScript_Backpack")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIScript_CharacterSelect")
+		STATIC_NAME_IMPL(L"OakUIScript_Backpack")
 	}
-	static class UOakUIScript_CharacterSelect* GetDefaultObj()
+	static class UOakUIScript_Backpack* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIScript_CharacterSelect>();
+		return GetDefaultObjImpl<UOakUIScript_Backpack>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIScript_CharacterSelect;
+DUMPER7_ASSERTS_UOakUIScript_Backpack;
 
-// Class OakGame.OakUIScript_Global
+// Class OakGame.OakUIScript_Cursor
 // 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_Global : public UGbxUIScript
+class UOakUIScript_Cursor : public UGbxUIScript
 {
 public:
-	void HoldActionLoop(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void HoldActionStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void HoldActionStop(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void SliderDown(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void SliderError(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void SliderUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void StepperLeft(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void StepperRight(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void SwitchOff(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void SwitchOn(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void OnPulse(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIScript_Global")
+		STATIC_CLASS_IMPL("OakUIScript_Cursor")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIScript_Global")
+		STATIC_NAME_IMPL(L"OakUIScript_Cursor")
 	}
-	static class UOakUIScript_Global* GetDefaultObj()
+	static class UOakUIScript_Cursor* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIScript_Global>();
+		return GetDefaultObjImpl<UOakUIScript_Cursor>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIScript_Global;
+DUMPER7_ASSERTS_UOakUIScript_Cursor;
+
+// Class OakGame.OakUIScript_HudSkills
+// 0x0000 (0x0028 - 0x0028)
+class UOakUIScript_HudSkills final : public UGbxUIScript
+{
+public:
+	void FailToUseGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void FailToUsePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void FailToUseSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void GainChargeGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void GainChargePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void GainChargeSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ReadyToUseGadgetGrenade(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ReadyToUseGadgetHeavyWeapon(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ReadyToUseGadgetOther(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ReadyToUsePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void ReadyToUseSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void StartReadyCountdownGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void StartReadyCountdownPrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void StartReadyCountdownSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TickReadyCountdownOneGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TickReadyCountdownOnePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TickReadyCountdownOneSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TickReadyCountdownThreeGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TickReadyCountdownThreePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TickReadyCountdownThreeSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TickReadyCountdownTwoGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TickReadyCountdownTwoPrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TickReadyCountdownTwoSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void UseGadget(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void UsePrimarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void UseSecondarySkill(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIScript_HudSkills")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIScript_HudSkills")
+	}
+	static class UOakUIScript_HudSkills* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIScript_HudSkills>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIScript_HudSkills;
+
+// Class OakGame.OakUIScript_InGameMessage
+// 0x0000 (0x0028 - 0x0028)
+class UOakUIScript_InGameMessage final : public UGbxUIScript
+{
+public:
+	void DisplayGenericSlideOut(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIScript_InGameMessage")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIScript_InGameMessage")
+	}
+	static class UOakUIScript_InGameMessage* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIScript_InGameMessage>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIScript_InGameMessage;
 
 // Class OakGame.OakUIScript_Lobby
 // 0x0000 (0x0028 - 0x0028)
@@ -19354,59 +19278,55 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIScript_LootFeed;
 
-// Class OakGame.OakUIScript_MenuBase
+// Class OakGame.OakUIScript_MissionAccept
 // 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_MenuBase : public UGbxUIScript
+class UOakUIScript_MissionAccept : public UGbxUIScript
 {
 public:
-	void ElementClicked(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ElementFocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ElementUnfocused(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void EscapeInput(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void MenuClose(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void MenuOpen(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ScrollDown(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void ScrollUp(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void MissionAccepted(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void MissionAcceptedAndTracked(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void MissionTracked(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIScript_MenuBase")
+		STATIC_CLASS_IMPL("OakUIScript_MissionAccept")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIScript_MenuBase")
+		STATIC_NAME_IMPL(L"OakUIScript_MissionAccept")
 	}
-	static class UOakUIScript_MenuBase* GetDefaultObj()
+	static class UOakUIScript_MissionAccept* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIScript_MenuBase>();
+		return GetDefaultObjImpl<UOakUIScript_MissionAccept>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIScript_MenuBase;
+DUMPER7_ASSERTS_UOakUIScript_MissionAccept;
 
-// Class OakGame.OakUIScript_MenuTutorial
+// Class OakGame.OakUIScript_MissionLog
 // 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_MenuTutorial final : public UGbxUIScript
+class UOakUIScript_MissionLog final : public UGbxUIScript
 {
 public:
-	void OnMenuTutorialSequenceClosed(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void OnMenuTutorialSequenceOpen(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void StartMissionLogMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
+	void StartMissionReplayMenuTutorial(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef) const;
+	void TrackMission(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIScript_MenuTutorial")
+		STATIC_CLASS_IMPL("OakUIScript_MissionLog")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIScript_MenuTutorial")
+		STATIC_NAME_IMPL(L"OakUIScript_MissionLog")
 	}
-	static class UOakUIScript_MenuTutorial* GetDefaultObj()
+	static class UOakUIScript_MissionLog* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIScript_MenuTutorial>();
+		return GetDefaultObjImpl<UOakUIScript_MissionLog>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIScript_MenuTutorial;
+DUMPER7_ASSERTS_UOakUIScript_MissionLog;
 
 // Class OakGame.OakUIScript_Options
 // 0x0000 (0x0028 - 0x0028)
@@ -19457,29 +19377,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOakUIScript_OutOfBounds;
-
-// Class OakGame.OakUIScript_ResourceMeter
-// 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_ResourceMeter final : public UGbxUIScript
-{
-public:
-	void NotEnoughFuelError(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUIScript_ResourceMeter")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUIScript_ResourceMeter")
-	}
-	static class UOakUIScript_ResourceMeter* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUIScript_ResourceMeter>();
-	}
-};
-DUMPER7_ASSERTS_UOakUIScript_ResourceMeter;
 
 // Class OakGame.OakUIScript_Skills
 // 0x0000 (0x0028 - 0x0028)
@@ -19537,30 +19434,60 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIScript_Skills;
 
-// Class OakGame.OakUIScript_TitleScreen
+// Class OakGame.OakUIScript_Social
 // 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_TitleScreen : public UGbxUIScript
+class UOakUIScript_Social : public UGbxUIScript
 {
 public:
-	void PressedStart(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void SplashIntro(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void SplashTransition(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void FriendRequestReceived(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void PromotedToPartyLeader(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SessionInviteReceived(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIScript_TitleScreen")
+		STATIC_CLASS_IMPL("OakUIScript_Social")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIScript_TitleScreen")
+		STATIC_NAME_IMPL(L"OakUIScript_Social")
 	}
-	static class UOakUIScript_TitleScreen* GetDefaultObj()
+	static class UOakUIScript_Social* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIScript_TitleScreen>();
+		return GetDefaultObjImpl<UOakUIScript_Social>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIScript_TitleScreen;
+DUMPER7_ASSERTS_UOakUIScript_Social;
+
+// Class OakGame.OakUIScript_StatusMenuNavBar
+// 0x0000 (0x0028 - 0x0028)
+class UOakUIScript_StatusMenuNavBar : public UGbxUIScript
+{
+public:
+	void NavBackward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void NavEntered(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void NavExited(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void NavForward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SubNavBackward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SubNavEntered(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SubNavExited(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SubNavForward(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakUIScript_StatusMenuNavBar")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakUIScript_StatusMenuNavBar")
+	}
+	static class UOakUIScript_StatusMenuNavBar* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakUIScript_StatusMenuNavBar>();
+	}
+};
+DUMPER7_ASSERTS_UOakUIScript_StatusMenuNavBar;
 
 // Class OakGame.OakUIScript_TravelNotification
 // 0x0000 (0x0028 - 0x0028)
@@ -19613,30 +19540,31 @@ public:
 };
 DUMPER7_ASSERTS_UOakUIScript_Tutorial;
 
-// Class OakGame.OakUIScript_WeaponWheel
+// Class OakGame.OakUIScript_VaultTracker
 // 0x0000 (0x0028 - 0x0028)
-class UOakUIScript_WeaponWheel final : public UGbxUIScript
+class UOakUIScript_VaultTracker final : public UGbxUIScript
 {
 public:
-	void Closing(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void Highlighting(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
-	void Opening(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SearchPing(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void SearchSuccess(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void Switch(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
+	void TrackerActivate(class UObject* WorldContextObject, FGbxDefPtrProperty_ OwningWidgetDef, const struct FVector2D& position) const;
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIScript_WeaponWheel")
+		STATIC_CLASS_IMPL("OakUIScript_VaultTracker")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIScript_WeaponWheel")
+		STATIC_NAME_IMPL(L"OakUIScript_VaultTracker")
 	}
-	static class UOakUIScript_WeaponWheel* GetDefaultObj()
+	static class UOakUIScript_VaultTracker* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIScript_WeaponWheel>();
+		return GetDefaultObjImpl<UOakUIScript_VaultTracker>();
 	}
 };
-DUMPER7_ASSERTS_UOakUIScript_WeaponWheel;
+DUMPER7_ASSERTS_UOakUIScript_VaultTracker;
 
 // Class OakGame.OakUISettingKeyboardInput
 // 0x0008 (0x01E0 - 0x01D8)
@@ -19686,26 +19614,6 @@ public:
 };
 DUMPER7_ASSERTS_UOakUISettingsMappingData;
 
-// Class OakGame.OakUISettingValueDiscrete_GamepadPreset_Stick_OnFoot
-// 0x0000 (0x01C0 - 0x01C0)
-class UOakUISettingValueDiscrete_GamepadPreset_Stick_OnFoot final : public UOakUISettingValueDiscrete_GamepadPreset
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUISettingValueDiscrete_GamepadPreset_Stick_OnFoot")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUISettingValueDiscrete_GamepadPreset_Stick_OnFoot")
-	}
-	static class UOakUISettingValueDiscrete_GamepadPreset_Stick_OnFoot* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUISettingValueDiscrete_GamepadPreset_Stick_OnFoot>();
-	}
-};
-DUMPER7_ASSERTS_UOakUISettingValueDiscrete_GamepadPreset_Stick_OnFoot;
-
 // Class OakGame.OakUISettingValueDiscrete_GamepadPreset_Stick_Vehicle
 // 0x0000 (0x01C0 - 0x01C0)
 class UOakUISettingValueDiscrete_GamepadPreset_Stick_Vehicle final : public UOakUISettingValueDiscrete_GamepadPreset
@@ -19749,28 +19657,28 @@ public:
 };
 DUMPER7_ASSERTS_UOakUISettingValueDiscrete_PushToTalk;
 
-// Class OakGame.OakUISettingValueDiscrete_ShiftProfileVisibility
-// 0x0018 (0x01B0 - 0x0198)
-class UOakUISettingValueDiscrete_ShiftProfileVisibility final : public UGameSettingValueDiscreteDynamic_Bool
+// Class OakGame.OakUISettingValueDiscrete_Resolution
+// 0x0048 (0x0180 - 0x0138)
+class UOakUISettingValueDiscrete_Resolution final : public UGameSettingValueDiscrete
 {
 public:
-	uint8                                         Pad_198[0x18];                                     // 0x0198(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_138[0x48];                                     // 0x0138(0x0048)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUISettingValueDiscrete_ShiftProfileVisibility")
+		STATIC_CLASS_IMPL("OakUISettingValueDiscrete_Resolution")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUISettingValueDiscrete_ShiftProfileVisibility")
+		STATIC_NAME_IMPL(L"OakUISettingValueDiscrete_Resolution")
 	}
-	static class UOakUISettingValueDiscrete_ShiftProfileVisibility* GetDefaultObj()
+	static class UOakUISettingValueDiscrete_Resolution* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUISettingValueDiscrete_ShiftProfileVisibility>();
+		return GetDefaultObjImpl<UOakUISettingValueDiscrete_Resolution>();
 	}
 };
-DUMPER7_ASSERTS_UOakUISettingValueDiscrete_ShiftProfileVisibility;
+DUMPER7_ASSERTS_UOakUISettingValueDiscrete_Resolution;
 
 // Class OakGame.OakUISettingValueDiscrete_VoiceChat
 // 0x0018 (0x01B0 - 0x0198)
@@ -19795,29 +19703,9 @@ public:
 };
 DUMPER7_ASSERTS_UOakUISettingValueDiscrete_VoiceChat;
 
-// Class OakGame.OakUISettingValueDiscrete_VoiceDeviceOutput
-// 0x0000 (0x0170 - 0x0170)
-class UOakUISettingValueDiscrete_VoiceDeviceOutput final : public UOakUISettingValueDiscrete_VoiceDevice
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakUISettingValueDiscrete_VoiceDeviceOutput")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakUISettingValueDiscrete_VoiceDeviceOutput")
-	}
-	static class UOakUISettingValueDiscrete_VoiceDeviceOutput* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakUISettingValueDiscrete_VoiceDeviceOutput>();
-	}
-};
-DUMPER7_ASSERTS_UOakUISettingValueDiscrete_VoiceDeviceOutput;
-
-// Class OakGame.NexusConfigStoreUISkillTree
+// Class OakGame.NexusConfigStoreUISpecializations
 // 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStoreUISkillTree final : public UNexusConfigStoreBasic
+class UNexusConfigStoreUISpecializations final : public UNexusConfigStoreBasic
 {
 public:
 	static void GetAllProgressGraphGroupDefs(TArray<FGbxDefPtrProperty_>* graphs);
@@ -19826,38 +19714,42 @@ public:
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("NexusConfigStoreUISkillTree")
+		STATIC_CLASS_IMPL("NexusConfigStoreUISpecializations")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreUISkillTree")
+		STATIC_NAME_IMPL(L"NexusConfigStoreUISpecializations")
 	}
-	static class UNexusConfigStoreUISkillTree* GetDefaultObj()
+	static class UNexusConfigStoreUISpecializations* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UNexusConfigStoreUISkillTree>();
+		return GetDefaultObjImpl<UNexusConfigStoreUISpecializations>();
 	}
 };
-DUMPER7_ASSERTS_UNexusConfigStoreUISkillTree;
+DUMPER7_ASSERTS_UNexusConfigStoreUISpecializations;
 
-// Class OakGame.OakUISystem
-// 0x0000 (0x0118 - 0x0118)
-class UOakUISystem final : public UGbxUISystem
+// Class OakGame.OakUIStateManager
+// 0x00B0 (0x01F0 - 0x0140)
+class UOakUIStateManager final : public UGbxUIStateManager
 {
+public:
+	uint8                                         Pad_140[0x60];                                     // 0x0140(0x0060)(Fixing Size After Last Property [ Dumper-7 ])
+	TMap<struct FGameplayTag, class UGbxGameplayStateDef*> NexusUIStateDefs;                         // 0x01A0(0x0050)(Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUISystem")
+		STATIC_CLASS_IMPL("OakUIStateManager")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUISystem")
+		STATIC_NAME_IMPL(L"OakUIStateManager")
 	}
-	static class UOakUISystem* GetDefaultObj()
+	static class UOakUIStateManager* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUISystem>();
+		return GetDefaultObjImpl<UOakUIStateManager>();
 	}
 };
-DUMPER7_ASSERTS_UOakUISystem;
+DUMPER7_ASSERTS_UOakUIStateManager;
 
 // Class OakGame.OakUITutorialRole
 // 0x0000 (0x0100 - 0x0100)
@@ -19879,28 +19771,34 @@ public:
 };
 DUMPER7_ASSERTS_UOakUITutorialRole;
 
-// Class OakGame.OakUIViewManager
-// 0x00A0 (0x0228 - 0x0188)
-class UOakUIViewManager final : public UGbxUIViewManager
+// Class OakGame.OakUIVitalsInterface
+// 0x0000 (0x0000 - 0x0000)
+class IOakUIVitalsInterface final
 {
-public:
-	uint8                                         Pad_188[0xA0];                                     // 0x0188(0x00A0)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakUIViewManager")
+		STATIC_CLASS_IMPL("OakUIVitalsInterface")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakUIViewManager")
+		STATIC_NAME_IMPL(L"OakUIVitalsInterface")
 	}
-	static class UOakUIViewManager* GetDefaultObj()
+	static class IOakUIVitalsInterface* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakUIViewManager>();
+		return GetDefaultObjImpl<IOakUIVitalsInterface>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
 	}
 };
-DUMPER7_ASSERTS_UOakUIViewManager;
+DUMPER7_ASSERTS_IOakUIVitalsInterface;
 
 // Class OakGame.OakVehicleBlockingVolume
 // 0x0130 (0x04F8 - 0x03C8)
@@ -19930,48 +19828,77 @@ public:
 };
 DUMPER7_ASSERTS_AOakVehicleBlockingVolume;
 
-// Class OakGame.NexusConfigStoreOakVehicleInteraction
-// 0x0000 (0x0380 - 0x0380)
-class UNexusConfigStoreOakVehicleInteraction final : public UNexusConfigStoreBasicDefFlat
+// Class OakGame.OakVehicleBlueprintLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UOakVehicleBlueprintLibrary final : public UBlueprintFunctionLibrary
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NexusConfigStoreOakVehicleInteraction")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreOakVehicleInteraction")
-	}
-	static class UNexusConfigStoreOakVehicleInteraction* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNexusConfigStoreOakVehicleInteraction>();
-	}
-};
-DUMPER7_ASSERTS_UNexusConfigStoreOakVehicleInteraction;
-
-// Class OakGame.OakVehicleStandIn
-// 0x0030 (0x0BC0 - 0x0B90)
-class AOakVehicleStandIn final : public AGbxStandIn
-{
-public:
-	uint8                                         Pad_B90[0x30];                                     // 0x0B90(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	static void AssignHoverDriveEffectParameters(class UFXSystemComponent* FXComponent, class AOakVehicle* Vehicle);
+	static bool CanBoost(class AOakVehicle* Vehicle);
+	static class AOakVehicle* GetAssociatedVehicle(class AActor* Context, EGetOakVehicleResult* Exec);
+	static class UFXSystemAsset* GetHoverDriveEffectByName(class AOakVehicle* Vehicle, class FName EffectName);
+	static bool IsBoosting(class AOakVehicle* Vehicle);
+	static void ToggleBoost(class AOakVehicle* Vehicle, bool bBoost);
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakVehicleStandIn")
+		STATIC_CLASS_IMPL("OakVehicleBlueprintLibrary")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakVehicleStandIn")
+		STATIC_NAME_IMPL(L"OakVehicleBlueprintLibrary")
 	}
-	static class AOakVehicleStandIn* GetDefaultObj()
+	static class UOakVehicleBlueprintLibrary* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakVehicleStandIn>();
+		return GetDefaultObjImpl<UOakVehicleBlueprintLibrary>();
 	}
 };
-DUMPER7_ASSERTS_AOakVehicleStandIn;
+DUMPER7_ASSERTS_UOakVehicleBlueprintLibrary;
+
+// Class OakGame.OakVehicleWeapon
+// 0x0000 (0x1030 - 0x1030)
+class AOakVehicleWeapon final : public AOakWeapon
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakVehicleWeapon")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakVehicleWeapon")
+	}
+	static class AOakVehicleWeapon* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AOakVehicleWeapon>();
+	}
+};
+DUMPER7_ASSERTS_AOakVehicleWeapon;
+
+// Class OakGame.OakVehicleWeaponAnimInstance
+// 0x0000 (0x0640 - 0x0640)
+class UOakVehicleWeaponAnimInstance final : public UInventoryBodyAnimInstance
+{
+public:
+	bool                                          bMirrored;                                         // 0x0638(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_639[0x7];                                      // 0x0639(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakVehicleWeaponAnimInstance")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakVehicleWeaponAnimInstance")
+	}
+	static class UOakVehicleWeaponAnimInstance* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakVehicleWeaponAnimInstance>();
+	}
+};
+DUMPER7_ASSERTS_UOakVehicleWeaponAnimInstance;
 
 // Class OakGame.OakVendingMachine
 // 0x05B0 (0x2B60 - 0x25B0)
@@ -20056,51 +19983,28 @@ public:
 };
 DUMPER7_ASSERTS_UOakVendorBlueprintLibrary;
 
-// Class OakGame.OakVoiceManager
-// 0x0000 (0x0070 - 0x0070)
-class UOakVoiceManager final : public UGbxAudioVoiceManager
+// Class OakGame.OakWeaponPoseData
+// 0x0010 (0x0040 - 0x0030)
+class UOakWeaponPoseData final : public UDataAsset
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OakVoiceManager")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OakVoiceManager")
-	}
-	static class UOakVoiceManager* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOakVoiceManager>();
-	}
-};
-DUMPER7_ASSERTS_UOakVoiceManager;
-
-// Class OakGame.WaypointSystemDelegateProxy
-// 0x0008 (0x0030 - 0x0028)
-class UWaypointSystemDelegateProxy final : public UObject
-{
-public:
-	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void OnDataLayerStateChanged(const class UDataLayerInstance* InDataLayer, EDataLayerRuntimeState InState);
+	TArray<struct FOakWeaponPoseOption>           options;                                           // 0x0030(0x0010)(Edit, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("WaypointSystemDelegateProxy")
+		STATIC_CLASS_IMPL("OakWeaponPoseData")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"WaypointSystemDelegateProxy")
+		STATIC_NAME_IMPL(L"OakWeaponPoseData")
 	}
-	static class UWaypointSystemDelegateProxy* GetDefaultObj()
+	static class UOakWeaponPoseData* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UWaypointSystemDelegateProxy>();
+		return GetDefaultObjImpl<UOakWeaponPoseData>();
 	}
 };
-DUMPER7_ASSERTS_UWaypointSystemDelegateProxy;
+DUMPER7_ASSERTS_UOakWeaponPoseData;
 
 // Class OakGame.OakWeaponUserInterface
 // 0x0000 (0x0000 - 0x0000)
@@ -20131,52 +20035,88 @@ public:
 };
 DUMPER7_ASSERTS_IOakWeaponUserInterface;
 
-// Class OakGame.OakWorldPainterLayer_AmbientAudio
-// 0x0028 (0x0088 - 0x0060)
-class UOakWorldPainterLayer_AmbientAudio final : public UGbxWorldPainterLayer
+// Class OakGame.OakWheeledVehicleMovementComponent
+// 0x10D0 (0x1DC0 - 0x0CF0)
+class UOakWheeledVehicleMovementComponent final : public UChaosWheeledVehicleMovementComponent
 {
 public:
-	TArray<struct FOakAmbientAudioZone>           AmbientAudioZones;                                 // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_70[0x18];                                      // 0x0070(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bHoverSimEnabled;                                  // 0x0CF0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_CF1[0x7];                                      // 0x0CF1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVehicleHoverConfig                    HoverSetup;                                        // 0x0CF8(0x0C80)(Edit, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1978[0x18];                                    // 0x1978(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	class AOakVehicle*                            OakVehicleOwner;                                   // 0x1990(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         DesiredYaw;                                        // 0x1998(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         DesiredPitch;                                      // 0x199C(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bHasReceivedDesiredRotation;                       // 0x19A0(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bBoostInput;                                       // 0x19A1(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bWantsToBoost;                                     // 0x19A2(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	EPowerslideInput                              PowerslideInput;                                   // 0x19A3(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bHornInput;                                        // 0x19A4(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_19A5[0x3];                                     // 0x19A5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                InitialImpulse;                                    // 0x19A8(0x0018)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	EInitialImpulseState                          InitialImpulseState_GT;                            // 0x19C0(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_19C1[0x7];                                     // 0x19C1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TMap<class AActor*, float>                    DamageCooldownRemaining;                           // 0x19C8(0x0050)(Transient, NativeAccessSpecifierPrivate)
+	TSet<class AOakVehicleBlockingVolume*>        SpeedLimitingVolumes;                              // 0x1A18(0x0050)(Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
+	float                                         CurrentSpeedLimit;                                 // 0x1A68(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	EBoostFailureReason                           LastBoostFailureReason;                            // 0x1A6C(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_1A6D[0x353];                                   // 0x1A6D(0x0353)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void FreeBoostElapsed();
+	void OnBoostDepleted();
+	void OnBoostFilled();
+	void OnHit(class AActor* SelfActor, class AActor* OtherActor, const struct FVector& NormalImpulse, const struct FHitResult& Hit);
+	void OnPrimitiveBeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult);
+	void OnPrimitiveEndOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+	void PowerslideCooldownElapsed();
+
+	float GetAirTime() const;
+	struct FVector GetGroundNormal() const;
+	float GetGroundSpeed() const;
+	struct FHitResult GetGroundTraceResult() const;
+	struct FVector GetHoverVector() const;
+	struct FVector GetWorldVelocity() const;
+	bool IsBoosting() const;
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakWorldPainterLayer_AmbientAudio")
+		STATIC_CLASS_IMPL("OakWheeledVehicleMovementComponent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakWorldPainterLayer_AmbientAudio")
+		STATIC_NAME_IMPL(L"OakWheeledVehicleMovementComponent")
 	}
-	static class UOakWorldPainterLayer_AmbientAudio* GetDefaultObj()
+	static class UOakWheeledVehicleMovementComponent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakWorldPainterLayer_AmbientAudio>();
+		return GetDefaultObjImpl<UOakWheeledVehicleMovementComponent>();
 	}
 };
-DUMPER7_ASSERTS_UOakWorldPainterLayer_AmbientAudio;
+DUMPER7_ASSERTS_UOakWheeledVehicleMovementComponent;
 
-// Class OakGame.OakWorldPainterLayer_Critter
+// Class OakGame.OakWorldPainterLayer_Difficulty
 // 0x0010 (0x0070 - 0x0060)
-class UOakWorldPainterLayer_Critter final : public UGbxWorldPainterLayer
+class UOakWorldPainterLayer_Difficulty final : public UGbxWorldPainterLayer
 {
 public:
-	TArray<struct FOakCritterZone>                CritterZones;                                      // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<struct FOakDifficultyLevel>            DifficultyLevels;                                  // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakWorldPainterLayer_Critter")
+		STATIC_CLASS_IMPL("OakWorldPainterLayer_Difficulty")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakWorldPainterLayer_Critter")
+		STATIC_NAME_IMPL(L"OakWorldPainterLayer_Difficulty")
 	}
-	static class UOakWorldPainterLayer_Critter* GetDefaultObj()
+	static class UOakWorldPainterLayer_Difficulty* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakWorldPainterLayer_Critter>();
+		return GetDefaultObjImpl<UOakWorldPainterLayer_Difficulty>();
 	}
 };
-DUMPER7_ASSERTS_UOakWorldPainterLayer_Critter;
+DUMPER7_ASSERTS_UOakWorldPainterLayer_Difficulty;
 
 // Class OakGame.OakWorldPainterLayer_LateReflectionBlendZone
 // 0x0010 (0x0070 - 0x0060)
@@ -20201,73 +20141,95 @@ public:
 };
 DUMPER7_ASSERTS_UOakWorldPainterLayer_LateReflectionBlendZone;
 
-// Class OakGame.OakWorldPainterLayer_Spawn
+// Class OakGame.OakWorldPainterLayer_MusicZone
+// 0x0028 (0x0088 - 0x0060)
+class UOakWorldPainterLayer_MusicZone final : public UGbxWorldPainterLayer
+{
+public:
+	TArray<struct FOakMusicZone>                  MusicZones;                                        // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_70[0x18];                                      // 0x0070(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OakWorldPainterLayer_MusicZone")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OakWorldPainterLayer_MusicZone")
+	}
+	static class UOakWorldPainterLayer_MusicZone* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOakWorldPainterLayer_MusicZone>();
+	}
+};
+DUMPER7_ASSERTS_UOakWorldPainterLayer_MusicZone;
+
+// Class OakGame.OakWorldPainterLayer_WwiseSwitch
 // 0x0010 (0x0070 - 0x0060)
-class UOakWorldPainterLayer_Spawn final : public UGbxWorldPainterLayer
+class UOakWorldPainterLayer_WwiseSwitch final : public UGbxWorldPainterLayer
 {
 public:
-	TArray<struct FOakSpawnZone>                  SpawnZones;                                        // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<struct FOakWwiseSwitchZone>            SwitchZones;                                       // 0x0060(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakWorldPainterLayer_Spawn")
+		STATIC_CLASS_IMPL("OakWorldPainterLayer_WwiseSwitch")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakWorldPainterLayer_Spawn")
+		STATIC_NAME_IMPL(L"OakWorldPainterLayer_WwiseSwitch")
 	}
-	static class UOakWorldPainterLayer_Spawn* GetDefaultObj()
+	static class UOakWorldPainterLayer_WwiseSwitch* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UOakWorldPainterLayer_Spawn>();
+		return GetDefaultObjImpl<UOakWorldPainterLayer_WwiseSwitch>();
 	}
 };
-DUMPER7_ASSERTS_UOakWorldPainterLayer_Spawn;
+DUMPER7_ASSERTS_UOakWorldPainterLayer_WwiseSwitch;
 
-// Class OakGame.OakWorldPainterActor_Spawn
-// 0x0000 (0x03D8 - 0x03D8)
-class AOakWorldPainterActor_Spawn final : public AGbxWorldPainterActor
+// Class OakGame.PhysicsObjectBodyData
+// 0x0000 (0x0060 - 0x0060)
+class UPhysicsObjectBodyData final : public UOakInteractiveObjectBodyData
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("OakWorldPainterActor_Spawn")
+		STATIC_CLASS_IMPL("PhysicsObjectBodyData")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"OakWorldPainterActor_Spawn")
+		STATIC_NAME_IMPL(L"PhysicsObjectBodyData")
 	}
-	static class AOakWorldPainterActor_Spawn* GetDefaultObj()
+	static class UPhysicsObjectBodyData* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<AOakWorldPainterActor_Spawn>();
+		return GetDefaultObjImpl<UPhysicsObjectBodyData>();
 	}
 };
-DUMPER7_ASSERTS_AOakWorldPainterActor_Spawn;
+DUMPER7_ASSERTS_UPhysicsObjectBodyData;
 
-// Class OakGame.PhasedObjectStatics
-// 0x0000 (0x0028 - 0x0028)
-class UPhasedObjectStatics final : public UBlueprintFunctionLibrary
+// Class OakGame.PlaceableActorInventoryChildComponent
+// 0x0000 (0x02B0 - 0x02B0)
+class UPlaceableActorInventoryChildComponent final : public UChildActorBaseComponent
 {
 public:
-	static bool IsPhased(class AActor* target);
-	static void TryEnterPhasedState(class AActor* target);
-	static void TryExitPhasedState(class AActor* target);
+	class AInventoryBase*                         ChildActor;                                        // 0x02A8(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PhasedObjectStatics")
+		STATIC_CLASS_IMPL("PlaceableActorInventoryChildComponent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PhasedObjectStatics")
+		STATIC_NAME_IMPL(L"PlaceableActorInventoryChildComponent")
 	}
-	static class UPhasedObjectStatics* GetDefaultObj()
+	static class UPlaceableActorInventoryChildComponent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPhasedObjectStatics>();
+		return GetDefaultObjImpl<UPlaceableActorInventoryChildComponent>();
 	}
 };
-DUMPER7_ASSERTS_UPhasedObjectStatics;
+DUMPER7_ASSERTS_UPlaceableActorInventoryChildComponent;
 
 // Class OakGame.PoAActor
 // 0x0C50 (0x0FE0 - 0x0390)
@@ -20303,196 +20265,259 @@ public:
 };
 DUMPER7_ASSERTS_APoAActor;
 
-// Class OakGame.RepairKit
-// 0x0270 (0x0B20 - 0x08B0)
-class ARepairKit final : public Ainventory
-{
-public:
-	uint8                                         Pad_8B0[0x28];                                     // 0x08B0(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(int32 ActiveCharges)> OnStartRepair;                               // 0x08D8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_8E8[0x18];                                     // 0x08E8(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(int32 ActiveCharges, bool bInterrupted)> OnStopRepair;             // 0x0900(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_910[0x18];                                     // 0x0910(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxAttributeFloat                     Health;                                            // 0x0928(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     Duration;                                          // 0x0934(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     cooldown;                                          // 0x0940(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     HealthInstantPct;                                  // 0x094C(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeFloat                     HealthOverTimePct;                                 // 0x0958(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeInteger                   MaxCharges;                                        // 0x0964(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeInteger                   SimultaneousRecharging;                            // 0x0970(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	int32                                         ActiveCharges;                                     // 0x097C(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	TMulticastInlineDelegate<void(class FName AugmentName, class UObject* AdditionalContext)> OnPlayReplicatedEffect; // 0x0980(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
-	bool                                          bIsUsing;                                          // 0x0990(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_991[0x17F];                                    // 0x0991(0x017F)(Fixing Size After Last Property [ Dumper-7 ])
-	class AOakCharacter*                          OwningCharacter;                                   // 0x0B10(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_B18[0x8];                                      // 0x0B18(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void BroadcastEffect(class FName EffectID, class UObject* AdditionalContext);
-	void PlayReplicatedEffect(class FName EffectID, class UObject* AdditionalContext);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("RepairKit")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"RepairKit")
-	}
-	static class ARepairKit* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<ARepairKit>();
-	}
-};
-DUMPER7_ASSERTS_ARepairKit;
-
-// Class OakGame.ResurrectTravelStationObject
-// 0x0220 (0x28B0 - 0x2690)
-class AResurrectTravelStationObject final : public ATravelStationObject
-{
-public:
-	uint8                                         Pad_2690[0x220];                                   // 0x2690(0x0220)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("ResurrectTravelStationObject")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"ResurrectTravelStationObject")
-	}
-	static class AResurrectTravelStationObject* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AResurrectTravelStationObject>();
-	}
-};
-DUMPER7_ASSERTS_AResurrectTravelStationObject;
-
-// Class OakGame.ShootingGrenade
-// 0x00D0 (0x1DA0 - 0x1CD0)
-class AShootingGrenade final : public AModularGrenade
-{
-public:
-	uint8                                         Pad_1CD0[0x10];                                    // 0x1CD0(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         firerate;                                          // 0x1CE0(0x0004)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	int32                                         MaxLoadedAmmo;                                     // 0x1CE4(0x0004)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	int32                                         ShotCost;                                          // 0x1CE8(0x0004)(Net, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_1CEC[0xB4];                                    // 0x1CEC(0x00B4)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("ShootingGrenade")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"ShootingGrenade")
-	}
-	static class AShootingGrenade* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AShootingGrenade>();
-	}
-};
-DUMPER7_ASSERTS_AShootingGrenade;
-
-// Class OakGame.SoloTravelStationObject
-// 0x0220 (0x28B0 - 0x2690)
-class ASoloTravelStationObject final : public ATravelStationObject
-{
-public:
-	uint8                                         Pad_2690[0x220];                                   // 0x2690(0x0220)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void TeleportPlayerToDestination(class AOakPlayerController* OakPC);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("SoloTravelStationObject")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"SoloTravelStationObject")
-	}
-	static class ASoloTravelStationObject* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<ASoloTravelStationObject>();
-	}
-};
-DUMPER7_ASSERTS_ASoloTravelStationObject;
-
-// Class OakGame.StatFactIncrementTriggerVolume
-// 0x0018 (0x0628 - 0x0610)
-class AStatFactIncrementTriggerVolume final : public AOakTriggerVolume
-{
-public:
-	bool                                          bOnlyTriggerOncePerPlayer;                         // 0x0610(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_611[0x3];                                      // 0x0611(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         IncrementAmount;                                   // 0x0614(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<struct FFactAddress>                   StatsToIncrement;                                  // 0x0618(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("StatFactIncrementTriggerVolume")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"StatFactIncrementTriggerVolume")
-	}
-	static class AStatFactIncrementTriggerVolume* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AStatFactIncrementTriggerVolume>();
-	}
-};
-DUMPER7_ASSERTS_AStatFactIncrementTriggerVolume;
-
-// Class OakGame.TerminalObjectBodyData
-// 0x0000 (0x0060 - 0x0060)
-class UTerminalObjectBodyData final : public UOakInteractiveObjectBodyData
+// Class OakGame.NexusConfigStorePoAActor
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStorePoAActor final : public UNexusConfigStoreBasic
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("TerminalObjectBodyData")
+		STATIC_CLASS_IMPL("NexusConfigStorePoAActor")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"TerminalObjectBodyData")
+		STATIC_NAME_IMPL(L"NexusConfigStorePoAActor")
 	}
-	static class UTerminalObjectBodyData* GetDefaultObj()
+	static class UNexusConfigStorePoAActor* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UTerminalObjectBodyData>();
+		return GetDefaultObjImpl<UNexusConfigStorePoAActor>();
 	}
 };
-DUMPER7_ASSERTS_UTerminalObjectBodyData;
+DUMPER7_ASSERTS_UNexusConfigStorePoAActor;
 
-// Class OakGame.UIVitalsListener
-// 0x0140 (0x0168 - 0x0028)
-class UUIVitalsListener final : public UObject
+// Class OakGame.ResurrectTravelStationObjectBodyData
+// 0x0000 (0x0078 - 0x0078)
+class UResurrectTravelStationObjectBodyData final : public UTravelStationObjectBodyData
 {
 public:
-	uint8                                         Pad_28[0xF0];                                      // 0x0028(0x00F0)(Fixing Size After Last Property [ Dumper-7 ])
-	class AActor*                                 TargetActor;                                       // 0x0118(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_120[0x48];                                     // 0x0120(0x0048)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("ResurrectTravelStationObjectBodyData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"ResurrectTravelStationObjectBodyData")
+	}
+	static class UResurrectTravelStationObjectBodyData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UResurrectTravelStationObjectBodyData>();
+	}
+};
+DUMPER7_ASSERTS_UResurrectTravelStationObjectBodyData;
+
+// Class OakGame.SiloBaseObject
+// 0x02D0 (0x2880 - 0x25B0)
+class ASiloBaseObject final : public AOakInteractiveObject
+{
+public:
+	uint8                                         Pad_25B0[0x8];                                     // 0x25B0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bOverrideBalloonHeight;                            // 0x25B8(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_25B9[0x3];                                     // 0x25B9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         OverrideBalloonHeight;                             // 0x25BC(0x0004)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bOverrideBalloonFwdDist;                           // 0x25C0(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_25C1[0x3];                                     // 0x25C1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         OverrideBalloonFwdDist;                            // 0x25C4(0x0004)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bOverrideSliderHeight;                             // 0x25C8(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_25C9[0x3];                                     // 0x25C9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         OverrideSliderHeight;                              // 0x25CC(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bDoNotMoveSlider;                                  // 0x25D0(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_25D1[0x7];                                     // 0x25D1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class USceneComponent*                        BaseComponent;                                     // 0x25D8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class USceneComponent*                        BalloonComponent;                                  // 0x25E0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class USceneComponent*                        HolderComponent;                                   // 0x25E8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class USceneComponent*                        LineComponent;                                     // 0x25F0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class USceneComponent*                        LineStartComponent;                                // 0x25F8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class USceneComponent*                        LineEndComponent;                                  // 0x2600(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	TArray<class ASiloGrappleSlider*>             Sliders;                                           // 0x2608(0x0010)(BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, Transient, RepNotify, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	struct FVector                                LineStart;                                         // 0x2618(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FVector                                LineEnd;                                           // 0x2630(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FGbxMovingPlatformConfig               PlatformConfig;                                    // 0x2648(0x0120)(BlueprintVisible, BlueprintReadOnly, Transient, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_2768[0x8];                                     // 0x2768(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FTransform                             SliderStart;                                       // 0x2770(0x0060)(BlueprintVisible, BlueprintReadOnly, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FTransform                             SliderEnd;                                         // 0x27D0(0x0060)(BlueprintVisible, BlueprintReadOnly, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         ApexOffset;                                        // 0x2830(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         SliderDuration;                                    // 0x2834(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         TimeToApex;                                        // 0x2838(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         EasingTime;                                        // 0x283C(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         ReturnDelay;                                       // 0x2840(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_2844[0x4];                                     // 0x2844(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(class ASiloGrappleSlider* InSlider, int32 SliderIndex, float InSliderDuration, float InReturnDelay, const struct FVector& SliderStart, const struct FVector& SliderEnd)> OnInitializedSlider; // 0x2848(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_2858[0x28];                                    // 0x2858(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void OnBalloonReady();
+	void OnPlayerProxySpawned();
+	void OnRep_Sliders();
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("UIVitalsListener")
+		STATIC_CLASS_IMPL("SiloBaseObject")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"UIVitalsListener")
+		STATIC_NAME_IMPL(L"SiloBaseObject")
 	}
-	static class UUIVitalsListener* GetDefaultObj()
+	static class ASiloBaseObject* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UUIVitalsListener>();
+		return GetDefaultObjImpl<ASiloBaseObject>();
 	}
 };
-DUMPER7_ASSERTS_UUIVitalsListener;
+DUMPER7_ASSERTS_ASiloBaseObject;
+
+// Class OakGame.SoloTravelStationObjectBodyData
+// 0x0000 (0x0078 - 0x0078)
+class USoloTravelStationObjectBodyData final : public UTravelStationObjectBodyData
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("SoloTravelStationObjectBodyData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"SoloTravelStationObjectBodyData")
+	}
+	static class USoloTravelStationObjectBodyData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<USoloTravelStationObjectBodyData>();
+	}
+};
+DUMPER7_ASSERTS_USoloTravelStationObjectBodyData;
+
+// Class OakGame.StructuredInteractableFunctionLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UStructuredInteractableFunctionLibrary final : public UBlueprintFunctionLibrary
+{
+public:
+	static void StartStructuredInteraction(class AActor* Interactable, class FName InteractionName, class APlayerController* User);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("StructuredInteractableFunctionLibrary")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"StructuredInteractableFunctionLibrary")
+	}
+	static class UStructuredInteractableFunctionLibrary* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UStructuredInteractableFunctionLibrary>();
+	}
+};
+DUMPER7_ASSERTS_UStructuredInteractableFunctionLibrary;
+
+// Class OakGame.NexusConfigStore_TraitMissionDef
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStore_TraitMissionDef final : public UNexusConfigStoreBasic
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStore_TraitMissionDef")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStore_TraitMissionDef")
+	}
+	static class UNexusConfigStore_TraitMissionDef* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStore_TraitMissionDef>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStore_TraitMissionDef;
+
+// Class OakGame.NexusConfigStore_VaultCardDef
+// 0x0000 (0x0390 - 0x0390)
+class UNexusConfigStore_VaultCardDef final : public UNexusConfigStoreBasic
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NexusConfigStore_VaultCardDef")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NexusConfigStore_VaultCardDef")
+	}
+	static class UNexusConfigStore_VaultCardDef* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNexusConfigStore_VaultCardDef>();
+	}
+};
+DUMPER7_ASSERTS_UNexusConfigStore_VaultCardDef;
+
+// Class OakGame.VaultCards_ProgressRole
+// 0x0000 (0x0100 - 0x0100)
+class UVaultCards_ProgressRole final : public UGbxProfileProgressRoleAllPlayers
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("VaultCards_ProgressRole")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"VaultCards_ProgressRole")
+	}
+	static class UVaultCards_ProgressRole* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UVaultCards_ProgressRole>();
+	}
+};
+DUMPER7_ASSERTS_UVaultCards_ProgressRole;
+
+// Class OakGame.VaultPowerCheats
+// 0x0038 (0x0060 - 0x0028)
+class UVaultPowerCheats final : public UObject
+{
+public:
+	struct FSToken                                VaultPowerUpgradeFactNames[0x3];                   // 0x0028(0x000C)(Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   EnabledValue;                                      // 0x004C(0x0008)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   DisabledValue;                                     // 0x0054(0x0008)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_5C[0x4];                                       // 0x005C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("VaultPowerCheats")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"VaultPowerCheats")
+	}
+	static class UVaultPowerCheats* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UVaultPowerCheats>();
+	}
+};
+DUMPER7_ASSERTS_UVaultPowerCheats;
+
+// Class OakGame.VehicleDriverComponent
+// 0x0270 (0x0380 - 0x0110)
+class UVehicleDriverComponent final : public UActorComponent
+{
+public:
+	struct FVehicleDriverState                    VehicleDriverState;                                // 0x0110(0x0158)(Net, Transient, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	struct FVehicleAttributesState                VehicleAttributesState;                            // 0x0268(0x0114)(Net, Transient, NativeAccessSpecifierPublic)
+	uint8                                         Pad_37C[0x4];                                      // 0x037C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("VehicleDriverComponent")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"VehicleDriverComponent")
+	}
+	static class UVehicleDriverComponent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UVehicleDriverComponent>();
+	}
+};
+DUMPER7_ASSERTS_UVehicleDriverComponent;
 
 // Class OakGame.WeaponBehavior_AmmoPool
 // 0x0060 (0x0140 - 0x00E0)
@@ -20529,6 +20554,39 @@ public:
 };
 DUMPER7_ASSERTS_UWeaponBehavior_AmmoPool;
 
+// Class OakGame.WeaponBehavior_AtlasLock
+// 0x0080 (0x0108 - 0x0088)
+class UWeaponBehavior_AtlasLock final : public UWeaponBehavior_Zoom
+{
+public:
+	uint8                                         Pad_88[0x28];                                      // 0x0088(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         MaxTargetsPerLock;                                 // 0x00B0(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         FirstLockDelay;                                    // 0x00B4(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         LockSpeed;                                         // 0x00B8(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         LockReleaseDelay;                                  // 0x00BC(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         MinDistance;                                       // 0x00C0(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         MaxDistance;                                       // 0x00C4(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_C8[0x40];                                      // 0x00C8(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void WeaponDetached();
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("WeaponBehavior_AtlasLock")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"WeaponBehavior_AtlasLock")
+	}
+	static class UWeaponBehavior_AtlasLock* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UWeaponBehavior_AtlasLock>();
+	}
+};
+DUMPER7_ASSERTS_UWeaponBehavior_AtlasLock;
+
 // Class OakGame.WeaponBehavior_Borg
 // 0x0060 (0x0098 - 0x0038)
 class UWeaponBehavior_Borg final : public UWeaponBehavior
@@ -20562,6 +20620,55 @@ public:
 };
 DUMPER7_ASSERTS_UWeaponBehavior_Borg;
 
+// Class OakGame.WeaponBehavior_OakFire
+// 0x0028 (0x0358 - 0x0330)
+class UWeaponBehavior_OakFire : public UWeaponBehavior_Fire
+{
+public:
+	struct FGbxAttributeFloat                     movementaccuracymaxvalue;                          // 0x0330(0x000C)(ZeroConstructor, NativeAccessSpecifierPublic)
+	struct FGbxAttributeFloat                     standingaccuracypenaltypercent;                    // 0x033C(0x000C)(ZeroConstructor, NativeAccessSpecifierPublic)
+	struct FGbxAttributeFloat                     crouchmaxaccuracypenaltypercent;                   // 0x0348(0x000C)(ZeroConstructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_354[0x4];                                      // 0x0354(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("WeaponBehavior_OakFire")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"WeaponBehavior_OakFire")
+	}
+	static class UWeaponBehavior_OakFire* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UWeaponBehavior_OakFire>();
+	}
+};
+DUMPER7_ASSERTS_UWeaponBehavior_OakFire;
+
+// Class OakGame.WeaponBehavior_FireBeam
+// 0x0020 (0x0378 - 0x0358)
+class UWeaponBehavior_FireBeam final : public UWeaponBehavior_OakFire
+{
+public:
+	uint8                                         Pad_358[0x20];                                     // 0x0358(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("WeaponBehavior_FireBeam")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"WeaponBehavior_FireBeam")
+	}
+	static class UWeaponBehavior_FireBeam* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UWeaponBehavior_FireBeam>();
+	}
+};
+DUMPER7_ASSERTS_UWeaponBehavior_FireBeam;
+
 // Class OakGame.WeaponBehavior_FireProjectile
 // 0x0040 (0x0398 - 0x0358)
 class UWeaponBehavior_FireProjectile : public UWeaponBehavior_OakFire
@@ -20588,30 +20695,53 @@ public:
 };
 DUMPER7_ASSERTS_UWeaponBehavior_FireProjectile;
 
-// Class OakGame.WeaponBehavior_OakStatusEffectModifier
-// 0x0070 (0x00B8 - 0x0048)
-class UWeaponBehavior_OakStatusEffectModifier final : public UWeaponBehavior_StatusEffectModifier
+// Class OakGame.WeaponBehavior_OakZoom
+// 0x0020 (0x00A8 - 0x0088)
+class UWeaponBehavior_OakZoom : public UWeaponBehavior_Zoom
 {
 public:
-	struct FOakStatusEffectModifierData_WeaponBehavior StatusEffectModifierData;                     // 0x0048(0x0068)(NativeAccessSpecifierPrivate)
-	float                                         ImpactContributionScalar;                          // 0x00B0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_B4[0x4];                                       // 0x00B4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_88[0x10];                                      // 0x0088(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGbxAttributeFloat                     PuppetZoomFOVScale;                                // 0x0098(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_A4[0x4];                                       // 0x00A4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("WeaponBehavior_OakStatusEffectModifier")
+		STATIC_CLASS_IMPL("WeaponBehavior_OakZoom")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"WeaponBehavior_OakStatusEffectModifier")
+		STATIC_NAME_IMPL(L"WeaponBehavior_OakZoom")
 	}
-	static class UWeaponBehavior_OakStatusEffectModifier* GetDefaultObj()
+	static class UWeaponBehavior_OakZoom* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UWeaponBehavior_OakStatusEffectModifier>();
+		return GetDefaultObjImpl<UWeaponBehavior_OakZoom>();
 	}
 };
-DUMPER7_ASSERTS_UWeaponBehavior_OakStatusEffectModifier;
+DUMPER7_ASSERTS_UWeaponBehavior_OakZoom;
+
+// Class OakGame.WeaponBehavior_OrderCharge
+// 0x0008 (0x0120 - 0x0118)
+class UWeaponBehavior_OrderCharge final : public UWeaponBehavior_Charge
+{
+public:
+	uint8                                         Pad_118[0x8];                                      // 0x0118(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("WeaponBehavior_OrderCharge")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"WeaponBehavior_OrderCharge")
+	}
+	static class UWeaponBehavior_OrderCharge* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UWeaponBehavior_OrderCharge>();
+	}
+};
+DUMPER7_ASSERTS_UWeaponBehavior_OrderCharge;
 
 // Class OakGame.WeaponBehavior_OrderFireProjectile
 // 0x0060 (0x03F8 - 0x0398)
@@ -20635,52 +20765,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UWeaponBehavior_OrderFireProjectile;
-
-// Class OakGame.WeaponBehavior_Repair
-// 0x00B0 (0x0148 - 0x0098)
-class UWeaponBehavior_Repair final : public UWeaponBehavior_Reload
-{
-public:
-	uint8                                         Pad_98[0x10];                                      // 0x0098(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGbxAttributeInteger                   MinShotsToBreak;                                   // 0x00A8(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	struct FGbxAttributeInteger                   MaxShotsToBreak;                                   // 0x00B4(0x000C)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	float                                         ConsecutiveBreakInfluence;                         // 0x00C0(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	int32                                         NumShotsToBreak;                                   // 0x00C4(0x0004)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_C8[0x5];                                       // 0x00C8(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	uint8                                         ClientRepairState;                                 // 0x00CD(0x0001)(Net, ZeroConstructor, Transient, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bResumingReload;                                   // 0x00CE(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_CF[0x5];                                       // 0x00CF(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         Jankiness;                                         // 0x00D4(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	int32                                         NumOverheatedShots;                                // 0x00D8(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_DC[0x4];                                       // 0x00DC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         ResetOverheatedShotsThresold;                      // 0x00E0(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_E4[0x64];                                      // 0x00E4(0x0064)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void OnAttached();
-	void OnBegunPlay();
-	void OnDetached();
-	void OnMaxShotsToBreakChanged(float OldValue, float NewValue);
-	void OnMinShotsToBreakChanged(float OldValue, float NewValue);
-	void OnRep_ClientRepairState();
-	void OnRep_NumShotsToBreak();
-	void OnUsed();
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("WeaponBehavior_Repair")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"WeaponBehavior_Repair")
-	}
-	static class UWeaponBehavior_Repair* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UWeaponBehavior_Repair>();
-	}
-};
-DUMPER7_ASSERTS_UWeaponBehavior_Repair;
 
 // Class OakGame.WeaponBehavior_Shield
 // 0x0100 (0x0138 - 0x0038)
@@ -20726,6 +20810,37 @@ public:
 };
 DUMPER7_ASSERTS_UWeaponBehavior_Shield;
 
+// Class OakGame.WeaponBehavior_Sight
+// 0x0050 (0x00F8 - 0x00A8)
+class UWeaponBehavior_Sight final : public UWeaponBehavior_OakZoom
+{
+public:
+	uint8                                         Pad_A8[0x30];                                      // 0x00A8(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
+	class UStaticMeshComponent*                   MaskMeshComponent;                                 // 0x00D8(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class UFXSystemComponent*                     VignetteComponent;                                 // 0x00E0(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_E8[0x10];                                      // 0x00E8(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void StartInitSequence(class AWeapon* Weapon);
+	void WeaponAttached();
+	void WeaponDetached();
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("WeaponBehavior_Sight")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"WeaponBehavior_Sight")
+	}
+	static class UWeaponBehavior_Sight* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UWeaponBehavior_Sight>();
+	}
+};
+DUMPER7_ASSERTS_UWeaponBehavior_Sight;
+
 // Class OakGame.WeaponBehavior_StockReload
 // 0x0060 (0x00F8 - 0x0098)
 class UWeaponBehavior_StockReload final : public UWeaponBehavior_Reload
@@ -20762,26 +20877,6 @@ public:
 };
 DUMPER7_ASSERTS_UWeaponBehavior_StockReload;
 
-// Class OakGame.NexusConfigStoreWeaponManufacturerMod
-// 0x0000 (0x0390 - 0x0390)
-class UNexusConfigStoreWeaponManufacturerMod final : public UNexusConfigStoreBasic
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NexusConfigStoreWeaponManufacturerMod")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NexusConfigStoreWeaponManufacturerMod")
-	}
-	static class UNexusConfigStoreWeaponManufacturerMod* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNexusConfigStoreWeaponManufacturerMod>();
-	}
-};
-DUMPER7_ASSERTS_UNexusConfigStoreWeaponManufacturerMod;
-
 // Class OakGame.WeaponManufacturerModInterface
 // 0x0000 (0x0000 - 0x0000)
 class IWeaponManufacturerModInterface final
@@ -20811,6 +20906,36 @@ public:
 };
 DUMPER7_ASSERTS_IWeaponManufacturerModInterface;
 
+// Class OakGame.WeaponProjectile
+// 0x0070 (0x1880 - 0x1810)
+class AWeaponProjectile final : public AOakProjectile
+{
+public:
+	FGameDataHandleProperty_                      ManufacturerMod;                                   // 0x1810(0x0018)(Net, Transient, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	FGameDataHandleProperty_                      ManufacturerHomingMod;                             // 0x1828(0x0018)(Net, Transient, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UInventoryMaterialsDataAsset*           MaterialAsset;                                     // 0x1840(0x0008)(Net, ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UInventoryMaterialParamsDataAsset*      MaterialParamsAsset;                               // 0x1848(0x0008)(Net, ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_1850[0x30];                                    // 0x1850(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void OnRep_HomingMod();
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("WeaponProjectile")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"WeaponProjectile")
+	}
+	static class AWeaponProjectile* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AWeaponProjectile>();
+	}
+};
+DUMPER7_ASSERTS_AWeaponProjectile;
+
 // Class OakGame.WorldRegionVolume
 // 0x0018 (0x03E0 - 0x03C8)
 class AWorldRegionVolume final : public AVolume
@@ -20833,31 +20958,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_AWorldRegionVolume;
-
-// Class OakGame.ZoneTravelStationObject
-// 0x0230 (0x28C0 - 0x2690)
-class AZoneTravelStationObject final : public ATravelStationObject
-{
-public:
-	uint8                                         Pad_2690[0x220];                                   // 0x2690(0x0220)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bLinkTransform;                                    // 0x28B0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_28B1[0xF];                                     // 0x28B1(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("ZoneTravelStationObject")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"ZoneTravelStationObject")
-	}
-	static class AZoneTravelStationObject* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AZoneTravelStationObject>();
-	}
-};
-DUMPER7_ASSERTS_AZoneTravelStationObject;
 
 // Class OakGame.ZoneTravelStationObjectBodyData
 // 0x0000 (0x0078 - 0x0078)

@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
 #include "ControlRig_structs.hpp"
+#include "CoreUObject_structs.hpp"
 #include "RigVM_structs.hpp"
 
 
@@ -26,6 +26,15 @@ enum class ESplineType : uint8
 	Hermite                                  = 1,
 	Max                                      = 2,
 };
+
+// ScriptStruct ControlRigSpline.ControlRigSplineImpl
+// 0x0068 (0x0068 - 0x0000)
+struct alignas(0x08) FControlRigSplineImpl final
+{
+public:
+	uint8                                         Pad_0[0x68];                                       // 0x0000(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FControlRigSplineImpl;
 
 // ScriptStruct ControlRigSpline.ControlRigSpline
 // 0x0018 (0x0018 - 0x0000)
@@ -42,27 +51,6 @@ struct FRigUnit_ControlRigSplineBase : public FRigUnit
 {
 };
 DUMPER7_ASSERTS_FRigUnit_ControlRigSplineBase;
-
-// ScriptStruct ControlRigSpline.RigUnit_PositionFromControlRigSpline
-// 0x0038 (0x0040 - 0x0008)
-struct FRigUnit_PositionFromControlRigSpline final : public FRigUnit_ControlRigSplineBase
-{
-public:
-	struct FControlRigSpline                      Spline;                                            // 0x0008(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	float                                         U;                                                 // 0x0020(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                position;                                          // 0x0028(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FRigUnit_PositionFromControlRigSpline;
-
-// ScriptStruct ControlRigSpline.ControlRigSplineImpl
-// 0x0068 (0x0068 - 0x0000)
-struct alignas(0x08) FControlRigSplineImpl final
-{
-public:
-	uint8                                         Pad_0[0x68];                                       // 0x0000(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FControlRigSplineImpl;
 
 // ScriptStruct ControlRigSpline.RigUnit_ControlRigSplineFromPoints
 // 0x0038 (0x0040 - 0x0008)
@@ -117,6 +105,18 @@ public:
 	uint8                                         Pad_218[0x8];                                      // 0x0218(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FRigUnit_SetSplineTransforms;
+
+// ScriptStruct ControlRigSpline.RigUnit_PositionFromControlRigSpline
+// 0x0038 (0x0040 - 0x0008)
+struct FRigUnit_PositionFromControlRigSpline final : public FRigUnit_ControlRigSplineBase
+{
+public:
+	struct FControlRigSpline                      Spline;                                            // 0x0008(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	float                                         U;                                                 // 0x0020(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                position;                                          // 0x0028(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FRigUnit_PositionFromControlRigSpline;
 
 // ScriptStruct ControlRigSpline.RigUnit_TransformFromControlRigSpline
 // 0x0098 (0x00A0 - 0x0008)

@@ -14,6 +14,7 @@
 
 #define FOR_EACH_AGAIN() FOR_EACH_HELPER
 
+// all fields from FPostProcessSettings (filtered out non-primitives)
 #define PPS_FIELDS                                                                                                     \
     AmbientCubemapIntensity, AmbientOcclusionBias, AmbientOcclusionDistance, AmbientOcclusionFadeDistance,             \
         AmbientOcclusionFadeRadius, AmbientOcclusionIntensity, AmbientOcclusionMipBlend, AmbientOcclusionMipScale,     \
