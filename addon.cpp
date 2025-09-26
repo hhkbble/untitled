@@ -125,56 +125,6 @@ template <typename Tuple> consteval std::size_t count_groups() {
 // Generated from PPS_FIELDS (addon.h) and overrides_grouped.md; order matches groups then fields therein
 // =========================
 using Schema = std::tuple<
-    Group<"Ambient Cubemap">,
-    ItemRanged<"AmbientCubemapIntensity", "To scale the Ambient cubemap brightness >=0: off, 1(default), >1 brighter",
-               float, 0.0f, 4.0f>,
-
-    Group<"Ambient Occlusion">,
-    ItemRanged<"AmbientOcclusionBias",
-               "in unreal units, default (3.0) works well for flat surfaces but can reduce details", float, 0.0f,
-               10.0f>,
-    ItemFree<"AmbientOcclusionDistance", "", float>,
-    ItemRanged<"AmbientOcclusionFadeDistance",
-               "in unreal units, at what distance the AO effect disppears in the distance (avoding artifacts and AO\n"
-               "effects on huge object)",
-               float, 0.0f, 20000.0f>,
-    ItemRanged<"AmbientOcclusionFadeRadius",
-               "in unreal units, how many units before AmbientOcclusionFadeOutDistance it starts fading out", float,
-               0.0f, 20000.0f>,
-    ItemRanged<"AmbientOcclusionIntensity",
-               "0..1 0=off/no ambient occlusion .. 1=strong ambient occlusion, defines how much it affects the non\n"
-               "direct lighting after base pass",
-               float, 0.0f, 1.0f>,
-    ItemRanged<"AmbientOcclusionMipBlend",
-               "Affects the blend over the multiple mips (lower resolution versions) , 0:fully use full resolution,\n"
-               "1::fully use low resolution, around 0.6 seems to be a good value",
-               float, 0.1f, 1.0f>,
-    ItemRanged<"AmbientOcclusionMipScale",
-               "Affects the radius AO radius scale over the multiple mips (lower resolution versions)", float, 0.5f,
-               4.0f>,
-    ItemRanged<"AmbientOcclusionMipThreshold",
-               "to tweak the bilateral upsampling when using multiple mips (lower resolution versions)", float, 0.0f,
-               0.1f>,
-    ItemRanged<"AmbientOcclusionPower",
-               "in unreal units, bigger values means even distant surfaces affect the ambient occlusion", float, 0.1f,
-               8.0f>,
-    ItemRanged<"AmbientOcclusionQuality",
-               "0=lowest quality..100=maximum quality, only a few quality levels are implemented, no soft transition",
-               float, 0.0f, 100.0f>,
-    ItemRanged<"AmbientOcclusionRadius",
-               "in unreal units, bigger values means even distant surfaces affect the ambient occlusion", float, 0.1f,
-               500.0f>,
-    ItemRanged<"AmbientOcclusionRadiusInWS",
-               "true: AO radius is in world space units, false: AO radius is locked the view space in 400 units", int,
-               0, 1>,
-    ItemRanged<"AmbientOcclusionStaticFraction",
-               "0..1 0=no effect on static lighting .. 1=AO affects the stat lighting, 0 is free meaning no extra\n"
-               "rendering pass",
-               float, 0.0f, 1.0f>,
-    ItemRanged<"AmbientOcclusionTemporalBlendWeight",
-               "How much to blend the current frame with previous frames when using GTAO with temporal accumulation",
-               float, 0.0f, 0.5f>,
-
     Group<"Auto Exposure">,
     ItemRanged<"AutoExposureApplyPhysicalCameraExposure",
                "Enables physical camera exposure using ShutterSpeed/ISO/Aperture.", int, 0, 1>,
@@ -377,68 +327,6 @@ using Schema = std::tuple<
                "tone curve)",
                float, 0.0f, 1.0f>,
 
-    Group<"Depth of Field">,
-    ItemRanged<"DepthOfFieldBladeCount",
-               "Defines the number of blades of the diaphragm within the lens (between 4 and 16).", int, 4, 16>,
-    ItemRanged<"DepthOfFieldDepthBlurAmount", "CircleDOF only: Depth blur km for 50%", float, 1e-06f, 100.0f>,
-    ItemRanged<"DepthOfFieldDepthBlurRadius", "CircleDOF only: Depth blur radius in pixels at 1920x", float, 0.0f,
-               4.0f>,
-    ItemRanged<"DepthOfFieldFarBlurSize",
-               "Gaussian only: Maximum size of the Depth of Field blur (in percent of the view width) (note:\n"
-               "performance cost scales with size)",
-               float, 0.0f, 32.0f>,
-    ItemRanged<"DepthOfFieldFarTransitionRegion",
-               "To define the width of the transition region next to the focal region on the near side (cm)", float,
-               0.0f, 10000.0f>,
-    ItemRanged<"DepthOfFieldFocalDistance",
-               "Distance in which the Depth of Field effect should be sharp, in unreal units (cm)", float, 0.0f,
-               10000.0f>,
-    ItemRanged<"DepthOfFieldFocalRegion",
-               "Artificial region where all content is in focus, starting after DepthOfFieldFocalDistance, in unreal\n"
-               "units (cm)",
-               float, 0.0f, 10000.0f>,
-    ItemRanged<"DepthOfFieldFstop",
-               "Defines the opening of the camera lens, Aperture is 1/fstop, typical lens go down to f/1.2 (large\n"
-               "opening), larger numbers reduce the DOF effect",
-               float, 1.0f, 32.0f>,
-    ItemRanged<"DepthOfFieldMinFstop",
-               "Defines the maximum opening of the camera lens to control the curvature of blades of the diaphragm.\n"
-               "Set it to 0 to get straight blades.",
-               float, 0.0f, 32.0f>,
-    ItemRanged<"DepthOfFieldNearBlurSize",
-               "Gaussian only: Maximum size of the Depth of Field blur (in percent of the view width) (note:\n"
-               "performance cost scales with size)",
-               float, 0.0f, 32.0f>,
-    ItemRanged<"DepthOfFieldNearTransitionRegion",
-               "To define the width of the transition region next to the focal region on the near side (cm)", float,
-               0.0f, 10000.0f>,
-    ItemRanged<"DepthOfFieldOcclusion",
-               "Occlusion tweak factor 1 (0.18 to get natural occlusion, 0.4 to solve layer color leaking issues)",
-               float, 0.0f, 1.0f>,
-    ItemRanged<"DepthOfFieldScale",
-               "SM5: BokehDOF only: To amplify the depth of field effect (like aperture) 0=off ES3_1: Used to blend\n"
-               "DoF. 0=off",
-               float, 0.0f, 2.0f>,
-    ItemRanged<"DepthOfFieldSensorWidth", "Width of the camera sensor to assume, in mm.", float, 0.1f, 1000.0f>,
-    ItemRanged<"DepthOfFieldSkyFocusDistance",
-               "Artificial distance to allow the skybox to be in focus (e.g. 200000), <=0 to switch the feature off,\n"
-               "only for GaussianDOF, can cost performance",
-               float, 0.0f, 200000.0f>,
-    ItemRanged<"DepthOfFieldSqueezeFactor",
-               "This is the squeeze factor for the DOF, which emulates the properties of anamorphic lenses.", float,
-               1.0f, 2.0f>,
-    ItemRanged<"DepthOfFieldUseHairDepth",
-               "For depth of field to use the hair depth for computing circle of confusion size. Otherwise use an\n"
-               "interpolated distance between the hair depth and the scene depth based on the hair coverage (default).",
-               int, 0, 1>,
-    ItemRanged<
-        "DepthOfFieldVignetteSize",
-        "Artificial circular mask to (near) blur content outside the radius, only for GaussianDOF, diameter in "
-        "percent\n"
-        "of screen width, costs performance if the mask is used, keep Feather can Radius on default to keep it off",
-        float, 0.0f, 100.0f>,
-    ItemFree<"GbxDepthOfFieldMaxBackgroundCocRadiusScale", "", float>,
-
     Group<"Fog">, ItemFree<"GbxFogDensityMultiplier", "", float>,
 
     Group<"Global Illumination">,
@@ -611,36 +499,6 @@ using Schema = std::tuple<
         "the motion blur dependent on the actual frame rate.",
         int, 0, 120>,
 
-    Group<"Path Tracing">,
-    ItemRanged<"PathTracingEnableDenoiser", "Run denoiser plugin on last sample (if loaded)", int, 0, 1>,
-    ItemRanged<"PathTracingEnableEmissiveMaterials", "Should emissive materials contribute to lighting?", int, 0, 1>,
-    ItemRanged<"PathTracingEnableReferenceAtmosphere", "Path trace the atmosphere (skylight ignored when enabled)", int,
-               0, 1>,
-    ItemRanged<"PathTracingEnableReferenceDOF", "Reference-quality DOF replaces post-process DOF", int, 0, 1>,
-    ItemRanged<"PathTracingIncludeDiffuse", "Include diffuse lighting contributions", int, 0, 1>,
-    ItemRanged<"PathTracingIncludeEmissive", "Include directly visible emissive elements", int, 0, 1>,
-    ItemRanged<"PathTracingIncludeIndirectDiffuse", "Include indirect diffuse", int, 0, 1>,
-    ItemRanged<"PathTracingIncludeIndirectSpecular", "Include indirect specular", int, 0, 1>,
-    ItemRanged<"PathTracingIncludeIndirectVolume", "Include indirect volume lighting", int, 0, 1>,
-    ItemRanged<"PathTracingIncludeSpecular", "Include specular", int, 0, 1>,
-    ItemRanged<"PathTracingIncludeVolume", "Include volume lighting", int, 0, 1>,
-    ItemRanged<"PathTracingMaxBounces", "Max path bounces", int, 0, 100>,
-    ItemRanged<"PathTracingMaxPathIntensity", "Clamp maximum indirect sample intensity (fireflies)", float, 1.0f,
-               65504.0f>,
-    ItemRanged<"PathTracingSamplesPerPixel", "Samples per pixel", int, 1, 65536>,
-
-    Group<"Ray Tracing">, ItemRanged<"RayTracingAO", "Enable ray tracing AO", int, 0, 1>,
-    ItemRanged<"RayTracingAOIntensity", "Scalar factor on RT AO score", float, 0.0f, 1.0f>,
-    ItemRanged<"RayTracingAORadius", "World-space search radius for occlusion rays", float, 0.0f, 10000.0f>,
-    ItemRanged<"RayTracingAOSamplesPerPixel", "SPP for RT AO", int, 1, 65536>,
-    ItemRanged<"RayTracingTranslucencyMaxRoughness", "Max roughness for visible RT translucency (fades near threshold)",
-               float, 0.01f, 1.0f>,
-    ItemRanged<"RayTracingTranslucencyRefraction", "Enable refraction (else rays continue in same direction)", int, 0,
-               1>,
-    ItemRanged<"RayTracingTranslucencyRefractionRays", "Max refraction rays", int, 0, 50>,
-    ItemRanged<"RayTracingTranslucencySamplesPerPixel", "SPP for RT translucency", int, 1, 65536>,
-    ItemRanged<"RayTracingTranslucencyShadows", "Translucency shadows type (Disabled=0, Hard=1, Area=2)", int, 0, 2>,
-
     Group<"Reflections">,
     ItemRanged<"ReflectionMethod",
                "Chooses the Reflection method. Not compatible with Forward Shading. (None=0, Lumen=1, ScreenSpace=2)",
@@ -657,11 +515,47 @@ using Schema = std::tuple<
                "50 is the default for better performance.",
                float, 0.0f, 100.0f>,
 
-    Group<"Resolution">, ItemFree<"ScreenPercentage", "Rendering resolution scale (%)", float>,
+    Group<"Vignette">, ItemRanged<"VignetteIntensity", "0..1 0=off .. 1=strong vignette", float, 0.0f, 1.0f>,
 
-    Group<"Translucency">, ItemRanged<"TranslucencyType", "Translucency type (Raster=0, RayTracing=1)", int, 0, 1>,
+    // ===== GBX PostProcess Settings ===== FIXME
+    // Group<"GbxEdgeDetection2">, ItemRanged<"EdgeDetectionType", "", int, 0, 1>,
+    // ItemFree<"EdgeDetection2StartFade", "", float>, ItemFree<"EdgeDetection2FadeDistance", "", float>,
+    // ItemFree<"EdgeDetection2SobelThickness", "", float>, ItemFree<"EdgeDetection2SobelThicknessOffset", "", float>,
+    // ItemFree<"EdgeDetection2SobelThinessOffset", "", float>, ItemFree<"EdgeDetection2FarDistance", "", float>,
+    // ItemFree<"EdgeDetection2DarkThreshold", "", float>, ItemFree<"EdgeDetection2HighlightThreshold", "", float>,
+    // ItemFree<"EdgeDetection2SobelDarkEdgeFadePower", "", float>,
+    // ItemFree<"EdgeDetection2GlobalInkChannelStrength", "", float>,
+    // ItemFree<"EdgeDetection2ThresholdRampStartDistance", "", float>,
+    // ItemFree<"EdgeDetection2ThresholdRampTransitionDistance", "", float>,
+    // ItemFree<"EdgeDetection2SobelHighlightEdgeFadePower", "", float>,
+    // ItemFree<"EdgeDetection2EvCurveExponent", "", float>, ItemFree<"EdgeDetection2EdgeHighlightThreshLow", "",
+    // float>, ItemFree<"EdgeDetection2EdgeHighlightThreshHigh", "", float>,
+    // ItemFree<"EdgeDetection2EdgeHighlightMaskExponent", "", float>,
+    // ItemFree<"EdgeDetection2HighlightThreshLow", "", float>, ItemFree<"EdgeDetection2HighlightThreshHigh", "",
+    // float>, ItemFree<"EdgeDetection2HighlightMaskExponent", "", float>, ItemFree<"EdgeDetection2HotspotThreshLow",
+    // "", float>, ItemFree<"EdgeDetection2HotspotThreshHigh", "", float>, ItemFree<"EdgeDetection2HotspotMaskExponent",
+    // "", float>, ItemFree<"EdgeDetection2EdgeHighlightDiffuseFactor", "", float>,
+    // ItemFree<"EdgeDetection2EdgeHighlightSourceIntensityLow", "", float>,
+    // ItemFree<"EdgeDetection2EdgeHighlightSourceIntensityHigh", "", float>,
+    // ItemFree<"EdgeDetection2EdgeHighlightSupersaturation", "", float>,
+    // ItemFree<"EdgeDetection2HighlightDiffuseFactor", "", float>,
+    // ItemFree<"EdgeDetection2HighlightSourceIntensity", "", float>,
+    // ItemFree<"EdgeDetection2HotspotDiffuseFactor", "", float>,
+    // ItemFree<"EdgeDetection2HotspotsSourceIntensity", "", float>,
+    // ItemFree<"EdgeDetection2EdgeHighlightChannelStrength", "", float>,
+    // ItemFree<"EdgeDetection2HotspotChannelStrength", "", float>, ItemFree<"EdgeDetection2HighlightDesat", "", float>,
+    // ItemFree<"EdgeDetection2HighlightHueShift", "", float>, ItemFree<"EdgeDetection2ExteriorDepthCutoff", "", float>,
+    // ItemFree<"EdgeDetection2HighlightChannelStrength", "", float>, ItemFree<"EdgeDetection2VisualizeInks", "",
+    // float>,
 
-    Group<"Vignette">, ItemRanged<"VignetteIntensity", "0..1 0=off .. 1=strong vignette", float, 0.0f, 1.0f>>;
+    Group<"GbxEdgeDetection">, ItemRanged<"EdgeDetectionEnable", "", int, 0, 1>,
+    ItemFree<"EdgeDetectionHFilterAxisCoeff", "", float>, ItemFree<"EdgeDetectionHFilterDiagCoeff", "", float>,
+    ItemFree<"EdgeDetectionVFilterAxisCoeff", "", float>, ItemFree<"EdgeDetectionVFilterDiagCoeff", "", float>,
+    ItemFree<"EdgeDetectionFarDistance", "", float>, ItemFree<"EdgeDetectionNearDistance", "", float>,
+    ItemFree<"EdgeDetectionSobelPower", "", float>, ItemFree<"EdgeDetectionTexelOffset", "", float>,
+    ItemFree<"EdgeDetectionTransitionDistance", "", float>, ItemFree<"EdgeDetectionTransitionDistanceFar", "", float>,
+    ItemFree<"EdgeDetectionApplyThreshold", "", float>, ItemFree<"EdgeDerivativeCheckLimit", "", float>,
+    ItemFree<"EdgeDerivativeDeltaThreshold", "", float>>;
 
 static constexpr std::size_t kItemCount = count_items<Schema>();
 static constexpr std::size_t kGroupCount = count_groups<Schema>();
@@ -752,11 +646,27 @@ using Setter = void (*)(SDK::FPostProcessSettings &, bool, float);
     {#Name, [](SDK::FPostProcessSettings &s, bool o, float v) {                                                        \
          s.bOverride_##Name = o;                                                                                       \
          s.Name = static_cast<decltype(s.Name)>(v);                                                                    \
-     }},
-#define APPLY_SETTER(Name) SETTER(Name)
-static constexpr auto gSetters = eternal::map<eternal::string, Setter>({FOR_EACH(APPLY_SETTER, PPS_FIELDS)});
-#undef APPLY_SETTER
+     }}
+#define GBX_SETTER(Gbx, Name)                                                                                          \
+    {#Name, [](SDK::FPostProcessSettings &s, bool o, float v) {                                                        \
+         s.bShow##Gbx = o;                                                                                             \
+         s.Gbx.bOverride_##Name = o;                                                                                   \
+         s.Gbx.Name = static_cast<decltype(s.Gbx.Name)>(v);                                                            \
+     }}
+#define ALL_SETTERS {FOR_EACH_SEP(COMMA, SETTER, PPS_FIELDS), FOR_EACH_SEP(COMMA, GBX_SETTER, GBX_PPS_TUPLES)}
+static constexpr auto gSetters = eternal::map<eternal::string, Setter>(ALL_SETTERS);
+static consteval std::size_t count_all_fields() {
+    std::size_t count = 0;
+#define INC(...) ++count;
+    FOR_EACH(INC, PPS_FIELDS);
+    FOR_EACH(INC, GBX_PPS_TUPLES);
+#undef INC
+    return count;
+}
+static_assert(count_all_fields() == gSetters.size(), "Missing setter");
 #undef SETTER
+#undef GBX_SETTER
+#undef ALL_SETTERS
 
 template <ct_string Key, typename T> constexpr void apply_setting(bool o, T v) {
     constexpr auto setter = gSetters.find(Key.c_str());
@@ -824,19 +734,26 @@ static void draw_overlay(reshade::api::effect_runtime *runtime) {
     if (opened) {
         ImGui::Spacing();
         ImGui::Indent();
-    }
-    bool changed = ImGui::Checkbox("##enabled", &gEnabled);
-    if (ImGui::IsItemHovered())
+
+#define IS_HOVERED ImGui::IsItemHovered(ImGuiHoveredFlags_AllowWhenDisabled)
+
+#define SET_TOOL_TIP                                                                                                   \
+    if (IS_HOVERED)                                                                                                    \
         ImGui::SetTooltip("Global gate for all overrides");
-    if (changed)
-        set_config(runtime, "Enabled", gEnabled);
 
-    myPostProcessBlendWeight.store(gEnabled ? 1.f : 0.f, std::memory_order_release);
+        bool changed = ImGui::Checkbox("##enabled", &gEnabled);
+        SET_TOOL_TIP;
+        if (changed)
+            set_config(runtime, "Enabled", gEnabled);
+        myPostProcessBlendWeight.store(gEnabled ? 1.f : 0.f, std::memory_order_release);
+        ImGui::SameLine();
+        ImGui::TextUnformatted("<-- ENABLED");
+        SET_TOOL_TIP;
 
-    ImGui::SameLine();
-    ImGui::TextUnformatted("<-- ENABLED");
-    if (opened)
+#undef SET_TOOL_TIP
+
         ImGui::Unindent();
+    }
 
     if (!gEnabled)
         return;
@@ -865,60 +782,62 @@ static void draw_overlay(reshade::api::effect_runtime *runtime) {
             }
             ++gidx;
         } else if constexpr (IsItem<Node>) {
+
+#define SET_TOOL_TIP                                                                                                   \
+    if constexpr (Node::info.size() > 0) {                                                                             \
+        if (IS_HOVERED)                                                                                                \
+            ImGui::SetTooltip("%s", Node::info.c_str());                                                               \
+    }
+
             // Determine whether to draw this item (open group or no groups at all)
             const bool draw = have_group ? current_group_open : true;
 
             if (draw) {
                 ImGui::PushID(Node::key.c_str());
+
                 bool enabled_changed = ImGui::Checkbox("##enabled", &gEnables[idx]);
+                auto &enabled = gEnables[idx];
+                SET_TOOL_TIP;
                 ImGui::SameLine();
                 ImGui::TextUnformatted(Node::key.c_str());
-
-                const bool disabled = !gEnables[idx] || !gEnabled;
-                if (disabled)
-                    ImGui::BeginDisabled();
+                SET_TOOL_TIP;
 
                 bool value_changed = false;
                 auto &value = gValues[idx].get<typename Node::value_type>();
-                if constexpr (std::is_same_v<typename Node::value_type, int>) {
-                    if constexpr (IsRangedItem<Node>) {
-                        value_changed = ImGui::SliderInt("##value", &value, Node::min, Node::max);
-                    } else {
-                        value_changed = ImGui::InputInt("##value", &value);
-                    }
-                } else { // float
-                    if constexpr (IsRangedItem<Node>) {
-                        value_changed = ImGui::SliderFloat("##value", &value, Node::min, Node::max, "%.3f");
-                    } else {
-                        value_changed = ImGui::InputFloat("##value", &value);
+                if (enabled) {
+                    if constexpr (std::is_same_v<typename Node::value_type, int>) {
+                        if constexpr (IsRangedItem<Node>)
+                            value_changed = ImGui::SliderInt("##value", &value, Node::min, Node::max);
+                        else
+                            value_changed = ImGui::InputInt("##value", &value);
+                    } else { // float
+                        if constexpr (IsRangedItem<Node>)
+                            value_changed = ImGui::SliderFloat("##value", &value, Node::min, Node::max, "%.3f");
+                        else
+                            value_changed = ImGui::InputFloat("##value", &value);
                     }
                 }
-                bool deactivated = ImGui::IsItemDeactivatedAfterEdit();
+                bool deactivated = !enabled ? false : ImGui::IsItemDeactivatedAfterEdit();
+                SET_TOOL_TIP;
 
-                if constexpr (Node::info.size() > 0) {
-                    if (ImGui::IsItemHovered(ImGuiHoveredFlags_AllowWhenDisabled))
-                        ImGui::SetTooltip("%s", Node::info.c_str());
-                }
-
-                if (disabled)
-                    ImGui::EndDisabled();
+#undef SET_TOOL_TIP
+#undef IS_HOVERED
 
                 ImGui::PopID();
 
                 if (enabled_changed)
-                    set_config(runtime, Node::key_enabled.c_str(), gEnables[idx]);
+                    set_config(runtime, Node::key_enabled.c_str(), enabled);
                 if (value_changed)
-                    set_config(runtime, Node::key_value.c_str(), gValues[idx].get<typename Node::value_type>());
+                    set_config(runtime, Node::key_value.c_str(), value);
                 if (enabled_changed || value_changed)
                     gChanges[idx] = true;
                 if ((deactivated || enabled_changed) && gChanges[idx]) {
                     gChanges[idx] = false;
-                    apply_setting<Node::key>(gEnables[idx], gValues[idx].get<typename Node::value_type>());
-                    if (gEnables[idx]) {
+                    apply_setting<Node::key>(enabled, value);
+                    if (enabled)
                         LOG(INFO) << "Enabled: " << Node::key.c_str() << " = " << value;
-                    } else {
+                    else
                         LOG(INFO) << "Disabled: " << Node::key.c_str();
-                    }
                 }
             }
             ++idx;

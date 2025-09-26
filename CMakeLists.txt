@@ -44,7 +44,10 @@ add_library(untitled SHARED
         Dumper-7/SDK/CoreUObject_functions.cpp
         Dumper-7/SDK/Engine_functions.cpp
 )
-target_compile_options(untitled PUBLIC "/Zc:preprocessor")
+target_compile_options(untitled PUBLIC
+        "/wd4369"
+        "/Zc:preprocessor"
+)
 target_compile_definitions(untitled PRIVATE IMGUI_DISABLE_INCLUDE_IMCONFIG_H)
 target_include_directories(untitled PRIVATE
         "Dumper-7"
@@ -61,3 +64,7 @@ set_target_properties(untitled PROPERTIES
         OUTPUT_NAME "untitled-bl4"
         SUFFIX ".addon64"
 )
+
+#file(GLOB SDK_SOURCE_FILES "Dumper-7/SDK/*.cpp")
+#add_library(sdk STATIC ${SDK_SOURCE_FILES})
+#target_compile_options(sdk PRIVATE /wd4369)

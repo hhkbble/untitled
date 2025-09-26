@@ -22,14 +22,20 @@ namespace SDK {
 
 inline FPostProcessSettings &operator|=(FPostProcessSettings &lhs, const FPostProcessSettings &rhs) noexcept {
 #define ASSIGN_FIELD(Name)                                                                                             \
-    do {                                                                                                               \
+    {                                                                                                                  \
         lhs.Name = rhs.Name;                                                                                           \
         lhs.bOverride_##Name = rhs.bOverride_##Name;                                                                   \
-    } while (0)
-#define APPLY_ASSIGN(Name) ASSIGN_FIELD(Name);
-    FOR_EACH(APPLY_ASSIGN, PPS_FIELDS);
-#undef APPLY_ASSIGN
+    }
+    FOR_EACH(ASSIGN_FIELD, PPS_FIELDS);
 #undef ASSIGN_FIELD
+#define ASSIGN_GBX_FIELD(Gbx, Name)                                                                                    \
+    {                                                                                                                  \
+        lhs.bShow##Gbx = rhs.bShow##Gbx;                                                                               \
+        lhs.Gbx.bOverride_##Name = rhs.Gbx.bOverride_##Name;                                                           \
+        lhs.Gbx.Name = rhs.Gbx.Name;                                                                                   \
+    }
+    FOR_EACH(ASSIGN_GBX_FIELD, GBX_PPS_TUPLES);
+#undef ASSIGN_GBX_FIELD
     return lhs;
 }
 
